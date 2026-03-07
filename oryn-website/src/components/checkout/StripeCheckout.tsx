@@ -46,15 +46,7 @@ function PaymentFormInner({
     setErrorMessage("");
 
     try {
-      // Validate the form
-      const { error: submitError } = await elements.submit();
-      if (submitError) {
-        setErrorMessage(submitError.message || "Please check your payment details.");
-        setLoading(false);
-        return;
-      }
-
-      // Confirm the payment
+      // Confirm the payment directly (no elements.submit() needed in clientSecret mode)
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
@@ -85,16 +77,17 @@ function PaymentFormInner({
           onError("Payment processed but order creation failed. Please contact support.");
         }
       } else if (paymentIntent && paymentIntent.status === "requires_action") {
-        // 3D Secure handled automatically by Stripe
+        // 3D Secure - Stripe handles this automatically, wait for redirect
         setLoading(false);
       } else {
         setErrorMessage("Payment was not completed. Please try again.");
         setLoading(false);
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An unexpected error occurred.";
       console.error("Payment error:", err);
-      setErrorMessage("An unexpected error occurred. Please try again.");
-      onError("An unexpected error occurred.");
+      setErrorMessage(message);
+      onError(message);
       setLoading(false);
     }
   }
