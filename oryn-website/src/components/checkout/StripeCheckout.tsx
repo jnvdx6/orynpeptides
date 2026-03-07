@@ -8,7 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useCart } from "@/providers/cart";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 // Only load Stripe if key is available
 const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
@@ -37,6 +37,7 @@ function PaymentFormInner({
   const [paymentElementReady, setPaymentElementReady] = useState(false);
 
   const handleReady = useCallback(() => {
+    console.log("[StripeCheckout] PaymentElement ready");
     setPaymentElementReady(true);
   }, []);
 
@@ -57,7 +58,7 @@ function PaymentFormInner({
     setErrorMessage("");
 
     try {
-      // Step 1: Submit payment method details (required for PaymentElement)
+      // Step 1: Submit payment method details (required for deferred intent)
       const { error: submitError } = await elements.submit();
       if (submitError) {
         setErrorMessage(submitError.message || "Payment method validation failed.");
@@ -77,7 +78,9 @@ function PaymentFormInner({
         return;
       }
 
-      // Step 3: Confirm payment with Stripe
+      console.log("[StripeCheckout] Confirming payment with clientSecret:", clientSecret.substring(0, 25) + "...");
+
+      // Step 3: Confirm payment with Stripe (passing clientSecret here for deferred intent)
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
         clientSecret,
@@ -105,7 +108,6 @@ function PaymentFormInner({
       });
 
       if (confirmError) {
-        // Check if payment actually went through despite the error
         const pi = confirmError.payment_intent;
         if (pi && (pi.status === "requires_capture" || pi.status === "succeeded")) {
           await handlePaymentCompleted();
@@ -117,13 +119,11 @@ function PaymentFormInner({
         return;
       }
 
-      // Step 4: Check payment intent status
       if (paymentIntent &&
         (paymentIntent.status === "succeeded" || paymentIntent.status === "requires_capture")
       ) {
         await handlePaymentCompleted();
       } else if (paymentIntent && paymentIntent.status === "requires_action") {
-        // 3D Secure or other action required — Stripe handles this automatically
         setLoading(false);
       } else {
         setErrorMessage("Payment was not completed. Please try again.");
@@ -242,23 +242,10 @@ function PaymentFormInner({
 
 export default function StripeCheckout(props: StripeCheckoutProps) {
   const { cart } = useCart();
-  const [stripeError, setStripeError] = useState<string | null>(null);
 
-  const clientSecret = cart?.payment_collection?.payment_sessions?.[0]?.data
-    ?.client_secret as string | undefined;
-
-  // Debug: log payment state
-  useEffect(() => {
-    console.log("[StripeCheckout] State:", {
-      hasCart: !!cart,
-      hasPaymentCollection: !!cart?.payment_collection,
-      sessionCount: cart?.payment_collection?.payment_sessions?.length || 0,
-      hasClientSecret: !!clientSecret,
-      clientSecretPrefix: clientSecret?.substring(0, 20),
-      stripeKeyPresent: !!stripeKey,
-      stripePromisePresent: !!stripePromise,
-    });
-  }, [cart, clientSecret]);
+  // Get amount and currency from the cart for deferred intent mode
+  const cartAmount = cart?.total || props.amount;
+  const cartCurrency = (cart?.items?.[0] as unknown as { variant?: { prices?: Array<{ currency_code: string }> } })?.variant?.prices?.[0]?.currency_code || "eur";
 
   if (!stripeKey) {
     return (
@@ -269,7 +256,7 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
     );
   }
 
-  if (!clientSecret) {
+  if (!cart?.payment_collection?.payment_sessions?.[0]?.data?.client_secret) {
     return (
       <div className="p-8 bg-oryn-grey-light border border-oryn-grey/30 text-center">
         <div className="flex items-center justify-center gap-3 mb-3">
@@ -284,21 +271,16 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
     );
   }
 
-  if (stripeError) {
-    return (
-      <div className="p-6 bg-red-50 border border-red-200 text-red-700">
-        <p className="font-mono font-bold text-sm mb-1">PAYMENT ERROR</p>
-        <p className="text-xs">{stripeError}</p>
-      </div>
-    );
-  }
-
+  // Use deferred intent pattern: mode + amount + currency in Elements,
+  // clientSecret passed at confirmPayment() time
   return (
     <Elements
-      key={clientSecret}
+      key={`stripe-${cartAmount}-${cartCurrency}`}
       stripe={stripePromise}
       options={{
-        clientSecret,
+        mode: "payment",
+        amount: cartAmount,
+        currency: cartCurrency,
         appearance: {
           theme: "flat",
           variables: {
@@ -306,7 +288,7 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
             colorBackground: "#FAFAF8",
             colorText: "#1A1A1A",
             colorDanger: "#ef4444",
-            fontFamily: "Space Grotesk, system-ui, sans-serif",
+            fontFamily: "system-ui, sans-serif",
             fontSizeBase: "14px",
             spacingUnit: "4px",
             borderRadius: "0px",
