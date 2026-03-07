@@ -131,7 +131,7 @@ export default function CheckoutPage() {
   const shippingCost = useMemo(() => {
     if (!selectedShipping) return 0;
     const option = shippingOptions.find((o) => o.id === selectedShipping);
-    return option ? option.amount / 100 : 0; // Medusa stores in cents
+    return option ? option.amount : 0; // Medusa v2 stores in major currency units
   }, [selectedShipping, shippingOptions]);
 
   const finalTotal = discountedPrice + shippingCost;
@@ -754,7 +754,7 @@ export default function CheckoutPage() {
                             </div>
                           </div>
                           <span className="text-sm font-bold">
-                            {option.amount === 0 ? (isEs ? "Gratis" : "Free") : formatPrice(option.amount / 100)}
+                            {option.amount === 0 ? (isEs ? "Gratis" : "Free") : formatPrice(option.amount)}
                           </span>
                         </label>
                       ))}
@@ -845,7 +845,7 @@ export default function CheckoutPage() {
                       <StripeCheckout
                         onSuccess={handlePaymentSuccess}
                         onError={handlePaymentError}
-                        amount={cart?.total != null ? cart.total / 100 : finalTotal}
+                        amount={cart?.total != null ? cart.total : finalTotal}
                         formatPrice={formatPrice}
                         disabled={isSubmitting || cartLoading}
                       />

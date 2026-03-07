@@ -428,7 +428,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     : items.reduce((sum, item) => sum + item.quantity, 0);
 
   const totalPrice = medusaHasItems && cart?.subtotal != null
-    ? cart.subtotal / 100 // Medusa stores amounts in cents
+    ? cart.subtotal // Medusa v2 stores amounts in major currency units
     : items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   const discountedPrice = appliedPromotion
