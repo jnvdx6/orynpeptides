@@ -1,0 +1,231 @@
+{
+  "store": {
+    "name": "ORYN Peptide Labs",
+    "default_currency_code": "eur",
+    "currencies": ["eur", "usd", "gbp"]
+  },
+  "regions": [
+    {
+      "name": "Europe",
+      "currency_code": "eur",
+      "tax_rate": 0,
+      "countries": ["de", "fr", "es", "it", "nl", "be", "at", "pt", "ie", "gb"]
+    }
+  ],
+  "shipping_options": [
+    {
+      "name": "Standard Research Shipping",
+      "amount": 15,
+      "is_return": false,
+      "data": { "description": "Cold chain shipping with temperature monitoring. 5-7 business days." }
+    },
+    {
+      "name": "Priority Lab Delivery",
+      "amount": 35,
+      "is_return": false,
+      "data": { "description": "Express cold chain delivery. 2-3 business days with tracking." }
+    }
+  ],
+  "products": [
+    {
+      "title": "ORYN BPC-157",
+      "subtitle": "Healing & Recovery",
+      "handle": "bpc-157",
+      "description": "Body Protection Compound-157 is a synthetic peptide derived from a naturally occurring protein in gastric juice. ORYN BPC-157 is formulated at pharmaceutical grade in a precision-dosed pen system for consistent, reliable administration over 30 days.",
+      "collection": "Peptide Pen System",
+      "tags": ["healing", "recovery", "bpc", "peptide-pen"],
+      "variants": [
+        {
+          "title": "BPC-157 10mg / 3mL",
+          "sku": "ORY-BPC157-10",
+          "prices": [
+            { "amount": 18900, "currency_code": "eur" },
+            { "amount": 19900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN TB-500",
+      "subtitle": "Tissue Repair",
+      "handle": "tb-500",
+      "description": "Thymosin Beta-4 fragment, TB-500, plays a crucial role in tissue repair and regeneration. ORYN TB-500 delivers a precise 15mg dose in our advanced pen system.",
+      "collection": "Peptide Pen System",
+      "tags": ["tissue-repair", "tb500", "peptide-pen"],
+      "variants": [
+        {
+          "title": "TB-500 15mg / 3mL",
+          "sku": "ORY-TB500-15",
+          "prices": [
+            { "amount": 19900, "currency_code": "eur" },
+            { "amount": 20900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN CJC-1295",
+      "subtitle": "GH Stimulation",
+      "handle": "cjc-1295",
+      "description": "CJC-1295 is a synthetic analogue of growth hormone-releasing hormone (GHRH). ORYN CJC-1295 provides sustained GH elevation through our precision dosing system.",
+      "collection": "Peptide Pen System",
+      "tags": ["growth-hormone", "cjc1295", "peptide-pen"],
+      "variants": [
+        {
+          "title": "CJC-1295 5mg / 3mL",
+          "sku": "ORY-CJC1295-5",
+          "prices": [
+            { "amount": 17900, "currency_code": "eur" },
+            { "amount": 18900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN Ipamorelin",
+      "subtitle": "GH Stimulation",
+      "handle": "ipamorelin",
+      "description": "Ipamorelin is a selective growth hormone secretagogue that stimulates the pituitary gland. ORYN Ipamorelin offers targeted GH release.",
+      "collection": "Peptide Pen System",
+      "tags": ["growth-hormone", "ipamorelin", "peptide-pen"],
+      "variants": [
+        {
+          "title": "Ipamorelin 6mg / 3mL",
+          "sku": "ORY-IPA-6",
+          "prices": [
+            { "amount": 17900, "currency_code": "eur" },
+            { "amount": 18900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN Tirzepatide Pen",
+      "subtitle": "Metabolic",
+      "handle": "tirzepatide-pen",
+      "description": "Tirzepatide is a dual GIP/GLP-1 receptor agonist. ORYN Tirzepatide pen delivers precision dosing for metabolic research.",
+      "collection": "Peptide Pen System",
+      "tags": ["metabolic", "tirzepatide", "peptide-pen"],
+      "variants": [
+        {
+          "title": "Tirzepatide 10mg / 3mL",
+          "sku": "ORY-TIRZ-10",
+          "prices": [
+            { "amount": 24900, "currency_code": "eur" },
+            { "amount": 26900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN GHK-CU",
+      "subtitle": "Skin Repair",
+      "handle": "ghk-cu",
+      "description": "GHK-Cu (Copper peptide) is a naturally occurring tripeptide with a high affinity for copper ions. ORYN GHK-CU supports skin remodeling research.",
+      "collection": "Peptide Pen System",
+      "tags": ["skin-repair", "copper-peptide", "peptide-pen"],
+      "variants": [
+        {
+          "title": "GHK-CU 60mg / 3mL",
+          "sku": "ORY-GHKCU-60",
+          "prices": [
+            { "amount": 21900, "currency_code": "eur" },
+            { "amount": 22900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN Glutathione",
+      "subtitle": "Antioxidant",
+      "handle": "glutathione",
+      "description": "Glutathione is the body's master antioxidant. ORYN Glutathione delivers a powerful 6g dose via our precision pen system.",
+      "collection": "Peptide Pen System",
+      "tags": ["antioxidant", "glutathione", "peptide-pen"],
+      "variants": [
+        {
+          "title": "Glutathione 6g / 3mL",
+          "sku": "ORY-GLUT-6G",
+          "prices": [
+            { "amount": 16900, "currency_code": "eur" },
+            { "amount": 17900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN NAD+",
+      "subtitle": "Metabolic & Anti-Aging",
+      "handle": "nad-plus",
+      "description": "Nicotinamide Adenine Dinucleotide (NAD+) is a critical coenzyme present in every cell. ORYN NAD+ pen delivers a concentrated 500mg dose.",
+      "collection": "Peptide Pen System",
+      "tags": ["anti-aging", "nad", "metabolic", "peptide-pen"],
+      "variants": [
+        {
+          "title": "NAD+ 500mg / 3mL",
+          "sku": "ORY-NAD-500",
+          "prices": [
+            { "amount": 29900, "currency_code": "eur" },
+            { "amount": 31900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 500
+        }
+      ]
+    },
+    {
+      "title": "ORYN MediT Pen",
+      "subtitle": "Tirzepatide 40mg - Weight Management",
+      "handle": "medit-tirzepatide",
+      "description": "The ORYN MediT Pen is a prefilled, single-use injection pen containing 40mg Tirzepatide. Dual GIP/GLP-1 hormone action for metabolic support.",
+      "collection": "MediT Pen",
+      "tags": ["metabolic", "tirzepatide", "weight-management", "medit-pen"],
+      "variants": [
+        {
+          "title": "MediT Pen Tirzepatide 40mg",
+          "sku": "ORY-MEDIT-40",
+          "prices": [
+            { "amount": 34900, "currency_code": "eur" },
+            { "amount": 36900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 200
+        }
+      ]
+    },
+    {
+      "title": "ORYN NovaDose NAD+",
+      "subtitle": "Youth In Your Hands",
+      "handle": "novadose-nad",
+      "description": "NovaDose delivers pharmaceutical-grade NAD+ through an innovative cartridge-based pen system. Designed for precise daily microdosing.",
+      "collection": "NovaDose System",
+      "tags": ["nad", "anti-aging", "novadose", "cartridge"],
+      "variants": [
+        {
+          "title": "NovaDose NAD+ Complete Kit",
+          "sku": "ORY-NOVA-NAD",
+          "prices": [
+            { "amount": 39900, "currency_code": "eur" },
+            { "amount": 42900, "currency_code": "usd" }
+          ],
+          "manage_inventory": true,
+          "inventory_quantity": 100
+        }
+      ]
+    }
+  ]
+}

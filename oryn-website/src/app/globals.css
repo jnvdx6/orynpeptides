@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-oryn-orange: #FF6A1A;
+  --color-oryn-orange-light: #FF8A4C;
+  --color-oryn-orange-dark: #E55A10;
+  --color-oryn-orange-deep: #CC4D0A;
+  --color-oryn-black: #121212;
+  --color-oryn-white: #FAFAFA;
+  --color-oryn-grey: #D9D9D9;
+  --color-oryn-grey-dark: #1A1A1A;
+  --color-oryn-grey-mid: #2A2A2A;
+  --color-oryn-grey-light: #F5F5F5;
+  --color-oryn-cream: #FFF8F3;
+  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-plex: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+::selection {
+  background-color: rgba(255, 106, 26, 0.3);
+  color: #121212;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6A1A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E55A10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-grotesk);
+  background: #FAFAFA;
+  color: #121212;
+}
+
+/* --- BACKGROUNDS --- */
+
+.bg-oryn-gradient {
+  background: linear-gradient(135deg, #FF6A1A 0%, #FF8A4C 50%, #FF6A1A 100%);
+}
+
+.bg-oryn-gradient-radial {
+  background: radial-gradient(ellipse at 30% 50%, #FF8A4C 0%, #FF6A1A 40%, #E55A10 100%);
+}
+
+.bg-oryn-dark-orange {
+  background: linear-gradient(180deg, #121212 0%, #1A1008 100%);
+}
+
+.bg-molecular-grid {
+  background-image:
+    linear-gradient(rgba(255, 106, 26, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 106, 26, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bg-molecular-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 106, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 106, 26, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bg-molecular-grid-orange {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* --- ACCENTS --- */
+
+.accent-line {
+  width: 32px;
+  height: 2px;
+  background: #FF6A1A;
+}
+
+.accent-line-long {
+  width: 64px;
+  height: 2px;
+  background: #FF6A1A;
+}
+
+/* --- TEXT --- */
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF6A1A, #FF8A4C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- ANIMATIONS --- */
+
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ring-spin {
+  animation: ring-rotate 20s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out 1s both;
+}
+
+/* Remove text decoration from product card links */
+.product-card,
+.product-card:hover {
+  text-decoration: none;
+  color: inherit;
+}

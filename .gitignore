@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build
+.next/
+dist/
+.cache/
+.medusa/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Uploads
+uploads/
+
+# PM2
+ecosystem.config.js.bak
+
+# Misc
+*.log
+npm-debug.log*
+
+# Large files / brochures
+*.pdf
+Imagenes de Producto Fabricante/
+nanobanana-output/
