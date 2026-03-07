@@ -417,12 +417,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setAppliedPromotion(null);
   }, []);
 
-  // Calculate totals - prefer Medusa cart totals when available
-  const totalItems = medusaConnected && cart?.items
-    ? cart.items.reduce((sum, item) => sum + item.quantity, 0)
+  // Calculate totals - use Medusa cart totals ONLY when cart has items
+  // Fall back to local items when Medusa cart is empty (e.g. variant resolution failed)
+  const medusaHasItems = medusaConnected && cart?.items && cart.items.length > 0;
+
+  const totalItems = medusaHasItems
+    ? cart.items!.reduce((sum, item) => sum + item.quantity, 0)
     : items.reduce((sum, item) => sum + item.quantity, 0);
 
-  const totalPrice = medusaConnected && cart?.subtotal != null
+  const totalPrice = medusaHasItems && cart?.subtotal != null
     ? cart.subtotal / 100 // Medusa stores amounts in cents
     : items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
