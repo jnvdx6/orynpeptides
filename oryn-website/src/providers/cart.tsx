@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { sdk } from "@/lib/medusa";
-import type { Product } from "@/data/products";
+import { products as localProducts, type Product } from "@/data/products";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -81,36 +81,31 @@ interface AppliedPromotion {
   discountValue: number;
 }
 
-// Fallback local cart item (used when Medusa backend is unavailable)
-interface LocalCartItem {
+// Cart item for display — always derived from either Medusa or local state
+export interface CartItem {
   product: Product;
   quantity: number;
+  lineItemId?: string; // Medusa line item ID for cart operations
 }
 
 interface CartContextType {
-  // Medusa cart (server-side, the source of truth when available)
   cart: MedusaCart | null;
-  // Local cart items (fallback + for display mapping)
-  items: LocalCartItem[];
-  // Whether we're connected to Medusa
+  items: CartItem[];
   medusaConnected: boolean;
-  // Cart actions
+  cartLoaded: boolean;
   addItem: (product: Product, variantId?: string) => Promise<void>;
-  removeItem: (productId: string, lineItemId?: string) => Promise<void>;
-  updateQuantity: (productId: string, quantity: number, lineItemId?: string) => Promise<void>;
+  removeItem: (productId: string) => Promise<void>;
+  updateQuantity: (productId: string, quantity: number) => Promise<void>;
   clearCart: () => void;
-  // Cart state
   totalItems: number;
   totalPrice: number;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   lastAdded: Product | null;
-  // Promotions
   appliedPromotion: AppliedPromotion | null;
   applyPromotion: (promo: AppliedPromotion) => void;
   removePromotion: () => void;
   discountedPrice: number;
-  // Medusa cart lifecycle
   refreshCart: () => Promise<MedusaCart | null>;
   setCartEmail: (email: string) => Promise<void>;
   setCartAddress: (address: Record<string, string>) => Promise<void>;
@@ -124,14 +119,56 @@ const CART_ID_KEY = "oryn_medusa_cart_id";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Helper: find local product data by Medusa handle/slug
+function findLocalProduct(handle?: string): Product | undefined {
+  if (!handle) return undefined;
+  return localProducts.find((p) => p.slug === handle);
+}
+
+// Helper: derive CartItems from Medusa cart line items
+function deriveItemsFromMedusa(cart: MedusaCart): CartItem[] {
+  if (!cart.items || cart.items.length === 0) return [];
+  return cart.items.map((lineItem) => {
+    const handle = lineItem.variant?.product?.handle;
+    const localProduct = findLocalProduct(handle);
+    // Build a Product from Medusa data if no local match
+    const product: Product = localProduct || {
+      id: lineItem.variant?.product_id || lineItem.id,
+      slug: handle || lineItem.id,
+      name: lineItem.title,
+      subtitle: lineItem.subtitle || "",
+      category: "peptide-pen",
+      categoryLabel: "Peptide Pen",
+      dosage: "",
+      volume: "",
+      price: lineItem.unit_price,
+      description: "",
+      benefits: [],
+      specs: {},
+      image: lineItem.thumbnail || "/images/products/pen-bpc157.png",
+    };
+    return {
+      product,
+      quantity: lineItem.quantity,
+      lineItemId: lineItem.id,
+    };
+  });
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<MedusaCart | null>(null);
-  const [items, setItems] = useState<LocalCartItem[]>([]);
+  // Local-only items (fallback when Medusa is unavailable)
+  const [localItems, setLocalItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [lastAdded, setLastAdded] = useState<Product | null>(null);
   const [appliedPromotion, setAppliedPromotion] = useState<AppliedPromotion | null>(null);
   const [medusaConnected, setMedusaConnected] = useState(false);
+  const [cartLoaded, setCartLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Derive display items: Medusa cart items when connected, local items as fallback
+  const medusaHasItems = medusaConnected && cart?.items && cart.items.length > 0;
+  const items: CartItem[] = medusaHasItems ? deriveItemsFromMedusa(cart) : localItems;
 
   // Get or create a Medusa cart
   const refreshCart = useCallback(async (): Promise<MedusaCart | null> => {
@@ -145,12 +182,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
           setMedusaConnected(true);
           return existingCart as unknown as MedusaCart;
         } catch {
-          // Cart expired or invalid, create new one
           localStorage.removeItem(CART_ID_KEY);
         }
       }
 
-      // Create a new cart - try to get region first
+      // Create a new cart
       let regionId: string | undefined;
       try {
         const { regions } = await sdk.store.region.list({ limit: 1 });
@@ -172,6 +208,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     } catch {
       setMedusaConnected(false);
       return null;
+    } finally {
+      setCartLoaded(true);
     }
   }, []);
 
@@ -180,38 +218,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
     refreshCart();
   }, [refreshCart]);
 
-  // Sync local items from Medusa cart
-  useEffect(() => {
-    if (cart?.items && medusaConnected) {
-      // We keep the local items in sync for display purposes
-      // but Medusa is the source of truth
-    }
-  }, [cart, medusaConnected]);
-
   const addItem = useCallback(
     async (product: Product, variantId?: string) => {
-      // Always update local state for immediate UI feedback
-      setItems((prev) => {
-        const existing = prev.find((item) => item.product.id === product.id);
-        if (existing) {
-          return prev.map((item) =>
-            item.product.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          );
-        }
-        return [...prev, { product, quantity: 1 }];
-      });
       setLastAdded(product);
       setIsOpen(true);
       setTimeout(() => setLastAdded(null), 3000);
 
-      // Add to Medusa cart if connected
       if (medusaConnected) {
         try {
           let resolvedVariantId = variantId;
 
-          // If no variantId provided, look up the product in Medusa by slug/handle
           if (!resolvedVariantId && product.slug) {
             try {
               const { products: medusaProducts } = await sdk.store.product.list({
@@ -237,64 +253,100 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 }
               );
               setCart(updatedCart as unknown as MedusaCart);
+              return; // Success — Medusa is source of truth
             }
           }
         } catch (err) {
           console.warn("Failed to add item to Medusa cart:", err);
         }
       }
+
+      // Fallback: update local state only if Medusa failed
+      setLocalItems((prev) => {
+        const existing = prev.find((item) => item.product.id === product.id);
+        if (existing) {
+          return prev.map((item) =>
+            item.product.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+        }
+        return [...prev, { product, quantity: 1 }];
+      });
     },
     [cart, medusaConnected, refreshCart]
   );
 
   const removeItem = useCallback(
-    async (productId: string, lineItemId?: string) => {
-      setItems((prev) => prev.filter((item) => item.product.id !== productId));
+    async (productId: string) => {
+      if (medusaConnected && cart) {
+        // Find the Medusa line item for this product
+        const lineItem = cart.items?.find((li) => {
+          const handle = li.variant?.product?.handle;
+          const localProduct = findLocalProduct(handle);
+          return localProduct?.id === productId || li.id === productId;
+        });
 
-      if (medusaConnected && cart && lineItemId) {
-        try {
-          const { cart: updatedCart } = await sdk.store.cart.deleteLineItem(
-            cart.id,
-            lineItemId
-          );
-          setCart(updatedCart as unknown as MedusaCart);
-        } catch (err) {
-          console.warn("Failed to remove item from Medusa cart:", err);
+        if (lineItem) {
+          try {
+            const { cart: updatedCart } = await sdk.store.cart.deleteLineItem(
+              cart.id,
+              lineItem.id
+            );
+            setCart(updatedCart as unknown as MedusaCart);
+            return;
+          } catch (err) {
+            console.warn("Failed to remove item from Medusa cart:", err);
+          }
         }
       }
+
+      // Fallback: local state
+      setLocalItems((prev) => prev.filter((item) => item.product.id !== productId));
     },
     [cart, medusaConnected]
   );
 
   const updateQuantity = useCallback(
-    async (productId: string, quantity: number, lineItemId?: string) => {
+    async (productId: string, quantity: number) => {
       if (quantity <= 0) {
-        return removeItem(productId, lineItemId);
+        return removeItem(productId);
       }
-      setItems((prev) =>
+
+      if (medusaConnected && cart) {
+        const lineItem = cart.items?.find((li) => {
+          const handle = li.variant?.product?.handle;
+          const localProduct = findLocalProduct(handle);
+          return localProduct?.id === productId || li.id === productId;
+        });
+
+        if (lineItem) {
+          try {
+            const { cart: updatedCart } = await sdk.store.cart.updateLineItem(
+              cart.id,
+              lineItem.id,
+              { quantity }
+            );
+            setCart(updatedCart as unknown as MedusaCart);
+            return;
+          } catch (err) {
+            console.warn("Failed to update Medusa cart item:", err);
+          }
+        }
+      }
+
+      // Fallback: local state
+      setLocalItems((prev) =>
         prev.map((item) =>
           item.product.id === productId ? { ...item, quantity } : item
         )
       );
-
-      if (medusaConnected && cart && lineItemId) {
-        try {
-          const { cart: updatedCart } = await sdk.store.cart.updateLineItem(
-            cart.id,
-            lineItemId,
-            { quantity }
-          );
-          setCart(updatedCart as unknown as MedusaCart);
-        } catch (err) {
-          console.warn("Failed to update Medusa cart item:", err);
-        }
-      }
     },
     [cart, medusaConnected, removeItem]
   );
 
   const clearCart = useCallback(() => {
-    setItems([]);
+    setLocalItems([]);
     setAppliedPromotion(null);
     localStorage.removeItem(CART_ID_KEY);
     setCart(null);
@@ -360,13 +412,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (!cart || !medusaConnected) return;
       setLoading(true);
       try {
-        // Retrieve fresh cart to avoid stale references after shipping method update
         const { cart: freshCart } = await sdk.store.cart.retrieve(cart.id);
-        // Initialize payment session (SDK auto-creates payment collection if needed)
         await sdk.store.payment.initiatePaymentSession(freshCart, {
           provider_id: providerId,
         });
-        // Retrieve cart again to get payment session data with client_secret
         const { cart: updatedCart } = await sdk.store.cart.retrieve(cart.id);
         setCart(updatedCart as unknown as MedusaCart);
       } catch (err) {
@@ -400,16 +449,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const applyPromotion = useCallback(
     (promo: AppliedPromotion) => {
       setAppliedPromotion(promo);
-      // Also try adding promo code to Medusa cart
       if (cart && medusaConnected) {
         sdk.store.cart
           .update(cart.id, { promo_codes: [promo.code] })
           .then(({ cart: updatedCart }) => {
             setCart(updatedCart as unknown as MedusaCart);
           })
-          .catch(() => {
-            // Promo handled locally if Medusa doesn't support it
-          });
+          .catch(() => {});
       }
     },
     [cart, medusaConnected]
@@ -419,17 +465,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setAppliedPromotion(null);
   }, []);
 
-  // Calculate totals - use Medusa cart totals ONLY when cart has items
-  // Fall back to local items when Medusa cart is empty (e.g. variant resolution failed)
-  const medusaHasItems = medusaConnected && cart?.items && cart.items.length > 0;
-
+  // Calculate totals
   const totalItems = medusaHasItems
     ? cart.items!.reduce((sum, item) => sum + item.quantity, 0)
-    : items.reduce((sum, item) => sum + item.quantity, 0);
+    : localItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const totalPrice = medusaHasItems && cart?.subtotal != null
-    ? cart.subtotal // Medusa v2 stores amounts in major currency units
-    : items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+    ? cart.subtotal
+    : localItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   const discountedPrice = appliedPromotion
     ? Math.max(0, Math.round((totalPrice - appliedPromotion.discountAmount) * 100) / 100)
@@ -441,6 +484,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         cart,
         items,
         medusaConnected,
+        cartLoaded,
         addItem,
         removeItem,
         updateQuantity,

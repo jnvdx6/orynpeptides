@@ -85,6 +85,7 @@ export default function CheckoutPage() {
     initPaymentSession,
     refreshCart,
     loading: cartLoading,
+    cartLoaded,
   } = useCart();
 
   const { t, formatPrice, locale } = useLocale();
@@ -341,8 +342,8 @@ export default function CheckoutPage() {
     });
   };
 
-  // Empty cart
-  if (items.length === 0 && !orderComplete) {
+  // Empty cart — only show after cart has finished loading
+  if (items.length === 0 && !orderComplete && cartLoaded) {
     return (
       <div className="pt-24 min-h-screen flex items-center justify-center px-6">
         <div className="text-center max-w-sm">
