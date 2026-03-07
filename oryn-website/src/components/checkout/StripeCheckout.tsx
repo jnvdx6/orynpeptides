@@ -58,32 +58,9 @@ function PaymentFormInner({
     setErrorMessage("");
 
     try {
-      // Step 1: Submit payment method details (required for deferred intent)
-      const { error: submitError } = await elements.submit();
-      if (submitError) {
-        setErrorMessage(submitError.message || "Payment method validation failed.");
-        onError(submitError.message || "Payment method validation failed.");
-        setLoading(false);
-        return;
-      }
-
-      // Step 2: Get client secret from payment session
-      const paymentSession = cart.payment_collection?.payment_sessions?.[0];
-      const clientSecret = paymentSession?.data?.client_secret as string;
-
-      if (!clientSecret) {
-        setErrorMessage("Payment session not found. Please go back and try again.");
-        onError("Payment session not found.");
-        setLoading(false);
-        return;
-      }
-
-      console.log("[StripeCheckout] Confirming payment with clientSecret:", clientSecret.substring(0, 25) + "...");
-
-      // Step 3: Confirm payment with Stripe (passing clientSecret here for deferred intent)
+      // Confirm payment with Stripe (clientSecret already in Elements options)
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
-        clientSecret,
         confirmParams: {
           return_url: `${window.location.origin}/en/checkout`,
           payment_method_data: {
@@ -243,9 +220,7 @@ function PaymentFormInner({
 export default function StripeCheckout(props: StripeCheckoutProps) {
   const { cart } = useCart();
 
-  // Get amount and currency from the cart for deferred intent mode
-  const cartAmount = cart?.total || props.amount;
-  const cartCurrency = (cart?.items?.[0] as unknown as { variant?: { prices?: Array<{ currency_code: string }> } })?.variant?.prices?.[0]?.currency_code || "eur";
+  const clientSecret = cart?.payment_collection?.payment_sessions?.[0]?.data?.client_secret as string | undefined;
 
   if (!stripeKey) {
     return (
@@ -256,7 +231,7 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
     );
   }
 
-  if (!cart?.payment_collection?.payment_sessions?.[0]?.data?.client_secret) {
+  if (!clientSecret) {
     return (
       <div className="p-8 bg-oryn-grey-light border border-oryn-grey/30 text-center">
         <div className="flex items-center justify-center gap-3 mb-3">
@@ -271,16 +246,13 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
     );
   }
 
-  // Use deferred intent pattern: mode + amount + currency in Elements,
-  // clientSecret passed at confirmPayment() time
+  // Use clientSecret approach: pass clientSecret directly to Elements
   return (
     <Elements
-      key={`stripe-${cartAmount}-${cartCurrency}`}
+      key={clientSecret}
       stripe={stripePromise}
       options={{
-        mode: "payment",
-        amount: cartAmount,
-        currency: cartCurrency,
+        clientSecret,
         appearance: {
           theme: "flat",
           variables: {
