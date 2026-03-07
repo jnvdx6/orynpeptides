@@ -360,11 +360,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (!cart || !medusaConnected) return;
       setLoading(true);
       try {
-        // Initialize payment collection
-        await sdk.store.payment.initiatePaymentSession(cart, {
+        // Retrieve fresh cart to avoid stale references after shipping method update
+        const { cart: freshCart } = await sdk.store.cart.retrieve(cart.id);
+        // Initialize payment session (SDK auto-creates payment collection if needed)
+        await sdk.store.payment.initiatePaymentSession(freshCart, {
           provider_id: providerId,
         });
-        // Refresh cart to get payment session data
+        // Retrieve cart again to get payment session data with client_secret
         const { cart: updatedCart } = await sdk.store.cart.retrieve(cart.id);
         setCart(updatedCart as unknown as MedusaCart);
       } catch (err) {

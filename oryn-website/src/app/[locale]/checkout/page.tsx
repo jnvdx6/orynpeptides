@@ -247,11 +247,9 @@ export default function CheckoutPage() {
         await addShippingMethod(selectedShipping);
       }
 
-      // Initialize payment session
+      // Initialize payment session (this already retrieves and updates cart state)
       if (medusaConnected) {
         await initPaymentSession("pp_stripe_stripe");
-        // Refresh cart to get payment session data
-        await refreshCart();
       }
 
       setCompletedSteps((prev) => new Set([...prev, "shipping"]));

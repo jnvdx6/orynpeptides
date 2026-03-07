@@ -8,7 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useCart } from "@/providers/cart";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -34,11 +34,22 @@ function PaymentFormInner({
   const elements = useElements();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [paymentElementReady, setPaymentElementReady] = useState(false);
+
+  const handleReady = useCallback(() => {
+    setPaymentElementReady(true);
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     if (!stripe || !elements || !cart) {
       onError("Payment system not ready. Please try again.");
+      return;
+    }
+
+    if (!paymentElementReady) {
+      onError("Payment form is still loading. Please wait a moment.");
       return;
     }
 
@@ -46,7 +57,6 @@ function PaymentFormInner({
     setErrorMessage("");
 
     try {
-      // Confirm the payment directly (no elements.submit() needed in clientSecret mode)
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
@@ -63,7 +73,6 @@ function PaymentFormInner({
       }
 
       if (paymentIntent && paymentIntent.status === "succeeded") {
-        // Payment confirmed - complete the cart in Medusa
         const result = await completeCart();
 
         if (result.type === "order" && result.order) {
@@ -77,7 +86,6 @@ function PaymentFormInner({
           onError("Payment processed but order creation failed. Please contact support.");
         }
       } else if (paymentIntent && paymentIntent.status === "requires_action") {
-        // 3D Secure - Stripe handles this automatically, wait for redirect
         setLoading(false);
       } else {
         setErrorMessage("Payment was not completed. Please try again.");
@@ -95,6 +103,7 @@ function PaymentFormInner({
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <PaymentElement
+        onReady={handleReady}
         options={{
           layout: {
             type: "accordion",
@@ -119,7 +128,7 @@ function PaymentFormInner({
 
       <button
         type="submit"
-        disabled={loading || disabled || !stripe || !elements}
+        disabled={loading || disabled || !stripe || !elements || !paymentElementReady}
         className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-all shadow-lg shadow-oryn-orange/20 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
       >
         {loading ? (
@@ -129,6 +138,14 @@ function PaymentFormInner({
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
             PROCESSING...
+          </span>
+        ) : !paymentElementReady ? (
+          <span className="flex items-center justify-center gap-3">
+            <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            LOADING PAYMENT...
           </span>
         ) : (
           <span className="flex items-center justify-center gap-2">
@@ -188,6 +205,7 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
 
   return (
     <Elements
+      key={clientSecret}
       stripe={stripePromise}
       options={{
         clientSecret,
