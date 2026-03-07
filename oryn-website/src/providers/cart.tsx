@@ -207,18 +207,37 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setTimeout(() => setLastAdded(null), 3000);
 
       // Add to Medusa cart if connected
-      if (medusaConnected && variantId) {
+      if (medusaConnected) {
         try {
-          const currentCart = cart || (await refreshCart());
-          if (currentCart) {
-            const { cart: updatedCart } = await sdk.store.cart.createLineItem(
-              currentCart.id,
-              {
-                variant_id: variantId,
-                quantity: 1,
+          let resolvedVariantId = variantId;
+
+          // If no variantId provided, look up the product in Medusa by slug/handle
+          if (!resolvedVariantId && product.slug) {
+            try {
+              const { products: medusaProducts } = await sdk.store.product.list({
+                handle: product.slug,
+                limit: 1,
+              });
+              if (medusaProducts?.[0]?.variants?.[0]?.id) {
+                resolvedVariantId = medusaProducts[0].variants[0].id;
               }
-            );
-            setCart(updatedCart as unknown as MedusaCart);
+            } catch {
+              console.warn("Failed to resolve variant for:", product.slug);
+            }
+          }
+
+          if (resolvedVariantId) {
+            const currentCart = cart || (await refreshCart());
+            if (currentCart) {
+              const { cart: updatedCart } = await sdk.store.cart.createLineItem(
+                currentCart.id,
+                {
+                  variant_id: resolvedVariantId,
+                  quantity: 1,
+                }
+              );
+              setCart(updatedCart as unknown as MedusaCart);
+            }
           }
         } catch (err) {
           console.warn("Failed to add item to Medusa cart:", err);
