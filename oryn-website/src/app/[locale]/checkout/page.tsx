@@ -845,7 +845,7 @@ export default function CheckoutPage() {
                       <StripeCheckout
                         onSuccess={handlePaymentSuccess}
                         onError={handlePaymentError}
-                        amount={finalTotal}
+                        amount={cart?.total != null ? cart.total / 100 : finalTotal}
                         formatPrice={formatPrice}
                         disabled={isSubmitting || cartLoading}
                       />
