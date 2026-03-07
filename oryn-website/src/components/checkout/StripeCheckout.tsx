@@ -8,11 +8,11 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useCart } from "@/providers/cart";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
-);
+// Only load Stripe if key is available
+const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
+const stripePromise = stripeKey ? loadStripe(stripeKey) : null;
 
 interface StripeCheckoutProps {
   onSuccess: (orderId: string, orderRef: string) => void;
@@ -57,35 +57,73 @@ function PaymentFormInner({
     setErrorMessage("");
 
     try {
+      // Step 1: Submit payment method details (required for PaymentElement)
+      const { error: submitError } = await elements.submit();
+      if (submitError) {
+        setErrorMessage(submitError.message || "Payment method validation failed.");
+        onError(submitError.message || "Payment method validation failed.");
+        setLoading(false);
+        return;
+      }
+
+      // Step 2: Get client secret from payment session
+      const paymentSession = cart.payment_collection?.payment_sessions?.[0];
+      const clientSecret = paymentSession?.data?.client_secret as string;
+
+      if (!clientSecret) {
+        setErrorMessage("Payment session not found. Please go back and try again.");
+        onError("Payment session not found.");
+        setLoading(false);
+        return;
+      }
+
+      // Step 3: Confirm payment with Stripe
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
+        clientSecret,
         confirmParams: {
-          return_url: `${window.location.origin}/checkout/success`,
+          return_url: `${window.location.origin}/en/checkout`,
+          payment_method_data: {
+            billing_details: {
+              name: [
+                cart.billing_address?.first_name,
+                cart.billing_address?.last_name,
+              ].filter(Boolean).join(" ") || undefined,
+              email: cart.email || undefined,
+              phone: (cart.billing_address?.phone as string) || undefined,
+              address: {
+                city: (cart.billing_address?.city as string) || undefined,
+                country: (cart.billing_address?.country_code as string) || undefined,
+                line1: (cart.billing_address?.address_1 as string) || undefined,
+                line2: (cart.billing_address?.address_2 as string) || undefined,
+                postal_code: (cart.billing_address?.postal_code as string) || undefined,
+              },
+            },
+          },
         },
         redirect: "if_required",
       });
 
       if (confirmError) {
+        // Check if payment actually went through despite the error
+        const pi = confirmError.payment_intent;
+        if (pi && (pi.status === "requires_capture" || pi.status === "succeeded")) {
+          await handlePaymentCompleted();
+          return;
+        }
         setErrorMessage(confirmError.message || "Payment failed. Please try again.");
         onError(confirmError.message || "Payment failed.");
         setLoading(false);
         return;
       }
 
-      if (paymentIntent && paymentIntent.status === "succeeded") {
-        const result = await completeCart();
-
-        if (result.type === "order" && result.order) {
-          const order = result.order as { id: string; display_id?: number };
-          const orderId = order.id;
-          const orderRef = order.display_id
-            ? `ORY-${order.display_id}`
-            : `ORY-${orderId.slice(-6).toUpperCase()}`;
-          onSuccess(orderId, orderRef);
-        } else {
-          onError("Payment processed but order creation failed. Please contact support.");
-        }
+      // Step 4: Check payment intent status
+      if (paymentIntent &&
+        (paymentIntent.status === "succeeded" || paymentIntent.status === "requires_capture")
+      ) {
+        await handlePaymentCompleted();
       } else if (paymentIntent && paymentIntent.status === "requires_action") {
+        // 3D Secure or other action required — Stripe handles this automatically
         setLoading(false);
       } else {
         setErrorMessage("Payment was not completed. Please try again.");
@@ -96,6 +134,26 @@ function PaymentFormInner({
       console.error("Payment error:", err);
       setErrorMessage(message);
       onError(message);
+      setLoading(false);
+    }
+  }
+
+  async function handlePaymentCompleted() {
+    try {
+      const result = await completeCart();
+      if (result.type === "order" && result.order) {
+        const order = result.order as { id: string; display_id?: number };
+        const orderId = order.id;
+        const orderRef = order.display_id
+          ? `ORY-${order.display_id}`
+          : `ORY-${orderId.slice(-6).toUpperCase()}`;
+        onSuccess(orderId, orderRef);
+      } else {
+        onError("Payment processed but order creation failed. Please contact support.");
+      }
+    } catch {
+      onError("Payment processed but order creation failed. Please contact support.");
+    } finally {
       setLoading(false);
     }
   }
@@ -184,9 +242,32 @@ function PaymentFormInner({
 
 export default function StripeCheckout(props: StripeCheckoutProps) {
   const { cart } = useCart();
+  const [stripeError, setStripeError] = useState<string | null>(null);
 
   const clientSecret = cart?.payment_collection?.payment_sessions?.[0]?.data
     ?.client_secret as string | undefined;
+
+  // Debug: log payment state
+  useEffect(() => {
+    console.log("[StripeCheckout] State:", {
+      hasCart: !!cart,
+      hasPaymentCollection: !!cart?.payment_collection,
+      sessionCount: cart?.payment_collection?.payment_sessions?.length || 0,
+      hasClientSecret: !!clientSecret,
+      clientSecretPrefix: clientSecret?.substring(0, 20),
+      stripeKeyPresent: !!stripeKey,
+      stripePromisePresent: !!stripePromise,
+    });
+  }, [cart, clientSecret]);
+
+  if (!stripeKey) {
+    return (
+      <div className="p-6 bg-red-50 border border-red-200 text-red-700">
+        <p className="font-mono font-bold text-sm mb-1">STRIPE KEY MISSING</p>
+        <p className="text-xs">NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not configured.</p>
+      </div>
+    );
+  }
 
   if (!clientSecret) {
     return (
@@ -199,6 +280,15 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
           <span className="text-sm font-medium text-oryn-black/50">Preparing secure payment...</span>
         </div>
         <p className="text-[10px] font-mono text-oryn-black/30">INITIALIZING STRIPE PAYMENT SESSION</p>
+      </div>
+    );
+  }
+
+  if (stripeError) {
+    return (
+      <div className="p-6 bg-red-50 border border-red-200 text-red-700">
+        <p className="font-mono font-bold text-sm mb-1">PAYMENT ERROR</p>
+        <p className="text-xs">{stripeError}</p>
       </div>
     );
   }

@@ -412,14 +412,24 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (!cart || !medusaConnected) return;
       setLoading(true);
       try {
+        console.log("[Cart] initPaymentSession: retrieving fresh cart...", cart.id);
         const { cart: freshCart } = await sdk.store.cart.retrieve(cart.id);
-        await sdk.store.payment.initiatePaymentSession(freshCart, {
+        console.log("[Cart] Fresh cart retrieved. payment_collection:", freshCart.payment_collection?.id || "none");
+        console.log("[Cart] Calling initiatePaymentSession with provider:", providerId);
+        const payResult = await sdk.store.payment.initiatePaymentSession(freshCart as Parameters<typeof sdk.store.payment.initiatePaymentSession>[0], {
           provider_id: providerId,
         });
+        console.log("[Cart] Payment session created:", JSON.stringify(payResult).substring(0, 200));
+        console.log("[Cart] Re-retrieving cart for updated payment data...");
         const { cart: updatedCart } = await sdk.store.cart.retrieve(cart.id);
+        const sessions = (updatedCart as unknown as MedusaCart).payment_collection?.payment_sessions;
+        console.log("[Cart] Updated cart payment_sessions:", sessions?.length || 0);
+        if (sessions?.[0]?.data) {
+          console.log("[Cart] client_secret present:", !!(sessions[0].data as Record<string, unknown>).client_secret);
+        }
         setCart(updatedCart as unknown as MedusaCart);
       } catch (err) {
-        console.warn("Failed to init payment session:", err);
+        console.error("[Cart] FAILED to init payment session:", err);
       } finally {
         setLoading(false);
       }
