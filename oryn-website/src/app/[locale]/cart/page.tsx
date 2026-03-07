@@ -2,9 +2,9 @@
 
 import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
+import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
-import { products } from "@/data/products";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -17,6 +17,7 @@ const FREE_SHIPPING_THRESHOLD = 150;
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
   const { t, formatPrice } = useLocale();
+  const { products } = useProducts();
 
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);

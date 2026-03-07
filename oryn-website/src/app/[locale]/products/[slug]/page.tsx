@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import { getProductBySlug, products, productImages } from "@/data/products";
+import { productImages } from "@/data/products";
 import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
+import { useProducts } from "@/providers/products";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
@@ -12,6 +13,7 @@ import { Link } from "@/components/ui/LocaleLink";
 export default function ProductPage() {
   const params = useParams();
   const slug = params.slug as string;
+  const { getProductBySlug, products } = useProducts();
   const product = getProductBySlug(slug);
   const { addItem } = useCart();
   const { t, formatPrice } = useLocale();

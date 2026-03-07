@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
+import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
-import { products } from "@/data/products";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -18,6 +18,7 @@ export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice } =
     useCart();
   const { t, formatPrice } = useLocale();
+  const { products } = useProducts();
 
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;

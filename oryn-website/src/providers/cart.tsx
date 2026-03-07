@@ -9,7 +9,8 @@ import {
   type ReactNode,
 } from "react";
 import { sdk } from "@/lib/medusa";
-import { products as localProducts, type Product } from "@/data/products";
+import { products as staticProducts, type Product } from "@/data/products";
+import { useProducts } from "@/providers/products";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -119,20 +120,21 @@ const CART_ID_KEY = "oryn_medusa_cart_id";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Helper: find local product data by Medusa handle/slug
-function findLocalProduct(handle?: string): Product | undefined {
+// Helper: find product by Medusa handle/slug — tries resolved list first, falls back to static
+function findProduct(handle: string | undefined, resolvedProducts: Product[]): Product | undefined {
   if (!handle) return undefined;
-  return localProducts.find((p) => p.slug === handle);
+  return resolvedProducts.find((p) => p.slug === handle)
+    || staticProducts.find((p) => p.slug === handle);
 }
 
 // Helper: derive CartItems from Medusa cart line items
-function deriveItemsFromMedusa(cart: MedusaCart): CartItem[] {
+function deriveItemsFromMedusa(cart: MedusaCart, resolvedProducts: Product[]): CartItem[] {
   if (!cart.items || cart.items.length === 0) return [];
   return cart.items.map((lineItem) => {
     const handle = lineItem.variant?.product?.handle;
-    const localProduct = findLocalProduct(handle);
-    // Build a Product from Medusa data if no local match
-    const product: Product = localProduct || {
+    const matched = findProduct(handle, resolvedProducts);
+    // Build a Product from Medusa data if no match
+    const product: Product = matched || {
       id: lineItem.variant?.product_id || lineItem.id,
       slug: handle || lineItem.id,
       name: lineItem.title,
@@ -156,6 +158,7 @@ function deriveItemsFromMedusa(cart: MedusaCart): CartItem[] {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const { products: resolvedProducts } = useProducts();
   const [cart, setCart] = useState<MedusaCart | null>(null);
   // Local-only items (fallback when Medusa is unavailable)
   const [localItems, setLocalItems] = useState<CartItem[]>([]);
@@ -168,7 +171,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Derive display items: Medusa cart items when connected, local items as fallback
   const medusaHasItems = medusaConnected && cart?.items && cart.items.length > 0;
-  const items: CartItem[] = medusaHasItems ? deriveItemsFromMedusa(cart) : localItems;
+  const items: CartItem[] = medusaHasItems ? deriveItemsFromMedusa(cart, resolvedProducts) : localItems;
 
   // Get or create a Medusa cart
   const refreshCart = useCallback(async (): Promise<MedusaCart | null> => {
@@ -283,7 +286,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         // Find the Medusa line item for this product
         const lineItem = cart.items?.find((li) => {
           const handle = li.variant?.product?.handle;
-          const localProduct = findLocalProduct(handle);
+          const localProduct = findProduct(handle, resolvedProducts);
           return localProduct?.id === productId || li.id === productId;
         });
 
@@ -304,7 +307,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       // Fallback: local state
       setLocalItems((prev) => prev.filter((item) => item.product.id !== productId));
     },
-    [cart, medusaConnected]
+    [cart, medusaConnected, resolvedProducts]
   );
 
   const updateQuantity = useCallback(
@@ -316,7 +319,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (medusaConnected && cart) {
         const lineItem = cart.items?.find((li) => {
           const handle = li.variant?.product?.handle;
-          const localProduct = findLocalProduct(handle);
+          const localProduct = findProduct(handle, resolvedProducts);
           return localProduct?.id === productId || li.id === productId;
         });
 
@@ -342,7 +345,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         )
       );
     },
-    [cart, medusaConnected, removeItem]
+    [cart, medusaConnected, removeItem, resolvedProducts]
   );
 
   const clearCart = useCallback(() => {

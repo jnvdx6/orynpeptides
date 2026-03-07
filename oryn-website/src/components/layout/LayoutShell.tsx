@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/lib/cart-context";
+import { ProductsProvider } from "@/providers/products";
 import { AddToCartToast } from "@/components/ui/AddToCartToast";
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
@@ -16,11 +17,13 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <CartProvider>
-      <Header />
-      <main>{children}</main>
-      <AddToCartToast />
-      <Footer />
-    </CartProvider>
+    <ProductsProvider>
+      <CartProvider>
+        <Header />
+        <main>{children}</main>
+        <AddToCartToast />
+        <Footer />
+      </CartProvider>
+    </ProductsProvider>
   );
 }

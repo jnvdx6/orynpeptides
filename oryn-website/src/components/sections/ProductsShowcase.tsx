@@ -1,12 +1,13 @@
 "use client";
 
-import { products } from "@/data/products";
 import { ProductCard } from "@/components/products/ProductCard";
 import { Link } from "@/components/ui/LocaleLink";
 import { useLocale } from "@/i18n/LocaleContext";
+import { useProducts } from "@/providers/products";
 
 export function ProductsShowcase() {
  const { t, formatPrice } = useLocale();
+ const { products } = useProducts();
  const featured = products.filter((p) => p.badge);
 
  return (

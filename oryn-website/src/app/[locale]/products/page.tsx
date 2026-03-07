@@ -2,9 +2,9 @@
 
 import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { products, categories } from "@/data/products";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useLocale } from "@/i18n/LocaleContext";
+import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 
 function ProductsContent() {
@@ -12,6 +12,7 @@ function ProductsContent() {
   const urlCategory = searchParams.get("category");
   const [activeCategory, setActiveCategory] = useState<string>(urlCategory || "all");
   const { t } = useLocale();
+  const { products, categories } = useProducts();
 
   useEffect(() => {
     if (urlCategory) setActiveCategory(urlCategory);

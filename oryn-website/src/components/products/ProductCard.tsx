@@ -7,6 +7,8 @@ import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
+// Product.image is now populated by ProductsProvider (Medusa thumbnail or static fallback)
+
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const { t, formatPrice } = useLocale();
