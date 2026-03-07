@@ -45,7 +45,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="flex items-start justify-between mb-2">
           <div>
             <h3 className="text-sm font-bold tracking-wide group-hover:text-oryn-orange transition-colors">
-              ORYN {product.name}
+              {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}
             </h3>
             <p className="text-xs text-oryn-black/40 font-plex mt-1">
               {subtitle}

@@ -12,7 +12,7 @@ const categoryImages: Record<string, string> = {
   novadose: "/images/novadose-pen-real.png",
 };
 
-const FREE_SHIPPING_THRESHOLD = 300;
+const FREE_SHIPPING_THRESHOLD = 150;
 
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice } =
@@ -133,7 +133,7 @@ export function CartSlider() {
                       onClick={() => setIsOpen(false)}
                       className="text-sm font-bold truncate block hover:text-oryn-orange transition-colors"
                     >
-                      ORYN {item.product.name}
+                      {item.product.name.startsWith("ORYN") ? item.product.name : `ORYN ${item.product.name}`}
                     </Link>
                     <p className="text-[10px] text-oryn-black/40 font-plex">
                       {item.product.dosage} &middot; {item.product.volume}
@@ -201,7 +201,7 @@ export function CartSlider() {
                       onClick={() => setIsOpen(false)}
                       className="flex-1 min-w-0 group"
                     >
-                      <p className="text-xs font-bold group-hover:text-oryn-orange transition-colors truncate">ORYN {suggestion.name}</p>
+                      <p className="text-xs font-bold group-hover:text-oryn-orange transition-colors truncate">{suggestion.name.startsWith("ORYN") ? suggestion.name : `ORYN ${suggestion.name}`}</p>
                       <p className="text-[10px] text-oryn-black/40 font-plex">{formatPrice(suggestion.price)}</p>
                     </Link>
                     <button

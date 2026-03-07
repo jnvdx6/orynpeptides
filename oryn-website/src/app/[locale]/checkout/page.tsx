@@ -128,12 +128,21 @@ export default function CheckoutPage() {
   // Mobile summary toggle
   const [showMobileSummary, setShowMobileSummary] = useState(false);
 
-  // Shipping cost from selected option
+  // Free shipping threshold (in major currency units)
+  const FREE_SHIPPING_THRESHOLD = 150;
+
+  // Shipping cost from selected option (free if subtotal >= threshold)
   const shippingCost = useMemo(() => {
     if (!selectedShipping) return 0;
     const option = shippingOptions.find((o) => o.id === selectedShipping);
-    return option ? option.amount : 0; // Medusa v2 stores in major currency units
-  }, [selectedShipping, shippingOptions]);
+    const rawCost = option ? option.amount : 0;
+    // Free shipping for orders over threshold
+    if (totalPrice >= FREE_SHIPPING_THRESHOLD) return 0;
+    return rawCost;
+  }, [selectedShipping, shippingOptions, totalPrice]);
+
+  const qualifiesForFreeShipping = totalPrice >= FREE_SHIPPING_THRESHOLD;
+  const amountUntilFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
 
   const finalTotal = discountedPrice + shippingCost;
 
@@ -262,17 +271,49 @@ export default function CheckoutPage() {
     }
   };
 
-  // Handle promo code
+  // Handle promo code - try Medusa first, then fall back to local system
   const handleApplyPromo = async () => {
     if (!promoCode.trim()) return;
     setPromoLoading(true);
     setPromoError("");
+
+    const code = promoCode.trim().toUpperCase();
+
     try {
+      // Try Medusa native promotions first
+      if (medusaConnected && cart) {
+        try {
+          const { cart: updatedCart } = await sdk.store.cart.update(cart.id, {
+            promo_codes: [code],
+          });
+          const medusaCart = updatedCart as Record<string, unknown>;
+          const discountTotal = (medusaCart.discount_total as number) || 0;
+          // Check if discount was actually applied
+          if (discountTotal > 0) {
+            applyPromotion({
+              code,
+              label: code,
+              discountAmount: discountTotal,
+              discountType: "fixed",
+              discountValue: discountTotal,
+            });
+            setPromoCode("");
+            // Refresh cart to get updated totals
+            await refreshCart();
+            return;
+          }
+        } catch (err) {
+          console.log("[Checkout] Medusa promo failed, trying local:", err);
+          // Fall through to local validation
+        }
+      }
+
+      // Fallback: try local promotion system
       const res = await fetch("/api/promotions/validate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          code: promoCode.trim(),
+          code,
           subtotal: totalPrice,
           productIds: items.map((i) => i.product.id),
         }),
@@ -734,32 +775,95 @@ export default function CheckoutPage() {
                       <span className="text-sm text-oryn-black/50">{isEs ? "Cargando opciones de envio..." : "Loading shipping options..."}</span>
                     </div>
                   ) : (
-                    <div className="space-y-3 mb-6">
-                      {shippingOptions.map((option) => (
-                        <label
-                          key={option.id}
-                          className={`flex items-center justify-between p-4 border cursor-pointer transition-all ${
-                            selectedShipping === option.id
-                              ? "border-oryn-orange bg-oryn-orange/5"
-                              : "border-oryn-grey/30 hover:border-oryn-orange/40"
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                              selectedShipping === option.id ? "border-oryn-orange" : "border-oryn-grey"
-                            }`}>
-                              {selectedShipping === option.id && <div className="w-2 h-2 rounded-full bg-oryn-orange" />}
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium">{option.name}</p>
-                            </div>
-                          </div>
-                          <span className="text-sm font-bold">
-                            {option.amount === 0 ? (isEs ? "Gratis" : "Free") : formatPrice(option.amount)}
+                    <>
+                    {/* Free shipping progress */}
+                    {!qualifiesForFreeShipping && (
+                      <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                          </svg>
+                          <span className="text-xs font-mono text-oryn-orange tracking-wider">
+                            {isEs
+                              ? `Añade ${formatPrice(amountUntilFreeShipping)} más para envío gratis`
+                              : `Add ${formatPrice(amountUntilFreeShipping)} more for free shipping`}
                           </span>
-                        </label>
-                      ))}
+                        </div>
+                        <div className="w-full bg-oryn-grey/20 h-1.5">
+                          <div
+                            className="bg-oryn-orange h-1.5 transition-all duration-500"
+                            style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {qualifiesForFreeShipping && (
+                      <div className="mb-4 p-3 bg-green-50 border border-green-200">
+                        <div className="flex items-center gap-2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                          <span className="text-xs font-mono text-green-700 tracking-wider">
+                            {isEs ? "¡ENVÍO GRATIS APLICADO!" : "FREE SHIPPING APPLIED!"}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="space-y-3 mb-6">
+                      {shippingOptions.map((option) => {
+                        const displayAmount = qualifiesForFreeShipping ? 0 : option.amount;
+                        return (
+                          <label
+                            key={option.id}
+                            onClick={async () => {
+                              if (option.id === selectedShipping) return;
+                              setSelectedShipping(option.id);
+                              // Update Medusa cart immediately
+                              if (medusaConnected && cart && option.id !== "free_shipping") {
+                                try {
+                                  await addShippingMethod(option.id);
+                                } catch (err) {
+                                  console.warn("Failed to update shipping:", err);
+                                }
+                              }
+                            }}
+                            className={`flex items-center justify-between p-4 border cursor-pointer transition-all ${
+                              selectedShipping === option.id
+                                ? "border-oryn-orange bg-oryn-orange/5"
+                                : "border-oryn-grey/30 hover:border-oryn-orange/40"
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                                selectedShipping === option.id ? "border-oryn-orange" : "border-oryn-grey"
+                              }`}>
+                                {selectedShipping === option.id && <div className="w-2 h-2 rounded-full bg-oryn-orange" />}
+                              </div>
+                              <div>
+                                <p className="text-sm font-medium">{option.name}</p>
+                              </div>
+                            </div>
+                            <span className="text-sm font-bold">
+                              {displayAmount === 0 ? (
+                                <span className="text-oryn-orange">
+                                  {qualifiesForFreeShipping && option.amount > 0 ? (
+                                    <span className="flex items-center gap-1.5">
+                                      <span className="line-through text-oryn-black/30 text-xs">{formatPrice(option.amount)}</span>
+                                      <span>{isEs ? "Gratis" : "Free"}</span>
+                                    </span>
+                                  ) : (
+                                    isEs ? "Gratis" : "Free"
+                                  )}
+                                </span>
+                              ) : formatPrice(displayAmount)}
+                            </span>
+                          </label>
+                        );
+                      })}
                     </div>
+                    </>
                   )}
 
                   <button
@@ -1007,6 +1111,28 @@ function OrderSummary({
         />
       </div>
 
+      {/* Free shipping progress */}
+      {totalPrice > 0 && totalPrice < 150 && (
+        <div className="border-t border-oryn-grey/20 pt-3 pb-1">
+          <div className="flex items-center gap-2 mb-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            <span className="text-[10px] font-mono text-oryn-orange tracking-wider">
+              {isEs
+                ? `${formatPrice(150 - totalPrice)} más para envío gratis`
+                : `${formatPrice(150 - totalPrice)} away from free shipping`}
+            </span>
+          </div>
+          <div className="w-full bg-oryn-grey/20 h-1">
+            <div
+              className="bg-oryn-orange h-1 transition-all duration-500"
+              style={{ width: `${Math.min(100, (totalPrice / 150) * 100)}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       {/* Totals */}
       <div className="border-t border-oryn-grey/20 pt-4 space-y-2">
         <div className="flex justify-between text-sm">
@@ -1025,11 +1151,19 @@ function OrderSummary({
             {activeStep === "information"
               ? <span className="text-xs text-oryn-black/30">{isEs ? "Calculado en el siguiente paso" : "Calculated at next step"}</span>
               : shippingCost === 0
-                ? <span className="text-oryn-orange text-xs font-mono">{isEs ? "GRATIS" : "FREE"}</span>
+                ? <span className="text-green-600 text-xs font-mono">{isEs ? "GRATIS" : "FREE"}</span>
                 : formatPrice(shippingCost)
             }
           </span>
         </div>
+        {totalPrice >= 150 && activeStep !== "information" && (
+          <div className="flex items-center gap-1.5 text-[10px] text-green-600 font-mono">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            {isEs ? "ENVÍO GRATIS (PEDIDO +€150)" : "FREE SHIPPING (ORDER +€150)"}
+          </div>
+        )}
         <div className="flex justify-between text-base font-bold pt-3 border-t border-oryn-grey/20">
           <span>Total</span>
           <span>{formatPrice(finalTotal)}</span>

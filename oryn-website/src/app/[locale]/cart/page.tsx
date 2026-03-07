@@ -12,7 +12,7 @@ const categoryImages: Record<string, string> = {
   novadose: "/images/novadose-pen-real.png",
 };
 
-const FREE_SHIPPING_THRESHOLD = 300;
+const FREE_SHIPPING_THRESHOLD = 150;
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
@@ -114,7 +114,7 @@ export default function CartPage() {
                   <div className="flex items-start justify-between">
                     <div>
                       <Link href={`/products/${item.product.slug}`} className="font-bold hover:text-oryn-orange transition-colors">
-                        ORYN {item.product.name}
+                        {item.product.name.startsWith("ORYN") ? item.product.name : `ORYN ${item.product.name}`}
                       </Link>
                       <p className="text-xs text-oryn-black/50 font-plex mt-0.5">
                         {item.product.subtitle} &middot; {item.product.dosage}
@@ -237,7 +237,7 @@ export default function CartPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-bold group-hover:text-oryn-orange transition-colors">ORYN {product.name}</h3>
+                    <h3 className="text-sm font-bold group-hover:text-oryn-orange transition-colors">{product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}</h3>
                     <p className="text-[10px] text-oryn-black/40 font-plex">{product.subtitle}</p>
                     <p className="text-sm font-bold text-oryn-orange mt-1">{formatPrice(product.price)}</p>
                   </div>

@@ -109,7 +109,7 @@ export default function ProductPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-1 mb-2 tracking-tight">
-              ORYN {product.name}
+              {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}
             </h1>
             <p className="text-sm text-oryn-black/40 font-plex mb-6">
               {subtitle}
