@@ -7,12 +7,14 @@ import { CartSlider } from "@/components/ui/CartSlider";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
+import { useAuth } from "@/providers/auth";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { totalItems, setIsOpen } = useCart();
   const { t } = useLocale();
+  const { isAuthenticated, user } = useAuth();
 
   const navLinks = [
     { href: "/products", label: t.nav.products },
@@ -77,6 +79,23 @@ export function Header() {
                 {t.header.shopNow}
               </Link>
 
+              <Link
+                href="/account"
+                className="hidden md:flex items-center justify-center p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
+                aria-label="Account"
+              >
+                {isAuthenticated && user ? (
+                  <span className="w-6 h-6 bg-oryn-orange text-white text-[10px] font-bold flex items-center justify-center rounded-full">
+                    {user.firstName?.charAt(0).toUpperCase() || "U"}
+                  </span>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                )}
+              </Link>
+
               <button
                 onClick={() => setIsOpen(true)}
                 className="relative p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
@@ -130,6 +149,17 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/account"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                {isAuthenticated ? "My Account" : "Sign In"}
+              </Link>
               <Link
                 href="/products"
                 onClick={() => setMobileOpen(false)}
