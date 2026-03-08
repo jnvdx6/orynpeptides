@@ -36,7 +36,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: "/images/og-image.png",
+          url: "/og-image.png",
           width: 1200,
           height: 630,
           alt: "ORYN - Precision Peptide Science",
@@ -47,11 +47,11 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.ogDescription,
-      images: ["/images/og-image.png"],
+      images: ["/og-image.png"],
     },
     icons: {
-      icon: "/images/favicon-source.png",
-      apple: "/images/favicon-source.png",
+      icon: "/favicon-oryn.png",
+      apple: "/favicon-oryn.png",
     },
     alternates: {
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
