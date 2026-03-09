@@ -6,6 +6,9 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import StripeCheckout from "@/components/checkout/StripeCheckout";
+import { OrderBump } from "@/components/checkout/OrderBump";
+import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { useSavedAddresses } from "@/components/account/SavedAddresses";
 import { sdk } from "@/lib/medusa";
 
 type CheckoutStep = "information" | "shipping" | "payment";
@@ -116,8 +119,16 @@ export default function CheckoutPage() {
   const [promoLoading, setPromoLoading] = useState(false);
   const [promoError, setPromoError] = useState("");
 
-  // Referral
-  const [referralCode, setReferralCode] = useState("");
+  // Referral — pre-fill from URL capture
+  const [referralCode, setReferralCode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("oryn_ref_code") || "";
+    }
+    return "";
+  });
+
+  // Saved addresses
+  const { addresses: savedAddresses, getDefault: getDefaultAddress } = useSavedAddresses();
 
   // State
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -597,6 +608,11 @@ export default function CheckoutPage() {
                       autoComplete="email"
                     />
                     {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email}</p>}
+                    <p className="text-[9px] text-oryn-black/30 font-plex mt-1">
+                      {isEs
+                        ? "No necesitas cuenta para comprar. Tu pedido se vincula a este email."
+                        : "No account needed. Your order will be linked to this email."}
+                    </p>
                   </div>
 
                   {/* Shipping address */}
@@ -604,6 +620,37 @@ export default function CheckoutPage() {
                     <p className="text-[10px] font-mono text-oryn-black/40 tracking-wider mb-3">
                       {isEs ? "DIRECCION DE ENVIO" : "SHIPPING ADDRESS"}
                     </p>
+
+                    {/* Saved address selector */}
+                    {savedAddresses.length > 0 && (
+                      <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/10">
+                        <p className="text-[9px] font-mono text-oryn-black/40 tracking-[0.1em] mb-2">
+                          {isEs ? "USAR DIRECCION GUARDADA" : "USE SAVED ADDRESS"}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {savedAddresses.map((addr) => (
+                            <button
+                              key={addr.id}
+                              type="button"
+                              onClick={() => {
+                                setFirstName(addr.firstName);
+                                setLastName(addr.lastName);
+                                setAddress(addr.address);
+                                setCity(addr.city);
+                                setPostalCode(addr.postcode);
+                                setCountry(addr.country.toLowerCase());
+                                setPhone(addr.phone);
+                                setErrors({});
+                              }}
+                              className="px-3 py-1.5 text-[10px] font-medium border border-oryn-orange/20 hover:border-oryn-orange hover:bg-oryn-orange hover:text-white transition-colors"
+                            >
+                              {addr.label}
+                              {addr.isDefault && " *"}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Country */}
                     <div className="mb-3">
@@ -888,6 +935,13 @@ export default function CheckoutPage() {
               )}
             </div>
 
+            {/* Order Bump — before payment */}
+            {activeStep === "shipping" && (
+              <div className="border border-t-0 border-oryn-grey/20 p-4">
+                <OrderBump />
+              </div>
+            )}
+
             {/* Step 3: Payment */}
             <div className="border border-t-0 border-oryn-grey/20">
               <div
@@ -938,6 +992,26 @@ export default function CheckoutPage() {
                         <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange hover:underline">{isEs ? "Cambiar" : "Change"}</button>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Trust badges before payment */}
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {[
+                      { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: isEs ? "SSL Encriptado" : "SSL Encrypted", sub: isEs ? "256-bit" : "256-bit" },
+                      { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: isEs ? "Pureza >99%" : ">99% Purity", sub: isEs ? "Garantizado" : "Guaranteed" },
+                      { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: isEs ? "Certificado GMP" : "GMP Certified", sub: "ISO 7" },
+                      { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: isEs ? "Garantia 30 dias" : "30-Day Guarantee", sub: isEs ? "Sin preguntas" : "No questions" },
+                    ].map((badge) => (
+                      <div key={badge.label} className="flex items-center gap-2.5 p-3 bg-green-50/80 border border-green-200/50">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="1.5" className="shrink-0">
+                          <path d={badge.icon} />
+                        </svg>
+                        <div>
+                          <p className="text-[10px] font-bold text-green-800 leading-tight">{badge.label}</p>
+                          <p className="text-[8px] text-green-600/70 font-plex">{badge.sub}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Payment form */}
@@ -1109,6 +1183,11 @@ function OrderSummary({
           placeholder={isEs ? "Codigo de referido (opcional)" : "Referral code (optional)"}
           className="w-full px-3 py-2.5 bg-white border border-oryn-grey/30 text-sm focus:outline-none focus:border-oryn-orange transition-colors font-mono"
         />
+      </div>
+
+      {/* Volume discount info */}
+      <div className="mb-4">
+        <VolumeDiscountBanner totalItems={items.reduce((sum, i) => sum + i.quantity, 0)} compact />
       </div>
 
       {/* Free shipping progress */}

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/providers/auth";
+import { useCart } from "@/lib/cart-context";
+import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 
 interface OrderDetail {
@@ -34,8 +36,11 @@ export default function OrderDetailPage() {
   const params = useParams();
   const orderId = params.id as string;
   const { token } = useAuth();
+  const { addItem } = useCart();
+  const { products } = useProducts();
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [reordered, setReordered] = useState(false);
 
   useEffect(() => {
     if (!token || !orderId) return;
@@ -90,14 +95,25 @@ export default function OrderDetailPage() {
               Placed on {new Date(order.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
             </p>
           </div>
-          <div className={`px-3 py-1 text-[10px] font-mono tracking-[0.1em] uppercase ${
-            order.status === "delivered" ? "bg-green-100 text-green-700" :
-            order.status === "shipped" ? "bg-purple-100 text-purple-700" :
-            order.status === "processing" ? "bg-blue-100 text-blue-700" :
-            order.status === "cancelled" ? "bg-red-100 text-red-700" :
-            "bg-yellow-100 text-yellow-700"
-          }`}>
-            {order.status}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => window.print()}
+              className="px-3 py-1.5 border border-oryn-grey/20 text-[10px] font-mono tracking-[0.1em] text-oryn-black/40 hover:border-oryn-orange hover:text-oryn-orange transition-colors flex items-center gap-1.5"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" />
+              </svg>
+              PRINT
+            </button>
+            <div className={`px-3 py-1 text-[10px] font-mono tracking-[0.1em] uppercase ${
+              order.status === "delivered" ? "bg-green-100 text-green-700" :
+              order.status === "shipped" ? "bg-purple-100 text-purple-700" :
+              order.status === "processing" ? "bg-blue-100 text-blue-700" :
+              order.status === "cancelled" ? "bg-red-100 text-red-700" :
+              "bg-yellow-100 text-yellow-700"
+            }`}>
+              {order.status}
+            </div>
           </div>
         </div>
       </div>
@@ -208,6 +224,47 @@ export default function OrderDetailPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Reorder */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => {
+            let added = 0;
+            for (const item of order.items || []) {
+              const product = products.find((p) => p.name === item.name);
+              if (product) {
+                for (let i = 0; i < item.quantity; i++) addItem(product);
+                added++;
+              }
+            }
+            if (added > 0) {
+              setReordered(true);
+              setTimeout(() => setReordered(false), 3000);
+            }
+          }}
+          className={`flex-1 py-3 text-xs font-medium tracking-[0.15em] transition-colors flex items-center justify-center gap-2 ${
+            reordered
+              ? "bg-green-100 text-green-700 border border-green-200"
+              : "bg-oryn-orange text-white hover:bg-oryn-orange-dark"
+          }`}
+        >
+          {reordered ? (
+            <>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              ADDED TO CART
+            </>
+          ) : (
+            <>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              REORDER ALL ITEMS
+            </>
+          )}
+        </button>
       </div>
 
       {/* Help */}

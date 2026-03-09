@@ -98,8 +98,8 @@ function SuccessContent() {
   }
 
   return (
-    <div className="pt-24 min-h-screen flex items-center justify-center">
-      <div className="text-center max-w-lg mx-auto px-6">
+    <div className="pt-24 min-h-screen pb-16">
+      <div className="text-center max-w-lg mx-auto px-6 mb-12">
         <div className="relative w-24 h-24 mx-auto mb-8">
           <div className="absolute inset-0 bg-oryn-orange/20 animate-ping" />
           <div className="relative w-24 h-24 bg-oryn-orange flex items-center justify-center shadow-xl shadow-oryn-orange/30">
@@ -141,12 +141,54 @@ function SuccessContent() {
             </span>
           </div>
         </div>
-        <Link
-          href="/products"
-          className="px-8 py-3.5 bg-oryn-orange text-white text-sm font-medium hover:bg-oryn-orange-dark transition-colors shadow-md shadow-oryn-orange/20 inline-block"
-        >
-          {ch.continueShopping}
-        </Link>
+
+        {/* What happens next */}
+        <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-6 mb-8 text-left">
+          <h3 className="text-xs font-bold text-oryn-orange mb-4 tracking-wide">WHAT HAPPENS NEXT</h3>
+          <div className="space-y-3">
+            {[
+              { step: "1", text: "Order confirmation email sent to your inbox" },
+              { step: "2", text: "Your order is being prepared & quality checked" },
+              { step: "3", text: "Shipped with tracked delivery — usually next business day" },
+            ].map((item) => (
+              <div key={item.step} className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-oryn-orange text-white flex items-center justify-center text-[10px] font-bold shrink-0">
+                  {item.step}
+                </div>
+                <span className="text-xs text-oryn-black/60 font-plex pt-0.5">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Link
+            href="/products"
+            className="px-8 py-3.5 bg-oryn-orange text-white text-sm font-medium hover:bg-oryn-orange-dark transition-colors shadow-md shadow-oryn-orange/20 inline-block"
+          >
+            {ch.continueShopping}
+          </Link>
+          <Link
+            href="/account/orders"
+            className="px-8 py-3.5 border border-oryn-grey/30 text-sm font-medium hover:border-oryn-orange/30 hover:text-oryn-orange transition-colors inline-block"
+          >
+            VIEW ORDERS
+          </Link>
+        </div>
+
+        {/* Referral CTA */}
+        <div className="mt-8 p-5 bg-oryn-black text-white">
+          <h3 className="text-sm font-bold mb-2">Share ORYN & earn 10% commission</h3>
+          <p className="text-[10px] text-white/50 font-plex mb-4">
+            Love our products? Share your referral link and earn 10% on every purchase.
+          </p>
+          <Link
+            href="/account/referrals"
+            className="text-[10px] text-oryn-orange font-medium tracking-[0.15em] hover:underline"
+          >
+            GET YOUR REFERRAL LINK →
+          </Link>
+        </div>
       </div>
     </div>
   );

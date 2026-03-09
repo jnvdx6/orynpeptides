@@ -5,6 +5,7 @@ import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
 import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
+import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -15,7 +16,7 @@ const categoryImages: Record<string, string> = {
 const FREE_SHIPPING_THRESHOLD = 150;
 
 export function CartSlider() {
-  const { items, removeItem, updateQuantity, totalPrice, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice } =
+  const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
     useCart();
   const { t, formatPrice } = useLocale();
   const { products } = useProducts();
@@ -23,9 +24,43 @@ export function CartSlider() {
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
 
-  // Suggest a product not in cart
+  // Suggest complementary products not in cart
   const cartIds = new Set(items.map((i) => i.product.id));
-  const suggestion = products.find((p) => !cartIds.has(p.id) && p.badge);
+  const cartSlugs = new Set(items.map((i) => i.product.slug));
+
+  // Curated complementary pairs
+  const COMPLEMENTS: Record<string, string[]> = {
+    "bpc-157": ["tb-500", "glutathione"],
+    "tb-500": ["bpc-157", "ghk-cu"],
+    "cjc-1295": ["ipamorelin", "nad-plus"],
+    "ipamorelin": ["cjc-1295", "nad-plus"],
+    "tirzepatide-pen": ["glutathione", "nad-plus"],
+    "ghk-cu": ["bpc-157", "glutathione"],
+    "glutathione": ["nad-plus", "ghk-cu"],
+    "nad-plus": ["glutathione", "cjc-1295"],
+    "medit-tirzepatide": ["glutathione", "nad-plus"],
+    "novadose-nad": ["glutathione", "bpc-157"],
+  };
+
+  // Get suggestions based on cart contents
+  const suggestions = (() => {
+    const suggestedSlugs = new Set<string>();
+    for (const item of items) {
+      const complements = COMPLEMENTS[item.product.slug] || [];
+      for (const slug of complements) {
+        if (!cartSlugs.has(slug)) suggestedSlugs.add(slug);
+      }
+    }
+    const suggested = Array.from(suggestedSlugs)
+      .map((slug) => products.find((p) => p.slug === slug))
+      .filter(Boolean)
+      .slice(0, 2);
+    // Fallback: if no complements, show popular products
+    if (suggested.length === 0) {
+      return products.filter((p) => !cartIds.has(p.id) && p.badge).slice(0, 2);
+    }
+    return suggested;
+  })();
 
   return (
     <>
@@ -156,7 +191,8 @@ export function CartSlider() {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity + 1)
                           }
-                          className="w-6 h-6 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors"
+                          disabled={item.quantity >= 10}
+                          className="w-6 h-6 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
                         >
                           +
                         </button>
@@ -179,41 +215,50 @@ export function CartSlider() {
                 </div>
               ))}
 
-              {/* Upsell suggestion */}
-              {suggestion && (
-                <div className="mt-4 p-3 border border-dashed border-oryn-orange/20 bg-oryn-orange/5">
+              {/* Volume discount banner */}
+              <div className="mt-3">
+                <VolumeDiscountBanner totalItems={totalItems} compact />
+              </div>
+
+              {/* Upsell suggestions */}
+              {suggestions.length > 0 && (
+                <div className="mt-3 p-3 border border-dashed border-oryn-orange/20 bg-oryn-orange/5">
                   <p className="text-[9px] font-mono text-oryn-orange tracking-[0.15em] mb-2">{t.cart.youMightLike}</p>
-                  <div className="flex items-center gap-3">
-                    <Link
-                      href={`/products/${suggestion.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0"
-                    >
-                      <Image
-                        src={categoryImages[suggestion.category] || "/images/peptide-pen-real.png"}
-                        alt={suggestion.name}
-                        width={32}
-                        height={32}
-                        className="object-contain"
-                      />
-                    </Link>
-                    <Link
-                      href={`/products/${suggestion.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className="flex-1 min-w-0 group"
-                    >
-                      <p className="text-xs font-bold group-hover:text-oryn-orange transition-colors truncate">{suggestion.name.startsWith("ORYN") ? suggestion.name : `ORYN ${suggestion.name}`}</p>
-                      <p className="text-[10px] text-oryn-black/40 font-plex">{formatPrice(suggestion.price)}</p>
-                    </Link>
-                    <button
-                      onClick={() => addItem(suggestion)}
-                      className="shrink-0 px-3 py-2 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-1.5"
-                    >
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M12 5v14M5 12h14" />
-                      </svg>
-                      ADD
-                    </button>
+                  <div className="space-y-2">
+                    {suggestions.map((s) => s && (
+                      <div key={s.id} className="flex items-center gap-3">
+                        <Link
+                          href={`/products/${s.slug}`}
+                          onClick={() => setIsOpen(false)}
+                          className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0"
+                        >
+                          <Image
+                            src={categoryImages[s.category] || "/images/peptide-pen-real.png"}
+                            alt={s.name}
+                            width={32}
+                            height={32}
+                            className="object-contain"
+                          />
+                        </Link>
+                        <Link
+                          href={`/products/${s.slug}`}
+                          onClick={() => setIsOpen(false)}
+                          className="flex-1 min-w-0 group"
+                        >
+                          <p className="text-xs font-bold group-hover:text-oryn-orange transition-colors truncate">{s.name.startsWith("ORYN") ? s.name : `ORYN ${s.name}`}</p>
+                          <p className="text-[10px] text-oryn-black/40 font-plex">{formatPrice(s.price)}</p>
+                        </Link>
+                        <button
+                          onClick={() => addItem(s)}
+                          className="shrink-0 px-3 py-2 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-1.5"
+                        >
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M12 5v14M5 12h14" />
+                          </svg>
+                          ADD
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -242,8 +287,22 @@ export function CartSlider() {
             {appliedPromotion && (
               <div className="flex items-center justify-between">
                 <span className="text-sm text-oryn-black/60">{t.cart.total}</span>
-                <span className="text-lg font-bold">{formatPrice(discountedPrice)}</span>
+                <span className={`text-lg font-bold ${volumeDiscount ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(discountedPrice)}</span>
               </div>
+            )}
+            {volumeDiscount && (
+              <>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
+                  </div>
+                  <span className="text-sm font-bold text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-oryn-black/60">{t.cart.total}</span>
+                  <span className="text-lg font-bold">{formatPrice(finalPrice)}</span>
+                </div>
+              </>
             )}
             <Link
               href="/checkout"

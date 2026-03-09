@@ -16,6 +16,7 @@ interface User {
   lastName: string;
   role: string;
   referralCode: string;
+  totalEarnings: number;
 }
 
 interface AuthContextType {

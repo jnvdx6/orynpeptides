@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { Product } from "@/data/products";
 import { productImages } from "@/data/products";
 import { useCart } from "@/lib/cart-context";
+import { useWishlist } from "@/providers/wishlist";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
@@ -11,6 +12,7 @@ import { Link } from "@/components/ui/LocaleLink";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
   const { t, formatPrice } = useLocale();
 
   const productT = t.products[product.slug];
@@ -41,6 +43,25 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="absolute top-4 right-4 px-2 py-1 bg-white/90 text-oryn-orange text-[9px] font-mono tracking-[0.1em] z-10">
           {categoryLabel}
         </span>
+
+        {/* Wishlist button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleWishlist(product.id);
+          }}
+          className={`absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center bg-white/90 transition-all z-10 ${
+            isInWishlist(product.id)
+              ? "opacity-100"
+              : "opacity-0 group-hover:opacity-100"
+          }`}
+          aria-label="Toggle wishlist"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill={isInWishlist(product.id) ? "#FF6A1A" : "none"} stroke={isInWishlist(product.id) ? "#FF6A1A" : "#999"} strokeWidth="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+        </button>
       </div>
 
       <div className="p-6">

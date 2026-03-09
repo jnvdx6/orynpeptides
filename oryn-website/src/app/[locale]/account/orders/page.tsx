@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "@/providers/auth";
+import { useCart } from "@/lib/cart-context";
+import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 
 interface Order {
@@ -34,8 +36,30 @@ const statusIcons: Record<string, string> = {
 
 export default function OrdersPage() {
   const { token } = useAuth();
+  const { addItem } = useCart();
+  const { products } = useProducts();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const [reordered, setReordered] = useState<string | null>(null);
+
+  const handleReorder = (e: React.MouseEvent, order: Order) => {
+    e.preventDefault(); // Prevent Link navigation
+    e.stopPropagation();
+    let added = 0;
+    for (const item of order.items || []) {
+      const product = products.find((p) => p.name === item.name);
+      if (product) {
+        for (let i = 0; i < item.quantity; i++) {
+          addItem(product);
+        }
+        added++;
+      }
+    }
+    if (added > 0) {
+      setReordered(order.id);
+      setTimeout(() => setReordered(null), 2000);
+    }
+  };
 
   useEffect(() => {
     if (!token) return;
@@ -103,10 +127,22 @@ export default function OrdersPage() {
                 </svg>
               </div>
 
-              <div className="flex items-center gap-6 text-[10px] text-oryn-black/40 font-plex">
-                <span>{new Date(order.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
-                <span>{order.items?.length || 0} item{(order.items?.length || 0) !== 1 ? "s" : ""}</span>
-                <span className="font-medium text-oryn-black/70">&euro;{order.total?.toFixed(2)}</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-6 text-[10px] text-oryn-black/40 font-plex">
+                  <span>{new Date(order.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
+                  <span>{order.items?.length || 0} item{(order.items?.length || 0) !== 1 ? "s" : ""}</span>
+                  <span className="font-medium text-oryn-black/70">&euro;{order.total?.toFixed(2)}</span>
+                </div>
+                <button
+                  onClick={(e) => handleReorder(e, order)}
+                  className={`px-3 py-1.5 text-[9px] font-mono tracking-[0.1em] transition-colors ${
+                    reordered === order.id
+                      ? "bg-green-100 text-green-700"
+                      : "bg-oryn-orange/10 text-oryn-orange hover:bg-oryn-orange hover:text-white"
+                  }`}
+                >
+                  {reordered === order.id ? "ADDED TO CART ✓" : "REORDER"}
+                </button>
               </div>
 
               {/* Progress bar for active orders */}

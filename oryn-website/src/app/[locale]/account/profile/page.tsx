@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/providers/auth";
+import { SavedAddresses } from "@/components/account/SavedAddresses";
 
 export default function ProfilePage() {
   const { user, updateProfile } = useAuth();
@@ -133,6 +134,9 @@ export default function ProfilePage() {
           </div>
         </form>
       </div>
+
+      {/* Saved Addresses */}
+      <SavedAddresses />
 
       {/* Password Change */}
       <div className="bg-white border border-oryn-grey/15 p-6">

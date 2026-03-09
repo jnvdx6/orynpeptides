@@ -11,6 +11,7 @@ import {
 import { sdk } from "@/lib/medusa";
 import { products as staticProducts, type Product } from "@/data/products";
 import { useProducts } from "@/providers/products";
+import { calculateVolumeDiscount, getVolumeDiscount, type VolumeDiscount } from "@/lib/discounts";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -107,6 +108,8 @@ interface CartContextType {
   applyPromotion: (promo: AppliedPromotion) => void;
   removePromotion: () => void;
   discountedPrice: number;
+  volumeDiscount: { discount: number; tier: VolumeDiscount } | null;
+  finalPrice: number;
   refreshCart: () => Promise<MedusaCart | null>;
   setCartEmail: (email: string) => Promise<void>;
   setCartAddress: (address: Record<string, string>) => Promise<void>;
@@ -117,6 +120,7 @@ interface CartContextType {
 }
 
 const CART_ID_KEY = "oryn_medusa_cart_id";
+const MAX_QUANTITY_PER_PRODUCT = 10;
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -223,6 +227,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = useCallback(
     async (product: Product, variantId?: string) => {
+      // Enforce quantity limit
+      const currentQty = items.find((i) => i.product.id === product.id)?.quantity || 0;
+      if (currentQty >= MAX_QUANTITY_PER_PRODUCT) return;
+
       setLastAdded(product);
       setIsOpen(true);
       setTimeout(() => setLastAdded(null), 3000);
@@ -277,7 +285,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return [...prev, { product, quantity: 1 }];
       });
     },
-    [cart, medusaConnected, refreshCart]
+    [cart, medusaConnected, refreshCart, items]
   );
 
   const removeItem = useCallback(
@@ -315,6 +323,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (quantity <= 0) {
         return removeItem(productId);
       }
+      if (quantity > MAX_QUANTITY_PER_PRODUCT) return;
 
       if (medusaConnected && cart) {
         const lineItem = cart.items?.find((li) => {
@@ -491,6 +500,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     ? Math.max(0, Math.round((totalPrice - appliedPromotion.discountAmount) * 100) / 100)
     : totalPrice;
 
+  // Volume discount calculation
+  const volumeDiscount = calculateVolumeDiscount(discountedPrice, totalItems);
+
+  // Final price after all discounts
+  const finalPrice = volumeDiscount
+    ? Math.max(0, Math.round((discountedPrice - volumeDiscount.discount) * 100) / 100)
+    : discountedPrice;
+
   return (
     <CartContext.Provider
       value={{
@@ -511,6 +528,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         applyPromotion,
         removePromotion,
         discountedPrice,
+        volumeDiscount,
+        finalPrice,
         refreshCart,
         setCartEmail,
         setCartAddress,

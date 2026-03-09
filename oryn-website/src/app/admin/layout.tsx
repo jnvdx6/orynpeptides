@@ -310,6 +310,29 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
 
           <div className="flex items-center gap-2">
+            {/* CSV Export button — visible on exportable pages */}
+            {['/admin/orders', '/admin/users', '/admin/commissions'].includes(pathname) && (
+              <button
+                onClick={() => {
+                  const resourceMap: Record<string, string> = {
+                    '/admin/orders': 'orders',
+                    '/admin/users': 'customers',
+                    '/admin/commissions': 'commissions',
+                  };
+                  const resource = resourceMap[pathname];
+                  if (!resource) return;
+                  const token = localStorage.getItem('oryn_admin_token');
+                  window.open(`/api/admin/export?resource=${resource}&token=${token}`, '_blank');
+                }}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 text-[12px] font-medium"
+                title="Export CSV"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Export CSV
+              </button>
+            )}
             <button className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-400">
               <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />

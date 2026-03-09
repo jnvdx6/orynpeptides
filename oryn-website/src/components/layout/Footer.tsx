@@ -28,6 +28,7 @@ export function Footer() {
     [f.sections.company]: [
       { href: "/about", label: f.companyLinks.about },
       { href: "/science", label: f.companyLinks.science },
+      { href: "/learn", label: "Research Hub" },
       { href: "/contact", label: f.companyLinks.contact },
     ],
     [f.sections.legal]: [
@@ -37,9 +38,81 @@ export function Footer() {
     ],
   };
 
+  const categoryLinks = [
+    { href: "/peptides-for/recovery", label: "Recovery & Healing" },
+    { href: "/peptides-for/weight-loss", label: "Weight Loss" },
+    { href: "/peptides-for/anti-aging", label: "Anti-Aging" },
+    { href: "/peptides-for/muscle-growth", label: "Muscle Growth" },
+    { href: "/peptides-for/skin-rejuvenation", label: "Skin Rejuvenation" },
+  ];
+
+  const cityLinks = [
+    { href: "/peptides/london", label: "London" },
+    { href: "/peptides/manchester", label: "Manchester" },
+    { href: "/peptides/birmingham", label: "Birmingham" },
+    { href: "/peptides/edinburgh", label: "Edinburgh" },
+    { href: "/peptides/glasgow", label: "Glasgow" },
+    { href: "/peptides/leeds", label: "Leeds" },
+    { href: "/peptides/bristol", label: "Bristol" },
+    { href: "/peptides/liverpool", label: "Liverpool" },
+    { href: "/peptides/cambridge", label: "Cambridge" },
+    { href: "/peptides/oxford", label: "Oxford" },
+    { href: "/peptides/cardiff", label: "Cardiff" },
+    { href: "/peptides/newcastle", label: "Newcastle" },
+    { href: "/peptides/brighton", label: "Brighton" },
+    { href: "/peptides/sheffield", label: "Sheffield" },
+    { href: "/peptides/nottingham", label: "Nottingham" },
+    { href: "/peptides/belfast", label: "Belfast" },
+    { href: "/peptides/southampton", label: "Southampton" },
+    { href: "/peptides/york", label: "York" },
+    { href: "/peptides/reading", label: "Reading" },
+    { href: "/peptides/aberdeen", label: "Aberdeen" },
+    { href: "/peptides/leicester", label: "Leicester" },
+    { href: "/peptides/coventry", label: "Coventry" },
+    { href: "/peptides/hull", label: "Hull" },
+    { href: "/peptides/stoke-on-trent", label: "Stoke-on-Trent" },
+    { href: "/peptides/plymouth", label: "Plymouth" },
+    { href: "/peptides/derby", label: "Derby" },
+    { href: "/peptides/swansea", label: "Swansea" },
+    { href: "/peptides/exeter", label: "Exeter" },
+    { href: "/peptides/bath", label: "Bath" },
+    { href: "/peptides/dundee", label: "Dundee" },
+    { href: "/peptides/bournemouth", label: "Bournemouth" },
+    { href: "/peptides/norwich", label: "Norwich" },
+    { href: "/peptides/ipswich", label: "Ipswich" },
+    { href: "/peptides/milton-keynes", label: "Milton Keynes" },
+    { href: "/peptides/cheltenham", label: "Cheltenham" },
+  ];
+
+  const learnLinks = [
+    { href: "/learn/are-peptides-legal-in-the-uk", label: "Are Peptides Legal in the UK?" },
+    { href: "/learn/peptide-pen-vs-vial", label: "Peptide Pen vs Vial" },
+    { href: "/learn/bpc-157-complete-guide", label: "BPC-157 Complete Guide" },
+    { href: "/learn/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
+    { href: "/learn/how-to-use-peptide-pen", label: "How to Use a Peptide Pen" },
+    { href: "/learn/best-peptides-for-recovery-uk", label: "Best Peptides for Recovery UK" },
+    { href: "/compare/bpc-157-vs-tb-500", label: "BPC-157 vs TB-500" },
+    { href: "/compare/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
+    { href: "/compare/cjc-1295-vs-ipamorelin", label: "CJC-1295 vs Ipamorelin" },
+    { href: "/compare/ghk-cu-vs-glutathione", label: "GHK-Cu vs Glutathione" },
+    { href: "/compare/nad-plus-pen-vs-iv-therapy", label: "NAD+ Pen vs IV Therapy" },
+  ];
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setSubscribed(true);
+    if (email) {
+      // Store subscriber emails locally
+      try {
+        const existing = JSON.parse(localStorage.getItem("oryn_newsletter_emails") || "[]");
+        if (!existing.includes(email)) {
+          existing.push(email);
+          localStorage.setItem("oryn_newsletter_emails", JSON.stringify(existing));
+        }
+      } catch {
+        // ignore
+      }
+      setSubscribed(true);
+    }
   };
 
   return (
@@ -175,6 +248,86 @@ export function Footer() {
           ))}
 
           <div className="lg:col-span-1 hidden lg:block" />
+        </div>
+      </div>
+
+      {/* SEO: Research Areas */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Research Areas */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+                RESEARCH AREAS
+              </h4>
+              <ul className="space-y-2">
+                {categoryLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-xs text-oryn-white/25 hover:text-oryn-orange transition-colors font-plex">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Learn */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+                LEARN
+              </h4>
+              <ul className="space-y-2">
+                {learnLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-xs text-oryn-white/25 hover:text-oryn-orange transition-colors font-plex">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* UK Delivery */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+                <Link href="/peptides" className="hover:text-white transition-colors">
+                  UK DELIVERY
+                </Link>
+              </h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                {cityLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-[10px] text-oryn-white/20 hover:text-oryn-orange transition-colors font-plex"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Trust & Security */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {[
+              { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: "SSL ENCRYPTED" },
+              { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: "SECURE PAYMENTS" },
+              { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: "COA INCLUDED" },
+              { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: "30-DAY GUARANTEE" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
+                  <path d={item.icon} />
+                </svg>
+                <span className="text-[9px] font-mono text-white/30 tracking-[0.1em]">{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

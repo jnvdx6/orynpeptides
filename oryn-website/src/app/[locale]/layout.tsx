@@ -5,6 +5,9 @@ import { getDictionary } from "@/i18n/getDictionary";
 import { isValidLocale, defaultLocale, locales } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { LayoutShell } from "@/components/layout/LayoutShell";
+import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
+import { organizationSchema, websiteSchema, SITE_URL } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -28,7 +31,8 @@ export async function generateMetadata({
     },
     description: dict.meta.description,
     keywords:
-      "ORYN peptides, research peptides, peptide labs, BPC-157, TB-500, NAD+, tirzepatide, peptide pen, European biotech, GLP-1, GHK-CU, CJC-1295, Ipamorelin, Glutathione",
+      "ORYN peptides, research peptides, peptide labs, BPC-157, TB-500, NAD+, tirzepatide, peptide pen, European biotech, GLP-1, GHK-CU, CJC-1295, Ipamorelin, Glutathione, buy peptides UK, peptide pen UK, peptides London, research peptides UK, pre-mixed peptide pen, peptides for recovery, peptides for weight loss, peptide delivery UK",
+    metadataBase: new URL(SITE_URL),
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.ogDescription,
@@ -74,6 +78,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="scroll-smooth">
+      <head>
+        <MultiJsonLd items={[organizationSchema(), websiteSchema()]} />
+        <GoogleAnalytics />
+      </head>
       <body className="font-grotesk antialiased bg-oryn-white text-oryn-black">
         <LocaleProvider locale={locale} dictionary={dictionary}>
           <LayoutShell>{children}</LayoutShell>

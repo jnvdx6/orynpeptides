@@ -60,19 +60,64 @@ export default function AccountDashboard() {
         </Link>
       </div>
 
+      {/* Loyalty Points */}
+      <div className="bg-gradient-to-r from-oryn-black to-oryn-black/90 text-white p-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-oryn-orange flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold">ORYN Rewards</h3>
+              <p className="text-[10px] text-white/50 font-plex">Earn 1 point per &euro;1 spent</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <p className="text-3xl font-bold text-oryn-orange">
+              {Math.floor((user?.totalEarnings || 0) * 10)}
+            </p>
+            <p className="text-[9px] font-mono text-white/40 tracking-[0.15em]">POINTS</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          <div className="bg-white/5 p-3 text-center">
+            <p className="text-[9px] font-mono text-white/40 tracking-[0.1em] mb-1">TIER</p>
+            <p className="text-xs font-bold text-oryn-orange">Member</p>
+          </div>
+          <div className="bg-white/5 p-3 text-center">
+            <p className="text-[9px] font-mono text-white/40 tracking-[0.1em] mb-1">NEXT REWARD</p>
+            <p className="text-xs font-bold">&euro;10 off at 500pts</p>
+          </div>
+          <div className="bg-white/5 p-3 text-center">
+            <p className="text-[9px] font-mono text-white/40 tracking-[0.1em] mb-1">MULTIPLIER</p>
+            <p className="text-xs font-bold text-oryn-orange">1x</p>
+          </div>
+        </div>
+      </div>
+
       {/* Referral Code */}
       {user?.referralCode && (
         <div className="bg-oryn-orange/5 border border-oryn-orange/15 p-6">
-          <div className="flex items-center gap-3 mb-3">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
-              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <h3 className="text-sm font-bold">Your Referral Code</h3>
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
+                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <h3 className="text-sm font-bold">Invite & Earn</h3>
+            </div>
+            <Link
+              href="/account/referrals"
+              className="text-[10px] font-mono text-oryn-orange tracking-[0.1em] hover:underline"
+            >
+              VIEW DASHBOARD &rarr;
+            </Link>
           </div>
           <p className="text-xs text-oryn-black/40 font-plex mb-3">
-            Share this code with colleagues. They get tracking on their first order, and you earn commission on referrals.
+            Earn 10% commission when colleagues order using your code. Plus commissions up to 5 levels deep.
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-4">
             <code className="px-4 py-2.5 bg-white border border-oryn-orange/20 text-lg font-mono font-bold text-oryn-orange tracking-[0.2em]">
               {user.referralCode}
             </code>
@@ -80,7 +125,37 @@ export default function AccountDashboard() {
               onClick={() => navigator.clipboard.writeText(user.referralCode)}
               className="px-3 py-2.5 bg-oryn-orange text-white text-[10px] font-medium tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors"
             >
-              COPY
+              COPY CODE
+            </button>
+            <button
+              onClick={() => {
+                const link = `${window.location.origin}/en/products?ref=${user.referralCode}`;
+                navigator.clipboard.writeText(link);
+              }}
+              className="px-3 py-2.5 bg-oryn-black text-white text-[10px] font-medium tracking-[0.1em] hover:bg-oryn-black/80 transition-colors"
+            >
+              COPY LINK
+            </button>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[9px] font-mono text-oryn-black/30">SHARE:</span>
+            <button
+              onClick={() => {
+                const text = `Check out ORYN Peptides! Use my code ${user.referralCode}: ${window.location.origin}/en/products?ref=${user.referralCode}`;
+                window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+              }}
+              className="px-2 py-1 bg-[#25D366] text-white text-[8px] font-medium hover:bg-[#20b858] transition-colors"
+            >
+              WhatsApp
+            </button>
+            <button
+              onClick={() => {
+                const body = `Hi, check out ORYN Peptides — European biotech lab with >99% purity research peptides.\n\nUse my referral code: ${user.referralCode}\n${window.location.origin}/en/products?ref=${user.referralCode}`;
+                window.open(`mailto:?subject=${encodeURIComponent("ORYN Peptides — Research Peptides")}&body=${encodeURIComponent(body)}`, "_blank");
+              }}
+              className="px-2 py-1 bg-oryn-black text-white text-[8px] font-medium hover:bg-oryn-black/80 transition-colors"
+            >
+              Email
             </button>
           </div>
         </div>

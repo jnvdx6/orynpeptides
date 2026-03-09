@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/providers/auth";
 import { useRouter } from "next/navigation";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { OrynLogo } from "@/components/icons/OrynLogo";
+import { REFERRAL_CODE_KEY } from "@/lib/discounts";
 
 export default function RegisterPage() {
   const { register, isAuthenticated } = useAuth();
@@ -20,6 +21,14 @@ export default function RegisterPage() {
     organization: "",
     referralCodeUsed: "",
   });
+
+  // Pre-fill referral code from URL capture (via ?ref=CODE)
+  useEffect(() => {
+    const captured = localStorage.getItem(REFERRAL_CODE_KEY);
+    if (captured && !form.referralCodeUsed) {
+      setForm((prev) => ({ ...prev, referralCodeUsed: captured }));
+    }
+  }, []);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 

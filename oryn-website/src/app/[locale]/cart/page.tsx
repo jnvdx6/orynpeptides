@@ -3,6 +3,7 @@
 import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
 import { useProducts } from "@/providers/products";
+import { useWishlist } from "@/providers/wishlist";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 
@@ -15,9 +16,10 @@ const categoryImages: Record<string, string> = {
 const FREE_SHIPPING_THRESHOLD = 150;
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, totalPrice, cartLoaded } = useCart();
   const { t, formatPrice } = useLocale();
   const { products } = useProducts();
+  const { addToWishlist, isInWishlist } = useWishlist();
 
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
@@ -25,6 +27,14 @@ export default function CartPage() {
   // Suggest products not in cart
   const cartIds = new Set(items.map((i) => i.product.id));
   const suggestions = products.filter((p) => !cartIds.has(p.id) && p.badge).slice(0, 3);
+
+  if (items.length === 0 && !cartLoaded) {
+    return (
+      <div className="pt-32 min-h-screen flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-oryn-orange border-t-transparent animate-spin" />
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -121,14 +131,26 @@ export default function CartPage() {
                         {item.product.subtitle} &middot; {item.product.dosage}
                       </p>
                     </div>
-                    <button
-                      onClick={() => removeItem(item.product.id)}
-                      className="text-oryn-black/30 hover:text-red-500 transition-colors p-1"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 6L6 18M6 6l12 12" />
-                      </svg>
-                    </button>
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => {
+                          addToWishlist(item.product.id);
+                          removeItem(item.product.id);
+                        }}
+                        className="text-[9px] font-mono text-oryn-black/30 hover:text-oryn-orange transition-colors px-1 py-0.5"
+                        title="Save for later"
+                      >
+                        {isInWishlist(item.product.id) ? "SAVED" : "SAVE"}
+                      </button>
+                      <button
+                        onClick={() => removeItem(item.product.id)}
+                        className="text-oryn-black/30 hover:text-red-500 transition-colors p-1"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-3">
@@ -141,7 +163,8 @@ export default function CartPage() {
                       <span className="font-mono w-8 text-center">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="w-8 h-8 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors"
+                        disabled={item.quantity >= 10}
+                        className="w-8 h-8 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey-light disabled:hover:text-current"
                       >
                         +
                       </button>
@@ -156,7 +179,7 @@ export default function CartPage() {
           </div>
 
           {/* Summary */}
-          <div className="h-fit sticky top-28 space-y-6">
+          <div className="h-fit lg:sticky lg:top-28 space-y-6">
             <div className="bg-oryn-grey-light p-6">
               <h3 className="text-sm font-bold tracking-wide mb-6">{t.cart.orderSummary}</h3>
               <div className="space-y-3 mb-6">
