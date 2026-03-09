@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { productImages } from "@/data/products";
 import Image from "next/image";
@@ -35,6 +35,7 @@ export function ProductPageClient() {
   const { addViewed } = useRecentlyViewed();
   const [quantity, setQuantity] = useState(1);
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [addingToCart, setAddingToCart] = useState(false);
 
   // Track recently viewed
   useEffect(() => {
@@ -75,16 +76,20 @@ export function ProductPageClient() {
   const categoryLabel = productT?.categoryLabel || product.categoryLabel;
   const badge = productT?.badge || product.badge;
 
-  const related = products
-    .filter((p) => p.category === product.category && p.id !== product.id)
-    .slice(0, 3);
+  const related = useMemo(() =>
+    products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3),
+    [products, product.category, product.id]
+  );
 
-  const avgRating = detail?.reviews
-    ? detail.reviews.reduce((sum, r) => sum + r.rating, 0) / detail.reviews.length
-    : 4.8;
+  const avgRating = useMemo(() =>
+    detail?.reviews
+      ? detail.reviews.reduce((sum, r) => sum + r.rating, 0) / detail.reviews.length
+      : 4.8,
+    [detail?.reviews]
+  );
 
   return (
-    <div className="pt-[calc(1rem+4px)]">
+    <div className="pt-[calc(1rem+4px)] pb-20 lg:pb-0">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center gap-2 text-[10px] font-mono text-oryn-black/30 tracking-[0.1em]">
           <Link href="/" className="hover:text-oryn-orange transition-colors">{t.productDetail.home}</Link>
@@ -116,6 +121,7 @@ export function ProductPageClient() {
                 width={400}
                 height={400}
                 className="zoom-img object-contain transition-all duration-300 group-hover:scale-150"
+                priority
               />
               {badge && (
                 <span className="absolute top-6 left-6 px-3 py-1 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.15em] uppercase">
@@ -173,7 +179,7 @@ export function ProductPageClient() {
                 ))}
               </div>
               <span className="text-xs text-oryn-black/40 font-plex">
-                {avgRating.toFixed(1)} ({detail?.reviews?.length || 0} reviews)
+                {avgRating.toFixed(1)} ({detail?.reviews?.length || 0} {t.productDetail.reviews})
               </span>
             </div>
 
@@ -191,8 +197,8 @@ export function ProductPageClient() {
             {/* Stock indicator */}
             <div className="flex items-center gap-2 mb-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-[10px] font-mono text-green-600 tracking-[0.1em]">IN STOCK</span>
-              <span className="text-[10px] text-oryn-black/30 font-plex">— Ready to ship</span>
+              <span className="text-[10px] font-mono text-green-600 tracking-[0.1em]">{t.productDetail.inStock}</span>
+              <span className="text-[10px] text-oryn-black/30 font-plex">— {t.productDetail.readyToShip}</span>
             </div>
 
             {/* Delivery estimator */}
@@ -251,6 +257,7 @@ export function ProductPageClient() {
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                   className="w-12 h-[52px] flex items-center justify-center text-lg hover:bg-oryn-grey-light transition-colors"
+                  aria-label={t.productDetail.decreaseQuantity}
                 >
                   -
                 </button>
@@ -261,22 +268,38 @@ export function ProductPageClient() {
                   onClick={() => setQuantity((q) => Math.min(10, q + 1))}
                   className="w-12 h-[52px] flex items-center justify-center text-lg hover:bg-oryn-grey-light transition-colors disabled:opacity-30"
                   disabled={quantity >= 10}
+                  aria-label={t.productDetail.increaseQuantity}
                 >
                   +
                 </button>
               </div>
               <button
-                onClick={() => {
-                  for (let i = 0; i < quantity; i++) addItem(product);
+                onClick={async () => {
+                  setAddingToCart(true);
+                  for (let i = 0; i < quantity; i++) await addItem(product);
+                  setAddingToCart(false);
                 }}
-                className="flex-1 py-4 bg-oryn-orange text-white font-medium text-xs tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-3"
+                disabled={addingToCart}
+                className="flex-1 py-4 bg-oryn-orange text-white font-medium text-xs tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-3 disabled:opacity-70"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <path d="M16 10a4 4 0 01-8 0" />
-                </svg>
-                {t.productDetail.addToCart} &mdash; {formatPrice(product.price * quantity)}
+                {addingToCart ? (
+                  <>
+                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    {t.productDetail.adding || "ADDING..."}
+                  </>
+                ) : (
+                  <>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    {t.productDetail.addToCart} &mdash; {formatPrice(product.price * quantity)}
+                  </>
+                )}
               </button>
               <button
                 onClick={() => toggleWishlist(product.id)}
@@ -285,7 +308,7 @@ export function ProductPageClient() {
                     ? "border-oryn-orange bg-oryn-orange/5"
                     : "border-oryn-grey/30 hover:border-oryn-orange/50"
                 }`}
-                aria-label="Add to wishlist"
+                aria-label={isInWishlist(product.id) ? "Remove from wishlist" : "Add to wishlist"}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill={isInWishlist(product.id) ? "#FF6A1A" : "none"} stroke={isInWishlist(product.id) ? "#FF6A1A" : "#999"} strokeWidth="1.5">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
@@ -332,7 +355,7 @@ export function ProductPageClient() {
                         : "text-oryn-black/30 hover:text-oryn-black/60"
                     }`}
                   >
-                    {tab === "benefits" ? t.productDetail.keyBenefits : tab === "specs" ? t.productDetail.specifications : "Science"}
+                    {tab === "benefits" ? t.productDetail.keyBenefits : tab === "specs" ? t.productDetail.specifications : t.productDetail.scienceTab}
                     {activeTab === tab && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-oryn-orange" />
                     )}
@@ -371,13 +394,13 @@ export function ProductPageClient() {
                   <div className="grid grid-cols-2 gap-3">
                     {detail.science.molecularFormula && (
                       <div className="p-3 bg-oryn-orange/5 border border-oryn-orange/10">
-                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">FORMULA</span>
+                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.formulaLabel}</span>
                         <p className="text-xs font-medium mt-1">{detail.science.molecularFormula}</p>
                       </div>
                     )}
                     {detail.science.molecularWeight && (
                       <div className="p-3 bg-oryn-orange/5 border border-oryn-orange/10">
-                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">WEIGHT</span>
+                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.weightLabel}</span>
                         <p className="text-xs font-medium mt-1">{detail.science.molecularWeight}</p>
                       </div>
                     )}
@@ -449,23 +472,26 @@ export function ProductPageClient() {
       <section className="bg-oryn-black py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Ready to experience {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}?
+            {t.productDetail.readyToExperience} {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}?
           </h2>
           <p className="text-sm text-white/50 font-plex mb-8 max-w-lg mx-auto">
-            Premium pen delivery system with fully adjustable dosing. GMP manufactured, &gt;99% purity guaranteed.
+            {t.productDetail.premiumPenDescription}
           </p>
           <button
-            onClick={() => {
-              for (let i = 0; i < quantity; i++) addItem(product);
+            onClick={async () => {
+              setAddingToCart(true);
+              for (let i = 0; i < quantity; i++) await addItem(product);
+              setAddingToCart(false);
             }}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-oryn-orange text-white font-medium text-xs tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors"
+            disabled={addingToCart}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-oryn-orange text-white font-medium text-xs tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors disabled:opacity-70"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-            ADD TO CART &mdash; {formatPrice(product.price)}
+            {addingToCart ? (t.productDetail.adding || "ADDING...") : `${t.productDetail.addToCart} — ${formatPrice(product.price)}`}
           </button>
         </div>
       </section>
@@ -488,7 +514,7 @@ export function ProductPageClient() {
       <section className="bg-oryn-cream border-t border-oryn-orange/10 py-10">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-            BUY {(product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`).toUpperCase()} IN YOUR CITY
+            {t.productDetail.buyInYourCity.replace("{product}", (product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`).toUpperCase())}
           </h2>
           <div className="flex flex-wrap gap-x-3 gap-y-1.5">
             {[
@@ -570,7 +596,7 @@ export function ProductPageClient() {
             return (
               <div className="mt-6">
                 <h3 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-3">
-                  RELATED RESEARCH
+                  {t.productDetail.relatedResearch}
                 </h3>
                 <div className="flex flex-wrap gap-x-4 gap-y-1.5">
                   {articles.map((a) => (
@@ -598,23 +624,35 @@ export function ProductPageClient() {
       </section>
 
       {/* Sticky mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-oryn-orange/20 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-oryn-orange/20 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 shrink-0">
             <span className="text-lg font-bold text-oryn-orange">{formatPrice(product.price)}</span>
           </div>
           <button
-            onClick={() => {
-              for (let i = 0; i < quantity; i++) addItem(product);
+            onClick={async () => {
+              setAddingToCart(true);
+              for (let i = 0; i < quantity; i++) await addItem(product);
+              setAddingToCart(false);
             }}
-            className="flex-1 py-3.5 bg-oryn-orange text-white font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2"
+            disabled={addingToCart}
+            className="flex-1 py-3.5 bg-oryn-orange text-white font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 01-8 0" />
-            </svg>
-            {t.productDetail.addToCart}
+            {addingToCart ? (
+              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+            ) : (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                {t.productDetail.addToCart}
+              </>
+            )}
           </button>
         </div>
       </div>
@@ -646,6 +684,7 @@ export function ProductPageClient() {
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                   className="w-8 h-10 flex items-center justify-center text-sm hover:bg-oryn-grey-light transition-colors"
+                  aria-label={t.productDetail.decreaseQuantity}
                 >
                   -
                 </button>
@@ -656,22 +695,35 @@ export function ProductPageClient() {
                   onClick={() => setQuantity((q) => Math.min(10, q + 1))}
                   className="w-8 h-10 flex items-center justify-center text-sm hover:bg-oryn-grey-light transition-colors disabled:opacity-30"
                   disabled={quantity >= 10}
+                  aria-label={t.productDetail.increaseQuantity}
                 >
                   +
                 </button>
               </div>
               <button
-                onClick={() => {
-                  for (let i = 0; i < quantity; i++) addItem(product);
+                onClick={async () => {
+                  setAddingToCart(true);
+                  for (let i = 0; i < quantity; i++) await addItem(product);
+                  setAddingToCart(false);
                 }}
-                className="px-6 py-2.5 bg-oryn-orange text-white font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-2"
+                disabled={addingToCart}
+                className="px-6 py-2.5 bg-oryn-orange text-white font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-2 disabled:opacity-70"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <path d="M16 10a4 4 0 01-8 0" />
-                </svg>
-                {t.productDetail.addToCart} &mdash; {formatPrice(product.price * quantity)}
+                {addingToCart ? (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    {t.productDetail.addToCart} &mdash; {formatPrice(product.price * quantity)}
+                  </>
+                )}
               </button>
               <button
                 onClick={() => toggleWishlist(product.id)}

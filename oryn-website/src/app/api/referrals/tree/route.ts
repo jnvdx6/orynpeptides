@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ tree });
   } catch (error) {
-    console.error('Referral tree error:', error);
+    console.error('Referral tree error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

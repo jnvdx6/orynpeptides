@@ -6,6 +6,7 @@ import { Link } from "@/components/ui/LocaleLink";
 
 export function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const { t } = useLocale();
   const c = t.contactPage;
 
@@ -108,7 +109,12 @@ export function ContactClient() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    setSubmitted(true);
+                    setSubmitting(true);
+                    // Simulate submission delay for UX feedback
+                    setTimeout(() => {
+                      setSubmitting(false);
+                      setSubmitted(true);
+                    }, 1000);
                   }}
                   className="space-y-6"
                 >
@@ -188,9 +194,18 @@ export function ContactClient() {
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors shadow-lg shadow-oryn-orange/20"
+                    disabled={submitting}
+                    className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors shadow-lg shadow-oryn-orange/20 disabled:opacity-70 flex items-center justify-center gap-2"
                   >
-                    {c.sendMessage}
+                    {submitting ? (
+                      <>
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        {c.sendMessage}
+                      </>
+                    ) : c.sendMessage}
                   </button>
                 </form>
               )}
@@ -202,14 +217,9 @@ export function ContactClient() {
       {/* Common Questions */}
       <section className="py-16 bg-white border-t border-oryn-grey/10">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-6">BEFORE YOU CONTACT US</h2>
+          <h2 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-6">{t.contactFaq.title}</h2>
           <div className="divide-y divide-oryn-grey/15">
-            {[
-              { q: "How long does delivery take?", a: "UK orders: 2-4 business days. Europe: 3-7 business days. All orders ship in discreet, temperature-controlled packaging." },
-              { q: "Can I track my order?", a: "Yes! Once dispatched, you'll receive a tracking number via email. You can also track orders in your account dashboard." },
-              { q: "What is your return policy?", a: "We offer a 30-day money-back guarantee on unopened products. Contact us at info@orynlabs.com to initiate a return." },
-              { q: "Do you offer wholesale pricing?", a: "Yes, contact wholesale@orynlabs.com for bulk pricing. We offer tiered discounts for research institutions and resellers." },
-            ].map((item, i) => (
+            {t.contactFaq.items.map((item, i) => (
               <details key={i} className="group">
                 <summary className="flex items-center justify-between py-4 cursor-pointer hover:text-oryn-orange transition-colors">
                   <span className="text-sm font-medium pr-4">{item.q}</span>

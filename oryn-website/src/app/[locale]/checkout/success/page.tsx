@@ -25,10 +25,12 @@ function SuccessContent() {
     } else if (redirectStatus === "failed") {
       setStatus("error");
     } else if (paymentIntentId) {
+      // Payment intent exists but no redirect_status — treat as success
       setStatus("success");
       clearCart();
     } else {
-      setStatus("success");
+      // No payment info at all — user landed here directly
+      setStatus("error");
     }
   }, [redirectStatus, paymentIntentId, clearCart]);
 
@@ -56,7 +58,7 @@ function SuccessContent() {
             />
           </svg>
           <span className="text-oryn-black/50 font-plex">
-            Verifying payment...
+            {ch.verifyingPayment}
           </span>
         </div>
       </div>
@@ -81,16 +83,15 @@ function SuccessContent() {
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
           </div>
-          <h1 className="text-2xl font-bold mb-3">Payment Failed</h1>
+          <h1 className="text-2xl font-bold mb-3">{ch.paymentFailed}</h1>
           <p className="text-oryn-black/50 font-plex mb-6">
-            Your payment could not be processed. Please try again or use a
-            different payment method.
+            {ch.paymentFailedDescription}
           </p>
           <Link
             href="/checkout"
             className="px-8 py-3.5 bg-oryn-orange text-white text-sm font-medium hover:bg-oryn-orange-dark transition-colors shadow-md shadow-oryn-orange/20"
           >
-            Try Again
+            {ch.tryAgain}
           </Link>
         </div>
       </div>
@@ -144,18 +145,14 @@ function SuccessContent() {
 
         {/* What happens next */}
         <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-6 mb-8 text-left">
-          <h3 className="text-xs font-bold text-oryn-orange mb-4 tracking-wide">WHAT HAPPENS NEXT</h3>
+          <h3 className="text-xs font-bold text-oryn-orange mb-4 tracking-wide">{ch.whatHappensNext}</h3>
           <div className="space-y-3">
-            {[
-              { step: "1", text: "Order confirmation email sent to your inbox" },
-              { step: "2", text: "Your order is being prepared & quality checked" },
-              { step: "3", text: "Shipped with tracked delivery — usually next business day" },
-            ].map((item) => (
-              <div key={item.step} className="flex items-start gap-3">
+            {ch.nextSteps.map((text, i) => (
+              <div key={i} className="flex items-start gap-3">
                 <div className="w-6 h-6 bg-oryn-orange text-white flex items-center justify-center text-[10px] font-bold shrink-0">
-                  {item.step}
+                  {i + 1}
                 </div>
-                <span className="text-xs text-oryn-black/60 font-plex pt-0.5">{item.text}</span>
+                <span className="text-xs text-oryn-black/60 font-plex pt-0.5">{text}</span>
               </div>
             ))}
           </div>
@@ -172,21 +169,21 @@ function SuccessContent() {
             href="/account/orders"
             className="px-8 py-3.5 border border-oryn-grey/30 text-sm font-medium hover:border-oryn-orange/30 hover:text-oryn-orange transition-colors inline-block"
           >
-            VIEW ORDERS
+            {ch.viewOrders}
           </Link>
         </div>
 
         {/* Referral CTA */}
         <div className="mt-8 p-5 bg-oryn-black text-white">
-          <h3 className="text-sm font-bold mb-2">Share ORYN & earn 10% commission</h3>
+          <h3 className="text-sm font-bold mb-2">{ch.referralTitle}</h3>
           <p className="text-[10px] text-white/50 font-plex mb-4">
-            Love our products? Share your referral link and earn 10% on every purchase.
+            {ch.referralDescription}
           </p>
           <Link
             href="/account/referrals"
             className="text-[10px] text-oryn-orange font-medium tracking-[0.15em] hover:underline"
           >
-            GET YOUR REFERRAL LINK →
+            {ch.getReferralLink}
           </Link>
         </div>
       </div>
@@ -195,6 +192,7 @@ function SuccessContent() {
 }
 
 export default function CheckoutSuccessPage() {
+  const { t } = useLocale();
   return (
     <Suspense
       fallback={
@@ -220,7 +218,7 @@ export default function CheckoutSuccessPage() {
               />
             </svg>
             <span className="text-oryn-black/50 font-plex">
-              Verifying payment...
+              {t.checkoutPage.verifyingPayment}
             </span>
           </div>
         </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function AddToCartToast() {
   const { lastAdded } = useCart();
-  const { formatPrice } = useLocale();
+  const { formatPrice, t } = useLocale();
 
   return (
     <div
@@ -29,7 +29,7 @@ export function AddToCartToast() {
           </div>
           <div className="min-w-0">
             <p className="text-[10px] font-mono text-oryn-orange tracking-[0.1em] mb-0.5">
-              ADDED TO CART
+              {t.toast.addedToCart}
             </p>
             <p className="text-xs font-bold truncate">{lastAdded.name}</p>
             <p className="text-[10px] text-oryn-black/40 font-mono">

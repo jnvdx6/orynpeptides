@@ -1,6 +1,7 @@
 "use client";
 
 import type { ProductDetail } from "@/data/product-details";
+import { useLocale } from "@/i18n/LocaleContext";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -23,6 +24,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function ProductReviews({ detail, productName }: { detail: ProductDetail; productName: string }) {
+  const { t } = useLocale();
   const avgRating = detail.reviews.reduce((sum, r) => sum + r.rating, 0) / detail.reviews.length;
 
   return (
@@ -30,16 +32,16 @@ export function ProductReviews({ detail, productName }: { detail: ProductDetail;
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-            TRUSTED BY RESEARCHERS
+            {t.productDetail.trustedByResearchers}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 tracking-tight">
-            What Labs Say About {productName}
+            {t.productDetail.whatLabsSay} {productName}
           </h2>
           <div className="flex items-center justify-center gap-3 mt-4">
             <StarRating rating={Math.round(avgRating)} />
             <span className="text-sm font-bold text-oryn-orange">{avgRating.toFixed(1)}</span>
             <span className="text-[10px] text-oryn-black/40 font-plex">
-              from {detail.reviews.length} verified reviews
+              {t.productDetail.fromVerifiedReviews.replace("{count}", String(detail.reviews.length))}
             </span>
           </div>
         </div>
@@ -54,7 +56,7 @@ export function ProductReviews({ detail, productName }: { detail: ProductDetail;
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    VERIFIED
+                    {t.productDetail.verifiedLabel}
                   </span>
                 )}
               </div>

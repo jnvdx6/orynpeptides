@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { UK_CITIES, getCityBySlug, CITY_SLUGS } from "@/data/uk-cities";
+import { LONDON_ZONES } from "@/data/london-areas";
 import { products } from "@/data/products";
 import { productImages } from "@/data/products";
 import {
@@ -13,16 +14,11 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { RelatedContent } from "@/components/seo/RelatedContent";
 
 export async function generateStaticParams() {
-  const params = [];
-  for (const locale of locales) {
-    for (const slug of CITY_SLUGS) {
-      params.push({ locale, city: slug });
-    }
-  }
-  return params;
+  // UK city pages — EN only
+  return CITY_SLUGS.map((slug) => ({ locale: "en", city: slug }));
 }
 
 export async function generateMetadata({
@@ -46,7 +42,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/${citySlug}`,
+      canonical: `${SITE_URL}/en/peptides/${citySlug}`,
     },
   };
 }
@@ -366,6 +362,45 @@ export default async function CityPage({
             ))}
           </div>
         </section>
+
+        {/* London Boroughs — only shown on London page */}
+        {city.slug === "london" && (
+          <section className="bg-oryn-cream py-16 border-t border-oryn-orange/10">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="inline-flex items-center gap-3 mb-2">
+                <div className="w-6 h-px bg-oryn-orange" />
+                <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
+                  LONDON NEIGHBOURHOODS
+                </span>
+              </div>
+              <h2 className="text-2xl font-bold mb-8">Peptide Delivery Across London</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                {(Object.entries(LONDON_ZONES) as [string, typeof LONDON_ZONES.central][]).map(([zone, areas]) => (
+                  <div key={zone}>
+                    <h3 className="text-[10px] font-mono font-bold text-oryn-orange tracking-[0.2em] mb-3">
+                      {zone.toUpperCase()} LONDON
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {areas.map((a) => (
+                        <li key={a.slug}>
+                          <Link
+                            href={`/${locale}/peptides/london/${a.slug}`}
+                            className="text-xs text-oryn-black/50 hover:text-oryn-orange transition-colors font-plex"
+                          >
+                            {a.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Related Content */}
+        <RelatedContent categorySlug="recovery" locale={locale} />
 
         {/* CTA */}
         <section className="bg-oryn-orange py-16">

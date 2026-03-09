@@ -249,7 +249,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 resolvedVariantId = medusaProducts[0].variants[0].id;
               }
             } catch {
-              console.warn("Failed to resolve variant for:", product.slug);
+              // Variant resolution failed, will use local fallback
             }
           }
 
@@ -267,8 +267,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
               return; // Success — Medusa is source of truth
             }
           }
-        } catch (err) {
-          console.warn("Failed to add item to Medusa cart:", err);
+        } catch {
+          // Falls through to local state fallback
         }
       }
 
@@ -306,8 +306,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
             );
             setCart(updatedCart as unknown as MedusaCart);
             return;
-          } catch (err) {
-            console.warn("Failed to remove item from Medusa cart:", err);
+          } catch {
+            // Falls through to local state fallback
           }
         }
       }
@@ -341,8 +341,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
             );
             setCart(updatedCart as unknown as MedusaCart);
             return;
-          } catch (err) {
-            console.warn("Failed to update Medusa cart item:", err);
+          } catch {
+            // Falls through to local state fallback
           }
         }
       }
@@ -371,8 +371,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       try {
         const { cart: updatedCart } = await sdk.store.cart.update(cart.id, { email });
         setCart(updatedCart as unknown as MedusaCart);
-      } catch (err) {
-        console.warn("Failed to set cart email:", err);
+      } catch {
+        // Silent fail — email will be set on next attempt
       }
     },
     [cart, medusaConnected]
@@ -396,8 +396,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
           billing_address: medusaAddress,
         });
         setCart(updatedCart as unknown as MedusaCart);
-      } catch (err) {
-        console.warn("Failed to set cart address:", err);
+      } catch {
+        // Silent fail — address will be set on next attempt
       }
     },
     [cart, medusaConnected]
@@ -412,8 +412,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
           { option_id: optionId }
         );
         setCart(updatedCart as unknown as MedusaCart);
-      } catch (err) {
-        console.warn("Failed to add shipping method:", err);
+      } catch {
+        // Silent fail — shipping method selection won't persist
       }
     },
     [cart, medusaConnected]
@@ -424,24 +424,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (!cart || !medusaConnected) return;
       setLoading(true);
       try {
-        console.log("[Cart] initPaymentSession: retrieving fresh cart...", cart.id);
         const { cart: freshCart } = await sdk.store.cart.retrieve(cart.id);
-        console.log("[Cart] Fresh cart retrieved. payment_collection:", freshCart.payment_collection?.id || "none");
-        console.log("[Cart] Calling initiatePaymentSession with provider:", providerId);
-        const payResult = await sdk.store.payment.initiatePaymentSession(freshCart as Parameters<typeof sdk.store.payment.initiatePaymentSession>[0], {
+        await sdk.store.payment.initiatePaymentSession(freshCart as Parameters<typeof sdk.store.payment.initiatePaymentSession>[0], {
           provider_id: providerId,
         });
-        console.log("[Cart] Payment session created:", JSON.stringify(payResult).substring(0, 200));
-        console.log("[Cart] Re-retrieving cart for updated payment data...");
         const { cart: updatedCart } = await sdk.store.cart.retrieve(cart.id);
-        const sessions = (updatedCart as unknown as MedusaCart).payment_collection?.payment_sessions;
-        console.log("[Cart] Updated cart payment_sessions:", sessions?.length || 0);
-        if (sessions?.[0]?.data) {
-          console.log("[Cart] client_secret present:", !!(sessions[0].data as Record<string, unknown>).client_secret);
-        }
         setCart(updatedCart as unknown as MedusaCart);
-      } catch (err) {
-        console.error("[Cart] FAILED to init payment session:", err);
+      } catch {
+        // Payment session init failed
       } finally {
         setLoading(false);
       }
@@ -460,8 +450,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         clearCart();
       }
       return result as { type: string; order?: unknown; cart?: unknown };
-    } catch (err) {
-      console.error("Failed to complete cart:", err);
+    } catch {
       return { type: "error" };
     } finally {
       setLoading(false);
@@ -549,3 +538,5 @@ export function useCart() {
   if (!context) throw new Error("useCart must be used within CartProvider");
   return context;
 }
+
+

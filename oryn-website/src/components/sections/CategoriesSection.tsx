@@ -73,6 +73,7 @@ export function CategoriesSection() {
  alt={cat.name}
  width={240}
  height={180}
+ loading="lazy"
  className="object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
  />
  </div>

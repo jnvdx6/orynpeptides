@@ -9,6 +9,12 @@ export interface Dictionary {
   header: {
     announcementText: string;
     shopNow: string;
+    myAccount: string;
+    signIn: string;
+    searchPlaceholder: string;
+    noResults: string;
+    typeToSearch: string;
+    viewAll: string;
   };
 
   nav: {
@@ -16,6 +22,8 @@ export interface Dictionary {
     science: string;
     about: string;
     contact: string;
+    compare: string;
+    learn: string;
   };
 
   hero: {
@@ -90,6 +98,18 @@ export interface Dictionary {
     }>;
   };
 
+  howItWorks: {
+    label: string;
+    titleLine1: string;
+    titleLine2: string;
+    description: string;
+    cta: string;
+    steps: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
+
   quality: {
     label: string;
     titleLine1: string;
@@ -110,6 +130,7 @@ export interface Dictionary {
     valueProp1: string;
     valueProp2: string;
     valueProp3: string;
+    badges: Array<{ value: string; label: string }>;
   };
 
   footer: {
@@ -136,12 +157,33 @@ export interface Dictionary {
       about: string;
       science: string;
       contact: string;
+      quality: string;
+      whyOryn: string;
+      researchHub: string;
+      calculator: string;
+    };
+    trustBadges: {
+      ssl: string;
+      secure: string;
+      coa: string;
+      guarantee: string;
     };
     legalLinks: {
       terms: string;
       privacy: string;
       disclaimer: string;
     };
+    seoSections: {
+      researchAreas: string;
+      learn: string;
+      ukDelivery: string;
+      ukRegions: string;
+      peptideEncyclopedia: string;
+      resources: string;
+      londonDelivery: string;
+    };
+    certifications: Array<{ label: string; detail: string }>;
+    copyright: string;
   };
 
   productCard: {
@@ -172,6 +214,7 @@ export interface Dictionary {
     free: string;
     atCheckout: string;
     total: string;
+    volumeDiscount: string;
   };
 
   productsPage: {
@@ -181,6 +224,14 @@ export interface Dictionary {
     all: string;
     disclaimer: string;
     results: string;
+    searchPlaceholder: string;
+    sortBy: string;
+    sortPriceAsc: string;
+    sortPriceDesc: string;
+    sortName: string;
+    noResults: string;
+    noCategory: string;
+    clearFilters: string;
   };
 
   productDetail: {
@@ -190,6 +241,7 @@ export interface Dictionary {
     products: string;
     perUnit: string;
     addToCart: string;
+    adding: string;
     keyBenefits: string;
     specifications: string;
     researchOnlyTitle: string;
@@ -200,6 +252,64 @@ export interface Dictionary {
     trustCOA: string;
     secureCheckout: string;
     discreetShipping: string;
+    inStock: string;
+    readyToShip: string;
+    reviews: string;
+    scienceTab: string;
+    readyToExperience: string;
+    premiumPenDescription: string;
+    // Product section headings
+    dosingProtocol: string;
+    howToUse: string;
+    quickReference: string;
+    recommendedDose: string;
+    frequency: string;
+    duration: string;
+    proTips: string;
+    stepByStep: string;
+    importantLabel: string;
+    safetyNote: string;
+    scienceLabel: string;
+    scienceBehind: string;
+    compoundProfile: string;
+    classificationLabel: string;
+    molecularFormula: string;
+    molecularWeightLabel: string;
+    halfLifeLabel: string;
+    sequenceLabel: string;
+    researchAreasLabel: string;
+    mechanismOfAction: string;
+    keyResearchFindings: string;
+    trustedByResearchers: string;
+    whatLabsSay: string;
+    fromVerifiedReviews: string;
+    verifiedLabel: string;
+    faqLabel: string;
+    frequentlyAsked: string;
+    buyInYourCity: string;
+    relatedResearch: string;
+    formulaLabel: string;
+    weightLabel: string;
+    // Cart slider
+    add: string;
+    // Accessibility
+    closeCart: string;
+    decreaseQuantity: string;
+    increaseQuantity: string;
+    removeItem: string;
+    toggleWishlist: string;
+    closeSearch: string;
+    closePopup: string;
+    // Trust signals (exit intent)
+    purityBadge: string;
+    gmpBadge: string;
+    freeShippingBadge: string;
+    // Pen Advantage section
+    whyChoosePen: string;
+    traditionalVials: string;
+    orynPenSystem: string;
+    vialProblems: Array<{ label: string; detail: string }>;
+    comparisonBar: Array<{ vial: string; pen: string; label: string }>;
   };
 
   aboutPage: {
@@ -336,6 +446,69 @@ export interface Dictionary {
     paymentConfirmed: string;
     referralApplied: string;
     continueShopping: string;
+    secureCheckout: string;
+    orderRef: string;
+    contactShipping: string;
+    change: string;
+    emailPlaceholder: string;
+    shippingAddress: string;
+    useSavedAddress: string;
+    selectCountry: string;
+    firstNamePlaceholder: string;
+    lastNamePlaceholder: string;
+    addressPlaceholder: string;
+    apartmentPlaceholder: string;
+    cityPlaceholder: string;
+    postalCodePlaceholder: string;
+    phonePlaceholder: string;
+    continueToShipping: string;
+    shippingMethod: string;
+    loadingShipping: string;
+    freeShippingApplied: string;
+    freeShippingLabel: string;
+    freeStandardShipping: string;
+    returnToInformation: string;
+    returnToShipping: string;
+    contact: string;
+    shipTo: string;
+    method: string;
+    free: string;
+    required: string;
+    validEmailRequired: string;
+    invalidCode: string;
+    failedToValidate: string;
+    hideOrderSummary: string;
+    showOrderSummary: string;
+    discount: string;
+    volumeDiscountLabel: string;
+    calculatedNextStep: string;
+    securePayment: string;
+    discreetShipping: string;
+    coaIncluded: string;
+    gmpCertified: string;
+    allSecure: string;
+    backendRequired: string;
+    backendDescription: string;
+    promoCodePlaceholder: string;
+    apply: string;
+    referralPlaceholder: string;
+    sslEncrypted: string;
+    purity99: string;
+    guaranteed: string;
+    gmpCertifiedBadge: string;
+    guarantee30: string;
+    noQuestions: string;
+    emailHint: string;
+    verifyingPayment: string;
+    paymentFailed: string;
+    paymentFailedDescription: string;
+    tryAgain: string;
+    whatHappensNext: string;
+    nextSteps: string[];
+    viewOrders: string;
+    referralTitle: string;
+    referralDescription: string;
+    getReferralLink: string;
   };
 
   products: Record<
@@ -371,5 +544,317 @@ export interface Dictionary {
     label: string;
     uk: string;
     eu: string;
+  };
+
+  wishlistPage: {
+    title: string;
+    breadcrumb: string;
+    empty: string;
+    emptyTitle: string;
+    emptyDescription: string;
+    browseProducts: string;
+    itemsSaved: string;
+    itemSaved: string;
+  };
+
+  faq: {
+    title: string;
+    label: string;
+  };
+
+  contactFaq: {
+    title: string;
+    items: Array<{ q: string; a: string }>;
+  };
+
+  homeFaq: {
+    items: Array<{ q: string; a: string }>;
+  };
+
+  cookie: {
+    message: string;
+    privacyPolicy: string;
+    acceptAll: string;
+    essentialOnly: string;
+  };
+
+  toast: {
+    addedToCart: string;
+  };
+
+  popups: {
+    firstVisit: {
+      discount: string;
+      yourFirstOrder: string;
+      code: string;
+      tagline: string;
+      title: string;
+      description: string;
+      benefits: string[];
+      shopNow: string;
+      noThanks: string;
+    };
+    exitIntent: {
+      tagline: string;
+      title: string;
+      description: string;
+      placeholder: string;
+      claimDiscount: string;
+      noSpam: string;
+      welcomeTitle: string;
+      welcomeMessage: string;
+    };
+  };
+
+  payment: {
+    processing: string;
+    loadingPayment: string;
+    completeOrder: string;
+    sslEncrypted: string;
+    pciCompliant: string;
+    paymentFailed: string;
+    unexpectedError: string;
+    notCompleted: string;
+    preparingPayment: string;
+  };
+
+  volumeDiscount: {
+    applied: string;
+    addMore: string;
+    title: string;
+    items: string;
+    off: string;
+    active: string;
+    unlockMore: string;
+  };
+
+  frequentlyBought: {
+    title: string;
+    save: string;
+    bundlePrice: string;
+    addAll: string;
+  };
+
+  recentlyViewed: {
+    title: string;
+  };
+
+  share: {
+    label: string;
+  };
+
+  socialProof: {
+    from: string;
+    purchased: string;
+    minAgo: string;
+  };
+
+  flashSale: {
+    flash: string;
+    weekend: string;
+  };
+
+  account: {
+    nav: {
+      dashboard: string;
+      orders: string;
+      referrals: string;
+      wishlist: string;
+      profile: string;
+      signOut: string;
+    };
+    dashboard: {
+      welcome: string;
+      subtitle: string;
+      yourOrders: string;
+      yourOrdersDesc: string;
+      profileSettings: string;
+      profileSettingsDesc: string;
+      shopPeptides: string;
+      shopPeptidesDesc: string;
+      orynRewards: string;
+      earnPoints: string;
+      points: string;
+      tier: string;
+      member: string;
+      nextReward: string;
+      nextRewardValue: string;
+      multiplier: string;
+      multiplierValue: string;
+      inviteEarn: string;
+      viewDashboard: string;
+      inviteDescription: string;
+      copyCode: string;
+      copyLink: string;
+      share: string;
+      accountBenefits: string;
+      benefits: Array<{ title: string; desc: string }>;
+    };
+    login: {
+      title: string;
+      subtitle: string;
+      email: string;
+      password: string;
+      emailPlaceholder: string;
+      passwordPlaceholder: string;
+      signingIn: string;
+      signIn: string;
+      noAccount: string;
+      createOne: string;
+      continueWithout: string;
+      loginFailed: string;
+    };
+    register: {
+      title: string;
+      subtitle: string;
+      firstName: string;
+      lastName: string;
+      email: string;
+      emailPlaceholder: string;
+      password: string;
+      passwordPlaceholder: string;
+      confirmPassword: string;
+      organization: string;
+      organizationPlaceholder: string;
+      referralCode: string;
+      referralCodePlaceholder: string;
+      creating: string;
+      createAccount: string;
+      termsPrefix: string;
+      termsOfService: string;
+      and: string;
+      privacyPolicy: string;
+      hasAccount: string;
+      signIn: string;
+      passwordsMismatch: string;
+      passwordTooShort: string;
+      registrationFailed: string;
+    };
+    profile: {
+      title: string;
+      subtitle: string;
+      personalInfo: string;
+      firstName: string;
+      lastName: string;
+      email: string;
+      emailNotChangeable: string;
+      referralCode: string;
+      saveChanges: string;
+      saved: string;
+      changePassword: string;
+      currentPassword: string;
+      newPassword: string;
+      newPasswordPlaceholder: string;
+      confirmNewPassword: string;
+      updatePassword: string;
+      passwordUpdated: string;
+      passwordsMismatch: string;
+      passwordTooShort: string;
+    };
+    orders: {
+      title: string;
+      subtitle: string;
+      noOrders: string;
+      noOrdersDesc: string;
+      browseProducts: string;
+      addedToCart: string;
+      reorder: string;
+      items: string;
+      item: string;
+    };
+    orderDetail: {
+      notFound: string;
+      backToOrders: string;
+      ordersBreadcrumb: string;
+      orderTitle: string;
+      placedOn: string;
+      print: string;
+      orderTracking: string;
+      pending: string;
+      processing: string;
+      shipped: string;
+      delivered: string;
+      cancelled: string;
+      orderItems: string;
+      qty: string;
+      subtotal: string;
+      shipping: string;
+      free: string;
+      discount: string;
+      total: string;
+      shippingAddress: string;
+      shippingNotAvailable: string;
+      payment: string;
+      method: string;
+      status: string;
+      addedToCart: string;
+      reorderAll: string;
+      needHelp: string;
+      needHelpDesc: string;
+    };
+    referrals: {
+      title: string;
+      subtitle: string;
+      yourCode: string;
+      copied: string;
+      copyCode: string;
+      yourLink: string;
+      copyLink: string;
+      shareVia: string;
+      whatsapp: string;
+      email: string;
+      directReferrals: string;
+      networkSize: string;
+      totalEarned: string;
+      available: string;
+      earningsByLevel: string;
+      levelLabel: string;
+      commission: string;
+      ordersLabel: string;
+      pending: string;
+      approved: string;
+      paidOut: string;
+      yourReferrals: string;
+      commissionHistory: string;
+      tableOrder: string;
+      tableLevel: string;
+      tableRate: string;
+      tableAmount: string;
+      tableStatus: string;
+      tableDate: string;
+      howItWorks: string;
+      steps: Array<{ title: string; desc: string }>;
+    };
+    wishlist: {
+      title: string;
+      itemsSaved: string;
+      itemSaved: string;
+      empty: string;
+      emptyDesc: string;
+      browseProducts: string;
+      addToCart: string;
+      remove: string;
+    };
+    savedAddresses: {
+      title: string;
+      cancel: string;
+      addAddress: string;
+      labelField: string;
+      labelPlaceholder: string;
+      firstName: string;
+      lastName: string;
+      address: string;
+      city: string;
+      postcode: string;
+      country: string;
+      phone: string;
+      setAsDefault: string;
+      saveAddress: string;
+      noAddresses: string;
+      default: string;
+      setDefault: string;
+      remove: string;
+      countries: Record<string, string>;
+    };
   };
 }

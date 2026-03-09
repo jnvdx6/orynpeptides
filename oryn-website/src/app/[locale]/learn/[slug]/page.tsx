@@ -12,6 +12,7 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { RelatedContent } from "@/components/seo/RelatedContent";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -47,6 +48,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/learn/${slug}`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/learn/${slug}`])
+      ),
     },
   };
 }
@@ -244,6 +248,9 @@ export default async function ArticlePage({
             </div>
           </section>
         )}
+
+        {/* Related Content */}
+        <RelatedContent locale={locale} />
 
         {/* CTA */}
         <section className="bg-oryn-orange py-16">

@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ settings });
   } catch (error) {
-    console.error('Admin settings GET error:', error);
+    console.error('Admin settings GET error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -74,7 +74,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({ settings: updatedSettings });
   } catch (error) {
-    console.error('Admin settings PUT error:', error);
+    console.error('Admin settings PUT error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

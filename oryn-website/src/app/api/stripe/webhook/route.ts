@@ -35,10 +35,6 @@ export async function POST(request: NextRequest) {
   switch (event.type) {
     case 'payment_intent.succeeded': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      console.log(
-        `Payment succeeded: ${paymentIntent.id} - ${paymentIntent.amount / 100} ${paymentIntent.currency.toUpperCase()}`
-      );
-
       // Find the order by payment intent metadata or match by amount
       const orders = await getOrders();
       const referralCode = paymentIntent.metadata?.referralCode;
@@ -76,7 +72,7 @@ export async function POST(request: NextRequest) {
             }
             await updateOrder(matchedOrder.id, { commissionsGenerated: true });
           } catch (err) {
-            console.error('Commission generation error:', err);
+            console.error('Commission generation error:', err instanceof Error ? err.message : 'Unknown error');
           }
         }
 
@@ -100,10 +96,6 @@ export async function POST(request: NextRequest) {
 
     case 'payment_intent.payment_failed': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      console.log(
-        `Payment failed: ${paymentIntent.id} - ${paymentIntent.last_payment_error?.message}`
-      );
-
       // Update order status if found
       const orderRef = paymentIntent.metadata?.orderRef;
       if (orderRef) {
@@ -125,15 +117,11 @@ export async function POST(request: NextRequest) {
       break;
     }
 
-    case 'charge.succeeded': {
-      const charge = event.data.object as Stripe.Charge;
-      console.log(`Charge succeeded: ${charge.id}`);
+    case 'charge.succeeded':
       break;
-    }
 
     case 'charge.refunded': {
       const charge = event.data.object as Stripe.Charge;
-      console.log(`Charge refunded: ${charge.id}`);
 
       // Handle refund - update order and cancel commissions
       const piId = charge.payment_intent as string;
@@ -160,7 +148,7 @@ export async function POST(request: NextRequest) {
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
+      break;
   }
 
   return NextResponse.json({ received: true });

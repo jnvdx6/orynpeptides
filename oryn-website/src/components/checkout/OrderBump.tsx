@@ -9,7 +9,7 @@ import { productImages } from "@/data/products";
 export function OrderBump() {
   const { items, addItem } = useCart();
   const { products } = useProducts();
-  const { formatPrice } = useLocale();
+  const { formatPrice, locale } = useLocale();
 
   // Find a good product to suggest — prefer popular items not in cart
   const cartSlugs = new Set(items.map((i) => i.product.slug));
@@ -34,7 +34,7 @@ export function OrderBump() {
           </svg>
         </div>
         <span className="text-[10px] font-mono text-oryn-orange tracking-[0.15em] font-bold">
-          ADD TO YOUR ORDER
+          {locale === "es" ? "AÑADE A TU PEDIDO" : "ADD TO YOUR ORDER"}
         </span>
       </div>
 
@@ -65,7 +65,7 @@ export function OrderBump() {
           onClick={() => addItem(bump)}
           className="shrink-0 px-4 py-2.5 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors"
         >
-          YES, ADD IT
+          {locale === "es" ? "SÍ, AÑADIR" : "YES, ADD IT"}
         </button>
       </div>
     </div>

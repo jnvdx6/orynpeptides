@@ -31,6 +31,7 @@ export function ProductCard({ product }: { product: Product }) {
           alt={`ORYN ${product.name}`}
           width={240}
           height={180}
+          loading="lazy"
           className="object-contain group-hover:scale-105 transition-transform duration-500"
         />
 
@@ -54,9 +55,9 @@ export function ProductCard({ product }: { product: Product }) {
           className={`absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center bg-white/90 transition-all z-10 ${
             isInWishlist(product.id)
               ? "opacity-100"
-              : "opacity-0 group-hover:opacity-100"
+              : "opacity-100 md:opacity-0 md:group-hover:opacity-100"
           }`}
-          aria-label="Toggle wishlist"
+          aria-label={t.productDetail.toggleWishlist}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill={isInWishlist(product.id) ? "#FF6A1A" : "none"} stroke={isInWishlist(product.id) ? "#FF6A1A" : "#999"} strokeWidth="1.5">
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />

@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ commissions });
   } catch (error) {
-    console.error('Admin commissions GET error:', error);
+    console.error('Admin commissions GET error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -97,7 +97,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({ commission: updatedCommission });
   } catch (error) {
-    console.error('Admin commissions PUT error:', error);
+    console.error('Admin commissions PUT error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
       errors: errors.length > 0 ? errors : undefined,
     });
   } catch (error) {
-    console.error('Admin commissions bulk update error:', error);
+    console.error('Admin commissions bulk update error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -1,17 +1,20 @@
 "use client";
 
 import type { ProductDetail } from "@/data/product-details";
+import { useLocale } from "@/i18n/LocaleContext";
 
 export function ProductScience({ detail, productName }: { detail: ProductDetail; productName: string }) {
+  const { t } = useLocale();
+
   return (
     <section className="py-16 bg-oryn-cream">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-            SCIENCE
+            {t.productDetail.scienceLabel}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 tracking-tight">
-            The Science Behind {productName}
+            {t.productDetail.scienceBehind} {productName}
           </h2>
         </div>
 
@@ -20,34 +23,34 @@ export function ProductScience({ detail, productName }: { detail: ProductDetail;
           <div className="space-y-6">
             <div className="bg-white border border-oryn-grey/15 p-6">
               <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-4">
-                COMPOUND PROFILE
+                {t.productDetail.compoundProfile}
               </h3>
               <div className="space-y-3">
                 <div>
-                  <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">CLASSIFICATION</span>
+                  <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.classificationLabel}</span>
                   <p className="text-xs font-medium mt-1">{detail.science.classification}</p>
                 </div>
                 {detail.science.molecularFormula && (
                   <div>
-                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">MOLECULAR FORMULA</span>
+                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.molecularFormula}</span>
                     <p className="text-xs font-mono mt-1">{detail.science.molecularFormula}</p>
                   </div>
                 )}
                 {detail.science.molecularWeight && (
                   <div>
-                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">MOLECULAR WEIGHT</span>
+                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.molecularWeightLabel}</span>
                     <p className="text-xs font-mono mt-1">{detail.science.molecularWeight}</p>
                   </div>
                 )}
                 {detail.science.halfLife && (
                   <div>
-                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">HALF-LIFE</span>
+                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.halfLifeLabel}</span>
                     <p className="text-xs mt-1">{detail.science.halfLife}</p>
                   </div>
                 )}
                 {detail.science.sequence && (
                   <div>
-                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">SEQUENCE</span>
+                    <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.sequenceLabel}</span>
                     <p className="text-[10px] font-mono mt-1 text-oryn-black/60 break-all">{detail.science.sequence}</p>
                   </div>
                 )}
@@ -57,7 +60,7 @@ export function ProductScience({ detail, productName }: { detail: ProductDetail;
             {/* Research Areas */}
             <div className="bg-white border border-oryn-grey/15 p-6">
               <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-4">
-                RESEARCH AREAS
+                {t.productDetail.researchAreasLabel}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {detail.science.researchAreas.map((area) => (
@@ -77,7 +80,7 @@ export function ProductScience({ detail, productName }: { detail: ProductDetail;
             {/* Mechanism */}
             <div className="bg-white border border-oryn-grey/15 p-6">
               <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-4">
-                MECHANISM OF ACTION
+                {t.productDetail.mechanismOfAction}
               </h3>
               <p className="text-sm text-oryn-black/60 font-plex leading-relaxed">
                 {detail.science.mechanism}
@@ -87,7 +90,7 @@ export function ProductScience({ detail, productName }: { detail: ProductDetail;
             {/* Key Studies */}
             <div className="bg-white border border-oryn-grey/15 p-6">
               <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-5">
-                KEY RESEARCH FINDINGS
+                {t.productDetail.keyResearchFindings}
               </h3>
               <div className="space-y-4">
                 {detail.science.keyStudies.map((study) => (

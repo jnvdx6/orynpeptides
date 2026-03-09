@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
 
 interface Props {
   url: string;
@@ -10,6 +11,7 @@ interface Props {
 
 export function ShareButtons({ url, title, description }: Props) {
   const [copied, setCopied] = useState(false);
+  const { t } = useLocale();
 
   const fullUrl = typeof window !== "undefined"
     ? `${window.location.origin}${url}`
@@ -39,7 +41,7 @@ export function ShareButtons({ url, title, description }: Props) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">SHARE</span>
+      <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.share.label}</span>
 
       {/* WhatsApp */}
       <a

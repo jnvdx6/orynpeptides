@@ -9,12 +9,14 @@ import { OrynLogo } from "@/components/icons/OrynLogo";
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
-  const { localePath } = useLocale();
+  const { localePath, t } = useLocale();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const l = t.account.login;
 
   if (isAuthenticated) {
     router.push(localePath("/account"));
@@ -30,7 +32,7 @@ export default function LoginPage() {
     if (result.success) {
       router.push(localePath("/account"));
     } else {
-      setError(result.error || "Login failed");
+      setError(result.error || l.loginFailed);
     }
   };
 
@@ -42,9 +44,9 @@ export default function LoginPage() {
             <Link href="/" className="inline-block mb-6">
               <OrynLogo size={80} color="#121212" />
             </Link>
-            <h1 className="text-2xl font-bold tracking-tight mb-2">Welcome Back</h1>
+            <h1 className="text-2xl font-bold tracking-tight mb-2">{l.title}</h1>
             <p className="text-xs text-oryn-black/40 font-plex">
-              Sign in to your ORYN account
+              {l.subtitle}
             </p>
           </div>
 
@@ -57,7 +59,7 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                EMAIL
+                {l.email}
               </label>
               <input
                 type="email"
@@ -65,13 +67,13 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-                placeholder="your@email.com"
+                placeholder={l.emailPlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                PASSWORD
+                {l.password}
               </label>
               <input
                 type="password"
@@ -79,7 +81,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-                placeholder="Enter your password"
+                placeholder={l.passwordPlaceholder}
               />
             </div>
 
@@ -91,19 +93,19 @@ export default function LoginPage() {
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent animate-spin" />
-                  SIGNING IN...
+                  {l.signingIn}
                 </>
               ) : (
-                "SIGN IN"
+                l.signIn
               )}
             </button>
           </form>
 
           <div className="mt-6 pt-6 border-t border-oryn-grey/10 text-center">
             <p className="text-xs text-oryn-black/40 font-plex">
-              Don&apos;t have an account?{" "}
+              {l.noAccount}{" "}
               <Link href="/account/register" className="text-oryn-orange hover:underline font-medium">
-                Create one
+                {l.createOne}
               </Link>
             </p>
           </div>
@@ -111,7 +113,7 @@ export default function LoginPage() {
 
         <div className="mt-4 text-center">
           <Link href="/products" className="text-[10px] text-oryn-black/30 font-plex hover:text-oryn-orange transition-colors">
-            Continue shopping without an account
+            {l.continueWithout}
           </Link>
         </div>
       </div>

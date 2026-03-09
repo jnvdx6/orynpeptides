@@ -6,14 +6,13 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
   "medit-pen": "/images/medit-box.png",
   novadose: "/images/novadose-pen-real.png",
 };
-
-const FREE_SHIPPING_THRESHOLD = 150;
 
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
@@ -89,6 +88,7 @@ export function CartSlider() {
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 hover:bg-oryn-grey/20 transition-colors"
+            aria-label={t.productDetail.closeCart}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M18 6L6 18M6 6l12 12" />
@@ -180,7 +180,8 @@ export function CartSlider() {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity - 1)
                           }
-                          className="w-6 h-6 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors"
+                          className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors"
+                          aria-label={t.productDetail.decreaseQuantity}
                         >
                           -
                         </button>
@@ -192,7 +193,8 @@ export function CartSlider() {
                             updateQuantity(item.product.id, item.quantity + 1)
                           }
                           disabled={item.quantity >= 10}
-                          className="w-6 h-6 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
+                          className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
+                          aria-label={t.productDetail.increaseQuantity}
                         >
                           +
                         </button>
@@ -203,7 +205,8 @@ export function CartSlider() {
                         </span>
                         <button
                           onClick={() => removeItem(item.product.id)}
-                          className="text-oryn-black/20 hover:text-red-500 transition-colors p-0.5"
+                          className="text-oryn-black/20 hover:text-red-500 transition-colors p-2 -m-1.5"
+                          aria-label={t.productDetail.removeItem}
                         >
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M18 6L6 18M6 6l12 12" />
@@ -255,7 +258,7 @@ export function CartSlider() {
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M12 5v14M5 12h14" />
                           </svg>
-                          ADD
+                          {t.productDetail.add}
                         </button>
                       </div>
                     ))}
@@ -271,7 +274,7 @@ export function CartSlider() {
           <div className="px-6 py-5 border-t border-oryn-grey/30 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-sm text-oryn-black/60">{t.cart.subtotal}</span>
-              <span className={`text-lg font-bold ${appliedPromotion ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
+              <span className={`text-lg font-bold ${(appliedPromotion || volumeDiscount) ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
             </div>
             {appliedPromotion && (
               <div className="flex items-center justify-between">

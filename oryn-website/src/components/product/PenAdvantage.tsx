@@ -1,23 +1,17 @@
 "use client";
 
 import type { ProductDetail } from "@/data/product-details";
-
-const vialProblems = [
-  { label: "Reconstitution required", detail: "Bacteriostatic water, syringe, precise mixing" },
-  { label: "Dosing variability", detail: "Syringe markings can vary 10-20%" },
-  { label: "Contamination risk", detail: "Rubber stopper punctured multiple times" },
-  { label: "Rapid degradation", detail: "Potency drops after reconstitution" },
-  { label: "Complex setup", detail: "5-10 minutes per preparation" },
-  { label: "Travel impractical", detail: "Vials, syringes, water, needles..." },
-];
+import { useLocale } from "@/i18n/LocaleContext";
 
 export function PenAdvantage({ detail }: { detail: ProductDetail }) {
+  const { t } = useLocale();
+
   return (
     <section className="py-16 bg-oryn-black text-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-            WHY CHOOSE THE PEN
+            {t.productDetail.whyChoosePen}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 tracking-tight">
             {detail.penAdvantage.headline}
@@ -34,11 +28,11 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
                 </svg>
               </div>
               <h3 className="text-sm font-bold tracking-[0.1em] text-white/60">
-                TRADITIONAL VIALS
+                {t.productDetail.traditionalVials}
               </h3>
             </div>
             <ul className="space-y-4">
-              {vialProblems.map((problem) => (
+              {t.productDetail.vialProblems.map((problem) => (
                 <li key={problem.label} className="flex items-start gap-3">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" className="shrink-0 mt-0.5">
                     <path d="M18 6L6 18M6 6l12 12" />
@@ -61,7 +55,7 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
                 </svg>
               </div>
               <h3 className="text-sm font-bold tracking-[0.1em] text-oryn-orange">
-                ORYN PEN SYSTEM
+                {t.productDetail.orynPenSystem}
               </h3>
             </div>
             <ul className="space-y-5">
@@ -82,12 +76,7 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
 
         {/* Bottom comparison bar */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
-          {[
-            { vial: "5-10 min", pen: "30 sec", label: "Prep Time" },
-            { vial: "~80%", pen: ">99%", label: "Dose Accuracy" },
-            { vial: "Decreasing", pen: "Maintained", label: "Sterility" },
-            { vial: "7-14 days", pen: "30 days", label: "Stability" },
-          ].map((item) => (
+          {t.productDetail.comparisonBar.map((item) => (
             <div key={item.label} className="bg-oryn-black p-5 text-center">
               <p className="text-[9px] font-mono text-white/30 tracking-[0.1em] mb-2">{item.label}</p>
               <div className="flex items-center justify-center gap-3">

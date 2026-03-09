@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { products, productImages } from "@/data/products";
+import { useLocale } from "@/i18n/LocaleContext";
 
 // Simulated recent purchases for social proof
 const CITIES = [
@@ -22,18 +23,15 @@ function getRandomItem<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function getTimeAgo(): string {
-  const mins = Math.floor(Math.random() * 45) + 2;
-  return `${mins} min ago`;
-}
-
 export function SocialProofToast() {
   const [show, setShow] = useState(false);
+  const { t } = useLocale();
+  const sp = t.socialProof;
   const [data, setData] = useState<{
     name: string;
     city: string;
     product: (typeof products)[0];
-    time: string;
+    mins: number;
   } | null>(null);
 
   useEffect(() => {
@@ -46,7 +44,7 @@ export function SocialProofToast() {
         name: getRandomItem(FIRST_NAMES),
         city: getRandomItem(CITIES),
         product,
-        time: getTimeAgo(),
+        mins: Math.floor(Math.random() * 45) + 2,
       });
       setShow(true);
 
@@ -80,14 +78,17 @@ export function SocialProofToast() {
         </div>
         <div className="min-w-0">
           <p className="text-[10px] text-oryn-black/70 font-plex leading-tight">
-            <strong>{data.name}</strong> from {data.city} purchased{" "}
+            <strong>{data.name}</strong> {sp.from} {data.city} {sp.purchased}{" "}
             <strong className="text-oryn-orange">{data.product.name}</strong>
           </p>
-          <p className="text-[9px] text-oryn-black/30 font-mono mt-0.5">{data.time}</p>
+          <p className="text-[9px] text-oryn-black/30 font-mono mt-0.5">
+            {sp.minAgo.replace("{min}", String(data.mins))}
+          </p>
         </div>
         <button
           onClick={() => setShow(false)}
-          className="shrink-0 p-0.5 text-oryn-black/20 hover:text-oryn-black/50 transition-colors"
+          className="shrink-0 p-2 -m-1.5 text-oryn-black/20 hover:text-oryn-black/50 transition-colors"
+          aria-label="Close"
         >
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 6L6 18M6 6l12 12" />

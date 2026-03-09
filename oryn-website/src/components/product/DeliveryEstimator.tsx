@@ -1,6 +1,10 @@
 "use client";
 
+import { useLocale } from "@/i18n/LocaleContext";
+
 export function DeliveryEstimator() {
+  const { locale } = useLocale();
+
   // Estimate delivery: order before 2pm = next day, otherwise 2 days
   const now = new Date();
   const hour = now.getHours();
@@ -15,11 +19,17 @@ export function DeliveryEstimator() {
     if (day !== 0 && day !== 6) daysToAdd--;
   }
 
-  const formatted = deliveryDate.toLocaleDateString("en-GB", {
+  const dateLocale = locale === "es" ? "es-ES" : "en-GB";
+  const formatted = deliveryDate.toLocaleDateString(dateLocale, {
     weekday: "short",
     day: "numeric",
     month: "short",
   });
+
+  const orderText = locale === "es"
+    ? (isBeforeCutoff ? "Pide ahora" : "Pide hoy")
+    : (isBeforeCutoff ? "Order now" : "Order today");
+  const estText = locale === "es" ? "Entrega est." : "Est. delivery";
 
   return (
     <div className="flex items-center gap-2 px-3 py-2 bg-green-50 border border-green-200/50">
@@ -28,7 +38,7 @@ export function DeliveryEstimator() {
       </svg>
       <div>
         <span className="text-[10px] font-mono text-green-700 tracking-[0.05em]">
-          {isBeforeCutoff ? "Order now" : "Order today"} — Est. delivery{" "}
+          {orderText} — {estText}{" "}
           <strong>{formatted}</strong>
         </span>
       </div>

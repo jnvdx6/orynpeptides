@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       currency: paymentIntent.currency,
     });
   } catch (error) {
-    console.error('Stripe create-payment-intent error:', error);
+    console.error('Stripe create-payment-intent error:', error instanceof Error ? error.message : 'Unknown error');
     const message =
       error instanceof Error ? error.message : 'Failed to create payment';
     return NextResponse.json({ error: message }, { status: 500 });

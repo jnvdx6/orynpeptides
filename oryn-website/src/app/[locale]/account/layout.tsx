@@ -7,20 +7,30 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const accountNavItems = [
-  { href: "/account", label: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
-  { href: "/account/orders", label: "Orders", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
-  { href: "/account/referrals", label: "Referrals", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-  { href: "/wishlist", label: "Wishlist", icon: "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" },
-  { href: "/account/profile", label: "Profile", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
-];
+const accountNavIcons = {
+  dashboard: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+  orders: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+  referrals: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+  wishlist: "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z",
+  profile: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+};
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading, user, logout } = useAuth();
-  const { localePath } = useLocale();
+  const { localePath, t } = useLocale();
   const pathname = usePathname();
   const router = useRouter();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const nav = t.account.nav;
+
+  const accountNavItems = [
+    { href: "/account", label: nav.dashboard, icon: accountNavIcons.dashboard },
+    { href: "/account/orders", label: nav.orders, icon: accountNavIcons.orders },
+    { href: "/account/referrals", label: nav.referrals, icon: accountNavIcons.referrals },
+    { href: "/wishlist", label: nav.wishlist, icon: accountNavIcons.wishlist },
+    { href: "/account/profile", label: nav.profile, icon: accountNavIcons.profile },
+  ];
 
   const isAuthPage = pathname.includes("/login") || pathname.includes("/register");
 
@@ -63,7 +73,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
               <div>
                 <p className="text-sm font-bold">{user?.firstName} {user?.lastName}</p>
                 <p className="text-[9px] text-oryn-black/40 font-plex">
-                  {accountNavItems.find((i) => pathname === localePath(i.href) || (i.href !== "/account" && pathname.startsWith(localePath(i.href))))?.label || "Dashboard"}
+                  {accountNavItems.find((i) => pathname === localePath(i.href) || (i.href !== "/account" && pathname.startsWith(localePath(i.href))))?.label || nav.dashboard}
                 </p>
               </div>
             </div>
@@ -101,7 +111,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                 </svg>
-                Sign Out
+                {nav.signOut}
               </button>
             </div>
           )}
@@ -152,7 +162,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
               </svg>
-              Sign Out
+              {nav.signOut}
             </button>
           </aside>
 

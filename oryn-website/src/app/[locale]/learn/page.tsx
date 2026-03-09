@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BLOG_ARTICLES } from "@/data/blog-articles";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -28,6 +28,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/learn`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/learn`])
+      ),
     },
   };
 }
@@ -41,11 +44,25 @@ export default async function LearnPage({
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", url: `/${locale}` },
-          { name: "Learn", url: `/${locale}/learn` },
-        ])}
+      <MultiJsonLd
+        items={[
+          breadcrumbSchema([
+            { name: "Home", url: `/${locale}` },
+            { name: "Learn", url: `/${locale}/learn` },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "ORYN Peptide Research Articles",
+            numberOfItems: BLOG_ARTICLES.length,
+            itemListElement: BLOG_ARTICLES.map((article, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/${locale}/learn/${article.slug}`,
+              name: article.title,
+            })),
+          },
+        ]}
       />
 
       <div className="pt-[calc(1rem+4px)]">

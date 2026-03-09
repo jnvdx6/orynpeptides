@@ -14,6 +14,7 @@ import {
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
+import { RelatedContent } from "@/components/seo/RelatedContent";
 
 export async function generateStaticParams() {
   const params = [];
@@ -47,6 +48,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/peptides-for/${catSlug}`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/peptides-for/${catSlug}`])
+      ),
     },
   };
 }
@@ -74,6 +78,18 @@ export default async function CategoryPage({
             { name: "Products", url: `/${locale}/products` },
             { name: category.name, url: `/${locale}/peptides-for/${category.slug}` },
           ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `ORYN ${category.name} Peptides`,
+            numberOfItems: categoryProducts.length,
+            itemListElement: categoryProducts.map((product, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}/${locale}/products/${product.slug}`,
+              name: `ORYN ${product.name}`,
+            })),
+          },
         ]}
       />
 
@@ -208,6 +224,9 @@ export default async function CategoryPage({
             </div>
           </div>
         </section>
+
+        {/* Related Content */}
+        <RelatedContent categorySlug={catSlug} locale={locale} />
 
         {/* CTA */}
         <section className="bg-oryn-orange py-16">

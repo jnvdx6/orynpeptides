@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import type { ProductDetail } from "@/data/product-details";
+import { useLocale } from "@/i18n/LocaleContext";
 
 export function ProductFAQ({ detail, productName }: { detail: ProductDetail; productName: string }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLocale();
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-            FAQ
+            {t.productDetail.faqLabel}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 tracking-tight">
-            Frequently Asked About {productName}
+            {t.productDetail.frequentlyAsked} {productName}
           </h2>
         </div>
 
@@ -29,6 +31,7 @@ export function ProductFAQ({ detail, productName }: { detail: ProductDetail; pro
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left"
+                aria-expanded={openIndex === i}
               >
                 <span className="text-sm font-medium pr-4">{item.question}</span>
                 <svg

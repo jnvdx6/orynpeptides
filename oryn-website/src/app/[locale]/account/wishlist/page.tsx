@@ -12,7 +12,8 @@ export default function WishlistPage() {
   const { items: wishlistIds, removeFromWishlist } = useWishlist();
   const { products } = useProducts();
   const { addItem } = useCart();
-  const { formatPrice } = useLocale();
+  const { formatPrice, t } = useLocale();
+  const w = t.account.wishlist;
 
   const wishlistProducts = products.filter((p) => wishlistIds.includes(p.id));
 
@@ -23,10 +24,10 @@ export default function WishlistPage() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
           </svg>
-          <h1 className="text-2xl font-bold tracking-tight">Wishlist</h1>
+          <h1 className="text-2xl font-bold tracking-tight">{w.title}</h1>
         </div>
         <p className="text-xs text-oryn-black/40 font-plex">
-          {wishlistProducts.length} item{wishlistProducts.length !== 1 ? "s" : ""} saved
+          {wishlistProducts.length} {wishlistProducts.length !== 1 ? w.itemsSaved : w.itemSaved}
         </p>
       </div>
 
@@ -37,13 +38,13 @@ export default function WishlistPage() {
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
             </svg>
           </div>
-          <p className="text-sm text-oryn-black/40 font-plex mb-2">Your wishlist is empty</p>
-          <p className="text-xs text-oryn-black/30 font-plex mb-4">Save products you&apos;re interested in for later.</p>
+          <p className="text-sm text-oryn-black/40 font-plex mb-2">{w.empty}</p>
+          <p className="text-xs text-oryn-black/30 font-plex mb-4">{w.emptyDesc}</p>
           <Link
             href="/products"
             className="inline-block px-6 py-2.5 bg-oryn-orange text-white text-xs font-medium tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors"
           >
-            BROWSE PRODUCTS
+            {w.browseProducts}
           </Link>
         </div>
       ) : (
@@ -70,13 +71,13 @@ export default function WishlistPage() {
                     onClick={() => addItem(product)}
                     className="px-3 py-1.5 bg-oryn-orange text-white text-[9px] font-medium tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors"
                   >
-                    ADD TO CART
+                    {w.addToCart}
                   </button>
                   <button
                     onClick={() => removeFromWishlist(product.id)}
                     className="px-3 py-1.5 border border-red-200 text-red-400 text-[9px] font-medium tracking-[0.1em] hover:bg-red-50 hover:text-red-500 transition-colors"
                   >
-                    REMOVE
+                    {w.remove}
                   </button>
                 </div>
               </div>

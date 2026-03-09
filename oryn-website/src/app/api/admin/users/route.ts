@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ users: sanitized });
   } catch (error) {
-    console.error('Admin users GET error:', error);
+    console.error('Admin users GET error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -111,7 +111,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({ user: sanitized });
   } catch (error) {
-    console.error('Admin users PUT error:', error);
+    console.error('Admin users PUT error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -152,7 +152,7 @@ export async function DELETE(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Admin users DELETE error:', error);
+    console.error('Admin users DELETE error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

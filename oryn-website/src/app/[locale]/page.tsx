@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
+import { products } from "@/data/products";
 import { HomeClient } from "./HomeClient";
 
 const HOME_FAQS = [
@@ -70,6 +71,45 @@ export default async function HomePage({
         items={[
           breadcrumbSchema([{ name: "Home", url: `/${locale}` }]),
           faqSchema(HOME_FAQS),
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/${locale}`,
+            name: "ORYN Peptide Labs — Research-Grade Peptide Pens",
+            description: "Buy research-grade peptide pens from ORYN. BPC-157, Tirzepatide, GHK-Cu, NAD+ & more. >99% purity, GMP manufactured.",
+            url: `${SITE_URL}/${locale}`,
+            isPartOf: { "@type": "WebSite", url: SITE_URL },
+            about: {
+              "@type": "Thing",
+              name: "Research Peptide Pens",
+              sameAs: "https://en.wikipedia.org/wiki/Peptide",
+            },
+            significantLink: [
+              `${SITE_URL}/${locale}/products`,
+              `${SITE_URL}/${locale}/science`,
+              `${SITE_URL}/${locale}/quality`,
+              `${SITE_URL}/${locale}/learn`,
+              `${SITE_URL}/${locale}/protocols`,
+            ],
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".hero-subtitle"],
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "ORYN Peptide Pens — Featured Products",
+            description: "Research-grade peptide pen systems available for next-day UK delivery",
+            numberOfItems: products.length,
+            itemListElement: products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `ORYN ${p.name} ${p.dosage}`,
+              url: `${SITE_URL}/${locale}/products/${p.slug}`,
+              image: `${SITE_URL}${p.image}`,
+            })),
+          },
         ]}
       />
       <HomeClient />

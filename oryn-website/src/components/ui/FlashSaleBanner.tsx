@@ -1,20 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
-
-interface FlashSaleConfig {
-  enabled: boolean;
-  message: string;
-  code: string;
-  endsAt: string; // ISO date
-}
 
 const FLASH_SALE_KEY = "oryn_flash_sale_dismissed";
 
 // Configure flash sales here — no external service needed
-function getActiveSale(): FlashSaleConfig | null {
-  // Set a rolling 48h sale that resets every week
+function getActiveSale(flash: string, weekend: string) {
   const now = new Date();
   const dayOfWeek = now.getDay(); // 0=Sun, 1=Mon...
 
@@ -25,7 +18,7 @@ function getActiveSale(): FlashSaleConfig | null {
     endDate.setHours(23, 59, 59, 999);
     return {
       enabled: true,
-      message: "Flash Sale — Use code FLASH15 for 15% off all peptide pens",
+      message: flash,
       code: "FLASH15",
       endsAt: endDate.toISOString(),
     };
@@ -38,7 +31,7 @@ function getActiveSale(): FlashSaleConfig | null {
     endDate.setHours(23, 59, 59, 999);
     return {
       enabled: true,
-      message: "Weekend Special — Use code WEEKEND10 for 10% off",
+      message: weekend,
       code: "WEEKEND10",
       endsAt: endDate.toISOString(),
     };
@@ -74,7 +67,8 @@ function useCountdown(targetDate: string) {
 
 export function FlashSaleBanner() {
   const [dismissed, setDismissed] = useState(true);
-  const sale = getActiveSale();
+  const { t } = useLocale();
+  const sale = getActiveSale(t.flashSale.flash, t.flashSale.weekend);
   const countdown = useCountdown(sale?.endsAt || new Date().toISOString());
 
   useEffect(() => {
@@ -117,6 +111,7 @@ export function FlashSaleBanner() {
             sessionStorage.setItem(FLASH_SALE_KEY, "1");
           }}
           className="absolute right-4 p-1 opacity-50 hover:opacity-100 transition-opacity"
+          aria-label="Dismiss"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 6L6 18M6 6l12 12" />

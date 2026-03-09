@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useCart } from "@/lib/cart-context";
 import { CartSlider } from "@/components/ui/CartSlider";
@@ -16,21 +16,25 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const mobileSearchInputRef = useRef<HTMLInputElement>(null);
   const { totalItems, setIsOpen } = useCart();
-  const { t } = useLocale();
+  const { t, formatPrice, locale } = useLocale();
   const { isAuthenticated, user } = useAuth();
   const { products } = useProducts();
   const { totalItems: wishlistCount } = useWishlist();
 
-  // Search results
-  const searchResults = searchQuery.trim().length > 1
-    ? products.filter((p) => {
-        const q = searchQuery.toLowerCase();
-        return p.name.toLowerCase().includes(q) || p.subtitle.toLowerCase().includes(q);
-      }).slice(0, 5)
-    : [];
+  // Search results (memoized to avoid re-filtering on unrelated renders)
+  const searchResults = useMemo(() => {
+    if (searchQuery.trim().length <= 1) return [];
+    const q = searchQuery.toLowerCase();
+    return products.filter((p) =>
+      p.name.toLowerCase().includes(q) || p.subtitle.toLowerCase().includes(q)
+    ).slice(0, 5);
+  }, [searchQuery, products]);
 
   // Close search on outside click
   useEffect(() => {
@@ -44,20 +48,131 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Focus input when search opens
+  // Focus input when search opens (desktop or mobile)
   useEffect(() => {
-    if (searchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
+    if (searchOpen) {
+      // Small delay to ensure DOM is rendered
+      requestAnimationFrame(() => {
+        if (window.innerWidth >= 768 && searchInputRef.current) {
+          searchInputRef.current.focus();
+        } else if (mobileSearchInputRef.current) {
+          mobileSearchInputRef.current.focus();
+        }
+      });
     }
   }, [searchOpen]);
 
-  const navLinks = [
-    { href: "/products", label: t.nav.products },
+  // Cmd/Ctrl+K keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+        if (!searchOpen) setSearchQuery("");
+      }
+      if (e.key === "Escape" && searchOpen) {
+        setSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [searchOpen]);
+
+  const navLinks = useMemo(() => [
+    { href: "/products", label: t.nav.products, dropdown: "products" },
+    { href: "/compare", label: t.nav.compare },
     { href: "/science", label: t.nav.science },
-    { href: "/learn", label: "Learn" },
+    { href: "/learn", label: t.nav.learn, dropdown: "learn" },
     { href: "/about", label: t.nav.about },
     { href: "/contact", label: t.nav.contact },
-  ];
+  ], [t.nav]);
+
+  const megaMenus: Record<string, { columns: { title: string; links: { href: string; label: string }[] }[] }> = useMemo(() => ({
+    products: {
+      columns: [
+        {
+          title: "PEPTIDE PENS",
+          links: [
+            { href: "/products/bpc-157", label: "BPC-157 Pen" },
+            { href: "/products/tirzepatide", label: "Tirzepatide Pen" },
+            { href: "/products/ghk-cu", label: "GHK-Cu Pen" },
+            { href: "/products/glutathione", label: "Glutathione Pen" },
+            { href: "/products/nad-plus", label: "NAD+ Pen" },
+            { href: "/products", label: "View All Products →" },
+          ],
+        },
+        {
+          title: "RESEARCH AREAS",
+          links: [
+            { href: "/peptides-for/recovery", label: "Recovery & Healing" },
+            { href: "/peptides-for/weight-loss", label: "Weight Loss" },
+            { href: "/peptides-for/anti-aging", label: "Anti-Aging" },
+            { href: "/peptides-for/muscle-growth", label: "Muscle Growth" },
+            { href: "/peptides-for/skin-rejuvenation", label: "Skin Rejuvenation" },
+            { href: "/peptides-for/gut-health", label: "Gut Health" },
+          ],
+        },
+        {
+          title: "BUNDLES & PROTOCOLS",
+          links: [
+            { href: "/bundles", label: "All Bundles" },
+            { href: "/bundles/recovery-stack", label: "Recovery Stack" },
+            { href: "/bundles/anti-aging-stack", label: "Anti-Aging Stack" },
+            { href: "/protocols", label: "Research Protocols" },
+            { href: "/protocols/recovery-stack", label: "Recovery Protocol" },
+            { href: "/protocols/anti-aging-protocol", label: "Anti-Aging Protocol" },
+          ],
+        },
+      ],
+    },
+    learn: {
+      columns: [
+        {
+          title: "GUIDES & ARTICLES",
+          links: [
+            { href: "/learn/are-peptides-legal-in-the-uk", label: "Are Peptides Legal in the UK?" },
+            { href: "/learn/bpc-157-complete-guide", label: "BPC-157 Complete Guide" },
+            { href: "/learn/how-to-use-peptide-pen", label: "How to Use a Peptide Pen" },
+            { href: "/learn/peptide-pens-for-beginners-uk", label: "Beginner's Guide" },
+            { href: "/learn/peptide-stacking-guide-uk", label: "Peptide Stacking Guide" },
+            { href: "/learn", label: "All Articles →" },
+          ],
+        },
+        {
+          title: "COMPARE & REFERENCE",
+          links: [
+            { href: "/compare/bpc-157-vs-tb-500", label: "BPC-157 vs TB-500" },
+            { href: "/compare/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
+            { href: "/compare/cjc-1295-vs-ipamorelin", label: "CJC-1295 vs Ipamorelin" },
+            { href: "/peptides/encyclopedia", label: "Peptide Encyclopedia" },
+            { href: "/peptides/glossary", label: "Peptide Glossary" },
+            { href: "/compare", label: "All Comparisons →" },
+          ],
+        },
+        {
+          title: "FAQ & RESOURCES",
+          links: [
+            { href: "/faq", label: "All FAQs" },
+            { href: "/faq/peptide-pens-faq", label: "Peptide Pens FAQ" },
+            { href: "/faq/ordering-delivery-faq", label: "Ordering & Delivery FAQ" },
+            { href: "/faq/purity-testing-faq", label: "Purity & Testing FAQ" },
+            { href: "/quality", label: "Quality & Testing" },
+            { href: "/tools/peptide-calculator", label: "Peptide Calculator" },
+          ],
+        },
+      ],
+    },
+  }), []);
+
+  const handleDropdownEnter = (key: string) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setActiveDropdown(key);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -93,21 +208,66 @@ export function Header() {
             {/* Center nav */}
             <nav className="hidden md:flex items-center gap-10">
               {navLinks.map((link) => (
-                <Link
+                <div
                   key={link.href}
-                  href={link.href}
-                  className="text-[11px] font-medium text-oryn-black/50 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase relative group"
+                  className="relative"
+                  onMouseEnter={() => link.dropdown && handleDropdownEnter(link.dropdown)}
+                  onMouseLeave={() => link.dropdown && handleDropdownLeave()}
                 >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-oryn-orange group-hover:w-full transition-all duration-300" />
-                </Link>
+                  <Link
+                    href={link.href}
+                    className="text-[11px] font-medium text-oryn-black/50 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase relative group flex items-center gap-1"
+                  >
+                    {link.label}
+                    {link.dropdown && (
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""}`}>
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    )}
+                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-oryn-orange group-hover:w-full transition-all duration-300" />
+                  </Link>
+
+                  {/* Mega dropdown */}
+                  {link.dropdown && activeDropdown === link.dropdown && (
+                    <div
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50"
+                      onMouseEnter={() => handleDropdownEnter(link.dropdown!)}
+                      onMouseLeave={handleDropdownLeave}
+                    >
+                      <div className="bg-white border border-oryn-grey/20 shadow-xl min-w-[600px]">
+                        <div className="grid grid-cols-3 gap-0 divide-x divide-oryn-grey/10">
+                          {megaMenus[link.dropdown].columns.map((col) => (
+                            <div key={col.title} className="p-5">
+                              <h3 className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-3">
+                                {col.title}
+                              </h3>
+                              <ul className="space-y-2">
+                                {col.links.map((l) => (
+                                  <li key={l.href}>
+                                    <Link
+                                      href={l.href}
+                                      onClick={() => setActiveDropdown(null)}
+                                      className="text-xs text-oryn-black/50 hover:text-oryn-orange transition-colors font-plex block py-0.5"
+                                    >
+                                      {l.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
             {/* Right actions */}
             <div className="flex items-center gap-3">
               {/* Search */}
-              <div ref={searchRef} className="relative hidden md:block">
+              <div ref={searchRef} className="relative">
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
                   className="p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
@@ -120,64 +280,164 @@ export function Header() {
                 </button>
 
                 {searchOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-80 bg-white border border-oryn-grey/20 shadow-xl z-50">
-                    <div className="p-3 border-b border-oryn-grey/10">
-                      <input
-                        ref={searchInputRef}
-                        type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search peptides..."
-                        className="w-full px-3 py-2 bg-oryn-grey-light/50 text-sm font-plex focus:outline-none focus:ring-1 focus:ring-oryn-orange"
-                        onKeyDown={(e) => {
-                          if (e.key === "Escape") {
-                            setSearchOpen(false);
-                            setSearchQuery("");
-                          }
-                        }}
-                      />
-                    </div>
-                    {searchResults.length > 0 ? (
-                      <div className="max-h-64 overflow-y-auto">
-                        {searchResults.map((p) => (
-                          <Link
-                            key={p.id}
-                            href={`/products/${p.slug}`}
+                  <>
+                    {/* Mobile: full-screen overlay */}
+                    <div className="md:hidden fixed inset-0 top-[calc(2rem+4.25rem)] bg-white z-50">
+                      <div className="p-4 border-b border-oryn-grey/10">
+                        <div className="relative">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="1.5" className="absolute left-3 top-1/2 -translate-y-1/2">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                          </svg>
+                          <input
+                            ref={mobileSearchInputRef}
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder={t.header.searchPlaceholder}
+                            className="w-full pl-10 pr-10 py-3 bg-oryn-grey-light/50 text-sm font-plex focus:outline-none focus:ring-1 focus:ring-oryn-orange"
+                            onKeyDown={(e) => {
+                              if (e.key === "Escape") {
+                                setSearchOpen(false);
+                                setSearchQuery("");
+                              }
+                            }}
+                          />
+                          <button
                             onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
-                            className="flex items-center gap-3 px-3 py-2.5 hover:bg-oryn-orange/5 transition-colors"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-oryn-black/30"
+                            aria-label={t.productDetail.closeSearch}
                           >
-                            <div className="w-8 h-8 bg-oryn-cream flex items-center justify-center shrink-0">
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
-                                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                              </svg>
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-xs font-bold truncate">{p.name}</p>
-                              <p className="text-[10px] text-oryn-black/40 font-plex truncate">{p.subtitle}</p>
-                            </div>
-                            <span className="text-xs font-bold text-oryn-orange shrink-0 ml-auto">
-                              {t.cart ? "" : ""}{/* formatPrice not available in scope, so just show raw */}
-                            </span>
-                          </Link>
-                        ))}
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
-                    ) : searchQuery.trim().length > 1 ? (
-                      <div className="p-4 text-center">
-                        <p className="text-xs text-oryn-black/40 font-plex">No results for &ldquo;{searchQuery}&rdquo;</p>
+                      <div className="overflow-y-auto max-h-[calc(100vh-10rem)]">
+                        {searchResults.length > 0 ? (
+                          <div>
+                            {searchResults.map((p) => (
+                              <Link
+                                key={p.id}
+                                href={`/products/${p.slug}`}
+                                onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+                                className="flex items-center gap-3 px-4 py-3 hover:bg-oryn-orange/5 transition-colors border-b border-oryn-grey/10"
+                              >
+                                <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
+                                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
+                                    <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                  </svg>
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-sm font-bold truncate">{p.name}</p>
+                                  <p className="text-xs text-oryn-black/40 font-plex truncate">{p.subtitle}</p>
+                                </div>
+                                <span className="text-sm font-bold text-oryn-orange shrink-0">
+                                  {formatPrice(p.price)}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        ) : searchQuery.trim().length > 1 ? (
+                          <div className="p-8 text-center">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" strokeWidth="1" className="mx-auto mb-3">
+                              <circle cx="11" cy="11" r="8" />
+                              <path d="M21 21l-4.35-4.35" />
+                            </svg>
+                            <p className="text-sm text-oryn-black/40 font-plex">
+                              {`${t.header.noResults} "${searchQuery}"`}
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="p-8 text-center">
+                            <p className="text-xs text-oryn-black/30 font-plex">
+                              {t.header.typeToSearch}
+                            </p>
+                          </div>
+                        )}
                       </div>
-                    ) : (
-                      <div className="p-4 text-center">
-                        <p className="text-[10px] text-oryn-black/30 font-plex">Type to search...</p>
+                      <Link
+                        href="/products"
+                        onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+                        className="absolute bottom-0 left-0 right-0 p-4 text-center text-[11px] font-mono text-oryn-orange tracking-[0.1em] border-t border-oryn-grey/10 bg-white hover:bg-oryn-orange/5 transition-colors"
+                      >
+                        {t.header.viewAll}
+                      </Link>
+                    </div>
+
+                    {/* Desktop: dropdown */}
+                    <div className="hidden md:block absolute top-full right-0 mt-2 w-80 bg-white border border-oryn-grey/20 shadow-xl z-50">
+                      <div className="p-3 border-b border-oryn-grey/10">
+                        <div className="relative">
+                          <input
+                            ref={searchInputRef}
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder={t.header.searchPlaceholder}
+                            className="w-full px-3 py-2 bg-oryn-grey-light/50 text-sm font-plex focus:outline-none focus:ring-1 focus:ring-oryn-orange"
+                            onKeyDown={(e) => {
+                              if (e.key === "Escape") {
+                                setSearchOpen(false);
+                                setSearchQuery("");
+                              }
+                            }}
+                          />
+                          <kbd className="absolute right-2 top-1/2 -translate-y-1/2 text-[9px] font-mono text-oryn-black/20 bg-oryn-grey-light px-1.5 py-0.5 border border-oryn-grey/20">
+                            ESC
+                          </kbd>
+                        </div>
                       </div>
-                    )}
-                    <Link
-                      href="/products"
-                      onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
-                      className="block p-3 text-center text-[10px] font-mono text-oryn-orange tracking-[0.1em] border-t border-oryn-grey/10 hover:bg-oryn-orange/5 transition-colors"
-                    >
-                      VIEW ALL PRODUCTS
-                    </Link>
-                  </div>
+                      {searchResults.length > 0 ? (
+                        <div className="max-h-64 overflow-y-auto">
+                          {searchResults.map((p) => (
+                            <Link
+                              key={p.id}
+                              href={`/products/${p.slug}`}
+                              onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+                              className="flex items-center gap-3 px-3 py-2.5 hover:bg-oryn-orange/5 transition-colors"
+                            >
+                              <div className="w-8 h-8 bg-oryn-cream flex items-center justify-center shrink-0">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
+                                  <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                </svg>
+                              </div>
+                              <div className="min-w-0">
+                                <p className="text-xs font-bold truncate">{p.name}</p>
+                                <p className="text-[10px] text-oryn-black/40 font-plex truncate">{p.subtitle}</p>
+                              </div>
+                              <span className="text-xs font-bold text-oryn-orange shrink-0 ml-auto">
+                                {formatPrice(p.price)}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      ) : searchQuery.trim().length > 1 ? (
+                        <div className="p-4 text-center">
+                          <p className="text-xs text-oryn-black/40 font-plex">
+                            {`${t.header.noResults} "${searchQuery}"`}
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="p-4 text-center">
+                          <p className="text-[10px] text-oryn-black/30 font-plex">
+                            {t.header.typeToSearch}
+                          </p>
+                          <p className="text-[9px] text-oryn-black/20 font-mono mt-1">
+                            ⌘K
+                          </p>
+                        </div>
+                      )}
+                      <Link
+                        href="/products"
+                        onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+                        className="block p-3 text-center text-[10px] font-mono text-oryn-orange tracking-[0.1em] border-t border-oryn-grey/10 hover:bg-oryn-orange/5 transition-colors"
+                      >
+                        {t.header.viewAll}
+                      </Link>
+                    </div>
+                  </>
                 )}
               </div>
 
@@ -264,18 +524,76 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <nav role="navigation" aria-label="Mobile menu" className="md:hidden bg-white border-t border-oryn-grey/10">
+          <nav role="navigation" aria-label="Mobile menu" className="md:hidden bg-white border-t border-oryn-grey/10 max-h-[calc(100vh-7rem)] overflow-y-auto">
             <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 last:border-0 tracking-[0.15em] uppercase"
-                >
-                  {link.label}
-                </Link>
+                <div key={link.href}>
+                  <div className="flex items-center justify-between border-b border-oryn-grey/10">
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase"
+                    >
+                      {link.label}
+                    </Link>
+                    {link.dropdown && (
+                      <button
+                        onClick={() => setActiveDropdown(activeDropdown === link.dropdown ? null : link.dropdown!)}
+                        className="p-2 text-oryn-black/30"
+                        aria-label={`Expand ${link.label}`}
+                      >
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""}`}>
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                  {link.dropdown && activeDropdown === link.dropdown && (
+                    <div className="bg-oryn-cream/30 px-4 py-3 space-y-4">
+                      {megaMenus[link.dropdown].columns.map((col) => (
+                        <div key={col.title}>
+                          <h4 className="text-[8px] font-bold tracking-[0.2em] text-oryn-orange mb-2">{col.title}</h4>
+                          <div className="space-y-1.5">
+                            {col.links.map((l) => (
+                              <Link
+                                key={l.href}
+                                href={l.href}
+                                onClick={() => { setMobileOpen(false); setActiveDropdown(null); }}
+                                className="block text-[11px] text-oryn-black/50 hover:text-oryn-orange transition-colors font-plex py-1"
+                              >
+                                {l.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
+              <button
+                onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
+                className="flex items-center gap-2 w-full text-left py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+                {t.header.searchPlaceholder}
+              </button>
+              <Link
+                href="/wishlist"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill={wishlistCount > 0 ? "#FF6A1A" : "none"} stroke={wishlistCount > 0 ? "#FF6A1A" : "currentColor"} strokeWidth="1.5">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                </svg>
+                {t.account.nav.wishlist.toUpperCase()}
+                {wishlistCount > 0 && (
+                  <span className="ml-auto text-[9px] font-mono text-oryn-orange">{wishlistCount}</span>
+                )}
+              </Link>
               <Link
                 href="/account"
                 onClick={() => setMobileOpen(false)}
@@ -285,7 +603,7 @@ export function Header() {
                   <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                   <circle cx="12" cy="7" r="4" />
                 </svg>
-                {isAuthenticated ? "My Account" : "Sign In"}
+                {isAuthenticated ? t.header.myAccount : t.header.signIn}
               </Link>
               <Link
                 href="/products"

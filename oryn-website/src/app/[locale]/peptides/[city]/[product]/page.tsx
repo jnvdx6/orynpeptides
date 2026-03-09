@@ -13,15 +13,13 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
   const params = [];
-  for (const locale of locales) {
-    for (const citySlug of CITY_SLUGS) {
-      for (const product of products) {
-        params.push({ locale, city: citySlug, product: product.slug });
-      }
+  // City × product pages are UK-focused — EN only
+  for (const citySlug of CITY_SLUGS) {
+    for (const product of products) {
+      params.push({ locale: "en", city: citySlug, product: product.slug });
     }
   }
   return params;
@@ -49,7 +47,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/${citySlug}/${productSlug}`,
+      canonical: `${SITE_URL}/en/peptides/${citySlug}/${productSlug}`,
     },
   };
 }

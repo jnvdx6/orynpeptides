@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ orders });
   } catch (error) {
-    console.error('Admin orders GET error:', error);
+    console.error('Admin orders GET error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -100,7 +100,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({ order: updatedOrder });
   } catch (error) {
-    console.error('Admin orders PUT error:', error);
+    console.error('Admin orders PUT error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -137,7 +137,7 @@ export async function DELETE(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Admin orders DELETE error:', error);
+    console.error('Admin orders DELETE error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
           updatedAt: new Date().toISOString(),
         });
       } catch (commError) {
-        console.error('Commission generation error:', commError);
+        console.error('Commission generation error:', commError instanceof Error ? commError.message : 'Unknown error');
         // Don't fail the payment verification if commission generation fails
       }
     }
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Crypto verify error:', error);
+    console.error('Crypto verify error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

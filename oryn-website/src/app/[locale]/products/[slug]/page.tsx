@@ -10,6 +10,8 @@ import {
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
 import { ProductPageClient } from "./ProductPageClient";
+import { RelatedContent } from "@/components/seo/RelatedContent";
+import { ProtocolLinks } from "@/components/seo/ProtocolLinks";
 
 export async function generateStaticParams() {
   const params = [];
@@ -95,6 +97,8 @@ export default async function ProductPage({
     <>
       <MultiJsonLd items={schemaItems} />
       <ProductPageClient />
+      <RelatedContent productSlug={product.slug} locale={locale} />
+      <ProtocolLinks productSlug={product.slug} locale={locale} />
     </>
   );
 }

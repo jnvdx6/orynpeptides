@@ -4,7 +4,7 @@ import { Link } from "@/components/ui/LocaleLink";
 import { useLocale } from "@/i18n/LocaleContext";
 
 export function CTASection() {
- const { t, formatPrice } = useLocale();
+ const { t } = useLocale();
 
  return (
  <section className="relative overflow-hidden bg-oryn-gradient py-32">
@@ -32,7 +32,7 @@ export function CTASection() {
  <div className="flex flex-wrap justify-center gap-4 mb-12">
  {[t.cta.valueProp1, t.cta.valueProp2, t.cta.valueProp3].map((prop) => (
  <div key={prop} className="flex items-center gap-2">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" aria-hidden="true">
  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
  </svg>
  <span className="text-[10px] font-medium text-white/80 tracking-[0.1em]">{prop}</span>
@@ -59,12 +59,7 @@ export function CTASection() {
  </div>
 
  <div className="mt-24 flex items-center justify-center gap-12">
- {[
- { value: "ISO 7", label: "CLEANROOM" },
- { value: "GMP", label: "CERTIFIED" },
- { value: ">99%", label: "PURITY" },
- { value: "SGS", label: "VALIDATED" },
- ].map((badge, i) => (
+ {t.cta.badges.map((badge, i) => (
  <div key={badge.value} className="flex items-center gap-12">
  <div className="text-center">
  <div className="text-xl font-bold text-white/80">{badge.value}</div>
@@ -80,3 +75,4 @@ export function CTASection() {
  </section>
  );
 }
+

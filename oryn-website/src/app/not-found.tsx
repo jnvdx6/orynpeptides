@@ -1,4 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "404 — Page Not Found | ORYN Peptide Labs",
+  description: "The page you're looking for doesn't exist. Browse our research-grade peptide pens or return to the homepage.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

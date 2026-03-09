@@ -133,7 +133,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: "Invalid resource. Use: orders, customers, products, payments, overview" }, { status: 400 });
     }
   } catch (err) {
-    console.error("Medusa admin API error:", err);
+    console.error("Medusa admin API error:", err instanceof Error ? err.message : "Unknown error");
     const message = err instanceof Error ? err.message : "Failed to fetch from Medusa";
     return NextResponse.json({ error: message }, { status: 500 });
   }

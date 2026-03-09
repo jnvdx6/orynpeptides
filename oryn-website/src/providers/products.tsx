@@ -165,7 +165,7 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
           setMedusaConnected(true);
         }
       } catch (err) {
-        console.warn("[ProductsProvider] Failed to fetch from Medusa, using static data:", err);
+        void err; // Falls back to static data
         if (!cancelled) setMedusaConnected(false);
       } finally {
         if (!cancelled) setLoading(false);

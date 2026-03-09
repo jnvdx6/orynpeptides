@@ -8,6 +8,7 @@ import Image from "next/image";
 import StripeCheckout from "@/components/checkout/StripeCheckout";
 import { OrderBump } from "@/components/checkout/OrderBump";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
 import { sdk } from "@/lib/medusa";
 
@@ -21,15 +22,15 @@ interface ShippingOption {
 }
 
 const COUNTRIES = [
-  { code: "es", name: "Spain", nameEs: "Espana" },
+  { code: "es", name: "Spain", nameEs: "España" },
   { code: "gb", name: "United Kingdom", nameEs: "Reino Unido" },
   { code: "us", name: "United States", nameEs: "Estados Unidos" },
   { code: "de", name: "Germany", nameEs: "Alemania" },
   { code: "fr", name: "France", nameEs: "Francia" },
   { code: "it", name: "Italy", nameEs: "Italia" },
   { code: "pt", name: "Portugal", nameEs: "Portugal" },
-  { code: "nl", name: "Netherlands", nameEs: "Paises Bajos" },
-  { code: "be", name: "Belgium", nameEs: "Belgica" },
+  { code: "nl", name: "Netherlands", nameEs: "Países Bajos" },
+  { code: "be", name: "Belgium", nameEs: "Bélgica" },
   { code: "at", name: "Austria", nameEs: "Austria" },
   { code: "ie", name: "Ireland", nameEs: "Irlanda" },
   { code: "se", name: "Sweden", nameEs: "Suecia" },
@@ -37,11 +38,11 @@ const COUNTRIES = [
   { code: "fi", name: "Finland", nameEs: "Finlandia" },
   { code: "no", name: "Norway", nameEs: "Noruega" },
   { code: "pl", name: "Poland", nameEs: "Polonia" },
-  { code: "cz", name: "Czech Republic", nameEs: "Republica Checa" },
+  { code: "cz", name: "Czech Republic", nameEs: "República Checa" },
   { code: "gr", name: "Greece", nameEs: "Grecia" },
   { code: "ch", name: "Switzerland", nameEs: "Suiza" },
-  { code: "ro", name: "Romania", nameEs: "Rumania" },
-  { code: "hu", name: "Hungary", nameEs: "Hungria" },
+  { code: "ro", name: "Romania", nameEs: "Rumanía" },
+  { code: "hu", name: "Hungary", nameEs: "Hungría" },
   { code: "bg", name: "Bulgaria", nameEs: "Bulgaria" },
   { code: "hr", name: "Croatia", nameEs: "Croacia" },
   { code: "sk", name: "Slovakia", nameEs: "Eslovaquia" },
@@ -75,11 +76,14 @@ export default function CheckoutPage() {
   const {
     items,
     totalPrice,
+    totalItems,
     clearCart,
     appliedPromotion,
     applyPromotion,
     removePromotion,
     discountedPrice,
+    volumeDiscount,
+    finalPrice,
     cart,
     medusaConnected,
     setCartEmail,
@@ -92,8 +96,6 @@ export default function CheckoutPage() {
   } = useCart();
 
   const { t, formatPrice, locale } = useLocale();
-  const isEs = locale === "es";
-
   // Steps
   const [activeStep, setActiveStep] = useState<CheckoutStep>("information");
   const [completedSteps, setCompletedSteps] = useState<Set<CheckoutStep>>(new Set());
@@ -139,9 +141,6 @@ export default function CheckoutPage() {
   // Mobile summary toggle
   const [showMobileSummary, setShowMobileSummary] = useState(false);
 
-  // Free shipping threshold (in major currency units)
-  const FREE_SHIPPING_THRESHOLD = 150;
-
   // Shipping cost from selected option (free if subtotal >= threshold)
   const shippingCost = useMemo(() => {
     if (!selectedShipping) return 0;
@@ -155,20 +154,18 @@ export default function CheckoutPage() {
   const qualifiesForFreeShipping = totalPrice >= FREE_SHIPPING_THRESHOLD;
   const amountUntilFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
 
-  const finalTotal = discountedPrice + shippingCost;
+  const finalTotal = finalPrice + shippingCost;
 
   // Step labels
-  const stepLabels = isEs
-    ? ["Informacion", "Envio", "Pago"]
-    : ["Information", "Shipping", "Payment"];
+  const stepLabels = t.checkoutPage.steps;
 
   const stepKeys: CheckoutStep[] = ["information", "shipping", "payment"];
 
   // Validate information step
   const validateInformation = (): boolean => {
     const errs: Record<string, string> = {};
-    const req = isEs ? "Obligatorio" : "Required";
-    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) errs.email = isEs ? "Email valido requerido" : "Valid email required";
+    const req = t.checkoutPage.required;
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) errs.email = t.checkoutPage.validEmailRequired;
     if (!firstName.trim()) errs.firstName = req;
     if (!lastName.trim()) errs.lastName = req;
     if (!address.trim()) errs.address = req;
@@ -185,7 +182,7 @@ export default function CheckoutPage() {
       // Fallback: free shipping
       setShippingOptions([{
         id: "free_shipping",
-        name: isEs ? "Envio estandar gratuito" : "Free standard shipping",
+        name: t.checkoutPage.freeStandardShipping,
         amount: 0,
       }]);
       setSelectedShipping("free_shipping");
@@ -209,23 +206,23 @@ export default function CheckoutPage() {
       } else {
         setShippingOptions([{
           id: "free_shipping",
-          name: isEs ? "Envio estandar gratuito" : "Free standard shipping",
+          name: t.checkoutPage.freeStandardShipping,
           amount: 0,
         }]);
         setSelectedShipping("free_shipping");
       }
     } catch (err) {
-      console.warn("Failed to fetch shipping options:", err);
+      void err;
       setShippingOptions([{
         id: "free_shipping",
-        name: isEs ? "Envio estandar gratuito" : "Free standard shipping",
+        name: t.checkoutPage.freeStandardShipping,
         amount: 0,
       }]);
       setSelectedShipping("free_shipping");
     } finally {
       setShippingLoading(false);
     }
-  }, [cart, medusaConnected, isEs]);
+  }, [cart, medusaConnected, t.checkoutPage.freeStandardShipping]);
 
   // Handle continue from Information step
   const handleContinueToShipping = async () => {
@@ -252,7 +249,7 @@ export default function CheckoutPage() {
       setActiveStep("shipping");
       await fetchShippingOptions();
     } catch (err) {
-      console.error("Failed to update cart:", err);
+      void err;
     } finally {
       setIsSubmitting(false);
     }
@@ -276,7 +273,7 @@ export default function CheckoutPage() {
       setCompletedSteps((prev) => new Set([...prev, "shipping"]));
       setActiveStep("payment");
     } catch (err) {
-      console.error("Failed to prepare payment:", err);
+      void err;
     } finally {
       setIsSubmitting(false);
     }
@@ -314,7 +311,7 @@ export default function CheckoutPage() {
             return;
           }
         } catch (err) {
-          console.log("[Checkout] Medusa promo failed, trying local:", err);
+          void err;
           // Fall through to local validation
         }
       }
@@ -340,10 +337,10 @@ export default function CheckoutPage() {
         });
         setPromoCode("");
       } else {
-        setPromoError(data.error || (isEs ? "Codigo invalido" : "Invalid code"));
+        setPromoError(data.error || t.checkoutPage.invalidCode);
       }
     } catch {
-      setPromoError(isEs ? "Error al validar" : "Failed to validate");
+      setPromoError(t.checkoutPage.failedToValidate);
     } finally {
       setPromoLoading(false);
     }
@@ -370,14 +367,14 @@ export default function CheckoutPage() {
           promoCode: appliedPromotion?.code || undefined,
           medusaOrderId: orderId,
         }),
-      }).catch(console.error);
+      }).catch(() => {});
     }
     clearCart();
     setOrderComplete(true);
   };
 
-  const handlePaymentError = (message: string) => {
-    console.error("Payment error:", message);
+  const handlePaymentError = (_message: string) => {
+    // Payment errors are shown in the Stripe UI
   };
 
   // Edit a completed step
@@ -406,10 +403,10 @@ export default function CheckoutPage() {
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
           </div>
-          <h1 className="text-2xl font-bold mb-2">{isEs ? "Tu carrito esta vacio" : "Your cart is empty"}</h1>
-          <p className="text-oryn-black/50 font-plex mb-6">{isEs ? "Anade productos antes de proceder al pago." : "Add products before proceeding to checkout."}</p>
+          <h1 className="text-2xl font-bold mb-2">{t.checkoutPage.emptyCart}</h1>
+          <p className="text-oryn-black/50 font-plex mb-6">{t.checkoutPage.emptyCartDescription}</p>
           <Link href="/products" className="px-6 py-3 bg-oryn-orange text-white text-sm font-medium hover:bg-oryn-orange-dark transition-colors">
-            {isEs ? "Ver Productos" : "Browse Products"}
+            {t.checkoutPage.browseProducts}
           </Link>
         </div>
       </div>
@@ -426,15 +423,13 @@ export default function CheckoutPage() {
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold mb-3">{isEs ? "Pedido confirmado" : "Order confirmed"}</h1>
+          <h1 className="text-3xl font-bold mb-3">{t.checkoutPage.orderConfirmed}</h1>
           <p className="text-oryn-black/50 font-plex mb-2">
-            {isEs
-              ? "Gracias por tu pedido. Recibiras un email de confirmacion con los detalles."
-              : "Thank you for your order. You'll receive a confirmation email with your order details."}
+            {t.checkoutPage.orderConfirmedDescription}
           </p>
           {orderRef && (
             <p className="text-xs font-mono text-oryn-black/30 mb-6 mt-4 py-2 px-4 bg-oryn-grey-light inline-block">
-              {isEs ? "REF. PEDIDO" : "ORDER REF"}: {orderRef}
+              {t.checkoutPage.orderRef}: {orderRef}
             </p>
           )}
           <div className="bg-green-50 border border-green-200 p-4 mb-6">
@@ -443,20 +438,20 @@ export default function CheckoutPage() {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               <span className="text-sm font-mono tracking-wider text-green-700">
-                {isEs ? "PAGO CONFIRMADO" : "PAYMENT CONFIRMED"}
+                {t.checkoutPage.paymentConfirmed}
               </span>
             </div>
           </div>
           {referralCode && (
             <p className="text-xs font-mono text-oryn-orange mb-4">
-              {isEs ? "CODIGO DE REFERIDO APLICADO" : "REFERRAL CODE APPLIED"}: {referralCode.toUpperCase()}
+              {t.checkoutPage.referralApplied}: {referralCode.toUpperCase()}
             </p>
           )}
           <Link
             href="/products"
             className="px-8 py-3 bg-oryn-orange text-white text-sm font-medium hover:bg-oryn-orange-dark transition-colors inline-block"
           >
-            {isEs ? "Seguir Comprando" : "Continue Shopping"}
+            {t.checkoutPage.continueShopping}
           </Link>
         </div>
       </div>
@@ -475,7 +470,7 @@ export default function CheckoutPage() {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
             <span className="text-xs font-mono text-oryn-black/40 tracking-wider">
-              {isEs ? "PAGO SEGURO" : "SECURE CHECKOUT"}
+              {t.checkoutPage.secureCheckout}
             </span>
           </div>
         </div>
@@ -520,8 +515,8 @@ export default function CheckoutPage() {
             </svg>
             <span className="text-sm font-medium">
               {showMobileSummary
-                ? (isEs ? "Ocultar resumen" : "Hide order summary")
-                : (isEs ? "Mostrar resumen" : "Show order summary")}
+                ? t.checkoutPage.hideOrderSummary
+                : t.checkoutPage.showOrderSummary}
             </span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
               className={`transition-transform ${showMobileSummary ? "rotate-180" : ""}`}>
@@ -538,6 +533,7 @@ export default function CheckoutPage() {
               items={items}
               totalPrice={totalPrice}
               discountedPrice={discountedPrice}
+              volumeDiscount={volumeDiscount}
               shippingCost={shippingCost}
               finalTotal={finalTotal}
               appliedPromotion={appliedPromotion}
@@ -551,8 +547,8 @@ export default function CheckoutPage() {
               referralCode={referralCode}
               setReferralCode={setReferralCode}
               formatPrice={formatPrice}
-              isEs={isEs}
               activeStep={activeStep}
+              totalItems={totalItems}
             />
           </div>
         )}
@@ -575,11 +571,11 @@ export default function CheckoutPage() {
                   }`}>
                     {completedSteps.has("information") ? <CheckIcon /> : "1"}
                   </div>
-                  <span className="font-medium text-sm">{isEs ? "Informacion de contacto y envio" : "Contact & shipping information"}</span>
+                  <span className="font-medium text-sm">{t.checkoutPage.contactShipping}</span>
                 </div>
                 {completedSteps.has("information") && activeStep !== "information" && (
                   <button onClick={() => editStep("information")} className="text-xs text-oryn-orange font-medium hover:underline">
-                    {isEs ? "Cambiar" : "Change"}
+                    {t.checkoutPage.change}
                   </button>
                 )}
               </div>
@@ -588,7 +584,7 @@ export default function CheckoutPage() {
               {completedSteps.has("information") && activeStep !== "information" && (
                 <div className="px-6 pb-4 text-sm text-oryn-black/60 space-y-0.5 bg-oryn-grey-light/50">
                   <p>{email}</p>
-                  <p>{firstName} {lastName}, {address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[isEs ? "nameEs" : "name"]}</p>
+                  <p>{firstName} {lastName}, {address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
                   {phone && <p>{phone}</p>}
                 </div>
               )}
@@ -603,29 +599,27 @@ export default function CheckoutPage() {
                       type="email"
                       value={email}
                       onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: "" })); }}
-                      placeholder={isEs ? "tu@email.com" : "your@email.com"}
+                      placeholder={t.checkoutPage.emailPlaceholder}
                       className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.email ? "border-red-300" : "border-oryn-grey/30"}`}
                       autoComplete="email"
                     />
                     {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email}</p>}
                     <p className="text-[9px] text-oryn-black/30 font-plex mt-1">
-                      {isEs
-                        ? "No necesitas cuenta para comprar. Tu pedido se vincula a este email."
-                        : "No account needed. Your order will be linked to this email."}
+                      {t.checkoutPage.emailHint}
                     </p>
                   </div>
 
                   {/* Shipping address */}
                   <div className="pt-2">
                     <p className="text-[10px] font-mono text-oryn-black/40 tracking-wider mb-3">
-                      {isEs ? "DIRECCION DE ENVIO" : "SHIPPING ADDRESS"}
+                      {t.checkoutPage.shippingAddress}
                     </p>
 
                     {/* Saved address selector */}
                     {savedAddresses.length > 0 && (
                       <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/10">
                         <p className="text-[9px] font-mono text-oryn-black/40 tracking-[0.1em] mb-2">
-                          {isEs ? "USAR DIRECCION GUARDADA" : "USE SAVED ADDRESS"}
+                          {t.checkoutPage.useSavedAddress}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {savedAddresses.map((addr) => (
@@ -661,9 +655,9 @@ export default function CheckoutPage() {
                           errors.country ? "border-red-300" : "border-oryn-grey/30"
                         } ${!country ? "text-oryn-black/40" : ""}`}
                       >
-                        <option value="">{isEs ? "Seleccionar pais..." : "Select country..."}</option>
+                        <option value="">{t.checkoutPage.selectCountry}</option>
                         {COUNTRIES.map((c) => (
-                          <option key={c.code} value={c.code}>{isEs ? c.nameEs : c.name}</option>
+                          <option key={c.code} value={c.code}>{locale === "es" ? c.nameEs : c.name}</option>
                         ))}
                       </select>
                       {errors.country && <p className="text-[10px] text-red-500 mt-1">{errors.country}</p>}
@@ -676,7 +670,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={firstName}
                           onChange={(e) => { setFirstName(e.target.value); setErrors((p) => ({ ...p, firstName: "" })); }}
-                          placeholder={isEs ? "Nombre" : "First name"}
+                          placeholder={t.checkoutPage.firstNamePlaceholder}
                           className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.firstName ? "border-red-300" : "border-oryn-grey/30"}`}
                           autoComplete="given-name"
                         />
@@ -687,7 +681,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={lastName}
                           onChange={(e) => { setLastName(e.target.value); setErrors((p) => ({ ...p, lastName: "" })); }}
-                          placeholder={isEs ? "Apellido" : "Last name"}
+                          placeholder={t.checkoutPage.lastNamePlaceholder}
                           className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.lastName ? "border-red-300" : "border-oryn-grey/30"}`}
                           autoComplete="family-name"
                         />
@@ -701,7 +695,7 @@ export default function CheckoutPage() {
                         type="text"
                         value={address}
                         onChange={(e) => { setAddress(e.target.value); setErrors((p) => ({ ...p, address: "" })); }}
-                        placeholder={isEs ? "Direccion" : "Address"}
+                        placeholder={t.checkoutPage.addressPlaceholder}
                         className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.address ? "border-red-300" : "border-oryn-grey/30"}`}
                         autoComplete="address-line1"
                       />
@@ -714,7 +708,7 @@ export default function CheckoutPage() {
                         type="text"
                         value={apartment}
                         onChange={(e) => setApartment(e.target.value)}
-                        placeholder={isEs ? "Apartamento, piso, etc. (opcional)" : "Apartment, suite, etc. (optional)"}
+                        placeholder={t.checkoutPage.apartmentPlaceholder}
                         className="w-full px-4 py-3 bg-oryn-grey-light/50 border border-oryn-grey/30 text-sm focus:outline-none focus:border-oryn-orange transition-colors"
                         autoComplete="address-line2"
                       />
@@ -727,7 +721,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={city}
                           onChange={(e) => { setCity(e.target.value); setErrors((p) => ({ ...p, city: "" })); }}
-                          placeholder={isEs ? "Ciudad" : "City"}
+                          placeholder={t.checkoutPage.cityPlaceholder}
                           className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.city ? "border-red-300" : "border-oryn-grey/30"}`}
                           autoComplete="address-level2"
                         />
@@ -738,7 +732,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={postalCode}
                           onChange={(e) => { setPostalCode(e.target.value); setErrors((p) => ({ ...p, postalCode: "" })); }}
-                          placeholder={isEs ? "Codigo postal" : "Postal code"}
+                          placeholder={t.checkoutPage.postalCodePlaceholder}
                           className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.postalCode ? "border-red-300" : "border-oryn-grey/30"}`}
                           autoComplete="postal-code"
                         />
@@ -752,7 +746,7 @@ export default function CheckoutPage() {
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder={isEs ? "Telefono (opcional)" : "Phone (optional)"}
+                        placeholder={t.checkoutPage.phonePlaceholder}
                         className="w-full px-4 py-3 bg-oryn-grey-light/50 border border-oryn-grey/30 text-sm focus:outline-none focus:border-oryn-orange transition-colors"
                         autoComplete="tel"
                       />
@@ -766,9 +760,9 @@ export default function CheckoutPage() {
                     className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {isEs ? "PROCESANDO..." : "PROCESSING..."}</span>
+                      <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {t.checkoutPage.processing}</span>
                     ) : (
-                      isEs ? "CONTINUAR AL ENVIO" : "CONTINUE TO SHIPPING"
+                      t.checkoutPage.continueToShipping
                     )}
                   </button>
                 </div>
@@ -788,11 +782,11 @@ export default function CheckoutPage() {
                   }`}>
                     {completedSteps.has("shipping") ? <CheckIcon /> : "2"}
                   </div>
-                  <span className="font-medium text-sm">{isEs ? "Metodo de envio" : "Shipping method"}</span>
+                  <span className="font-medium text-sm">{t.checkoutPage.shippingMethod}</span>
                 </div>
                 {completedSteps.has("shipping") && activeStep !== "shipping" && (
                   <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange font-medium hover:underline">
-                    {isEs ? "Cambiar" : "Change"}
+                    {t.checkoutPage.change}
                   </button>
                 )}
               </div>
@@ -801,7 +795,7 @@ export default function CheckoutPage() {
               {completedSteps.has("shipping") && activeStep !== "shipping" && (
                 <div className="px-6 pb-4 text-sm text-oryn-black/60 bg-oryn-grey-light/50">
                   <p>{shippingOptions.find((o) => o.id === selectedShipping)?.name} — {
-                    shippingCost === 0 ? (isEs ? "Gratis" : "Free") : formatPrice(shippingCost)
+                    shippingCost === 0 ? t.checkoutPage.free : formatPrice(shippingCost)
                   }</p>
                 </div>
               )}
@@ -813,13 +807,13 @@ export default function CheckoutPage() {
                   <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 mb-4 text-sm text-oryn-black/60">
                     <p className="font-medium text-oryn-black">{firstName} {lastName}</p>
                     <p>{address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}</p>
-                    <p>{COUNTRIES.find((c) => c.code === country)?.[isEs ? "nameEs" : "name"]}</p>
+                    <p>{COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
                   </div>
 
                   {shippingLoading ? (
                     <div className="flex items-center justify-center py-8 gap-3">
                       <Spinner size={20} />
-                      <span className="text-sm text-oryn-black/50">{isEs ? "Cargando opciones de envio..." : "Loading shipping options..."}</span>
+                      <span className="text-sm text-oryn-black/50">{t.checkoutPage.loadingShipping}</span>
                     </div>
                   ) : (
                     <>
@@ -831,9 +825,7 @@ export default function CheckoutPage() {
                             <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                           </svg>
                           <span className="text-xs font-mono text-oryn-orange tracking-wider">
-                            {isEs
-                              ? `Añade ${formatPrice(amountUntilFreeShipping)} más para envío gratis`
-                              : `Add ${formatPrice(amountUntilFreeShipping)} more for free shipping`}
+                            {t.cart.freeShippingAway.replace("{amount}", formatPrice(amountUntilFreeShipping))}
                           </span>
                         </div>
                         <div className="w-full bg-oryn-grey/20 h-1.5">
@@ -852,7 +844,7 @@ export default function CheckoutPage() {
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                           <span className="text-xs font-mono text-green-700 tracking-wider">
-                            {isEs ? "¡ENVÍO GRATIS APLICADO!" : "FREE SHIPPING APPLIED!"}
+                            {t.checkoutPage.freeShippingApplied}
                           </span>
                         </div>
                       </div>
@@ -872,7 +864,7 @@ export default function CheckoutPage() {
                                 try {
                                   await addShippingMethod(option.id);
                                 } catch (err) {
-                                  console.warn("Failed to update shipping:", err);
+                                  void err;
                                 }
                               }
                             }}
@@ -898,10 +890,10 @@ export default function CheckoutPage() {
                                   {qualifiesForFreeShipping && option.amount > 0 ? (
                                     <span className="flex items-center gap-1.5">
                                       <span className="line-through text-oryn-black/30 text-xs">{formatPrice(option.amount)}</span>
-                                      <span>{isEs ? "Gratis" : "Free"}</span>
+                                      <span>{t.checkoutPage.free}</span>
                                     </span>
                                   ) : (
-                                    isEs ? "Gratis" : "Free"
+                                    t.checkoutPage.free
                                   )}
                                 </span>
                               ) : formatPrice(displayAmount)}
@@ -919,9 +911,9 @@ export default function CheckoutPage() {
                     className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {isEs ? "PROCESANDO..." : "PROCESSING..."}</span>
+                      <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {t.checkoutPage.processing}</span>
                     ) : (
-                      isEs ? "CONTINUAR AL PAGO" : "CONTINUE TO PAYMENT"
+                      t.checkoutPage.continueToPayment
                     )}
                   </button>
 
@@ -929,7 +921,7 @@ export default function CheckoutPage() {
                     onClick={() => editStep("information")}
                     className="w-full mt-2 py-2 text-xs text-oryn-black/40 hover:text-oryn-orange transition-colors"
                   >
-                    {isEs ? "← Volver a informacion" : "← Return to information"}
+                    {t.checkoutPage.returnToInformation}
                   </button>
                 </div>
               )}
@@ -955,7 +947,7 @@ export default function CheckoutPage() {
                   }`}>
                     3
                   </div>
-                  <span className="font-medium text-sm">{isEs ? "Pago" : "Payment"}</span>
+                  <span className="font-medium text-sm">{t.checkoutPage.paymentTitle}</span>
                 </div>
               </div>
 
@@ -966,30 +958,30 @@ export default function CheckoutPage() {
                     <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 text-sm text-oryn-black/60">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{isEs ? "CONTACTO" : "CONTACT"}</p>
+                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{t.checkoutPage.contact}</p>
                           <p>{email}</p>
                         </div>
-                        <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{isEs ? "Cambiar" : "Change"}</button>
+                        <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
                       </div>
                     </div>
                     <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 text-sm text-oryn-black/60">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{isEs ? "ENVIAR A" : "SHIP TO"}</p>
-                          <p>{address}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[isEs ? "nameEs" : "name"]}</p>
+                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{t.checkoutPage.shipTo}</p>
+                          <p>{address}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
                         </div>
-                        <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{isEs ? "Cambiar" : "Change"}</button>
+                        <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
                       </div>
                     </div>
                     <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 text-sm text-oryn-black/60">
                       <div className="flex justify-between items-start">
                         <div>
-                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{isEs ? "METODO" : "METHOD"}</p>
+                          <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{t.checkoutPage.method}</p>
                           <p>{shippingOptions.find((o) => o.id === selectedShipping)?.name} — {
-                            shippingCost === 0 ? (isEs ? "Gratis" : "Free") : formatPrice(shippingCost)
+                            shippingCost === 0 ? t.checkoutPage.free : formatPrice(shippingCost)
                           }</p>
                         </div>
-                        <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange hover:underline">{isEs ? "Cambiar" : "Change"}</button>
+                        <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
                       </div>
                     </div>
                   </div>
@@ -997,10 +989,10 @@ export default function CheckoutPage() {
                   {/* Trust badges before payment */}
                   <div className="grid grid-cols-2 gap-2 mb-6">
                     {[
-                      { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: isEs ? "SSL Encriptado" : "SSL Encrypted", sub: isEs ? "256-bit" : "256-bit" },
-                      { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: isEs ? "Pureza >99%" : ">99% Purity", sub: isEs ? "Garantizado" : "Guaranteed" },
-                      { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: isEs ? "Certificado GMP" : "GMP Certified", sub: "ISO 7" },
-                      { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: isEs ? "Garantia 30 dias" : "30-Day Guarantee", sub: isEs ? "Sin preguntas" : "No questions" },
+                      { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: t.checkoutPage.sslEncrypted, sub: "256-bit" },
+                      { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: t.checkoutPage.purity99, sub: t.checkoutPage.guaranteed },
+                      { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: t.checkoutPage.gmpCertifiedBadge, sub: "ISO 7" },
+                      { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: t.checkoutPage.guarantee30, sub: t.checkoutPage.noQuestions },
                     ].map((badge) => (
                       <div key={badge.label} className="flex items-center gap-2.5 p-3 bg-green-50/80 border border-green-200/50">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="1.5" className="shrink-0">
@@ -1017,7 +1009,7 @@ export default function CheckoutPage() {
                   {/* Payment form */}
                   <div className="mb-4">
                     <p className="text-[10px] font-mono text-oryn-black/40 tracking-wider mb-4">
-                      {isEs ? "TODOS LOS PAGOS SON SEGUROS Y ENCRIPTADOS" : "ALL TRANSACTIONS ARE SECURE AND ENCRYPTED"}
+                      {t.checkoutPage.allSecure}
                     </p>
 
                     {medusaConnected ? (
@@ -1030,8 +1022,8 @@ export default function CheckoutPage() {
                       />
                     ) : (
                       <div className="p-6 bg-yellow-50 border border-yellow-200 text-yellow-800">
-                        <p className="font-mono font-bold text-sm mb-1">{isEs ? "BACKEND REQUERIDO" : "BACKEND REQUIRED"}</p>
-                        <p className="text-xs font-plex">{isEs ? "El backend de Medusa es necesario para procesar pagos." : "Medusa backend is required to process payments."}</p>
+                        <p className="font-mono font-bold text-sm mb-1">{t.checkoutPage.backendRequired}</p>
+                        <p className="text-xs font-plex">{t.checkoutPage.backendDescription}</p>
                       </div>
                     )}
                   </div>
@@ -1040,7 +1032,7 @@ export default function CheckoutPage() {
                     onClick={() => editStep("shipping")}
                     className="w-full mt-2 py-2 text-xs text-oryn-black/40 hover:text-oryn-orange transition-colors"
                   >
-                    {isEs ? "← Volver al envio" : "← Return to shipping"}
+                    {t.checkoutPage.returnToShipping}
                   </button>
                 </div>
               )}
@@ -1054,6 +1046,7 @@ export default function CheckoutPage() {
                 items={items}
                 totalPrice={totalPrice}
                 discountedPrice={discountedPrice}
+                volumeDiscount={volumeDiscount}
                 shippingCost={shippingCost}
                 finalTotal={finalTotal}
                 appliedPromotion={appliedPromotion}
@@ -1067,8 +1060,8 @@ export default function CheckoutPage() {
                 referralCode={referralCode}
                 setReferralCode={setReferralCode}
                 formatPrice={formatPrice}
-                isEs={isEs}
                 activeStep={activeStep}
+                totalItems={totalItems}
               />
             </div>
           </div>
@@ -1083,6 +1076,7 @@ function OrderSummary({
   items,
   totalPrice,
   discountedPrice,
+  volumeDiscount,
   shippingCost,
   finalTotal,
   appliedPromotion,
@@ -1096,12 +1090,13 @@ function OrderSummary({
   referralCode,
   setReferralCode,
   formatPrice,
-  isEs,
   activeStep,
+  totalItems,
 }: {
   items: Array<{ product: { id: string; name: string; image: string; price: number }; quantity: number }>;
   totalPrice: number;
   discountedPrice: number;
+  volumeDiscount: { discount: number; tier: { percentage: number; label: string; minItems: number } } | null;
   shippingCost: number;
   finalTotal: number;
   appliedPromotion: { code: string; label: string; discountAmount: number } | null;
@@ -1115,9 +1110,10 @@ function OrderSummary({
   referralCode: string;
   setReferralCode: (v: string) => void;
   formatPrice: (n: number) => string;
-  isEs: boolean;
   activeStep: CheckoutStep;
+  totalItems: number;
 }) {
+  const { t } = useLocale();
   return (
     <div className="bg-oryn-grey-light/50 border border-oryn-grey/20 p-6">
       {/* Cart items */}
@@ -1156,7 +1152,7 @@ function OrderSummary({
                 type="text"
                 value={promoCode}
                 onChange={(e) => { setPromoCode(e.target.value.toUpperCase()); setPromoError(""); }}
-                placeholder={isEs ? "Codigo de descuento" : "Discount code"}
+                placeholder={t.checkoutPage.promoCodePlaceholder}
                 className={`flex-1 px-3 py-2.5 bg-white border text-sm focus:outline-none focus:border-oryn-orange transition-colors font-mono ${
                   promoError ? "border-red-300" : "border-oryn-grey/30"
                 }`}
@@ -1166,7 +1162,7 @@ function OrderSummary({
                 disabled={promoLoading || !promoCode.trim()}
                 className="px-4 py-2.5 bg-oryn-grey-dark text-white text-xs font-bold tracking-wider hover:bg-oryn-black transition-colors disabled:opacity-40"
               >
-                {promoLoading ? "..." : (isEs ? "APLICAR" : "APPLY")}
+                {promoLoading ? "..." : t.checkoutPage.apply}
               </button>
             </div>
             {promoError && <p className="text-[10px] text-red-500 mt-1">{promoError}</p>}
@@ -1180,33 +1176,31 @@ function OrderSummary({
           type="text"
           value={referralCode}
           onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
-          placeholder={isEs ? "Codigo de referido (opcional)" : "Referral code (optional)"}
+          placeholder={t.checkoutPage.referralPlaceholder}
           className="w-full px-3 py-2.5 bg-white border border-oryn-grey/30 text-sm focus:outline-none focus:border-oryn-orange transition-colors font-mono"
         />
       </div>
 
       {/* Volume discount info */}
       <div className="mb-4">
-        <VolumeDiscountBanner totalItems={items.reduce((sum, i) => sum + i.quantity, 0)} compact />
+        <VolumeDiscountBanner totalItems={totalItems} compact />
       </div>
 
       {/* Free shipping progress */}
-      {totalPrice > 0 && totalPrice < 150 && (
+      {totalPrice > 0 && totalPrice < FREE_SHIPPING_THRESHOLD && (
         <div className="border-t border-oryn-grey/20 pt-3 pb-1">
           <div className="flex items-center gap-2 mb-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
               <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
             <span className="text-[10px] font-mono text-oryn-orange tracking-wider">
-              {isEs
-                ? `${formatPrice(150 - totalPrice)} más para envío gratis`
-                : `${formatPrice(150 - totalPrice)} away from free shipping`}
+              {t.cart.freeShippingAway.replace("{amount}", formatPrice(FREE_SHIPPING_THRESHOLD - totalPrice))}
             </span>
           </div>
           <div className="w-full bg-oryn-grey/20 h-1">
             <div
               className="bg-oryn-orange h-1 transition-all duration-500"
-              style={{ width: `${Math.min(100, (totalPrice / 150) * 100)}%` }}
+              style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
             />
           </div>
         </div>
@@ -1220,27 +1214,36 @@ function OrderSummary({
         </div>
         {appliedPromotion && (
           <div className="flex justify-between text-sm">
-            <span className="text-oryn-orange">{isEs ? "Descuento" : "Discount"}</span>
+            <span className="text-oryn-orange">{t.checkoutPage.discount}</span>
             <span className="text-oryn-orange">-{formatPrice(appliedPromotion.discountAmount)}</span>
           </div>
         )}
+        {volumeDiscount && (
+          <div className="flex justify-between text-sm">
+            <div className="flex items-center gap-1.5">
+              <span className="text-green-600">{t.checkoutPage.volumeDiscountLabel}</span>
+              <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
+            </div>
+            <span className="text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
+          </div>
+        )}
         <div className="flex justify-between text-sm">
-          <span className="text-oryn-black/50">{isEs ? "Envio" : "Shipping"}</span>
+          <span className="text-oryn-black/50">{t.checkoutPage.shipping}</span>
           <span>
             {activeStep === "information"
-              ? <span className="text-xs text-oryn-black/30">{isEs ? "Calculado en el siguiente paso" : "Calculated at next step"}</span>
+              ? <span className="text-xs text-oryn-black/30">{t.checkoutPage.calculatedNextStep}</span>
               : shippingCost === 0
-                ? <span className="text-green-600 text-xs font-mono">{isEs ? "GRATIS" : "FREE"}</span>
+                ? <span className="text-green-600 text-xs font-mono">{t.checkoutPage.free.toUpperCase()}</span>
                 : formatPrice(shippingCost)
             }
           </span>
         </div>
-        {totalPrice >= 150 && activeStep !== "information" && (
+        {totalPrice >= FREE_SHIPPING_THRESHOLD && activeStep !== "information" && (
           <div className="flex items-center gap-1.5 text-[10px] text-green-600 font-mono">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="20 6 9 17 4 12" />
             </svg>
-            {isEs ? "ENVÍO GRATIS (PEDIDO +€150)" : "FREE SHIPPING (ORDER +€150)"}
+            {t.checkoutPage.freeShippingLabel.replace("{threshold}", String(FREE_SHIPPING_THRESHOLD))}
           </div>
         )}
         <div className="flex justify-between text-base font-bold pt-3 border-t border-oryn-grey/20">
@@ -1252,10 +1255,10 @@ function OrderSummary({
       {/* Trust signals */}
       <div className="mt-6 pt-4 border-t border-oryn-grey/20 space-y-2">
         {[
-          { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: isEs ? "PAGO SEGURO" : "SECURE PAYMENT" },
-          { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4", label: isEs ? "ENVIO DISCRETO" : "DISCREET SHIPPING" },
-          { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: isEs ? "COA INCLUIDO" : "COA INCLUDED" },
-          { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: isEs ? "CERTIFICADO GMP" : "GMP CERTIFIED" },
+          { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: t.checkoutPage.securePayment },
+          { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4", label: t.checkoutPage.discreetShipping },
+          { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: t.checkoutPage.coaIncluded },
+          { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: t.checkoutPage.gmpCertified },
         ].map((trust) => (
           <div key={trust.label} className="flex items-center gap-2">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0"><path d={trust.icon} /></svg>
@@ -1265,7 +1268,7 @@ function OrderSummary({
       </div>
 
       <p className="text-[9px] text-oryn-black/25 font-mono mt-4 text-center">
-        {isEs ? "Solo para fines de investigacion" : "For research purposes only"}
+        {t.checkoutPage.researchOnly}
       </p>
     </div>
   );

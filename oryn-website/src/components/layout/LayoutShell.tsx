@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -21,6 +21,11 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   // Check for admin path (now under /[locale]/admin)
   const isAdmin = /^\/[a-z]{2}\/admin/.test(pathname) || pathname.startsWith("/admin");
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (isAdmin) {
     return <>{children}</>;

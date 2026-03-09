@@ -1,6 +1,7 @@
 "use client";
 
 import { getVolumeDiscount, getNextTier, VOLUME_TIERS } from "@/lib/discounts";
+import { useLocale } from "@/i18n/LocaleContext";
 
 interface Props {
   totalItems: number;
@@ -10,6 +11,8 @@ interface Props {
 export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
   const currentTier = getVolumeDiscount(totalItems);
   const nextTier = getNextTier(totalItems);
+  const { t } = useLocale();
+  const v = t.volumeDiscount;
 
   if (compact) {
     // Inline version for cart slider
@@ -20,7 +23,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <span className="text-[10px] font-plex text-green-700">
-            Volume discount applied: <span className="font-bold">{currentTier.percentage}% OFF</span>
+            {v.applied} <span className="font-bold">{v.off.replace("{percent}", String(currentTier.percentage))}</span>
           </span>
         </div>
       );
@@ -32,7 +35,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
           </svg>
           <span className="text-[10px] font-plex text-oryn-black/50">
-            Add <span className="font-bold text-oryn-orange">{nextTier.itemsNeeded} more</span> item{nextTier.itemsNeeded > 1 ? "s" : ""} for <span className="font-bold text-oryn-orange">{nextTier.tier.percentage}% OFF</span>
+            {v.addMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage))}
           </span>
         </div>
       );
@@ -49,12 +52,12 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
           <line x1="7" y1="7" x2="7.01" y2="7" />
         </svg>
         <span className="text-[10px] font-mono text-oryn-orange tracking-[0.15em] font-bold">
-          VOLUME DISCOUNTS
+          {v.title}
         </span>
       </div>
 
       <div className="space-y-2">
-        {VOLUME_TIERS.sort((a, b) => a.minItems - b.minItems).map((tier) => {
+        {[...VOLUME_TIERS].sort((a, b) => a.minItems - b.minItems).map((tier) => {
           const isActive = currentTier?.minItems === tier.minItems;
           const isReached = totalItems >= tier.minItems;
 
@@ -70,14 +73,14 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
               }`}
             >
               <span className="font-plex">
-                {tier.minItems}+ items
+                {v.items.replace("{count}", String(tier.minItems))}
               </span>
               <span className="font-bold font-mono">
-                {tier.percentage}% OFF
+                {v.off.replace("{percent}", String(tier.percentage))}
               </span>
               {isActive && (
                 <span className="text-[9px] font-mono bg-white/20 px-2 py-0.5">
-                  ACTIVE
+                  {v.active}
                 </span>
               )}
             </div>
@@ -87,7 +90,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
 
       {nextTier && (
         <p className="text-[10px] text-oryn-black/40 font-plex mt-3">
-          Add {nextTier.itemsNeeded} more item{nextTier.itemsNeeded > 1 ? "s" : ""} to unlock {nextTier.tier.percentage}% off!
+          {v.unlockMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage))}
         </p>
       )}
     </div>

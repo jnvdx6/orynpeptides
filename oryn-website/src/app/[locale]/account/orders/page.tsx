@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/providers/auth";
 import { useCart } from "@/lib/cart-context";
 import { useProducts } from "@/providers/products";
+import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
 interface Order {
@@ -26,18 +27,13 @@ const statusColors: Record<string, string> = {
   cancelled: "bg-red-100 text-red-700",
 };
 
-const statusIcons: Record<string, string> = {
-  pending: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-  processing: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
-  shipped: "M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0",
-  delivered: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-  cancelled: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z",
-};
-
 export default function OrdersPage() {
   const { token } = useAuth();
   const { addItem } = useCart();
   const { products } = useProducts();
+  const { t, locale } = useLocale();
+  const o = t.account.orders;
+  const od = t.account.orderDetail;
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [reordered, setReordered] = useState<string | null>(null);
@@ -82,12 +78,21 @@ export default function OrdersPage() {
     );
   }
 
+  const dateLocale = locale === "es" ? "es-ES" : "en-GB";
+  const statusLabels: Record<string, string> = {
+    pending: od.pending,
+    processing: od.processing,
+    shipped: od.shipped,
+    delivered: od.delivered,
+    cancelled: od.cancelled,
+  };
+
   return (
     <div className="space-y-6">
       <div className="bg-white border border-oryn-grey/15 p-6">
-        <h1 className="text-2xl font-bold tracking-tight mb-1">Your Orders</h1>
+        <h1 className="text-2xl font-bold tracking-tight mb-1">{o.title}</h1>
         <p className="text-xs text-oryn-black/40 font-plex">
-          Track and manage all your ORYN orders
+          {o.subtitle}
         </p>
       </div>
 
@@ -96,15 +101,15 @@ export default function OrdersPage() {
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" strokeWidth="1.5" className="mx-auto mb-4">
             <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
           </svg>
-          <h3 className="text-lg font-bold mb-2">No orders yet</h3>
+          <h3 className="text-lg font-bold mb-2">{o.noOrders}</h3>
           <p className="text-xs text-oryn-black/40 font-plex mb-6">
-            Your order history will appear here once you make your first purchase.
+            {o.noOrdersDesc}
           </p>
           <Link
             href="/products"
             className="inline-block px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
           >
-            BROWSE PRODUCTS
+            {o.browseProducts}
           </Link>
         </div>
       ) : (
@@ -119,7 +124,7 @@ export default function OrdersPage() {
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold font-mono">{order.ref}</span>
                   <span className={`px-2 py-0.5 text-[9px] font-mono tracking-[0.1em] uppercase ${statusColors[order.status] || "bg-gray-100 text-gray-600"}`}>
-                    {order.status}
+                    {statusLabels[order.status] || order.status}
                   </span>
                 </div>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="1.5" className="group-hover:stroke-oryn-orange transition-colors">
@@ -129,8 +134,8 @@ export default function OrdersPage() {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6 text-[10px] text-oryn-black/40 font-plex">
-                  <span>{new Date(order.createdAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
-                  <span>{order.items?.length || 0} item{(order.items?.length || 0) !== 1 ? "s" : ""}</span>
+                  <span>{new Date(order.createdAt).toLocaleDateString(dateLocale, { day: "numeric", month: "short", year: "numeric" })}</span>
+                  <span>{order.items?.length || 0} {(order.items?.length || 0) !== 1 ? o.items : o.item}</span>
                   <span className="font-medium text-oryn-black/70">&euro;{order.total?.toFixed(2)}</span>
                 </div>
                 <button
@@ -141,7 +146,7 @@ export default function OrdersPage() {
                       : "bg-oryn-orange/10 text-oryn-orange hover:bg-oryn-orange hover:text-white"
                   }`}
                 >
-                  {reordered === order.id ? "ADDED TO CART ✓" : "REORDER"}
+                  {reordered === order.id ? o.addedToCart : o.reorder}
                 </button>
               </div>
 
@@ -168,7 +173,7 @@ export default function OrdersPage() {
                             )}
                           </div>
                           <span className={`text-[8px] font-mono tracking-[0.05em] ${isCurrent ? "text-oryn-orange font-medium" : "text-oryn-black/30"}`}>
-                            {step.toUpperCase()}
+                            {(statusLabels[step] || step).toUpperCase()}
                           </span>
                           {i < 3 && <div className={`flex-1 h-px ${i < currentIndex ? "bg-oryn-orange" : "bg-oryn-grey/20"}`} />}
                         </div>

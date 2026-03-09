@@ -84,6 +84,25 @@ export default async function ProductsPage({
             { name: "Home", url: `/${locale}` },
             { name: "Products", url: `/${locale}/products` },
           ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "ORYN Peptide Pens — Full Product Range",
+            description: "Research-grade peptide pen systems. 10 peptides, >99% purity, GMP manufactured in ISO 7 cleanrooms.",
+            url: `${SITE_URL}/${locale}/products`,
+            isPartOf: { "@type": "WebSite", url: SITE_URL },
+            about: {
+              "@type": "Thing",
+              name: "Research Peptide Pens",
+              description: "Pre-mixed, ready-to-use peptide delivery systems for research applications",
+            },
+            numberOfItems: products.length,
+            provider: {
+              "@type": "Organization",
+              name: "ORYN Peptide Labs",
+              url: SITE_URL,
+            },
+          },
         ]}
       />
       <ProductsClient />

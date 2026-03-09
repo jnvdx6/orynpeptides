@@ -10,7 +10,7 @@ import { REFERRAL_CODE_KEY } from "@/lib/discounts";
 
 export default function RegisterPage() {
   const { register, isAuthenticated } = useAuth();
-  const { localePath } = useLocale();
+  const { localePath, t } = useLocale();
   const router = useRouter();
   const [form, setForm] = useState({
     firstName: "",
@@ -21,6 +21,8 @@ export default function RegisterPage() {
     organization: "",
     referralCodeUsed: "",
   });
+
+  const r = t.account.register;
 
   // Pre-fill referral code from URL capture (via ?ref=CODE)
   useEffect(() => {
@@ -42,11 +44,11 @@ export default function RegisterPage() {
     setError("");
 
     if (form.password !== form.confirmPassword) {
-      setError("Passwords do not match");
+      setError(r.passwordsMismatch);
       return;
     }
     if (form.password.length < 8) {
-      setError("Password must be at least 8 characters");
+      setError(r.passwordTooShort);
       return;
     }
 
@@ -64,7 +66,7 @@ export default function RegisterPage() {
     if (result.success) {
       router.push(localePath("/account"));
     } else {
-      setError(result.error || "Registration failed");
+      setError(result.error || r.registrationFailed);
     }
   };
 
@@ -78,9 +80,9 @@ export default function RegisterPage() {
             <Link href="/" className="inline-block mb-6">
               <OrynLogo size={80} color="#121212" />
             </Link>
-            <h1 className="text-2xl font-bold tracking-tight mb-2">Create Account</h1>
+            <h1 className="text-2xl font-bold tracking-tight mb-2">{r.title}</h1>
             <p className="text-xs text-oryn-black/40 font-plex">
-              Join ORYN for order tracking, exclusive offers, and more
+              {r.subtitle}
             </p>
           </div>
 
@@ -94,7 +96,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                  FIRST NAME *
+                  {r.firstName}
                 </label>
                 <input
                   type="text"
@@ -106,7 +108,7 @@ export default function RegisterPage() {
               </div>
               <div>
                 <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                  LAST NAME *
+                  {r.lastName}
                 </label>
                 <input
                   type="text"
@@ -120,7 +122,7 @@ export default function RegisterPage() {
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                EMAIL *
+                {r.email}
               </label>
               <input
                 type="email"
@@ -128,13 +130,13 @@ export default function RegisterPage() {
                 onChange={(e) => update("email", e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-                placeholder="your@email.com"
+                placeholder={r.emailPlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                PASSWORD *
+                {r.password}
               </label>
               <input
                 type="password"
@@ -142,13 +144,13 @@ export default function RegisterPage() {
                 onChange={(e) => update("password", e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-                placeholder="Minimum 8 characters"
+                placeholder={r.passwordPlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                CONFIRM PASSWORD *
+                {r.confirmPassword}
               </label>
               <input
                 type="password"
@@ -161,27 +163,27 @@ export default function RegisterPage() {
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                ORGANIZATION
+                {r.organization}
               </label>
               <input
                 type="text"
                 value={form.organization}
                 onChange={(e) => update("organization", e.target.value)}
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-                placeholder="Lab, university, company..."
+                placeholder={r.organizationPlaceholder}
               />
             </div>
 
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                REFERRAL CODE
+                {r.referralCode}
               </label>
               <input
                 type="text"
                 value={form.referralCodeUsed}
                 onChange={(e) => update("referralCodeUsed", e.target.value.toUpperCase())}
                 className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors font-mono"
-                placeholder="Optional"
+                placeholder={r.referralCodePlaceholder}
                 maxLength={8}
               />
             </div>
@@ -194,26 +196,26 @@ export default function RegisterPage() {
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent animate-spin" />
-                  CREATING ACCOUNT...
+                  {r.creating}
                 </>
               ) : (
-                "CREATE ACCOUNT"
+                r.createAccount
               )}
             </button>
 
             <p className="text-[9px] text-oryn-black/30 font-plex text-center leading-relaxed">
-              By creating an account, you agree to ORYN&apos;s{" "}
-              <Link href="/terms" className="text-oryn-orange hover:underline">Terms of Service</Link>{" "}
-              and{" "}
-              <Link href="/privacy" className="text-oryn-orange hover:underline">Privacy Policy</Link>.
+              {r.termsPrefix}{" "}
+              <Link href="/terms" className="text-oryn-orange hover:underline">{r.termsOfService}</Link>{" "}
+              {r.and}{" "}
+              <Link href="/privacy" className="text-oryn-orange hover:underline">{r.privacyPolicy}</Link>.
             </p>
           </form>
 
           <div className="mt-6 pt-6 border-t border-oryn-grey/10 text-center">
             <p className="text-xs text-oryn-black/40 font-plex">
-              Already have an account?{" "}
+              {r.hasAccount}{" "}
               <Link href="/account/login" className="text-oryn-orange hover:underline font-medium">
-                Sign in
+                {r.signIn}
               </Link>
             </p>
           </div>

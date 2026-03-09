@@ -1,0 +1,17 @@
+{
+  "name": "ORYN Peptide Labs",
+  "short_name": "ORYN",
+  "description": "Research-grade peptide pen systems. >99% purity, GMP manufactured, next-day UK delivery.",
+  "start_url": "/en",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF6A1A",
+  "icons": [
+    {
+      "src": "/favicon-oryn.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

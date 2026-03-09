@@ -9,9 +9,8 @@ export default function LocaleError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error("Page error:", error);
-  }, [error]);
+  // Suppress unused var warning
+  useEffect(() => { void error; }, [error]);
 
   return (
     <div className="pt-24 min-h-screen flex items-center justify-center px-6">

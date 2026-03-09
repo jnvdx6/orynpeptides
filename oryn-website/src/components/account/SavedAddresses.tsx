@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
 
 export interface SavedAddress {
   id: string;
@@ -67,6 +68,8 @@ export function useSavedAddresses() {
 
 export function SavedAddresses() {
   const { addresses, add, remove, setDefault } = useSavedAddresses();
+  const { t } = useLocale();
+  const s = t.account.savedAddresses;
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     label: "",
@@ -101,13 +104,13 @@ export function SavedAddresses() {
     <div className="bg-white border border-oryn-grey/15 p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
-          SAVED ADDRESSES
+          {s.title}
         </h3>
         <button
           onClick={() => setShowForm(!showForm)}
           className="text-[10px] font-mono text-oryn-orange tracking-[0.1em] hover:text-oryn-orange-dark transition-colors"
         >
-          {showForm ? "CANCEL" : "+ ADD ADDRESS"}
+          {showForm ? s.cancel : s.addAddress}
         </button>
       </div>
 
@@ -115,7 +118,7 @@ export function SavedAddresses() {
         <form onSubmit={handleSubmit} className="space-y-3 mb-6 p-4 bg-oryn-cream/30 border border-oryn-grey/10">
           <div>
             <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">
-              LABEL (e.g. Home, Office)
+              {s.labelField}
             </label>
             <input
               type="text"
@@ -123,12 +126,12 @@ export function SavedAddresses() {
               onChange={(e) => setForm((p) => ({ ...p, label: e.target.value }))}
               required
               className="w-full px-3 py-2 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange"
-              placeholder="Home"
+              placeholder={s.labelPlaceholder}
             />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">FIRST NAME</label>
+              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.firstName}</label>
               <input
                 type="text"
                 value={form.firstName}
@@ -138,7 +141,7 @@ export function SavedAddresses() {
               />
             </div>
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">LAST NAME</label>
+              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.lastName}</label>
               <input
                 type="text"
                 value={form.lastName}
@@ -149,7 +152,7 @@ export function SavedAddresses() {
             </div>
           </div>
           <div>
-            <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">ADDRESS</label>
+            <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.address}</label>
             <input
               type="text"
               value={form.address}
@@ -160,7 +163,7 @@ export function SavedAddresses() {
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">CITY</label>
+              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.city}</label>
               <input
                 type="text"
                 value={form.city}
@@ -170,7 +173,7 @@ export function SavedAddresses() {
               />
             </div>
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">POSTCODE</label>
+              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.postcode}</label>
               <input
                 type="text"
                 value={form.postcode}
@@ -180,23 +183,20 @@ export function SavedAddresses() {
               />
             </div>
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">COUNTRY</label>
+              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.country}</label>
               <select
                 value={form.country}
                 onChange={(e) => setForm((p) => ({ ...p, country: e.target.value }))}
                 className="w-full px-3 py-2 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange"
               >
-                <option value="GB">United Kingdom</option>
-                <option value="ES">Spain</option>
-                <option value="IE">Ireland</option>
-                <option value="DE">Germany</option>
-                <option value="FR">France</option>
-                <option value="NL">Netherlands</option>
+                {Object.entries(s.countries).map(([code, name]) => (
+                  <option key={code} value={code}>{name}</option>
+                ))}
               </select>
             </div>
           </div>
           <div>
-            <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">PHONE</label>
+            <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1">{s.phone}</label>
             <input
               type="tel"
               value={form.phone}
@@ -211,20 +211,20 @@ export function SavedAddresses() {
               onChange={(e) => setForm((p) => ({ ...p, isDefault: e.target.checked }))}
               className="accent-oryn-orange"
             />
-            <span className="text-[10px] text-oryn-black/50 font-plex">Set as default address</span>
+            <span className="text-[10px] text-oryn-black/50 font-plex">{s.setAsDefault}</span>
           </label>
           <button
             type="submit"
             className="px-5 py-2.5 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
           >
-            SAVE ADDRESS
+            {s.saveAddress}
           </button>
         </form>
       )}
 
       {addresses.length === 0 && !showForm ? (
         <p className="text-xs text-oryn-black/40 font-plex py-4">
-          No saved addresses. Add one for faster checkout.
+          {s.noAddresses}
         </p>
       ) : (
         <div className="space-y-3">
@@ -240,7 +240,7 @@ export function SavedAddresses() {
                   <span className="text-xs font-bold">{addr.label}</span>
                   {addr.isDefault && (
                     <span className="px-1.5 py-0.5 bg-oryn-orange text-white text-[8px] font-mono tracking-[0.1em]">
-                      DEFAULT
+                      {s.default}
                     </span>
                   )}
                 </div>
@@ -250,14 +250,14 @@ export function SavedAddresses() {
                       onClick={() => setDefault(addr.id)}
                       className="text-[9px] text-oryn-black/40 hover:text-oryn-orange font-mono tracking-[0.1em]"
                     >
-                      SET DEFAULT
+                      {s.setDefault}
                     </button>
                   )}
                   <button
                     onClick={() => remove(addr.id)}
                     className="text-[9px] text-red-400 hover:text-red-600 font-mono tracking-[0.1em]"
                   >
-                    REMOVE
+                    {s.remove}
                   </button>
                 </div>
               </div>

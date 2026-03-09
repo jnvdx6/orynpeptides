@@ -1,3 +1,6 @@
+// Free shipping threshold (in major currency units, e.g., €150)
+export const FREE_SHIPPING_THRESHOLD = 150;
+
 // Volume discount tiers
 export interface VolumeDiscount {
   minItems: number;

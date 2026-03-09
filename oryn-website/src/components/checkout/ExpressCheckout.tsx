@@ -6,6 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import type { StripeExpressCheckoutElementConfirmEvent } from "@stripe/stripe-js";
+import { useLocale } from "@/i18n/LocaleContext";
 
 interface ExpressCheckoutProps {
   onSuccess: (paymentIntentId: string) => void;
@@ -15,6 +16,7 @@ interface ExpressCheckoutProps {
 export function ExpressCheckout({ onSuccess, onError }: ExpressCheckoutProps) {
   const stripe = useStripe();
   const elements = useElements();
+  const { locale } = useLocale();
 
   const onConfirm = async (event: StripeExpressCheckoutElementConfirmEvent) => {
     if (!stripe || !elements) return;
@@ -22,7 +24,7 @@ export function ExpressCheckout({ onSuccess, onError }: ExpressCheckoutProps) {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/en/checkout/success`,
+        return_url: `${window.location.origin}/${locale}/checkout/success`,
       },
       redirect: "if_required",
     });

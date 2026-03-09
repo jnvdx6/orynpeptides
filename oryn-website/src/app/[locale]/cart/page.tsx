@@ -6,6 +6,8 @@ import { useProducts } from "@/providers/products";
 import { useWishlist } from "@/providers/wishlist";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
+import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -13,11 +15,9 @@ const categoryImages: Record<string, string> = {
   novadose: "/images/novadose-pen-real.png",
 };
 
-const FREE_SHIPPING_THRESHOLD = 150;
-
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, totalPrice, cartLoaded } = useCart();
-  const { t, formatPrice } = useLocale();
+  const { items, removeItem, updateQuantity, totalPrice, totalItems, volumeDiscount, finalPrice, cartLoaded } = useCart();
+  const { t, formatPrice, locale } = useLocale();
   const { products } = useProducts();
   const { addToWishlist, isInWishlist } = useWishlist();
 
@@ -101,6 +101,11 @@ export default function CartPage() {
           )}
         </div>
 
+        {/* Volume discount banner */}
+        <div className="mb-8">
+          <VolumeDiscountBanner totalItems={totalItems} />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Items */}
           <div className="lg:col-span-2 space-y-4">
@@ -138,13 +143,14 @@ export default function CartPage() {
                           removeItem(item.product.id);
                         }}
                         className="text-[9px] font-mono text-oryn-black/30 hover:text-oryn-orange transition-colors px-1 py-0.5"
-                        title="Save for later"
+                        title={locale === "es" ? "Guardar para después" : "Save for later"}
                       >
-                        {isInWishlist(item.product.id) ? "SAVED" : "SAVE"}
+                        {isInWishlist(item.product.id) ? (locale === "es" ? "GUARDADO" : "SAVED") : (locale === "es" ? "GUARDAR" : "SAVE")}
                       </button>
                       <button
                         onClick={() => removeItem(item.product.id)}
                         className="text-oryn-black/30 hover:text-red-500 transition-colors p-1"
+                        aria-label={t.productDetail.removeItem}
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M18 6L6 18M6 6l12 12" />
@@ -156,7 +162,8 @@ export default function CartPage() {
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="w-8 h-8 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors"
+                        className="w-10 h-10 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors"
+                        aria-label={t.productDetail.decreaseQuantity}
                       >
                         -
                       </button>
@@ -164,7 +171,8 @@ export default function CartPage() {
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
                         disabled={item.quantity >= 10}
-                        className="w-8 h-8 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey-light disabled:hover:text-current"
+                        className="w-10 h-10 bg-oryn-grey-light flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey-light disabled:hover:text-current"
+                        aria-label={t.productDetail.increaseQuantity}
                       >
                         +
                       </button>
@@ -187,6 +195,15 @@ export default function CartPage() {
                   <span className="text-oryn-black/50">{t.cart.subtotal}</span>
                   <span>{formatPrice(totalPrice)}</span>
                 </div>
+                {volumeDiscount && (
+                  <div className="flex justify-between text-sm">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-green-600">{t.cart.volumeDiscount || "Volume discount"}</span>
+                      <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
+                    </div>
+                    <span className="text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-sm">
                   <span className="text-oryn-black/50">{t.cart.shipping}</span>
                   {amountToFreeShipping <= 0 ? (
@@ -199,7 +216,7 @@ export default function CartPage() {
               <div className="border-t border-oryn-grey/30 pt-4 mb-6">
                 <div className="flex justify-between text-lg font-bold">
                   <span>{t.cart.total}</span>
-                  <span>{formatPrice(totalPrice)}</span>
+                  <span>{formatPrice(finalPrice)}</span>
                 </div>
               </div>
               <Link

@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Crypto payment error:', error);
+    console.error('Crypto payment error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

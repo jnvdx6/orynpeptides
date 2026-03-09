@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ trees: activeTrees });
   } catch (error) {
-    console.error('Admin referrals error:', error);
+    console.error('Admin referrals error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

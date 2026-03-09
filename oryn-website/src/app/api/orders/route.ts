@@ -157,7 +157,7 @@ export async function POST(request: NextRequest) {
           updatedAt: new Date().toISOString(),
         });
       } catch (commError) {
-        console.error('Commission generation error:', commError);
+        console.error('Commission generation error:', commError instanceof Error ? commError.message : 'Unknown error');
       }
     }
 
@@ -179,7 +179,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Create order error:', error);
+    console.error('Create order error:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

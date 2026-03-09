@@ -25,7 +25,8 @@ interface Props {
 
 export function FrequentlyBoughtTogether({ currentProduct }: Props) {
   const { addItem, items } = useCart();
-  const { formatPrice } = useLocale();
+  const { formatPrice, t } = useLocale();
+  const fb = t.frequentlyBought;
 
   const pairSlugs = PAIR_MAP[currentProduct.slug] || [];
   const cartSlugs = new Set(items.map((i) => i.product.slug));
@@ -55,9 +56,9 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
           </div>
-          <h3 className="text-lg font-bold tracking-wide">Frequently Bought Together</h3>
+          <h3 className="text-lg font-bold tracking-wide">{fb.title}</h3>
           <span className="text-[9px] font-mono bg-oryn-orange text-white px-2 py-0.5 tracking-[0.1em]">
-            SAVE 10%
+            {fb.save}
           </span>
         </div>
 
@@ -108,7 +109,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
               <span className="text-xl font-bold text-oryn-orange">{formatPrice(bundleFinal)}</span>
             </div>
             <p className="text-[10px] text-oryn-black/40 font-plex">
-              Bundle price — save {formatPrice(bundleDiscount)} with this combination
+              {fb.bundlePrice.replace("{amount}", formatPrice(bundleDiscount))}
             </p>
           </div>
           <button
@@ -120,7 +121,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
-            ADD ALL TO CART
+            {fb.addAll}
           </button>
         </div>
       </div>

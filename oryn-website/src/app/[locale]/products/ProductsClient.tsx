@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState, useEffect } from "react";
+import { Suspense, useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useLocale } from "@/i18n/LocaleContext";
@@ -22,31 +22,33 @@ function ProductsContent() {
     if (urlCategory) setActiveCategory(urlCategory);
   }, [urlCategory]);
 
-  let filtered =
-    activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  const filtered = useMemo(() => {
+    let result =
+      activeCategory === "all"
+        ? products
+        : products.filter((p) => p.category === activeCategory);
 
-  // Search filter
-  if (searchQuery.trim()) {
-    const q = searchQuery.toLowerCase();
-    filtered = filtered.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.subtitle.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.benefits.some((b) => b.toLowerCase().includes(q))
-    );
-  }
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.subtitle.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.benefits.some((b) => b.toLowerCase().includes(q))
+      );
+    }
 
-  // Sort
-  if (sortBy === "price-asc") {
-    filtered = [...filtered].sort((a, b) => a.price - b.price);
-  } else if (sortBy === "price-desc") {
-    filtered = [...filtered].sort((a, b) => b.price - a.price);
-  } else if (sortBy === "name") {
-    filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
-  }
+    if (sortBy === "price-asc") {
+      result = [...result].sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-desc") {
+      result = [...result].sort((a, b) => b.price - a.price);
+    } else if (sortBy === "name") {
+      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    return result;
+  }, [products, activeCategory, searchQuery, sortBy]);
 
   return (
     <div className="pt-[calc(1rem+4px)] pb-16">
@@ -104,19 +106,21 @@ function ProductsContent() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t.productsPage.all === "All" ? "Search peptides..." : "Buscar peptidos..."}
+              placeholder={t.productsPage.searchPlaceholder}
+              aria-label={t.productsPage.searchPlaceholder}
               className="w-full pl-9 pr-4 py-2.5 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
             />
           </div>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortOption)}
+            aria-label={t.productsPage.sortBy}
             className="px-3 py-2.5 border border-oryn-grey/30 text-[10px] font-mono tracking-[0.1em] text-oryn-black/50 focus:outline-none focus:border-oryn-orange appearance-none bg-white pr-8"
           >
-            <option value="default">SORT BY</option>
-            <option value="price-asc">PRICE: LOW TO HIGH</option>
-            <option value="price-desc">PRICE: HIGH TO LOW</option>
-            <option value="name">NAME: A-Z</option>
+            <option value="default">{t.productsPage.sortBy}</option>
+            <option value="price-asc">{t.productsPage.sortPriceAsc}</option>
+            <option value="price-desc">{t.productsPage.sortPriceDesc}</option>
+            <option value="name">{t.productsPage.sortName}</option>
           </select>
         </div>
 
@@ -156,13 +160,13 @@ function ProductsContent() {
               <path d="M21 21l-4.35-4.35" />
             </svg>
             <p className="text-sm text-oryn-black/40 font-plex">
-              {searchQuery ? `No products found for "${searchQuery}"` : "No products in this category"}
+              {searchQuery ? `${t.productsPage.noResults} "${searchQuery}"` : t.productsPage.noCategory}
             </p>
             <button
               onClick={() => { setSearchQuery(""); setActiveCategory("all"); }}
               className="mt-3 text-xs text-oryn-orange hover:underline"
             >
-              Clear filters
+              {t.productsPage.clearFilters}
             </button>
           </div>
         ) : (

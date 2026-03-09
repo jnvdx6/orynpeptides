@@ -5,12 +5,6 @@ import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
-const certifications = [
-  { label: "ISO CLASS 7", detail: "Cleanroom" },
-  { label: "GMP", detail: "Certified" },
-  { label: ">99%", detail: "Purity" },
-  { label: "EU", detail: "Manufactured" },
-];
 
 export function Footer() {
   const { t } = useLocale();
@@ -28,7 +22,10 @@ export function Footer() {
     [f.sections.company]: [
       { href: "/about", label: f.companyLinks.about },
       { href: "/science", label: f.companyLinks.science },
-      { href: "/learn", label: "Research Hub" },
+      { href: "/quality", label: f.companyLinks.quality },
+      { href: "/why-oryn", label: f.companyLinks.whyOryn },
+      { href: "/learn", label: f.companyLinks.researchHub },
+      { href: "/tools/peptide-calculator", label: f.companyLinks.calculator },
       { href: "/contact", label: f.companyLinks.contact },
     ],
     [f.sections.legal]: [
@@ -44,6 +41,21 @@ export function Footer() {
     { href: "/peptides-for/anti-aging", label: "Anti-Aging" },
     { href: "/peptides-for/muscle-growth", label: "Muscle Growth" },
     { href: "/peptides-for/skin-rejuvenation", label: "Skin Rejuvenation" },
+    { href: "/peptides-for/sleep-quality", label: "Sleep & Recovery" },
+    { href: "/peptides-for/gut-health", label: "Gut Health" },
+    { href: "/peptides-for/joint-health", label: "Joint & Tendon" },
+    { href: "/peptides-for/hair-growth", label: "Hair Growth" },
+    { href: "/peptides-for/immune-support", label: "Immune Support" },
+    { href: "/peptides-for/tendon-repair", label: "Tendon Repair" },
+    { href: "/peptides-for/sports-recovery", label: "Sports Recovery" },
+    { href: "/peptides-for/post-surgery", label: "Post-Surgery" },
+    { href: "/peptides-for/cognitive-enhancement", label: "Cognitive Enhancement" },
+    { href: "/peptides-for/energy-vitality", label: "Energy & Vitality" },
+    { href: "/peptides-for/detox-cleanse", label: "Detox & Cleanse" },
+    { href: "/peptides-for/body-composition", label: "Body Composition" },
+    { href: "/peptides-for/inflammation", label: "Inflammation & Pain" },
+    { href: "/peptides-for/hormonal-balance", label: "Hormonal Balance" },
+    { href: "/peptides-for/longevity-biohacking", label: "Longevity & Biohacking" },
   ];
 
   const cityLinks = [
@@ -82,6 +94,26 @@ export function Footer() {
     { href: "/peptides/ipswich", label: "Ipswich" },
     { href: "/peptides/milton-keynes", label: "Milton Keynes" },
     { href: "/peptides/cheltenham", label: "Cheltenham" },
+    { href: "/peptides/wolverhampton", label: "Wolverhampton" },
+    { href: "/peptides/sunderland", label: "Sunderland" },
+    { href: "/peptides/peterborough", label: "Peterborough" },
+    { href: "/peptides/blackpool", label: "Blackpool" },
+    { href: "/peptides/middlesbrough", label: "Middlesbrough" },
+    { href: "/peptides/bolton", label: "Bolton" },
+    { href: "/peptides/luton", label: "Luton" },
+    { href: "/peptides/colchester", label: "Colchester" },
+    { href: "/peptides/gloucester", label: "Gloucester" },
+    { href: "/peptides/warrington", label: "Warrington" },
+    { href: "/peptides/canterbury", label: "Canterbury" },
+    { href: "/peptides/worcester", label: "Worcester" },
+    { href: "/peptides/lincoln", label: "Lincoln" },
+    { href: "/peptides/stirling", label: "Stirling" },
+    { href: "/peptides/inverness", label: "Inverness" },
+    { href: "/peptides/slough", label: "Slough" },
+    { href: "/peptides/stockport", label: "Stockport" },
+    { href: "/peptides/doncaster", label: "Doncaster" },
+    { href: "/peptides/basildon", label: "Basildon" },
+    { href: "/peptides/crawley", label: "Crawley" },
   ];
 
   const learnLinks = [
@@ -91,11 +123,28 @@ export function Footer() {
     { href: "/learn/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
     { href: "/learn/how-to-use-peptide-pen", label: "How to Use a Peptide Pen" },
     { href: "/learn/best-peptides-for-recovery-uk", label: "Best Peptides for Recovery UK" },
+    { href: "/learn/best-peptide-pens-uk-2026", label: "Best Peptide Pens UK 2026" },
+    { href: "/learn/buy-peptides-online-uk-guide", label: "Buy Peptides Online UK" },
+    { href: "/learn/tirzepatide-pen-uk-guide", label: "Tirzepatide Pen UK Guide" },
+    { href: "/learn/peptides-for-athletes-uk", label: "Peptides for Athletes UK" },
+    { href: "/learn/copper-peptide-ghk-cu-hair-skin", label: "GHK-Cu Hair & Skin Guide" },
+    { href: "/learn/peptide-delivery-uk-next-day", label: "UK Delivery Guide" },
+    { href: "/learn/peptide-stacking-guide-uk", label: "Peptide Stacking Guide" },
+    { href: "/learn/peptide-safety-side-effects-guide", label: "Peptide Safety Guide" },
+    { href: "/learn/what-is-a-peptide-pen", label: "What Is a Peptide Pen?" },
+    { href: "/learn/nad-iv-therapy-vs-injection-pen", label: "NAD+ IV vs Pen" },
+    { href: "/learn/peptide-pens-for-beginners-uk", label: "Beginner's Guide" },
     { href: "/compare/bpc-157-vs-tb-500", label: "BPC-157 vs TB-500" },
     { href: "/compare/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
     { href: "/compare/cjc-1295-vs-ipamorelin", label: "CJC-1295 vs Ipamorelin" },
     { href: "/compare/ghk-cu-vs-glutathione", label: "GHK-Cu vs Glutathione" },
     { href: "/compare/nad-plus-pen-vs-iv-therapy", label: "NAD+ Pen vs IV Therapy" },
+    { href: "/learn/cheapest-peptides-uk-2026", label: "Cheapest Peptides UK 2026" },
+    { href: "/learn/peptides-vs-hrt", label: "Peptides vs HRT" },
+    { href: "/learn/do-peptides-really-work", label: "Do Peptides Really Work?" },
+    { href: "/learn/peptide-regulations-uk-2026", label: "UK Peptide Regulations" },
+    { href: "/learn/semaglutide-vs-tirzepatide-2026", label: "Semaglutide vs Tirzepatide" },
+    { href: "/learn/peptide-pens-for-women-uk", label: "Peptides for Women UK" },
   ];
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -123,7 +172,7 @@ export function Footer() {
       <div className="border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px">
-            {certifications.map((cert) => (
+            {f.certifications.map((cert) => (
               <div key={cert.label} className="py-8 text-center">
                 <div className="text-lg font-bold text-oryn-orange mb-1">{cert.label}</div>
                 <div className="text-[9px] font-mono text-white/30 tracking-[0.2em]">
@@ -152,7 +201,9 @@ export function Footer() {
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex w-full md:w-auto">
+                <label htmlFor="footer-newsletter-email" className="sr-only">{f.newsletterTitle}</label>
                 <input
+                  id="footer-newsletter-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -219,9 +270,9 @@ export function Footer() {
             </div>
             {/* Payment methods */}
             <div className="flex items-center gap-3">
-              <span className="text-[8px] font-mono text-white/20 tracking-[0.15em]">{f.paymentMethods}</span>
+              <span className="text-[8px] font-mono text-white/40 tracking-[0.15em]">{f.paymentMethods}</span>
               {["VISA", "MC", "AMEX", "BTC", "ETH"].map((m) => (
-                <span key={m} className="text-[9px] font-mono text-white/20 px-2 py-1 border border-white/5">{m}</span>
+                <span key={m} className="text-[9px] font-mono text-white/40 px-2 py-1 border border-white/10">{m}</span>
               ))}
             </div>
           </div>
@@ -258,12 +309,12 @@ export function Footer() {
             {/* Research Areas */}
             <div>
               <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                RESEARCH AREAS
+                {f.seoSections.researchAreas.toUpperCase()}
               </h4>
               <ul className="space-y-2">
                 {categoryLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-xs text-oryn-white/25 hover:text-oryn-orange transition-colors font-plex">
+                    <Link href={link.href} className="text-xs text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
                       {link.label}
                     </Link>
                   </li>
@@ -274,12 +325,12 @@ export function Footer() {
             {/* Learn */}
             <div>
               <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                LEARN
+                {f.seoSections.learn.toUpperCase()}
               </h4>
               <ul className="space-y-2">
                 {learnLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-xs text-oryn-white/25 hover:text-oryn-orange transition-colors font-plex">
+                    <Link href={link.href} className="text-xs text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
                       {link.label}
                     </Link>
                   </li>
@@ -291,7 +342,7 @@ export function Footer() {
             <div>
               <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
                 <Link href="/peptides" className="hover:text-white transition-colors">
-                  UK DELIVERY
+                  {f.seoSections.ukDelivery.toUpperCase()}
                 </Link>
               </h4>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
@@ -299,7 +350,7 @@ export function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-[10px] text-oryn-white/20 hover:text-oryn-orange transition-colors font-plex"
+                    className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex"
                   >
                     {link.label}
                   </Link>
@@ -310,15 +361,154 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Regional Hubs & Encyclopedia */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Regional Hubs */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.ukRegions.toUpperCase()}</h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                {[
+                  { href: "/peptides/region/scotland", label: "Scotland" },
+                  { href: "/peptides/region/wales", label: "Wales" },
+                  { href: "/peptides/region/north-england", label: "North England" },
+                  { href: "/peptides/region/south-england", label: "South England" },
+                  { href: "/peptides/region/midlands", label: "Midlands" },
+                  { href: "/peptides/region/east-england", label: "East England" },
+                ].map((link) => (
+                  <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Counties */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">UK COUNTIES</h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                {[
+                  "kent", "surrey", "hampshire", "essex", "devon", "cornwall",
+                  "oxfordshire", "cambridgeshire", "norfolk", "suffolk",
+                  "lancashire", "cheshire", "west-yorkshire", "greater-manchester",
+                  "warwickshire", "nottinghamshire", "derbyshire", "leicestershire",
+                  "highland", "lothian", "fife", "glamorgan", "gwynedd", "antrim",
+                ].map((slug) => {
+                  const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+                  return (
+                    <Link key={slug} href={`/peptides/county/${slug}`} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                      {name}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Encyclopedia */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+                <Link href="/peptides/encyclopedia" className="hover:text-white transition-colors">{f.seoSections.peptideEncyclopedia.toUpperCase()}</Link>
+              </h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                {[
+                  { href: "/peptides/encyclopedia/bpc-157", label: "BPC-157" },
+                  { href: "/peptides/encyclopedia/tb-500", label: "TB-500" },
+                  { href: "/peptides/encyclopedia/cjc-1295", label: "CJC-1295" },
+                  { href: "/peptides/encyclopedia/ipamorelin", label: "Ipamorelin" },
+                  { href: "/peptides/encyclopedia/tirzepatide-pen", label: "Tirzepatide" },
+                  { href: "/peptides/encyclopedia/ghk-cu", label: "GHK-Cu" },
+                  { href: "/peptides/encyclopedia/glutathione", label: "Glutathione" },
+                  { href: "/peptides/encyclopedia/nad-plus", label: "NAD+" },
+                ].map((link) => (
+                  <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.resources.toUpperCase()}</h4>
+              <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                {[
+                  { href: "/faq", label: "FAQ" },
+                  { href: "/wholesale", label: "Wholesale Orders" },
+                  { href: "/shipping", label: "Shipping Info" },
+                  { href: "/quality", label: "Quality & Testing" },
+                  { href: "/why-oryn", label: "Why ORYN" },
+                  { href: "/tools/peptide-calculator", label: "Peptide Calculator" },
+                  { href: "/compare", label: "Compare Peptides" },
+                  { href: "/peptides/glossary", label: "Peptide Glossary" },
+                  { href: "/bundles/recovery-stack", label: "Recovery Stack" },
+                  { href: "/bundles/anti-aging-stack", label: "Anti-Aging Stack" },
+                  { href: "/bundles/gh-stack", label: "GH Stack" },
+                  { href: "/bundles/metabolic-stack", label: "Metabolic Stack" },
+                  { href: "/bundles/total-wellness", label: "Total Wellness" },
+                  { href: "/bundles/athlete-recovery", label: "Athlete Recovery" },
+                  { href: "/bundles/nad-complete", label: "NAD+ Complete" },
+                  { href: "/bundles/skin-renewal", label: "Skin Renewal" },
+                  { href: "/protocols", label: "Research Protocols" },
+                  { href: "/protocols/recovery-stack", label: "Recovery Protocol" },
+                  { href: "/protocols/anti-aging-protocol", label: "Anti-Aging Protocol" },
+                  { href: "/protocols/gh-optimization", label: "GH Protocol" },
+                  { href: "/protocols/metabolic-reset", label: "Metabolic Protocol" },
+                  { href: "/faq/peptide-pens-faq", label: "Peptide Pens FAQ" },
+                  { href: "/faq/ordering-delivery-faq", label: "Ordering & Delivery FAQ" },
+                  { href: "/faq/purity-testing-faq", label: "Purity & Testing FAQ" },
+                ].map((link) => (
+                  <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* London Areas */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+            <Link href="/peptides/london" className="hover:text-white transition-colors">
+              {f.seoSections.londonDelivery.toUpperCase()}
+            </Link>
+          </h4>
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+            {[
+              "westminster", "city-of-london", "mayfair", "marylebone", "fitzrovia", "bloomsbury", "south-kensington",
+              "covent-garden", "holborn", "soho",
+              "camden", "islington", "hackney", "hampstead", "shoreditch", "finsbury-park", "muswell-hill", "highgate", "wood-green",
+              "canary-wharf", "stratford", "whitechapel", "bow", "docklands", "walthamstow", "barking",
+              "brixton", "clapham", "greenwich", "southwark", "croydon", "wimbledon",
+              "streatham", "tooting", "lewisham", "dulwich", "woolwich", "crystal-palace",
+              "kensington", "chelsea", "notting-hill", "fulham", "hammersmith", "ealing", "richmond", "kingston",
+              "chiswick", "acton", "shepherds-bush", "brentford", "twickenham",
+            ].map((slug) => {
+              const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+                .replace("Of", "of");
+              return (
+                <Link
+                  key={slug}
+                  href={`/peptides/london/${slug}`}
+                  className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex"
+                >
+                  {name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* Trust & Security */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {[
-              { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: "SSL ENCRYPTED" },
-              { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: "SECURE PAYMENTS" },
-              { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: "COA INCLUDED" },
-              { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: "30-DAY GUARANTEE" },
+              { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: f.trustBadges.ssl },
+              { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: f.trustBadges.secure },
+              { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: f.trustBadges.coa },
+              { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", label: f.trustBadges.guarantee },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-2">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
@@ -334,10 +524,10 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-oryn-white/20 font-mono tracking-wider">
-            &copy; {new Date().getFullYear()} ORYN PEPTIDE LABS &mdash; ALL RIGHTS RESERVED
+          <p className="text-[10px] text-oryn-white/40 font-mono tracking-wider">
+            &copy; {new Date().getFullYear()} {f.copyright}
           </p>
-          <p className="text-[10px] text-oryn-white/15 font-mono tracking-wider">
+          <p className="text-[10px] text-oryn-white/30 font-mono tracking-wider">
             {f.researchOnly}
           </p>
         </div>

@@ -6,6 +6,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { useLocale } from "@/i18n/LocaleContext";
 
 interface PaymentFormProps {
   amount: number;
@@ -30,6 +31,7 @@ export function PaymentForm({
 }: PaymentFormProps) {
   const stripe = useStripe();
   const elements = useElements();
+  const { locale, t } = useLocale();
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -43,7 +45,7 @@ export function PaymentForm({
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/en/checkout/success`,
+        return_url: `${window.location.origin}/${locale}/checkout/success`,
       },
       redirect: "if_required",
     });
@@ -170,7 +172,7 @@ export function PaymentForm({
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
           <span className="text-[9px] font-mono text-oryn-black/30 tracking-wider">
-            SSL ENCRYPTED
+            {t.payment.sslEncrypted}
           </span>
         </div>
         <div className="flex items-center gap-1.5">
@@ -186,7 +188,7 @@ export function PaymentForm({
             <line x1="1" y1="10" x2="23" y2="10" />
           </svg>
           <span className="text-[9px] font-mono text-oryn-black/30 tracking-wider">
-            PCI COMPLIANT
+            {t.payment.pciCompliant}
           </span>
         </div>
         <div className="flex items-center gap-1.5">

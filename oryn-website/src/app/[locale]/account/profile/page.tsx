@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import { useAuth } from "@/providers/auth";
+import { useLocale } from "@/i18n/LocaleContext";
 import { SavedAddresses } from "@/components/account/SavedAddresses";
 
 export default function ProfilePage() {
   const { user, updateProfile } = useAuth();
+  const { t } = useLocale();
+  const p = t.account.profile;
+
   const [form, setForm] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
@@ -35,11 +39,11 @@ export default function ProfilePage() {
     setPasswordError("");
 
     if (passwordForm.newPassword !== passwordForm.confirm) {
-      setPasswordError("Passwords do not match");
+      setPasswordError(p.passwordsMismatch);
       return;
     }
     if (passwordForm.newPassword.length < 8) {
-      setPasswordError("Password must be at least 8 characters");
+      setPasswordError(p.passwordTooShort);
       return;
     }
 
@@ -52,22 +56,22 @@ export default function ProfilePage() {
   return (
     <div className="space-y-6">
       <div className="bg-white border border-oryn-grey/15 p-6">
-        <h1 className="text-2xl font-bold tracking-tight mb-1">Profile Settings</h1>
+        <h1 className="text-2xl font-bold tracking-tight mb-1">{p.title}</h1>
         <p className="text-xs text-oryn-black/40 font-plex">
-          Manage your account information
+          {p.subtitle}
         </p>
       </div>
 
       {/* Profile Form */}
       <div className="bg-white border border-oryn-grey/15 p-6">
         <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-5">
-          PERSONAL INFORMATION
+          {p.personalInfo}
         </h3>
         <form onSubmit={handleSaveProfile} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                FIRST NAME
+                {p.firstName}
               </label>
               <input
                 type="text"
@@ -78,7 +82,7 @@ export default function ProfilePage() {
             </div>
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                LAST NAME
+                {p.lastName}
               </label>
               <input
                 type="text"
@@ -91,7 +95,7 @@ export default function ProfilePage() {
 
           <div>
             <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-              EMAIL
+              {p.email}
             </label>
             <input
               type="email"
@@ -99,13 +103,13 @@ export default function ProfilePage() {
               disabled
               className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex bg-oryn-cream/30 text-oryn-black/40"
             />
-            <p className="text-[9px] text-oryn-black/30 font-plex mt-1">Email cannot be changed</p>
+            <p className="text-[9px] text-oryn-black/30 font-plex mt-1">{p.emailNotChangeable}</p>
           </div>
 
           {user?.referralCode && (
             <div>
               <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-                REFERRAL CODE
+                {p.referralCode}
               </label>
               <input
                 type="text"
@@ -121,14 +125,14 @@ export default function ProfilePage() {
               type="submit"
               className="px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
             >
-              SAVE CHANGES
+              {p.saveChanges}
             </button>
             {saved && (
               <span className="text-xs text-green-600 flex items-center gap-1">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Saved
+                {p.saved}
               </span>
             )}
           </div>
@@ -141,7 +145,7 @@ export default function ProfilePage() {
       {/* Password Change */}
       <div className="bg-white border border-oryn-grey/15 p-6">
         <h3 className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-5">
-          CHANGE PASSWORD
+          {p.changePassword}
         </h3>
 
         {passwordError && (
@@ -153,7 +157,7 @@ export default function ProfilePage() {
         <form onSubmit={handleChangePassword} className="space-y-4">
           <div>
             <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-              CURRENT PASSWORD
+              {p.currentPassword}
             </label>
             <input
               type="password"
@@ -165,7 +169,7 @@ export default function ProfilePage() {
           </div>
           <div>
             <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-              NEW PASSWORD
+              {p.newPassword}
             </label>
             <input
               type="password"
@@ -173,12 +177,12 @@ export default function ProfilePage() {
               onChange={(e) => setPasswordForm((prev) => ({ ...prev, newPassword: e.target.value }))}
               required
               className="w-full px-4 py-3 border border-oryn-grey/30 text-sm font-plex focus:outline-none focus:border-oryn-orange transition-colors"
-              placeholder="Minimum 8 characters"
+              placeholder={p.newPasswordPlaceholder}
             />
           </div>
           <div>
             <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
-              CONFIRM NEW PASSWORD
+              {p.confirmNewPassword}
             </label>
             <input
               type="password"
@@ -194,14 +198,14 @@ export default function ProfilePage() {
               type="submit"
               className="px-6 py-3 bg-oryn-black text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-black/80 transition-colors"
             >
-              UPDATE PASSWORD
+              {p.updatePassword}
             </button>
             {passwordSaved && (
               <span className="text-xs text-green-600 flex items-center gap-1">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Password updated
+                {p.passwordUpdated}
               </span>
             )}
           </div>
