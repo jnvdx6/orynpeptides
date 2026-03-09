@@ -12,9 +12,10 @@ import {
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  // London area pages — EN only (UK-focused)
-  return LONDON_AREA_SLUGS.map((slug) => ({ locale: "en", area: slug }));
+  return [];
 }
 
 export async function generateMetadata({

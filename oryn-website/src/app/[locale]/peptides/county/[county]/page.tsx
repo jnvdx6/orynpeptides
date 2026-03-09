@@ -17,9 +17,10 @@ import {
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
-// ─── Static Params: ~48 counties, EN only ─────────────────────────
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  return COUNTY_SLUGS.map((county) => ({ locale: "en", county }));
+  return [];
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────

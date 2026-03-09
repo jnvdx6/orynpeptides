@@ -15,18 +15,10 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 
-// ─── Static Params: ~48 counties × (10 products + 20 categories) EN only ──
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  const params: { locale: string; county: string; slug: string }[] = [];
-  for (const county of COUNTY_SLUGS) {
-    for (const product of products) {
-      params.push({ locale: "en", county, slug: product.slug });
-    }
-    for (const category of SEO_CATEGORIES) {
-      params.push({ locale: "en", county, slug: category.slug });
-    }
-  }
-  return params;
+  return [];
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────

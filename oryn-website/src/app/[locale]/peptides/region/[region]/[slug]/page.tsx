@@ -16,19 +16,10 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 
-// ─── Static Params: 6 regions × (10 products + 10 categories) = 120 pages ──
-
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  const params: { locale: string; region: string; slug: string }[] = [];
-  for (const region of REGION_SLUGS) {
-    for (const product of products) {
-      params.push({ locale: "en", region, slug: product.slug });
-    }
-    for (const category of SEO_CATEGORIES) {
-      params.push({ locale: "en", region, slug: category.slug });
-    }
-  }
-  return params;
+  return [];
 }
 
 // ─── Metadata ───────────────────────────────────────────────────────

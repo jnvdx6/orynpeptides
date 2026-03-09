@@ -20,22 +20,10 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 
-// ─── Static Params (products + categories) ──────────────────────────
-
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  const params = [];
-  // All London area pages are UK-focused — EN only
-  for (const areaSlug of LONDON_AREA_SLUGS) {
-    // Product slugs
-    for (const product of products) {
-      params.push({ locale: "en", area: areaSlug, slug: product.slug });
-    }
-    // Category slugs
-    for (const cat of SEO_CATEGORIES) {
-      params.push({ locale: "en", area: areaSlug, slug: cat.slug });
-    }
-  }
-  return params;
+  return [];
 }
 
 // ─── Metadata ────────────────────────────────────────────────────────

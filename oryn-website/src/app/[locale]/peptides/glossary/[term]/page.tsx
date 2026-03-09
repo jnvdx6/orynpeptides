@@ -8,16 +8,10 @@ import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { locales } from "@/i18n/config";
 
-/* ─── Static Params ──────────────────────────────────────────────── */
-
+/* ─── On-demand generation (ISR) to keep build output under Vercel limits ── */
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  const params = [];
-  for (const locale of locales) {
-    for (const term of GLOSSARY_TERM_SLUGS) {
-      params.push({ locale, term });
-    }
-  }
-  return params;
+  return [];
 }
 
 /* ─── Category Styling ───────────────────────────────────────────── */

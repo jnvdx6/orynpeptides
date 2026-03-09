@@ -8,8 +8,10 @@ import { products, productImages } from "@/data/products";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  return REGION_SLUGS.map((region) => ({ locale: "en", region }));
+  return [];
 }
 
 export async function generateMetadata({

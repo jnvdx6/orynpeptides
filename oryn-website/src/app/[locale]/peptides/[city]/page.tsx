@@ -16,9 +16,10 @@ import {
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
+// ─── On-demand generation (ISR) to keep build output under Vercel limits ──
+export const dynamicParams = true;
 export async function generateStaticParams() {
-  // UK city pages — EN only
-  return CITY_SLUGS.map((slug) => ({ locale: "en", city: slug }));
+  return [];
 }
 
 export async function generateMetadata({
