@@ -104,6 +104,7 @@ export default async function EncyclopediaEntryPage({
     title: `${entry.name} — ${entry.fullName}`,
     metaDescription: `Scientific profile of ${entry.name}. Molecular formula, mechanism of action, research history, and published studies.`,
     slug: `peptides/encyclopedia/${entry.slug}`,
+    category: "Peptide Research",
     datePublished: "2025-01-15",
     dateModified: "2026-03-09",
   };
@@ -111,7 +112,7 @@ export default async function EncyclopediaEntryPage({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const schemaItems: Record<string, any>[] = [
     {
-      ...articleSchema(articleData),
+      ...articleSchema(articleData, locale),
       url: `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
     },
     faqSchema(entry.faqs),

@@ -12,6 +12,7 @@ import { GLOSSARY_TERM_SLUGS } from "@/data/glossary-terms";
 import { COUNTY_SLUGS } from "@/data/uk-counties";
 import { PROTOCOL_SLUGS } from "@/data/protocols";
 import { FAQ_HUB_SLUGS } from "@/data/faq-hubs";
+import { EUROPEAN_COUNTRIES } from "@/data/european-countries";
 import { locales } from "@/i18n/config";
 
 // Sitemap index: generates /sitemap/0.xml through /sitemap/7.xml
@@ -29,6 +30,9 @@ export async function generateSitemaps() {
     { id: 8 }, // County landing pages (EN only)
     { id: 9 }, // County x slug pages (EN only — products + categories)
     { id: 10 }, // Protocols + FAQ hubs (both locales)
+    { id: 11 }, // Europe hub + country pages (both locales)
+    { id: 12 }, // Europe city pages (both locales)
+    { id: 13 }, // Europe city x product pages (both locales)
   ];
 }
 
@@ -62,6 +66,7 @@ export default async function sitemap({
         { path: "/peptides/glossary", changeFrequency: "monthly" as const, priority: 0.75 },
         { path: "/protocols", changeFrequency: "weekly" as const, priority: 0.8 },
         { path: "/bundles", changeFrequency: "monthly" as const, priority: 0.8 },
+        { path: "/peptide-pens", changeFrequency: "weekly" as const, priority: 0.9 },
         { path: "/terms", changeFrequency: "yearly" as const, priority: 0.2 },
         { path: "/privacy", changeFrequency: "yearly" as const, priority: 0.2 },
         { path: "/disclaimer", changeFrequency: "yearly" as const, priority: 0.2 },
@@ -360,6 +365,68 @@ export default async function sitemap({
             changeFrequency: "monthly",
             priority: 0.7,
           });
+        }
+      }
+      break;
+    }
+
+    // ── 11: Europe hub + country pages (both locales) ─────────────────
+    case 11: {
+      // Europe hub page
+      for (const locale of locales) {
+        entries.push({
+          url: `${SITE_URL}/${locale}/peptides/europe`,
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.85,
+        });
+      }
+
+      // Country pages
+      for (const locale of locales) {
+        for (const country of EUROPEAN_COUNTRIES) {
+          entries.push({
+            url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}`,
+            lastModified: now,
+            changeFrequency: "weekly",
+            priority: 0.8,
+          });
+        }
+      }
+      break;
+    }
+
+    // ── 12: Europe city pages (both locales) ──────────────────────────
+    case 12: {
+      for (const locale of locales) {
+        for (const country of EUROPEAN_COUNTRIES) {
+          for (const city of country.cities) {
+            entries.push({
+              url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}/${city.slug}`,
+              lastModified: now,
+              changeFrequency: "weekly",
+              priority: 0.7,
+            });
+          }
+        }
+      }
+      break;
+    }
+
+    // ── 13: Europe city x product pages (both locales) ────────────────
+    case 13: {
+      for (const locale of locales) {
+        for (const country of EUROPEAN_COUNTRIES) {
+          for (const city of country.cities) {
+            for (const product of products) {
+              entries.push({
+                url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}/${city.slug}/${product.slug}`,
+                lastModified: now,
+                changeFrequency: "monthly",
+                priority: 0.55,
+              });
+            }
+          }
         }
       }
       break;

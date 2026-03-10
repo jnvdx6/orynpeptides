@@ -465,6 +465,88 @@ export function Footer() {
         </div>
       </div>
 
+      {/* European Delivery */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
+            <Link href="/peptides/europe" className="hover:text-white transition-colors">
+              EUROPEAN DELIVERY
+            </Link>
+          </h4>
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
+            {[
+              { href: "/peptides/europe/germany", label: "Germany" },
+              { href: "/peptides/europe/france", label: "France" },
+              { href: "/peptides/europe/spain", label: "Spain" },
+              { href: "/peptides/europe/italy", label: "Italy" },
+              { href: "/peptides/europe/netherlands", label: "Netherlands" },
+              { href: "/peptides/europe/belgium", label: "Belgium" },
+              { href: "/peptides/europe/austria", label: "Austria" },
+              { href: "/peptides/europe/portugal", label: "Portugal" },
+              { href: "/peptides/europe/sweden", label: "Sweden" },
+              { href: "/peptides/europe/denmark", label: "Denmark" },
+              { href: "/peptides/europe/poland", label: "Poland" },
+              { href: "/peptides/europe/switzerland", label: "Switzerland" },
+              { href: "/peptides/europe/ireland", label: "Ireland" },
+              { href: "/peptides/europe/greece", label: "Greece" },
+              { href: "/peptides/europe/czech-republic", label: "Czech Republic" },
+              { href: "/peptides/europe/finland", label: "Finland" },
+              { href: "/peptides/europe/norway", label: "Norway" },
+              { href: "/peptides/europe/hungary", label: "Hungary" },
+              { href: "/peptides/europe/romania", label: "Romania" },
+              { href: "/peptides/europe/croatia", label: "Croatia" },
+              { href: "/peptides/europe/bulgaria", label: "Bulgaria" },
+              { href: "/peptides/europe/slovakia", label: "Slovakia" },
+              { href: "/peptides/europe/lithuania", label: "Lithuania" },
+              { href: "/peptides/europe/latvia", label: "Latvia" },
+              { href: "/peptides/europe/estonia", label: "Estonia" },
+              { href: "/peptides/europe/slovenia", label: "Slovenia" },
+              { href: "/peptides/europe/luxembourg", label: "Luxembourg" },
+              { href: "/peptides/europe/cyprus", label: "Cyprus" },
+              { href: "/peptides/europe/malta", label: "Malta" },
+              { href: "/peptides/europe/iceland", label: "Iceland" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">TOP EU CITIES</h4>
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+            {[
+              { href: "/peptides/europe/germany/berlin", label: "Berlin" },
+              { href: "/peptides/europe/germany/munich", label: "Munich" },
+              { href: "/peptides/europe/france/paris", label: "Paris" },
+              { href: "/peptides/europe/france/lyon", label: "Lyon" },
+              { href: "/peptides/europe/spain/madrid", label: "Madrid" },
+              { href: "/peptides/europe/spain/barcelona", label: "Barcelona" },
+              { href: "/peptides/europe/italy/rome", label: "Rome" },
+              { href: "/peptides/europe/italy/milan", label: "Milan" },
+              { href: "/peptides/europe/netherlands/amsterdam", label: "Amsterdam" },
+              { href: "/peptides/europe/netherlands/rotterdam", label: "Rotterdam" },
+              { href: "/peptides/europe/belgium/brussels", label: "Brussels" },
+              { href: "/peptides/europe/austria/vienna", label: "Vienna" },
+              { href: "/peptides/europe/portugal/lisbon", label: "Lisbon" },
+              { href: "/peptides/europe/sweden/stockholm", label: "Stockholm" },
+              { href: "/peptides/europe/denmark/copenhagen", label: "Copenhagen" },
+              { href: "/peptides/europe/poland/warsaw", label: "Warsaw" },
+              { href: "/peptides/europe/switzerland/zurich", label: "Zurich" },
+              { href: "/peptides/europe/ireland/dublin", label: "Dublin" },
+              { href: "/peptides/europe/czech-republic/prague", label: "Prague" },
+              { href: "/peptides/europe/finland/helsinki", label: "Helsinki" },
+              { href: "/peptides/europe/norway/oslo", label: "Oslo" },
+              { href: "/peptides/europe/hungary/budapest", label: "Budapest" },
+              { href: "/peptides/europe/greece/athens", label: "Athens" },
+              { href: "/peptides/europe/romania/bucharest", label: "Bucharest" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* London Areas */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-8">

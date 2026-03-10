@@ -3,6 +3,8 @@ import { BLOG_ARTICLES } from "@/data/blog-articles";
 import { COMPARISONS } from "@/data/comparisons";
 import { PEPTIDE_ENTRIES } from "@/data/peptide-encyclopedia";
 import { bundles } from "@/data/bundles";
+import { FAQ_HUBS } from "@/data/faq-hubs";
+import { PROTOCOLS } from "@/data/protocols";
 import { SEO_CATEGORIES } from "@/lib/seo";
 
 interface RelatedContentProps {
@@ -12,7 +14,7 @@ interface RelatedContentProps {
 }
 
 interface ContentCard {
-  type: "ARTICLE" | "COMPARISON" | "ENCYCLOPEDIA" | "BUNDLE" | "CATEGORY";
+  type: "ARTICLE" | "COMPARISON" | "ENCYCLOPEDIA" | "BUNDLE" | "CATEGORY" | "FAQ" | "PROTOCOL";
   title: string;
   description: string;
   href: string;
@@ -171,6 +173,63 @@ function findRelatedCategories(
   }));
 }
 
+function findRelatedProtocols(
+  productSlug?: string,
+  categorySlug?: string
+): ContentCard[] {
+  let matched = PROTOCOLS.filter((p) => {
+    if (productSlug) {
+      return p.productSlugs.includes(productSlug);
+    }
+    if (categorySlug) {
+      const category = SEO_CATEGORIES.find((c) => c.slug === categorySlug);
+      if (category) {
+        return p.productSlugs.some((ps) =>
+          category.productSlugs.includes(ps)
+        );
+      }
+    }
+    return false;
+  });
+
+  if (matched.length === 0) {
+    matched = PROTOCOLS.slice(0, 1);
+  }
+
+  return matched.slice(0, 1).map((p) => ({
+    type: "PROTOCOL" as const,
+    title: `${p.name} Protocol`,
+    description: p.metaDescription,
+    href: `/protocols/${p.slug}`,
+  }));
+}
+
+function findRelatedFAQs(
+  productSlug?: string,
+  categorySlug?: string
+): ContentCard[] {
+  let matched = FAQ_HUBS.filter((hub) => {
+    if (productSlug) {
+      return hub.relatedProductSlug === productSlug;
+    }
+    if (categorySlug) {
+      return hub.relatedCategorySlug === categorySlug;
+    }
+    return false;
+  });
+
+  if (matched.length === 0) {
+    matched = FAQ_HUBS.filter((h) => h.type === "topic").slice(0, 1);
+  }
+
+  return matched.slice(0, 1).map((hub) => ({
+    type: "FAQ" as const,
+    title: hub.title,
+    description: hub.metaDescription,
+    href: `/faq/${hub.slug}`,
+  }));
+}
+
 export function RelatedContent({
   productSlug,
   categorySlug,
@@ -181,12 +240,16 @@ export function RelatedContent({
   const encyclopedia = findRelatedEncyclopedia(productSlug, categorySlug);
   const relatedBundles = findRelatedBundles(productSlug, categorySlug);
   const categories = findRelatedCategories(productSlug, categorySlug);
+  const faqHubs = findRelatedFAQs(productSlug, categorySlug);
+  const protocols = findRelatedProtocols(productSlug, categorySlug);
 
   const allCards: ContentCard[] = [
     ...articles,
     ...comparisons,
     ...encyclopedia,
     ...relatedBundles,
+    ...protocols,
+    ...faqHubs,
     ...categories,
   ];
 

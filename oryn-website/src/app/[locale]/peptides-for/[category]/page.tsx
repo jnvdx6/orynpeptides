@@ -35,7 +35,7 @@ export async function generateMetadata({
   const category = getCategoryBySlug(catSlug);
   if (!category) return {};
 
-  const { title, description } = categoryMetadata(category);
+  const { title, description } = categoryMetadata(category, locale);
   return {
     title,
     description,

@@ -23,6 +23,7 @@ import { RecentlyViewed } from "@/components/products/RecentlyViewed";
 import { DeliveryEstimator } from "@/components/product/DeliveryEstimator";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { ShareButtons } from "@/components/ui/ShareButtons";
+import { CustomerReviews } from "@/components/product/CustomerReviews";
 
 export function ProductPageClient() {
   const params = useParams();
@@ -436,6 +437,9 @@ export function ProductPageClient() {
 
       {/* Reviews */}
       {detail && <ProductReviews detail={detail} productName={product.name} />}
+
+      {/* Customer Reviews (from centralized reviews data) */}
+      <CustomerReviews productSlug={product.slug} productName={product.name} />
 
       {/* FAQ */}
       {detail && <ProductFAQ detail={detail} productName={product.name} />}

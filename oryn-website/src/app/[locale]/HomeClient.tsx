@@ -9,6 +9,7 @@ import { QualitySection } from "@/components/sections/QualitySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { TrustBanner } from "@/components/seo/TrustBanner";
 import { Link } from "@/components/ui/LocaleLink";
 
 const topCities = [
@@ -55,6 +56,7 @@ export function HomeClient() {
   return (
     <>
       <HeroSection />
+      <TrustBanner />
       <CategoriesSection />
       <ProductsShowcase />
       <HowItWorksSection />

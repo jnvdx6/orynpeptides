@@ -15,13 +15,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const isEs = locale === "es";
+
+  const title = isEs
+    ? "Guías de Péptidos — Investigación, Protocolos y Legalidad | ORYN"
+    : "Peptide Guides & Research Articles — Learn About Peptides | ORYN";
+  const description = isEs
+    ? `${BLOG_ARTICLES.length} guías sobre péptidos de investigación. BPC-157, Tirzepatide, NAD+, GHK-Cu. Legalidad, protocolos, comparaciones y guías de compra.`
+    : `${BLOG_ARTICLES.length} expert guides on research peptides. BPC-157, Tirzepatide, NAD+, GHK-Cu and more. Legality, protocols, comparisons, buying guides, and the latest peptide research.`;
+
   return {
-    title: "Peptide Research Hub | Guides, Science & UK Legal Info | ORYN",
-    description:
-      "Expert guides on peptide research, UK legality, pen vs vial comparisons, BPC-157, tirzepatide, and more. Your complete peptide knowledge base.",
+    title,
+    description,
     openGraph: {
-      title: "Peptide Research Hub | ORYN",
-      description: "Expert guides on peptide research, UK legality, and product comparisons.",
+      title: isEs ? "Guías de Péptidos — ORYN" : "Peptide Research Hub — ORYN",
+      description,
       url: `${SITE_URL}/${locale}/learn`,
       type: "website",
       images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
@@ -35,12 +43,39 @@ export async function generateMetadata({
   };
 }
 
+function groupByCategory(articles: typeof BLOG_ARTICLES) {
+  const groups: Record<string, typeof BLOG_ARTICLES> = {};
+  for (const article of articles) {
+    if (!groups[article.category]) groups[article.category] = [];
+    groups[article.category].push(article);
+  }
+  return groups;
+}
+
+const CATEGORY_ORDER = [
+  "Peptide Research",
+  "Guides",
+  "Buying Guides",
+  "Education",
+  "Product Guides",
+  "Research Guides",
+  "Legal & Compliance",
+  "Shipping & Delivery",
+  "Industry News",
+];
+
 export default async function LearnPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const grouped = groupByCategory(BLOG_ARTICLES);
+  const sortedCategories = Object.keys(grouped).sort((a, b) => {
+    const ai = CATEGORY_ORDER.indexOf(a);
+    const bi = CATEGORY_ORDER.indexOf(b);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  });
 
   return (
     <>
@@ -52,15 +87,26 @@ export default async function LearnPage({
           ]),
           {
             "@context": "https://schema.org",
-            "@type": "ItemList",
-            name: "ORYN Peptide Research Articles",
-            numberOfItems: BLOG_ARTICLES.length,
-            itemListElement: BLOG_ARTICLES.map((article, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              url: `${SITE_URL}/${locale}/learn/${article.slug}`,
-              name: article.title,
-            })),
+            "@type": "CollectionPage",
+            name: "Peptide Research Guides & Articles",
+            description:
+              "Expert guides on research peptides — legality, protocols, comparisons, buying guides.",
+            url: `${SITE_URL}/${locale}/learn`,
+            publisher: {
+              "@type": "Organization",
+              name: "ORYN Peptide Labs",
+              url: SITE_URL,
+            },
+            mainEntity: {
+              "@type": "ItemList",
+              numberOfItems: BLOG_ARTICLES.length,
+              itemListElement: BLOG_ARTICLES.map((article, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `${SITE_URL}/${locale}/learn/${article.slug}`,
+                name: article.title,
+              })),
+            },
           },
         ]}
       />
@@ -86,10 +132,29 @@ export default async function LearnPage({
               Peptide Research Hub
             </h1>
             <p className="text-lg text-white/60 font-plex max-w-2xl">
-              Expert guides on peptide science, UK regulations, product comparisons, and research protocols. Everything you need to make informed decisions.
+              Expert-written articles covering peptide science, UK &amp; EU regulations,
+              product comparisons, and research protocols. {BLOG_ARTICLES.length} articles and growing.
             </p>
           </div>
         </section>
+
+        {/* Stats bar */}
+        <div className="bg-oryn-cream border-b border-oryn-grey/10">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-8 md:gap-12">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-oryn-orange">{BLOG_ARTICLES.length}</div>
+              <div className="text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">ARTICLES</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-oryn-orange">{sortedCategories.length}</div>
+              <div className="text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">CATEGORIES</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-oryn-orange">2026</div>
+              <div className="text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">UPDATED</div>
+            </div>
+          </div>
+        </div>
 
         {/* Featured Article */}
         {BLOG_ARTICLES.length > 0 && (
@@ -99,7 +164,7 @@ export default async function LearnPage({
               className="block bg-oryn-cream border border-oryn-grey/10 hover:border-oryn-orange/30 transition-all group p-8 md:p-12"
             >
               <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
-                FEATURED · {BLOG_ARTICLES[0].category.toUpperCase()}
+                FEATURED &middot; {BLOG_ARTICLES[0].category.toUpperCase()}
               </span>
               <h2 className="text-2xl md:text-3xl font-bold mt-3 mb-3 group-hover:text-oryn-orange transition-colors">
                 {BLOG_ARTICLES[0].title}
@@ -110,44 +175,55 @@ export default async function LearnPage({
               <div className="flex items-center gap-4 text-[10px] font-mono text-oryn-black/30 tracking-[0.1em]">
                 <span>{BLOG_ARTICLES[0].readTime.toUpperCase()}</span>
                 <span className="w-1 h-1 bg-oryn-orange rounded-full" />
-                <span>{BLOG_ARTICLES[0].datePublished}</span>
+                <span>{BLOG_ARTICLES[0].dateModified}</span>
               </div>
             </Link>
           </section>
         )}
 
-        {/* All Articles */}
-        <section className="max-w-7xl mx-auto px-6 pb-16">
-          <h2 className="text-xl font-bold mb-8">All Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BLOG_ARTICLES.slice(1).map((article) => (
-              <Link
-                key={article.slug}
-                href={`/${locale}/learn/${article.slug}`}
-                className="border border-oryn-grey/10 hover:border-oryn-orange/30 transition-all group"
-              >
-                <div className="p-6">
-                  <span className="text-[9px] font-mono text-oryn-orange tracking-[0.2em]">
-                    {article.category.toUpperCase()}
-                  </span>
-                  <h3 className="text-lg font-bold mt-2 mb-2 group-hover:text-oryn-orange transition-colors line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs text-oryn-black/50 font-plex leading-relaxed line-clamp-3 mb-4">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center gap-3 text-[10px] font-mono text-oryn-black/30 tracking-[0.1em]">
-                    <span>{article.readTime.toUpperCase()}</span>
-                    <span className="w-1 h-1 bg-oryn-orange rounded-full" />
-                    <span>{article.datePublished}</span>
+        {/* Articles by Category */}
+        {sortedCategories.map((category) => (
+          <section key={category} className="max-w-7xl mx-auto px-6 pb-12">
+            <div className="flex items-center gap-3 mb-5 border-b border-oryn-grey/10 pb-3">
+              <div className="w-4 h-px bg-oryn-orange" />
+              <h2 className="text-[11px] font-mono text-oryn-orange tracking-[0.2em]">
+                {category.toUpperCase()}
+              </h2>
+              <span className="text-[10px] font-mono text-oryn-black/20">
+                ({grouped[category].length})
+              </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {grouped[category].map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/${locale}/learn/${article.slug}`}
+                  className="group border border-oryn-grey/10 hover:border-oryn-orange/20 transition-all bg-white"
+                >
+                  <div className="p-5">
+                    <h3 className="text-sm font-bold group-hover:text-oryn-orange transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-xs text-oryn-black/40 font-plex line-clamp-2 mt-2 mb-3">
+                      {article.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+                        {article.readTime.toUpperCase()}
+                      </span>
+                      <span className="w-1 h-1 bg-oryn-black/10 rounded-full" />
+                      <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+                        {article.dateModified}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
 
-        {/* Browse by Category Links */}
+        {/* Browse by Research Area */}
         <section className="bg-oryn-black text-white py-16">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-xl font-bold mb-6">Browse by Research Area</h2>
@@ -169,6 +245,42 @@ export default async function LearnPage({
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* European Delivery CTA */}
+        <section className="bg-oryn-cream py-12">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h2 className="text-lg font-bold mb-1">Shipping Across Europe</h2>
+                <p className="text-xs text-oryn-black/50 font-plex">
+                  Fast tracked delivery to 30 European countries. No customs, no delays.
+                </p>
+              </div>
+              <Link
+                href={`/${locale}/peptides/europe`}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange/90 transition-colors shrink-0"
+              >
+                EUROPEAN DELIVERY INFO
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-oryn-orange py-16">
+          <div className="max-w-4xl mx-auto px-6 text-center text-white">
+            <h2 className="text-3xl font-bold mb-4">Explore ORYN Peptide Pens</h2>
+            <p className="text-sm text-white/70 font-plex mb-8 max-w-lg mx-auto">
+              Premium pre-mixed peptide pens with next-day UK delivery. GMP manufactured, &gt;99% purity guaranteed.
+            </p>
+            <Link
+              href={`/${locale}/products`}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-oryn-orange font-medium text-xs tracking-[0.2em] hover:bg-oryn-cream transition-colors"
+            >
+              SHOP ALL PEPTIDES
+            </Link>
           </div>
         </section>
       </div>

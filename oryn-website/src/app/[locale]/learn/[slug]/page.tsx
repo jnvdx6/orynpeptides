@@ -13,6 +13,8 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
+import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
+import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -68,23 +70,44 @@ export default async function ArticlePage({
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p) => p !== undefined);
   const otherArticles = BLOG_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
-  const currency = locale === "es" ? "€" : "£";
+  const currency = locale === "es" ? "\u20AC" : "\u00A3";
+
+  const author = getAuthorForArticle(article);
+  const reviewer = getReviewerForArticle(article);
 
   const isHowTo = article.slug === "how-to-use-peptide-pen" || article.slug === "peptide-storage-guide";
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const schemaItems: Record<string, any>[] = [
-    articleSchema(article),
+    articleSchema(article, locale),
     faqSchema(article.faqs),
     breadcrumbSchema([
       { name: "Home", url: `/${locale}` },
       { name: "Learn", url: `/${locale}/learn` },
       { name: article.title, url: `/${locale}/learn/${article.slug}` },
     ]),
+    // Person schema for E-E-A-T
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.title,
+      description: author.bio,
+      image: `${SITE_URL}${author.image}`,
+      worksFor: {
+        "@type": "Organization",
+        name: "ORYN Peptide Labs",
+        url: SITE_URL,
+      },
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: author.credentials,
+      },
+    },
   ];
 
   if (isHowTo) {
-    schemaItems.push(howToSchema(article));
+    schemaItems.push(howToSchema(article, locale));
   }
 
   return (
@@ -121,12 +144,30 @@ export default async function ArticlePage({
             <p className="text-lg text-white/60 font-plex max-w-2xl">
               {article.excerpt}
             </p>
-            <div className="flex items-center gap-4 mt-6 text-[10px] font-mono text-white/30 tracking-[0.1em]">
+
+            {/* Author byline — E-E-A-T */}
+            <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/10">
+              <div className="w-10 h-10 bg-oryn-orange/20 rounded-full flex items-center justify-center shrink-0">
+                <span className="text-sm font-bold text-oryn-orange">
+                  {author.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </span>
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-bold text-white">{author.name}</span>
+                  <span className="text-[9px] font-mono text-oryn-orange tracking-[0.1em]">{author.credentials}</span>
+                </div>
+                <p className="text-[10px] text-white/40 font-plex">{author.title}</p>
+                <p className="text-[10px] text-white/30 font-plex mt-0.5">
+                  Reviewed by <span className="text-white/50">{reviewer.name}</span>, {reviewer.title}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 mt-4 text-[10px] font-mono text-white/30 tracking-[0.1em]">
               <span>Published: {article.datePublished}</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <span>Updated: {article.dateModified}</span>
-              <span className="w-1 h-1 bg-white/20 rounded-full" />
-              <span>ORYN Research Team</span>
             </div>
           </div>
         </section>
@@ -158,6 +199,32 @@ export default async function ArticlePage({
             ))}
           </div>
         </article>
+
+        {/* About the Author — E-E-A-T */}
+        <section className="max-w-4xl mx-auto px-6 pb-12">
+          <div className="border border-oryn-orange/15 bg-oryn-cream/60 p-6 md:p-8">
+            <div className="flex items-start gap-5">
+              <div className="w-14 h-14 bg-oryn-orange/10 rounded-full flex items-center justify-center shrink-0">
+                <span className="text-lg font-bold text-oryn-orange">
+                  {author.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </span>
+              </div>
+              <div className="min-w-0">
+                <p className="text-[10px] font-mono text-oryn-orange tracking-[0.2em] mb-1">ABOUT THE AUTHOR</p>
+                <h3 className="text-base font-bold mb-0.5">{author.name}</h3>
+                <p className="text-xs text-oryn-black/50 font-plex mb-3">
+                  {author.title} &middot; {author.credentials}
+                </p>
+                <p className="text-xs text-oryn-black/60 font-plex leading-relaxed">
+                  {author.bio}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Medical Disclaimer */}
+        <MedicalDisclaimer />
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (

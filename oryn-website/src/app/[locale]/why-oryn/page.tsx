@@ -26,8 +26,8 @@ export async function generateMetadata({
     ? "Por Que ORYN | Mejor Empresa de Peptidos del Reino Unido 2026"
     : "Why ORYN | Best Peptide Company UK 2026";
   const description = isEs
-    ? "Descubre por que ORYN es el proveedor de peptidos mas confiable del Reino Unido. Plumas de peptidos predosificadas, pureza >98% verificada por HPLC, fabricacion GMP ISO 7. Envio gratuito en el Reino Unido a partir de 150 libras."
-    : "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, 98%+ HPLC-verified purity, ISO 7 GMP manufacturing. Highest quality peptide pens UK. Free UK shipping over £150.";
+    ? "Descubre por que ORYN es el proveedor de peptidos mas confiable del Reino Unido. Plumas de peptidos predosificadas, pureza >99% verificada por HPLC, fabricacion GMP ISO 7. Envio gratuito en el Reino Unido a partir de 150 libras."
+    : "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Highest quality peptide pens UK. Free UK shipping over £150.";
 
   return {
     title,
