@@ -12,6 +12,7 @@ import { sdk } from "@/lib/medusa";
 import { products as staticProducts, type Product } from "@/data/products";
 import { useProducts } from "@/providers/products";
 import { calculateVolumeDiscount, getVolumeDiscount, type VolumeDiscount } from "@/lib/discounts";
+import { trackAddToCart, trackRemoveFromCart, trackCartOpened } from "@/lib/analytics";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -234,6 +235,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setLastAdded(product);
       setIsOpen(true);
       setTimeout(() => setLastAdded(null), 3000);
+      trackAddToCart({ name: product.name, slug: product.slug, price: product.price, category: product.category });
 
       if (medusaConnected) {
         try {
@@ -290,6 +292,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removeItem = useCallback(
     async (productId: string) => {
+      const removedItem = items.find((i) => i.product.id === productId);
+      if (removedItem) {
+        trackRemoveFromCart({ name: removedItem.product.name, slug: removedItem.product.slug, price: removedItem.product.price });
+      }
       if (medusaConnected && cart) {
         // Find the Medusa line item for this product
         const lineItem = cart.items?.find((li) => {
@@ -511,7 +517,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
         totalItems,
         totalPrice,
         isOpen,
-        setIsOpen,
+        setIsOpen: (open: boolean) => {
+          if (open && !isOpen) trackCartOpened();
+          setIsOpen(open);
+        },
         lastAdded,
         appliedPromotion,
         applyPromotion,

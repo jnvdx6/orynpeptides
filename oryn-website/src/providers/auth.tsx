@@ -8,6 +8,7 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
+import { identifyUser, trackLogin, trackSignup, trackLogout } from "@/lib/analytics";
 
 interface User {
   id: string;
@@ -54,8 +55,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const storedUser = localStorage.getItem(USER_KEY);
     if (storedToken && storedUser) {
       try {
+        const parsed = JSON.parse(storedUser);
         setToken(storedToken);
-        setUser(JSON.parse(storedUser));
+        setUser(parsed);
+        identifyUser(parsed);
       } catch {
         localStorage.removeItem(TOKEN_KEY);
         localStorage.removeItem(USER_KEY);
@@ -79,6 +82,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(data.user);
       localStorage.setItem(TOKEN_KEY, data.token);
       localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      identifyUser(data.user);
+      trackLogin("email");
       return { success: true };
     } catch {
       return { success: false, error: "Network error. Please try again." };
@@ -100,6 +105,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(result.user);
       localStorage.setItem(TOKEN_KEY, result.token);
       localStorage.setItem(USER_KEY, JSON.stringify(result.user));
+      identifyUser(result.user);
+      trackSignup("email", data.referralCodeUsed);
       return { success: true };
     } catch {
       return { success: false, error: "Network error. Please try again." };
@@ -107,6 +114,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(() => {
+    trackLogout();
     setToken(null);
     setUser(null);
     localStorage.removeItem(TOKEN_KEY);

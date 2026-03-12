@@ -4,6 +4,7 @@ import { useState } from "react";
 import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 
 export function Footer() {
@@ -161,6 +162,7 @@ export function Footer() {
         // ignore
       }
       setSubscribed(true);
+      trackNewsletterSignup("footer");
     }
   };
 

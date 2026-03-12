@@ -24,6 +24,7 @@ import { DeliveryEstimator } from "@/components/product/DeliveryEstimator";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { ShareButtons } from "@/components/ui/ShareButtons";
 import { CustomerReviews } from "@/components/product/CustomerReviews";
+import { trackProductView } from "@/lib/analytics";
 
 export function ProductPageClient() {
   const params = useParams();
@@ -38,10 +39,13 @@ export function ProductPageClient() {
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
 
-  // Track recently viewed
+  // Track recently viewed & analytics
   useEffect(() => {
     if (slug) addViewed(slug);
-  }, [slug, addViewed]);
+    if (product) {
+      trackProductView({ name: product.name, slug: product.slug, price: product.price, category: product.category });
+    }
+  }, [slug, addViewed, product]);
 
   // Show sticky bar on desktop when scrolled past the add-to-cart button
   useEffect(() => {

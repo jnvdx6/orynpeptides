@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { EXIT_INTENT_SHOWN_KEY, FIRST_PURCHASE_KEY } from "@/lib/discounts";
 import { useLocale } from "@/i18n/LocaleContext";
+import { trackExitIntentShown, trackExitIntentConverted } from "@/lib/analytics";
 
 export function ExitIntentPopup() {
   const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ export function ExitIntentPopup() {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !show) {
         setShow(true);
+        trackExitIntentShown();
       }
     };
 
@@ -57,6 +59,7 @@ export function ExitIntentPopup() {
       localStorage.setItem("oryn_captured_emails", JSON.stringify(emails));
     } catch { /* ignore */ }
     setSubmitted(true);
+    trackExitIntentConverted("email_captured");
     setTimeout(handleClose, 3000);
   };
 

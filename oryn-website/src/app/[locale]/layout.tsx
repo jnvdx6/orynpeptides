@@ -7,6 +7,8 @@ import type { Locale } from "@/i18n/config";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { organizationSchema, websiteSchema, SITE_URL } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -174,6 +176,8 @@ export default async function LocaleLayout({
         <LocaleProvider locale={locale} dictionary={dictionary}>
           <LayoutShell>{children}</LayoutShell>
         </LocaleProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

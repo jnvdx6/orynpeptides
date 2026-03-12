@@ -11,6 +11,7 @@ import {
 import { generateOrderRef } from '@/lib/auth';
 import { verifyUser } from '@/lib/admin-auth';
 import { calculateCommissions } from '@/lib/referrals';
+import { captureServerEvent } from '@/lib/posthog-server';
 import type { Order, OrderItem, ShippingAddress, PaymentMethod } from '@/types';
 
 export async function POST(request: NextRequest) {
@@ -160,6 +161,20 @@ export async function POST(request: NextRequest) {
         console.error('Commission generation error:', commError instanceof Error ? commError.message : 'Unknown error');
       }
     }
+
+    // Server-side PostHog: track order created
+    captureServerEvent(user.id, "order_created_server", {
+      order_id: newOrder.id,
+      order_ref: newOrder.ref,
+      total: newOrder.total,
+      subtotal: newOrder.subtotal,
+      discount: newOrder.discount,
+      item_count: items.length,
+      payment_method: paymentMethod,
+      has_referral: !!validReferralCode,
+      has_promo: !!appliedPromoId,
+      shipping_country: shipping.country,
+    }).catch(() => {}); // Fire-and-forget
 
     return NextResponse.json(
       {

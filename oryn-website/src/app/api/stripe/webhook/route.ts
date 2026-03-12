@@ -9,6 +9,7 @@ import {
   addActivityLog,
 } from '@/lib/db';
 import { calculateCommissions } from '@/lib/referrals';
+import { captureServerEvent } from '@/lib/posthog-server';
 import type { Order } from '@/types';
 
 export async function POST(request: NextRequest) {
@@ -76,6 +77,14 @@ export async function POST(request: NextRequest) {
           }
         }
 
+        // PostHog server-side: payment confirmed
+        captureServerEvent(matchedOrder.userId || "anonymous", "payment_confirmed_server", {
+          order_ref: matchedOrder.ref,
+          amount: paymentIntent.amount / 100,
+          currency: paymentIntent.currency.toUpperCase(),
+          has_referral: !!referralCode,
+        }).catch(() => {});
+
         // Log activity
         await addActivityLog({
           type: 'payment',
@@ -105,6 +114,12 @@ export async function POST(request: NextRequest) {
           await updateOrder(order.id, {
             paymentStatus: 'failed',
           });
+
+          captureServerEvent(order.userId || "anonymous", "payment_failed_server", {
+            order_ref: order.ref,
+            error: paymentIntent.last_payment_error?.message || "Unknown",
+          }).catch(() => {});
+
           await addActivityLog({
             type: 'payment',
             action: 'payment_failed',

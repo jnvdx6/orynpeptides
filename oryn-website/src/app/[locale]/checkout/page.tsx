@@ -11,6 +11,7 @@ import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
 import { sdk } from "@/lib/medusa";
+import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered } from "@/lib/analytics";
 
 type CheckoutStep = "information" | "shipping" | "payment";
 
@@ -161,6 +162,16 @@ export default function CheckoutPage() {
 
   const stepKeys: CheckoutStep[] = ["information", "shipping", "payment"];
 
+  // Track checkout start
+  useEffect(() => {
+    if (items.length > 0) {
+      const currency = locale === "es" ? "EUR" : "GBP";
+      trackCheckoutStarted({ itemCount: totalItems, total: totalPrice, currency });
+      trackCheckoutStep("information", { item_count: totalItems, total: totalPrice });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Validate information step
   const validateInformation = (): boolean => {
     const errs: Record<string, string> = {};
@@ -247,6 +258,7 @@ export default function CheckoutPage() {
 
       setCompletedSteps((prev) => new Set([...prev, "information"]));
       setActiveStep("shipping");
+      trackCheckoutStep("shipping", { item_count: totalItems, total: totalPrice });
       await fetchShippingOptions();
     } catch (err) {
       void err;
@@ -272,6 +284,8 @@ export default function CheckoutPage() {
 
       setCompletedSteps((prev) => new Set([...prev, "shipping"]));
       setActiveStep("payment");
+      trackCheckoutStep("payment", { item_count: totalItems, total: finalPrice, shipping_cost: shippingCost });
+      trackPaymentInfoEntered("stripe");
     } catch (err) {
       void err;
     } finally {
@@ -305,6 +319,7 @@ export default function CheckoutPage() {
               discountType: "fixed",
               discountValue: discountTotal,
             });
+            trackPromoApplied(code, "fixed", discountTotal);
             setPromoCode("");
             // Refresh cart to get updated totals
             await refreshCart();
@@ -335,6 +350,7 @@ export default function CheckoutPage() {
           discountType: data.promotion.discountType,
           discountValue: data.promotion.discountValue,
         });
+        trackPromoApplied(data.promotion.code, data.promotion.discountType, data.promotion.discountValue);
         setPromoCode("");
       } else {
         setPromoError(data.error || t.checkoutPage.invalidCode);
@@ -349,6 +365,21 @@ export default function CheckoutPage() {
   // Handle payment success
   const handlePaymentSuccess = (orderId: string, ref: string) => {
     setOrderRef(ref);
+    trackPurchase({
+      orderId,
+      orderRef: ref,
+      total: cart?.total != null ? cart.total : finalTotal,
+      itemCount: totalItems,
+      currency: locale === "es" ? "EUR" : "GBP",
+      promoCode: appliedPromotion?.code,
+      shippingCountry: country,
+      items: items.map((i) => ({
+        name: i.product.name,
+        slug: i.product.slug,
+        price: i.product.price,
+        quantity: i.quantity,
+      })),
+    });
     // Record order with referral if applicable
     if (referralCode) {
       fetch("/api/orders", {

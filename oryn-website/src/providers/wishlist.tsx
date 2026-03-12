@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Product } from "@/data/products";
+import { trackWishlistAdd, trackWishlistRemove } from "@/lib/analytics";
 
 interface WishlistContextType {
   items: string[]; // product IDs
@@ -57,8 +58,10 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const toggleWishlist = useCallback((productId: string) => {
     setItems((prev) => {
       if (prev.includes(productId)) {
+        trackWishlistRemove(productId);
         return prev.filter((id) => id !== productId);
       }
+      trackWishlistAdd(productId);
       return [...prev, productId];
     });
   }, []);
