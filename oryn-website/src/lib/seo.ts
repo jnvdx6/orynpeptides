@@ -3,7 +3,7 @@ import type { UKCity } from "@/data/uk-cities";
 import { getReviewsByProduct, getAggregateRating } from "@/data/reviews";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://orynxpeptides.com";
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://orynxpeptides.com").trim();
 
 // ─── JSON-LD Schema Generators ──────────────────────────────────────
 
