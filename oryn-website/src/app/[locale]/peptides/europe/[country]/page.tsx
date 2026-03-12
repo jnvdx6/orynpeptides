@@ -14,6 +14,7 @@ import {
   breadcrumbSchema,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { locales } from "@/i18n/config";
 
 export const dynamicParams = true;
 export async function generateStaticParams() {
@@ -43,7 +44,8 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/europe/${countrySlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}`,
+      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}`])),
     },
   };
 }

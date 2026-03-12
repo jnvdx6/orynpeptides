@@ -47,7 +47,7 @@ export async function generateMetadata({
       description: dict.meta.ogDescription,
     },
     alternates: {
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
+      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`])),
     },
   };
 }

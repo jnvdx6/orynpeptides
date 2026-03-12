@@ -11,6 +11,7 @@ import { products, getProductBySlug, productImages } from "@/data/products";
 import { getProductDetail } from "@/data/product-details";
 import { SITE_URL, productSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { locales } from "@/i18n/config";
 
 export const dynamicParams = true;
 export async function generateStaticParams() {
@@ -42,7 +43,8 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
+      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`])),
     },
   };
 }
