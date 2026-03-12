@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://oryn-psi.vercel.app"
+  ),
+};
+
 export default function RootLayout({
   children,
 }: {

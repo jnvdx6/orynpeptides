@@ -40,24 +40,11 @@ export async function generateMetadata({
       description: dict.meta.ogDescription,
       siteName: "ORYN Peptide Labs",
       type: "website",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: "ORYN - Precision Peptide Science",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.ogDescription,
-      images: ["/og-image.png"],
-    },
-    icons: {
-      icon: "/favicon-oryn.png",
-      apple: "/favicon-oryn.png",
     },
     alternates: {
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
