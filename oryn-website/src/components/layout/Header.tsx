@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useCart } from "@/lib/cart-context";
 import { CartSlider } from "@/components/ui/CartSlider";
@@ -10,6 +10,7 @@ import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { useAuth } from "@/providers/auth";
 import { useProducts } from "@/providers/products";
 import { useWishlist } from "@/providers/wishlist";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -22,10 +23,27 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement>(null);
   const { totalItems, setIsOpen } = useCart();
-  const { t, formatPrice, locale } = useLocale();
+  const { t, formatPrice } = useLocale();
   const { isAuthenticated, user } = useAuth();
   const { products } = useProducts();
   const { totalItems: wishlistCount } = useWishlist();
+  const pathname = usePathname();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setActiveDropdown(null);
+  }, [pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   // Search results (memoized to avoid re-filtering on unrelated renders)
   const searchResults = useMemo(() => {
@@ -51,7 +69,6 @@ export function Header() {
   // Focus input when search opens (desktop or mobile)
   useEffect(() => {
     if (searchOpen) {
-      // Small delay to ensure DOM is rendered
       requestAnimationFrame(() => {
         if (window.innerWidth >= 768 && searchInputRef.current) {
           searchInputRef.current.focus();
@@ -62,7 +79,7 @@ export function Header() {
     }
   }, [searchOpen]);
 
-  // Cmd/Ctrl+K keyboard shortcut for search
+  // Cmd/Ctrl+K keyboard shortcut for search + ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -70,14 +87,20 @@ export function Header() {
         setSearchOpen((prev) => !prev);
         if (!searchOpen) setSearchQuery("");
       }
-      if (e.key === "Escape" && searchOpen) {
-        setSearchOpen(false);
-        setSearchQuery("");
+      if (e.key === "Escape") {
+        if (searchOpen) {
+          setSearchOpen(false);
+          setSearchQuery("");
+        }
+        if (mobileOpen) {
+          setMobileOpen(false);
+          setActiveDropdown(null);
+        }
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [searchOpen]);
+  }, [searchOpen, mobileOpen]);
 
   const navLinks = useMemo(() => [
     { href: "/products", label: t.nav.products, dropdown: "products" },
@@ -166,18 +189,23 @@ export function Header() {
     },
   }), []);
 
-  const handleDropdownEnter = (key: string) => {
+  const handleDropdownEnter = useCallback((key: string) => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
     setActiveDropdown(key);
-  };
+  }, []);
 
-  const handleDropdownLeave = () => {
+  const handleDropdownLeave = useCallback(() => {
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
-  };
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileOpen(false);
+    setActiveDropdown(null);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -199,15 +227,15 @@ export function Header() {
         scrolled ? "bg-white/95 backdrop-blur-xl shadow-sm" : "bg-white/80 backdrop-blur-md"
       }`}>
         <div className="h-px bg-oryn-orange" />
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="h-14 sm:h-16 flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0">
-              <OrynLogo size={100} color="#121212" />
+              <OrynLogo size={90} color="#121212" />
             </Link>
 
-            {/* Center nav */}
-            <nav className="hidden md:flex items-center gap-10">
+            {/* Center nav — desktop */}
+            <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navLinks.map((link) => (
                 <div
                   key={link.href}
@@ -228,10 +256,10 @@ export function Header() {
                     <span className="absolute -bottom-1 left-0 w-0 h-px bg-oryn-orange group-hover:w-full transition-all duration-300" />
                   </Link>
 
-                  {/* Mega dropdown */}
+                  {/* Mega dropdown — left-aligned to prevent overflow */}
                   {link.dropdown && activeDropdown === link.dropdown && (
                     <div
-                      className="absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50"
+                      className="absolute top-full left-0 pt-4 z-50"
                       onMouseEnter={() => handleDropdownEnter(link.dropdown!)}
                       onMouseLeave={handleDropdownLeave}
                     >
@@ -266,15 +294,15 @@ export function Header() {
             </nav>
 
             {/* Right actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-3">
               {/* Search */}
               <div ref={searchRef} className="relative">
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
-                  className="p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
+                  className="p-2.5 text-oryn-black/40 hover:text-oryn-orange transition-colors"
                   aria-label="Search"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="11" cy="11" r="8" />
                     <path d="M21 21l-4.35-4.35" />
                   </svg>
@@ -283,7 +311,7 @@ export function Header() {
                 {searchOpen && (
                   <>
                     {/* Mobile: full-screen overlay */}
-                    <div className="md:hidden fixed inset-0 top-[calc(2rem+4.25rem)] bg-white z-50">
+                    <div className="lg:hidden fixed inset-0 top-[calc(2rem+3.75rem)] sm:top-[calc(2rem+4.25rem)] bg-white z-50">
                       <div className="p-4 border-b border-oryn-grey/10">
                         <div className="relative">
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="1.5" className="absolute left-3 top-1/2 -translate-y-1/2">
@@ -296,7 +324,7 @@ export function Header() {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder={t.header.searchPlaceholder}
-                            className="w-full pl-10 pr-10 py-3 bg-oryn-grey-light/50 text-sm font-plex focus:outline-none focus:ring-1 focus:ring-oryn-orange"
+                            className="w-full pl-10 pr-10 py-3 bg-oryn-grey-light/50 text-sm font-plex focus:outline-none focus:ring-1 focus:ring-oryn-orange rounded-none"
                             onKeyDown={(e) => {
                               if (e.key === "Escape") {
                                 setSearchOpen(false);
@@ -323,7 +351,7 @@ export function Header() {
                                 key={p.id}
                                 href={`/products/${p.slug}`}
                                 onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
-                                className="flex items-center gap-3 px-4 py-3 hover:bg-oryn-orange/5 transition-colors border-b border-oryn-grey/10"
+                                className="flex items-center gap-3 px-4 py-3.5 hover:bg-oryn-orange/5 active:bg-oryn-orange/10 transition-colors border-b border-oryn-grey/10"
                               >
                                 <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
                                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5">
@@ -368,7 +396,7 @@ export function Header() {
                     </div>
 
                     {/* Desktop: dropdown */}
-                    <div className="hidden md:block absolute top-full right-0 mt-2 w-80 bg-white border border-oryn-grey/20 shadow-xl z-50">
+                    <div className="hidden lg:block absolute top-full right-0 mt-2 w-80 bg-white border border-oryn-grey/20 shadow-xl z-50">
                       <div className="p-3 border-b border-oryn-grey/10">
                         <div className="relative">
                           <input
@@ -442,18 +470,20 @@ export function Header() {
                 )}
               </div>
 
-              <LocaleSwitcher />
+              <div className="hidden lg:block">
+                <LocaleSwitcher />
+              </div>
 
               <Link
                 href="/products"
-                className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-oryn-orange text-white text-[10px] font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
+                className="hidden lg:flex items-center gap-1.5 px-4 py-2 bg-oryn-orange text-white text-[10px] font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
               >
                 {t.header.shopNow}
               </Link>
 
               <Link
                 href="/account"
-                className="hidden md:flex items-center justify-center p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
+                className="hidden lg:flex items-center justify-center p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
                 aria-label="Account"
               >
                 {isAuthenticated && user ? (
@@ -470,7 +500,7 @@ export function Header() {
 
               <Link
                 href="/wishlist"
-                className="hidden md:flex relative p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
+                className="hidden lg:flex relative p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
                 aria-label="Wishlist"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill={wishlistCount > 0 ? "#FF6A1A" : "none"} stroke={wishlistCount > 0 ? "#FF6A1A" : "currentColor"} strokeWidth="1.5">
@@ -483,9 +513,10 @@ export function Header() {
                 )}
               </Link>
 
+              {/* Cart — always visible */}
               <button
                 onClick={() => setIsOpen(true)}
-                className="relative p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
+                className="relative p-2.5 text-oryn-black/40 hover:text-oryn-orange transition-colors"
                 aria-label="Open cart"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -494,19 +525,20 @@ export function Header() {
                   <path d="M16 10a4 4 0 01-8 0" />
                 </svg>
                 {totalItems > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-oryn-orange text-white text-[8px] font-bold flex items-center justify-center">
+                  <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-oryn-orange text-white text-[8px] font-bold flex items-center justify-center rounded-full">
                     {totalItems}
                   </span>
                 )}
               </button>
 
+              {/* Mobile hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2 text-oryn-black"
+                className="lg:hidden p-2.5 text-oryn-black -mr-1"
                 aria-label="Toggle menu"
                 aria-expanded={mobileOpen}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   {mobileOpen ? (
                     <path d="M18 6L6 18M6 6l12 12" />
                   ) : (
@@ -522,45 +554,76 @@ export function Header() {
           </div>
         </div>
         <div className="h-px bg-oryn-grey/20" />
+      </header>
 
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <nav role="navigation" aria-label="Mobile menu" className="md:hidden bg-white border-t border-oryn-grey/10 max-h-[calc(100vh-7rem)] overflow-y-auto">
-            <div className="max-w-7xl mx-auto px-6 py-6 space-y-1">
-              {navLinks.map((link) => (
-                <div key={link.href}>
-                  <div className="flex items-center justify-between border-b border-oryn-grey/10">
-                    <Link
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex-1 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase"
+      {/* ─── Mobile Menu (full-screen overlay) ─── */}
+      {/* Backdrop */}
+      <div
+        className={`lg:hidden fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={closeMobileMenu}
+      />
+
+      {/* Menu panel */}
+      <div
+        className={`lg:hidden fixed top-[calc(2rem+3.75rem)] sm:top-[calc(2rem+4.25rem)] left-0 right-0 bottom-0 z-40 bg-white transition-transform duration-300 ease-out ${
+          mobileOpen ? "translate-y-0" : "-translate-y-full pointer-events-none"
+        }`}
+      >
+        <nav
+          role="navigation"
+          aria-label="Mobile menu"
+          className="h-full overflow-y-auto overscroll-contain"
+        >
+          <div className="px-5 pt-2 pb-[max(2rem,env(safe-area-inset-bottom))]">
+            {/* Main nav links */}
+            {navLinks.map((link) => (
+              <div key={link.href} className="border-b border-oryn-grey/10">
+                <div className="flex items-center">
+                  <Link
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="flex-1 py-4 text-sm font-medium text-oryn-black/70 active:text-oryn-orange transition-colors tracking-wide"
+                  >
+                    {link.label}
+                  </Link>
+                  {link.dropdown && (
+                    <button
+                      onClick={() => setActiveDropdown(activeDropdown === link.dropdown ? null : link.dropdown!)}
+                      className="p-3 -mr-3 text-oryn-black/30 active:text-oryn-orange"
+                      aria-label={`Expand ${link.label}`}
+                      aria-expanded={activeDropdown === link.dropdown}
                     >
-                      {link.label}
-                    </Link>
-                    {link.dropdown && (
-                      <button
-                        onClick={() => setActiveDropdown(activeDropdown === link.dropdown ? null : link.dropdown!)}
-                        className="p-2 text-oryn-black/30"
-                        aria-label={`Expand ${link.label}`}
-                      >
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""}`}>
-                          <path d="M6 9l6 6 6-6" />
-                        </svg>
-                      </button>
-                    )}
-                  </div>
-                  {link.dropdown && activeDropdown === link.dropdown && (
-                    <div className="bg-oryn-cream/30 px-4 py-3 space-y-4">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`transition-transform duration-200 ${activeDropdown === link.dropdown ? "rotate-180" : ""}`}>
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+
+                {/* Accordion sub-menu */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-out ${
+                    link.dropdown && activeDropdown === link.dropdown
+                      ? "max-h-[600px] opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {link.dropdown && (
+                    <div className="pb-4 pl-1 space-y-5">
                       {megaMenus[link.dropdown].columns.map((col) => (
                         <div key={col.title}>
-                          <h4 className="text-[8px] font-bold tracking-[0.2em] text-oryn-orange mb-2">{col.title}</h4>
-                          <div className="space-y-1.5">
+                          <h4 className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-2 pl-3 border-l-2 border-oryn-orange/30">
+                            {col.title}
+                          </h4>
+                          <div className="space-y-0.5 pl-3">
                             {col.links.map((l) => (
                               <Link
                                 key={l.href}
                                 href={l.href}
-                                onClick={() => { setMobileOpen(false); setActiveDropdown(null); }}
-                                className="block text-[11px] text-oryn-black/50 hover:text-oryn-orange transition-colors font-plex py-1"
+                                onClick={closeMobileMenu}
+                                className="block py-2 text-[13px] text-oryn-black/50 active:text-oryn-orange transition-colors font-plex"
                               >
                                 {l.label}
                               </Link>
@@ -571,52 +634,72 @@ export function Header() {
                     </div>
                   )}
                 </div>
-              ))}
+              </div>
+            ))}
+
+            {/* Secondary actions */}
+            <div className="mt-4 space-y-0">
               <button
-                onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
-                className="flex items-center gap-2 w-full text-left py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+                onClick={() => { closeMobileMenu(); setSearchOpen(true); }}
+                className="flex items-center gap-3 w-full py-4 text-sm text-oryn-black/60 active:text-oryn-orange transition-colors border-b border-oryn-grey/10"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <circle cx="11" cy="11" r="8" />
                   <path d="M21 21l-4.35-4.35" />
                 </svg>
                 {t.header.searchPlaceholder}
               </button>
+
               <Link
                 href="/wishlist"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+                onClick={closeMobileMenu}
+                className="flex items-center gap-3 py-4 text-sm text-oryn-black/60 active:text-oryn-orange transition-colors border-b border-oryn-grey/10"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill={wishlistCount > 0 ? "#FF6A1A" : "none"} stroke={wishlistCount > 0 ? "#FF6A1A" : "currentColor"} strokeWidth="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill={wishlistCount > 0 ? "#FF6A1A" : "none"} stroke={wishlistCount > 0 ? "#FF6A1A" : "currentColor"} strokeWidth="1.5">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                 </svg>
-                {t.account.nav.wishlist.toUpperCase()}
+                {t.account.nav.wishlist}
                 {wishlistCount > 0 && (
-                  <span className="ml-auto text-[9px] font-mono text-oryn-orange">{wishlistCount}</span>
+                  <span className="ml-auto text-xs font-bold text-oryn-orange">{wishlistCount}</span>
                 )}
               </Link>
+
               <Link
                 href="/account"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 py-4 text-[11px] font-medium text-oryn-black/60 hover:text-oryn-orange transition-colors border-b border-oryn-grey/10 tracking-[0.15em] uppercase"
+                onClick={closeMobileMenu}
+                className="flex items-center gap-3 py-4 text-sm text-oryn-black/60 active:text-oryn-orange transition-colors border-b border-oryn-grey/10"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+                {isAuthenticated && user ? (
+                  <span className="w-6 h-6 bg-oryn-orange text-white text-[10px] font-bold flex items-center justify-center rounded-full shrink-0">
+                    {user.firstName?.charAt(0).toUpperCase() || "U"}
+                  </span>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                )}
                 {isAuthenticated ? t.header.myAccount : t.header.signIn}
               </Link>
+            </div>
+
+            {/* Locale switcher + CTA */}
+            <div className="mt-6 space-y-3">
+              <div className="flex items-center justify-center">
+                <LocaleSwitcher />
+              </div>
+
               <Link
                 href="/products"
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center py-4 mt-4 bg-oryn-orange text-white text-[11px] font-medium tracking-[0.15em] uppercase"
+                onClick={closeMobileMenu}
+                className="block w-full text-center py-4 bg-oryn-orange text-white text-sm font-medium tracking-[0.1em]"
               >
                 {t.header.shopNow}
               </Link>
             </div>
-          </nav>
-        )}
-      </header>
+          </div>
+        </nav>
+      </div>
 
       <CartSlider />
     </>
