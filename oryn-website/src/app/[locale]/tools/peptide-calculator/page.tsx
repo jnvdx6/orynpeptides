@@ -54,7 +54,7 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}/tools/peptide-calculator`,
       type: "website",
       images: [
-        { url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 },
+        { url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 },
       ],
     },
     twitter: {
@@ -120,7 +120,7 @@ function reconstitutionHowToSchema(locale: string) {
     description:
       "Step-by-step guide to reconstituting lyophilised peptide powder with bacteriostatic water for research use.",
     url: `${SITE_URL}/${locale}/tools/peptide-calculator`,
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/opengraph-image`,
     totalTime: "PT5M",
     supply: [
       { "@type": "HowToSupply", name: "Lyophilised peptide vial" },

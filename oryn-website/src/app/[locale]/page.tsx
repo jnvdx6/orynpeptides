@@ -41,13 +41,13 @@ export async function generateMetadata({
       description,
       url: `${SITE_URL}/${locale}`,
       type: "website",
-      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: "ORYN Peptide Labs",
       description: "Research-grade peptide pens. >99% purity. Next-day UK delivery.",
-      images: [`${SITE_URL}/og-image.png`],
+      images: [`${SITE_URL}/opengraph-image`],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,

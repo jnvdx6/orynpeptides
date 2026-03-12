@@ -14,8 +14,8 @@ export function organizationSchema() {
     name: "ORYN Peptide Labs",
     alternateName: "ORYN",
     url: SITE_URL,
-    logo: `${SITE_URL}/og-image.png`,
-    image: `${SITE_URL}/og-image.png`,
+    logo: `${SITE_URL}/opengraph-image`,
+    image: `${SITE_URL}/opengraph-image`,
     description: "European biotech laboratory delivering research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured.",
     foundingDate: "2024",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
@@ -63,7 +63,7 @@ export function organizationSchema() {
     brand: {
       "@type": "Brand",
       name: "ORYN",
-      logo: `${SITE_URL}/og-image.png`,
+      logo: `${SITE_URL}/opengraph-image`,
     },
     hasCredential: [
       {
@@ -320,10 +320,10 @@ export function articleSchema(article: {
       name: "ORYN Peptide Labs",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/og-image.png`,
+        url: `${SITE_URL}/opengraph-image`,
       },
     },
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/opengraph-image`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${SITE_URL}/${locale}/learn/${article.slug}`,
@@ -349,7 +349,7 @@ export function howToSchema(article: {
     name: article.title,
     description: article.metaDescription,
     url: `${SITE_URL}/${locale}/learn/${article.slug}`,
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/opengraph-image`,
     totalTime: "PT10M",
     supply: [
       { "@type": "HowToSupply", name: "ORYN Peptide Pen" },

@@ -4,12 +4,20 @@ import { locales, defaultLocale, isValidLocale } from "./i18n/config";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip API routes, admin panel, static files, and Next.js internals
+  // Skip API routes, admin panel, static files, metadata images, and Next.js internals
   if (
     pathname.startsWith("/api/") ||
     pathname.startsWith("/admin") ||
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/images/") ||
+    pathname === "/icon" ||
+    pathname === "/apple-icon" ||
+    pathname === "/opengraph-image" ||
+    pathname === "/twitter-image" ||
+    pathname === "/favicon.ico" ||
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname.startsWith("/sitemap/") ||
     pathname.includes(".") // static files
   ) {
     return NextResponse.next();
@@ -59,5 +67,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|images|favicon\\.ico|icon|apple-icon|opengraph-image|twitter-image|sitemap|robots\\.txt|manifest\\.json).*)",
+  ],
 };

@@ -135,7 +135,7 @@ export default async function LocaleLayout({
             "@type": "OnlineBusiness",
             name: "ORYN Peptide Labs",
             url: SITE_URL,
-            logo: `${SITE_URL}/og-image.png`,
+            logo: `${SITE_URL}/opengraph-image`,
             description: "Research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured. Next-day UK delivery.",
             priceRange: "£169-£399",
             currenciesAccepted: "GBP, EUR",

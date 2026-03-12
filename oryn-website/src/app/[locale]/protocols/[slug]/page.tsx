@@ -44,7 +44,7 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}/protocols/${slug}`,
       type: "article",
       images: [
-        { url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 },
+        { url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 },
       ],
     },
     alternates: {

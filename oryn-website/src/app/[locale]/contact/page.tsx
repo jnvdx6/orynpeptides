@@ -38,7 +38,7 @@ export async function generateMetadata({
       description,
       url: `${SITE_URL}/${locale}/contact`,
       type: "website",
-      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary",

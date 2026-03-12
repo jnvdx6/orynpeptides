@@ -35,7 +35,7 @@ export async function generateMetadata({
       description: comparison.metaDescription,
       url: `${SITE_URL}/${locale}/compare/${slug}`,
       type: "article",
-      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/compare/${slug}`,
