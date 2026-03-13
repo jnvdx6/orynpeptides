@@ -4,13 +4,6 @@ import { locales, defaultLocale, isValidLocale } from "./i18n/config";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Rewrite /sitemap.xml to API route (Next.js [locale] catches it otherwise)
-  if (pathname === "/sitemap.xml") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/api/sitemap-index";
-    return NextResponse.rewrite(url);
-  }
-
   // Skip API routes, admin panel, static files, metadata images, and Next.js internals
   if (
     pathname.startsWith("/api/") ||
@@ -23,7 +16,7 @@ export function middleware(request: NextRequest) {
     pathname === "/twitter-image" ||
     pathname === "/favicon.ico" ||
     pathname === "/robots.txt" ||
-    pathname.startsWith("/sitemap/") ||
+    pathname === "/sitemap.xml" ||
     pathname.includes(".") // static files
   ) {
     return NextResponse.next();
@@ -74,6 +67,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|images|favicon\\.ico|icon|apple-icon|opengraph-image|twitter-image|sitemap/|robots\\.txt|manifest\\.json).*)",
+    "/((?!api|_next/static|_next/image|images|favicon\\.ico|icon|apple-icon|opengraph-image|twitter-image|sitemap\\.xml|robots\\.txt|manifest\\.json).*)",
   ],
 };
