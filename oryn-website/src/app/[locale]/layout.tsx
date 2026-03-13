@@ -148,12 +148,7 @@ export default async function LocaleLayout({
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "Peptide Pens",
-              itemListElement: [
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "BPC-157 Peptide Pen" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tirzepatide Peptide Pen" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "GHK-Cu Peptide Pen" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "NAD+ Peptide Pen" } },
-              ],
+              numberOfItems: 10,
             },
           },
         ]} />
