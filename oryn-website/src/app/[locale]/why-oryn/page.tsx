@@ -205,14 +205,7 @@ export default async function WhyOrynPage({
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "ORYN Peptide Products",
-      itemListElement: products.map((p) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: `ORYN ${p.name}`,
-          url: `${SITE_URL}/${locale}/products/${p.slug}`,
-        },
-      })),
+      numberOfItems: products.length,
     },
   };
 
