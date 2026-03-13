@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { FIRST_VISIT_KEY } from "@/lib/discounts";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { trackPopupShown, trackPopupInteracted } from "@/lib/analytics";
 
 export function FirstVisitPopup() {
   const [show, setShow] = useState(false);
@@ -19,6 +20,7 @@ export function FirstVisitPopup() {
     const timer = setTimeout(() => {
       setShow(true);
       localStorage.setItem(FIRST_VISIT_KEY, "1");
+      trackPopupShown("first_visit");
     }, 8000); // Show after 8 seconds of browsing
 
     return () => clearTimeout(timer);
@@ -44,7 +46,7 @@ export function FirstVisitPopup() {
 
       <div className="relative bg-white max-w-lg w-full shadow-2xl overflow-hidden">
         <button
-          onClick={handleClose}
+          onClick={() => { trackPopupInteracted("first_visit", "dismissed"); handleClose(); }}
           className="absolute top-4 right-4 p-1 text-oryn-black/30 hover:text-oryn-black transition-colors z-10"
           aria-label={t.productDetail.closePopup}
         >
@@ -95,14 +97,14 @@ export function FirstVisitPopup() {
 
             <Link
               href="/products"
-              onClick={handleClose}
+              onClick={() => { trackPopupInteracted("first_visit", "cta_clicked"); handleClose(); }}
               className="block w-full py-3 bg-oryn-orange text-white text-center text-xs font-medium tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors"
             >
               {p.shopNow}
             </Link>
 
             <button
-              onClick={handleClose}
+              onClick={() => { trackPopupInteracted("first_visit", "dismissed"); handleClose(); }}
               className="block w-full mt-2 py-2 text-[10px] text-oryn-black/30 font-plex hover:text-oryn-black/50 transition-colors text-center"
             >
               {p.noThanks}

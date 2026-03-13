@@ -6,6 +6,7 @@ import { getProductBySlug as getProduct, productImages } from "@/data/products";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
+import { PageTracker } from "@/components/analytics/PageTracker";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -76,6 +77,7 @@ export default async function ComparePage({
         ]}
       />
 
+      <PageTracker pageName="compare" />
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-6 py-4">

@@ -36,3 +36,4 @@ npm-debug.log*
 *.pdf
 Imagenes de Producto Fabricante/
 nanobanana-output/
+.vercel

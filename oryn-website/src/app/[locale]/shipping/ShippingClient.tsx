@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/components/ui/LocaleLink";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -158,6 +159,7 @@ export function ShippingClient({
   faqs: { question: string; answer: string }[];
   locale: string;
 }) {
+  usePageTracking("shipping");
   const symbol = locale === "es" ? "\u20ac" : "\u00a3";
   const freeThreshold = locale === "es" ? "150" : "150";
 

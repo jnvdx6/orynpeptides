@@ -13,6 +13,7 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
@@ -92,6 +93,7 @@ export default async function CategoryPage({
           },
         ]}
       />
+      <PageTracker pageName="peptides_for_category" properties={{ category: catSlug }} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

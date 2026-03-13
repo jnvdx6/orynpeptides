@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/components/ui/LocaleLink";
 import { products, productImages } from "@/data/products";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -166,6 +167,7 @@ export function QualityClient({
 }: {
   faqs: { question: string; answer: string }[];
 }) {
+  usePageTracking("quality");
   return (
     <div className="pt-[calc(1rem+4px)]">
       {/* ── HERO ────────────────────────────────────────────────── */}

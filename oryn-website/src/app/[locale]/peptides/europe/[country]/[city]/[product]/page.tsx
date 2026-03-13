@@ -11,6 +11,7 @@ import { products, getProductBySlug, productImages } from "@/data/products";
 import { getProductDetail } from "@/data/product-details";
 import { SITE_URL, productSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 
 export const dynamicParams = true;
@@ -100,6 +101,7 @@ export default async function EuropeanCityProductPage({
           ]),
         ]}
       />
+      <PageTracker pageName="europe_city_product" properties={{ country: countrySlug, city: citySlug, product: productSlug }} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

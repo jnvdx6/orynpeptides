@@ -2,6 +2,7 @@
 
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 const peptideSlugMap: Record<string, string> = {
   "BPC-157": "bpc-157",
@@ -84,6 +85,7 @@ const peptideScience = [
 export function ScienceClient() {
   const { t } = useLocale();
   const s = t.sciencePage;
+  usePageTracking("science");
 
   return (
     <div className="pt-[calc(1rem+4px)]">

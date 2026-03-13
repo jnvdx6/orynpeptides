@@ -30,4 +30,44 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
       password: true,
     },
   },
+  // Register super properties that attach to every event
+  loaded: (ph) => {
+    // UTM params (persist from landing)
+    const params = new URLSearchParams(window.location.search);
+    const utmProps: Record<string, string> = {};
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]) {
+      const val = params.get(key);
+      if (val) utmProps[key] = val;
+    }
+    if (Object.keys(utmProps).length > 0) {
+      ph.register(utmProps);
+      ph.setPersonProperties({}, utmProps); // $set_once on person
+    }
+
+    // Device & locale info
+    const w = window.innerWidth;
+    ph.register({
+      device_type: w < 768 ? "mobile" : w < 1024 ? "tablet" : "desktop",
+      viewport_width: w,
+      locale: document.documentElement.lang || "en",
+      site_version: "2026-03",
+    });
+
+    // Referrer tracking (first touch)
+    if (document.referrer && !document.referrer.includes(window.location.hostname)) {
+      try {
+        const refDomain = new URL(document.referrer).hostname;
+        ph.register_once({
+          initial_referrer: document.referrer,
+          initial_referrer_domain: refDomain,
+        });
+        ph.setPersonPropertiesForFlags({ referrer_domain: refDomain });
+      } catch { /* ignore */ }
+    }
+
+    // Landing page (first touch)
+    ph.register_once({
+      initial_landing_page: window.location.pathname,
+    });
+  },
 });

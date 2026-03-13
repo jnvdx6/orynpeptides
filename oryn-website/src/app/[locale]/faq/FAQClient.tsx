@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/components/ui/LocaleLink";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -156,6 +157,7 @@ export function FAQClient({
 }: {
   categories: FAQCategory[];
 }) {
+  usePageTracking("faq");
   const totalFaqs = categories.reduce((sum, cat) => sum + cat.faqs.length, 0);
 
   return (

@@ -15,6 +15,7 @@ import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -113,6 +114,7 @@ export default async function ArticlePage({
   return (
     <>
       <MultiJsonLd items={schemaItems} />
+      <PageTracker pageName="blog_article" properties={{ slug: article.slug, title: article.title, category: article.category }} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

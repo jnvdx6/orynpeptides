@@ -5,6 +5,7 @@ import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PeptideCalculator } from "@/components/tools/PeptideCalculator";
 import { products } from "@/data/products";
+import { PageTracker } from "@/components/analytics/PageTracker";
 
 /* ─── Static Params ────────────────────────────────────────────────── */
 
@@ -217,6 +218,7 @@ export default async function PeptideCalculatorPage({
         ]}
       />
 
+      <PageTracker pageName="peptide_calculator" />
       <div className="pt-[calc(1rem+4px)]">
         {/* ─── Breadcrumb ─────────────────────────────── */}
         <div className="max-w-7xl mx-auto px-6 py-4">

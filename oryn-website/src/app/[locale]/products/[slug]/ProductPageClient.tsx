@@ -25,6 +25,7 @@ import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { ShareButtons } from "@/components/ui/ShareButtons";
 import { CustomerReviews } from "@/components/product/CustomerReviews";
 import { trackProductView } from "@/lib/analytics";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 export function ProductPageClient() {
   const params = useParams();
@@ -38,6 +39,7 @@ export function ProductPageClient() {
   const [quantity, setQuantity] = useState(1);
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
+  usePageTracking("product_detail", product ? { product_slug: product.slug, product_name: product.name } : {});
 
   // Track recently viewed & analytics
   useEffect(() => {

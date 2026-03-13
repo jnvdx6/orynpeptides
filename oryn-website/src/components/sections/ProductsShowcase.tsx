@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/products/ProductCard";
 import { Link } from "@/components/ui/LocaleLink";
 import { useLocale } from "@/i18n/LocaleContext";
 import { useProducts } from "@/providers/products";
+import { trackCTAClick } from "@/lib/analytics";
 
 export function ProductsShowcase() {
  const { t, formatPrice } = useLocale();
@@ -31,6 +32,7 @@ export function ProductsShowcase() {
  </div>
  <Link
  href="/products"
+ onClick={() => trackCTAClick("view_all_products", "products_showcase")}
  className="group mt-6 md:mt-0 px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-2"
  >
  {t.showcase.viewAll}

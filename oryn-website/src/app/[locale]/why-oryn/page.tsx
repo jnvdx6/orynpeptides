@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { breadcrumbSchema, faqSchema, organizationSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 import { products, productImages } from "@/data/products";
 
@@ -235,6 +236,7 @@ export default async function WhyOrynPage({
           itemListSchema,
         ]}
       />
+      <PageTracker pageName="why_oryn" />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

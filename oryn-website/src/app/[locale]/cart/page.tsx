@@ -8,6 +8,7 @@ import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -20,6 +21,7 @@ export default function CartPage() {
   const { t, formatPrice, locale } = useLocale();
   const { products } = useProducts();
   const { addToWishlist, isInWishlist } = useWishlist();
+  usePageTracking("cart");
 
   const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);

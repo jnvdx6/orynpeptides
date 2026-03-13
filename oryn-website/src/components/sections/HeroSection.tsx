@@ -3,6 +3,7 @@
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import { useLocale } from "@/i18n/LocaleContext";
+import { trackCTAClick } from "@/lib/analytics";
 
 export function HeroSection() {
  const { t, formatPrice } = useLocale();
@@ -41,6 +42,7 @@ export function HeroSection() {
  <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-8">
  <Link
  href="/products"
+ onClick={() => trackCTAClick("hero_shop_peptides", "hero")}
  className="group/btn px-8 py-4 bg-white text-oryn-orange font-semibold text-xs tracking-[0.15em] hover:bg-oryn-black hover:text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-black/10"
  >
  {t.hero.explorePeptides}
@@ -50,6 +52,7 @@ export function HeroSection() {
  </Link>
  <Link
  href="/science"
+ onClick={() => trackCTAClick("hero_our_science", "hero")}
  className="px-8 py-4 text-white border border-white/20 font-medium text-xs tracking-[0.15em] hover:bg-white/5 hover:border-white/40 transition-all text-center"
  >
  {t.hero.ourScience}

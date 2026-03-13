@@ -4,6 +4,7 @@ import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
 import { ProductsClient } from "./ProductsClient";
+import { PageTracker } from "@/components/analytics/PageTracker";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -106,6 +107,7 @@ export default async function ProductsPage({
         ]}
       />
       <ProductsClient />
+      <PageTracker pageName="products_listing" />
     </>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
@@ -7,6 +8,7 @@ import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
+import { trackCartViewed, trackRemoveFromCart, trackQuantityChanged, trackCTAClick } from "@/lib/analytics";
 
 const categoryImages: Record<string, string> = {
   "peptide-pen": "/images/peptide-pen-real.png",
@@ -60,6 +62,14 @@ export function CartSlider() {
     }
     return suggested;
   })();
+
+  const prevIsOpen = useRef(false);
+  useEffect(() => {
+    if (isOpen && !prevIsOpen.current) {
+      trackCartViewed({ itemCount: items.length, total: totalPrice });
+    }
+    prevIsOpen.current = isOpen;
+  }, [isOpen, items.length, totalPrice]);
 
   return (
     <>
@@ -177,9 +187,10 @@ export function CartSlider() {
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center gap-1.5">
                         <button
-                          onClick={() =>
-                            updateQuantity(item.product.id, item.quantity - 1)
-                          }
+                          onClick={() => {
+                            trackQuantityChanged({ name: item.product.name, slug: item.product.slug, price: item.product.price, oldQuantity: item.quantity, newQuantity: item.quantity - 1 });
+                            updateQuantity(item.product.id, item.quantity - 1);
+                          }}
                           className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors"
                           aria-label={t.productDetail.decreaseQuantity}
                         >
@@ -189,9 +200,10 @@ export function CartSlider() {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() =>
-                            updateQuantity(item.product.id, item.quantity + 1)
-                          }
+                          onClick={() => {
+                            trackQuantityChanged({ name: item.product.name, slug: item.product.slug, price: item.product.price, oldQuantity: item.quantity, newQuantity: item.quantity + 1 });
+                            updateQuantity(item.product.id, item.quantity + 1);
+                          }}
                           disabled={item.quantity >= 10}
                           className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
                           aria-label={t.productDetail.increaseQuantity}
@@ -204,7 +216,7 @@ export function CartSlider() {
                           {formatPrice(item.product.price * item.quantity)}
                         </span>
                         <button
-                          onClick={() => removeItem(item.product.id)}
+                          onClick={() => { trackRemoveFromCart({ name: item.product.name, slug: item.product.slug, price: item.product.price }); removeItem(item.product.id); }}
                           className="text-oryn-black/20 hover:text-red-500 transition-colors p-2 -m-1.5"
                           aria-label={t.productDetail.removeItem}
                         >
@@ -252,7 +264,7 @@ export function CartSlider() {
                           <p className="text-[10px] text-oryn-black/40 font-plex">{formatPrice(s.price)}</p>
                         </Link>
                         <button
-                          onClick={() => addItem(s)}
+                          onClick={() => { trackCTAClick("cart_suggestion", "cart_slider"); addItem(s); }}
                           className="shrink-0 px-3 py-2 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-1.5"
                         >
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

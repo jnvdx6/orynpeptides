@@ -3,6 +3,7 @@
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import { useLocale } from "@/i18n/LocaleContext";
+import { trackCTAClick } from "@/lib/analytics";
 
 const categoryStaticData = [
  {
@@ -64,6 +65,7 @@ export function CategoriesSection() {
  <Link
  key={cat.id}
  href={cat.href}
+ onClick={() => trackCTAClick(`category_${cat.id}`, "categories_section")}
  className="group relative bg-oryn-black overflow-hidden hover:bg-oryn-orange transition-colors duration-500"
  >
  <div className="relative p-10 min-h-[440px] flex flex-col justify-between">

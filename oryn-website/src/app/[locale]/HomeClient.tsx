@@ -11,6 +11,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { TrustBanner } from "@/components/seo/TrustBanner";
 import { Link } from "@/components/ui/LocaleLink";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 const topCities = [
   { slug: "london", name: "London" },
@@ -53,6 +54,8 @@ const topArticles = [
 ];
 
 export function HomeClient() {
+  usePageTracking("home");
+
   return (
     <>
       <HeroSection />

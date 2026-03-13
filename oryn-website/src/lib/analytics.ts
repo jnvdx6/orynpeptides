@@ -8,6 +8,55 @@ function ph(event: string, properties?: Record<string, unknown>) {
   }
 }
 
+/** Extract UTM params + referrer from current URL */
+export function getUtmParams(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const params = new URLSearchParams(window.location.search);
+  const utm: Record<string, string> = {};
+  for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]) {
+    const val = params.get(key);
+    if (val) utm[key] = val;
+  }
+  if (document.referrer && !document.referrer.includes(window.location.hostname)) {
+    utm.referrer = document.referrer;
+    try {
+      utm.referrer_domain = new URL(document.referrer).hostname;
+    } catch { /* ignore */ }
+  }
+  return utm;
+}
+
+/** Get device type from viewport */
+function getDeviceType(): string {
+  if (typeof window === "undefined") return "unknown";
+  const w = window.innerWidth;
+  if (w < 768) return "mobile";
+  if (w < 1024) return "tablet";
+  return "desktop";
+}
+
+// ─── Page & Navigation Events ─────────────────────────────────
+
+export function trackPageView(pageName: string, properties?: Record<string, unknown>) {
+  const base = {
+    page_name: pageName,
+    page_path: typeof window !== "undefined" ? window.location.pathname : "",
+    device_type: getDeviceType(),
+    ...getUtmParams(),
+    ...properties,
+  };
+  track("page_viewed", { page_name: pageName, ...properties });
+  ph("page_viewed", base);
+}
+
+export function trackScrollDepth(pageName: string, depth: number) {
+  ph("scroll_depth", { page_name: pageName, depth_percent: depth });
+}
+
+export function trackEngagementTime(pageName: string, seconds: number) {
+  ph("engagement_time", { page_name: pageName, duration_seconds: seconds });
+}
+
 // ─── E-commerce Events ────────────────────────────────────────
 
 export function trackAddToCart(product: {
@@ -15,11 +64,13 @@ export function trackAddToCart(product: {
   slug: string;
   price: number;
   category?: string;
+  quantity?: number;
 }) {
   const props = {
     product_name: product.name,
     product_slug: product.slug,
     price: product.price,
+    quantity: product.quantity || 1,
     category: product.category || "unknown",
     currency: "EUR",
   };
@@ -42,6 +93,23 @@ export function trackRemoveFromCart(product: {
   };
   track("remove_from_cart", props);
   ph("remove_from_cart", props);
+}
+
+export function trackQuantityChanged(product: {
+  name: string;
+  slug: string;
+  price: number;
+  oldQuantity: number;
+  newQuantity: number;
+}) {
+  ph("cart_quantity_changed", {
+    product_name: product.name,
+    product_slug: product.slug,
+    price: product.price,
+    old_quantity: product.oldQuantity,
+    new_quantity: product.newQuantity,
+    direction: product.newQuantity > product.oldQuantity ? "increase" : "decrease",
+  });
 }
 
 export function trackCheckoutStep(
@@ -78,10 +146,8 @@ export function trackPurchase(data: {
   };
   track("purchase", vercelProps);
 
-  // PostHog: rich purchase event with revenue tracking
   ph("purchase", {
     ...vercelProps,
-    // PostHog revenue tracking
     revenue: data.total,
     items: data.items || [],
     $set: {
@@ -115,6 +181,36 @@ export function trackProductView(product: {
   });
 }
 
+export function trackProductListViewed(listName: string, products: Array<{ name: string; slug: string }>) {
+  ph("product_list_viewed", {
+    list_name: listName,
+    product_count: products.length,
+    products: products.map((p) => p.slug),
+  });
+}
+
+// ─── Cart Events ────────────────────────────────────────────
+
+export function trackCartOpened() {
+  track("cart_opened");
+  ph("cart_opened");
+}
+
+export function trackCartViewed(data: { itemCount: number; total: number }) {
+  ph("cart_viewed", {
+    item_count: data.itemCount,
+    cart_total: data.total,
+  });
+}
+
+export function trackOrderBumpClicked(product: { name: string; slug: string; price: number }) {
+  ph("order_bump_clicked", {
+    product_name: product.name,
+    product_slug: product.slug,
+    price: product.price,
+  });
+}
+
 // ─── Promo & Engagement Events ───────────────────────────────
 
 export function trackPromoApplied(code: string, discountType: string, discountValue: number) {
@@ -136,11 +232,6 @@ export function trackSearch(query: string, resultCount: number) {
   ph("search", { query, result_count: resultCount });
 }
 
-export function trackCartOpened() {
-  track("cart_opened");
-  ph("cart_opened");
-}
-
 export function trackWishlistAdd(productSlug: string) {
   track("wishlist_add", { product_slug: productSlug });
   ph("wishlist_add", { product_slug: productSlug });
@@ -154,6 +245,10 @@ export function trackWishlistRemove(productSlug: string) {
 export function trackCTAClick(ctaName: string, location: string) {
   track("cta_click", { cta_name: ctaName, location });
   ph("cta_click", { cta_name: ctaName, location });
+}
+
+export function trackSocialClick(platform: string, location: string) {
+  ph("social_click", { platform, location });
 }
 
 // ─── Auth & Identity Events ──────────────────────────────────
@@ -218,7 +313,7 @@ export function trackCheckoutAbandoned(step: string, total: number) {
   ph("checkout_abandoned", { last_step: step, cart_total: total });
 }
 
-// ─── Page & Content Events ───────────────────────────────────
+// ─── Content & Page Events ──────────────────────────────────
 
 export function trackExitIntentShown() {
   ph("exit_intent_popup_shown");
@@ -228,10 +323,84 @@ export function trackExitIntentConverted(action: string) {
   ph("exit_intent_popup_converted", { action });
 }
 
-export function trackBlogRead(slug: string, title: string) {
-  ph("blog_article_read", { slug, title });
+export function trackPopupShown(popupType: string) {
+  ph("popup_shown", { popup_type: popupType });
 }
 
-export function trackToolUsed(toolName: string) {
-  ph("tool_used", { tool_name: toolName });
+export function trackPopupInteracted(popupType: string, action: string) {
+  ph("popup_interacted", { popup_type: popupType, action });
+}
+
+export function trackBlogRead(slug: string, title: string, category?: string) {
+  const props = { slug, title, category: category || "unknown" };
+  track("blog_article_read", props);
+  ph("blog_article_read", {
+    ...props,
+    $set: { last_article_read: slug },
+  });
+}
+
+export function trackCategoryBrowsed(category: string, source: string) {
+  const props = { category, source };
+  track("category_browsed", props);
+  ph("category_browsed", props);
+}
+
+export function trackGeoPageViewed(data: {
+  type: "country" | "city" | "region" | "county" | "area";
+  location: string;
+  country?: string;
+}) {
+  ph("geo_page_viewed", {
+    geo_type: data.type,
+    location: data.location,
+    country: data.country || "uk",
+  });
+}
+
+export function trackEncyclopediaRead(slug: string, peptideName: string) {
+  ph("encyclopedia_read", {
+    slug,
+    peptide_name: peptideName,
+    $set: { last_encyclopedia_read: slug },
+  });
+}
+
+export function trackComparisonViewed(items: string[]) {
+  ph("comparison_viewed", {
+    items,
+    item_count: items.length,
+  });
+}
+
+export function trackFAQExpanded(question: string, pageName: string) {
+  ph("faq_expanded", { question, page_name: pageName });
+}
+
+export function trackFormSubmitted(formName: string, properties?: Record<string, unknown>) {
+  const props = { form_name: formName, ...properties };
+  track("form_submitted", props);
+  ph("form_submitted", props);
+}
+
+export function trackToolUsed(toolName: string, properties?: Record<string, unknown>) {
+  const props = { tool_name: toolName, ...properties };
+  track("tool_used", props);
+  ph("tool_used", props);
+}
+
+export function trackInternalLinkClick(linkName: string, destination: string, section: string) {
+  ph("internal_link_click", {
+    link_name: linkName,
+    destination,
+    section,
+  });
+}
+
+export function trackErrorOccurred(errorType: string, message: string, pageName?: string) {
+  ph("error_occurred", {
+    error_type: errorType,
+    error_message: message,
+    page_name: pageName || (typeof window !== "undefined" ? window.location.pathname : ""),
+  });
 }

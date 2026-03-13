@@ -12,6 +12,7 @@ import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
 import { sdk } from "@/lib/medusa";
 import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered } from "@/lib/analytics";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 type CheckoutStep = "information" | "shipping" | "payment";
 
@@ -97,6 +98,7 @@ export default function CheckoutPage() {
   } = useCart();
 
   const { t, formatPrice, locale } = useLocale();
+  usePageTracking("checkout");
   // Steps
   const [activeStep, setActiveStep] = useState<CheckoutStep>("information");
   const [completedSteps, setCompletedSteps] = useState<Set<CheckoutStep>>(new Set());

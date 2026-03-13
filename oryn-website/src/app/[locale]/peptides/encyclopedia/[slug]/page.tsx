@@ -17,6 +17,7 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -126,6 +127,7 @@ export default async function EncyclopediaEntryPage({
   return (
     <>
       <MultiJsonLd items={schemaItems} />
+      <PageTracker pageName="encyclopedia_entry" properties={{ slug, peptide_name: entry.name }} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

@@ -3,12 +3,16 @@
 import { useState } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { trackFormSubmitted } from "@/lib/analytics";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 export function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [inquiryType, setInquiryType] = useState("");
   const { t } = useLocale();
   const c = t.contactPage;
+  usePageTracking("contact");
 
   return (
     <div className="pt-[calc(1rem+4px)]">
@@ -114,6 +118,7 @@ export function ContactClient() {
                     setTimeout(() => {
                       setSubmitting(false);
                       setSubmitted(true);
+                      trackFormSubmitted("contact", { inquiry_type: inquiryType || "general" });
                     }, 1000);
                   }}
                   className="space-y-6"
@@ -172,6 +177,8 @@ export function ContactClient() {
                       {c.inquiryType}
                     </label>
                     <select
+                      value={inquiryType}
+                      onChange={(e) => setInquiryType(e.target.value)}
                       className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange transition-all text-oryn-black/60"
                     >
                       {c.inquiryOptions.map((opt) => (

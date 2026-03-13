@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/components/ui/LocaleLink";
 import { products, productImages } from "@/data/products";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -183,6 +184,7 @@ export function WholesaleClient({
   faqs: { question: string; answer: string }[];
   locale: string;
 }) {
+  usePageTracking("wholesale");
   const symbol = locale === "es" ? "\u20ac" : "\u00a3";
 
   return (

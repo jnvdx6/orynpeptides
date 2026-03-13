@@ -4,6 +4,7 @@ import { PEPTIDE_ENTRIES } from "@/data/peptide-encyclopedia";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales } from "@/i18n/config";
+import { PageTracker } from "@/components/analytics/PageTracker";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -72,6 +73,7 @@ export default async function EncyclopediaHubPage({
         ]}
       />
 
+      <PageTracker pageName="encyclopedia_hub" />
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-6 py-4">

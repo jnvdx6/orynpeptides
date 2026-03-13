@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BLOG_ARTICLES } from "@/data/blog-articles";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -110,6 +111,7 @@ export default async function LearnPage({
           },
         ]}
       />
+      <PageTracker pageName="learn_hub" properties={{ article_count: BLOG_ARTICLES.length }} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

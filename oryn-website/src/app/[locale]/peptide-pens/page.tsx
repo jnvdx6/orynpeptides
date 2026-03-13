@@ -6,6 +6,7 @@ import { EUROPEAN_COUNTRIES } from "@/data/european-countries";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { TrustBanner } from "@/components/seo/TrustBanner";
+import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales } from "@/i18n/config";
 
 export async function generateStaticParams() {
@@ -162,6 +163,7 @@ export default async function PeptidePensPage({
   return (
     <>
       <MultiJsonLd items={schemas} />
+      <PageTracker pageName="peptide_pens" />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

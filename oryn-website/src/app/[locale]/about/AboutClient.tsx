@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 export function AboutClient() {
   const { t } = useLocale();
   const a = t.aboutPage;
+  usePageTracking("about");
 
   return (
     <div className="pt-[calc(1rem+4px)]">
