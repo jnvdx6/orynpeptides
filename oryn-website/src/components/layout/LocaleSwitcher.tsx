@@ -4,24 +4,24 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import { useLocale } from "@/i18n/LocaleContext";
-import { locales, markets, currencyGroups, currencyConfigs } from "@/i18n/config";
-import type { Locale, Currency } from "@/i18n/config";
+import { locales, markets, regions, regionKeys } from "@/i18n/config";
+import type { Locale, RegionKey } from "@/i18n/config";
 
 export function LocaleSwitcher() {
-  const { locale, currency, setCurrency } = useLocale();
+  const { locale, region, setRegion, currencySymbol } = useLocale();
   const pathname = usePathname();
   const [openLang, setOpenLang] = useState(false);
-  const [openCurrency, setOpenCurrency] = useState(false);
+  const [openRegion, setOpenRegion] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
-  const currRef = useRef<HTMLDivElement>(null);
+  const regRef = useRef<HTMLDivElement>(null);
 
   const currentMarket = markets[locale];
-  const currentCurrency = currencyConfigs[currency];
+  const currentRegion = regions[region];
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (langRef.current && !langRef.current.contains(e.target as Node)) setOpenLang(false);
-      if (currRef.current && !currRef.current.contains(e.target as Node)) setOpenCurrency(false);
+      if (regRef.current && !regRef.current.contains(e.target as Node)) setOpenRegion(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -37,9 +37,9 @@ export function LocaleSwitcher() {
     setOpenLang(false);
   };
 
-  const handleCurrencySwitch = (newCurrency: Currency) => {
-    setCurrency(newCurrency);
-    setOpenCurrency(false);
+  const handleRegionSwitch = (newRegion: RegionKey) => {
+    setRegion(newRegion);
+    setOpenRegion(false);
   };
 
   const btnClass =
@@ -50,7 +50,7 @@ export function LocaleSwitcher() {
       {/* Language selector */}
       <div className="relative" ref={langRef}>
         <button
-          onClick={() => { setOpenLang(!openLang); setOpenCurrency(false); }}
+          onClick={() => { setOpenLang(!openLang); setOpenRegion(false); }}
           className={btnClass}
           aria-label="Switch language"
         >
@@ -87,49 +87,43 @@ export function LocaleSwitcher() {
         )}
       </div>
 
-      {/* Currency selector — grouped */}
-      <div className="relative" ref={currRef}>
+      {/* Region / Currency selector */}
+      <div className="relative" ref={regRef}>
         <button
-          onClick={() => { setOpenCurrency(!openCurrency); setOpenLang(false); }}
+          onClick={() => { setOpenRegion(!openRegion); setOpenLang(false); }}
           className={btnClass}
-          aria-label="Switch currency"
+          aria-label="Switch region"
         >
-          <span className="text-oryn-orange">{currentCurrency.symbol}</span>
-          <span>{currentCurrency.label}</span>
+          <span>{currentRegion.flag}</span>
+          <span className="text-oryn-orange">{currencySymbol}</span>
+          <span className="hidden sm:inline">{currentRegion.currencyCode.toUpperCase()}</span>
           <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-            className={`transition-transform ${openCurrency ? "rotate-180" : ""}`}>
+            className={`transition-transform ${openRegion ? "rotate-180" : ""}`}>
             <path d="M6 9l6 6 6-6" />
           </svg>
         </button>
 
-        {openCurrency && (
-          <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[140px] max-h-[400px] overflow-y-auto">
-            {currencyGroups.map((group) => (
-              <div key={group.label}>
-                <div className="px-4 py-1.5 text-[8px] font-mono text-oryn-black/30 tracking-[0.15em] bg-oryn-grey/10 border-b border-oryn-grey/20">
-                  {group.label.toUpperCase()}
-                </div>
-                {group.currencies.map((cur) => {
-                  const config = currencyConfigs[cur];
-                  const isActive = cur === currency;
-                  return (
-                    <button
-                      key={cur}
-                      onClick={() => handleCurrencySwitch(cur)}
-                      className={`w-full flex items-center gap-2 px-4 py-2 text-[10px] font-mono tracking-[0.1em] transition-colors text-left ${
-                        isActive
-                          ? "bg-oryn-orange/5 text-oryn-orange"
-                          : "text-oryn-black/50 hover:bg-oryn-orange/5 hover:text-oryn-orange"
-                      }`}
-                    >
-                      <span className="text-sm">{config.flag}</span>
-                      <span className="text-oryn-orange/70">{config.symbol}</span>
-                      <span>{config.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
+        {openRegion && (
+          <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[180px]">
+            {regionKeys.map((key) => {
+              const reg = regions[key];
+              const isActive = key === region;
+              return (
+                <button
+                  key={key}
+                  onClick={() => handleRegionSwitch(key)}
+                  className={`w-full flex items-center gap-2 px-4 py-2.5 text-[10px] font-mono tracking-[0.1em] transition-colors text-left ${
+                    isActive
+                      ? "bg-oryn-orange/5 text-oryn-orange"
+                      : "text-oryn-black/50 hover:bg-oryn-orange/5 hover:text-oryn-orange"
+                  }`}
+                >
+                  <span className="text-sm">{reg.flag}</span>
+                  <span>{reg.name}</span>
+                  <span className="ml-auto text-oryn-orange/60">{reg.symbol} {reg.currencyCode.toUpperCase()}</span>
+                </button>
+              );
+            })}
           </div>
         )}
       </div>

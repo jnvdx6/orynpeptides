@@ -8,41 +8,32 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import type { Locale, Currency } from "./config";
-import { markets, currencyConfigs, isValidCurrency } from "./config";
+import type { Locale, RegionKey } from "./config";
+import { markets, regions, defaultRegion, isValidRegion } from "./config";
 import type { Dictionary } from "./types";
 
 interface LocaleContextType {
   locale: Locale;
-  currency: Currency;
-  setCurrency: (currency: Currency) => void;
+  region: RegionKey;
+  regionId: string;
+  currencyCode: string;
+  currencySymbol: string;
+  setRegion: (region: RegionKey) => void;
   t: Dictionary;
-  /** Format price in selected currency. Input is always EUR (base). */
-  formatPrice: (priceInEur: number) => string;
-  /** Format price with USD equivalent for LATAM currencies. */
-  formatPriceFull: (priceInEur: number) => { main: string; equivalent: string | null };
+  /** Format a price amount (already in the correct currency from Medusa). */
+  formatPrice: (amount: number) => string;
   localePath: (path: string) => string;
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 
-function getCurrencyFromCookie(): Currency | null {
+function getRegionFromCookie(): RegionKey | null {
   if (typeof document === "undefined") return null;
-  const match = document.cookie.match(/ORYN_CURRENCY=([^;]+)/);
-  if (match && isValidCurrency(match[1])) {
-    return match[1] as Currency;
+  const match = document.cookie.match(/ORYN_REGION=([^;]+)/);
+  if (match && isValidRegion(match[1])) {
+    return match[1] as RegionKey;
   }
   return null;
-}
-
-function formatNumber(n: number, sep: string): string {
-  if (n >= 1000) {
-    // Add thousands separator
-    const parts = Math.round(n).toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sep === "," ? "." : ",");
-    return parts.join(sep);
-  }
-  return Math.round(n).toString();
 }
 
 export function LocaleProvider({
@@ -56,42 +47,34 @@ export function LocaleProvider({
 }) {
   const market = markets[locale];
 
-  const [currency, setCurrencyState] = useState<Currency>(() => {
-    const cookieCurrency = getCurrencyFromCookie();
-    return cookieCurrency || market.currency;
+  const [region, setRegionState] = useState<RegionKey>(() => {
+    const cookieRegion = getRegionFromCookie();
+    return cookieRegion || market.defaultRegion;
   });
 
   useEffect(() => {
-    const cookieCurrency = getCurrencyFromCookie();
-    if (cookieCurrency && cookieCurrency !== currency) {
-      setCurrencyState(cookieCurrency);
+    const cookieRegion = getRegionFromCookie();
+    if (cookieRegion && cookieRegion !== region) {
+      setRegionState(cookieRegion);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setCurrency = useCallback((newCurrency: Currency) => {
-    setCurrencyState(newCurrency);
-    document.cookie = `ORYN_CURRENCY=${newCurrency};path=/;max-age=${60 * 60 * 24 * 365}`;
+  const setRegion = useCallback((newRegion: RegionKey) => {
+    setRegionState(newRegion);
+    document.cookie = `ORYN_REGION=${newRegion};path=/;max-age=${60 * 60 * 24 * 365}`;
   }, []);
 
-  const config = currencyConfigs[currency];
-  const usdConfig = currencyConfigs.USD;
+  const regionConfig = regions[region];
 
-  const formatPrice = useCallback((priceInEur: number): string => {
-    const converted = priceInEur * config.rate;
-    return `${config.symbol}${formatNumber(converted, config.decimalSep)}`;
-  }, [config]);
-
-  const formatPriceFull = useCallback((priceInEur: number): { main: string; equivalent: string | null } => {
-    const converted = priceInEur * config.rate;
-    const main = `${config.symbol}${formatNumber(converted, config.decimalSep)}`;
-
-    if (config.showUsdEquivalent) {
-      const usdConverted = priceInEur * usdConfig.rate;
-      return { main, equivalent: `~$${formatNumber(usdConverted, ".")} USD` };
+  // Prices from Medusa are already in the region's currency — just format.
+  const formatPrice = useCallback((amount: number): string => {
+    if (amount >= 1000) {
+      const formatted = Math.round(amount).toLocaleString("en-US");
+      return `${regionConfig.symbol}${formatted}`;
     }
-    return { main, equivalent: null };
-  }, [config, usdConfig]);
+    return `${regionConfig.symbol}${Math.round(amount)}`;
+  }, [regionConfig]);
 
   const localePath = useCallback((path: string): string => {
     if (path.startsWith("/")) {
@@ -102,7 +85,17 @@ export function LocaleProvider({
 
   return (
     <LocaleContext.Provider
-      value={{ locale, currency, setCurrency, t: dictionary, formatPrice, formatPriceFull, localePath }}
+      value={{
+        locale,
+        region,
+        regionId: regionConfig.id,
+        currencyCode: regionConfig.currencyCode,
+        currencySymbol: regionConfig.symbol,
+        setRegion,
+        t: dictionary,
+        formatPrice,
+        localePath,
+      }}
     >
       {children}
     </LocaleContext.Provider>
