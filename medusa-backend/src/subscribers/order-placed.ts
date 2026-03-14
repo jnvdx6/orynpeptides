@@ -1,5 +1,4 @@
 import { SubscriberArgs, type SubscriberConfig } from "@medusajs/framework"
-import { REFERRAL_MODULE } from "../modules/referral"
 
 export default async function orderPlacedHandler({
   event: { data },
@@ -76,7 +75,7 @@ export default async function orderPlacedHandler({
     // Generate referral commissions
     if (order.customer_id) {
       try {
-        const referralService = container.resolve(REFERRAL_MODULE)
+        const referralService = container.resolve("referralModuleService") as any
         await referralService.generateCommissions(
           order.id,
           order.customer_id,

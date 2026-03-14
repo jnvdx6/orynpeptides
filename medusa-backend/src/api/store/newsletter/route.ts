@@ -1,7 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { z } from "@medusajs/framework/zod"
 import { PostStoreNewsletterSchema } from "./validators"
-import { NEWSLETTER_MODULE } from "../../../modules/newsletter"
 
 type PostBody = z.infer<typeof PostStoreNewsletterSchema>
 
@@ -9,7 +8,7 @@ export async function POST(
   req: MedusaRequest<PostBody>,
   res: MedusaResponse
 ) {
-  const newsletterService = req.scope.resolve(NEWSLETTER_MODULE)
+  const newsletterService = req.scope.resolve("newsletterModuleService") as any
 
   const existing = await newsletterService.listNewsletterSubscribers({
     email: req.validatedBody.email,
@@ -34,5 +33,5 @@ export async function POST(
     status: "active",
   })
 
-  res.status(201).json({ subscriber })
+  return res.status(201).json({ subscriber })
 }

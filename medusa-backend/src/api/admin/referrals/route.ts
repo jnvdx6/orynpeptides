@@ -1,8 +1,7 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { REFERRAL_MODULE } from "../../../modules/referral"
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
-  const referralService = req.scope.resolve(REFERRAL_MODULE)
+  const referralService = req.scope.resolve("referralModuleService") as any
   const { limit = "50", offset = "0" } = req.query as Record<string, string>
 
   const links = await referralService.listReferralLinks(
@@ -12,7 +11,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   const [, count] = await referralService.listAndCountReferralLinks({})
 
-  res.json({
+  return res.json({
     referral_links: links,
     count,
     limit: parseInt(limit),

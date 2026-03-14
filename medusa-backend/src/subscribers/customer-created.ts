@@ -1,5 +1,4 @@
 import { SubscriberArgs, type SubscriberConfig } from "@medusajs/framework"
-import { REFERRAL_MODULE } from "../modules/referral"
 
 export default async function customerCreatedHandler({
   event: { data },
@@ -18,7 +17,7 @@ export default async function customerCreatedHandler({
     const customer = customers?.[0]
     if (!customer) return
 
-    const referralService = container.resolve(REFERRAL_MODULE)
+    const referralService = container.resolve("referralModuleService") as any
 
     // Generate a referral code for this new customer
     const referralCode = await referralService.generateReferralCode()

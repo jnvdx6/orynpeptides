@@ -1,8 +1,7 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { REFERRAL_MODULE } from "../../../modules/referral"
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
-  const referralService = req.scope.resolve(REFERRAL_MODULE)
+  const referralService = req.scope.resolve("referralModuleService") as any
   const { status, limit = "50", offset = "0" } = req.query as Record<string, string>
 
   const filters: Record<string, any> = {}
@@ -23,7 +22,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     .filter((c: any) => c.status === "paid")
     .reduce((sum: number, c: any) => sum + c.commission_amount, 0)
 
-  res.json({
+  return res.json({
     commissions,
     count,
     limit: parseInt(limit),

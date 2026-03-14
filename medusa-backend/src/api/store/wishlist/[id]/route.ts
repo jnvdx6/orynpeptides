@@ -1,11 +1,10 @@
 import type { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { WISHLIST_MODULE } from "../../../../modules/wishlist"
 
 export async function DELETE(
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) {
-  const wishlistService = req.scope.resolve(WISHLIST_MODULE)
+  const wishlistService = req.scope.resolve("wishlistModuleService") as any
   const customerId = req.auth_context?.actor_id
 
   if (!customerId) {
@@ -14,5 +13,5 @@ export async function DELETE(
 
   await wishlistService.deleteWishlistItems(req.params.id)
 
-  res.status(200).json({ id: req.params.id, deleted: true })
+  return res.status(200).json({ id: req.params.id, deleted: true })
 }

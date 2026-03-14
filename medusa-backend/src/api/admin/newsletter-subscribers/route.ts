@@ -1,8 +1,7 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { NEWSLETTER_MODULE } from "../../../modules/newsletter"
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
-  const newsletterService = req.scope.resolve(NEWSLETTER_MODULE)
+  const newsletterService = req.scope.resolve("newsletterModuleService") as any
   const { status, source, limit = "50", offset = "0" } = req.query as Record<string, string>
 
   const filters: Record<string, any> = {}
@@ -16,7 +15,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   const [, count] = await newsletterService.listAndCountNewsletterSubscribers(filters)
 
-  res.json({
+  return res.json({
     newsletter_subscribers: subscribers,
     count,
     limit: parseInt(limit),

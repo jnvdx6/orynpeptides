@@ -1,11 +1,10 @@
 import type { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http"
-import { REFERRAL_MODULE } from "../../../modules/referral"
 
 export async function GET(
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse
 ) {
-  const referralService = req.scope.resolve(REFERRAL_MODULE)
+  const referralService = req.scope.resolve("referralModuleService") as any
   const customerId = req.auth_context?.actor_id
 
   if (!customerId) {
@@ -37,7 +36,7 @@ export async function GET(
     .filter((c: any) => c.status === "pending" || c.status === "approved")
     .reduce((sum: number, c: any) => sum + c.commission_amount, 0)
 
-  res.json({
+  return res.json({
     referral_code: ownLinks[0]?.referral_code || null,
     direct_referrals_count: directReferrals.length,
     total_earnings: totalEarnings,

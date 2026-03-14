@@ -1,12 +1,11 @@
 import { SubscriberArgs, type SubscriberConfig } from "@medusajs/framework"
-import { CONTACT_MODULE } from "../modules/contact"
 
 export default async function contactSubmittedHandler({
   event: { data },
   container,
 }: SubscriberArgs<{ id: string }>) {
   const logger = container.resolve("logger")
-  const contactService = container.resolve(CONTACT_MODULE)
+  const contactService = container.resolve("contactModuleService") as any
 
   try {
     const submission = await contactService.retrieveContactSubmission(data.id)

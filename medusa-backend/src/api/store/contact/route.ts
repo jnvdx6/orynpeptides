@@ -1,7 +1,6 @@
 import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { z } from "@medusajs/framework/zod"
 import { PostStoreContactSchema } from "./validators"
-import { CONTACT_MODULE } from "../../../modules/contact"
 
 type PostBody = z.infer<typeof PostStoreContactSchema>
 
@@ -9,7 +8,7 @@ export async function POST(
   req: MedusaRequest<PostBody>,
   res: MedusaResponse
 ) {
-  const contactService = req.scope.resolve(CONTACT_MODULE)
+  const contactService = req.scope.resolve("contactModuleService") as any
   const eventBus = req.scope.resolve("event_bus")
 
   const submission = await contactService.createContactSubmissions({
@@ -27,5 +26,5 @@ export async function POST(
     data: { id: submission.id },
   })
 
-  res.status(201).json({ submission })
+  return res.status(201).json({ submission })
 }
