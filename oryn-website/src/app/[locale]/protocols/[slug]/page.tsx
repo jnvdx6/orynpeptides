@@ -80,7 +80,7 @@ export default async function ProtocolPage({
     .filter((p): p is NonNullable<typeof p> => !!p);
 
   const catColor = CATEGORY_COLORS[protocol.category] || "bg-gray-100 text-gray-700";
-  const currency = locale === "es" ? "€" : "£";
+  const currency = "€";
 
   return (
     <>

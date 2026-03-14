@@ -185,18 +185,18 @@ export function CartSlider() {
                       {item.product.dosage} &middot; {item.product.volume}
                     </p>
                     <div className="flex items-center justify-between mt-2">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1">
                         <button
                           onClick={() => {
                             trackQuantityChanged({ name: item.product.name, slug: item.product.slug, price: item.product.price, oldQuantity: item.quantity, newQuantity: item.quantity - 1 });
                             updateQuantity(item.product.id, item.quantity - 1);
                           }}
-                          className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors"
+                          className="w-9 h-9 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95"
                           aria-label={t.productDetail.decreaseQuantity}
                         >
                           -
                         </button>
-                        <span className="text-sm font-mono w-6 text-center">
+                        <span className="text-sm font-mono w-7 text-center">
                           {item.quantity}
                         </span>
                         <button
@@ -205,7 +205,7 @@ export function CartSlider() {
                             updateQuantity(item.product.id, item.quantity + 1);
                           }}
                           disabled={item.quantity >= 10}
-                          className="w-7 h-7 bg-oryn-grey/40 flex items-center justify-center text-xs hover:bg-oryn-orange hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
+                          className="w-9 h-9 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95 disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
                           aria-label={t.productDetail.increaseQuantity}
                         >
                           +
@@ -217,10 +217,10 @@ export function CartSlider() {
                         </span>
                         <button
                           onClick={() => { trackRemoveFromCart({ name: item.product.name, slug: item.product.slug, price: item.product.price }); removeItem(item.product.id); }}
-                          className="text-oryn-black/20 hover:text-red-500 transition-colors p-2 -m-1.5"
+                          className="text-oryn-black/20 hover:text-red-500 transition-colors p-2.5 -m-1"
                           aria-label={t.productDetail.removeItem}
                         >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M18 6L6 18M6 6l12 12" />
                           </svg>
                         </button>

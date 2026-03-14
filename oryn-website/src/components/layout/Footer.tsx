@@ -7,6 +7,34 @@ import { Link } from "@/components/ui/LocaleLink";
 import { trackNewsletterSignup } from "@/lib/analytics";
 
 
+function CollapsibleSection({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between w-full md:pointer-events-none"
+      >
+        <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange">{title}</h4>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#FF6A1A"
+          strokeWidth="2"
+          className={`md:hidden transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 md:max-h-none md:opacity-100 md:mt-4 ${open ? "max-h-[2000px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"}`}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
   const { t } = useLocale();
   const f = t.footer;
@@ -302,21 +330,20 @@ export function Footer() {
           {/* Links columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="lg:col-span-2">
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-6">
-                {title.toUpperCase()}
-              </h4>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-xs text-oryn-white/30 hover:text-oryn-orange transition-colors font-plex"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <CollapsibleSection title={title.toUpperCase()} defaultOpen>
+                <ul className="space-y-3">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-xs text-oryn-white/30 hover:text-oryn-orange transition-colors font-plex"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleSection>
             </div>
           ))}
 
@@ -326,13 +353,9 @@ export function Footer() {
 
       {/* SEO: Research Areas */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Research Areas */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                {f.seoSections.researchAreas.toUpperCase()}
-              </h4>
+        <div className="max-w-7xl mx-auto px-6 py-6 md:py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <CollapsibleSection title={f.seoSections.researchAreas.toUpperCase()}>
               <ul className="space-y-2">
                 {categoryLinks.map((link) => (
                   <li key={link.href}>
@@ -342,13 +365,9 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </CollapsibleSection>
 
-            {/* Learn */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                {f.seoSections.learn.toUpperCase()}
-              </h4>
+            <CollapsibleSection title={f.seoSections.learn.toUpperCase()}>
               <ul className="space-y-2">
                 {learnLinks.map((link) => (
                   <li key={link.href}>
@@ -358,15 +377,9 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </CollapsibleSection>
 
-            {/* UK Delivery */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                <Link href="/peptides" className="hover:text-white transition-colors">
-                  {f.seoSections.ukDelivery.toUpperCase()}
-                </Link>
-              </h4>
+            <CollapsibleSection title={f.seoSections.ukDelivery.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {cityLinks.map((link) => (
                   <Link
@@ -378,18 +391,16 @@ export function Footer() {
                   </Link>
                 ))}
               </div>
-            </div>
+            </CollapsibleSection>
           </div>
         </div>
       </div>
 
       {/* Regional Hubs & Encyclopedia */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Regional Hubs */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.ukRegions.toUpperCase()}</h4>
+        <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <CollapsibleSection title={f.seoSections.ukRegions.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {[
                   { href: "/peptides/region/scotland", label: "Scotland" },
@@ -404,10 +415,9 @@ export function Footer() {
                   </Link>
                 ))}
               </div>
-            </div>
-            {/* Counties */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">UK COUNTIES</h4>
+            </CollapsibleSection>
+
+            <CollapsibleSection title="UK COUNTIES">
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {[
                   "kent", "surrey", "hampshire", "essex", "devon", "cornwall",
@@ -424,12 +434,9 @@ export function Footer() {
                   );
                 })}
               </div>
-            </div>
-            {/* Encyclopedia */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-                <Link href="/peptides/encyclopedia" className="hover:text-white transition-colors">{f.seoSections.peptideEncyclopedia.toUpperCase()}</Link>
-              </h4>
+            </CollapsibleSection>
+
+            <CollapsibleSection title={f.seoSections.peptideEncyclopedia.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {[
                   { href: "/peptides/encyclopedia/bpc-157", label: "BPC-157" },
@@ -446,10 +453,9 @@ export function Footer() {
                   </Link>
                 ))}
               </div>
-            </div>
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.resources.toUpperCase()}</h4>
+            </CollapsibleSection>
+
+            <CollapsibleSection title={f.seoSections.resources.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {[
                   { href: "/faq", label: "FAQ" },
@@ -482,125 +488,119 @@ export function Footer() {
                   </Link>
                 ))}
               </div>
-            </div>
+            </CollapsibleSection>
           </div>
         </div>
       </div>
 
       {/* European Delivery */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-            <Link href="/peptides/europe" className="hover:text-white transition-colors">
-              EUROPEAN DELIVERY
-            </Link>
-          </h4>
-          <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
-            {[
-              { href: "/peptides/europe/germany", label: "Germany" },
-              { href: "/peptides/europe/france", label: "France" },
-              { href: "/peptides/europe/spain", label: "Spain" },
-              { href: "/peptides/europe/italy", label: "Italy" },
-              { href: "/peptides/europe/netherlands", label: "Netherlands" },
-              { href: "/peptides/europe/belgium", label: "Belgium" },
-              { href: "/peptides/europe/austria", label: "Austria" },
-              { href: "/peptides/europe/portugal", label: "Portugal" },
-              { href: "/peptides/europe/sweden", label: "Sweden" },
-              { href: "/peptides/europe/denmark", label: "Denmark" },
-              { href: "/peptides/europe/poland", label: "Poland" },
-              { href: "/peptides/europe/switzerland", label: "Switzerland" },
-              { href: "/peptides/europe/ireland", label: "Ireland" },
-              { href: "/peptides/europe/greece", label: "Greece" },
-              { href: "/peptides/europe/czech-republic", label: "Czech Republic" },
-              { href: "/peptides/europe/finland", label: "Finland" },
-              { href: "/peptides/europe/norway", label: "Norway" },
-              { href: "/peptides/europe/hungary", label: "Hungary" },
-              { href: "/peptides/europe/romania", label: "Romania" },
-              { href: "/peptides/europe/croatia", label: "Croatia" },
-              { href: "/peptides/europe/bulgaria", label: "Bulgaria" },
-              { href: "/peptides/europe/slovakia", label: "Slovakia" },
-              { href: "/peptides/europe/lithuania", label: "Lithuania" },
-              { href: "/peptides/europe/latvia", label: "Latvia" },
-              { href: "/peptides/europe/estonia", label: "Estonia" },
-              { href: "/peptides/europe/slovenia", label: "Slovenia" },
-              { href: "/peptides/europe/luxembourg", label: "Luxembourg" },
-              { href: "/peptides/europe/cyprus", label: "Cyprus" },
-              { href: "/peptides/europe/malta", label: "Malta" },
-              { href: "/peptides/europe/iceland", label: "Iceland" },
-            ].map((link) => (
-              <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">TOP EU CITIES</h4>
-          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-            {[
-              { href: "/peptides/europe/germany/berlin", label: "Berlin" },
-              { href: "/peptides/europe/germany/munich", label: "Munich" },
-              { href: "/peptides/europe/france/paris", label: "Paris" },
-              { href: "/peptides/europe/france/lyon", label: "Lyon" },
-              { href: "/peptides/europe/spain/madrid", label: "Madrid" },
-              { href: "/peptides/europe/spain/barcelona", label: "Barcelona" },
-              { href: "/peptides/europe/italy/rome", label: "Rome" },
-              { href: "/peptides/europe/italy/milan", label: "Milan" },
-              { href: "/peptides/europe/netherlands/amsterdam", label: "Amsterdam" },
-              { href: "/peptides/europe/netherlands/rotterdam", label: "Rotterdam" },
-              { href: "/peptides/europe/belgium/brussels", label: "Brussels" },
-              { href: "/peptides/europe/austria/vienna", label: "Vienna" },
-              { href: "/peptides/europe/portugal/lisbon", label: "Lisbon" },
-              { href: "/peptides/europe/sweden/stockholm", label: "Stockholm" },
-              { href: "/peptides/europe/denmark/copenhagen", label: "Copenhagen" },
-              { href: "/peptides/europe/poland/warsaw", label: "Warsaw" },
-              { href: "/peptides/europe/switzerland/zurich", label: "Zurich" },
-              { href: "/peptides/europe/ireland/dublin", label: "Dublin" },
-              { href: "/peptides/europe/czech-republic/prague", label: "Prague" },
-              { href: "/peptides/europe/finland/helsinki", label: "Helsinki" },
-              { href: "/peptides/europe/norway/oslo", label: "Oslo" },
-              { href: "/peptides/europe/hungary/budapest", label: "Budapest" },
-              { href: "/peptides/europe/greece/athens", label: "Athens" },
-              { href: "/peptides/europe/romania/bucharest", label: "Bucharest" },
-            ].map((link) => (
-              <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
+          <CollapsibleSection title="EUROPEAN DELIVERY">
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
+              {[
+                { href: "/peptides/europe/germany", label: "Germany" },
+                { href: "/peptides/europe/france", label: "France" },
+                { href: "/peptides/europe/spain", label: "Spain" },
+                { href: "/peptides/europe/italy", label: "Italy" },
+                { href: "/peptides/europe/netherlands", label: "Netherlands" },
+                { href: "/peptides/europe/belgium", label: "Belgium" },
+                { href: "/peptides/europe/austria", label: "Austria" },
+                { href: "/peptides/europe/portugal", label: "Portugal" },
+                { href: "/peptides/europe/sweden", label: "Sweden" },
+                { href: "/peptides/europe/denmark", label: "Denmark" },
+                { href: "/peptides/europe/poland", label: "Poland" },
+                { href: "/peptides/europe/switzerland", label: "Switzerland" },
+                { href: "/peptides/europe/ireland", label: "Ireland" },
+                { href: "/peptides/europe/greece", label: "Greece" },
+                { href: "/peptides/europe/czech-republic", label: "Czech Republic" },
+                { href: "/peptides/europe/finland", label: "Finland" },
+                { href: "/peptides/europe/norway", label: "Norway" },
+                { href: "/peptides/europe/hungary", label: "Hungary" },
+                { href: "/peptides/europe/romania", label: "Romania" },
+                { href: "/peptides/europe/croatia", label: "Croatia" },
+                { href: "/peptides/europe/bulgaria", label: "Bulgaria" },
+                { href: "/peptides/europe/slovakia", label: "Slovakia" },
+                { href: "/peptides/europe/lithuania", label: "Lithuania" },
+                { href: "/peptides/europe/latvia", label: "Latvia" },
+                { href: "/peptides/europe/estonia", label: "Estonia" },
+                { href: "/peptides/europe/slovenia", label: "Slovenia" },
+                { href: "/peptides/europe/luxembourg", label: "Luxembourg" },
+                { href: "/peptides/europe/cyprus", label: "Cyprus" },
+                { href: "/peptides/europe/malta", label: "Malta" },
+                { href: "/peptides/europe/iceland", label: "Iceland" },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">TOP EU CITIES</h4>
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+              {[
+                { href: "/peptides/europe/germany/berlin", label: "Berlin" },
+                { href: "/peptides/europe/germany/munich", label: "Munich" },
+                { href: "/peptides/europe/france/paris", label: "Paris" },
+                { href: "/peptides/europe/france/lyon", label: "Lyon" },
+                { href: "/peptides/europe/spain/madrid", label: "Madrid" },
+                { href: "/peptides/europe/spain/barcelona", label: "Barcelona" },
+                { href: "/peptides/europe/italy/rome", label: "Rome" },
+                { href: "/peptides/europe/italy/milan", label: "Milan" },
+                { href: "/peptides/europe/netherlands/amsterdam", label: "Amsterdam" },
+                { href: "/peptides/europe/netherlands/rotterdam", label: "Rotterdam" },
+                { href: "/peptides/europe/belgium/brussels", label: "Brussels" },
+                { href: "/peptides/europe/austria/vienna", label: "Vienna" },
+                { href: "/peptides/europe/portugal/lisbon", label: "Lisbon" },
+                { href: "/peptides/europe/sweden/stockholm", label: "Stockholm" },
+                { href: "/peptides/europe/denmark/copenhagen", label: "Copenhagen" },
+                { href: "/peptides/europe/poland/warsaw", label: "Warsaw" },
+                { href: "/peptides/europe/switzerland/zurich", label: "Zurich" },
+                { href: "/peptides/europe/ireland/dublin", label: "Dublin" },
+                { href: "/peptides/europe/czech-republic/prague", label: "Prague" },
+                { href: "/peptides/europe/finland/helsinki", label: "Helsinki" },
+                { href: "/peptides/europe/norway/oslo", label: "Oslo" },
+                { href: "/peptides/europe/hungary/budapest", label: "Budapest" },
+                { href: "/peptides/europe/greece/athens", label: "Athens" },
+                { href: "/peptides/europe/romania/bucharest", label: "Bucharest" },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </CollapsibleSection>
         </div>
       </div>
 
       {/* London Areas */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">
-            <Link href="/peptides/london" className="hover:text-white transition-colors">
-              {f.seoSections.londonDelivery.toUpperCase()}
-            </Link>
-          </h4>
-          <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-            {[
-              "westminster", "city-of-london", "mayfair", "marylebone", "fitzrovia", "bloomsbury", "south-kensington",
-              "covent-garden", "holborn", "soho",
-              "camden", "islington", "hackney", "hampstead", "shoreditch", "finsbury-park", "muswell-hill", "highgate", "wood-green",
-              "canary-wharf", "stratford", "whitechapel", "bow", "docklands", "walthamstow", "barking",
-              "brixton", "clapham", "greenwich", "southwark", "croydon", "wimbledon",
-              "streatham", "tooting", "lewisham", "dulwich", "woolwich", "crystal-palace",
-              "kensington", "chelsea", "notting-hill", "fulham", "hammersmith", "ealing", "richmond", "kingston",
-              "chiswick", "acton", "shepherds-bush", "brentford", "twickenham",
-            ].map((slug) => {
-              const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
-                .replace("Of", "of");
-              return (
-                <Link
-                  key={slug}
-                  href={`/peptides/london/${slug}`}
-                  className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
+        <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
+          <CollapsibleSection title={f.seoSections.londonDelivery.toUpperCase()}>
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+              {[
+                "westminster", "city-of-london", "mayfair", "marylebone", "fitzrovia", "bloomsbury", "south-kensington",
+                "covent-garden", "holborn", "soho",
+                "camden", "islington", "hackney", "hampstead", "shoreditch", "finsbury-park", "muswell-hill", "highgate", "wood-green",
+                "canary-wharf", "stratford", "whitechapel", "bow", "docklands", "walthamstow", "barking",
+                "brixton", "clapham", "greenwich", "southwark", "croydon", "wimbledon",
+                "streatham", "tooting", "lewisham", "dulwich", "woolwich", "crystal-palace",
+                "kensington", "chelsea", "notting-hill", "fulham", "hammersmith", "ealing", "richmond", "kingston",
+                "chiswick", "acton", "shepherds-bush", "brentford", "twickenham",
+              ].map((slug) => {
+                const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+                  .replace("Of", "of");
+                return (
+                  <Link
+                    key={slug}
+                    href={`/peptides/london/${slug}`}
+                    className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex"
+                  >
+                    {name}
+                  </Link>
+                );
+              })}
+            </div>
+          </CollapsibleSection>
         </div>
       </div>
 

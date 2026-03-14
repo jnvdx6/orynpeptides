@@ -39,7 +39,7 @@ export default async function BundlesIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const currency = locale === "es" ? "€" : "£";
+  const currency = "€";
 
   return (
     <>

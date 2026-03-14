@@ -25,8 +25,8 @@ export async function generateMetadata({
     ? "Comprar Plumas de Péptidos en Europa | Envío Rápido EU | ORYN"
     : "Buy Peptide Pens Online — UK & Europe Delivery | ORYN Peptide Labs";
   const description = isEs
-    ? "Plumas de péptidos premezcladas con pureza >99%. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu. Fabricación GMP, envío rápido a toda Europa. Desde £169."
-    : "Pre-mixed peptide pens with >99% purity. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu & more. GMP manufactured, next-day UK & fast EU delivery. From £169.";
+    ? "Plumas de péptidos premezcladas con pureza >99%. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu. Fabricación GMP, envío rápido a toda Europa. Desde €99."
+    : "Pre-mixed peptide pens with >99% purity. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu & more. GMP manufactured, next-day UK & fast EU delivery. From €99.";
 
   return {
     title,
@@ -86,7 +86,7 @@ export default async function PeptidePensPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const currency = locale === "es" ? "\u20AC" : "\u00A3";
+  const currency = "€";
 
   const peptidePens = products.filter((p) => p.category === "peptide-pen");
   const meditPens = products.filter((p) => p.category === "medit-pen");
@@ -403,7 +403,7 @@ export default async function PeptidePensPage({
               },
               {
                 q: "How much do peptide pens cost?",
-                a: "ORYN peptide pens range from £169 (Glutathione) to £399 (NovaDose NAD+). Standard peptide pens start at £169-£229. Each pen contains a full 30-day supply, making the per-dose cost very competitive with traditional vials.",
+                a: "ORYN peptide pens range from €99 (Glutathione) to €299 (NovaDose NAD+). Standard peptide pens start at €99-€139. Each pen contains a full 30-day supply, making the per-dose cost very competitive with traditional vials.",
               },
             ].map((faq) => (
               <details

@@ -51,10 +51,10 @@ export async function generateMetadata({
 
   const title = isEs
     ? "Envio y Entrega de Peptidos | Entrega en 2-4 Dias | ORYN Peptides"
-    : "Peptide Shipping & Delivery UK | Next-Day Dispatch, Free Over \u00a3150 | ORYN Peptide Labs";
+    : "Peptide Shipping & Delivery UK | Next-Day Dispatch, Free Over €150 | ORYN Peptide Labs";
   const description = isEs
     ? "Envio con temperatura controlada en 2-4 dias laborables. Envio gratuito en pedidos superiores a 150 euros. Embalaje discreto, seguimiento completo y entrega en toda Europa."
-    : "Temperature-controlled peptide delivery across the UK in 2-4 business days. Same-day dispatch, free shipping over \u00a3150, discreet packaging. Insulated boxes with gel ice packs. European delivery 3-7 days.";
+    : "Temperature-controlled peptide delivery across the UK in 2-4 business days. Same-day dispatch, free shipping over €150, discreet packaging. Insulated boxes with gel ice packs. European delivery 3-7 days.";
 
   return {
     title,
@@ -75,7 +75,7 @@ export async function generateMetadata({
         : "Peptide Shipping & Delivery — ORYN Peptide Labs",
       description: isEs
         ? "Entrega en 2-4 dias. Envio con temperatura controlada. Gratis en pedidos de mas de 150 euros."
-        : "2-4 day UK delivery. Temperature-controlled shipping. Free over \u00a3150. Same-day dispatch before 2pm.",
+        : "2-4 day UK delivery. Temperature-controlled shipping. Free over €150. Same-day dispatch before 2pm.",
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/shipping`,

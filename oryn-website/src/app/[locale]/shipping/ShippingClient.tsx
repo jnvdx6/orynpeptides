@@ -160,7 +160,7 @@ export function ShippingClient({
   locale: string;
 }) {
   usePageTracking("shipping");
-  const symbol = locale === "es" ? "\u20ac" : "\u00a3";
+  const symbol = "€";
   const freeThreshold = locale === "es" ? "150" : "150";
 
   return (

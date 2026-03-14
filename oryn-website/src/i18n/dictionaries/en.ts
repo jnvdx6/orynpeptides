@@ -11,7 +11,7 @@ const en: Dictionary = {
   },
 
   header: {
-    announcementText: "FREE SHIPPING ON ALL ORDERS OVER £150",
+    announcementText: "FREE SHIPPING ON ALL ORDERS OVER €150",
     shopNow: "SHOP NOW",
     myAccount: "My Account",
     signIn: "Sign In",
@@ -151,7 +151,7 @@ const en: Dictionary = {
       },
       {
         title: "Order Securely",
-        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over £150.",
+        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over €150.",
       },
       {
         title: "Receive Discreetly",
@@ -901,7 +901,7 @@ const en: Dictionary = {
 
   localeSwitcher: {
     label: "Market",
-    uk: "UK (\u00a3)",
+    uk: "UK (€)",
     eu: "EU (\u20ac)",
   },
 

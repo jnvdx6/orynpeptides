@@ -185,7 +185,7 @@ export function WholesaleClient({
   locale: string;
 }) {
   usePageTracking("wholesale");
-  const symbol = locale === "es" ? "\u20ac" : "\u00a3";
+  const symbol = "€";
 
   return (
     <div className="pt-[calc(1rem+4px)]">

@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Locale, Currency } from "./config";
-import { markets, currencyConfigs, defaultCurrency, isValidCurrency } from "./config";
+import { markets, currencyConfigs, isValidCurrency } from "./config";
 import type { Dictionary } from "./types";
 
 interface LocaleContextType {
@@ -17,7 +17,10 @@ interface LocaleContextType {
   currency: Currency;
   setCurrency: (currency: Currency) => void;
   t: Dictionary;
-  formatPrice: (price: number) => string;
+  /** Format price in selected currency. Input is always EUR (base). */
+  formatPrice: (priceInEur: number) => string;
+  /** Format price with USD equivalent for LATAM currencies. */
+  formatPriceFull: (priceInEur: number) => { main: string; equivalent: string | null };
   localePath: (path: string) => string;
 }
 
@@ -32,6 +35,16 @@ function getCurrencyFromCookie(): Currency | null {
   return null;
 }
 
+function formatNumber(n: number, sep: string): string {
+  if (n >= 1000) {
+    // Add thousands separator
+    const parts = Math.round(n).toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sep === "," ? "." : ",");
+    return parts.join(sep);
+  }
+  return Math.round(n).toString();
+}
+
 export function LocaleProvider({
   locale,
   dictionary,
@@ -43,13 +56,11 @@ export function LocaleProvider({
 }) {
   const market = markets[locale];
 
-  // Initialize currency: cookie > market default
   const [currency, setCurrencyState] = useState<Currency>(() => {
     const cookieCurrency = getCurrencyFromCookie();
     return cookieCurrency || market.currency;
   });
 
-  // Sync from cookie on mount (SSR → client hydration)
   useEffect(() => {
     const cookieCurrency = getCurrencyFromCookie();
     if (cookieCurrency && cookieCurrency !== currency) {
@@ -63,14 +74,24 @@ export function LocaleProvider({
     document.cookie = `ORYN_CURRENCY=${newCurrency};path=/;max-age=${60 * 60 * 24 * 365}`;
   }, []);
 
-  const currencyConfig = currencyConfigs[currency];
+  const config = currencyConfigs[currency];
+  const usdConfig = currencyConfigs.USD;
 
   const formatPrice = useCallback((priceInEur: number): string => {
-    // All prices in the system are stored in EUR (Medusa base).
-    // Convert to selected currency and display.
-    const converted = Math.round(priceInEur * currencyConfig.rate);
-    return `${currencyConfig.symbol}${converted}`;
-  }, [currencyConfig]);
+    const converted = priceInEur * config.rate;
+    return `${config.symbol}${formatNumber(converted, config.decimalSep)}`;
+  }, [config]);
+
+  const formatPriceFull = useCallback((priceInEur: number): { main: string; equivalent: string | null } => {
+    const converted = priceInEur * config.rate;
+    const main = `${config.symbol}${formatNumber(converted, config.decimalSep)}`;
+
+    if (config.showUsdEquivalent) {
+      const usdConverted = priceInEur * usdConfig.rate;
+      return { main, equivalent: `~$${formatNumber(usdConverted, ".")} USD` };
+    }
+    return { main, equivalent: null };
+  }, [config, usdConfig]);
 
   const localePath = useCallback((path: string): string => {
     if (path.startsWith("/")) {
@@ -81,7 +102,7 @@ export function LocaleProvider({
 
   return (
     <LocaleContext.Provider
-      value={{ locale, currency, setCurrency, t: dictionary, formatPrice, localePath }}
+      value={{ locale, currency, setCurrency, t: dictionary, formatPrice, formatPriceFull, localePath }}
     >
       {children}
     </LocaleContext.Provider>

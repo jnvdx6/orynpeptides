@@ -81,13 +81,13 @@ export function CookieConsent() {
             <div className="flex items-center gap-3">
               <button
                 onClick={accept}
-                className="px-4 py-2 bg-oryn-orange text-white text-[10px] font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
+                className="px-5 py-3 bg-oryn-orange text-white text-[11px] font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors active:scale-[0.98]"
               >
                 {c.acceptAll}
               </button>
               <button
                 onClick={decline}
-                className="px-4 py-2 border border-oryn-grey/30 text-[10px] font-medium text-oryn-black/50 tracking-[0.15em] hover:border-oryn-orange/30 hover:text-oryn-orange transition-colors"
+                className="px-5 py-3 border border-oryn-grey/30 text-[11px] font-medium text-oryn-black/50 tracking-[0.15em] hover:border-oryn-orange/30 hover:text-oryn-orange transition-colors active:scale-[0.98]"
               >
                 {c.essentialOnly}
               </button>

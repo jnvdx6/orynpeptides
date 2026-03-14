@@ -266,7 +266,7 @@ export function localBusinessSchema(city: UKCity) {
       "@type": "Brand",
       name: "ORYN",
     },
-    priceRange: "£169 - £399",
+    priceRange: "€99 - €299",
   };
 }
 
@@ -381,7 +381,7 @@ export function cityMetadata(city: UKCity) {
 
 export function productCityMetadata(product: Product, city: UKCity) {
   const title = `Buy ${product.name} in ${city.name} | ORYN Peptide Pen — UK Delivery`;
-  const description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${city.name}. ${city.deliveryDays}-day delivery, >99% purity, pre-mixed & ready to use. From £${product.price}.`;
+  const description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${city.name}. ${city.deliveryDays}-day delivery, >99% purity, pre-mixed & ready to use. From €${product.price}.`;
   return { title, description };
 }
 

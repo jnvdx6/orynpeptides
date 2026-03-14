@@ -62,7 +62,7 @@ function areaFaqs(area: { name: string; postcode: string; borough: string }) {
     },
     {
       question: `Is there free shipping to ${area.name}?`,
-      answer: `Orders over £150 qualify for free shipping to ${area.name} and all London postcodes. Standard tracked delivery is available on all orders.`,
+      answer: `Orders over €150 qualify for free shipping to ${area.name} and all London postcodes. Standard tracked delivery is available on all orders.`,
     },
     {
       question: `Are peptides legal to buy in ${area.name}?`,
@@ -81,7 +81,7 @@ export default async function LondonAreaPage({
   if (!area) notFound();
 
   const faqs = areaFaqs(area);
-  const currency = locale === "es" ? "€" : "£";
+  const currency = "€";
 
   const zoneLabel =
     area.zone === "central" ? "Central" :
@@ -116,7 +116,7 @@ export default async function LondonAreaPage({
               },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: "£169 - £399",
+            priceRange: "€99 - €299",
           },
           faqSchema(faqs),
           breadcrumbSchema([

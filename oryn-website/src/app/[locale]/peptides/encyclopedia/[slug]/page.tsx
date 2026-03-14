@@ -99,7 +99,7 @@ export default async function EncyclopediaEntryPage({
   );
 
   const otherEntries = PEPTIDE_ENTRIES.filter((e) => e.slug !== entry.slug).slice(0, 4);
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
 
   const articleData = {
     title: `${entry.name} — ${entry.fullName}`,

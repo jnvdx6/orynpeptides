@@ -88,7 +88,7 @@ export default async function BundlePage({
     .filter(Boolean)
     .map((p) => p!);
 
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
   const { original, discounted, savings } = calculateBundlePrice(
     bundle.productSlugs,
     bundle.savingsPercent

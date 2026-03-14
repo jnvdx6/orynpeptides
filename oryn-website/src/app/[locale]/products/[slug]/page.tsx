@@ -34,8 +34,8 @@ export async function generateMetadata({
   const product = getProductBySlug(slug);
   if (!product) return {};
 
-  const currency = locale === "es" ? "EUR" : "GBP";
-  const symbol = locale === "es" ? "€" : "£";
+  const currency = "EUR";
+  const symbol = "€";
   const title = `Buy ORYN ${product.name} ${product.dosage} | Peptide Pen UK — ${symbol}${product.price}`;
   const description = `Order ORYN ${product.name} (${product.subtitle}) — ${product.dosage} pre-mixed peptide pen. >99% purity, GMP manufactured, next-day UK delivery. ${product.description.slice(0, 120)}`;
 

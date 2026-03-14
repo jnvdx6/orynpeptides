@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   if (product) {
     title = `Buy ${product.name} in ${county.name} | ORYN Peptide Pen — ${county.deliveryDays}-Day Delivery`;
-    description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${county.name}, ${county.region}. ${county.deliveryDays}-day delivery, >99% purity, pre-mixed & ready to use. From £${product.price}.`;
+    description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${county.name}, ${county.region}. ${county.deliveryDays}-day delivery, >99% purity, pre-mixed & ready to use. From €${product.price}.`;
   } else {
     const cat = category!;
     title = `${cat.name} Peptides in ${county.name} | ORYN — ${county.deliveryDays}-Day Delivery`;
@@ -129,7 +129,7 @@ export default async function CountySlugPage({
   const category = getCategoryBySlug(slug);
   if (!product && !category) notFound();
 
-  const currency = "£";
+  const currency = "€";
 
   // ─── Product Page ───────────────────────────────────────────
   if (product) {

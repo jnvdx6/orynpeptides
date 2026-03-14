@@ -104,7 +104,7 @@ export default async function CountyPage({
   const otherCounties = UK_COUNTIES.filter(
     (c) => c.slug !== county.slug && c.region === county.region
   ).slice(0, 6);
-  const currency = "£";
+  const currency = "€";
 
   return (
     <>
@@ -133,7 +133,7 @@ export default async function CountyPage({
               },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: "£169 - £399",
+            priceRange: "€99 - €299",
           },
           faqSchema(faqs),
         ]}

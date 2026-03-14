@@ -77,7 +77,7 @@ export default async function RegionPage({
     .filter((c): c is NonNullable<typeof c> => !!c);
   const faqs = regionFaqs(region.name, region.deliveryDays, cities.length);
   const otherRegions = UK_REGIONS.filter((r) => r.slug !== region.slug);
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
 
   return (
     <>
@@ -103,7 +103,7 @@ export default async function RegionPage({
               },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: "\u00a3169 - \u00a3399",
+            priceRange: "€99 - €299",
           },
           faqSchema(faqs),
         ]}

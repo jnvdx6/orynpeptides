@@ -59,7 +59,7 @@ export default async function ComparisonPage({
   const productB = getProduct(comparison.productB);
   if (!productA || !productB) notFound();
 
-  const currency = locale === "es" ? "€" : "£";
+  const currency = "€";
   const otherComparisons = COMPARISONS.filter((c) => c.slug !== comparison.slug);
 
   return (

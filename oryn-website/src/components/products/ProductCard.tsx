@@ -13,7 +13,7 @@ import { Link } from "@/components/ui/LocaleLink";
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
-  const { t, formatPrice } = useLocale();
+  const { t, formatPriceFull } = useLocale();
 
   const productT = t.products[product.slug];
   const subtitle = productT?.subtitle || product.subtitle;
@@ -95,7 +95,12 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="flex items-center justify-between pt-4 border-t border-oryn-orange/10">
-          <span className="text-xl font-bold text-oryn-orange">{formatPrice(product.price)}</span>
+          <div>
+            <span className="text-xl font-bold text-oryn-orange">{formatPriceFull(product.price).main}</span>
+            {formatPriceFull(product.price).equivalent && (
+              <span className="block text-[9px] text-oryn-black/40 font-mono">{formatPriceFull(product.price).equivalent}</span>
+            )}
+          </div>
           <button
             onClick={(e) => {
               e.preventDefault();

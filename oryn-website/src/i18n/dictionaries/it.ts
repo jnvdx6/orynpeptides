@@ -902,7 +902,7 @@ const it = {
 
   localeSwitcher: {
     label: "Mercato",
-    uk: "UK (£)",
+    uk: "UK (€)",
     eu: "UE (€)",
   },
 

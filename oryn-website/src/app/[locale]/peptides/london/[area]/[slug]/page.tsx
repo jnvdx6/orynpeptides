@@ -63,7 +63,7 @@ export async function generateMetadata({
   if (!product) return {};
 
   const title = `Buy ${product.name} in ${area.name}, London | ORYN Peptide Pen — Next-Day Delivery`;
-  const description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${area.name}, ${area.borough}. Next-day delivery to ${area.postcode}, >99% purity, pre-mixed & ready to use. From £${product.price}.`;
+  const description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${area.name}, ${area.borough}. Next-day delivery to ${area.postcode}, >99% purity, pre-mixed & ready to use. From €${product.price}.`;
 
   return {
     title,
@@ -120,7 +120,7 @@ function CategoryInAreaPage({
   locale: string;
 }) {
   const categoryProducts = getProductsForCategory(category);
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
   const otherCategories = SEO_CATEGORIES.filter((c) => c.slug !== category.slug);
 
   const zoneLabel =
@@ -190,7 +190,7 @@ function CategoryInAreaPage({
               containedInPlace: { "@type": "City", name: "London" },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: "\u00a3169 - \u00a3399",
+            priceRange: "€99 - €299",
           },
         ]}
       />
@@ -523,7 +523,7 @@ function ProductInAreaPage({
   locale: string;
 }) {
   const detail = getProductDetail(product.slug);
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
   const related = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 3);
@@ -535,7 +535,7 @@ function ProductInAreaPage({
     },
     {
       question: `How much does ${product.name} cost?`,
-      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, containing a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free delivery on orders over \u00a3150.`,
+      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, containing a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free delivery on orders over €150.`,
     },
     {
       question: `How fast is delivery to ${area.name}?`,

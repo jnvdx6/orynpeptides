@@ -22,8 +22,8 @@ export async function generateMetadata({
     ? "Comprar Plumas de Péptidos | BPC-157, Tirzepatide, GHK-Cu, NAD+ | ORYN"
     : "Buy Peptide Pens UK | BPC-157, Tirzepatide, GHK-Cu, NAD+ & More | ORYN";
   const description = isEs
-    ? "Explora la gama completa de plumas de péptidos ORYN. 10 péptidos de grado investigación, pureza >99%, fabricación GMP. Desde £169."
-    : "Explore the full range of ORYN research-grade peptide pens. BPC-157, TB-500, CJC-1295, Ipamorelin, Tirzepatide, GHK-Cu, NAD+, Glutathione. >99% purity, GMP manufactured. From £169.";
+    ? "Explora la gama completa de plumas de péptidos ORYN. 10 péptidos de grado investigación, pureza >99%, fabricación GMP. Desde €99."
+    : "Explore the full range of ORYN research-grade peptide pens. BPC-157, TB-500, CJC-1295, Ipamorelin, Tirzepatide, GHK-Cu, NAD+, Glutathione. >99% purity, GMP manufactured. From €99.";
 
   return {
     title,

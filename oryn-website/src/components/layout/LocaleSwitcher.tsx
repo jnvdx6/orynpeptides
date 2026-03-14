@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import { useLocale } from "@/i18n/LocaleContext";
-import { locales, markets, currencies, currencyConfigs } from "@/i18n/config";
+import { locales, markets, currencyGroups, currencyConfigs } from "@/i18n/config";
 import type { Locale, Currency } from "@/i18n/config";
 
 export function LocaleSwitcher() {
@@ -20,12 +20,8 @@ export function LocaleSwitcher() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setOpenLang(false);
-      }
-      if (currRef.current && !currRef.current.contains(e.target as Node)) {
-        setOpenCurrency(false);
-      }
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setOpenLang(false);
+      if (currRef.current && !currRef.current.contains(e.target as Node)) setOpenCurrency(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -91,7 +87,7 @@ export function LocaleSwitcher() {
         )}
       </div>
 
-      {/* Currency selector */}
+      {/* Currency selector — grouped */}
       <div className="relative" ref={currRef}>
         <button
           onClick={() => { setOpenCurrency(!openCurrency); setOpenLang(false); }}
@@ -107,26 +103,33 @@ export function LocaleSwitcher() {
         </button>
 
         {openCurrency && (
-          <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[120px]">
-            {currencies.map((cur) => {
-              const config = currencyConfigs[cur];
-              const isActive = cur === currency;
-              return (
-                <button
-                  key={cur}
-                  onClick={() => handleCurrencySwitch(cur)}
-                  className={`w-full flex items-center gap-2 px-4 py-2.5 text-[10px] font-mono tracking-[0.1em] transition-colors text-left ${
-                    isActive
-                      ? "bg-oryn-orange/5 text-oryn-orange"
-                      : "text-oryn-black/50 hover:bg-oryn-orange/5 hover:text-oryn-orange"
-                  }`}
-                >
-                  <span className="text-sm">{config.flag}</span>
-                  <span className="text-oryn-orange">{config.symbol}</span>
-                  <span>{config.label}</span>
-                </button>
-              );
-            })}
+          <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[140px] max-h-[400px] overflow-y-auto">
+            {currencyGroups.map((group) => (
+              <div key={group.label}>
+                <div className="px-4 py-1.5 text-[8px] font-mono text-oryn-black/30 tracking-[0.15em] bg-oryn-grey/10 border-b border-oryn-grey/20">
+                  {group.label.toUpperCase()}
+                </div>
+                {group.currencies.map((cur) => {
+                  const config = currencyConfigs[cur];
+                  const isActive = cur === currency;
+                  return (
+                    <button
+                      key={cur}
+                      onClick={() => handleCurrencySwitch(cur)}
+                      className={`w-full flex items-center gap-2 px-4 py-2 text-[10px] font-mono tracking-[0.1em] transition-colors text-left ${
+                        isActive
+                          ? "bg-oryn-orange/5 text-oryn-orange"
+                          : "text-oryn-black/50 hover:bg-oryn-orange/5 hover:text-oryn-orange"
+                      }`}
+                    >
+                      <span className="text-sm">{config.flag}</span>
+                      <span className="text-oryn-orange/70">{config.symbol}</span>
+                      <span>{config.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
           </div>
         )}
       </div>

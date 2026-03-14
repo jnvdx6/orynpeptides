@@ -28,7 +28,7 @@ export async function generateMetadata({
     : "Why ORYN | Best Peptide Company UK 2026";
   const description = isEs
     ? "Descubre por que ORYN es el proveedor de peptidos mas confiable del Reino Unido. Plumas de peptidos predosificadas, pureza >99% verificada por HPLC, fabricacion GMP ISO 7. Envio gratuito en el Reino Unido a partir de 150 libras."
-    : "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Highest quality peptide pens UK. Free UK shipping over £150.";
+    : "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Highest quality peptide pens UK. Free UK shipping over €150.";
 
   return {
     title,
@@ -100,9 +100,9 @@ const differentiators = [
   },
   {
     icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4",
-    title: "Free UK Shipping Over £150",
+    title: "Free UK Shipping Over €150",
     description:
-      "Enjoy complimentary next-day delivery on all UK orders over £150. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.",
+      "Enjoy complimentary next-day delivery on all UK orders over €150. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.",
     highlight: "Next-day delivery",
   },
   {
@@ -125,7 +125,7 @@ const comparisonFeatures = [
   { feature: "Delivery Format", oryn: "Pre-dosed Pen System", competitor: "Loose Vials (reconstitution required)" },
   { feature: "Purity Standard", oryn: "98%+ HPLC & MS Verified", competitor: "95%+ (often unverified)" },
   { feature: "Testing Protocol", oryn: "HPLC + Mass Spectrometry + Endotoxin", competitor: "Basic HPLC only" },
-  { feature: "UK Shipping", oryn: "Free over £150 (next-day)", competitor: "Varies (£5-£15)" },
+  { feature: "UK Shipping", oryn: "Free over €150 (next-day)", competitor: "Varies (€5-€15)" },
   { feature: "COA Included", oryn: "Every batch, every order", competitor: "On request (if available)" },
   { feature: "Production Facility", oryn: "ISO 7 Cleanroom, GMP Certified", competitor: "Varies (often undisclosed)" },
   { feature: "Sterility", oryn: "0.22\u03BCm Filter + Gamma Ray", competitor: "Filtration only" },
@@ -152,7 +152,7 @@ const faqs = [
   {
     question: "How does ORYN compare to other UK peptide suppliers?",
     answer:
-      "ORYN differentiates from other UK peptide suppliers in several key areas: (1) We offer pre-mixed peptide pens rather than loose vials, (2) Our purity exceeds 98% verified by both HPLC and mass spectrometry, (3) All products are manufactured in ISO 7 cleanrooms under GMP conditions, (4) Every order includes a full COA, and (5) We offer free next-day UK shipping on orders over £150. Most competitors sell unverified vials requiring reconstitution.",
+      "ORYN differentiates from other UK peptide suppliers in several key areas: (1) We offer pre-mixed peptide pens rather than loose vials, (2) Our purity exceeds 98% verified by both HPLC and mass spectrometry, (3) All products are manufactured in ISO 7 cleanrooms under GMP conditions, (4) Every order includes a full COA, and (5) We offer free next-day UK shipping on orders over €150. Most competitors sell unverified vials requiring reconstitution.",
   },
   {
     question: "What purity standards do ORYN peptides meet?",
@@ -167,7 +167,7 @@ const faqs = [
   {
     question: "Does ORYN offer free shipping in the UK?",
     answer:
-      "Yes, ORYN provides free next-day delivery on all UK orders over £150. All shipments use temperature-controlled packaging to maintain peptide integrity during transit. We deliver to over 15 major UK cities with same-day dispatch available for London orders. Orders under £150 ship for a flat rate with the same quality packaging.",
+      "Yes, ORYN provides free next-day delivery on all UK orders over €150. All shipments use temperature-controlled packaging to maintain peptide integrity during transit. We deliver to over 15 major UK cities with same-day dispatch available for London orders. Orders under €150 ship for a flat rate with the same quality packaging.",
   },
   {
     question: "Are ORYN peptides manufactured in the UK?",
@@ -184,7 +184,7 @@ export default async function WhyOrynPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
 
   // Enhanced organization schema for this authority page
   const enhancedOrgSchema = {

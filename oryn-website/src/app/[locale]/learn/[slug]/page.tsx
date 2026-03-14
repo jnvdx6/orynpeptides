@@ -71,7 +71,7 @@ export default async function ArticlePage({
     .map((slug) => products.find((p) => p.slug === slug))
     .filter((p) => p !== undefined);
   const otherArticles = BLOG_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
-  const currency = locale === "es" ? "\u20AC" : "\u00A3";
+  const currency = "€";
 
   const author = getAuthorForArticle(article);
   const reviewer = getReviewerForArticle(article);

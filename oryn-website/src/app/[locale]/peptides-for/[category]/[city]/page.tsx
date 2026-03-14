@@ -167,7 +167,7 @@ export default async function CategoryCityPage({
   const researchText = generateResearchApplicationsText(category, city);
   const nearbyCities = getNearbyCities(city, 6);
   const otherCategories = SEO_CATEGORIES.filter((c) => c.slug !== category.slug).slice(0, 5);
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
   const deliveryLabel =
     city.deliveryDays === "1"
       ? "Next-Day"
@@ -215,7 +215,7 @@ export default async function CategoryCityPage({
               },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: `\u00a3${Math.min(...categoryProducts.map((p) => p.price))} - \u00a3${Math.max(...categoryProducts.map((p) => p.price))}`,
+            priceRange: `€${Math.min(...categoryProducts.map((p) => p.price))} - €${Math.max(...categoryProducts.map((p) => p.price))}`,
           },
         ]}
       />

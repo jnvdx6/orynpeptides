@@ -47,7 +47,7 @@ export function FirstVisitPopup() {
       <div className="relative bg-white max-w-lg w-full shadow-2xl overflow-hidden">
         <button
           onClick={() => { trackPopupInteracted("first_visit", "dismissed"); handleClose(); }}
-          className="absolute top-4 right-4 p-1 text-oryn-black/30 hover:text-oryn-black transition-colors z-10"
+          className="absolute top-3 right-3 p-2.5 text-oryn-black/30 hover:text-oryn-black transition-colors z-10 active:scale-95"
           aria-label={t.productDetail.closePopup}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

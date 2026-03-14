@@ -48,7 +48,7 @@ export async function generateMetadata({
 
   if (product) {
     title = `Buy ${product.name} in ${region.name} | ORYN Peptide Pen — ${region.deliveryDays}-Day Delivery`;
-    description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${region.name}. ${region.deliveryDays}-day delivery to ${topCities} & more. >99% purity, pre-mixed & ready to use. From \u00a3${product.price}.`;
+    description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${region.name}. ${region.deliveryDays}-day delivery to ${topCities} & more. >99% purity, pre-mixed & ready to use. From €${product.price}.`;
   } else {
     const cat = category!;
     title = `${cat.name} Peptides in ${region.name} | ORYN — ${region.deliveryDays}-Day UK Delivery`;
@@ -142,7 +142,7 @@ export default async function RegionSlugPage({
   const category = getCategoryBySlug(slug);
   if (!product && !category) notFound();
 
-  const currency = locale === "es" ? "\u20ac" : "\u00a3";
+  const currency = "€";
   const cities = region.cities
     .map((s) => getCityBySlug(s))
     .filter((c): c is NonNullable<typeof c> => !!c);
@@ -198,7 +198,7 @@ export default async function RegionSlugPage({
                 },
               },
               brand: { "@type": "Brand", name: "ORYN" },
-              priceRange: "\u00a3169 - \u00a3399",
+              priceRange: "€99 - €299",
             },
           ]}
         />
@@ -788,7 +788,7 @@ export default async function RegionSlugPage({
               },
             },
             brand: { "@type": "Brand", name: "ORYN" },
-            priceRange: "\u00a3169 - \u00a3399",
+            priceRange: "€99 - €299",
           },
         ]}
       />
