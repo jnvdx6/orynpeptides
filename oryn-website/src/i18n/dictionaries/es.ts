@@ -3,12 +3,12 @@ import type { Dictionary } from "../types";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const es = {
   meta: {
-    title: "ORYN | Ciencia Pept\u00eddica de Precisi\u00f3n",
-    titleTemplate: "%s | ORYN",
+    title: "ORYN | Sistemas de Pen Pept\u00eddico \u2014 Compra P\u00e9ptidos Online",
+    titleTemplate: "%s | ORYN Peptide Labs",
     description:
-      "ORYN es un laboratorio biotecnol\u00f3gico europeo que ofrece soluciones pept\u00eddicas de grado investigaci\u00f3n. Precisi\u00f3n molecular dise\u00f1ada para la investigaci\u00f3n avanzada de p\u00e9ptidos.",
+      "Compra pens de p\u00e9ptidos de grado farmac\u00e9utico online. BPC-157, NAD+, Tirzepatide, GHK-CU y m\u00e1s en sistemas de pen reutilizables. Certificaci\u00f3n GMP, pureza >99%. Desde \u20ac99. Env\u00edo gratis.",
     ogDescription:
-      "Precisi\u00f3n molecular dise\u00f1ada. Soluciones pept\u00eddicas de grado investigaci\u00f3n de un laboratorio biotecnol\u00f3gico europeo. ISO Clase 7. Certificado GMP. Pureza >99%.",
+      "Sistemas de pen pept\u00eddico de precisi\u00f3n. 10 p\u00e9ptidos desde \u20ac99. Pens reutilizables con cartuchos reemplazables. GMP certificado. Pureza >99%. Env\u00edo gratis a Europa.",
   },
 
   header: {
@@ -32,10 +32,10 @@ const es = {
   },
 
   hero: {
-    tagline: "LABORATORIO BIOTECNOL\u00d3GICO EUROPEO",
-    subtitle: "Ciencia Pept\u00eddica de Precisi\u00f3n",
+    tagline: "SISTEMAS DE PEN PEPT\u00cdDICO DE PRECISI\u00d3N",
+    subtitle: "Frena el Envejecimiento. Potencia tu Bienestar.",
     description:
-      "Precisi\u00f3n molecular dise\u00f1ada. Soluciones pept\u00eddicas de grado investigaci\u00f3n administradas mediante sistemas avanzados de pluma. Certificaci\u00f3n ISO Clase 7. Fabricaci\u00f3n GMP. Pureza >99%.",
+      "P\u00e9ptidos de grado farmac\u00e9utico en sistemas de pen reutilizables con cartuchos reemplazables. Dosificaci\u00f3n precisa, 30 d\u00edas de suministro. Certificaci\u00f3n GMP. Fabricados en Corea del Sur. Pureza >99%.",
     explorePeptides: "EXPLORAR P\u00c9PTIDOS",
     ourScience: "NUESTRA CIENCIA",
     purityLabel: "PUREZA",

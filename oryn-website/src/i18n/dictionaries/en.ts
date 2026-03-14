@@ -2,12 +2,12 @@ import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   meta: {
-    title: "ORYN | Precision Peptide Science",
-    titleTemplate: "%s | ORYN",
+    title: "ORYN | Peptide Pen Systems — Buy Precision-Dosed Peptides Online",
+    titleTemplate: "%s | ORYN Peptide Labs",
     description:
-      "ORYN is a European biotech laboratory delivering research-grade peptide solutions. Engineered molecular precision for advanced peptide research.",
+      "Buy pharmaceutical-grade peptide pens online. BPC-157, NAD+, Tirzepatide, GHK-CU and more in reusable pen systems. GMP certified, >99% purity, manufactured in South Korea. From \u20ac99. Free shipping.",
     ogDescription:
-      "Engineered molecular precision. Research-grade peptide solutions from a European biotech laboratory. ISO Class 7. GMP Certified. >99% Purity.",
+      "Precision-dosed peptide pen systems. 10 research peptides from \u20ac99. Reusable pens with replaceable cartridges. GMP certified. >99% purity. Free shipping across Europe.",
   },
 
   header: {
@@ -31,10 +31,10 @@ const en: Dictionary = {
   },
 
   hero: {
-    tagline: "EUROPEAN BIOTECH LABORATORY",
-    subtitle: "Precision Peptide Science",
+    tagline: "PRECISION PEPTIDE PEN SYSTEMS",
+    subtitle: "Stop Aging. Boost Wellness. Prolong Longevity.",
     description:
-      "Engineered molecular precision. Research-grade peptide solutions delivered through advanced pen systems. ISO Class 7 certified. GMP manufactured. Purity >99%.",
+      "Pharmaceutical-grade peptides in reusable pen systems with replaceable cartridges. Click-and-go convenience, precise dosing, 30-day supply. GMP certified. Manufactured in South Korea. Purity >99%.",
     explorePeptides: "EXPLORE PEPTIDES",
     ourScience: "OUR SCIENCE",
     purityLabel: "PURITY",
@@ -90,7 +90,7 @@ const en: Dictionary = {
     label: "FEATURED",
     titleLine1: "Research-Grade",
     titleLine2: "Peptides",
-    subtitle: "Our most popular pharmaceutical-grade compounds, trusted by laboratories across Europe.",
+    subtitle: "Pharmaceutical-grade compounds from \u20ac99. Reusable pen systems with 30-day precision dosing.",
     viewAll: "VIEW ALL PRODUCTS",
     trustShipping: "FREE SHIPPING",
     trustPurity: "PURITY >99%",

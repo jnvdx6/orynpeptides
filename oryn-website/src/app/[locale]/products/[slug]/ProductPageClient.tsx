@@ -107,8 +107,8 @@ export function ProductPageClient() {
         </nav>
       </div>
 
-      <section className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="space-y-3">
             <div
               className="bg-oryn-cream overflow-hidden relative flex items-center justify-center p-8 md:p-16 min-h-[350px] md:min-h-[500px] group cursor-zoom-in"
@@ -695,10 +695,34 @@ export function ProductPageClient() {
       </section>
 
       {/* Sticky mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-oryn-orange/20 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1 shrink-0">
-            <span className="text-lg font-bold text-oryn-orange">{formatPrice(product.price)}</span>
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-oryn-grey/15 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(0,0,0,0.12)]">
+        <div className="flex items-center gap-2.5">
+          <div className="shrink-0">
+            <span className="text-lg font-bold text-oryn-orange leading-none">{formatPrice(product.price)}</span>
+            <div className="flex items-center gap-1 mt-0.5">
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+              <span className="text-[8px] text-green-600 font-mono">{t.productDetail.inStock}</span>
+            </div>
+          </div>
+          <div className="flex items-center border border-oryn-grey/30 shrink-0">
+            <button
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+              className="w-9 h-11 flex items-center justify-center text-base hover:bg-oryn-grey-light transition-colors"
+              aria-label={t.productDetail.decreaseQuantity}
+            >
+              -
+            </button>
+            <span className="w-8 h-11 flex items-center justify-center font-mono text-xs border-x border-oryn-grey/30">
+              {quantity}
+            </span>
+            <button
+              onClick={() => setQuantity((q) => Math.min(10, q + 1))}
+              className="w-9 h-11 flex items-center justify-center text-base hover:bg-oryn-grey-light transition-colors disabled:opacity-30"
+              disabled={quantity >= 10}
+              aria-label={t.productDetail.increaseQuantity}
+            >
+              +
+            </button>
           </div>
           <button
             onClick={async () => {
@@ -707,7 +731,7 @@ export function ProductPageClient() {
               setAddingToCart(false);
             }}
             disabled={addingToCart}
-            className="flex-1 py-3.5 bg-oryn-orange text-white font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+            className="flex-1 h-11 bg-oryn-orange text-white font-medium text-[11px] tracking-[0.12em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70 active:scale-[0.98]"
           >
             {addingToCart ? (
               <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
@@ -716,12 +740,12 @@ export function ProductPageClient() {
               </svg>
             ) : (
               <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
                   <line x1="3" y1="6" x2="21" y2="6" />
                   <path d="M16 10a4 4 0 01-8 0" />
                 </svg>
-                {t.productDetail.addToCart}
+                <span>{t.productDetail.addToCart}</span>
               </>
             )}
           </button>

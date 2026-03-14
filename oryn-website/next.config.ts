@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "medusa.skyodoo.com",
+        pathname: "/custom/uploads/**",
+      },
+    ],
+  },
   async headers() {
     return [
       {

@@ -33,7 +33,7 @@ export async function generateMetadata({
     },
     description: dict.meta.description,
     keywords:
-      "ORYN peptides, research peptides, peptide labs, BPC-157, TB-500, NAD+, tirzepatide, peptide pen, European biotech, GLP-1, GHK-CU, CJC-1295, Ipamorelin, Glutathione, buy peptides UK, peptide pen UK, peptides London, research peptides UK, pre-mixed peptide pen, peptides for recovery, peptides for weight loss, peptide delivery UK",
+      "ORYN peptides, buy peptides Europe, peptide pen system, research peptides UK, BPC-157 pen, TB-500 pen, NAD+ injection pen, tirzepatide pen, GLP-1 peptide, GHK-CU copper peptide, CJC-1295 Ipamorelin, Glutathione injection, NovaDose NAD+, NovaNAD, MediT Pen tirzepatide, pre-mixed peptide pen, reusable injection pen, peptide pen Europe, GMP certified peptides, pharmaceutical grade peptides, weight loss peptides, anti-aging peptides, recovery peptides, skin rejuvenation peptides, peptides for muscle growth, buy peptide pen online, peptide delivery Europe UK, precision dosed peptides",
     metadataBase: new URL(SITE_URL),
     openGraph: {
       title: dict.meta.title,
