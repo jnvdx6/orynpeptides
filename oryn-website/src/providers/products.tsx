@@ -144,7 +144,7 @@ function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product
 // ─── Provider component ──────────────────────────────────────────
 export function ProductsProvider({ children }: { children: ReactNode }) {
   const { locale } = useLocale();
-  const currencyCode = markets[locale].currencyCode;
+  const currencyCode = markets[locale].currency;
 
   const [medusaProducts, setMedusaProducts] = useState<MedusaStoreProduct[]>([]);
   const [medusaConnected, setMedusaConnected] = useState(false);
