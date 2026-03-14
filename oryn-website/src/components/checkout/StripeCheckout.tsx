@@ -21,6 +21,7 @@ interface StripeCheckoutProps {
   amount: number;
   formatPrice: (n: number) => string;
   disabled?: boolean;
+  totalItems?: number;
 }
 
 function PaymentFormInner({
@@ -29,6 +30,7 @@ function PaymentFormInner({
   amount,
   formatPrice,
   disabled,
+  totalItems,
 }: StripeCheckoutProps) {
   const { cart, completeCart } = useCart();
   const { locale, t } = useLocale();
@@ -60,10 +62,15 @@ function PaymentFormInner({
 
     try {
       // Confirm payment with Stripe (clientSecret already in Elements options)
+      // Build return URL with order details for redirect-based payments (3DS etc.)
+      const returnUrl = new URL(`${window.location.origin}/${locale}/checkout/success`);
+      if (amount) returnUrl.searchParams.set("total", String(amount));
+      if (totalItems) returnUrl.searchParams.set("items_count", String(totalItems));
+
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${window.location.origin}/${locale}/checkout/success`,
+          return_url: returnUrl.toString(),
           payment_method_data: {
             billing_details: {
               name: [

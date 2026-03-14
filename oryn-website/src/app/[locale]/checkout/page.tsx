@@ -5,11 +5,13 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import StripeCheckout from "@/components/checkout/StripeCheckout";
 import { OrderBump } from "@/components/checkout/OrderBump";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
+import { useAuth } from "@/providers/auth";
 import { sdk } from "@/lib/medusa";
 import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
@@ -21,6 +23,7 @@ interface ShippingOption {
   name: string;
   amount: number;
   is_tax_inclusive?: boolean;
+  region_id?: string;
 }
 
 const COUNTRIES = [
@@ -98,7 +101,16 @@ export default function CheckoutPage() {
   } = useCart();
 
   const { t, formatPrice, locale } = useLocale();
+  const router = useRouter();
+  const { user } = useAuth();
   usePageTracking("checkout");
+
+  // Redirect to products if cart is empty
+  useEffect(() => {
+    if (cartLoaded && (!items || items.length === 0)) {
+      router.push(`/${locale}/products`);
+    }
+  }, [cartLoaded, items, locale, router]);
   // Steps
   const [activeStep, setActiveStep] = useState<CheckoutStep>("information");
   const [completedSteps, setCompletedSteps] = useState<Set<CheckoutStep>>(new Set());
@@ -131,6 +143,13 @@ export default function CheckoutPage() {
     }
     return "";
   });
+
+  // Pre-fill email for logged-in users
+  useEffect(() => {
+    if (user?.email && !email) {
+      setEmail(user.email);
+    }
+  }, [user?.email]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Saved addresses
   const { addresses: savedAddresses, getDefault: getDefaultAddress } = useSavedAddresses();
@@ -206,16 +225,22 @@ export default function CheckoutPage() {
     try {
       // Try Medusa SDK for shipping options
       const response = await sdk.store.fulfillment.listCartOptions({ cart_id: cart.id });
-      const options = (response as unknown as { shipping_options: Array<{ id: string; name: string; amount: number; is_tax_inclusive?: boolean }> }).shipping_options;
+      const options = (response as unknown as { shipping_options: Array<{ id: string; name: string; amount: number; is_tax_inclusive?: boolean; region_id?: string }> }).shipping_options;
 
       if (options && options.length > 0) {
-        setShippingOptions(options.map((o) => ({
+        const mappedOptions = options.map((o) => ({
           id: o.id,
           name: o.name,
           amount: o.amount || 0,
           is_tax_inclusive: o.is_tax_inclusive,
-        })));
-        setSelectedShipping(options[0].id);
+          region_id: o.region_id,
+        }));
+        setShippingOptions(mappedOptions);
+        // Pre-select the first option that matches the cart's region
+        const regionFiltered = mappedOptions.filter(
+          (opt) => !opt.region_id || opt.region_id === cart?.region_id
+        );
+        setSelectedShipping(regionFiltered.length > 0 ? regionFiltered[0].id : mappedOptions[0].id);
       } else {
         setShippingOptions([{
           id: "free_shipping",
@@ -244,7 +269,10 @@ export default function CheckoutPage() {
 
     try {
       if (medusaConnected) {
-        await setCartEmail(email);
+        const cartEmail = user?.email || email;
+        await setCartEmail(cartEmail);
+        // Ensure email state is in sync
+        if (user?.email && !email) setEmail(user.email);
         await setCartAddress({
           firstName,
           lastName,
@@ -307,12 +335,13 @@ export default function CheckoutPage() {
       // Try Medusa native promotions first
       if (medusaConnected && cart) {
         try {
-          const { cart: updatedCart } = await sdk.store.cart.update(cart.id, {
+          await sdk.store.cart.update(cart.id, {
             promo_codes: [code],
           });
-          const medusaCart = updatedCart as Record<string, unknown>;
-          const discountTotal = (medusaCart.discount_total as number) || 0;
-          // Check if discount was actually applied
+          // Refresh cart to get updated totals from Medusa
+          await refreshCart();
+          // Check the refreshed cart for discount
+          const discountTotal = (cart.discount_total as number) || 0;
           if (discountTotal > 0) {
             applyPromotion({
               code,
@@ -323,8 +352,6 @@ export default function CheckoutPage() {
             });
             trackPromoApplied(code, "fixed", discountTotal);
             setPromoCode("");
-            // Refresh cart to get updated totals
-            await refreshCart();
             return;
           }
         } catch (err) {
@@ -630,11 +657,12 @@ export default function CheckoutPage() {
                     <label className="block text-[10px] font-mono text-oryn-black/40 tracking-wider mb-1.5 mt-2">EMAIL *</label>
                     <input
                       type="email"
-                      value={email}
-                      onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: "" })); }}
+                      value={user?.email || email}
+                      onChange={(e) => { if (!user?.email) { setEmail(e.target.value); setErrors((p) => ({ ...p, email: "" })); } }}
                       placeholder={t.checkoutPage.emailPlaceholder}
-                      className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.email ? "border-red-300" : "border-oryn-grey/30"}`}
+                      className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.email ? "border-red-300" : "border-oryn-grey/30"} ${user?.email ? "bg-oryn-grey-light text-oryn-black/60 cursor-not-allowed" : ""}`}
                       autoComplete="email"
+                      readOnly={!!user?.email}
                     />
                     {errors.email && <p className="text-[10px] text-red-500 mt-1">{errors.email}</p>}
                     <p className="text-[9px] text-oryn-black/30 font-plex mt-1">
@@ -884,7 +912,9 @@ export default function CheckoutPage() {
                     )}
 
                     <div className="space-y-3 mb-6">
-                      {shippingOptions.map((option) => {
+                      {shippingOptions.filter(
+                        (opt) => !opt.region_id || opt.region_id === cart?.region_id
+                      ).map((option) => {
                         const displayAmount = qualifiesForFreeShipping ? 0 : option.amount;
                         return (
                           <label
@@ -1052,6 +1082,7 @@ export default function CheckoutPage() {
                         amount={cart?.total != null ? cart.total : finalTotal}
                         formatPrice={formatPrice}
                         disabled={isSubmitting || cartLoading}
+                        totalItems={totalItems}
                       />
                     ) : (
                       <div className="p-6 bg-yellow-50 border border-yellow-200 text-yellow-800">

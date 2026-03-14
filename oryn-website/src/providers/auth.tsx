@@ -193,8 +193,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       identifyUser(customer);
       trackSignup("email", data.referralCodeUsed);
       return { success: true };
-    } catch {
-      return { success: false, error: "Network error. Please try again." };
+    } catch (err: any) {
+      const message = err?.message || "Network error. Please try again.";
+      return { success: false, error: message };
     }
   }, []);
 

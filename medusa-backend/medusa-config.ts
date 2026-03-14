@@ -29,7 +29,6 @@ export default defineConfig({
             options: {
               apiKey: process.env.STRIPE_API_KEY,
               webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-              // Capture payments automatically
               capture: true,
             },
           },
@@ -48,6 +47,9 @@ export default defineConfig({
     },
     {
       resolve: "./src/modules/referral",
+    },
+    {
+      resolve: "./src/modules/email",
     },
   ],
 });

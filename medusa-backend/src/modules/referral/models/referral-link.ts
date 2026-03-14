@@ -6,6 +6,10 @@ const ReferralLink = model.define("referral_link", {
   referred_customer_id: model.text(),
   referral_code: model.text(),
   level: model.number().default(1),
+  clicks: model.number().default(0),
+  status: model.enum(["active", "inactive", "expired"]).default("active"),
+  expires_at: model.text().nullable(),
+  source: model.text().nullable(),
 })
 
 export default ReferralLink

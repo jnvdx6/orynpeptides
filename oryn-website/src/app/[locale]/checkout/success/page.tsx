@@ -17,6 +17,9 @@ function SuccessContent() {
 
   const paymentIntentId = searchParams.get("payment_intent");
   const redirectStatus = searchParams.get("redirect_status");
+  const orderRef = searchParams.get("order_ref");
+  const orderTotal = searchParams.get("total");
+  const itemsCount = searchParams.get("items_count");
 
   useEffect(() => {
     if (redirectStatus === "succeeded") {
@@ -120,6 +123,32 @@ function SuccessContent() {
         <p className="text-oryn-black/50 font-plex mb-4">
           {ch.orderConfirmedDescription}
         </p>
+
+        {/* Order details summary */}
+        {(orderRef || orderTotal || itemsCount) && (
+          <div className="bg-oryn-grey-light border border-oryn-grey/20 p-5 mb-6">
+            {orderRef && (
+              <p className="text-sm font-mono font-bold tracking-wider text-oryn-black mb-2">
+                {ch.orderRef}: {orderRef}
+              </p>
+            )}
+            <div className="flex items-center justify-center gap-6">
+              {orderTotal && (
+                <div className="text-center">
+                  <p className="text-[9px] font-mono text-oryn-black/40 tracking-wider mb-0.5">{ch.total}</p>
+                  <p className="text-lg font-bold text-oryn-black">{"\u20AC"}{parseFloat(orderTotal).toFixed(2)}</p>
+                </div>
+              )}
+              {itemsCount && (
+                <div className="text-center">
+                  <p className="text-[9px] font-mono text-oryn-black/40 tracking-wider mb-0.5">ITEMS</p>
+                  <p className="text-lg font-bold text-oryn-black">{itemsCount}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {paymentIntentId && (
           <p className="text-[10px] font-mono text-oryn-black/30 mb-6">
             Payment ID: {paymentIntentId.slice(0, 28)}...
