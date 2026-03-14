@@ -15,7 +15,6 @@ export function LocaleSwitcher() {
 
   const currentMarket = markets[locale];
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -26,14 +25,12 @@ export function LocaleSwitcher() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Get the path without the current locale prefix
   const getPathForLocale = (targetLocale: Locale) => {
     const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
     return `/${targetLocale}${pathWithoutLocale}`;
   };
 
   const handleLocaleSwitch = (targetLocale: Locale) => {
-    // Set cookie so middleware remembers preference
     document.cookie = `ORYN_LOCALE=${targetLocale};path=/;max-age=${60 * 60 * 24 * 365}`;
     setOpen(false);
   };
@@ -43,7 +40,7 @@ export function LocaleSwitcher() {
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] font-mono text-oryn-black/50 hover:text-oryn-orange border border-oryn-orange/10 hover:border-oryn-orange/30 transition-all tracking-[0.1em]"
-        aria-label="Switch market"
+        aria-label="Switch language and region"
       >
         <span>{currentMarket.flag}</span>
         <span>{currentMarket.label}</span>
@@ -62,7 +59,7 @@ export function LocaleSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[140px]">
+        <div className="absolute top-full right-0 mt-1 bg-white border border-oryn-grey/30 shadow-lg z-50 min-w-[160px] max-h-[320px] overflow-y-auto">
           {locales.map((loc) => {
             const market = markets[loc];
             const isActive = loc === locale;
@@ -78,7 +75,7 @@ export function LocaleSwitcher() {
                     : "text-oryn-black/50 hover:bg-oryn-orange/5 hover:text-oryn-orange"
                 }`}
               >
-                <span>{market.flag}</span>
+                <span className="text-sm">{market.flag}</span>
                 <span>{market.label}</span>
                 <span className="ml-auto text-oryn-orange/60">
                   {market.symbol}

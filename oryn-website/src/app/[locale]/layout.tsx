@@ -32,8 +32,18 @@ export async function generateMetadata({
       template: dict.meta.titleTemplate,
     },
     description: dict.meta.description,
-    keywords:
-      "ORYN peptides, buy peptides Europe, peptide pen system, research peptides UK, BPC-157 pen, TB-500 pen, NAD+ injection pen, tirzepatide pen, GLP-1 peptide, GHK-CU copper peptide, CJC-1295 Ipamorelin, Glutathione injection, NovaDose NAD+, NovaNAD, MediT Pen tirzepatide, pre-mixed peptide pen, reusable injection pen, peptide pen Europe, GMP certified peptides, pharmaceutical grade peptides, weight loss peptides, anti-aging peptides, recovery peptides, skin rejuvenation peptides, peptides for muscle growth, buy peptide pen online, peptide delivery Europe UK, precision dosed peptides",
+    keywords: [
+      "ORYN peptides", "buy peptides Europe", "peptide pen system", "research peptides UK",
+      "BPC-157 pen", "TB-500 pen", "NAD+ injection pen", "tirzepatide pen", "GLP-1 peptide",
+      "GHK-CU copper peptide", "CJC-1295 Ipamorelin", "Glutathione injection",
+      "NovaDose NAD+", "NovaNAD", "MediT Pen tirzepatide",
+      "pre-mixed peptide pen", "reusable injection pen", "peptide pen Europe",
+      "GMP certified peptides", "pharmaceutical grade peptides",
+      "buy peptides online", "peptide delivery Europe UK USA",
+      "acheter peptides", "Peptide kaufen", "comprare peptidi", "comprar péptidos",
+      "peptiden kopen", "peptydy kupić",
+      "weight loss peptides", "anti-aging peptides", "recovery peptides",
+    ],
     metadataBase: new URL(SITE_URL),
     openGraph: {
       title: dict.meta.title,
@@ -47,7 +57,10 @@ export async function generateMetadata({
       description: dict.meta.ogDescription,
     },
     alternates: {
-      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`])),
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`])),
+        "x-default": `${SITE_URL}/en`,
+      },
     },
   };
 }
@@ -71,8 +84,8 @@ export default async function LocaleLayout({
         <meta name="theme-color" content="#FF6A1A" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="author" content="ORYN Peptide Labs" />
-        <meta name="geo.region" content="GB" />
-        <meta name="geo.placename" content="United Kingdom" />
+        <meta name="geo.region" content="150" />
+        <meta name="geo.placename" content="Europe" />
         <meta name="rating" content="general" />
         <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="preconnect" href="https://medusa.skyodoo.com" />
@@ -137,8 +150,8 @@ export default async function LocaleLayout({
             url: SITE_URL,
             logo: `${SITE_URL}/opengraph-image`,
             description: "Research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured. Next-day UK delivery.",
-            priceRange: "£169-£399",
-            currenciesAccepted: "GBP, EUR",
+            priceRange: "€99-€299",
+            currenciesAccepted: "GBP, EUR, USD",
             paymentAccepted: "Credit Card, Debit Card, Cryptocurrency",
             areaServed: {
               "@type": "GeoCircle",
