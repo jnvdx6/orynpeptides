@@ -122,7 +122,12 @@ export function ContactClient() {
                       const fd = new FormData(formRef.current!);
                       const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/contact`, {
                         method: "POST",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                          "Content-Type": "application/json",
+                          ...(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+                            ? { "x-publishable-api-key": process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY }
+                            : {}),
+                        },
                         body: JSON.stringify({
                           first_name: fd.get("firstName") as string,
                           last_name: fd.get("lastName") as string,

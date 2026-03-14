@@ -54,9 +54,13 @@ export function ExitIntentPopup() {
     if (!email) return;
     // Send to Medusa newsletter module (source: exit_intent)
     try {
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+        headers["x-publishable-api-key"] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY;
+      }
       await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/newsletter`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({ email, source: "exit_intent" }),
       });
     } catch { /* silently fail - don't block user */ }

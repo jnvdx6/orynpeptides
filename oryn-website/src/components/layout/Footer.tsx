@@ -157,9 +157,13 @@ export function Footer() {
     setSubscribing(true);
     setSubscribeError(null);
     try {
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY) {
+        headers["x-publishable-api-key"] = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY;
+      }
       const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/newsletter`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({ email, source: "footer" }),
       });
       if (!res.ok) {

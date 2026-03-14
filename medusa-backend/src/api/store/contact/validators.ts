@@ -5,13 +5,6 @@ export const PostStoreContactSchema = z.object({
   last_name: z.string().min(1),
   email: z.string().email(),
   organization: z.string().optional(),
-  inquiry_type: z.enum([
-    "general",
-    "wholesale",
-    "research",
-    "support",
-    "returns",
-    "partnership",
-  ]),
+  inquiry_type: z.string().min(1),
   message: z.string().min(10),
 })
