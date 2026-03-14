@@ -34,7 +34,6 @@ export default async function customerCreatedHandler({
     // If customer was referred, create referral chain
     const referredByCode = (customer.metadata as any)?.referred_by_code as string | undefined
     if (referredByCode) {
-      // Find the referrer by their referral code (level 0 = own code)
       const referrerLinks = await referralService.listReferralLinks({
         referral_code: referredByCode,
         level: 0,
@@ -66,15 +65,20 @@ export default async function customerCreatedHandler({
       }
     }
 
-    // Send welcome email
-    try {
-      const sgMail = require("@sendgrid/mail")
-      if (process.env.SENDGRID_API_KEY) {
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    // Send welcome email via Resend
+    const resendApiKey = process.env.RESEND_API_KEY
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "ORYN Peptides <info@orynlabs.com>"
 
-        await sgMail.send({
-          to: customer.email,
-          from: process.env.SENDGRID_FROM_EMAIL || "info@orynlabs.com",
+    if (resendApiKey) {
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [customer.email],
           subject: "Welcome to ORYN Peptides!",
           html: `
             <h2>Welcome, ${customer.first_name || ""}!</h2>
@@ -83,12 +87,10 @@ export default async function customerCreatedHandler({
             <p>Share it with friends and earn commissions on their purchases!</p>
             <p>Best regards,<br/>The ORYN Peptides Team</p>
           `,
-        })
+        }),
+      })
 
-        logger.info(`Welcome email sent to customer ${customer.id}`)
-      }
-    } catch (emailErr) {
-      logger.warn(`Welcome email failed: ${emailErr}`)
+      logger.info(`Welcome email sent to customer ${customer.id}`)
     }
 
     logger.info(`Customer ${data.id} processed: referral code ${referralCode} generated`)

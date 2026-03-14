@@ -49,15 +49,17 @@ export function ExitIntentPopup() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [show, handleClose]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    // Store email for potential follow-up (no external service needed)
+    // Send to Medusa newsletter module (source: exit_intent)
     try {
-      const emails = JSON.parse(localStorage.getItem("oryn_captured_emails") || "[]");
-      emails.push({ email, source: "exit_intent", date: new Date().toISOString() });
-      localStorage.setItem("oryn_captured_emails", JSON.stringify(emails));
-    } catch { /* ignore */ }
+      await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/newsletter`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "exit_intent" }),
+      });
+    } catch { /* silently fail - don't block user */ }
     setSubmitted(true);
     trackExitIntentConverted("email_captured");
     setTimeout(handleClose, 3000);

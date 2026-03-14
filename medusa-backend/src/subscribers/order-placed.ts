@@ -24,15 +24,21 @@ export default async function orderPlacedHandler({
       return
     }
 
-    // Send order confirmation email
-    try {
-      const sgMail = require("@sendgrid/mail")
-      if (process.env.SENDGRID_API_KEY) {
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    const resendApiKey = process.env.RESEND_API_KEY
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "ORYN Peptides <info@orynlabs.com>"
+    const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || "admin@oryn.com"
 
-        await sgMail.send({
-          to: order.email,
-          from: process.env.SENDGRID_FROM_EMAIL || "info@orynlabs.com",
+    if (resendApiKey) {
+      // Send order confirmation to customer
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [order.email],
           subject: `ORYN Peptides - Order Confirmation #${order.display_id}`,
           html: `
             <h2>Order Confirmed!</h2>
@@ -41,12 +47,19 @@ export default async function orderPlacedHandler({
             <p>We'll send you a shipping confirmation once your order is on its way.</p>
             <p>Best regards,<br/>The ORYN Peptides Team</p>
           `,
-        })
+        }),
+      })
 
-        // Notify admin
-        await sgMail.send({
-          to: process.env.ADMIN_NOTIFICATION_EMAIL || "admin@oryn.com",
-          from: process.env.SENDGRID_FROM_EMAIL || "info@orynlabs.com",
+      // Notify admin
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [adminEmail],
           subject: `[ORYN] New Order #${order.display_id} - ${order.total} ${(order.currency_code || "EUR").toUpperCase()}`,
           html: `
             <h2>New Order Received</h2>
@@ -54,12 +67,10 @@ export default async function orderPlacedHandler({
             <p><strong>Customer:</strong> ${order.email}</p>
             <p><strong>Total:</strong> ${order.total} ${(order.currency_code || "EUR").toUpperCase()}</p>
           `,
-        })
+        }),
+      })
 
-        logger.info(`Order confirmation emails sent for order ${data.id}`)
-      }
-    } catch (emailErr) {
-      logger.warn(`Email sending failed: ${emailErr}`)
+      logger.info(`Order confirmation emails sent for order ${data.id}`)
     }
 
     // Generate referral commissions

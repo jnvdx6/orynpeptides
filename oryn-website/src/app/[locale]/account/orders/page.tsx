@@ -7,16 +7,30 @@ import { useProducts } from "@/providers/products";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
+interface OrderItem {
+  name: string;
+  quantity: number;
+  price: number;
+  product_title?: string;
+  title?: string;
+  unit_price?: number;
+}
+
 interface Order {
   id: string;
   ref: string;
+  display_id?: number;
   status: string;
   total: number;
   subtotal: number;
-  items: { name: string; quantity: number; price: number }[];
+  items: OrderItem[];
   createdAt: string;
+  created_at?: string;
   paymentMethod: string;
+  payment_status?: string;
+  fulfillment_status?: string;
   shipping?: { city?: string; country?: string };
+  shipping_address?: { city?: string; country_code?: string };
 }
 
 const statusColors: Record<string, string> = {
@@ -59,12 +73,39 @@ export default function OrdersPage() {
 
   useEffect(() => {
     if (!token) return;
-    fetch("/api/orders", {
-      headers: { Authorization: `Bearer ${token}` },
+    // Fetch orders from Medusa store API
+    const headers: Record<string, string> = {
+      Authorization: `Bearer ${token}`,
+    };
+    const pk = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY;
+    if (pk) headers["x-publishable-api-key"] = pk;
+
+    fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/orders`, {
+      headers,
     })
       .then((r) => r.json())
       .then((data) => {
-        setOrders(data.orders || []);
+        // Map Medusa order shape to our Order interface
+        const medusaOrders = (data.orders || []).map((o: any) => ({
+          id: o.id,
+          ref: `#${o.display_id || o.id.slice(-6)}`,
+          display_id: o.display_id,
+          status: o.fulfillment_status || o.status || "pending",
+          total: o.total || 0,
+          subtotal: o.subtotal || 0,
+          items: (o.items || []).map((item: any) => ({
+            name: item.product_title || item.title || "Product",
+            quantity: item.quantity || 1,
+            price: item.unit_price || 0,
+          })),
+          createdAt: o.created_at,
+          paymentMethod: o.payment_status || "card",
+          shipping: o.shipping_address ? {
+            city: o.shipping_address.city,
+            country: o.shipping_address.country_code,
+          } : undefined,
+        }));
+        setOrders(medusaOrders);
       })
       .catch(() => {})
       .finally(() => setLoading(false));

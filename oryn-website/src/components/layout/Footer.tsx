@@ -148,21 +148,30 @@ export function Footer() {
     { href: "/learn/peptide-pens-for-women-uk", label: "Peptides for Women UK" },
   ];
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeError, setSubscribeError] = useState<string | null>(null);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      // Store subscriber emails locally
-      try {
-        const existing = JSON.parse(localStorage.getItem("oryn_newsletter_emails") || "[]");
-        if (!existing.includes(email)) {
-          existing.push(email);
-          localStorage.setItem("oryn_newsletter_emails", JSON.stringify(existing));
-        }
-      } catch {
-        // ignore
+    if (!email) return;
+    setSubscribing(true);
+    setSubscribeError(null);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/newsletter`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || "Subscription failed");
       }
       setSubscribed(true);
       trackNewsletterSignup("footer");
+    } catch (err) {
+      setSubscribeError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setSubscribing(false);
     }
   };
 
@@ -202,24 +211,31 @@ export function Footer() {
                 <span className="text-xs text-oryn-orange font-medium">{f.newsletterSuccess}</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex w-full md:w-auto">
-                <label htmlFor="footer-newsletter-email" className="sr-only">{f.newsletterTitle}</label>
-                <input
-                  id="footer-newsletter-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={f.newsletterPlaceholder}
-                  required
-                  className="px-4 py-3 bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-oryn-orange transition-colors w-full md:w-64 font-plex"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors shrink-0"
-                >
-                  {f.newsletterButton}
-                </button>
-              </form>
+              <div className="w-full md:w-auto">
+                <form onSubmit={handleSubscribe} className="flex w-full md:w-auto">
+                  <label htmlFor="footer-newsletter-email" className="sr-only">{f.newsletterTitle}</label>
+                  <input
+                    id="footer-newsletter-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={f.newsletterPlaceholder}
+                    required
+                    disabled={subscribing}
+                    className="px-4 py-3 bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-oryn-orange transition-colors w-full md:w-64 font-plex disabled:opacity-50"
+                  />
+                  <button
+                    type="submit"
+                    disabled={subscribing}
+                    className="px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors shrink-0 disabled:opacity-70"
+                  >
+                    {subscribing ? "..." : f.newsletterButton}
+                  </button>
+                </form>
+                {subscribeError && (
+                  <p className="text-xs text-red-400 font-plex mt-2">{subscribeError}</p>
+                )}
+              </div>
             )}
           </div>
         </div>

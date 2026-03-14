@@ -6,6 +6,18 @@ import { Link } from "@/components/ui/LocaleLink";
 
 const COOKIE_KEY = "oryn_cookie_consent";
 
+/** Check if user has accepted analytics cookies */
+export function hasAnalyticsConsent(): boolean {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem(COOKIE_KEY) === "accepted";
+}
+
+/** Check if user has made a cookie choice at all */
+export function hasCookieChoice(): boolean {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem(COOKIE_KEY) !== null;
+}
+
 export function CookieConsent() {
   const [show, setShow] = useState(false);
   const { t } = useLocale();
@@ -23,11 +35,20 @@ export function CookieConsent() {
   const accept = () => {
     localStorage.setItem(COOKIE_KEY, "accepted");
     setShow(false);
+    // Reload to activate analytics scripts
+    window.location.reload();
   };
 
   const decline = useCallback(() => {
     localStorage.setItem(COOKIE_KEY, "declined");
     setShow(false);
+    // Opt out of PostHog if loaded
+    try {
+      const posthog = (window as any).posthog;
+      if (posthog?.opt_out_capturing) {
+        posthog.opt_out_capturing();
+      }
+    } catch { /* ignore */ }
   }, []);
 
   useEffect(() => {

@@ -1,9 +1,15 @@
+"use client";
+
 import Script from "next/script";
+import { hasAnalyticsConsent } from "@/components/ui/CookieConsent";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export function GoogleAnalytics() {
   if (!GA_MEASUREMENT_ID) return null;
+
+  // Only load GA if user has accepted analytics cookies (GDPR)
+  if (!hasAnalyticsConsent()) return null;
 
   return (
     <>

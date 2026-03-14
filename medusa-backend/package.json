@@ -13,8 +13,7 @@
   "dependencies": {
     "@medusajs/admin-sdk": "2.13.3",
     "@medusajs/framework": "2.13.3",
-    "@medusajs/medusa": "2.13.3",
-    "@sendgrid/mail": "^8.1.6"
+    "@medusajs/medusa": "2.13.3"
   },
   "devDependencies": {
     "@types/node": "^20",

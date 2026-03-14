@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { trackFormSubmitted } from "@/lib/analytics";
@@ -9,7 +9,9 @@ import { usePageTracking } from "@/hooks/usePageTracking";
 export function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [inquiryType, setInquiryType] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
   const { t } = useLocale();
   const c = t.contactPage;
   usePageTracking("contact");
@@ -111,15 +113,36 @@ export function ContactClient() {
                 </div>
               ) : (
                 <form
-                  onSubmit={(e) => {
+                  ref={formRef}
+                  onSubmit={async (e) => {
                     e.preventDefault();
                     setSubmitting(true);
-                    // Simulate submission delay for UX feedback
-                    setTimeout(() => {
-                      setSubmitting(false);
+                    setError(null);
+                    try {
+                      const fd = new FormData(formRef.current!);
+                      const res = await fetch(`${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/store/contact`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          first_name: fd.get("firstName") as string,
+                          last_name: fd.get("lastName") as string,
+                          email: fd.get("email") as string,
+                          organization: (fd.get("organization") as string) || undefined,
+                          inquiry_type: inquiryType || "general",
+                          message: fd.get("message") as string,
+                        }),
+                      });
+                      if (!res.ok) {
+                        const data = await res.json().catch(() => ({}));
+                        throw new Error(data.message || "Failed to send message");
+                      }
                       setSubmitted(true);
                       trackFormSubmitted("contact", { inquiry_type: inquiryType || "general" });
-                    }, 1000);
+                    } catch (err) {
+                      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+                    } finally {
+                      setSubmitting(false);
+                    }
                   }}
                   className="space-y-6"
                 >
@@ -128,6 +151,12 @@ export function ContactClient() {
                     {c.formDescription}
                   </p>
 
+                  {error && (
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-plex">
+                      {error}
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-oryn-orange tracking-wider mb-2">
@@ -135,6 +164,7 @@ export function ContactClient() {
                       </label>
                       <input
                         type="text"
+                        name="firstName"
                         required
                         className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/10 transition-all"
                       />
@@ -145,6 +175,7 @@ export function ContactClient() {
                       </label>
                       <input
                         type="text"
+                        name="lastName"
                         required
                         className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/10 transition-all"
                       />
@@ -157,6 +188,7 @@ export function ContactClient() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/10 transition-all"
                     />
@@ -168,6 +200,7 @@ export function ContactClient() {
                     </label>
                     <input
                       type="text"
+                      name="organization"
                       className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/10 transition-all"
                     />
                   </div>
@@ -192,6 +225,7 @@ export function ContactClient() {
                       {c.message}
                     </label>
                     <textarea
+                      name="message"
                       required
                       rows={5}
                       className="w-full px-4 py-3 bg-white border border-oryn-orange/15 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/10 transition-all resize-none"

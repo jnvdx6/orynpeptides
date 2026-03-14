@@ -1,5 +1,4 @@
 import type { CryptoCurrency, CryptoRates } from '@/types';
-import { getSettings } from './db';
 
 // ─── Crypto info constants ──────────────────────────────────────────────────
 
@@ -95,11 +94,18 @@ export function calculateCryptoAmount(
 /**
  * Get the configured wallet address for a given cryptocurrency.
  */
+// Crypto wallets (previously from settings DB, now hardcoded)
+const CRYPTO_WALLETS: Record<CryptoCurrency, string> = {
+  BTC: "",
+  ETH: "",
+  USDT: "",
+  SOL: "",
+};
+
 export async function generatePaymentAddress(
   currency: CryptoCurrency
 ): Promise<string> {
-  const settings = await getSettings();
-  return settings.cryptoWallets[currency] || '';
+  return CRYPTO_WALLETS[currency] || '';
 }
 
 /**
