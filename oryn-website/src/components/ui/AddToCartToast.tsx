@@ -10,14 +10,14 @@ export function AddToCartToast() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
+      className={`fixed bottom-20 lg:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-50 transition-all duration-300 ${
         lastAdded
           ? "translate-y-0 opacity-100"
           : "translate-y-4 opacity-0 pointer-events-none"
       }`}
     >
       {lastAdded && (
-        <div className="flex items-center gap-3 bg-white border border-oryn-orange/20 shadow-lg shadow-oryn-orange/10 px-4 py-3 max-w-xs">
+        <div className="flex items-center gap-3 bg-white border border-oryn-orange/20 shadow-lg shadow-oryn-orange/10 px-4 py-3 sm:max-w-xs">
           <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
             <Image
               src={lastAdded.image}

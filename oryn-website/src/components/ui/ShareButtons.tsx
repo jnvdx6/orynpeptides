@@ -40,7 +40,7 @@ export function ShareButtons({ url, title, description }: Props) {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2.5">
       <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.share.label}</span>
 
       {/* WhatsApp */}
@@ -48,7 +48,7 @@ export function ShareButtons({ url, title, description }: Props) {
         href={`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 flex items-center justify-center border border-oryn-grey/20 hover:border-green-500 hover:bg-green-50 transition-colors group"
+        className="w-10 h-10 flex items-center justify-center border border-oryn-grey/20 hover:border-green-500 hover:bg-green-50 transition-colors group active:scale-95"
         aria-label="Share on WhatsApp"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-oryn-black/30 group-hover:text-green-600">
@@ -62,7 +62,7 @@ export function ShareButtons({ url, title, description }: Props) {
         href={`https://twitter.com/intent/tweet?text=${encodedDesc}&url=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 flex items-center justify-center border border-oryn-grey/20 hover:border-black hover:bg-black/5 transition-colors group"
+        className="w-10 h-10 flex items-center justify-center border border-oryn-grey/20 hover:border-black hover:bg-black/5 transition-colors group active:scale-95"
         aria-label="Share on X"
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-oryn-black/30 group-hover:text-black">
@@ -75,7 +75,7 @@ export function ShareButtons({ url, title, description }: Props) {
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-8 h-8 flex items-center justify-center border border-oryn-grey/20 hover:border-blue-600 hover:bg-blue-50 transition-colors group"
+        className="w-10 h-10 flex items-center justify-center border border-oryn-grey/20 hover:border-blue-600 hover:bg-blue-50 transition-colors group active:scale-95"
         aria-label="Share on Facebook"
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="text-oryn-black/30 group-hover:text-blue-600">
@@ -86,7 +86,7 @@ export function ShareButtons({ url, title, description }: Props) {
       {/* Copy Link */}
       <button
         onClick={handleCopy}
-        className={`w-8 h-8 flex items-center justify-center border transition-colors ${
+        className={`w-10 h-10 flex items-center justify-center border transition-colors active:scale-95 ${
           copied
             ? "border-green-500 bg-green-50"
             : "border-oryn-grey/20 hover:border-oryn-orange hover:bg-oryn-orange/5"

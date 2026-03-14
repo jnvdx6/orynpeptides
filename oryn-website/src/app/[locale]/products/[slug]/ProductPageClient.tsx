@@ -57,7 +57,7 @@ export function ProductPageClient() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const gallery = productImages.gallery[product?.slug || ""] || [productImages.bySlug[product?.slug || ""] || "/images/products/pen-bpc157.png"];
+  const gallery = productImages.gallery[product?.slug || ""] || [productImages.bySlug[product?.slug || ""] || "/images/products/peptide-pen-black.png"];
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState<"benefits" | "specs" | "science">("benefits");
 
@@ -123,7 +123,7 @@ export function ProductPageClient() {
               }}
             >
               <Image
-                src={gallery[activeImage] || productImages.bySlug[product.slug] || "/images/products/pen-bpc157.png"}
+                src={gallery[activeImage] || productImages.bySlug[product.slug] || "/images/products/peptide-pen-black.png"}
                 alt={`ORYN ${product.name}`}
                 width={400}
                 height={400}
@@ -761,7 +761,7 @@ export function ProductPageClient() {
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
                 <Image
-                  src={gallery[0] || productImages.bySlug[product.slug] || "/images/products/pen-bpc157.png"}
+                  src={gallery[0] || productImages.bySlug[product.slug] || "/images/products/peptide-pen-black.png"}
                   alt={product.name}
                   width={32}
                   height={32}

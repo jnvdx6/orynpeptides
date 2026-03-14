@@ -152,7 +152,7 @@ function deriveItemsFromMedusa(cart: MedusaCart, resolvedProducts: Product[]): C
       description: "",
       benefits: [],
       specs: {},
-      image: lineItem.thumbnail || "/images/products/pen-bpc157.png",
+      image: lineItem.thumbnail || "/images/products/peptide-pen-black.png",
     };
     return {
       product,

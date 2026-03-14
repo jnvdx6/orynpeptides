@@ -8,7 +8,7 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
 
   return (
     <section className="py-16 bg-oryn-black text-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
             {t.productDetail.whyChoosePen}
@@ -20,7 +20,7 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Vial Problems */}
-          <div className="bg-white/5 border border-white/10 p-8">
+          <div className="bg-white/5 border border-white/10 p-5 sm:p-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-red-500/20 flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2">
@@ -47,7 +47,7 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
           </div>
 
           {/* Pen Advantages */}
-          <div className="bg-oryn-orange/10 border border-oryn-orange/30 p-8">
+          <div className="bg-oryn-orange/10 border border-oryn-orange/30 p-5 sm:p-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-oryn-orange flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -77,14 +77,14 @@ export function PenAdvantage({ detail }: { detail: ProductDetail }) {
         {/* Bottom comparison bar */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
           {t.productDetail.comparisonBar.map((item) => (
-            <div key={item.label} className="bg-oryn-black p-5 text-center">
-              <p className="text-[9px] font-mono text-white/30 tracking-[0.1em] mb-2">{item.label}</p>
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-[10px] text-red-400/60 line-through">{item.vial}</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+            <div key={item.label} className="bg-oryn-black p-3 sm:p-5 text-center">
+              <p className="text-[8px] sm:text-[9px] font-mono text-white/30 tracking-[0.05em] sm:tracking-[0.1em] mb-1.5 sm:mb-2">{item.label}</p>
+              <div className="flex items-center justify-center gap-1.5 sm:gap-3">
+                <span className="text-[9px] sm:text-[10px] text-red-400/60 line-through">{item.vial}</span>
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0 hidden sm:block">
                   <path d="M5 12h14M12 5l7 7" />
                 </svg>
-                <span className="text-xs font-bold text-oryn-orange">{item.pen}</span>
+                <span className="text-[10px] sm:text-xs font-bold text-oryn-orange">{item.pen}</span>
               </div>
             </div>
           ))}

@@ -25,9 +25,9 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="product-card group bg-white border border-oryn-orange/10 overflow-hidden hover:border-oryn-orange/30 block cursor-pointer"
     >
-      <div className="relative aspect-[4/3] bg-oryn-cream overflow-hidden flex items-center justify-center p-8">
+      <div className="relative aspect-[4/3] bg-oryn-cream overflow-hidden flex items-center justify-center p-6 sm:p-8">
         <Image
-          src={productImages.bySlug[product.slug] || productImages.categoryCard[product.category] || "/images/products/pen-bpc157.png"}
+          src={productImages.bySlug[product.slug] || productImages.categoryCard[product.category] || "/images/products/peptide-pen-black.png"}
           alt={`ORYN ${product.name}`}
           width={240}
           height={180}
@@ -52,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
             e.stopPropagation();
             toggleWishlist(product.id);
           }}
-          className={`absolute bottom-3 right-3 w-8 h-8 flex items-center justify-center bg-white/90 transition-all z-10 ${
+          className={`absolute bottom-3 right-3 w-9 h-9 flex items-center justify-center bg-white/90 transition-all z-10 active:scale-95 ${
             isInWishlist(product.id)
               ? "opacity-100"
               : "opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -65,46 +65,46 @@ export function ProductCard({ product }: { product: Product }) {
         </button>
       </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <div className="flex items-start justify-between mb-2">
-          <div>
-            <h3 className="text-sm font-bold tracking-wide group-hover:text-oryn-orange transition-colors">
+          <div className="min-w-0 flex-1 mr-2">
+            <h3 className="text-sm font-bold tracking-wide group-hover:text-oryn-orange transition-colors truncate">
               {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}
             </h3>
-            <p className="text-xs text-oryn-black/40 font-plex mt-1">
+            <p className="text-xs text-oryn-black/40 font-plex mt-1 truncate">
               {subtitle}
             </p>
           </div>
-          <span className="text-[9px] font-mono text-oryn-orange bg-oryn-orange/5 px-2 py-1 tracking-[0.1em]">
+          <span className="text-[9px] font-mono text-oryn-orange bg-oryn-orange/5 px-2 py-1 tracking-[0.1em] shrink-0">
             {product.dosage}
           </span>
         </div>
 
-        <div className="flex items-center gap-3 mt-4 mb-5">
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+        <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4 mb-4 sm:mb-5">
+          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em]">
             {t.productCard.purity}
           </span>
           <span className="w-px h-3 bg-oryn-grey" />
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em]">
             {product.volume}
           </span>
-          <span className="w-px h-3 bg-oryn-grey" />
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+          <span className="w-px h-3 bg-oryn-grey hidden sm:block" />
+          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em] hidden sm:inline">
             {t.productCard.pharmaGrade}
           </span>
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-oryn-orange/10">
-          <span className="text-xl font-bold text-oryn-orange">{formatPrice(product.price)}</span>
+        <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-oryn-orange/10">
+          <span className="text-lg sm:text-xl font-bold text-oryn-orange">{formatPrice(product.price)}</span>
           <button
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               addItem(product);
             }}
-            className="px-5 py-2.5 text-[10px] font-medium text-white bg-oryn-orange hover:bg-oryn-orange-dark tracking-[0.1em] transition-colors flex items-center gap-2"
+            className="px-4 sm:px-5 py-2.5 text-[10px] font-medium text-white bg-oryn-orange hover:bg-oryn-orange-dark tracking-[0.1em] transition-colors flex items-center gap-1.5 sm:gap-2 active:scale-[0.97]"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />

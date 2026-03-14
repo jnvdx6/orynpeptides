@@ -41,11 +41,11 @@ const iconMap: Record<string, string> = {
 export function SellingPoints({ detail }: { detail: ProductDetail }) {
   return (
     <section className="py-12 bg-white border-y border-oryn-grey/10">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {detail.sellingPoints.map((point) => (
             <div key={point.title} className="text-center group">
-              <div className="w-12 h-12 mx-auto mb-3 bg-oryn-orange/5 border border-oryn-orange/10 flex items-center justify-center group-hover:bg-oryn-orange group-hover:border-oryn-orange transition-colors">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-oryn-orange/5 border border-oryn-orange/10 flex items-center justify-center group-hover:bg-oryn-orange group-hover:border-oryn-orange transition-colors">
                 <svg
                   width="20"
                   height="20"
@@ -58,8 +58,8 @@ export function SellingPoints({ detail }: { detail: ProductDetail }) {
                   <path d={iconMap[point.icon] || iconMap.precision} />
                 </svg>
               </div>
-              <h3 className="text-xs font-bold mb-1">{point.title}</h3>
-              <p className="text-[10px] text-oryn-black/40 font-plex leading-relaxed">
+              <h3 className="text-[11px] sm:text-xs font-bold mb-1">{point.title}</h3>
+              <p className="text-[9px] sm:text-[10px] text-oryn-black/40 font-plex leading-relaxed">
                 {point.description}
               </p>
             </div>

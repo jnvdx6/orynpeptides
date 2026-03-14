@@ -44,9 +44,9 @@ export function ContactClient() {
         </div>
       </section>
 
-      <section className="py-24 bg-oryn-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="py-16 md:py-24 bg-oryn-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div>
               <h2 className="text-2xl font-bold mb-8">{c.companyName}</h2>
 
@@ -98,7 +98,7 @@ export function ContactClient() {
               </div>
             </div>
 
-            <div className="bg-oryn-cream p-8 border border-oryn-orange/10">
+            <div className="bg-oryn-cream p-5 sm:p-8 border border-oryn-orange/10">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full text-center py-16">
                   <div className="w-16 h-16 bg-oryn-orange flex items-center justify-center mb-6">
@@ -162,7 +162,7 @@ export function ContactClient() {
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-oryn-orange tracking-wider mb-2">
                         {c.firstName}

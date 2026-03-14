@@ -6,9 +6,9 @@ export function TestimonialsSection() {
   const { t } = useLocale();
 
   return (
-    <section className="py-24 bg-oryn-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-16 md:py-24 bg-oryn-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 md:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-oryn-orange" />
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
@@ -52,11 +52,11 @@ export function TestimonialsSection() {
         </div>
 
         {/* Stats bar */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-10 py-6">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 py-6">
           {t.testimonials.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl font-bold text-oryn-orange">{stat.value}</div>
-              <div className="text-[9px] font-mono text-oryn-black/30 tracking-[0.15em] mt-1">{stat.label}</div>
+              <div className="text-[10px] font-mono text-oryn-black/30 tracking-[0.1em] mt-1">{stat.label}</div>
             </div>
           ))}
         </div>

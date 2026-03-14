@@ -30,7 +30,7 @@ function ReviewCard({ review }: { review: Review }) {
   });
 
   return (
-    <div className="bg-white border border-oryn-grey/15 p-6 flex flex-col">
+    <div className="bg-white border border-oryn-grey/15 p-4 sm:p-6 flex flex-col">
       <div className="flex items-center justify-between mb-3">
         <StarRating rating={review.rating} />
         {review.verified && (
@@ -76,7 +76,7 @@ export function CustomerReviews({ productSlug, productName }: { productSlug: str
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
@@ -87,29 +87,29 @@ export function CustomerReviews({ productSlug, productName }: { productSlug: str
           </h2>
 
           {/* Aggregate rating */}
-          <div className="flex items-center justify-center gap-4 mt-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-5">
             <div className="flex items-center gap-2">
               <StarRating rating={Math.round(aggregate.average)} size={18} />
               <span className="text-2xl font-bold text-oryn-orange">{aggregate.average}</span>
             </div>
-            <span className="w-px h-6 bg-oryn-grey/30" />
+            <span className="hidden sm:block w-px h-6 bg-oryn-grey/30" />
             <span className="text-sm text-oryn-black/40 font-plex">
               Based on {aggregate.count} verified reviews
             </span>
           </div>
 
           {/* Rating distribution bar */}
-          <div className="flex items-center justify-center gap-6 mt-4">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mt-4">
             {[5, 4].map((stars) => {
               const count = reviews.filter((r) => r.rating === stars).length;
               const pct = Math.round((count / reviews.length) * 100);
               return (
-                <div key={stars} className="flex items-center gap-2">
+                <div key={stars} className="flex items-center gap-1.5 sm:gap-2">
                   <span className="text-[10px] font-mono text-oryn-black/40 w-4 text-right">{stars}</span>
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="#FF6A1A" stroke="#FF6A1A" strokeWidth="2">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
-                  <div className="w-20 h-1.5 bg-oryn-grey/15 overflow-hidden">
+                  <div className="w-16 sm:w-20 h-1.5 bg-oryn-grey/15 overflow-hidden">
                     <div className="h-full bg-oryn-orange" style={{ width: `${pct}%` }} />
                   </div>
                   <span className="text-[9px] font-mono text-oryn-black/30">{pct}%</span>

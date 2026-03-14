@@ -45,15 +45,15 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: "radial-gradient(circle at 1px 1px, #FF6A1A 1px, transparent 0)",
         backgroundSize: "40px 40px",
       }} />
 
-      <div className="max-w-7xl mx-auto px-6 relative">
-        <div className="text-center mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+        <div className="text-center mb-10 md:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-oryn-orange" />
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
@@ -70,9 +70,9 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-px bg-oryn-grey/10">
           {t.howItWorks.steps.map((step, i) => (
-            <div key={i} className="relative group">
+            <div key={i} className="relative group bg-white">
               {/* Connector line */}
               {i < 3 && (
                 <div className="hidden lg:block absolute top-12 left-[calc(50%+2rem)] right-0 h-px bg-oryn-orange/20 z-0">
@@ -80,7 +80,7 @@ export function HowItWorksSection() {
                 </div>
               )}
 
-              <div className="p-8 text-center relative z-10">
+              <div className="p-4 sm:p-8 text-center relative z-10">
                 {/* Step number */}
                 <div className="text-[10px] font-mono text-oryn-orange/40 tracking-[0.2em] mb-3">
                   {steps[i].number}

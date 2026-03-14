@@ -69,7 +69,7 @@ const EMPTY_FORM: ProductForm = {
 };
 
 const CATEGORY_META: Record<CategoryId, { label: string; description: string; defaultImage: string }> = {
-  'peptide-pen': { label: 'Peptide Pens', description: 'Injectable peptide pens', defaultImage: '/images/products/pen-bpc157.png' },
+  'peptide-pen': { label: 'Peptide Pens', description: 'Injectable peptide pens', defaultImage: '/images/products/peptide-pen-black.png' },
   'medit-pen': { label: 'MediT Pens', description: 'Prefilled injection pens', defaultImage: '/images/products/pen-medit.png' },
   novadose: { label: 'NovaDose', description: 'Precision dosing products', defaultImage: '/images/products/pen-novadose.png' },
 };
@@ -77,7 +77,7 @@ const CATEGORY_META: Record<CategoryId, { label: string; description: string; de
 const BADGE_OPTIONS = ['', 'Best Seller', 'Popular', 'New', 'Premium', 'Innovation', 'Sale'];
 
 const IMAGE_OPTIONS = [
-  { label: 'BPC-157', value: '/images/products/pen-bpc157.png' },
+  { label: 'BPC-157', value: '/images/products/peptide-pen-black.png' },
   { label: 'TB-500', value: '/images/products/pen-tb500.png' },
   { label: 'CJC-1295', value: '/images/products/pen-cjc1295.png' },
   { label: 'Ipamorelin', value: '/images/products/pen-ipamorelin.png' },

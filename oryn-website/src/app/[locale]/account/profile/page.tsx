@@ -75,9 +75,9 @@ export default function ProfilePage() {
         )}
 
         <form onSubmit={handleSaveProfile} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
+              <label className="block text-[10px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
                 {p.firstName}
               </label>
               <input
@@ -88,7 +88,7 @@ export default function ProfilePage() {
               />
             </div>
             <div>
-              <label className="block text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
+              <label className="block text-[10px] font-mono text-oryn-black/40 tracking-[0.15em] mb-1.5">
                 {p.lastName}
               </label>
               <input

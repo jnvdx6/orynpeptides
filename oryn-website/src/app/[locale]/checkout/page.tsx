@@ -523,7 +523,7 @@ export default function CheckoutPage() {
     <div className="pt-20 pb-16 min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-oryn-grey/20">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-lg font-bold tracking-tight">ORYN</Link>
           <div className="flex items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
@@ -538,8 +538,8 @@ export default function CheckoutPage() {
 
       {/* Step indicator */}
       <div className="border-b border-oryn-grey/10">
-        <div className="max-w-6xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-center gap-2 text-xs">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-xs">
             {stepLabels.map((label, i) => {
               const stepKey = stepKeys[i];
               const isActive = activeStep === stepKey;
@@ -562,11 +562,11 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Mobile order summary toggle */}
         <button
           onClick={() => setShowMobileSummary(!showMobileSummary)}
-          className="lg:hidden w-full flex items-center justify-between p-4 bg-oryn-grey-light mb-6 border border-oryn-grey/20"
+          className="lg:hidden w-full flex items-center justify-between p-4 bg-oryn-grey-light mb-6 border border-oryn-grey/20 active:bg-oryn-grey-light/80"
         >
           <div className="flex items-center gap-2">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -725,7 +725,7 @@ export default function CheckoutPage() {
                     </div>
 
                     {/* Name */}
-                    <div className="grid grid-cols-2 gap-3 mb-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                       <div>
                         <input
                           type="text"
@@ -776,7 +776,7 @@ export default function CheckoutPage() {
                     </div>
 
                     {/* City + Postal */}
-                    <div className="grid grid-cols-2 gap-3 mb-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                       <div>
                         <input
                           type="text"

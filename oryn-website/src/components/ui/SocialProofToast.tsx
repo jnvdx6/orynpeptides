@@ -69,7 +69,7 @@ export function SocialProofToast() {
       <div className="bg-white border border-oryn-grey/20 shadow-lg p-3 flex items-center gap-3 max-w-[280px]">
         <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
           <Image
-            src={productImages.bySlug[data.product.slug] || "/images/products/pen-bpc157.png"}
+            src={productImages.bySlug[data.product.slug] || "/images/products/peptide-pen-black.png"}
             alt={data.product.name}
             width={32}
             height={32}

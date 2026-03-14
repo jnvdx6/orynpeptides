@@ -7,7 +7,7 @@ export function CTASection() {
  const { t } = useLocale();
 
  return (
- <section className="relative overflow-hidden bg-oryn-gradient py-32">
+ <section className="relative overflow-hidden bg-oryn-gradient py-20 md:py-32">
  <div className="absolute inset-0 bg-molecular-grid-orange opacity-20" />
 
  <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -58,16 +58,13 @@ export function CTASection() {
  </Link>
  </div>
 
- <div className="mt-24 flex items-center justify-center gap-12">
- {t.cta.badges.map((badge, i) => (
- <div key={badge.value} className="flex items-center gap-12">
- <div className="text-center">
+ <div className="mt-16 md:mt-24 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+ {t.cta.badges.map((badge) => (
+ <div key={badge.value} className="text-center">
  <div className="text-xl font-bold text-white/80">{badge.value}</div>
  <div className="text-[8px] font-mono tracking-[0.2em] text-white/30 mt-1">
  {badge.label}
  </div>
- </div>
- {i < 3 && <div className="w-px h-8 bg-white/10" />}
  </div>
  ))}
  </div>

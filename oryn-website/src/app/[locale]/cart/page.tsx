@@ -10,11 +10,11 @@ import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
-const categoryImages: Record<string, string> = {
-  "peptide-pen": "/images/peptide-pen-real.png",
-  "medit-pen": "/images/medit-box.png",
-  novadose: "/images/novadose-pen-real.png",
-};
+import { productImages } from "@/data/products";
+
+function getProductImage(slug: string, category: string): string {
+  return productImages.bySlug[slug] || productImages.categoryCard[category] || "/images/products/peptide-pen-black.png";
+}
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, volumeDiscount, finalPrice, cartLoaded } = useCart();
@@ -121,7 +121,7 @@ export default function CartPage() {
                   className="w-24 h-24 bg-oryn-cream overflow-hidden relative shrink-0 flex items-center justify-center"
                 >
                   <Image
-                    src={categoryImages[item.product.category] || "/images/peptide-pen-real.png"}
+                    src={getProductImage(item.product.slug, item.product.category)}
                     alt={item.product.name}
                     width={80}
                     height={80}
@@ -272,7 +272,7 @@ export default function CartPage() {
                 >
                   <div className="w-16 h-16 bg-oryn-cream flex items-center justify-center shrink-0">
                     <Image
-                      src={categoryImages[product.category] || "/images/peptide-pen-real.png"}
+                      src={getProductImage(product.slug, product.category)}
                       alt={product.name}
                       width={48}
                       height={48}

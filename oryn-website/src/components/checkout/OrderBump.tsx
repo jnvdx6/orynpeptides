@@ -41,7 +41,7 @@ export function OrderBump() {
       <div className="flex items-center gap-4">
         <div className="w-16 h-16 bg-oryn-cream flex items-center justify-center shrink-0">
           <Image
-            src={productImages.bySlug[bump.slug] || "/images/products/pen-bpc157.png"}
+            src={productImages.bySlug[bump.slug] || "/images/products/peptide-pen-black.png"}
             alt={bump.name}
             width={48}
             height={48}

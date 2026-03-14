@@ -52,10 +52,10 @@ function ProductsContent() {
 
   return (
     <div className="pt-[calc(1rem+4px)] pb-16">
-      <section className="bg-oryn-gradient py-28 relative overflow-hidden">
+      <section className="bg-oryn-gradient py-16 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-molecular-grid-orange opacity-20" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-white/40" />
             <span className="text-[10px] font-mono text-white/70 tracking-[0.2em]">
@@ -87,7 +87,7 @@ function ProductsContent() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-[10px] font-mono text-oryn-black/30 tracking-[0.1em] mb-8">
           <Link href="/" className="hover:text-oryn-orange transition-colors">{t.productDetail.home}</Link>
@@ -124,10 +124,10 @@ function ProductsContent() {
           </select>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 mb-12">
+        <div className="flex items-center gap-2 mb-8 md:mb-12 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:flex-wrap scrollbar-hide">
           <button
             onClick={() => setActiveCategory("all")}
-            className={`px-5 py-2.5 text-[10px] font-medium tracking-[0.15em] transition-all ${
+            className={`px-4 sm:px-5 py-2.5 text-[10px] font-medium tracking-[0.15em] transition-all whitespace-nowrap shrink-0 ${
               activeCategory === "all"
                 ? "bg-oryn-orange text-white"
                 : "bg-transparent text-oryn-black/50 border border-oryn-orange/10 hover:border-oryn-orange/30"
@@ -139,7 +139,7 @@ function ProductsContent() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 text-[10px] font-medium tracking-[0.15em] transition-all ${
+              className={`px-4 sm:px-5 py-2.5 text-[10px] font-medium tracking-[0.15em] transition-all whitespace-nowrap shrink-0 ${
                 activeCategory === cat.id
                   ? "bg-oryn-orange text-white"
                   : "bg-transparent text-oryn-black/50 border border-oryn-orange/10 hover:border-oryn-orange/30"
@@ -148,7 +148,7 @@ function ProductsContent() {
               {(t.categoryNames[cat.id] || cat.name).toUpperCase()} ({cat.count})
             </button>
           ))}
-          <span className="ml-auto text-[10px] text-oryn-black/30 font-mono">
+          <span className="ml-auto text-[10px] text-oryn-black/30 font-mono whitespace-nowrap shrink-0">
             {filtered.length} {t.productsPage.results}
           </span>
         </div>

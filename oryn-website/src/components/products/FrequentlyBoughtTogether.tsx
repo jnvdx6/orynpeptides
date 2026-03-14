@@ -48,8 +48,8 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12">
-      <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-6 md:p-8">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-4 sm:p-6 md:p-8">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-6 bg-oryn-orange flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -62,12 +62,12 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
           </span>
         </div>
 
-        <div className="flex items-center gap-3 md:gap-6 flex-wrap mb-6">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-6 flex-wrap mb-6">
           {/* Current product */}
-          <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-[160px]">
+          <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-0 flex-1 sm:flex-initial sm:min-w-[160px]">
             <div className="w-12 h-12 bg-oryn-cream flex items-center justify-center shrink-0">
               <Image
-                src={productImages.bySlug[currentProduct.slug] || "/images/products/pen-bpc157.png"}
+                src={productImages.bySlug[currentProduct.slug] || "/images/products/peptide-pen-black.png"}
                 alt={currentProduct.name}
                 width={36}
                 height={36}
@@ -82,11 +82,11 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
 
           {paired.map((product) => (
             <div key={product.slug} className="contents">
-              <span className="text-oryn-orange text-xl font-bold">+</span>
-              <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-[160px]">
+              <span className="text-oryn-orange text-xl font-bold shrink-0">+</span>
+              <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-0 flex-1 sm:flex-initial sm:min-w-[160px]">
                 <div className="w-12 h-12 bg-oryn-cream flex items-center justify-center shrink-0">
                   <Image
-                    src={productImages.bySlug[product.slug] || "/images/products/pen-bpc157.png"}
+                    src={productImages.bySlug[product.slug] || "/images/products/peptide-pen-black.png"}
                     alt={product.name}
                     width={36}
                     height={36}
@@ -102,7 +102,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
           ))}
         </div>
 
-        <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
               <span className="text-sm text-oryn-black/40 line-through">{formatPrice(bundlePrice)}</span>
@@ -114,7 +114,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
           </div>
           <button
             onClick={addBundle}
-            className="px-6 py-3 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-3.5 bg-oryn-orange text-white text-xs font-medium tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2 active:scale-[0.98]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
