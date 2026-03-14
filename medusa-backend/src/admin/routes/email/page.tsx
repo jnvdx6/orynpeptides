@@ -1,1741 +1,574 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
-import { useState, useEffect, useCallback } from "react"
+import { Envelope } from "@medusajs/icons"
+import {
+  Container,
+  Heading,
+  Text,
+  Badge,
+  Button,
+  StatusBadge,
+  Table,
+  Tabs,
+  Switch,
+  Input,
+  Textarea,
+  Label,
+  Drawer,
+  FocusModal,
+  toast,
+} from "@medusajs/ui"
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
+import { sdk } from "../../lib/sdk"
+import { useState } from "react"
 
-// ─── Types ──────────────────────────────────────────────────────────────────
-
-type EmailDirection = "outbound" | "inbound"
-type EmailStatus = "sent" | "delivered" | "opened" | "clicked" | "bounced" | "failed"
-
-type EmailLog = {
-  id: string
-  direction: EmailDirection
-  from: string
-  to: string
-  subject: string
-  status: EmailStatus
-  html_body?: string
-  text_body?: string
-  metadata?: Record<string, unknown>
-  error?: string
-  opened_at?: string
-  clicked_at?: string
-  delivered_at?: string
-  bounced_at?: string
-  created_at: string
-  updated_at: string
-}
-
-type EmailTemplate = {
-  id: string
-  name: string
-  slug: string
-  category: string
-  description: string
-  subject_template: string
-  html_template: string
-  variables: string[]
-  is_active: boolean
-  created_at: string
-  updated_at: string
-}
-
-type EmailStats = {
-  total_sent: number
-  total_delivered: number
-  total_opened: number
-  total_bounced: number
-  total_failed: number
-  total_inbound: number
-  delivery_rate: number
-  open_rate: number
-  bounce_rate: number
-}
-
-type Tab = "dashboard" | "logs" | "templates"
-
-// ─── Styles ─────────────────────────────────────────────────────────────────
-
-const colors = {
-  bg: "#1a1a1a",
-  card: "#252525",
-  cardHover: "#2a2a2a",
-  border: "#333",
-  borderLight: "#444",
-  accent: "#FF6A1A",
-  accentHover: "#e55e15",
-  accentSubtle: "rgba(255, 106, 26, 0.12)",
-  text: "#e0e0e0",
-  textMuted: "#999",
-  textDim: "#777",
-  white: "#fff",
-  success: "#22c55e",
-  successBg: "rgba(34, 197, 94, 0.15)",
-  info: "#3b82f6",
-  infoBg: "rgba(59, 130, 246, 0.15)",
-  cyan: "#06b6d4",
-  cyanBg: "rgba(6, 182, 212, 0.15)",
-  purple: "#a855f7",
-  purpleBg: "rgba(168, 85, 247, 0.15)",
-  danger: "#ef4444",
-  dangerBg: "rgba(239, 68, 68, 0.15)",
-  warning: "#f59e0b",
-  warningBg: "rgba(245, 158, 11, 0.15)",
-}
-
-const statusConfig: Record<EmailStatus, { color: string; bg: string; label: string }> = {
-  sent: { color: colors.info, bg: colors.infoBg, label: "Sent" },
-  delivered: { color: colors.success, bg: colors.successBg, label: "Delivered" },
-  opened: { color: colors.cyan, bg: colors.cyanBg, label: "Opened" },
-  clicked: { color: colors.purple, bg: colors.purpleBg, label: "Clicked" },
-  bounced: { color: colors.danger, bg: colors.dangerBg, label: "Bounced" },
-  failed: { color: colors.danger, bg: colors.dangerBg, label: "Failed" },
-}
-
-// ─── Utility Helpers ────────────────────────────────────────────────────────
-
-function formatDate(iso: string): string {
-  const d = new Date(iso)
-  return d.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
+function fmtDate(iso: string) {
+  return new Date(iso).toLocaleString("en-US", {
+    month: "short", day: "numeric", hour: "2-digit", minute: "2-digit",
   })
 }
 
-function formatDateShort(iso: string): string {
-  const d = new Date(iso)
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+function statusColor(s: string): "green" | "red" | "blue" | "orange" | "grey" {
+  if (["delivered", "opened", "clicked"].includes(s)) return "green"
+  if (["bounced", "failed", "complained"].includes(s)) return "red"
+  if (s === "sent") return "blue"
+  if (s === "queued") return "orange"
+  return "grey"
 }
-
-function truncate(str: string, len: number): string {
-  if (str.length <= len) return str
-  return str.slice(0, len) + "..."
-}
-
-// ─── Sub-Components ─────────────────────────────────────────────────────────
-
-function KpiCard({
-  label,
-  value,
-  subtitle,
-  accentColor,
-  icon,
-}: {
-  label: string
-  value: string | number
-  subtitle?: string
-  accentColor: string
-  icon: string
-}) {
-  return (
-    <div
-      style={{
-        background: colors.card,
-        border: `1px solid ${colors.border}`,
-        borderRadius: 12,
-        padding: "24px",
-        flex: "1 1 0",
-        minWidth: 180,
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 3,
-          background: accentColor,
-        }}
-      />
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-        <span style={{ fontSize: 22 }}>{icon}</span>
-        <span style={{ color: colors.textMuted, fontSize: 13, fontWeight: 500, letterSpacing: 0.3 }}>
-          {label}
-        </span>
-      </div>
-      <div style={{ fontSize: 32, fontWeight: 700, color: colors.white, lineHeight: 1 }}>
-        {value}
-      </div>
-      {subtitle && (
-        <div style={{ color: colors.textDim, fontSize: 12, marginTop: 8 }}>{subtitle}</div>
-      )}
-    </div>
-  )
-}
-
-function StatusBadge({ status }: { status: EmailStatus }) {
-  const cfg = statusConfig[status] || statusConfig.sent
-  return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 5,
-        padding: "3px 10px",
-        borderRadius: 20,
-        fontSize: 12,
-        fontWeight: 600,
-        color: cfg.color,
-        background: cfg.bg,
-        border: `1px solid ${cfg.color}33`,
-        textTransform: "capitalize",
-        whiteSpace: "nowrap",
-      }}
-    >
-      <span
-        style={{
-          width: 6,
-          height: 6,
-          borderRadius: "50%",
-          background: cfg.color,
-          flexShrink: 0,
-        }}
-      />
-      {cfg.label}
-    </span>
-  )
-}
-
-function DirectionBadge({ direction }: { direction: EmailDirection }) {
-  const isOut = direction === "outbound"
-  return (
-    <span
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 4,
-        padding: "2px 8px",
-        borderRadius: 6,
-        fontSize: 11,
-        fontWeight: 600,
-        color: isOut ? colors.info : colors.success,
-        background: isOut ? colors.infoBg : colors.successBg,
-        textTransform: "uppercase",
-        letterSpacing: 0.5,
-      }}
-    >
-      <span style={{ fontSize: 13 }}>{isOut ? "\u2191" : "\u2193"}</span>
-      {direction}
-    </span>
-  )
-}
-
-function TabButton({
-  label,
-  active,
-  onClick,
-  count,
-}: {
-  label: string
-  active: boolean
-  onClick: () => void
-  count?: number
-}) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: "10px 20px",
-        background: active ? colors.accent : "transparent",
-        color: active ? colors.white : colors.textMuted,
-        border: active ? `1px solid ${colors.accent}` : `1px solid ${colors.border}`,
-        borderRadius: 8,
-        cursor: "pointer",
-        fontSize: 14,
-        fontWeight: active ? 600 : 500,
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-        transition: "all 0.15s ease",
-      }}
-    >
-      {label}
-      {count !== undefined && (
-        <span
-          style={{
-            background: active ? "rgba(255,255,255,0.2)" : colors.border,
-            padding: "1px 7px",
-            borderRadius: 10,
-            fontSize: 11,
-            fontWeight: 600,
-          }}
-        >
-          {count}
-        </span>
-      )}
-    </button>
-  )
-}
-
-function FilterSelect({
-  value,
-  onChange,
-  options,
-  label,
-}: {
-  value: string
-  onChange: (v: string) => void
-  options: { value: string; label: string }[]
-  label: string
-}) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      <span style={{ color: colors.textMuted, fontSize: 13, fontWeight: 500 }}>{label}:</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        style={{
-          background: colors.card,
-          color: colors.text,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 6,
-          padding: "6px 12px",
-          fontSize: 13,
-          cursor: "pointer",
-          outline: "none",
-        }}
-      >
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
-}
-
-function LoadingSpinner() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 60,
-        flexDirection: "column",
-        gap: 16,
-      }}
-    >
-      <div
-        style={{
-          width: 36,
-          height: 36,
-          border: `3px solid ${colors.border}`,
-          borderTop: `3px solid ${colors.accent}`,
-          borderRadius: "50%",
-          animation: "spin 0.8s linear infinite",
-        }}
-      />
-      <span style={{ color: colors.textMuted, fontSize: 14 }}>Loading...</span>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-    </div>
-  )
-}
-
-function EmptyState({ message, icon }: { message: string; icon: string }) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 60,
-        gap: 12,
-      }}
-    >
-      <span style={{ fontSize: 40, opacity: 0.4 }}>{icon}</span>
-      <span style={{ color: colors.textDim, fontSize: 14 }}>{message}</span>
-    </div>
-  )
-}
-
-function ErrorBanner({ message, onRetry }: { message: string; onRetry?: () => void }) {
-  return (
-    <div
-      style={{
-        background: colors.dangerBg,
-        border: `1px solid ${colors.danger}44`,
-        borderRadius: 8,
-        padding: "12px 16px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: 12,
-        margin: "12px 0",
-      }}
-    >
-      <span style={{ color: colors.danger, fontSize: 13 }}>{message}</span>
-      {onRetry && (
-        <button
-          onClick={onRetry}
-          style={{
-            background: colors.danger,
-            color: colors.white,
-            border: "none",
-            borderRadius: 6,
-            padding: "5px 14px",
-            fontSize: 12,
-            fontWeight: 600,
-            cursor: "pointer",
-          }}
-        >
-          Retry
-        </button>
-      )}
-    </div>
-  )
-}
-
-// ─── Modal / Preview Panel ──────────────────────────────────────────────────
-
-function PreviewModal({
-  title,
-  html,
-  onClose,
-}: {
-  title: string
-  html: string
-  onClose: () => void
-}) {
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: "rgba(0,0,0,0.7)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: 9999,
-        padding: 24,
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <div
-        style={{
-          background: colors.card,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 16,
-          width: "100%",
-          maxWidth: 800,
-          maxHeight: "85vh",
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "16px 20px",
-            borderBottom: `1px solid ${colors.border}`,
-          }}
-        >
-          <span style={{ color: colors.white, fontSize: 16, fontWeight: 600 }}>{title}</span>
-          <button
-            onClick={onClose}
-            style={{
-              background: "none",
-              border: `1px solid ${colors.border}`,
-              borderRadius: 6,
-              color: colors.textMuted,
-              cursor: "pointer",
-              padding: "4px 10px",
-              fontSize: 13,
-            }}
-          >
-            Close
-          </button>
-        </div>
-        <div
-          style={{
-            flex: 1,
-            overflow: "auto",
-            padding: 0,
-            background: "#fff",
-          }}
-        >
-          <iframe
-            srcDoc={html}
-            style={{
-              width: "100%",
-              minHeight: 500,
-              border: "none",
-            }}
-            title="Email Preview"
-            sandbox="allow-same-origin"
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// ─── Email Detail Drawer ────────────────────────────────────────────────────
-
-function EmailDetailPanel({ log, onClose }: { log: EmailLog; onClose: () => void }) {
-  const [showHtml, setShowHtml] = useState(false)
-
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: "rgba(0,0,0,0.6)",
-        display: "flex",
-        justifyContent: "flex-end",
-        zIndex: 9998,
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: 560,
-          background: colors.bg,
-          borderLeft: `1px solid ${colors.border}`,
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-          animation: "slideIn 0.2s ease-out",
-        }}
-      >
-        <style>{`@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }`}</style>
-
-        {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "16px 20px",
-            borderBottom: `1px solid ${colors.border}`,
-            background: colors.card,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 18, fontWeight: 600, color: colors.white }}>
-              Email Detail
-            </span>
-            <DirectionBadge direction={log.direction} />
-          </div>
-          <button
-            onClick={onClose}
-            style={{
-              background: "none",
-              border: `1px solid ${colors.border}`,
-              borderRadius: 6,
-              color: colors.textMuted,
-              cursor: "pointer",
-              padding: "4px 10px",
-              fontSize: 18,
-              lineHeight: 1,
-            }}
-          >
-            &times;
-          </button>
-        </div>
-
-        {/* Content */}
-        <div style={{ flex: 1, overflow: "auto", padding: 20 }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {/* Status */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <StatusBadge status={log.status} />
-              <span style={{ color: colors.textDim, fontSize: 12 }}>
-                {formatDate(log.created_at)}
-              </span>
-            </div>
-
-            {/* Fields */}
-            {[
-              { label: "From", value: log.from },
-              { label: "To", value: log.to },
-              { label: "Subject", value: log.subject },
-              { label: "ID", value: log.id },
-            ].map((field) => (
-              <div key={field.label}>
-                <div
-                  style={{
-                    color: colors.textMuted,
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: 0.8,
-                    marginBottom: 4,
-                    fontWeight: 600,
-                  }}
-                >
-                  {field.label}
-                </div>
-                <div
-                  style={{
-                    color: colors.text,
-                    fontSize: 14,
-                    wordBreak: "break-all",
-                    background: colors.card,
-                    padding: "8px 12px",
-                    borderRadius: 6,
-                    border: `1px solid ${colors.border}`,
-                  }}
-                >
-                  {field.value}
-                </div>
-              </div>
-            ))}
-
-            {/* Timestamps */}
-            <div>
-              <div
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 11,
-                  textTransform: "uppercase",
-                  letterSpacing: 0.8,
-                  marginBottom: 8,
-                  fontWeight: 600,
-                }}
-              >
-                Timeline
-              </div>
-              <div
-                style={{
-                  background: colors.card,
-                  borderRadius: 8,
-                  border: `1px solid ${colors.border}`,
-                  overflow: "hidden",
-                }}
-              >
-                {[
-                  { label: "Created", value: log.created_at },
-                  { label: "Delivered", value: log.delivered_at },
-                  { label: "Opened", value: log.opened_at },
-                  { label: "Clicked", value: log.clicked_at },
-                  { label: "Bounced", value: log.bounced_at },
-                ]
-                  .filter((t) => t.value)
-                  .map((t, i) => (
-                    <div
-                      key={t.label}
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "8px 12px",
-                        borderTop: i > 0 ? `1px solid ${colors.border}` : "none",
-                        fontSize: 13,
-                      }}
-                    >
-                      <span style={{ color: colors.textMuted }}>{t.label}</span>
-                      <span style={{ color: colors.text }}>{formatDate(t.value!)}</span>
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            {/* Error */}
-            {log.error && (
-              <div>
-                <div
-                  style={{
-                    color: colors.danger,
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: 0.8,
-                    marginBottom: 4,
-                    fontWeight: 600,
-                  }}
-                >
-                  Error
-                </div>
-                <div
-                  style={{
-                    color: colors.danger,
-                    fontSize: 13,
-                    background: colors.dangerBg,
-                    padding: "10px 12px",
-                    borderRadius: 6,
-                    border: `1px solid ${colors.danger}44`,
-                    fontFamily: "monospace",
-                    whiteSpace: "pre-wrap",
-                    wordBreak: "break-all",
-                  }}
-                >
-                  {log.error}
-                </div>
-              </div>
-            )}
-
-            {/* Body preview */}
-            {(log.html_body || log.text_body) && (
-              <div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginBottom: 8,
-                  }}
-                >
-                  <span
-                    style={{
-                      color: colors.textMuted,
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: 0.8,
-                      fontWeight: 600,
-                    }}
-                  >
-                    Body
-                  </span>
-                  {log.html_body && (
-                    <button
-                      onClick={() => setShowHtml(true)}
-                      style={{
-                        background: colors.accentSubtle,
-                        color: colors.accent,
-                        border: `1px solid ${colors.accent}44`,
-                        borderRadius: 6,
-                        padding: "4px 12px",
-                        fontSize: 12,
-                        fontWeight: 600,
-                        cursor: "pointer",
-                      }}
-                    >
-                      Preview HTML
-                    </button>
-                  )}
-                </div>
-                <div
-                  style={{
-                    background: colors.card,
-                    padding: "12px",
-                    borderRadius: 6,
-                    border: `1px solid ${colors.border}`,
-                    fontSize: 13,
-                    color: colors.text,
-                    whiteSpace: "pre-wrap",
-                    maxHeight: 200,
-                    overflow: "auto",
-                    fontFamily: "monospace",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {log.text_body || "(HTML only - click Preview to view)"}
-                </div>
-              </div>
-            )}
-
-            {/* Metadata */}
-            {log.metadata && Object.keys(log.metadata).length > 0 && (
-              <div>
-                <div
-                  style={{
-                    color: colors.textMuted,
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: 0.8,
-                    marginBottom: 4,
-                    fontWeight: 600,
-                  }}
-                >
-                  Metadata
-                </div>
-                <div
-                  style={{
-                    background: colors.card,
-                    padding: "10px 12px",
-                    borderRadius: 6,
-                    border: `1px solid ${colors.border}`,
-                    fontSize: 12,
-                    color: colors.textMuted,
-                    fontFamily: "monospace",
-                    whiteSpace: "pre-wrap",
-                    wordBreak: "break-all",
-                  }}
-                >
-                  {JSON.stringify(log.metadata, null, 2)}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {showHtml && log.html_body && (
-          <PreviewModal
-            title={`Preview: ${log.subject}`}
-            html={log.html_body}
-            onClose={() => setShowHtml(false)}
-          />
-        )}
-      </div>
-    </div>
-  )
-}
-
-// ─── Dashboard Tab ──────────────────────────────────────────────────────────
-
-function DashboardTab({ stats, loading, error, onRetry }: {
-  stats: EmailStats | null
-  loading: boolean
-  error: string | null
-  onRetry: () => void
-}) {
-  if (loading) return <LoadingSpinner />
-  if (error) return <ErrorBanner message={error} onRetry={onRetry} />
-  if (!stats) return <EmptyState message="No email data available yet." icon="📊" />
-
-  const statusDistribution = [
-    { label: "Delivered", count: stats.total_delivered, color: colors.success },
-    { label: "Opened", count: stats.total_opened, color: colors.cyan },
-    { label: "Bounced", count: stats.total_bounced, color: colors.danger },
-    { label: "Failed", count: stats.total_failed, color: colors.warning },
-  ]
-
-  const maxCount = Math.max(...statusDistribution.map((s) => s.count), 1)
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-      {/* KPI Cards */}
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-        <KpiCard
-          label="Total Sent"
-          value={stats.total_sent.toLocaleString()}
-          subtitle="All outbound emails"
-          accentColor={colors.accent}
-          icon="📤"
-        />
-        <KpiCard
-          label="Delivered"
-          value={stats.total_delivered.toLocaleString()}
-          subtitle={`${stats.delivery_rate.toFixed(1)}% delivery rate`}
-          accentColor={colors.success}
-          icon="✅"
-        />
-        <KpiCard
-          label="Opened"
-          value={stats.total_opened.toLocaleString()}
-          subtitle={`${stats.open_rate.toFixed(1)}% open rate`}
-          accentColor={colors.cyan}
-          icon="👁"
-        />
-        <KpiCard
-          label="Bounced"
-          value={stats.total_bounced.toLocaleString()}
-          subtitle={`${stats.bounce_rate.toFixed(1)}% bounce rate`}
-          accentColor={colors.danger}
-          icon="🔴"
-        />
-      </div>
-
-      {/* Second row */}
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-        {/* Inbound */}
-        <div
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 12,
-            padding: 24,
-            flex: "1 1 280px",
-            minWidth: 280,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={{ fontSize: 22 }}>📥</span>
-            <span
-              style={{
-                color: colors.textMuted,
-                fontSize: 13,
-                fontWeight: 500,
-                letterSpacing: 0.3,
-              }}
-            >
-              Inbound Emails
-            </span>
-          </div>
-          <div style={{ fontSize: 40, fontWeight: 700, color: colors.white, lineHeight: 1 }}>
-            {stats.total_inbound.toLocaleString()}
-          </div>
-          <div style={{ color: colors.textDim, fontSize: 12, marginTop: 8 }}>
-            Received / forwarded emails
-          </div>
-        </div>
-
-        {/* Status Distribution */}
-        <div
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 12,
-            padding: 24,
-            flex: "2 1 400px",
-            minWidth: 400,
-          }}
-        >
-          <div
-            style={{
-              color: colors.textMuted,
-              fontSize: 13,
-              fontWeight: 500,
-              letterSpacing: 0.3,
-              marginBottom: 20,
-            }}
-          >
-            Status Distribution
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {statusDistribution.map((item) => (
-              <div key={item.label}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: 6,
-                    fontSize: 13,
-                  }}
-                >
-                  <span style={{ color: colors.text, fontWeight: 500 }}>{item.label}</span>
-                  <span style={{ color: item.color, fontWeight: 600 }}>
-                    {item.count.toLocaleString()}
-                  </span>
-                </div>
-                <div
-                  style={{
-                    width: "100%",
-                    height: 6,
-                    background: colors.border,
-                    borderRadius: 3,
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: `${(item.count / maxCount) * 100}%`,
-                      height: "100%",
-                      background: item.color,
-                      borderRadius: 3,
-                      transition: "width 0.4s ease",
-                      minWidth: item.count > 0 ? 4 : 0,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Quick stats summary */}
-      <div
-        style={{
-          background: colors.card,
-          border: `1px solid ${colors.border}`,
-          borderRadius: 12,
-          padding: 20,
-          display: "flex",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-          gap: 16,
-        }}
-      >
-        {[
-          { label: "Delivery Rate", value: `${stats.delivery_rate.toFixed(1)}%`, color: colors.success },
-          { label: "Open Rate", value: `${stats.open_rate.toFixed(1)}%`, color: colors.cyan },
-          { label: "Bounce Rate", value: `${stats.bounce_rate.toFixed(1)}%`, color: colors.danger },
-          { label: "Failure Rate", value: stats.total_sent > 0 ? `${((stats.total_failed / stats.total_sent) * 100).toFixed(1)}%` : "0.0%", color: colors.warning },
-        ].map((metric) => (
-          <div
-            key={metric.label}
-            style={{
-              textAlign: "center",
-              minWidth: 120,
-            }}
-          >
-            <div style={{ fontSize: 28, fontWeight: 700, color: metric.color }}>{metric.value}</div>
-            <div style={{ color: colors.textDim, fontSize: 12, marginTop: 4 }}>{metric.label}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// ─── Email Logs Tab ─────────────────────────────────────────────────────────
-
-function EmailLogsTab({
-  logs,
-  loading,
-  error,
-  onRetry,
-}: {
-  logs: EmailLog[]
-  loading: boolean
-  error: string | null
-  onRetry: () => void
-}) {
-  const [directionFilter, setDirectionFilter] = useState("all")
-  const [statusFilter, setStatusFilter] = useState("all")
-  const [selectedLog, setSelectedLog] = useState<EmailLog | null>(null)
-
-  const filtered = logs.filter((log) => {
-    if (directionFilter !== "all" && log.direction !== directionFilter) return false
-    if (statusFilter !== "all" && log.status !== statusFilter) return false
-    return true
-  })
-
-  if (loading) return <LoadingSpinner />
-  if (error) return <ErrorBanner message={error} onRetry={onRetry} />
-
-  return (
-    <div>
-      {/* Filters */}
-      <div
-        style={{
-          display: "flex",
-          gap: 16,
-          marginBottom: 16,
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          <FilterSelect
-            label="Direction"
-            value={directionFilter}
-            onChange={setDirectionFilter}
-            options={[
-              { value: "all", label: "All" },
-              { value: "outbound", label: "Outbound" },
-              { value: "inbound", label: "Inbound" },
-            ]}
-          />
-          <FilterSelect
-            label="Status"
-            value={statusFilter}
-            onChange={setStatusFilter}
-            options={[
-              { value: "all", label: "All" },
-              { value: "sent", label: "Sent" },
-              { value: "delivered", label: "Delivered" },
-              { value: "opened", label: "Opened" },
-              { value: "clicked", label: "Clicked" },
-              { value: "bounced", label: "Bounced" },
-              { value: "failed", label: "Failed" },
-            ]}
-          />
-        </div>
-        <span style={{ color: colors.textDim, fontSize: 13 }}>
-          {filtered.length} email{filtered.length !== 1 ? "s" : ""}
-        </span>
-      </div>
-
-      {/* Table */}
-      {filtered.length === 0 ? (
-        <EmptyState message="No emails match the current filters." icon="📭" />
-      ) : (
-        <div
-          style={{
-            background: colors.card,
-            border: `1px solid ${colors.border}`,
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {/* Table header */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "90px 1fr 1.5fr 110px 160px",
-              padding: "12px 16px",
-              borderBottom: `1px solid ${colors.border}`,
-              background: "#1f1f1f",
-              gap: 12,
-            }}
-          >
-            {["Direction", "To / From", "Subject", "Status", "Date"].map((h) => (
-              <span
-                key={h}
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 11,
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: 0.8,
-                }}
-              >
-                {h}
-              </span>
-            ))}
-          </div>
-
-          {/* Rows */}
-          {filtered.map((log) => (
-            <div
-              key={log.id}
-              onClick={() => setSelectedLog(log)}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "90px 1fr 1.5fr 110px 160px",
-                padding: "12px 16px",
-                borderBottom: `1px solid ${colors.border}`,
-                cursor: "pointer",
-                gap: 12,
-                alignItems: "center",
-                transition: "background 0.1s ease",
-              }}
-              onMouseEnter={(e) => {
-                ;(e.currentTarget as HTMLDivElement).style.background = colors.cardHover
-              }}
-              onMouseLeave={(e) => {
-                ;(e.currentTarget as HTMLDivElement).style.background = "transparent"
-              }}
-            >
-              <div>
-                <DirectionBadge direction={log.direction} />
-              </div>
-              <div
-                style={{
-                  color: colors.text,
-                  fontSize: 13,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-                title={log.direction === "outbound" ? log.to : log.from}
-              >
-                {log.direction === "outbound" ? log.to : log.from}
-              </div>
-              <div
-                style={{
-                  color: colors.text,
-                  fontSize: 13,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-                title={log.subject}
-              >
-                {log.subject}
-              </div>
-              <div>
-                <StatusBadge status={log.status} />
-              </div>
-              <div style={{ color: colors.textDim, fontSize: 12 }}>
-                {formatDate(log.created_at)}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Detail panel */}
-      {selectedLog && (
-        <EmailDetailPanel log={selectedLog} onClose={() => setSelectedLog(null)} />
-      )}
-    </div>
-  )
-}
-
-// ─── Templates Tab ──────────────────────────────────────────────────────────
-
-function TemplatesTab({
-  templates,
-  loading,
-  error,
-  onRetry,
-  onRefresh,
-}: {
-  templates: EmailTemplate[]
-  loading: boolean
-  error: string | null
-  onRetry: () => void
-  onRefresh: () => void
-}) {
-  const [previewHtml, setPreviewHtml] = useState<string | null>(null)
-  const [previewTitle, setPreviewTitle] = useState("")
-  const [seeding, setSeeding] = useState(false)
-  const [seedMessage, setSeedMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
-  const [togglingId, setTogglingId] = useState<string | null>(null)
-
-  const handleSeedTemplates = async () => {
-    setSeeding(true)
-    setSeedMessage(null)
-    try {
-      const res = await fetch("/admin/email-templates/seed", {
-        method: "POST",
-        credentials: "include",
-      })
-      const data = await res.json()
-      if (res.ok) {
-        setSeedMessage({ type: "success", text: data.message || "Templates seeded successfully." })
-        onRefresh()
-      } else {
-        setSeedMessage({ type: "error", text: data.message || "Failed to seed templates." })
-      }
-    } catch (e) {
-      setSeedMessage({ type: "error", text: "Network error while seeding templates." })
-    } finally {
-      setSeeding(false)
-    }
-  }
-
-  const handleToggleActive = async (template: EmailTemplate) => {
-    setTogglingId(template.id)
-    try {
-      await fetch(`/admin/email-templates/${template.id}`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ is_active: !template.is_active }),
-      })
-      onRefresh()
-    } catch (e) {
-      console.error("Failed to toggle template", e)
-    } finally {
-      setTogglingId(null)
-    }
-  }
-
-  const handlePreview = async (template: EmailTemplate) => {
-    setPreviewTitle(template.name)
-    setPreviewHtml(template.html_template)
-  }
-
-  if (loading) return <LoadingSpinner />
-  if (error) return <ErrorBanner message={error} onRetry={onRetry} />
-
-  return (
-    <div>
-      {/* Actions bar */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 16,
-          flexWrap: "wrap",
-          gap: 12,
-        }}
-      >
-        <span style={{ color: colors.textDim, fontSize: 13 }}>
-          {templates.length} template{templates.length !== 1 ? "s" : ""}
-        </span>
-        <button
-          onClick={handleSeedTemplates}
-          disabled={seeding}
-          style={{
-            background: seeding ? colors.border : colors.accent,
-            color: colors.white,
-            border: "none",
-            borderRadius: 8,
-            padding: "8px 18px",
-            fontSize: 13,
-            fontWeight: 600,
-            cursor: seeding ? "not-allowed" : "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 6,
-            opacity: seeding ? 0.7 : 1,
-          }}
-        >
-          {seeding ? "Seeding..." : "Seed Default Templates"}
-        </button>
-      </div>
-
-      {/* Seed message */}
-      {seedMessage && (
-        <div
-          style={{
-            background: seedMessage.type === "success" ? colors.successBg : colors.dangerBg,
-            border: `1px solid ${seedMessage.type === "success" ? colors.success : colors.danger}44`,
-            borderRadius: 8,
-            padding: "10px 16px",
-            marginBottom: 16,
-            color: seedMessage.type === "success" ? colors.success : colors.danger,
-            fontSize: 13,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <span>{seedMessage.text}</span>
-          <button
-            onClick={() => setSeedMessage(null)}
-            style={{
-              background: "none",
-              border: "none",
-              color: "inherit",
-              cursor: "pointer",
-              fontSize: 16,
-              padding: "0 4px",
-            }}
-          >
-            &times;
-          </button>
-        </div>
-      )}
-
-      {/* Template cards */}
-      {templates.length === 0 ? (
-        <EmptyState
-          message="No templates yet. Click 'Seed Default Templates' to create starter templates."
-          icon="📝"
-        />
-      ) : (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
-            gap: 16,
-          }}
-        >
-          {templates.map((tpl) => (
-            <div
-              key={tpl.id}
-              style={{
-                background: colors.card,
-                border: `1px solid ${colors.border}`,
-                borderRadius: 12,
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              {/* Card header */}
-              <div
-                style={{
-                  padding: "16px 20px 12px",
-                  borderBottom: `1px solid ${colors.border}`,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  gap: 12,
-                }}
-              >
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div
-                    style={{
-                      color: colors.white,
-                      fontSize: 15,
-                      fontWeight: 600,
-                      marginBottom: 4,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                    title={tpl.name}
-                  >
-                    {tpl.name}
-                  </div>
-                  <div
-                    style={{
-                      color: colors.textDim,
-                      fontSize: 12,
-                      fontFamily: "monospace",
-                    }}
-                  >
-                    {tpl.slug}
-                  </div>
-                </div>
-                {/* Active toggle */}
-                <button
-                  onClick={() => handleToggleActive(tpl)}
-                  disabled={togglingId === tpl.id}
-                  style={{
-                    background: tpl.is_active ? colors.successBg : colors.dangerBg,
-                    color: tpl.is_active ? colors.success : colors.danger,
-                    border: `1px solid ${tpl.is_active ? colors.success : colors.danger}44`,
-                    borderRadius: 20,
-                    padding: "3px 12px",
-                    fontSize: 11,
-                    fontWeight: 600,
-                    cursor: togglingId === tpl.id ? "not-allowed" : "pointer",
-                    whiteSpace: "nowrap",
-                    opacity: togglingId === tpl.id ? 0.5 : 1,
-                  }}
-                >
-                  {tpl.is_active ? "Active" : "Inactive"}
-                </button>
-              </div>
-
-              {/* Card body */}
-              <div style={{ padding: "12px 20px 16px", flex: 1, display: "flex", flexDirection: "column", gap: 12 }}>
-                {/* Category */}
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span
-                    style={{
-                      background: colors.accentSubtle,
-                      color: colors.accent,
-                      padding: "2px 10px",
-                      borderRadius: 12,
-                      fontSize: 11,
-                      fontWeight: 600,
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    {tpl.category}
-                  </span>
-                </div>
-
-                {/* Description */}
-                {tpl.description && (
-                  <div style={{ color: colors.textMuted, fontSize: 13, lineHeight: 1.5 }}>
-                    {tpl.description}
-                  </div>
-                )}
-
-                {/* Subject template */}
-                <div>
-                  <div
-                    style={{
-                      color: colors.textDim,
-                      fontSize: 10,
-                      textTransform: "uppercase",
-                      letterSpacing: 0.6,
-                      marginBottom: 4,
-                      fontWeight: 600,
-                    }}
-                  >
-                    Subject
-                  </div>
-                  <div
-                    style={{
-                      color: colors.text,
-                      fontSize: 12,
-                      fontFamily: "monospace",
-                      background: "#1f1f1f",
-                      padding: "6px 10px",
-                      borderRadius: 4,
-                      border: `1px solid ${colors.border}`,
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                    title={tpl.subject_template}
-                  >
-                    {tpl.subject_template}
-                  </div>
-                </div>
-
-                {/* Variables */}
-                {tpl.variables && tpl.variables.length > 0 && (
-                  <div>
-                    <div
-                      style={{
-                        color: colors.textDim,
-                        fontSize: 10,
-                        textTransform: "uppercase",
-                        letterSpacing: 0.6,
-                        marginBottom: 6,
-                        fontWeight: 600,
-                      }}
-                    >
-                      Variables
-                    </div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                      {tpl.variables.map((v) => (
-                        <span
-                          key={v}
-                          style={{
-                            background: colors.infoBg,
-                            color: colors.info,
-                            padding: "2px 8px",
-                            borderRadius: 4,
-                            fontSize: 11,
-                            fontFamily: "monospace",
-                            fontWeight: 500,
-                            border: `1px solid ${colors.info}33`,
-                          }}
-                        >
-                          {`{{${v}}}`}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Meta info */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginTop: "auto",
-                    paddingTop: 8,
-                    borderTop: `1px solid ${colors.border}`,
-                  }}
-                >
-                  <span style={{ color: colors.textDim, fontSize: 11 }}>
-                    Updated {formatDateShort(tpl.updated_at)}
-                  </span>
-                  <button
-                    onClick={() => handlePreview(tpl)}
-                    style={{
-                      background: "transparent",
-                      color: colors.accent,
-                      border: `1px solid ${colors.accent}`,
-                      borderRadius: 6,
-                      padding: "5px 14px",
-                      fontSize: 12,
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      transition: "all 0.15s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      ;(e.currentTarget as HTMLButtonElement).style.background = colors.accentSubtle
-                    }}
-                    onMouseLeave={(e) => {
-                      ;(e.currentTarget as HTMLButtonElement).style.background = "transparent"
-                    }}
-                  >
-                    Preview
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Preview modal */}
-      {previewHtml && (
-        <PreviewModal
-          title={previewTitle}
-          html={previewHtml}
-          onClose={() => setPreviewHtml(null)}
-        />
-      )}
-    </div>
-  )
-}
-
-// ─── Main Page Component ────────────────────────────────────────────────────
 
 const EmailPage = () => {
-  const [activeTab, setActiveTab] = useState<Tab>("dashboard")
+  const qc = useQueryClient()
 
-  // Dashboard state
-  const [stats, setStats] = useState<EmailStats | null>(null)
-  const [statsLoading, setStatsLoading] = useState(true)
-  const [statsError, setStatsError] = useState<string | null>(null)
+  // State
+  const [composeOpen, setComposeOpen] = useState(false)
+  const [selectedSent, setSelectedSent] = useState<any>(null)
+  const [sentDrawerOpen, setSentDrawerOpen] = useState(false)
+  const [selectedInbound, setSelectedInbound] = useState<any>(null)
+  const [inboundDrawerOpen, setInboundDrawerOpen] = useState(false)
+  const [replyMode, setReplyMode] = useState(false)
 
-  // Email logs state
-  const [logs, setLogs] = useState<EmailLog[]>([])
-  const [logsLoading, setLogsLoading] = useState(true)
-  const [logsError, setLogsError] = useState<string | null>(null)
+  // Compose form
+  const [composeFrom, setComposeFrom] = useState("ORYN Peptides <info@orynxpeptides.com>")
+  const [composeTo, setComposeTo] = useState("")
+  const [composeCc, setComposeCc] = useState("")
+  const [composeSubject, setComposeSubject] = useState("")
+  const [composeBody, setComposeBody] = useState("")
 
-  // Templates state
-  const [templates, setTemplates] = useState<EmailTemplate[]>([])
-  const [templatesLoading, setTemplatesLoading] = useState(true)
-  const [templatesError, setTemplatesError] = useState<string | null>(null)
+  const fromOptions = [
+    "ORYN Peptides <info@orynxpeptides.com>",
+    "ORYN Support <support@orynxpeptides.com>",
+    "ORYN Sales <sales@orynxpeptides.com>",
+    "ORYN Admin <admin@orynxpeptides.com>",
+  ]
 
-  const fetchStats = useCallback(async () => {
-    setStatsLoading(true)
-    setStatsError(null)
-    try {
-      const res = await fetch("/admin/email-logs?stats=true", {
-        credentials: "include",
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
-      setStats(data.stats || null)
-    } catch (e: any) {
-      console.error("Failed to fetch email stats", e)
-      setStatsError(e.message || "Failed to load email statistics.")
-    } finally {
-      setStatsLoading(false)
+  // Reply form
+  const [replyBody, setReplyBody] = useState("")
+
+  // Queries
+  const { data: sentData, isLoading: sentLoading } = useQuery({
+    queryFn: () => sdk.client.fetch<any>("/admin/email-logs", {
+      method: "GET",
+      query: { direction: "outbound", limit: "100" },
+    }),
+    queryKey: ["email-sent"],
+  })
+
+  const { data: inboxData, isLoading: inboxLoading } = useQuery({
+    queryFn: () => sdk.client.fetch<any>("/admin/email/inbox", { method: "GET", query: { limit: "100" } }),
+    queryKey: ["email-inbox"],
+  })
+
+  const { data: templatesData } = useQuery({
+    queryFn: () => sdk.client.fetch<any>("/admin/email-templates", { method: "GET" }),
+    queryKey: ["email-templates"],
+  })
+
+  // Mutations
+  const sendMutation = useMutation({
+    mutationFn: (payload: any) => sdk.client.fetch("/admin/email/send", { method: "POST", body: payload }),
+    onSuccess: () => {
+      toast.success("Email sent")
+      setComposeOpen(false)
+      resetCompose()
+      qc.invalidateQueries({ queryKey: ["email-sent"] })
+    },
+    onError: (e: any) => toast.error("Failed to send", { description: e.message }),
+  })
+
+  const seedMutation = useMutation({
+    mutationFn: () => sdk.client.fetch("/admin/email-templates/seed", { method: "POST", body: {} }),
+    onSuccess: (data: any) => {
+      toast.success("Templates seeded", { description: `${data.created} created, ${data.skipped} skipped` })
+      qc.invalidateQueries({ queryKey: ["email-templates"] })
+    },
+    onError: () => toast.error("Seed failed"),
+  })
+
+  const toggleMutation = useMutation({
+    mutationFn: ({ id, is_active }: any) =>
+      sdk.client.fetch(`/admin/email-templates/${id}`, { method: "POST", body: { is_active } }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["email-templates"] }),
+  })
+
+  const markReadMutation = useMutation({
+    mutationFn: (id: string) =>
+      sdk.client.fetch(`/admin/email/inbox/${id}`, { method: "POST", body: { status: "read" } }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["email-inbox"] }),
+  })
+
+  const replyMutation = useMutation({
+    mutationFn: (payload: any) => sdk.client.fetch("/admin/email/send", { method: "POST", body: payload }),
+    onSuccess: () => {
+      toast.success("Reply sent")
+      setReplyMode(false)
+      setReplyBody("")
+      qc.invalidateQueries({ queryKey: ["email-sent"] })
+    },
+    onError: () => toast.error("Failed to send reply"),
+  })
+
+  const sentLogs = sentData?.email_logs ?? []
+  const stats = sentData?.stats
+  const inbox = inboxData?.emails ?? []
+  const templates = templatesData?.email_templates ?? []
+  const unreadCount = inbox.filter((e: any) => e.status === "new").length
+
+  function resetCompose() {
+    setComposeFrom(fromOptions[0]); setComposeTo(""); setComposeCc(""); setComposeSubject(""); setComposeBody("")
+  }
+
+  function handleSend() {
+    if (!composeTo || !composeSubject || !composeBody) {
+      toast.error("Fill in To, Subject, and Body")
+      return
     }
-  }, [])
+    sendMutation.mutate({
+      from: composeFrom,
+      to: composeTo.split(",").map((s: string) => s.trim()).filter(Boolean),
+      cc: composeCc ? composeCc.split(",").map((s: string) => s.trim()).filter(Boolean) : undefined,
+      subject: composeSubject,
+      html: `<div style="font-family:sans-serif;white-space:pre-wrap">${composeBody.replace(/\n/g, "<br>")}</div>`,
+      text: composeBody,
+    })
+  }
 
-  const fetchLogs = useCallback(async () => {
-    setLogsLoading(true)
-    setLogsError(null)
-    try {
-      const res = await fetch("/admin/email-logs?limit=200", {
-        credentials: "include",
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
-      setLogs(data.email_logs || [])
-    } catch (e: any) {
-      console.error("Failed to fetch email logs", e)
-      setLogsError(e.message || "Failed to load email logs.")
-    } finally {
-      setLogsLoading(false)
-    }
-  }, [])
+  function handleReply() {
+    if (!replyBody || !selectedInbound) return
+    replyMutation.mutate({
+      to: selectedInbound.from_email,
+      subject: `Re: ${selectedInbound.subject || "(no subject)"}`,
+      html: `<div style="font-family:sans-serif;white-space:pre-wrap">${replyBody.replace(/\n/g, "<br>")}</div>
+<hr style="margin:16px 0;border:none;border-top:1px solid #ddd">
+<div style="color:#888">
+<p><strong>From:</strong> ${selectedInbound.from_email}</p>
+<p><strong>Date:</strong> ${fmtDate(selectedInbound.created_at)}</p>
+<p><strong>Subject:</strong> ${selectedInbound.subject || ""}</p>
+</div>
+<blockquote style="margin:8px 0;padding:8px 16px;border-left:3px solid #ddd;color:#666">${selectedInbound.text_body || selectedInbound.html_body || ""}</blockquote>`,
+      text: replyBody,
+      reply_to: "info@orynlabs.com",
+    })
+  }
 
-  const fetchTemplates = useCallback(async () => {
-    setTemplatesLoading(true)
-    setTemplatesError(null)
-    try {
-      const res = await fetch("/admin/email-templates", {
-        credentials: "include",
-      })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
-      setTemplates(data.email_templates || [])
-    } catch (e: any) {
-      console.error("Failed to fetch email templates", e)
-      setTemplatesError(e.message || "Failed to load email templates.")
-    } finally {
-      setTemplatesLoading(false)
-    }
-  }, [])
+  function openInbound(email: any) {
+    setSelectedInbound(email)
+    setInboundDrawerOpen(true)
+    setReplyMode(false)
+    setReplyBody("")
+    if (email.status === "new") markReadMutation.mutate(email.id)
+  }
 
-  useEffect(() => {
-    fetchStats()
-    fetchLogs()
-    fetchTemplates()
-  }, [fetchStats, fetchLogs, fetchTemplates])
+  function openSent(log: any) {
+    setSelectedSent(log)
+    setSentDrawerOpen(true)
+  }
+
+  function startReplyFromCompose(email: any) {
+    setComposeTo(email.from_email || "")
+    setComposeSubject(`Re: ${email.subject || ""}`)
+    setComposeBody("")
+    setInboundDrawerOpen(false)
+    setComposeOpen(true)
+  }
 
   return (
-    <div
-      style={{
-        background: colors.bg,
-        minHeight: "100vh",
-        padding: "24px 32px",
-        color: colors.text,
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-      }}
-    >
-      {/* Page Header */}
-      <div style={{ marginBottom: 28 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6 }}>
-          <span style={{ fontSize: 28 }}>📧</span>
-          <h1
-            style={{
-              fontSize: 26,
-              fontWeight: 700,
-              color: colors.white,
-              margin: 0,
-              letterSpacing: -0.3,
-            }}
-          >
-            Email Management
-          </h1>
-        </div>
-        <p style={{ color: colors.textMuted, fontSize: 14, margin: 0 }}>
-          Monitor outbound and inbound emails, view delivery analytics, and manage templates.
-        </p>
+    <div className="flex flex-col gap-y-2">
+      {/* Stats row */}
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-5">
+        {[
+          { label: "Total Sent", value: stats?.total_sent ?? 0 },
+          { label: "Delivered", value: stats?.delivered ?? 0, sub: stats ? `${stats.delivery_rate}%` : "" },
+          { label: "Opened", value: stats?.opened ?? 0, sub: stats ? `${stats.open_rate}%` : "" },
+          { label: "Bounced", value: stats?.bounced ?? 0, sub: stats ? `${stats.bounce_rate}%` : "" },
+          { label: "Inbox", value: inbox.length, sub: unreadCount > 0 ? `${unreadCount} new` : "" },
+        ].map((c) => (
+          <Container key={c.label} className="p-4">
+            <Text size="small" className="text-ui-fg-muted">{c.label}</Text>
+            <Heading level="h2" className="text-xl">{c.value}</Heading>
+            {c.sub && <Text size="xsmall" className="text-ui-fg-muted">{c.sub}</Text>}
+          </Container>
+        ))}
       </div>
 
-      {/* Tab Navigation */}
-      <div
-        style={{
-          display: "flex",
-          gap: 8,
-          marginBottom: 24,
-          borderBottom: `1px solid ${colors.border}`,
-          paddingBottom: 16,
-        }}
-      >
-        <TabButton
-          label="Dashboard"
-          active={activeTab === "dashboard"}
-          onClick={() => setActiveTab("dashboard")}
-        />
-        <TabButton
-          label="Email Logs"
-          active={activeTab === "logs"}
-          onClick={() => setActiveTab("logs")}
-          count={logs.length}
-        />
-        <TabButton
-          label="Templates"
-          active={activeTab === "templates"}
-          onClick={() => setActiveTab("templates")}
-          count={templates.length}
-        />
+      {/* Main email interface */}
+      <Container className="divide-y p-0">
+        <Tabs defaultValue="inbox">
+          <div className="flex items-center justify-between px-6 py-4">
+            <Heading level="h1">Email</Heading>
+            <div className="flex items-center gap-x-3">
+              <Tabs.List>
+                <Tabs.Trigger value="inbox">
+                  Inbox {unreadCount > 0 && <Badge color="red" size="2xsmall" className="ml-1">{unreadCount}</Badge>}
+                </Tabs.Trigger>
+                <Tabs.Trigger value="sent">Sent</Tabs.Trigger>
+                <Tabs.Trigger value="templates">Templates</Tabs.Trigger>
+              </Tabs.List>
+              <Button size="small" onClick={() => { resetCompose(); setComposeOpen(true) }}>
+                Compose
+              </Button>
+            </div>
+          </div>
 
-        {/* Refresh button aligned right */}
-        <div style={{ marginLeft: "auto" }}>
-          <button
-            onClick={() => {
-              fetchStats()
-              fetchLogs()
-              fetchTemplates()
-            }}
-            style={{
-              background: "transparent",
-              color: colors.textMuted,
-              border: `1px solid ${colors.border}`,
-              borderRadius: 8,
-              padding: "10px 16px",
-              fontSize: 13,
-              fontWeight: 500,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              transition: "all 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              ;(e.currentTarget as HTMLButtonElement).style.borderColor = colors.accent
-              ;(e.currentTarget as HTMLButtonElement).style.color = colors.accent
-            }}
-            onMouseLeave={(e) => {
-              ;(e.currentTarget as HTMLButtonElement).style.borderColor = colors.border
-              ;(e.currentTarget as HTMLButtonElement).style.color = colors.textMuted
-            }}
-          >
-            ↻ Refresh
-          </button>
-        </div>
-      </div>
+          {/* ──── INBOX TAB ──── */}
+          <Tabs.Content value="inbox">
+            <div className="px-6 py-4">
+              {inboxLoading ? (
+                <Text className="text-ui-fg-muted py-12 text-center">Loading inbox...</Text>
+              ) : inbox.length === 0 ? (
+                <div className="flex flex-col items-center py-12">
+                  <Text className="text-ui-fg-muted">No incoming emails yet.</Text>
+                  <Text size="small" className="text-ui-fg-muted mt-1">
+                    Configure a Resend inbound webhook pointing to /store/webhooks/resend
+                  </Text>
+                </div>
+              ) : (
+                <Table>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell></Table.HeaderCell>
+                      <Table.HeaderCell>From</Table.HeaderCell>
+                      <Table.HeaderCell>Subject</Table.HeaderCell>
+                      <Table.HeaderCell>Date</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    {inbox.map((email: any) => (
+                      <Table.Row key={email.id} className="cursor-pointer" onClick={() => openInbound(email)}>
+                        <Table.Cell className="w-8">
+                          {email.status === "new" && (
+                            <div className="h-2 w-2 rounded-full bg-blue-500" />
+                          )}
+                        </Table.Cell>
+                        <Table.Cell>
+                          <Text size="small" className={email.status === "new" ? "font-semibold" : ""}>
+                            {email.from_name || email.from_email}
+                          </Text>
+                        </Table.Cell>
+                        <Table.Cell>
+                          <Text size="small" className={`max-w-[400px] truncate ${email.status === "new" ? "font-semibold" : "text-ui-fg-muted"}`}>
+                            {email.subject || "(no subject)"}
+                          </Text>
+                        </Table.Cell>
+                        <Table.Cell>
+                          <Text size="xsmall" className="text-ui-fg-muted">{fmtDate(email.created_at)}</Text>
+                        </Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              )}
+            </div>
+          </Tabs.Content>
 
-      {/* Tab Content */}
-      {activeTab === "dashboard" && (
-        <DashboardTab
-          stats={stats}
-          loading={statsLoading}
-          error={statsError}
-          onRetry={fetchStats}
-        />
-      )}
-      {activeTab === "logs" && (
-        <EmailLogsTab
-          logs={logs}
-          loading={logsLoading}
-          error={logsError}
-          onRetry={fetchLogs}
-        />
-      )}
-      {activeTab === "templates" && (
-        <TemplatesTab
-          templates={templates}
-          loading={templatesLoading}
-          error={templatesError}
-          onRetry={fetchTemplates}
-          onRefresh={fetchTemplates}
-        />
-      )}
+          {/* ──── SENT TAB ──── */}
+          <Tabs.Content value="sent">
+            <div className="px-6 py-4">
+              {sentLoading ? (
+                <Text className="text-ui-fg-muted py-12 text-center">Loading sent emails...</Text>
+              ) : sentLogs.length === 0 ? (
+                <div className="flex flex-col items-center py-12">
+                  <Text className="text-ui-fg-muted">No sent emails yet</Text>
+                </div>
+              ) : (
+                <Table>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>To</Table.HeaderCell>
+                      <Table.HeaderCell>Subject</Table.HeaderCell>
+                      <Table.HeaderCell>Status</Table.HeaderCell>
+                      <Table.HeaderCell>Date</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    {sentLogs.map((log: any) => (
+                      <Table.Row key={log.id} className="cursor-pointer" onClick={() => openSent(log)}>
+                        <Table.Cell>
+                          <Text size="small">{log.to_emails}</Text>
+                        </Table.Cell>
+                        <Table.Cell>
+                          <Text size="small" className="max-w-[350px] truncate">{log.subject}</Text>
+                        </Table.Cell>
+                        <Table.Cell>
+                          <StatusBadge color={statusColor(log.status)}>{log.status}</StatusBadge>
+                        </Table.Cell>
+                        <Table.Cell>
+                          <Text size="xsmall" className="text-ui-fg-muted">{fmtDate(log.created_at)}</Text>
+                        </Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              )}
+            </div>
+          </Tabs.Content>
+
+          {/* ──── TEMPLATES TAB ──── */}
+          <Tabs.Content value="templates">
+            <div className="px-6 py-4">
+              <div className="mb-4 flex justify-end">
+                <Button variant="secondary" size="small" onClick={() => seedMutation.mutate()} isLoading={seedMutation.isPending}>
+                  Seed Default Templates
+                </Button>
+              </div>
+              {templates.length === 0 ? (
+                <Text className="text-ui-fg-muted py-12 text-center">No templates yet. Click &quot;Seed Default Templates&quot;.</Text>
+              ) : (
+                <Table>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Name</Table.HeaderCell>
+                      <Table.HeaderCell>Slug</Table.HeaderCell>
+                      <Table.HeaderCell>Category</Table.HeaderCell>
+                      <Table.HeaderCell>Subject</Table.HeaderCell>
+                      <Table.HeaderCell>Active</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    {templates.map((tpl: any) => (
+                      <Table.Row key={tpl.id}>
+                        <Table.Cell><Text size="small" className="font-medium">{tpl.name}</Text></Table.Cell>
+                        <Table.Cell><Text size="xsmall" className="font-mono text-ui-fg-muted">{tpl.slug}</Text></Table.Cell>
+                        <Table.Cell><Badge color="grey" size="2xsmall">{tpl.category}</Badge></Table.Cell>
+                        <Table.Cell><Text size="xsmall" className="max-w-[200px] truncate text-ui-fg-muted">{tpl.subject_template}</Text></Table.Cell>
+                        <Table.Cell>
+                          <Switch checked={tpl.is_active} onCheckedChange={(v) => toggleMutation.mutate({ id: tpl.id, is_active: v })} />
+                        </Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              )}
+            </div>
+          </Tabs.Content>
+        </Tabs>
+      </Container>
+
+      {/* ──── COMPOSE MODAL ──── */}
+      <FocusModal open={composeOpen} onOpenChange={setComposeOpen}>
+        <FocusModal.Content>
+          <FocusModal.Header>
+            <div className="flex items-center justify-between w-full">
+              <Heading level="h2">New Email</Heading>
+              <Button onClick={handleSend} isLoading={sendMutation.isPending} disabled={!composeTo || !composeSubject || !composeBody}>
+                Send
+              </Button>
+            </div>
+          </FocusModal.Header>
+          <FocusModal.Body className="flex flex-col gap-y-4 px-6 py-4 overflow-y-auto">
+            <div>
+              <Label htmlFor="from">From</Label>
+              <select
+                id="from"
+                value={composeFrom}
+                onChange={(e) => setComposeFrom(e.target.value)}
+                className="w-full rounded-lg border border-ui-border-base bg-ui-bg-field px-3 py-2 text-sm text-ui-fg-base"
+              >
+                {fromOptions.map((opt) => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <Label htmlFor="to">To</Label>
+              <Input id="to" placeholder="email@example.com (comma-separated for multiple)" value={composeTo} onChange={(e) => setComposeTo(e.target.value)} />
+            </div>
+            <div>
+              <Label htmlFor="cc">Cc</Label>
+              <Input id="cc" placeholder="Optional cc" value={composeCc} onChange={(e) => setComposeCc(e.target.value)} />
+            </div>
+            <div>
+              <Label htmlFor="subject">Subject</Label>
+              <Input id="subject" placeholder="Email subject" value={composeSubject} onChange={(e) => setComposeSubject(e.target.value)} />
+            </div>
+            <div className="flex-1">
+              <Label htmlFor="body">Message</Label>
+              <Textarea id="body" placeholder="Write your message..." rows={14} value={composeBody} onChange={(e) => setComposeBody(e.target.value)} />
+            </div>
+          </FocusModal.Body>
+        </FocusModal.Content>
+      </FocusModal>
+
+      {/* ──── SENT EMAIL DETAIL DRAWER ──── */}
+      <Drawer open={sentDrawerOpen} onOpenChange={setSentDrawerOpen}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>{selectedSent?.subject || "Email Detail"}</Drawer.Title>
+          </Drawer.Header>
+          <Drawer.Body className="flex flex-col gap-y-3 overflow-y-auto">
+            {selectedSent && (
+              <>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">From</Text>
+                    <Text size="small">{selectedSent.from_email}</Text>
+                  </div>
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">To</Text>
+                    <Text size="small">{selectedSent.to_emails}</Text>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Status</Text>
+                    <StatusBadge color={statusColor(selectedSent.status)}>{selectedSent.status}</StatusBadge>
+                  </div>
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Date</Text>
+                    <Text size="small">{fmtDate(selectedSent.created_at)}</Text>
+                  </div>
+                </div>
+                {selectedSent.delivered_at && (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Delivered</Text>
+                    <Text size="small">{fmtDate(selectedSent.delivered_at)}</Text>
+                  </div>
+                )}
+                {selectedSent.opened_at && (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Opened</Text>
+                    <Text size="small">{fmtDate(selectedSent.opened_at)}</Text>
+                  </div>
+                )}
+                {selectedSent.error_message && (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Error</Text>
+                    <Text size="small" className="text-red-500">{selectedSent.error_message}</Text>
+                  </div>
+                )}
+                {selectedSent.html_body && (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted mb-1">Content</Text>
+                    <div className="rounded-lg border border-ui-border-base bg-white p-4 max-h-[400px] overflow-y-auto">
+                      <div dangerouslySetInnerHTML={{ __html: selectedSent.html_body }} />
+                    </div>
+                  </div>
+                )}
+                {!selectedSent.html_body && selectedSent.text_body && (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted mb-1">Content</Text>
+                    <pre className="rounded-lg border border-ui-border-base bg-ui-bg-subtle p-3 text-xs whitespace-pre-wrap max-h-[400px] overflow-y-auto">
+                      {selectedSent.text_body}
+                    </pre>
+                  </div>
+                )}
+              </>
+            )}
+          </Drawer.Body>
+        </Drawer.Content>
+      </Drawer>
+
+      {/* ──── INBOUND EMAIL DETAIL DRAWER ──── */}
+      <Drawer open={inboundDrawerOpen} onOpenChange={setInboundDrawerOpen}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>{selectedInbound?.subject || "(no subject)"}</Drawer.Title>
+          </Drawer.Header>
+          <Drawer.Body className="flex flex-col gap-y-3 overflow-y-auto">
+            {selectedInbound && (
+              <>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">From</Text>
+                    <Text size="small" className="font-medium">{selectedInbound.from_name || selectedInbound.from_email}</Text>
+                    {selectedInbound.from_name && <Text size="xsmall" className="text-ui-fg-muted">{selectedInbound.from_email}</Text>}
+                  </div>
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">To</Text>
+                    <Text size="small">{selectedInbound.to_email}</Text>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Date</Text>
+                    <Text size="small">{fmtDate(selectedInbound.created_at)}</Text>
+                  </div>
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted">Status</Text>
+                    <StatusBadge color={selectedInbound.status === "new" ? "blue" : selectedInbound.status === "replied" ? "green" : "grey"}>
+                      {selectedInbound.status}
+                    </StatusBadge>
+                  </div>
+                </div>
+                {selectedInbound.has_attachments && (
+                  <Badge color="blue" size="2xsmall">Has attachments</Badge>
+                )}
+
+                {/* Email body */}
+                {selectedInbound.html_body ? (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted mb-1">Message</Text>
+                    <div className="rounded-lg border border-ui-border-base bg-white p-4 max-h-[300px] overflow-y-auto">
+                      <div dangerouslySetInnerHTML={{ __html: selectedInbound.html_body }} />
+                    </div>
+                  </div>
+                ) : selectedInbound.text_body ? (
+                  <div>
+                    <Text size="xsmall" className="text-ui-fg-muted mb-1">Message</Text>
+                    <pre className="rounded-lg border border-ui-border-base bg-ui-bg-subtle p-3 text-sm whitespace-pre-wrap max-h-[300px] overflow-y-auto">
+                      {selectedInbound.text_body}
+                    </pre>
+                  </div>
+                ) : (
+                  <Text size="small" className="text-ui-fg-muted italic">
+                    Email body not available. Configure Resend webhook to include content.
+                  </Text>
+                )}
+
+                {/* Reply section */}
+                <div className="border-t border-ui-border-base pt-3 mt-2">
+                  {!replyMode ? (
+                    <div className="flex gap-x-2">
+                      <Button size="small" onClick={() => setReplyMode(true)}>Reply</Button>
+                      <Button size="small" variant="secondary" onClick={() => startReplyFromCompose(selectedInbound)}>
+                        Reply in Compose
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-y-3">
+                      <Text size="small" className="text-ui-fg-muted">Reply to {selectedInbound.from_email}</Text>
+                      <Textarea placeholder="Write your reply..." rows={6} value={replyBody} onChange={(e) => setReplyBody(e.target.value)} />
+                      <div className="flex gap-x-2">
+                        <Button size="small" onClick={handleReply} isLoading={replyMutation.isPending} disabled={!replyBody.trim()}>
+                          Send Reply
+                        </Button>
+                        <Button size="small" variant="secondary" onClick={() => { setReplyMode(false); setReplyBody("") }}>
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </Drawer.Body>
+        </Drawer.Content>
+      </Drawer>
     </div>
   )
 }
-
-export default EmailPage
 
 export const config = defineRouteConfig({
   label: "Email",
+  icon: Envelope,
 })
+
+export default EmailPage

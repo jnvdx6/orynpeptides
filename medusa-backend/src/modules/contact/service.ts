@@ -50,7 +50,7 @@ class ContactModuleService extends MedusaService({
       email_log_id?: string
     }
   ): Promise<any> {
-    const reply = await this.createContactReplys({
+    const reply = await this.createContactReplies({
       submission_id: submissionId,
       sender_type: data.sender_type,
       sender_name: data.sender_name,
@@ -71,12 +71,12 @@ class ContactModuleService extends MedusaService({
       }
     }
 
-    await this.updateContactSubmissions(submissionId, updates)
+    await this.updateContactSubmissions({ id: submissionId, ...updates })
     return reply
   }
 
   async getConversation(submissionId: string): Promise<any[]> {
-    return this.listContactReplys(
+    return this.listContactReplies(
       { submission_id: submissionId },
       { order: { created_at: "ASC" } }
     )

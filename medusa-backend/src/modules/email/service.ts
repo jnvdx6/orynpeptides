@@ -510,23 +510,26 @@ class EmailModuleService extends MedusaService({
       const result = await response.json()
 
       if (!response.ok) {
-        await this.updateEmailLogs(log.id, {
-          status: "failed",
+        await this.updateEmailLogs({
+          id: log.id,
+          status: "failed" as const,
           error_message: JSON.stringify(result),
         })
         throw new Error(`Resend API error: ${JSON.stringify(result)}`)
       }
 
-      await this.updateEmailLogs(log.id, {
-        resend_id: result.id,
-        status: "sent",
+      await this.updateEmailLogs({
+        id: log.id,
+        resend_id: (result as any).id,
+        status: "sent" as const,
       })
 
-      return { ...log, resend_id: result.id, status: "sent" }
+      return { ...log, resend_id: (result as any).id, status: "sent" }
     } catch (error: any) {
       if (error.message?.includes("Resend API error")) throw error
-      await this.updateEmailLogs(log.id, {
-        status: "failed",
+      await this.updateEmailLogs({
+        id: log.id,
+        status: "failed" as const,
         error_message: error.message,
       })
       throw error
@@ -614,12 +617,13 @@ class EmailModuleService extends MedusaService({
 
       const result = await response.json()
 
-      if (response.ok && result.data) {
+      if (response.ok && (result as any).data) {
         await Promise.all(
-          result.data.map((r: any, i: number) =>
-            this.updateEmailLogs(logs[i].id, {
+          (result as any).data.map((r: any, i: number) =>
+            this.updateEmailLogs({
+              id: logs[i].id,
               resend_id: r.id,
-              status: "sent",
+              status: "sent" as const,
             })
           )
         )
@@ -628,9 +632,10 @@ class EmailModuleService extends MedusaService({
       return logs
     } catch (error: any) {
       await Promise.all(
-        logs.map((log) =>
-          this.updateEmailLogs(log.id, {
-            status: "failed",
+        logs.map((log: any) =>
+          this.updateEmailLogs({
+            id: log.id,
+            status: "failed" as const,
             error_message: error.message,
           })
         )
@@ -697,7 +702,7 @@ class EmailModuleService extends MedusaService({
         return
     }
 
-    await this.updateEmailLogs(log.id, updates)
+    await this.updateEmailLogs({ id: log.id, ...updates })
   }
 
   // ─── Inbound Email Processing ──────────────────────────────────────
@@ -713,7 +718,7 @@ class EmailModuleService extends MedusaService({
       text_body: data.text || null,
       has_attachments: !!(data.attachments && data.attachments.length > 0),
       attachments_meta: data.attachments ? JSON.stringify(data.attachments) : null,
-      status: "new",
+      status: "new" as const,
     })
 
     // Try to fetch full email content from Resend if we only got metadata
@@ -728,8 +733,9 @@ class EmailModuleService extends MedusaService({
             }
           )
           if (response.ok) {
-            const fullEmail = await response.json()
-            await this.updateInboundEmails(inbound.id, {
+            const fullEmail = (await response.json()) as any
+            await this.updateInboundEmails({
+              id: inbound.id,
               html_body: fullEmail.html || null,
               text_body: fullEmail.text || null,
             })
@@ -781,7 +787,7 @@ class EmailModuleService extends MedusaService({
         { headers: { Authorization: `Bearer ${apiKey}` } }
       )
       if (response.ok) {
-        const result = await response.json()
+        const result = (await response.json()) as any
         const contact = result.data?.[0]
         if (contact) {
           await fetch(
