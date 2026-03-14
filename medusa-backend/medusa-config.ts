@@ -36,5 +36,18 @@ export default defineConfig({
         ],
       },
     },
+    // Custom Modules
+    {
+      resolve: "./src/modules/contact",
+    },
+    {
+      resolve: "./src/modules/newsletter",
+    },
+    {
+      resolve: "./src/modules/wishlist",
+    },
+    {
+      resolve: "./src/modules/referral",
+    },
   ],
 });
