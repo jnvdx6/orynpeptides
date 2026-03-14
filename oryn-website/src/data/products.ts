@@ -14,6 +14,7 @@ export interface Product {
   badge?: string;
   image: string;
   images?: string[];
+  collectionHandle?: string | null;
 }
 
 // Per-product individual images (ORYN branded, background removed)

@@ -15,8 +15,6 @@ import {
   categories as staticCategories,
   type Product,
 } from "@/data/products";
-import { useLocale } from "@/i18n/LocaleContext";
-import { markets } from "@/i18n/config";
 
 // ─── Medusa store API types ──────────────────────────────────────
 interface MedusaPrice {
@@ -51,9 +49,10 @@ interface MedusaStoreProduct {
 // ─── Context type ────────────────────────────────────────────────
 interface ProductsContextType {
   products: Product[];
-  categories: typeof staticCategories;
+  categories: (typeof staticCategories[number] & { count: number; minPrice: number })[];
   getProductBySlug: (slug: string) => Product | undefined;
   getProductsByCategory: (category: string) => Product[];
+  getProductsByCollection: (handle: string) => Product[];
   loading: boolean;
   medusaConnected: boolean;
 }
@@ -61,18 +60,19 @@ interface ProductsContextType {
 const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
 
 // ─── Mapper: Medusa product → local Product type ─────────────────
-function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product {
+// Always extracts EUR price (base currency). Client-side formatPrice handles conversion.
+function mapMedusaProduct(mp: MedusaStoreProduct): Product {
   const meta = mp.metadata || {};
   const slug = mp.handle;
   const staticProduct = staticProducts.find((p) => p.slug === slug);
 
-  // Price: prefer current currency, fall back to any, then static
+  // Price: ALWAYS use EUR (our base currency). formatPrice() handles conversion.
   const variant = mp.variants?.[0];
-  const currPrice = variant?.prices?.find(
-    (p) => p.currency_code === currencyCode.toLowerCase()
+  const eurPrice = variant?.prices?.find(
+    (p) => p.currency_code === "eur"
   );
   const fallbackPrice = variant?.prices?.[0];
-  const price = currPrice?.amount ?? fallbackPrice?.amount ?? staticProduct?.price ?? 0;
+  const price = eurPrice?.amount ?? fallbackPrice?.amount ?? staticProduct?.price ?? 0;
 
   // Benefits: stored as JSON string in metadata
   let benefits: string[] = staticProduct?.benefits || [];
@@ -110,13 +110,16 @@ function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product
   const category = (meta.category as Product["category"]) || staticProduct?.category || "peptide-pen";
   const categoryLabel = (meta.categoryLabel as string) || staticProduct?.categoryLabel || "Peptide Pen";
 
+  // Collection handle
+  const collectionHandle = mp.collection?.handle || null;
+
   // Images: Medusa images if uploaded, otherwise static
   const medusaImgs = mp.images?.map((img) => img.url).filter(Boolean) || [];
   const image = mp.thumbnail
     || (medusaImgs.length > 0 ? medusaImgs[0] : undefined)
     || productImages.bySlug[slug]
     || staticProduct?.image
-    || "/images/products/pen-bpc157.png";
+    || "/images/products/peptide-pen-black.png";
 
   // Name: strip "ORYN " prefix — components re-add it
   let name = mp.title;
@@ -138,14 +141,12 @@ function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product
     badge: (meta.badge as string) || staticProduct?.badge,
     image,
     images: medusaImgs.length > 0 ? medusaImgs : staticProduct?.images,
+    collectionHandle,
   };
 }
 
 // ─── Provider component ──────────────────────────────────────────
 export function ProductsProvider({ children }: { children: ReactNode }) {
-  const { locale } = useLocale();
-  const currencyCode = markets[locale].currency;
-
   const [medusaProducts, setMedusaProducts] = useState<MedusaStoreProduct[]>([]);
   const [medusaConnected, setMedusaConnected] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -176,12 +177,12 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
     return () => { cancelled = true; };
   }, []);
 
-  // Map Medusa products → Product[], or fall back to static
+  // Map Medusa products → Product[] (always EUR prices), or fall back to static
   const products = useMemo<Product[]>(() => {
     if (!medusaConnected || medusaProducts.length === 0) {
       return staticProducts;
     }
-    const mapped = medusaProducts.map((mp) => mapMedusaProduct(mp, currencyCode));
+    const mapped = medusaProducts.map((mp) => mapMedusaProduct(mp));
     // Preserve ordering: match static products order, then append any new ones
     const bySlug = new Map(mapped.map((p) => [p.slug, p]));
     const ordered: Product[] = [];
@@ -192,23 +193,30 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
         bySlug.delete(sp.slug);
       }
     }
-    // Append products from Medusa that don't exist in static data
     for (const remaining of bySlug.values()) {
       ordered.push(remaining);
     }
     return ordered;
-  }, [medusaProducts, medusaConnected, currencyCode]);
+  }, [medusaProducts, medusaConnected]);
 
-  // Derive categories with dynamic counts
+  // Derive categories with dynamic counts AND min prices
   const categories = useMemo(() => {
-    return staticCategories.map((cat) => ({
-      ...cat,
-      count: products.filter((p) => p.category === cat.id).length,
-    }));
+    return staticCategories.map((cat) => {
+      const catProducts = products.filter((p) => p.category === cat.id);
+      const minPrice = catProducts.length > 0
+        ? Math.min(...catProducts.map((p) => p.price))
+        : 0;
+      return {
+        ...cat,
+        count: catProducts.length,
+        minPrice,
+      };
+    });
   }, [products]);
 
   const getProductBySlug = (slug: string) => products.find((p) => p.slug === slug);
   const getProductsByCategory = (category: string) => products.filter((p) => p.category === category);
+  const getProductsByCollection = (handle: string) => products.filter((p) => (p as Product & { collectionHandle?: string | null }).collectionHandle === handle);
 
   return (
     <ProductsContext.Provider
@@ -217,6 +225,7 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
         categories,
         getProductBySlug,
         getProductsByCategory,
+        getProductsByCollection,
         loading,
         medusaConnected,
       }}
