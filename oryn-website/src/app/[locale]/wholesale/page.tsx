@@ -43,22 +43,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Pedidos al Por Mayor de Peptidos | Precios por Volumen | ORYN Peptides"
-    : "Wholesale Peptide Orders UK | Bulk Pricing & Volume Discounts | ORYN Peptide Labs";
-  const description = isEs
-    ? "Pedidos al por mayor de peptidos con descuentos por volumen. Desde 5% de descuento en 3+ unidades hasta 15% en 10+. Gestor de cuenta dedicado, envio prioritario y COA incluido."
-    : "Wholesale research peptide orders with volume discounts from 5% to 15%. Bulk peptide pens for universities, research labs, clinics & distributors. Dedicated account manager, priority shipping, COA included. UK peptide supplier.";
+  const title = `${dict.breadcrumbs.wholesale} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs
-        ? "Pedidos al Por Mayor — ORYN Peptides"
-        : "Wholesale & Bulk Peptide Orders — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/wholesale`,
       type: "website",
@@ -66,12 +60,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Pedidos al Por Mayor — ORYN"
-        : "Wholesale Peptide Orders UK — ORYN Peptide Labs",
-      description: isEs
-        ? "Descuentos por volumen en peptidos de grado farmaceutico. Desde 5% hasta 15% de descuento."
-        : "Volume discounts on research-grade peptide pens. 5-15% off bulk orders. Dedicated wholesale accounts for labs & clinics.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/wholesale`,

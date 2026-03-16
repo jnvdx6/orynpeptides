@@ -471,9 +471,518 @@ const CATEGORY_ES_META: Record<string, { title: string; description: string }> =
   },
 };
 
+const CATEGORY_FR_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptides pour la Récupération | BPC-157, TB-500 | ORYN",
+    description: "Stylos à peptides pour la recherche en récupération. BPC-157 et TB-500 pour la réparation tissulaire. Pureté >99%, fabrication GMP, livraison rapide en Europe.",
+  },
+  "weight-loss": {
+    title: "Peptides pour la Perte de Poids | Tirzepatide | ORYN",
+    description: "Stylos à peptides pour la recherche métabolique. Tirzepatide agoniste double GIP/GLP-1. Pureté >99%, fabrication GMP, livraison rapide en Europe.",
+  },
+  "anti-aging": {
+    title: "Peptides Anti-Âge | GHK-Cu, NAD+ | ORYN",
+    description: "Stylos à peptides pour la recherche anti-âge. GHK-Cu, NAD+, Glutathion. Pureté >99%, fabrication GMP, livraison rapide en Europe.",
+  },
+  "muscle-growth": {
+    title: "Peptides pour la Croissance Musculaire | CJC-1295, Ipamorelin | ORYN",
+    description: "Stylos à peptides pour la recherche sur l'hormone de croissance. CJC-1295 et Ipamorelin. Pureté >99%, fabrication GMP, livraison rapide.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptides pour le Rajeunissement de la Peau | GHK-Cu | ORYN",
+    description: "Stylos à peptides pour la recherche dermatologique. GHK-Cu peptide de cuivre. Pureté >99%, fabrication GMP, livraison rapide en Europe.",
+  },
+  "gut-health": {
+    title: "Peptides pour la Santé Intestinale | BPC-157 | ORYN",
+    description: "Stylos à peptides pour la recherche gastro-intestinale. BPC-157 composé de protection corporelle. Pureté >99%, fabrication GMP.",
+  },
+  "sleep-quality": {
+    title: "Peptides pour la Qualité du Sommeil | CJC-1295, Ipamorelin | ORYN",
+    description: "Stylos à peptides pour la recherche sur le sommeil. CJC-1295 et Ipamorelin pour l'optimisation du sommeil. Pureté >99%, fabrication GMP.",
+  },
+  "joint-health": {
+    title: "Peptides pour la Santé des Articulations | BPC-157, TB-500 | ORYN",
+    description: "Stylos à peptides pour la recherche articulaire. BPC-157 et TB-500 pour tendons et ligaments. Pureté >99%, fabrication GMP.",
+  },
+  "hair-growth": {
+    title: "Peptides pour la Croissance des Cheveux | GHK-Cu | ORYN",
+    description: "Stylos à peptides pour la recherche capillaire. GHK-Cu peptide de cuivre pour les follicules. Pureté >99%, fabrication GMP.",
+  },
+  "immune-support": {
+    title: "Peptides pour le Système Immunitaire | TB-500, Glutathion | ORYN",
+    description: "Stylos à peptides pour la recherche immunologique. TB-500 et Glutathion. Pureté >99%, fabrication GMP, livraison rapide en Europe.",
+  },
+  "tendon-repair": {
+    title: "Peptides pour la Réparation des Tendons | BPC-157, TB-500 | ORYN",
+    description: "Stylos à peptides pour la recherche sur la réparation des tendons et ligaments. BPC-157 et TB-500. Pureté >99%, fabrication GMP.",
+  },
+  "sports-recovery": {
+    title: "Peptides pour la Récupération Sportive | BPC-157, TB-500 | ORYN",
+    description: "Stylos à peptides pour la recherche en récupération sportive. BPC-157 et TB-500 pour les athlètes. Pureté >99%, fabrication GMP.",
+  },
+  "post-surgery": {
+    title: "Peptides pour la Récupération Post-Opératoire | BPC-157 | ORYN",
+    description: "Stylos à peptides pour la recherche post-chirurgicale. BPC-157 pour la cicatrisation et la récupération. Pureté >99%, fabrication GMP.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptides pour l'Amélioration Cognitive | NAD+, GHK-Cu | ORYN",
+    description: "Stylos à peptides pour la recherche cognitive et la neuroprotection. NAD+ et GHK-Cu. Pureté >99%, fabrication GMP.",
+  },
+  "energy-vitality": {
+    title: "Peptides pour l'Énergie et la Vitalité | NAD+ | ORYN",
+    description: "Stylos à peptides pour la recherche sur l'énergie cellulaire. NAD+ nicotinamide adénine dinucléotide. Pureté >99%, fabrication GMP.",
+  },
+  "detox-cleanse": {
+    title: "Peptides pour la Détoxification | Glutathion | ORYN",
+    description: "Stylos à peptides pour la recherche sur la détoxification. Glutathion antioxydant maître. Pureté >99%, fabrication GMP.",
+  },
+  "body-composition": {
+    title: "Peptides pour la Composition Corporelle | Tirzepatide, CJC-1295 | ORYN",
+    description: "Stylos à peptides pour la recherche sur la composition corporelle. Tirzepatide et CJC-1295. Pureté >99%, fabrication GMP.",
+  },
+  inflammation: {
+    title: "Peptides pour l'Inflammation et la Douleur | BPC-157 | ORYN",
+    description: "Stylos à peptides pour la recherche anti-inflammatoire. BPC-157 pour l'inflammation et la douleur. Pureté >99%, fabrication GMP.",
+  },
+  "hormonal-balance": {
+    title: "Peptides pour l'Équilibre Hormonal | CJC-1295, Ipamorelin | ORYN",
+    description: "Stylos à peptides pour la recherche hormonale. CJC-1295 et Ipamorelin pour l'optimisation hormonale. Pureté >99%, fabrication GMP.",
+  },
+  "longevity-biohacking": {
+    title: "Peptides pour la Longévité et le Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Stylos à peptides pour la recherche sur la longévité. NAD+, GHK-Cu et Glutathion. Pureté >99%, fabrication GMP, livraison rapide.",
+  },
+};
+
+const CATEGORY_DE_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptide zur Erholung | BPC-157, TB-500 | ORYN",
+    description: "Peptidstifte für Erholungsforschung. BPC-157 und TB-500 zur Gewebereparatur. Reinheit >99%, GMP-Herstellung, schneller Versand nach Europa.",
+  },
+  "weight-loss": {
+    title: "Peptide zur Gewichtsreduktion | Tirzepatide | ORYN",
+    description: "Peptidstifte für Stoffwechselforschung. Tirzepatide dualer GIP/GLP-1-Agonist. Reinheit >99%, GMP-Herstellung, schneller Versand nach Europa.",
+  },
+  "anti-aging": {
+    title: "Anti-Aging-Peptide | GHK-Cu, NAD+ | ORYN",
+    description: "Peptidstifte für Anti-Aging-Forschung. GHK-Cu, NAD+, Glutathion. Reinheit >99%, GMP-Herstellung, schneller Versand nach Europa.",
+  },
+  "muscle-growth": {
+    title: "Peptide für Muskelwachstum | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidstifte für Wachstumshormonforschung. CJC-1295 und Ipamorelin. Reinheit >99%, GMP-Herstellung, schneller Versand.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptide zur Hautregeneration | GHK-Cu | ORYN",
+    description: "Peptidstifte für dermatologische Forschung. GHK-Cu Kupferpeptid. Reinheit >99%, GMP-Herstellung, schneller Versand nach Europa.",
+  },
+  "gut-health": {
+    title: "Peptide für Darmgesundheit | BPC-157 | ORYN",
+    description: "Peptidstifte für gastrointestinale Forschung. BPC-157 körperschützende Verbindung. Reinheit >99%, GMP-Herstellung.",
+  },
+  "sleep-quality": {
+    title: "Peptide für Schlafqualität | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidstifte für Schlafforschung. CJC-1295 und Ipamorelin zur Schlafoptimierung. Reinheit >99%, GMP-Herstellung.",
+  },
+  "joint-health": {
+    title: "Peptide für Gelenkgesundheit | BPC-157, TB-500 | ORYN",
+    description: "Peptidstifte für Gelenkforschung. BPC-157 und TB-500 für Sehnen und Bänder. Reinheit >99%, GMP-Herstellung.",
+  },
+  "hair-growth": {
+    title: "Peptide für Haarwachstum | GHK-Cu | ORYN",
+    description: "Peptidstifte für Haarforschung. GHK-Cu Kupferpeptid für Haarfollikel. Reinheit >99%, GMP-Herstellung.",
+  },
+  "immune-support": {
+    title: "Peptide für das Immunsystem | TB-500, Glutathion | ORYN",
+    description: "Peptidstifte für immunologische Forschung. TB-500 und Glutathion. Reinheit >99%, GMP-Herstellung, schneller Versand nach Europa.",
+  },
+  "tendon-repair": {
+    title: "Peptide zur Sehnenreparatur | BPC-157, TB-500 | ORYN",
+    description: "Peptidstifte für Sehnen- und Bänderreparaturforschung. BPC-157 und TB-500. Reinheit >99%, GMP-Herstellung.",
+  },
+  "sports-recovery": {
+    title: "Peptide für sportliche Erholung | BPC-157, TB-500 | ORYN",
+    description: "Peptidstifte für sportliche Erholungsforschung. BPC-157 und TB-500 für Athleten. Reinheit >99%, GMP-Herstellung.",
+  },
+  "post-surgery": {
+    title: "Peptide zur postoperativen Erholung | BPC-157 | ORYN",
+    description: "Peptidstifte für postchirurgische Forschung. BPC-157 für Wundheilung und Erholung. Reinheit >99%, GMP-Herstellung.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptide zur kognitiven Verbesserung | NAD+, GHK-Cu | ORYN",
+    description: "Peptidstifte für kognitive und neuroprotektive Forschung. NAD+ und GHK-Cu. Reinheit >99%, GMP-Herstellung.",
+  },
+  "energy-vitality": {
+    title: "Peptide für Energie und Vitalität | NAD+ | ORYN",
+    description: "Peptidstifte für zelluläre Energieforschung. NAD+ Nicotinamidadenindinukleotid. Reinheit >99%, GMP-Herstellung.",
+  },
+  "detox-cleanse": {
+    title: "Peptide zur Entgiftung | Glutathion | ORYN",
+    description: "Peptidstifte für Entgiftungsforschung. Glutathion Master-Antioxidans. Reinheit >99%, GMP-Herstellung.",
+  },
+  "body-composition": {
+    title: "Peptide für Körperzusammensetzung | Tirzepatide, CJC-1295 | ORYN",
+    description: "Peptidstifte für Körperzusammensetzungsforschung. Tirzepatide und CJC-1295. Reinheit >99%, GMP-Herstellung.",
+  },
+  inflammation: {
+    title: "Peptide gegen Entzündungen und Schmerzen | BPC-157 | ORYN",
+    description: "Peptidstifte für entzündungshemmende Forschung. BPC-157 gegen Entzündungen und Schmerzen. Reinheit >99%, GMP-Herstellung.",
+  },
+  "hormonal-balance": {
+    title: "Peptide für Hormonbalance | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidstifte für Hormonforschung. CJC-1295 und Ipamorelin zur Hormonoptimierung. Reinheit >99%, GMP-Herstellung.",
+  },
+  "longevity-biohacking": {
+    title: "Peptide für Langlebigkeit und Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Peptidstifte für Langlebigkeitsforschung. NAD+, GHK-Cu und Glutathion. Reinheit >99%, GMP-Herstellung, schneller Versand.",
+  },
+};
+
+const CATEGORY_IT_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptidi per il Recupero | BPC-157, TB-500 | ORYN",
+    description: "Penne ai peptidi per la ricerca sul recupero. BPC-157 e TB-500 per la riparazione tissutale. Purezza >99%, produzione GMP, spedizione rapida in Europa.",
+  },
+  "weight-loss": {
+    title: "Peptidi per la Perdita di Peso | Tirzepatide | ORYN",
+    description: "Penne ai peptidi per la ricerca metabolica. Tirzepatide agonista doppio GIP/GLP-1. Purezza >99%, produzione GMP, spedizione rapida in Europa.",
+  },
+  "anti-aging": {
+    title: "Peptidi Anti-Invecchiamento | GHK-Cu, NAD+ | ORYN",
+    description: "Penne ai peptidi per la ricerca anti-invecchiamento. GHK-Cu, NAD+, Glutatione. Purezza >99%, produzione GMP, spedizione rapida in Europa.",
+  },
+  "muscle-growth": {
+    title: "Peptidi per la Crescita Muscolare | CJC-1295, Ipamorelin | ORYN",
+    description: "Penne ai peptidi per la ricerca sull'ormone della crescita. CJC-1295 e Ipamorelin. Purezza >99%, produzione GMP, spedizione rapida.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptidi per il Ringiovanimento della Pelle | GHK-Cu | ORYN",
+    description: "Penne ai peptidi per la ricerca dermatologica. GHK-Cu peptide del rame. Purezza >99%, produzione GMP, spedizione rapida in Europa.",
+  },
+  "gut-health": {
+    title: "Peptidi per la Salute Intestinale | BPC-157 | ORYN",
+    description: "Penne ai peptidi per la ricerca gastrointestinale. BPC-157 composto di protezione corporea. Purezza >99%, produzione GMP.",
+  },
+  "sleep-quality": {
+    title: "Peptidi per la Qualità del Sonno | CJC-1295, Ipamorelin | ORYN",
+    description: "Penne ai peptidi per la ricerca sul sonno. CJC-1295 e Ipamorelin per l'ottimizzazione del sonno. Purezza >99%, produzione GMP.",
+  },
+  "joint-health": {
+    title: "Peptidi per la Salute delle Articolazioni | BPC-157, TB-500 | ORYN",
+    description: "Penne ai peptidi per la ricerca articolare. BPC-157 e TB-500 per tendini e legamenti. Purezza >99%, produzione GMP.",
+  },
+  "hair-growth": {
+    title: "Peptidi per la Crescita dei Capelli | GHK-Cu | ORYN",
+    description: "Penne ai peptidi per la ricerca capillare. GHK-Cu peptide del rame per i follicoli. Purezza >99%, produzione GMP.",
+  },
+  "immune-support": {
+    title: "Peptidi per il Sistema Immunitario | TB-500, Glutatione | ORYN",
+    description: "Penne ai peptidi per la ricerca immunologica. TB-500 e Glutatione. Purezza >99%, produzione GMP, spedizione rapida in Europa.",
+  },
+  "tendon-repair": {
+    title: "Peptidi per la Riparazione dei Tendini | BPC-157, TB-500 | ORYN",
+    description: "Penne ai peptidi per la ricerca sulla riparazione di tendini e legamenti. BPC-157 e TB-500. Purezza >99%, produzione GMP.",
+  },
+  "sports-recovery": {
+    title: "Peptidi per il Recupero Sportivo | BPC-157, TB-500 | ORYN",
+    description: "Penne ai peptidi per la ricerca sul recupero sportivo. BPC-157 e TB-500 per gli atleti. Purezza >99%, produzione GMP.",
+  },
+  "post-surgery": {
+    title: "Peptidi per il Recupero Post-Operatorio | BPC-157 | ORYN",
+    description: "Penne ai peptidi per la ricerca post-chirurgica. BPC-157 per la cicatrizzazione e il recupero. Purezza >99%, produzione GMP.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptidi per il Potenziamento Cognitivo | NAD+, GHK-Cu | ORYN",
+    description: "Penne ai peptidi per la ricerca cognitiva e la neuroprotettiva. NAD+ e GHK-Cu. Purezza >99%, produzione GMP.",
+  },
+  "energy-vitality": {
+    title: "Peptidi per Energia e Vitalità | NAD+ | ORYN",
+    description: "Penne ai peptidi per la ricerca sull'energia cellulare. NAD+ nicotinammide adenina dinucleotide. Purezza >99%, produzione GMP.",
+  },
+  "detox-cleanse": {
+    title: "Peptidi per la Disintossicazione | Glutatione | ORYN",
+    description: "Penne ai peptidi per la ricerca sulla disintossicazione. Glutatione antiossidante principale. Purezza >99%, produzione GMP.",
+  },
+  "body-composition": {
+    title: "Peptidi per la Composizione Corporea | Tirzepatide, CJC-1295 | ORYN",
+    description: "Penne ai peptidi per la ricerca sulla composizione corporea. Tirzepatide e CJC-1295. Purezza >99%, produzione GMP.",
+  },
+  inflammation: {
+    title: "Peptidi per Infiammazione e Dolore | BPC-157 | ORYN",
+    description: "Penne ai peptidi per la ricerca antinfiammatoria. BPC-157 per infiammazione e dolore. Purezza >99%, produzione GMP.",
+  },
+  "hormonal-balance": {
+    title: "Peptidi per l'Equilibrio Ormonale | CJC-1295, Ipamorelin | ORYN",
+    description: "Penne ai peptidi per la ricerca ormonale. CJC-1295 e Ipamorelin per l'ottimizzazione ormonale. Purezza >99%, produzione GMP.",
+  },
+  "longevity-biohacking": {
+    title: "Peptidi per Longevità e Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Penne ai peptidi per la ricerca sulla longevità. NAD+, GHK-Cu e Glutatione. Purezza >99%, produzione GMP, spedizione rapida.",
+  },
+};
+
+const CATEGORY_PT_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptídeos para Recuperação | BPC-157, TB-500 | ORYN",
+    description: "Canetas de peptídeos para pesquisa em recuperação. BPC-157 e TB-500 para reparação tecidual. Pureza >99%, fabricação GMP, envio rápido para a Europa.",
+  },
+  "weight-loss": {
+    title: "Peptídeos para Perda de Peso | Tirzepatide | ORYN",
+    description: "Canetas de peptídeos para pesquisa metabólica. Tirzepatide agonista duplo GIP/GLP-1. Pureza >99%, fabricação GMP, envio rápido para a Europa.",
+  },
+  "anti-aging": {
+    title: "Peptídeos Anti-Envelhecimento | GHK-Cu, NAD+ | ORYN",
+    description: "Canetas de peptídeos para pesquisa anti-envelhecimento. GHK-Cu, NAD+, Glutationa. Pureza >99%, fabricação GMP, envio rápido para a Europa.",
+  },
+  "muscle-growth": {
+    title: "Peptídeos para Crescimento Muscular | CJC-1295, Ipamorelin | ORYN",
+    description: "Canetas de peptídeos para pesquisa em hormônio do crescimento. CJC-1295 e Ipamorelin. Pureza >99%, fabricação GMP, envio rápido.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptídeos para Rejuvenescimento da Pele | GHK-Cu | ORYN",
+    description: "Canetas de peptídeos para pesquisa dermatológica. GHK-Cu peptídeo de cobre. Pureza >99%, fabricação GMP, envio rápido para a Europa.",
+  },
+  "gut-health": {
+    title: "Peptídeos para Saúde Intestinal | BPC-157 | ORYN",
+    description: "Canetas de peptídeos para pesquisa gastrointestinal. BPC-157 composto de proteção corporal. Pureza >99%, fabricação GMP.",
+  },
+  "sleep-quality": {
+    title: "Peptídeos para Qualidade do Sono | CJC-1295, Ipamorelin | ORYN",
+    description: "Canetas de peptídeos para pesquisa em sono. CJC-1295 e Ipamorelin para otimização do sono. Pureza >99%, fabricação GMP.",
+  },
+  "joint-health": {
+    title: "Peptídeos para Saúde das Articulações | BPC-157, TB-500 | ORYN",
+    description: "Canetas de peptídeos para pesquisa articular. BPC-157 e TB-500 para tendões e ligamentos. Pureza >99%, fabricação GMP.",
+  },
+  "hair-growth": {
+    title: "Peptídeos para Crescimento Capilar | GHK-Cu | ORYN",
+    description: "Canetas de peptídeos para pesquisa capilar. GHK-Cu peptídeo de cobre para folículos. Pureza >99%, fabricação GMP.",
+  },
+  "immune-support": {
+    title: "Peptídeos para o Sistema Imunológico | TB-500, Glutationa | ORYN",
+    description: "Canetas de peptídeos para pesquisa imunológica. TB-500 e Glutationa. Pureza >99%, fabricação GMP, envio rápido para a Europa.",
+  },
+  "tendon-repair": {
+    title: "Peptídeos para Reparação de Tendões | BPC-157, TB-500 | ORYN",
+    description: "Canetas de peptídeos para pesquisa em reparação de tendões e ligamentos. BPC-157 e TB-500. Pureza >99%, fabricação GMP.",
+  },
+  "sports-recovery": {
+    title: "Peptídeos para Recuperação Esportiva | BPC-157, TB-500 | ORYN",
+    description: "Canetas de peptídeos para pesquisa em recuperação esportiva. BPC-157 e TB-500 para atletas. Pureza >99%, fabricação GMP.",
+  },
+  "post-surgery": {
+    title: "Peptídeos para Recuperação Pós-Cirúrgica | BPC-157 | ORYN",
+    description: "Canetas de peptídeos para pesquisa pós-cirúrgica. BPC-157 para cicatrização e recuperação. Pureza >99%, fabricação GMP.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptídeos para Melhora Cognitiva | NAD+, GHK-Cu | ORYN",
+    description: "Canetas de peptídeos para pesquisa cognitiva e neuroproteção. NAD+ e GHK-Cu. Pureza >99%, fabricação GMP.",
+  },
+  "energy-vitality": {
+    title: "Peptídeos para Energia e Vitalidade | NAD+ | ORYN",
+    description: "Canetas de peptídeos para pesquisa em energia celular. NAD+ nicotinamida adenina dinucleotídeo. Pureza >99%, fabricação GMP.",
+  },
+  "detox-cleanse": {
+    title: "Peptídeos para Desintoxicação | Glutationa | ORYN",
+    description: "Canetas de peptídeos para pesquisa em desintoxicação. Glutationa antioxidante mestre. Pureza >99%, fabricação GMP.",
+  },
+  "body-composition": {
+    title: "Peptídeos para Composição Corporal | Tirzepatide, CJC-1295 | ORYN",
+    description: "Canetas de peptídeos para pesquisa em composição corporal. Tirzepatide e CJC-1295. Pureza >99%, fabricação GMP.",
+  },
+  inflammation: {
+    title: "Peptídeos para Inflamação e Dor | BPC-157 | ORYN",
+    description: "Canetas de peptídeos para pesquisa anti-inflamatória. BPC-157 para inflamação e dor. Pureza >99%, fabricação GMP.",
+  },
+  "hormonal-balance": {
+    title: "Peptídeos para Equilíbrio Hormonal | CJC-1295, Ipamorelin | ORYN",
+    description: "Canetas de peptídeos para pesquisa hormonal. CJC-1295 e Ipamorelin para otimização hormonal. Pureza >99%, fabricação GMP.",
+  },
+  "longevity-biohacking": {
+    title: "Peptídeos para Longevidade e Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Canetas de peptídeos para pesquisa em longevidade. NAD+, GHK-Cu e Glutationa. Pureza >99%, fabricação GMP, envio rápido.",
+  },
+};
+
+const CATEGORY_NL_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptiden voor Herstel | BPC-157, TB-500 | ORYN",
+    description: "Peptidepennen voor herstelonderzoek. BPC-157 en TB-500 voor weefselherstel. Zuiverheid >99%, GMP-productie, snelle levering in Europa.",
+  },
+  "weight-loss": {
+    title: "Peptiden voor Gewichtsverlies | Tirzepatide | ORYN",
+    description: "Peptidepennen voor metabolisch onderzoek. Tirzepatide dubbele GIP/GLP-1-agonist. Zuiverheid >99%, GMP-productie, snelle levering in Europa.",
+  },
+  "anti-aging": {
+    title: "Anti-Veroudering Peptiden | GHK-Cu, NAD+ | ORYN",
+    description: "Peptidepennen voor anti-verouderingsonderzoek. GHK-Cu, NAD+, Glutathion. Zuiverheid >99%, GMP-productie, snelle levering in Europa.",
+  },
+  "muscle-growth": {
+    title: "Peptiden voor Spiergroei | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidepennen voor groeihormoononderzoek. CJC-1295 en Ipamorelin. Zuiverheid >99%, GMP-productie, snelle levering.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptiden voor Huidverjonging | GHK-Cu | ORYN",
+    description: "Peptidepennen voor dermatologisch onderzoek. GHK-Cu koper peptide. Zuiverheid >99%, GMP-productie, snelle levering in Europa.",
+  },
+  "gut-health": {
+    title: "Peptiden voor Darmgezondheid | BPC-157 | ORYN",
+    description: "Peptidepennen voor gastro-intestinaal onderzoek. BPC-157 lichaamsbeschermende verbinding. Zuiverheid >99%, GMP-productie.",
+  },
+  "sleep-quality": {
+    title: "Peptiden voor Slaapkwaliteit | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidepennen voor slaaponderzoek. CJC-1295 en Ipamorelin voor slaapoptimalisatie. Zuiverheid >99%, GMP-productie.",
+  },
+  "joint-health": {
+    title: "Peptiden voor Gewrichtsgezondheid | BPC-157, TB-500 | ORYN",
+    description: "Peptidepennen voor gewrichtsonderzoek. BPC-157 en TB-500 voor pezen en ligamenten. Zuiverheid >99%, GMP-productie.",
+  },
+  "hair-growth": {
+    title: "Peptiden voor Haargroei | GHK-Cu | ORYN",
+    description: "Peptidepennen voor haaronderzoek. GHK-Cu koper peptide voor haarzakjes. Zuiverheid >99%, GMP-productie.",
+  },
+  "immune-support": {
+    title: "Peptiden voor het Immuunsysteem | TB-500, Glutathion | ORYN",
+    description: "Peptidepennen voor immunologisch onderzoek. TB-500 en Glutathion. Zuiverheid >99%, GMP-productie, snelle levering in Europa.",
+  },
+  "tendon-repair": {
+    title: "Peptiden voor Peesherstel | BPC-157, TB-500 | ORYN",
+    description: "Peptidepennen voor onderzoek naar pees- en ligamentherstel. BPC-157 en TB-500. Zuiverheid >99%, GMP-productie.",
+  },
+  "sports-recovery": {
+    title: "Peptiden voor Sportsherstel | BPC-157, TB-500 | ORYN",
+    description: "Peptidepennen voor sportsherstelonderzoek. BPC-157 en TB-500 voor atleten. Zuiverheid >99%, GMP-productie.",
+  },
+  "post-surgery": {
+    title: "Peptiden voor Postoperatief Herstel | BPC-157 | ORYN",
+    description: "Peptidepennen voor postchirurgisch onderzoek. BPC-157 voor wondgenezing en herstel. Zuiverheid >99%, GMP-productie.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptiden voor Cognitieve Verbetering | NAD+, GHK-Cu | ORYN",
+    description: "Peptidepennen voor cognitief en neuroprotectief onderzoek. NAD+ en GHK-Cu. Zuiverheid >99%, GMP-productie.",
+  },
+  "energy-vitality": {
+    title: "Peptiden voor Energie en Vitaliteit | NAD+ | ORYN",
+    description: "Peptidepennen voor cellulaire energieonderzoek. NAD+ nicotinamide-adeninedinucleotide. Zuiverheid >99%, GMP-productie.",
+  },
+  "detox-cleanse": {
+    title: "Peptiden voor Detox | Glutathion | ORYN",
+    description: "Peptidepennen voor detoxonderzoek. Glutathion meester-antioxidant. Zuiverheid >99%, GMP-productie.",
+  },
+  "body-composition": {
+    title: "Peptiden voor Lichaamssamenstelling | Tirzepatide, CJC-1295 | ORYN",
+    description: "Peptidepennen voor onderzoek naar lichaamssamenstelling. Tirzepatide en CJC-1295. Zuiverheid >99%, GMP-productie.",
+  },
+  inflammation: {
+    title: "Peptiden voor Ontsteking en Pijn | BPC-157 | ORYN",
+    description: "Peptidepennen voor ontstekingsremmend onderzoek. BPC-157 voor ontsteking en pijn. Zuiverheid >99%, GMP-productie.",
+  },
+  "hormonal-balance": {
+    title: "Peptiden voor Hormonale Balans | CJC-1295, Ipamorelin | ORYN",
+    description: "Peptidepennen voor hormonaal onderzoek. CJC-1295 en Ipamorelin voor hormonale optimalisatie. Zuiverheid >99%, GMP-productie.",
+  },
+  "longevity-biohacking": {
+    title: "Peptiden voor Levensduur en Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Peptidepennen voor levensduuronderzoek. NAD+, GHK-Cu en Glutathion. Zuiverheid >99%, GMP-productie, snelle levering.",
+  },
+};
+
+const CATEGORY_PL_META: Record<string, { title: string; description: string }> = {
+  recovery: {
+    title: "Peptydy na Regenerację | BPC-157, TB-500 | ORYN",
+    description: "Pióra peptydowe do badań nad regeneracją. BPC-157 i TB-500 do naprawy tkanek. Czystość >99%, produkcja GMP, szybka dostawa do Europy.",
+  },
+  "weight-loss": {
+    title: "Peptydy na Odchudzanie | Tirzepatide | ORYN",
+    description: "Pióra peptydowe do badań metabolicznych. Tirzepatide podwójny agonista GIP/GLP-1. Czystość >99%, produkcja GMP, szybka dostawa do Europy.",
+  },
+  "anti-aging": {
+    title: "Peptydy Anti-Aging | GHK-Cu, NAD+ | ORYN",
+    description: "Pióra peptydowe do badań anti-aging. GHK-Cu, NAD+, Glutation. Czystość >99%, produkcja GMP, szybka dostawa do Europy.",
+  },
+  "muscle-growth": {
+    title: "Peptydy na Wzrost Mięśni | CJC-1295, Ipamorelin | ORYN",
+    description: "Pióra peptydowe do badań nad hormonem wzrostu. CJC-1295 i Ipamorelin. Czystość >99%, produkcja GMP, szybka dostawa.",
+  },
+  "skin-rejuvenation": {
+    title: "Peptydy na Odmłodzenie Skóry | GHK-Cu | ORYN",
+    description: "Pióra peptydowe do badań dermatologicznych. GHK-Cu peptyd miedzi. Czystość >99%, produkcja GMP, szybka dostawa do Europy.",
+  },
+  "gut-health": {
+    title: "Peptydy na Zdrowie Jelit | BPC-157 | ORYN",
+    description: "Pióra peptydowe do badań żołądkowo-jelitowych. BPC-157 związek ochrony ciała. Czystość >99%, produkcja GMP.",
+  },
+  "sleep-quality": {
+    title: "Peptydy na Jakość Snu | CJC-1295, Ipamorelin | ORYN",
+    description: "Pióra peptydowe do badań nad snem. CJC-1295 i Ipamorelin do optymalizacji snu. Czystość >99%, produkcja GMP.",
+  },
+  "joint-health": {
+    title: "Peptydy na Zdrowie Stawów | BPC-157, TB-500 | ORYN",
+    description: "Pióra peptydowe do badań stawowych. BPC-157 i TB-500 na ścięgna i więzadła. Czystość >99%, produkcja GMP.",
+  },
+  "hair-growth": {
+    title: "Peptydy na Wzrost Włosów | GHK-Cu | ORYN",
+    description: "Pióra peptydowe do badań kapilarnych. GHK-Cu peptyd miedzi dla mieszków włosowych. Czystość >99%, produkcja GMP.",
+  },
+  "immune-support": {
+    title: "Peptydy na Układ Odpornościowy | TB-500, Glutation | ORYN",
+    description: "Pióra peptydowe do badań immunologicznych. TB-500 i Glutation. Czystość >99%, produkcja GMP, szybka dostawa do Europy.",
+  },
+  "tendon-repair": {
+    title: "Peptydy na Naprawę Ścięgien | BPC-157, TB-500 | ORYN",
+    description: "Pióra peptydowe do badań nad naprawą ścięgien i więzadeł. BPC-157 i TB-500. Czystość >99%, produkcja GMP.",
+  },
+  "sports-recovery": {
+    title: "Peptydy na Regenerację Sportową | BPC-157, TB-500 | ORYN",
+    description: "Pióra peptydowe do badań nad regeneracją sportową. BPC-157 i TB-500 dla sportowców. Czystość >99%, produkcja GMP.",
+  },
+  "post-surgery": {
+    title: "Peptydy na Rekonwalescencję Po Operacji | BPC-157 | ORYN",
+    description: "Pióra peptydowe do badań pooperacyjnych. BPC-157 do gojenia ran i rekonwalescencji. Czystość >99%, produkcja GMP.",
+  },
+  "cognitive-enhancement": {
+    title: "Peptydy na Poprawę Funkcji Poznawczych | NAD+, GHK-Cu | ORYN",
+    description: "Pióra peptydowe do badań poznawczych i neuroprotekcji. NAD+ i GHK-Cu. Czystość >99%, produkcja GMP.",
+  },
+  "energy-vitality": {
+    title: "Peptydy na Energię i Witalność | NAD+ | ORYN",
+    description: "Pióra peptydowe do badań energii komórkowej. NAD+ dinukleotyd nikotynoamidoadeninowy. Czystość >99%, produkcja GMP.",
+  },
+  "detox-cleanse": {
+    title: "Peptydy na Detoksykację | Glutation | ORYN",
+    description: "Pióra peptydowe do badań detoksykacyjnych. Glutation główny antyoksydant. Czystość >99%, produkcja GMP.",
+  },
+  "body-composition": {
+    title: "Peptydy na Skład Ciała | Tirzepatide, CJC-1295 | ORYN",
+    description: "Pióra peptydowe do badań składu ciała. Tirzepatide i CJC-1295. Czystość >99%, produkcja GMP.",
+  },
+  inflammation: {
+    title: "Peptydy na Stany Zapalne i Ból | BPC-157 | ORYN",
+    description: "Pióra peptydowe do badań przeciwzapalnych. BPC-157 na stany zapalne i ból. Czystość >99%, produkcja GMP.",
+  },
+  "hormonal-balance": {
+    title: "Peptydy na Równowagę Hormonalną | CJC-1295, Ipamorelin | ORYN",
+    description: "Pióra peptydowe do badań hormonalnych. CJC-1295 i Ipamorelin do optymalizacji hormonalnej. Czystość >99%, produkcja GMP.",
+  },
+  "longevity-biohacking": {
+    title: "Peptydy na Długowieczność i Biohacking | NAD+, GHK-Cu | ORYN",
+    description: "Pióra peptydowe do badań nad długowiecznością. NAD+, GHK-Cu i Glutation. Czystość >99%, produkcja GMP, szybka dostawa.",
+  },
+};
+
+const CATEGORY_LOCALE_META: Record<string, Record<string, { title: string; description: string }>> = {
+  es: CATEGORY_ES_META,
+  fr: CATEGORY_FR_META,
+  de: CATEGORY_DE_META,
+  it: CATEGORY_IT_META,
+  pt: CATEGORY_PT_META,
+  nl: CATEGORY_NL_META,
+  pl: CATEGORY_PL_META,
+};
+
 export function categoryMetadata(category: SEOCategory, locale = "en") {
-  if (locale === "es" && CATEGORY_ES_META[category.slug]) {
-    return CATEGORY_ES_META[category.slug];
+  const localeMeta = CATEGORY_LOCALE_META[locale];
+  if (localeMeta && localeMeta[category.slug]) {
+    return localeMeta[category.slug];
   }
   return {
     title: category.metaTitle,

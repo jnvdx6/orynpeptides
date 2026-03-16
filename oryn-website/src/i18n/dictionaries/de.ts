@@ -313,6 +313,9 @@ const de = {
     atCheckout: "IM CHECKOUT",
     total: "Gesamt",
     volumeDiscount: "Mengenrabatt",
+    saveForLater: "Für später speichern",
+    saved: "GESPEICHERT",
+    save: "SPEICHERN",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const de = {
       { vial: "Abnehmend", pen: "Gleichbleibend", label: "Sterilität" },
       { vial: "7-14 Tage", pen: "30 Tage", label: "Stabilität" },
     ],
+    compareWith: "MIT ÄHNLICHEN PRODUKTEN VERGLEICHEN",
+    sideBy: "Produkte Vergleichen",
+    vsLabel: "AUSBLENDEN",
+    keyDifferences: "HAUPTVORTEILE",
+    bestFor: "Vorteile",
+    viewProduct: "HINZUFÜGEN",
+    comparisonDisclaimer: "PREIS",
   },
 
   aboutPage: {

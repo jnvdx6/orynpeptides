@@ -48,22 +48,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Calidad y Pruebas de Terceros | Certificados de Analisis | ORYN Peptides"
-    : "Quality & Third-Party Testing | COA Peptides UK | ORYN Peptide Labs";
-  const description = isEs
-    ? "Cada lote de peptidos ORYN se somete a pruebas HPLC independientes y espectrometria de masas. Consulte nuestros Certificados de Analisis, estandares de pureza >98% y proceso de fabricacion GMP."
-    : "Every batch of ORYN peptides undergoes independent HPLC purity testing and mass spectrometry verification. View our Certificates of Analysis, >98% purity standards, and GMP manufacturing process. Third-party tested peptides UK.";
+  const title = `${dict.breadcrumbs.quality} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs
-        ? "Calidad y Transparencia — ORYN Peptides"
-        : "Quality & Third-Party Testing — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/quality`,
       type: "website",
@@ -71,12 +65,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Calidad y Transparencia — ORYN"
-        : "Quality & Third-Party Testing — ORYN Peptide Labs",
-      description: isEs
-        ? "Pruebas HPLC independientes. Pureza >98%. Certificados de analisis para cada lote."
-        : "Independent HPLC testing. >98% purity. Certificate of Analysis for every batch. HPLC tested peptides UK.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/quality`,

@@ -313,6 +313,9 @@ const it = {
     atCheckout: "AL CHECKOUT",
     total: "Totale",
     volumeDiscount: "Sconto quantità",
+    saveForLater: "Salva per dopo",
+    saved: "SALVATO",
+    save: "SALVA",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const it = {
       { vial: "Decrescente", pen: "Mantenuta", label: "Sterilità" },
       { vial: "7-14 giorni", pen: "30 giorni", label: "Stabilità" },
     ],
+    compareWith: "CONFRONTA CON PRODOTTI SIMILI",
+    sideBy: "Confronta Prodotti",
+    vsLabel: "NASCONDI",
+    keyDifferences: "VANTAGGI CHIAVE",
+    bestFor: "vantaggi",
+    viewProduct: "AGGIUNGI",
+    comparisonDisclaimer: "PREZZO",
   },
 
   aboutPage: {

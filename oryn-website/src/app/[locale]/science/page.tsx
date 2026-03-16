@@ -15,20 +15,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Ciencia de los Péptidos | Mecanismos, Pureza y Proceso de Fabricación | ORYN"
-    : "Peptide Science | Mechanisms, Purity & Manufacturing Process | ORYN UK";
-  const description = isEs
-    ? "Explora la ciencia detrás de BPC-157, Tirzepatide, GHK-Cu, NAD+ y más. Mecanismos de acción, procesos de fabricación GMP y estándares de pureza >99%."
-    : "Explore the science behind BPC-157, TB-500, CJC-1295, Tirzepatide, GHK-Cu, NAD+ & Glutathione. Mechanisms of action, GMP manufacturing process & >99% purity standards.";
+  const title = `${dict.sciencePage.heroTitle1} ${dict.sciencePage.heroTitle2} | ORYN Peptide Labs`;
+  const description = dict.sciencePage.heroDescription;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs ? "Ciencia de los Péptidos — ORYN" : "Peptide Science — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/science`,
       type: "website",
@@ -36,10 +32,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs ? "Ciencia de los Péptidos" : "Peptide Science — ORYN",
-      description: isEs
-        ? "Mecanismos de acción, pureza >99%, fabricación GMP."
-        : "Mechanisms of action, >99% purity, GMP manufacturing. Research-grade peptide science.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/science`,

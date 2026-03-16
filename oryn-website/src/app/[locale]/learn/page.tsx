@@ -17,20 +17,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Guías de Péptidos — Investigación, Protocolos y Legalidad | ORYN"
-    : "Peptide Guides & Research Articles — Learn About Peptides | ORYN";
-  const description = isEs
-    ? `${BLOG_ARTICLES.length} guías sobre péptidos de investigación. BPC-157, Tirzepatide, NAD+, GHK-Cu. Legalidad, protocolos, comparaciones y guías de compra.`
-    : `${BLOG_ARTICLES.length} expert guides on research peptides. BPC-157, Tirzepatide, NAD+, GHK-Cu and more. Legality, protocols, comparisons, buying guides, and the latest peptide research.`;
+  const title = `${dict.breadcrumbs.learn} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs ? "Guías de Péptidos — ORYN" : "Peptide Research Hub — ORYN",
+      title,
       description,
       url: `${SITE_URL}/${locale}/learn`,
       type: "website",

@@ -5,6 +5,7 @@ import { useAuth } from "@/providers/auth";
 import { useCart } from "@/lib/cart-context";
 import { useProducts } from "@/providers/products";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localeToIntlTag, type Locale } from "@/i18n/config";
 import { Link } from "@/components/ui/LocaleLink";
 
 interface OrderItem {
@@ -119,7 +120,7 @@ export default function OrdersPage() {
     );
   }
 
-  const dateLocale = locale === "es" ? "es-ES" : "en-GB";
+  const dateLocale = localeToIntlTag[locale as Locale] || "en-GB";
   const statusLabels: Record<string, string> = {
     pending: od.pending,
     processing: od.processing,

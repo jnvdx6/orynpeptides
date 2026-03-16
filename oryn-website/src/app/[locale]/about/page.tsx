@@ -15,20 +15,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Sobre ORYN Peptide Labs | Ciencia, Pureza, Precisión"
-    : "About ORYN Peptide Labs | Science, Purity & Precision Since 2024";
-  const description = isEs
-    ? "Descubre ORYN Peptide Labs: fabricación GMP europea, pureza >99%, y sistemas de plumas de péptidos de precisión. Conozca nuestra misión, valores e instalaciones."
-    : "Discover ORYN Peptide Labs: European GMP manufacturing, >99% purity, and precision peptide pen systems. Learn about our mission, values, facilities & commitment to research-grade quality.";
+  const description = dict.aboutPage.heroDescription;
+  const title = `${dict.aboutPage.tagline} | ORYN Peptide Labs`;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs ? "Sobre ORYN Peptide Labs" : "About ORYN Peptide Labs — Our Story & Mission",
+      title,
       description,
       url: `${SITE_URL}/${locale}/about`,
       type: "website",
@@ -36,10 +32,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs ? "Sobre ORYN" : "About ORYN Peptide Labs",
-      description: isEs
-        ? "Fabricación GMP europea. Pureza >99%."
-        : "European GMP manufacturing. >99% purity. Precision peptide pen systems.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/about`,

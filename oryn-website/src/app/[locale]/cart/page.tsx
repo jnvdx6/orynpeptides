@@ -18,7 +18,7 @@ function getProductImage(slug: string, category: string): string {
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, volumeDiscount, finalPrice, cartLoaded } = useCart();
-  const { t, formatPrice, locale } = useLocale();
+  const { t, formatPrice } = useLocale();
   const { products } = useProducts();
   const { addToWishlist, isInWishlist } = useWishlist();
   usePageTracking("cart");
@@ -145,9 +145,9 @@ export default function CartPage() {
                           removeItem(item.product.id);
                         }}
                         className="text-[9px] font-mono text-oryn-black/30 hover:text-oryn-orange transition-colors px-1 py-0.5"
-                        title={locale === "es" ? "Guardar para después" : "Save for later"}
+                        title={t.cart.saveForLater}
                       >
-                        {isInWishlist(item.product.id) ? (locale === "es" ? "GUARDADO" : "SAVED") : (locale === "es" ? "GUARDAR" : "SAVE")}
+                        {isInWishlist(item.product.id) ? t.cart.saved : t.cart.save}
                       </button>
                       <button
                         onClick={() => removeItem(item.product.id)}

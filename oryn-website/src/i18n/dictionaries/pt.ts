@@ -313,6 +313,9 @@ const pt = {
     atCheckout: "NO PAGAMENTO",
     total: "Total",
     volumeDiscount: "Desconto por volume",
+    saveForLater: "Guardar para mais tarde",
+    saved: "GUARDADO",
+    save: "GUARDAR",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const pt = {
       { vial: "Decrescente", pen: "Mantida", label: "Esterilidade" },
       { vial: "7-14 dias", pen: "30 dias", label: "Estabilidade" },
     ],
+    compareWith: "COMPARAR COM PRODUTOS SIMILARES",
+    sideBy: "Comparar Produtos",
+    vsLabel: "OCULTAR",
+    keyDifferences: "BENEFÍCIOS PRINCIPAIS",
+    bestFor: "benefícios",
+    viewProduct: "ADICIONAR",
+    comparisonDisclaimer: "PREÇO",
   },
 
   aboutPage: {

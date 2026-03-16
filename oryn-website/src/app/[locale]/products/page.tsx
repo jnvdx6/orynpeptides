@@ -17,20 +17,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Comprar Plumas de Péptidos | BPC-157, Tirzepatide, GHK-Cu, NAD+ | ORYN"
-    : "Buy Peptide Pens UK | BPC-157, Tirzepatide, GHK-Cu, NAD+ & More | ORYN";
-  const description = isEs
-    ? "Explora la gama completa de plumas de péptidos ORYN. 10 péptidos de grado investigación, pureza >99%, fabricación GMP. Desde €99."
-    : "Explore the full range of ORYN research-grade peptide pens. BPC-157, TB-500, CJC-1295, Ipamorelin, Tirzepatide, GHK-Cu, NAD+, Glutathione. >99% purity, GMP manufactured. From €99.";
+  const title = `${dict.breadcrumbs.products} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs ? "Plumas de Péptidos — ORYN" : "Peptide Pens — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/products`,
       type: "website",
@@ -38,10 +34,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs ? "Plumas de Péptidos ORYN" : "ORYN Peptide Pens — Full Range",
-      description: isEs
-        ? "10 péptidos, pureza >99%, fabricación GMP."
-        : "10 research-grade peptides. >99% purity. GMP manufactured. Next-day UK delivery.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/products`,

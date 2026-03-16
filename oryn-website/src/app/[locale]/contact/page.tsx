@@ -22,20 +22,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Contacto | ORYN Peptide Labs — Consultas y Wholesale"
-    : "Contact ORYN Peptide Labs | Enquiries, Wholesale & Support";
-  const description = isEs
-    ? "Contacta con ORYN Peptide Labs para consultas generales, pedidos mayoristas o soporte técnico. Equipo de atención al cliente basado en Europa."
-    : "Contact ORYN Peptide Labs for general enquiries, wholesale orders, or technical support. European-based customer support team. info@orynlabs.com";
+  const title = `${dict.contactPage.heroTitle} | ORYN Peptide Labs`;
+  const description = dict.contactPage.heroDescription;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs ? "Contacto — ORYN Peptide Labs" : "Contact ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/contact`,
       type: "website",
@@ -43,10 +39,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary",
-      title: isEs ? "Contacto ORYN" : "Contact ORYN Peptide Labs",
-      description: isEs
-        ? "Consultas, wholesale y soporte técnico."
-        : "General enquiries, wholesale orders & technical support.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/contact`,

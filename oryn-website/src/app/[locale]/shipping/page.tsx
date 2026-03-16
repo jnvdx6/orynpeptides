@@ -48,22 +48,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Envio y Entrega de Peptidos | Entrega en 2-4 Dias | ORYN Peptides"
-    : "Peptide Shipping & Delivery UK | Next-Day Dispatch, Free Over €150 | ORYN Peptide Labs";
-  const description = isEs
-    ? "Envio con temperatura controlada en 2-4 dias laborables. Envio gratuito en pedidos superiores a 150 euros. Embalaje discreto, seguimiento completo y entrega en toda Europa."
-    : "Temperature-controlled peptide delivery across the UK in 2-4 business days. Same-day dispatch, free shipping over €150, discreet packaging. Insulated boxes with gel ice packs. European delivery 3-7 days.";
+  const title = `${dict.breadcrumbs.shipping} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs
-        ? "Envio y Entrega — ORYN Peptides"
-        : "Shipping & Delivery — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/shipping`,
       type: "website",
@@ -71,12 +65,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Envio y Entrega — ORYN"
-        : "Peptide Shipping & Delivery — ORYN Peptide Labs",
-      description: isEs
-        ? "Entrega en 2-4 dias. Envio con temperatura controlada. Gratis en pedidos de mas de 150 euros."
-        : "2-4 day UK delivery. Temperature-controlled shipping. Free over €150. Same-day dispatch before 2pm.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/shipping`,

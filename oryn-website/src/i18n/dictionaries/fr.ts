@@ -313,6 +313,9 @@ const fr = {
     atCheckout: "AU PAIEMENT",
     total: "Total",
     volumeDiscount: "Remise volume",
+    saveForLater: "Sauvegarder pour plus tard",
+    saved: "SAUVEGARDÉ",
+    save: "SAUVEGARDER",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const fr = {
       { vial: "Décroissante", pen: "Maintenue", label: "Stérilité" },
       { vial: "7-14 jours", pen: "30 jours", label: "Stabilité" },
     ],
+    compareWith: "COMPARER AVEC DES PRODUITS SIMILAIRES",
+    sideBy: "Comparer les Produits",
+    vsLabel: "MASQUER",
+    keyDifferences: "BÉNÉFICES CLÉS",
+    bestFor: "bénéfices",
+    viewProduct: "AJOUTER",
+    comparisonDisclaimer: "PRIX",
   },
 
   aboutPage: {

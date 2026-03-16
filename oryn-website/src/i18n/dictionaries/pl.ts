@@ -313,6 +313,9 @@ const pl = {
     atCheckout: "PRZY KASIE",
     total: "Razem",
     volumeDiscount: "Rabat ilościowy",
+    saveForLater: "Zapisz na później",
+    saved: "ZAPISANO",
+    save: "ZAPISZ",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const pl = {
       { vial: "Malejąca", pen: "Utrzymana", label: "Sterylność" },
       { vial: "7-14 dni", pen: "30 dni", label: "Stabilność" },
     ],
+    compareWith: "PORÓWNAJ Z PODOBNYMI PRODUKTAMI",
+    sideBy: "Porównaj Produkty",
+    vsLabel: "UKRYJ",
+    keyDifferences: "KLUCZOWE KORZYŚCI",
+    bestFor: "korzyści",
+    viewProduct: "DODAJ",
+    comparisonDisclaimer: "CENA",
   },
 
   aboutPage: {

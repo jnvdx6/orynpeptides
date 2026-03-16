@@ -19,14 +19,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Comparaciones de Péptidos | ORYN — Guías de Investigación"
-    : "Peptide Comparisons | ORYN — Head-to-Head Research Guides";
-  const description = isEs
-    ? "Compara péptidos de investigación lado a lado. BPC-157 vs TB-500, Tirzepatide vs Semaglutide, CJC-1295 vs Ipamorelin y más. Datos clínicos y precios."
-    : "Compare research peptides head-to-head. BPC-157 vs TB-500, Tirzepatide vs Semaglutide, CJC-1295 vs Ipamorelin & more. Clinical data, mechanisms & pricing.";
+  const title = `${dict.breadcrumbs.compare} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,

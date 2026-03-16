@@ -336,22 +336,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Glosario de Peptidos — Terminos de Investigacion A-Z | ORYN Peptide Labs"
-    : "Peptide Glossary — Research Terms A-Z | ORYN Peptide Labs";
-  const description = isEs
-    ? "Glosario completo de peptidos con mas de 45 terminos de investigacion. Definiciones de BPC-157, tirzepatida, GHK-Cu, NAD+, GLP-1 y mas. Referencia esencial para investigadores."
-    : "Comprehensive peptide glossary with 45+ research terms and definitions. From amino acids to tirzepatide — your essential reference for peptide terms, peptide definitions UK, and research terminology.";
+  const title = `${dict.breadcrumbs.glossary} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs
-        ? "Glosario de Peptidos A-Z — ORYN Peptide Labs"
-        : "Peptide Glossary A-Z — ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}/peptides/glossary`,
       type: "website",
@@ -359,12 +353,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Glosario de Peptidos — ORYN"
-        : "Peptide Glossary — ORYN Peptide Labs",
-      description: isEs
-        ? "Mas de 45 terminos de investigacion de peptidos definidos. Tu referencia esencial."
-        : "45+ peptide research terms defined. Your essential A-Z reference for peptide science and terminology.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/peptides/glossary`,

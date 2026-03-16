@@ -22,14 +22,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Calculadora de Dosis de Peptidos | Reconstitution & Dosificacion | ORYN"
-    : "Peptide Dosage Calculator | Reconstitution & Dosing Tool | ORYN UK";
-  const description = isEs
-    ? "Calculadora gratuita de reconstitution de peptidos. Calcula la concentracion, volumen de inyeccion y unidades de jeringa de insulina. Compatible con BPC-157, TB-500, CJC-1295 y mas."
-    : "Free peptide reconstitution calculator. Work out concentration, injection volume and insulin syringe units for any peptide. Works with BPC-157, TB-500, Tirzepatide, CJC-1295 & more.";
+  const title = `${dict.breadcrumbs.peptideCalculator} — ORYN Peptide Labs`;
+  const description = dict.calculator.description;
 
   return {
     title,
@@ -49,9 +45,7 @@ export async function generateMetadata({
       "peptide injection calculator",
     ],
     openGraph: {
-      title: isEs
-        ? "Calculadora de Peptidos | ORYN"
-        : "Peptide Dosage Calculator | ORYN UK",
+      title,
       description,
       url: `${SITE_URL}/${locale}/tools/peptide-calculator`,
       type: "website",
@@ -61,12 +55,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Calculadora de Peptidos | ORYN"
-        : "Peptide Dosage Calculator | ORYN UK",
-      description: isEs
-        ? "Calcula la dosis, concentracion y volumen de inyeccion de cualquier peptido."
-        : "Calculate dose, concentration and injection volume for any peptide. Free online tool.",
+      title,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/tools/peptide-calculator`,

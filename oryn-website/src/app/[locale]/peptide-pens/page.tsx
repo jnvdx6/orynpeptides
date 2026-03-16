@@ -20,22 +20,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "Comprar Plumas de Péptidos en Europa | Envío Rápido EU | ORYN"
-    : "Buy Peptide Pens Online — UK & Europe Delivery | ORYN Peptide Labs";
-  const description = isEs
-    ? "Plumas de péptidos premezcladas con pureza >99%. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu. Fabricación GMP, envío rápido a toda Europa. Desde €99."
-    : "Pre-mixed peptide pens with >99% purity. BPC-157, TB-500, Tirzepatide, NAD+, GHK-Cu & more. GMP manufactured, next-day UK & fast EU delivery. From €99.";
+  const title = `${dict.breadcrumbs.peptidePens} — ORYN Peptide Labs`;
+  const description = dict.meta.description;
 
   return {
     title,
     description,
     openGraph: {
-      title: isEs
-        ? "Plumas de Péptidos — ORYN"
-        : "Peptide Pens — Buy Online UK & Europe | ORYN",
+      title,
       description,
       url: `${SITE_URL}/${locale}/peptide-pens`,
       type: "website",

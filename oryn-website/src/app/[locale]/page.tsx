@@ -25,14 +25,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
 
-  const title = isEs
-    ? "ORYN Peptide Labs — Plumas de Péptidos de Grado Investigación | Entrega en Europa"
-    : "ORYN Peptide Labs — Research-Grade Peptide Pens | Next-Day UK Delivery";
-  const description = isEs
-    ? "Compra plumas de péptidos de grado investigación de ORYN. BPC-157, Tirzepatide, GHK-Cu, NAD+ y más. Pureza >99%, fabricación GMP, premezclados y listos para usar."
-    : "Buy research-grade peptide pens from ORYN. BPC-157, Tirzepatide, GHK-Cu, NAD+ & more. >99% purity, GMP manufactured, pre-mixed & ready to use. Next-day UK delivery.";
+  const title = dict.meta.title;
+  const description = dict.meta.description;
 
   return {
     title,

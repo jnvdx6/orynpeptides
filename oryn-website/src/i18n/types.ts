@@ -218,6 +218,9 @@ export interface Dictionary {
     atCheckout: string;
     total: string;
     volumeDiscount: string;
+    saveForLater: string;
+    saved: string;
+    save: string;
   };
 
   productsPage: {
@@ -313,6 +316,14 @@ export interface Dictionary {
     orynPenSystem: string;
     vialProblems: Array<{ label: string; detail: string }>;
     comparisonBar: Array<{ vial: string; pen: string; label: string }>;
+    // Product comparison
+    compareWith: string;
+    sideBy: string;
+    vsLabel: string;
+    keyDifferences: string;
+    bestFor: string;
+    viewProduct: string;
+    comparisonDisclaimer: string;
   };
 
   aboutPage: {

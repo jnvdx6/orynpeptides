@@ -312,6 +312,9 @@ const en: Dictionary = {
     atCheckout: "AT CHECKOUT",
     total: "Total",
     volumeDiscount: "Volume discount",
+    saveForLater: "Save for later",
+    saved: "SAVED",
+    save: "SAVE",
   },
 
   productsPage: {
@@ -417,6 +420,13 @@ const en: Dictionary = {
       { vial: "Decreasing", pen: "Maintained", label: "Sterility" },
       { vial: "7-14 days", pen: "30 days", label: "Stability" },
     ],
+    compareWith: "COMPARE WITH SIMILAR PRODUCTS",
+    sideBy: "Compare Products",
+    vsLabel: "HIDE",
+    keyDifferences: "KEY BENEFITS",
+    bestFor: "benefits",
+    viewProduct: "ADD TO CART",
+    comparisonDisclaimer: "PRICE",
   },
 
   aboutPage: {

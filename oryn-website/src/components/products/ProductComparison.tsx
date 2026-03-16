@@ -13,7 +13,7 @@ interface Props {
 
 export function ProductComparison({ currentProduct }: Props) {
   const { addItem } = useCart();
-  const { formatPrice, locale } = useLocale();
+  const { formatPrice, t } = useLocale();
   const [showComparison, setShowComparison] = useState(false);
 
   // Get products from same category for comparison
@@ -41,7 +41,7 @@ export function ProductComparison({ currentProduct }: Props) {
             <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM21 16c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" />
           </svg>
           <span className="text-xs text-oryn-black/40 group-hover:text-oryn-orange transition-colors font-medium tracking-[0.1em]">
-            {locale === "es" ? "COMPARAR CON PRODUCTOS SIMILARES" : "COMPARE WITH SIMILAR PRODUCTS"}
+            {t.productDetail.compareWith}
           </span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" className="group-hover:stroke-oryn-orange transition-colors">
             <polyline points="6 9 12 15 18 9" />
@@ -56,13 +56,13 @@ export function ProductComparison({ currentProduct }: Props) {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="w-6 h-px bg-oryn-orange" />
-          <h3 className="text-lg font-bold tracking-wide">{locale === "es" ? "Comparar Productos" : "Compare Products"}</h3>
+          <h3 className="text-lg font-bold tracking-wide">{t.productDetail.sideBy}</h3>
         </div>
         <button
           onClick={() => setShowComparison(false)}
           className="text-[10px] text-oryn-black/30 hover:text-oryn-black transition-colors"
         >
-          {locale === "es" ? "OCULTAR" : "HIDE"}
+          {t.productDetail.vsLabel}
         </button>
       </div>
 
@@ -95,7 +95,7 @@ export function ProductComparison({ currentProduct }: Props) {
           <tbody className="divide-y divide-oryn-grey/10">
             {/* Price row */}
             <tr className="bg-oryn-orange/5">
-              <td className="p-3 text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">{locale === "es" ? "PRECIO" : "PRICE"}</td>
+              <td className="p-3 text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">{t.productDetail.comparisonDisclaimer}</td>
               {compareProducts.map((p) => (
                 <td key={p.id} className="p-3 text-center">
                   <span className="text-lg font-bold text-oryn-orange">{formatPrice(p.price)}</span>
@@ -119,10 +119,10 @@ export function ProductComparison({ currentProduct }: Props) {
 
             {/* Benefits count */}
             <tr className="bg-oryn-orange/5">
-              <td className="p-3 text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">{locale === "es" ? "BENEFICIOS" : "KEY BENEFITS"}</td>
+              <td className="p-3 text-[9px] font-mono text-oryn-black/40 tracking-[0.1em]">{t.productDetail.keyDifferences}</td>
               {compareProducts.map((p) => (
                 <td key={p.id} className="p-3 text-center text-xs font-plex">
-                  {p.benefits.length} {locale === "es" ? "beneficios" : "benefits"}
+                  {p.benefits.length} {t.productDetail.bestFor}
                 </td>
               ))}
             </tr>
@@ -152,7 +152,7 @@ export function ProductComparison({ currentProduct }: Props) {
                     onClick={() => addItem(p)}
                     className="px-4 py-2 bg-oryn-orange text-white text-[9px] font-bold tracking-[0.1em] hover:bg-oryn-orange-dark transition-colors"
                   >
-                    {locale === "es" ? "AÑADIR" : "ADD TO CART"}
+                    {t.productDetail.viewProduct}
                   </button>
                 </td>
               ))}

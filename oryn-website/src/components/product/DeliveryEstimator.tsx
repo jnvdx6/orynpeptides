@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "@/i18n/LocaleContext";
+import { localeToIntlTag } from "@/i18n/config";
 
 export function DeliveryEstimator() {
   const { locale } = useLocale();
@@ -19,7 +20,7 @@ export function DeliveryEstimator() {
     if (day !== 0 && day !== 6) daysToAdd--;
   }
 
-  const dateLocale = locale === "es" ? "es-ES" : "en-GB";
+  const dateLocale = localeToIntlTag[locale as keyof typeof localeToIntlTag] || "en-GB";
   const formatted = deliveryDate.toLocaleDateString(dateLocale, {
     weekday: "short",
     day: "numeric",

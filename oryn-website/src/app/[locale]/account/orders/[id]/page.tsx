@@ -6,6 +6,7 @@ import { useAuth } from "@/providers/auth";
 import { useCart } from "@/lib/cart-context";
 import { useProducts } from "@/providers/products";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localeToIntlTag, type Locale } from "@/i18n/config";
 import { Link } from "@/components/ui/LocaleLink";
 
 interface OrderDetail {
@@ -45,7 +46,7 @@ export default function OrderDetailPage() {
   const [loading, setLoading] = useState(true);
   const [reordered, setReordered] = useState(false);
 
-  const dateLocale = locale === "es" ? "es-ES" : "en-GB";
+  const dateLocale = localeToIntlTag[locale as Locale] || "en-GB";
 
   const stepLabels: Record<string, string> = {
     pending: od.pending,

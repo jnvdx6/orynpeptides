@@ -313,6 +313,9 @@ const nl = {
     atCheckout: "BIJ AFREKENEN",
     total: "Totaal",
     volumeDiscount: "Volumekorting",
+    saveForLater: "Bewaar voor later",
+    saved: "BEWAARD",
+    save: "BEWAREN",
   },
 
   productsPage: {
@@ -418,6 +421,13 @@ const nl = {
       { vial: "Afnemend", pen: "Behouden", label: "Steriliteit" },
       { vial: "7-14 dagen", pen: "30 dagen", label: "Stabiliteit" },
     ],
+    compareWith: "VERGELIJKEN MET VERGELIJKBARE PRODUCTEN",
+    sideBy: "Producten Vergelijken",
+    vsLabel: "VERBERGEN",
+    keyDifferences: "BELANGRIJKSTE VOORDELEN",
+    bestFor: "voordelen",
+    viewProduct: "TOEVOEGEN",
+    comparisonDisclaimer: "PRIJS",
   },
 
   aboutPage: {
