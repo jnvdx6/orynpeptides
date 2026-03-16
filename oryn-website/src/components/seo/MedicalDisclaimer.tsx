@@ -1,6 +1,11 @@
+"use client";
+
+import { useLocale } from "@/i18n/LocaleContext";
+
 export function MedicalDisclaimer() {
+  const { t } = useLocale();
   return (
-    <aside className="max-w-4xl mx-auto px-6 py-8" aria-label="Research disclaimer">
+    <aside className="max-w-4xl mx-auto px-6 py-8" aria-label={t.aria.researchDisclaimer}>
       <div className="border border-oryn-grey/20 bg-oryn-cream/50 p-5">
         <div className="flex items-start gap-3">
           <svg

@@ -696,6 +696,95 @@ export interface Dictionary {
     yesAddIt: string;
   };
 
+  aria: {
+    search: string;
+    account: string;
+    wishlist: string;
+    openCart: string;
+    toggleMenu: string;
+    mobileMenu: string;
+    backToTop: string;
+    cookieConsent: string;
+    shareWhatsApp: string;
+    shareX: string;
+    shareFacebook: string;
+    copyLink: string;
+    switchLanguage: string;
+    switchRegion: string;
+    breadcrumb: string;
+    dismiss: string;
+    close: string;
+    instagram: string;
+    linkedin: string;
+    email: string;
+    researchDisclaimer: string;
+  };
+
+  calculator: {
+    interactiveTool: string;
+    title: string;
+    description: string;
+    peptideAmount: string;
+    bacteriostaticWater: string;
+    desiredDose: string;
+    customAmount: string;
+    customVolume: string;
+    customDose: string;
+    concentration: string;
+    injectionVolume: string;
+    insulinSyringe: string;
+    totalDoses: string;
+    mcgPerMl: string;
+    mlPerDose: string;
+    unitsIuMarks: string;
+    fromVial: string;
+    units: string;
+    overHundredUnits: string;
+    zeroUnits: string;
+    ml: string;
+    overOneMl: string;
+    zeroMl: string;
+    syringeLabel: string;
+    warningNote: string;
+    warningText: string;
+    enterValues: string;
+    quickReference: string;
+    unitConversions: string;
+    standardSyringe: string;
+    theFormula: string;
+    mgToMcg: string;
+    mlToUnits: string;
+    u100Syringe: string;
+    hundredUnitsOneMl: string;
+    formulaLine1: string;
+    formulaLine2: string;
+  };
+
+  whyOrynPage: {
+    differentiators: Array<{
+      title: string;
+      description: string;
+      highlight: string;
+    }>;
+    comparisonFeatures: Array<{
+      feature: string;
+      oryn: string;
+      competitor: string;
+    }>;
+    stats: Array<{
+      value: string;
+      label: string;
+      sublabel: string;
+    }>;
+    tableOryn: string;
+    tableCompetitors: string;
+    feature: string;
+    viewProducts: string;
+    ourNumbers: string;
+    comparisonTitle: string;
+    comparisonSubtitle: string;
+  };
+
   share: {
     label: string;
   };

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { useLocale } from "@/i18n/LocaleContext";
+import type { Dictionary } from "@/i18n/types";
 
 /* ─── Presets ──────────────────────────────────────────────────────── */
 const PEPTIDE_PRESETS = [5, 10, 15, 30] as const;
@@ -11,10 +13,12 @@ function SyringeVisual({
   fillPercent,
   volumeMl,
   units,
+  c,
 }: {
   fillPercent: number;
   volumeMl: number;
   units: number;
+  c: Dictionary["calculator"];
 }) {
   const clampedFill = Math.min(Math.max(fillPercent, 0), 100);
   const markings = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
@@ -22,7 +26,7 @@ function SyringeVisual({
   return (
     <div className="flex flex-col items-center gap-3">
       <p className="text-[10px] font-mono text-white/40 tracking-[0.15em] uppercase">
-        Insulin Syringe (100 units = 1 mL)
+        {c.syringeLabel}
       </p>
       <div className="relative w-full max-w-xs mx-auto">
         {/* Syringe body */}
@@ -62,17 +66,17 @@ function SyringeVisual({
       <div className="text-center mt-2 space-y-1">
         <p className="text-2xl font-bold text-oryn-orange font-mono">
           {units > 0 && units < 1000
-            ? `${units.toFixed(1)} units`
+            ? `${units.toFixed(1)} ${c.units}`
             : units >= 1000
-              ? "> 100 units"
-              : "0 units"}
+              ? c.overHundredUnits
+              : c.zeroUnits}
         </p>
         <p className="text-sm text-white/50 font-plex">
           {volumeMl > 0 && volumeMl <= 1
-            ? `${volumeMl.toFixed(3)} mL`
+            ? `${volumeMl.toFixed(3)} ${c.ml}`
             : volumeMl > 1
-              ? "> 1.0 mL (use larger syringe)"
-              : "0.000 mL"}
+              ? c.overOneMl
+              : c.zeroMl}
         </p>
       </div>
     </div>
@@ -81,6 +85,8 @@ function SyringeVisual({
 
 /* ─── Main Calculator ──────────────────────────────────────────────── */
 export function PeptideCalculator() {
+  const { t } = useLocale();
+  const c = t.calculator;
   const [peptideAmountMg, setPeptideAmountMg] = useState<number>(10);
   const [waterVolumeMl, setWaterVolumeMl] = useState<number>(2);
   const [desiredDoseMcg, setDesiredDoseMcg] = useState<number>(250);
@@ -120,15 +126,14 @@ export function PeptideCalculator() {
         <div className="flex items-center gap-3 mb-2">
           <div className="w-8 h-[2px] bg-oryn-orange" />
           <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-            INTERACTIVE TOOL
+            {c.interactiveTool}
           </span>
         </div>
         <h2 className="text-xl md:text-2xl font-bold text-white">
-          Peptide Reconstitution Calculator
+          {c.title}
         </h2>
         <p className="text-sm text-white/50 font-plex mt-2">
-          Enter your peptide amount, water volume and desired dose to calculate
-          concentration and injection volume.
+          {c.description}
         </p>
       </div>
 
@@ -138,7 +143,7 @@ export function PeptideCalculator() {
           {/* Peptide Amount */}
           <div>
             <label className="block text-[10px] font-mono text-white/60 tracking-[0.15em] uppercase mb-3">
-              Peptide Amount
+              {c.peptideAmount}
             </label>
             <div className="flex gap-2 mb-3 flex-wrap">
               {PEPTIDE_PRESETS.map((preset) => (
@@ -160,7 +165,7 @@ export function PeptideCalculator() {
                 type="number"
                 value={peptideAmountMg || ""}
                 onChange={handleNumberInput(setPeptideAmountMg)}
-                placeholder="Custom amount"
+                placeholder={c.customAmount}
                 min={0}
                 step={0.5}
                 className="w-full bg-oryn-black border border-white/15 text-white px-4 py-3 font-mono text-lg focus:outline-none focus:border-oryn-orange transition-colors placeholder:text-white/20"
@@ -174,7 +179,7 @@ export function PeptideCalculator() {
           {/* Water Volume */}
           <div>
             <label className="block text-[10px] font-mono text-white/60 tracking-[0.15em] uppercase mb-3">
-              Bacteriostatic Water Volume
+              {c.bacteriostaticWater}
             </label>
             <div className="flex gap-2 mb-3 flex-wrap">
               {WATER_PRESETS.map((preset) => (
@@ -196,7 +201,7 @@ export function PeptideCalculator() {
                 type="number"
                 value={waterVolumeMl || ""}
                 onChange={handleNumberInput(setWaterVolumeMl)}
-                placeholder="Custom volume"
+                placeholder={c.customVolume}
                 min={0}
                 step={0.5}
                 className="w-full bg-oryn-black border border-white/15 text-white px-4 py-3 font-mono text-lg focus:outline-none focus:border-oryn-orange transition-colors placeholder:text-white/20"
@@ -210,7 +215,7 @@ export function PeptideCalculator() {
           {/* Desired Dose */}
           <div>
             <label className="block text-[10px] font-mono text-white/60 tracking-[0.15em] uppercase mb-3">
-              Desired Dose Per Injection
+              {c.desiredDose}
             </label>
             <div className="flex gap-2 mb-3 flex-wrap">
               {[100, 200, 250, 300, 500].map((preset) => (
@@ -232,7 +237,7 @@ export function PeptideCalculator() {
                 type="number"
                 value={desiredDoseMcg || ""}
                 onChange={handleNumberInput(setDesiredDoseMcg)}
-                placeholder="Custom dose"
+                placeholder={c.customDose}
                 min={0}
                 step={10}
                 className="w-full bg-oryn-black border border-white/15 text-white px-4 py-3 font-mono text-lg focus:outline-none focus:border-oryn-orange transition-colors placeholder:text-white/20"
@@ -252,43 +257,43 @@ export function PeptideCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-oryn-black/60 border border-white/10 p-4">
                   <p className="text-[9px] font-mono text-white/40 tracking-[0.15em] uppercase mb-1">
-                    Concentration
+                    {c.concentration}
                   </p>
                   <p className="text-xl font-bold text-white font-mono">
                     {results.concentrationMcgPerMl.toLocaleString("en", {
                       maximumFractionDigits: 1,
                     })}
                   </p>
-                  <p className="text-[10px] text-white/30 font-mono">mcg / mL</p>
+                  <p className="text-[10px] text-white/30 font-mono">{c.mcgPerMl}</p>
                 </div>
 
                 <div className="bg-oryn-black/60 border border-white/10 p-4">
                   <p className="text-[9px] font-mono text-white/40 tracking-[0.15em] uppercase mb-1">
-                    Injection Volume
+                    {c.injectionVolume}
                   </p>
                   <p className="text-xl font-bold text-oryn-orange font-mono">
                     {results.injectionVolumeMl < 10
                       ? results.injectionVolumeMl.toFixed(3)
                       : "> 10"}
                   </p>
-                  <p className="text-[10px] text-white/30 font-mono">mL per dose</p>
+                  <p className="text-[10px] text-white/30 font-mono">{c.mlPerDose}</p>
                 </div>
 
                 <div className="bg-oryn-black/60 border border-white/10 p-4">
                   <p className="text-[9px] font-mono text-white/40 tracking-[0.15em] uppercase mb-1">
-                    Insulin Syringe
+                    {c.insulinSyringe}
                   </p>
                   <p className="text-xl font-bold text-white font-mono">
                     {results.insulinUnits < 1000
                       ? results.insulinUnits.toFixed(1)
                       : "> 1000"}
                   </p>
-                  <p className="text-[10px] text-white/30 font-mono">units (IU marks)</p>
+                  <p className="text-[10px] text-white/30 font-mono">{c.unitsIuMarks}</p>
                 </div>
 
                 <div className="bg-oryn-black/60 border border-white/10 p-4">
                   <p className="text-[9px] font-mono text-white/40 tracking-[0.15em] uppercase mb-1">
-                    Total Doses
+                    {c.totalDoses}
                   </p>
                   <p className="text-xl font-bold text-white font-mono">
                     {results.totalDoses < 10000
@@ -296,7 +301,7 @@ export function PeptideCalculator() {
                       : "> 10k"}
                   </p>
                   <p className="text-[10px] text-white/30 font-mono">
-                    from vial
+                    {c.fromVial}
                   </p>
                 </div>
               </div>
@@ -306,16 +311,14 @@ export function PeptideCalculator() {
                 fillPercent={results.fillPercent}
                 volumeMl={results.injectionVolumeMl}
                 units={results.insulinUnits}
+                c={c}
               />
 
               {/* Warning */}
               {results.insulinUnits > 100 && (
                 <div className="bg-yellow-900/20 border border-yellow-500/30 p-4">
                   <p className="text-xs text-yellow-400 font-plex">
-                    <strong>Note:</strong> The calculated dose exceeds a standard
-                    100-unit insulin syringe (1 mL). Consider adding more
-                    bacteriostatic water to increase the volume, which will lower
-                    the concentration and reduce the injection volume per dose.
+                    <strong>{c.warningNote}</strong> {c.warningText}
                   </p>
                 </div>
               )}
@@ -323,7 +326,7 @@ export function PeptideCalculator() {
           ) : (
             <div className="flex items-center justify-center h-full min-h-[300px]">
               <p className="text-white/30 font-plex text-sm text-center">
-                Enter valid values above to see your calculated results.
+                {c.enterValues}
               </p>
             </div>
           )}
@@ -333,23 +336,23 @@ export function PeptideCalculator() {
       {/* Quick reference */}
       <div className="border-t border-white/10 p-6 md:p-8 bg-oryn-black/40">
         <p className="text-[10px] font-mono text-white/40 tracking-[0.15em] uppercase mb-4">
-          Quick Reference
+          {c.quickReference}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm font-plex text-white/60">
           <div>
-            <p className="text-white/80 font-semibold mb-1">Unit Conversions</p>
-            <p>1 mg = 1,000 mcg</p>
-            <p>1 mL = 100 insulin units</p>
+            <p className="text-white/80 font-semibold mb-1">{c.unitConversions}</p>
+            <p>{c.mgToMcg}</p>
+            <p>{c.mlToUnits}</p>
           </div>
           <div>
-            <p className="text-white/80 font-semibold mb-1">Standard Syringe</p>
-            <p>U-100 insulin syringe</p>
-            <p>100 units = 1.0 mL</p>
+            <p className="text-white/80 font-semibold mb-1">{c.standardSyringe}</p>
+            <p>{c.u100Syringe}</p>
+            <p>{c.hundredUnitsOneMl}</p>
           </div>
           <div>
-            <p className="text-white/80 font-semibold mb-1">The Formula</p>
-            <p>Dose (mcg) / Concentration (mcg/mL)</p>
-            <p>= Volume to inject (mL)</p>
+            <p className="text-white/80 font-semibold mb-1">{c.theFormula}</p>
+            <p>{c.formulaLine1}</p>
+            <p>{c.formulaLine2}</p>
           </div>
         </div>
       </div>

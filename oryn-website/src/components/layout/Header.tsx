@@ -300,7 +300,7 @@ export function Header() {
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
                   className="p-2.5 text-oryn-black/40 hover:text-oryn-orange transition-colors"
-                  aria-label="Search"
+                  aria-label={t.aria.search}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="11" cy="11" r="8" />
@@ -484,7 +484,7 @@ export function Header() {
               <Link
                 href="/account"
                 className="hidden lg:flex items-center justify-center p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
-                aria-label="Account"
+                aria-label={t.aria.account}
               >
                 {isAuthenticated && user ? (
                   <span className="w-6 h-6 bg-oryn-orange text-white text-[10px] font-bold flex items-center justify-center rounded-full">
@@ -501,7 +501,7 @@ export function Header() {
               <Link
                 href="/wishlist"
                 className="hidden lg:flex relative p-2 text-oryn-black/40 hover:text-oryn-orange transition-colors"
-                aria-label="Wishlist"
+                aria-label={t.aria.wishlist}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill={wishlistCount > 0 ? "#FF6A1A" : "none"} stroke={wishlistCount > 0 ? "#FF6A1A" : "currentColor"} strokeWidth="1.5">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
@@ -517,7 +517,7 @@ export function Header() {
               <button
                 onClick={() => setIsOpen(true)}
                 className="relative p-2.5 text-oryn-black/40 hover:text-oryn-orange transition-colors"
-                aria-label="Open cart"
+                aria-label={t.aria.openCart}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
@@ -535,7 +535,7 @@ export function Header() {
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="lg:hidden p-2.5 text-oryn-black -mr-1"
-                aria-label="Toggle menu"
+                aria-label={t.aria.toggleMenu}
                 aria-expanded={mobileOpen}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -573,7 +573,7 @@ export function Header() {
       >
         <nav
           role="navigation"
-          aria-label="Mobile menu"
+          aria-label={t.aria.mobileMenu}
           className="h-full overflow-y-auto overscroll-contain"
         >
           <div className="px-5 pt-2 pb-[max(2rem,env(safe-area-inset-bottom))]">

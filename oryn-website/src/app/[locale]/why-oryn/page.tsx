@@ -22,18 +22,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isEs = locale === "es";
+  const dict = await getDictionary(locale as Locale);
+  const w = dict.whyOrynPage;
 
-  const title = isEs
-    ? "Por Que ORYN | Mejor Empresa de Peptidos del Reino Unido 2026"
-    : "Why ORYN | Best Peptide Company UK 2026";
-  const description = isEs
-    ? "Descubre por que ORYN es el proveedor de peptidos mas confiable del Reino Unido. Plumas de peptidos predosificadas, pureza >99% verificada por HPLC, fabricacion GMP ISO 7. Envio gratuito en el Reino Unido a partir de 150 libras."
-    : "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Highest quality peptide pens UK. Free UK shipping over €150.";
+  // Build locale-aware description from the first differentiator in the dict
+  const firstDesc = w.differentiators[0]?.description ?? "";
+  const description = firstDesc.length > 160 ? firstDesc.slice(0, 157) + "..." : firstDesc;
 
   return {
-    title,
-    description,
+    title: "Why ORYN | Best Peptide Company UK 2026",
+    description: description || "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Free UK shipping over €150.",
     keywords: [
       "best peptide company UK",
       "best peptides UK",
@@ -49,22 +47,16 @@ export async function generateMetadata({
       "ISO 7 cleanroom peptides",
     ],
     openGraph: {
-      title: isEs
-        ? "Por Que ORYN — Mejor Empresa de Peptidos UK"
-        : "Why ORYN — Best Peptide Company UK 2026",
-      description,
+      title: "Why ORYN — Best Peptide Company UK 2026",
+      description: description || "Discover why ORYN is the most trusted peptide supplier in the UK.",
       url: `${SITE_URL}/${locale}/why-oryn`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
-      title: isEs
-        ? "Por Que ORYN — Peptidos de Grado Investigacion"
-        : "Why ORYN — Best Peptide Company UK 2026",
-      description: isEs
-        ? "Plumas de peptidos predosificadas. Pureza >98%. Fabricacion GMP. El proveedor mas confiable."
-        : "Pre-dosed peptide pens. 98%+ purity. GMP manufacturing. UK's most trusted peptide supplier.",
+      title: "Why ORYN — Best Peptide Company UK 2026",
+      description: description || "Pre-dosed peptide pens. 98%+ purity. GMP manufacturing. UK's most trusted peptide supplier.",
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/why-oryn`,
@@ -77,71 +69,14 @@ export async function generateMetadata({
 
 /* ─── Data ───────────────────────────────────────────────────────── */
 
-const differentiators = [
-  {
-    icon: "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z",
-    title: "Pre-Dosed Peptide Pens",
-    description:
-      "Unlike competitors selling loose vials requiring reconstitution, ORYN delivers pre-mixed, precision-dosed peptide pens ready for immediate research use. No mixing, no math, no contamination risk.",
-    highlight: "Unique in the UK market",
-  },
-  {
-    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-    title: "98%+ HPLC Verified Purity",
-    description:
-      "Every ORYN batch exceeds 98% purity, independently verified via High-Performance Liquid Chromatography and Mass Spectrometry. Most UK competitors offer only 95% or unverified claims.",
-    highlight: "Above industry standard",
-  },
-  {
-    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-    title: "UK-Based GMP Manufacturing",
-    description:
-      "All ORYN peptides are manufactured in GMP-certified facilities adhering to pharmaceutical production standards. Full batch traceability from raw material to finished product.",
-    highlight: "Pharmaceutical grade",
-  },
-  {
-    icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4",
-    title: "Free UK Shipping Over €150",
-    description:
-      "Enjoy complimentary next-day delivery on all UK orders over €150. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.",
-    highlight: "Next-day delivery",
-  },
-  {
-    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
-    title: "Comprehensive COA with Every Order",
-    description:
-      "Every ORYN order ships with a full Certificate of Analysis confirming purity, identity, endotoxin levels, and sterility. No waiting, no requesting — it is included as standard.",
-    highlight: "Transparency guaranteed",
-  },
-  {
-    icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
-    title: "ISO 7 Cleanroom Production",
-    description:
-      "ORYN peptides are filled and sealed in ISO 7 classified cleanrooms with continuous environmental monitoring. This exceeds the standards of most UK peptide suppliers.",
-    highlight: "Hospital-grade environment",
-  },
-];
-
-const comparisonFeatures = [
-  { feature: "Delivery Format", oryn: "Pre-dosed Pen System", competitor: "Loose Vials (reconstitution required)" },
-  { feature: "Purity Standard", oryn: "98%+ HPLC & MS Verified", competitor: "95%+ (often unverified)" },
-  { feature: "Testing Protocol", oryn: "HPLC + Mass Spectrometry + Endotoxin", competitor: "Basic HPLC only" },
-  { feature: "UK Shipping", oryn: "Free over €150 (next-day)", competitor: "Varies (€5-€15)" },
-  { feature: "COA Included", oryn: "Every batch, every order", competitor: "On request (if available)" },
-  { feature: "Production Facility", oryn: "ISO 7 Cleanroom, GMP Certified", competitor: "Varies (often undisclosed)" },
-  { feature: "Sterility", oryn: "0.22\u03BCm Filter + Gamma Ray", competitor: "Filtration only" },
-  { feature: "Shelf Life", oryn: "24 months (sealed)", competitor: "6-12 months" },
-  { feature: "Customer Support", oryn: "Dedicated research team", competitor: "Email only" },
-  { feature: "Product Range", oryn: "10 peptides across 3 delivery systems", competitor: "5-8 peptides, vials only" },
-];
-
-const stats = [
-  { value: "10", label: "Research Peptides", sublabel: "across 3 delivery systems" },
-  { value: "98%+", label: "Verified Purity", sublabel: "HPLC + MS tested" },
-  { value: "ISO 7", label: "Cleanroom Standard", sublabel: "pharmaceutical grade" },
-  { value: "15+", label: "UK Cities Served", sublabel: "next-day delivery" },
-  { value: "40+", label: "London Areas", sublabel: "same-day dispatch available" },
-  { value: "24", label: "Month Shelf Life", sublabel: "sealed, refrigerated" },
+// SVG icon paths for differentiators — order must match dict.whyOrynPage.differentiators
+const differentiatorIcons = [
+  "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z",
+  "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4",
+  "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
 ];
 
 const faqs = [
@@ -186,7 +121,14 @@ export default async function WhyOrynPage({
 }) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const w = dict.whyOrynPage;
   const currency = "€";
+
+  // Merge translated text with SVG icon paths
+  const differentiators = w.differentiators.map((d, i) => ({
+    ...d,
+    icon: differentiatorIcons[i] ?? differentiatorIcons[0],
+  }));
 
   // Enhanced organization schema for this authority page
   const enhancedOrgSchema = {
@@ -379,18 +321,18 @@ export default async function WhyOrynPage({
               {/* Table Header */}
               <div className="grid grid-cols-[1fr_1fr_1fr] bg-oryn-grey-mid">
                 <div className="p-4 text-[10px] font-mono text-white/40 tracking-[0.15em]">
-                  FEATURE
+                  {w.feature.toUpperCase()}
                 </div>
                 <div className="p-4 text-[10px] font-mono text-oryn-orange tracking-[0.15em] text-center border-x border-white/5">
-                  ORYN
+                  {w.tableOryn}
                 </div>
                 <div className="p-4 text-[10px] font-mono text-white/30 tracking-[0.15em] text-center">
-                  TYPICAL SUPPLIER
+                  {w.tableCompetitors}
                 </div>
               </div>
 
               {/* Table Rows */}
-              {comparisonFeatures.map((row, i) => (
+              {w.comparisonFeatures.map((row, i) => (
                 <div
                   key={row.feature}
                   className={`grid grid-cols-[1fr_1fr_1fr] ${
@@ -458,7 +400,7 @@ export default async function WhyOrynPage({
               <div className="inline-flex items-center gap-3 mb-4">
                 <div className="w-8 h-[2px] bg-oryn-orange/40" />
                 <span className="text-[10px] font-mono text-oryn-black/40 tracking-[0.25em]">
-                  BY THE NUMBERS
+                  {w.ourNumbers}
                 </span>
                 <div className="w-8 h-[2px] bg-oryn-orange/40" />
               </div>
@@ -468,7 +410,7 @@ export default async function WhyOrynPage({
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {stats.map((stat) => (
+              {w.stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-oryn-orange mb-2">
                     {stat.value}
@@ -674,7 +616,7 @@ export default async function WhyOrynPage({
                 href={`/${locale}/products`}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-oryn-orange text-white text-sm font-bold tracking-wider hover:bg-oryn-orange-dark transition-colors"
               >
-                VIEW ALL PRODUCTS
+                {w.viewProducts}
                 <svg
                   width="16"
                   height="16"

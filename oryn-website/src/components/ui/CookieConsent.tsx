@@ -63,7 +63,7 @@ export function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:p-6" role="dialog" aria-label="Cookie consent">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:p-6" role="dialog" aria-label={t.aria.cookieConsent}>
       <div className="max-w-2xl mx-auto bg-white border border-oryn-grey/20 shadow-[0_-4px_30px_rgba(0,0,0,0.1)] p-5">
         <div className="flex items-start gap-4">
           <div className="w-8 h-8 bg-oryn-orange/10 flex items-center justify-center shrink-0 mt-0.5">

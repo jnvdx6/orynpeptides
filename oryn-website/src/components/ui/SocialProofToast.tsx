@@ -88,7 +88,7 @@ export function SocialProofToast() {
         <button
           onClick={() => setShow(false)}
           className="shrink-0 p-2 -m-1.5 text-oryn-black/20 hover:text-oryn-black/50 transition-colors"
-          aria-label="Close"
+          aria-label={t.aria.close}
         >
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M18 6L6 18M6 6l12 12" />

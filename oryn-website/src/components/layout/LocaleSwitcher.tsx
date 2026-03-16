@@ -8,7 +8,7 @@ import { locales, markets, regions, regionKeys } from "@/i18n/config";
 import type { Locale, RegionKey } from "@/i18n/config";
 
 export function LocaleSwitcher() {
-  const { locale, region, setRegion, currencySymbol } = useLocale();
+  const { locale, region, setRegion, currencySymbol, t } = useLocale();
   const pathname = usePathname();
   const [openLang, setOpenLang] = useState(false);
   const [openRegion, setOpenRegion] = useState(false);
@@ -52,7 +52,7 @@ export function LocaleSwitcher() {
         <button
           onClick={() => { setOpenLang(!openLang); setOpenRegion(false); }}
           className={btnClass}
-          aria-label="Switch language"
+          aria-label={t.aria.switchLanguage}
         >
           <span>{currentMarket.flag}</span>
           <span className="hidden sm:inline">{currentMarket.label}</span>
@@ -92,7 +92,7 @@ export function LocaleSwitcher() {
         <button
           onClick={() => { setOpenRegion(!openRegion); setOpenLang(false); }}
           className={btnClass}
-          aria-label="Switch region"
+          aria-label={t.aria.switchRegion}
         >
           <span>{currentRegion.flag}</span>
           <span className="text-oryn-orange">{currencySymbol}</span>

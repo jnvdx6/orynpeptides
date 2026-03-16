@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/i18n/LocaleContext";
 
 interface BreadcrumbItem {
   label: string;
@@ -12,10 +15,11 @@ export function Breadcrumb({
   items: BreadcrumbItem[];
   locale: string;
 }) {
+  const { t } = useLocale();
   return (
     <div className="max-w-7xl mx-auto px-6 py-4">
       <nav
-        aria-label="Breadcrumb"
+        aria-label={t.aria.breadcrumb}
         className="flex items-center gap-2 text-[10px] font-mono text-oryn-black/30 tracking-[0.1em]"
       >
         {items.map((item, i) => {
