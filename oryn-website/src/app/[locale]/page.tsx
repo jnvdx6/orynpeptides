@@ -6,15 +6,6 @@ import { getDictionary } from "@/i18n/getDictionary";
 import { products } from "@/data/products";
 import { HomeClient } from "./HomeClient";
 
-const HOME_FAQS = [
-  { question: "What are ORYN Peptide Pens?", answer: "ORYN Peptide Pens are pre-mixed, ready-to-use research peptide delivery systems. Each pen contains pharmaceutical-grade peptides at >99% purity, manufactured in our ISO 7 cleanroom facility. The pen format eliminates the need for reconstitution, ensuring consistent dosing for research applications." },
-  { question: "Are peptides legal in the UK and Europe?", answer: "Yes, research peptides are legal to purchase in the UK and across Europe for research purposes. ORYN Peptides are sold strictly for in-vitro research and laboratory use. They are not intended for human consumption." },
-  { question: "How are your peptides manufactured?", answer: "All ORYN peptides are synthesised in our GMP-certified, ISO 7 cleanroom laboratory in Europe. Every batch undergoes rigorous HPLC and mass spectrometry testing to verify >99% purity. A Certificate of Analysis (COA) is included with every order." },
-  { question: "How long does delivery take?", answer: "UK orders typically arrive within 2-4 business days. European orders take 3-7 business days depending on destination. All orders are shipped in discreet, temperature-controlled packaging. Orders over €150 qualify for free shipping." },
-  { question: "What is the ORYN Referral Programme?", answer: "Our multi-level referral programme lets you earn 10% commission on purchases made by colleagues you refer. You also earn commissions up to 5 levels deep as your network grows. Sign up for a free account to get your unique referral code." },
-  { question: "Do you offer bulk or wholesale pricing?", answer: "Yes, we offer volume discounts starting from 3+ units. The more you order, the bigger the discount — up to 15% off for large research orders. Contact us for custom wholesale pricing on bulk orders." },
-];
-
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -68,7 +59,7 @@ export default async function HomePage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([{ name: dict.breadcrumbs.home, url: `/${locale}` }]),
-          faqSchema(HOME_FAQS),
+          faqSchema(dict.homeFaq.items.map(f => ({ question: f.q, answer: f.a }))),
           {
             "@context": "https://schema.org",
             "@type": "WebPage",

@@ -9,34 +9,6 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-const wholesaleFaqs = [
-  {
-    question: "What is the minimum order quantity for wholesale pricing?",
-    answer:
-      "Our wholesale pricing tiers start at just 3 units. Orders of 3-5 units receive 5% off, 6-9 units receive 10% off, and 10 or more units receive 15% off retail pricing. For orders of 50+ units, we offer custom quotes tailored to your specific requirements.",
-  },
-  {
-    question: "How does wholesale pricing work at ORYN?",
-    answer:
-      "ORYN wholesale pricing is based on volume discount tiers applied to our standard retail prices. Discounts are calculated automatically at checkout for qualifying orders. You can mix and match any products across our Peptide Pen, MediT Pen, and NovaDose ranges to reach your tier. For ongoing supply agreements, contact our wholesale team for tailored pricing.",
-  },
-  {
-    question: "How do I set up a wholesale account?",
-    answer:
-      "Setting up a wholesale account is straightforward. Contact our team at info@orynpeptides.com or use the wholesale enquiry form on our contact page. We will verify your organisation details, assign a dedicated account manager, and activate volume pricing on your account within 1-2 business days.",
-  },
-  {
-    question: "What payment terms are available for wholesale customers?",
-    answer:
-      "Standard wholesale orders are payable by bank transfer, credit card, or purchase order (for approved accounts). We offer NET-30 payment terms for established wholesale customers with a verified trading history. All first orders are prepaid. Contact our team to discuss payment arrangements for large-volume contracts.",
-  },
-  {
-    question: "What are delivery times for bulk peptide orders?",
-    answer:
-      "Wholesale orders ship within 1-2 business days from our UK distribution centre. Standard UK delivery takes 2-4 business days. For large orders (50+ units), we may require up to 5 business days for preparation. All wholesale shipments include temperature-controlled packaging at no extra cost, with full tracking provided.",
-  },
-];
-
 export async function generateMetadata({
   params,
 }: {
@@ -88,11 +60,11 @@ export default async function WholesalePage({
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.wholesale, url: `/${locale}/wholesale` },
           ]),
-          faqSchema(wholesaleFaqs),
+          faqSchema(dict.wholesaleFaq.items.map(f => ({ question: f.q, answer: f.a }))),
           organizationSchema(),
         ]}
       />
-      <WholesaleClient faqs={wholesaleFaqs} locale={locale} />
+      <WholesaleClient faqs={dict.wholesaleFaq.items.map(f => ({ question: f.q, answer: f.a }))} locale={locale} />
     </>
   );
 }

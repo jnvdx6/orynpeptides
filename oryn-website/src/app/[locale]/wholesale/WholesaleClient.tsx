@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Link } from "@/components/ui/LocaleLink";
 import { products, productImages } from "@/data/products";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -83,70 +84,10 @@ function CheckMark({ className = "w-4 h-4" }: { className?: string }) {
 /* ─── Data ──────────────────────────────────────────────────────────── */
 
 const discountTiers = [
-  { range: "3 – 5 units", discount: "5%", label: "STARTER" },
-  { range: "6 – 9 units", discount: "10%", label: "PROFESSIONAL" },
-  { range: "10+ units", discount: "15%", label: "ENTERPRISE" },
-  { range: "50+ units", discount: "Custom", label: "CUSTOM QUOTE" },
-];
-
-const wholesaleBenefits = [
-  {
-    icon: "users",
-    title: "Dedicated Account Manager",
-    description: "A single point of contact for orders, pricing, and technical queries. Your account manager understands your needs.",
-  },
-  {
-    icon: "truck",
-    title: "Priority Shipping",
-    description: "Wholesale orders ship same day when placed before 2pm. Temperature-controlled packaging included at no extra cost.",
-  },
-  {
-    icon: "tag",
-    title: "Volume Pricing",
-    description: "Automatic discounts from 5% to 15% based on order quantity. Custom pricing available for ongoing contracts.",
-  },
-  {
-    icon: "shield",
-    title: "COA Included",
-    description: "Every wholesale shipment includes batch-specific Certificates of Analysis. Full traceability from synthesis to delivery.",
-  },
-  {
-    icon: "package",
-    title: "Custom Labelling",
-    description: "White-label and custom packaging available for distributors and clinics. Minimum 50-unit orders for custom labels.",
-  },
-  {
-    icon: "flask",
-    title: "Technical Support",
-    description: "Access to our peptide science team for protocol guidance, storage recommendations, and product specifications.",
-  },
-];
-
-const customerTypes = [
-  {
-    title: "Universities & Academia",
-    description: "Research departments and postgraduate programmes studying peptide biology, pharmacology, and regenerative medicine.",
-  },
-  {
-    title: "Research Laboratories",
-    description: "Private and public research labs conducting in-vitro and in-vivo studies with research-grade peptide compounds.",
-  },
-  {
-    title: "Pharmaceutical Companies",
-    description: "Pharmaceutical R&D divisions using reference-standard peptides for drug development and analytical comparison studies.",
-  },
-  {
-    title: "Clinics & Medical Practices",
-    description: "Integrative medicine clinics and practitioners requiring consistent, high-purity peptide supply for clinical research.",
-  },
-  {
-    title: "Distributors & Resellers",
-    description: "Wholesale partners distributing ORYN products across the UK and Europe. White-label options available.",
-  },
-  {
-    title: "Biotech Startups",
-    description: "Emerging biotech companies needing reliable peptide supply for product development and proof-of-concept studies.",
-  },
+  { range: "3 – 5 units", discount: "5%", labelKey: "tierLabelStarter" as const },
+  { range: "6 – 9 units", discount: "10%", labelKey: "tierLabelProfessional" as const },
+  { range: "10+ units", discount: "15%", labelKey: "tierLabelEnterprise" as const },
+  { range: "50+ units", discount: "Custom", labelKey: "tierLabelCustom" as const },
 ];
 
 /* ─── Featured wholesale products (top 6 by price variety) ─────── */
@@ -185,7 +126,27 @@ export function WholesaleClient({
   locale: string;
 }) {
   usePageTracking("wholesale");
+  const { t } = useLocale();
+  const w = t.wholesalePage;
   const symbol = "€";
+
+  const wholesaleBenefits = [
+    { icon: "users", title: w.benefitAccountManagerTitle, description: w.benefitAccountManagerDesc },
+    { icon: "truck", title: w.benefitShippingTitle, description: w.benefitShippingDesc },
+    { icon: "tag", title: w.benefitVolumePricingTitle, description: w.benefitVolumePricingDesc },
+    { icon: "shield", title: w.benefitCOATitle, description: w.benefitCOADesc },
+    { icon: "package", title: w.benefitCustomLabellingTitle, description: w.benefitCustomLabellingDesc },
+    { icon: "flask", title: w.benefitTechSupportTitle, description: w.benefitTechSupportDesc },
+  ];
+
+  const customerTypes = [
+    { title: w.customerUniversitiesTitle, description: w.customerUniversitiesDesc },
+    { title: w.customerResearchLabsTitle, description: w.customerResearchLabsDesc },
+    { title: w.customerPharmaTitle, description: w.customerPharmaDesc },
+    { title: w.customerClinicsTitle, description: w.customerClinicsDesc },
+    { title: w.customerDistributorsTitle, description: w.customerDistributorsDesc },
+    { title: w.customerBiotechTitle, description: w.customerBiotechDesc },
+  ];
 
   return (
     <div className="pt-[calc(1rem+4px)]">
@@ -199,36 +160,34 @@ export function WholesaleClient({
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[10px] font-mono text-white/30 tracking-[0.1em] mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">HOME</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">{w.breadcrumbHome}</Link>
             <span className="text-white/50">/</span>
-            <span className="text-white/60">WHOLESALE</span>
+            <span className="text-white/60">{w.breadcrumbWholesale}</span>
           </nav>
 
           <div className="inline-flex items-center gap-3 mb-6">
             <Package className="w-5 h-5 text-[#FF6A1A]" />
             <span className="text-xs font-mono text-[#FF6A1A] tracking-[0.2em]">
-              BULK ORDERS
+              {w.heroBulkOrders}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-            Wholesale &amp; Bulk
-            <span className="block text-[#FF6A1A]">Peptide Orders</span>
+            {w.heroTitle1}
+            <span className="block text-[#FF6A1A]">{w.heroTitle2}</span>
           </h1>
 
           <p className="text-white/60 font-plex max-w-2xl leading-relaxed text-lg mb-10">
-            ORYN supplies research-grade peptide pen systems to universities, laboratories,
-            clinics, and distributors across the UK and Europe. Volume discounts from 5%
-            to 15% — with custom pricing for large-scale contracts.
+            {w.heroDescription}
           </p>
 
           {/* Trust bar */}
           <div className="flex flex-wrap gap-6 md:gap-10">
             {[
-              { label: "Min. Order", value: "3 Units" },
-              { label: "Max Discount", value: "15% Off" },
-              { label: "Purity", value: ">99%" },
-              { label: "UK Dispatch", value: "Same Day" },
+              { label: w.statMinOrderLabel, value: w.statMinOrderValue },
+              { label: w.statMaxDiscountLabel, value: w.statMaxDiscountValue },
+              { label: w.statPurityLabel, value: w.statPurityValue },
+              { label: w.statDispatchLabel, value: w.statDispatchValue },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
@@ -248,17 +207,16 @@ export function WholesaleClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                VOLUME PRICING
+                {w.tiersLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Discount{" "}
-              <span className="text-[#FF6A1A]">Tiers</span>
+              {w.tiersTitle1}{" "}
+              <span className="text-[#FF6A1A]">{w.tiersTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Mix and match any products across our entire range.
-              Discounts apply automatically based on total unit count.
+              {w.tiersDescription}
             </p>
           </div>
 
@@ -274,17 +232,17 @@ export function WholesaleClient({
               >
                 {i === 2 && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#FF6A1A] text-white text-[9px] font-mono tracking-widest">
-                    MOST POPULAR
+                    {w.tierMostPopular}
                   </div>
                 )}
                 <span className="text-[10px] font-mono text-white/30 tracking-widest block mb-3">
-                  {tier.label}
+                  {w[tier.labelKey]}
                 </span>
                 <div className="text-4xl md:text-5xl font-bold text-[#FF6A1A] mb-2">
                   {tier.discount}
                 </div>
                 <span className="text-xs font-mono text-white/30 tracking-wider block mb-1">
-                  {tier.discount !== "Custom" ? "OFF RETAIL" : "PRICING"}
+                  {tier.discount !== "Custom" ? w.tierOffRetail : w.tierPricing}
                 </span>
                 <div className="mt-4 pt-4 border-t border-white/[0.06]">
                   <span className="text-sm font-bold text-white">{tier.range}</span>
@@ -303,17 +261,16 @@ export function WholesaleClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                WHOLESALE ADVANTAGES
+                {w.benefitsLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Why Partner With{" "}
-              <span className="text-[#FF6A1A]">ORYN</span>
+              {w.benefitsTitle1}{" "}
+              <span className="text-[#FF6A1A]">{w.benefitsTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Beyond volume pricing, ORYN wholesale accounts unlock
-              a suite of services designed for professional buyers.
+              {w.benefitsDescription}
             </p>
           </div>
 
@@ -353,17 +310,16 @@ export function WholesaleClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                OUR CUSTOMERS
+                {w.whoWeServeLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Who We{" "}
-              <span className="text-[#FF6A1A]">Serve</span>
+              {w.whoWeServeTitle1}{" "}
+              <span className="text-[#FF6A1A]">{w.whoWeServeTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              ORYN wholesale peptides are trusted by research professionals
-              and organisations across the UK and Europe.
+              {w.whoWeServeDescription}
             </p>
           </div>
 
@@ -396,17 +352,16 @@ export function WholesaleClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                WHOLESALE PRICING EXAMPLES
+                {w.productsLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Products at{" "}
-              <span className="text-[#FF6A1A]">Wholesale Prices</span>
+              {w.productsTitle1}{" "}
+              <span className="text-[#FF6A1A]">{w.productsTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              See how volume pricing reduces your cost per unit.
-              All ORYN products are eligible for wholesale discounts.
+              {w.productsDescription}
             </p>
           </div>
 
@@ -443,7 +398,7 @@ export function WholesaleClient({
                         {product.dosage} | {product.categoryLabel}
                       </p>
                       <p className="text-sm font-bold text-white/60 mt-1">
-                        <span className="text-[10px] font-mono text-white/30 mr-1">RETAIL</span>
+                        <span className="text-[10px] font-mono text-white/30 mr-1">{w.productRetailLabel}</span>
                         {symbol}{product.price}
                       </p>
                     </div>
@@ -473,7 +428,7 @@ export function WholesaleClient({
               href="/products"
               className="inline-flex items-center gap-2 text-sm text-[#FF6A1A] font-mono tracking-wider hover:underline"
             >
-              VIEW ALL {products.length} PRODUCTS
+              {w.productViewAll.replace("{count}", String(products.length))}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -487,17 +442,16 @@ export function WholesaleClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                FAQ
+                {w.faqLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Wholesale{" "}
-              <span className="text-[#FF6A1A]">FAQ</span>
+              {w.faqTitle1}{" "}
+              <span className="text-[#FF6A1A]">{w.faqTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Common questions about our wholesale programme,
-              pricing, and account setup.
+              {w.faqDescription}
             </p>
           </div>
 
@@ -517,25 +471,24 @@ export function WholesaleClient({
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <Package className="w-12 h-12 text-white/80 mx-auto mb-6" />
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Ready to Order in Bulk?
+            {w.ctaTitle}
           </h2>
           <p className="text-white/70 font-plex mb-8 max-w-lg mx-auto">
-            Contact our wholesale team to set up your account, discuss custom
-            pricing, and start saving on research-grade peptide pens.
+            {w.ctaDescription}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#FF6A1A] font-bold text-xs tracking-[0.2em] hover:bg-[#FFF8F0] transition-colors"
             >
-              WHOLESALE ENQUIRY
+              {w.ctaEnquiry}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/products"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-bold text-xs tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-colors"
             >
-              BROWSE PRODUCTS
+              {w.ctaBrowseProducts}
               <Package className="w-3.5 h-3.5" />
             </Link>
           </div>

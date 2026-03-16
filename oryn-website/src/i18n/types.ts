@@ -631,6 +631,18 @@ export interface Dictionary {
     items: Array<{ q: string; a: string }>;
   };
 
+  shippingFaq: {
+    items: Array<{ q: string; a: string }>;
+  };
+
+  qualityFaq: {
+    items: Array<{ q: string; a: string }>;
+  };
+
+  wholesaleFaq: {
+    items: Array<{ q: string; a: string }>;
+  };
+
   cookie: {
     message: string;
     privacyPolicy: string;
@@ -796,6 +808,158 @@ export interface Dictionary {
     comparisonSubtitle: string;
   };
 
+  wholesalePage: {
+    // Breadcrumb
+    breadcrumbHome: string;
+    breadcrumbWholesale: string;
+    // Hero
+    heroBulkOrders: string;
+    heroTitle1: string;
+    heroTitle2: string;
+    heroDescription: string;
+    statMinOrderLabel: string;
+    statMinOrderValue: string;
+    statMaxDiscountLabel: string;
+    statMaxDiscountValue: string;
+    statPurityLabel: string;
+    statPurityValue: string;
+    statDispatchLabel: string;
+    statDispatchValue: string;
+    // Discount tiers section
+    tiersLabel: string;
+    tiersTitle1: string;
+    tiersTitle2: string;
+    tiersDescription: string;
+    tierMostPopular: string;
+    tierOffRetail: string;
+    tierPricing: string;
+    tierLabelStarter: string;
+    tierLabelProfessional: string;
+    tierLabelEnterprise: string;
+    tierLabelCustom: string;
+    // Benefits section
+    benefitsLabel: string;
+    benefitsTitle1: string;
+    benefitsTitle2: string;
+    benefitsDescription: string;
+    benefitAccountManagerTitle: string;
+    benefitAccountManagerDesc: string;
+    benefitShippingTitle: string;
+    benefitShippingDesc: string;
+    benefitVolumePricingTitle: string;
+    benefitVolumePricingDesc: string;
+    benefitCOATitle: string;
+    benefitCOADesc: string;
+    benefitCustomLabellingTitle: string;
+    benefitCustomLabellingDesc: string;
+    benefitTechSupportTitle: string;
+    benefitTechSupportDesc: string;
+    // Who we serve section
+    whoWeServeLabel: string;
+    whoWeServeTitle1: string;
+    whoWeServeTitle2: string;
+    whoWeServeDescription: string;
+    customerUniversitiesTitle: string;
+    customerUniversitiesDesc: string;
+    customerResearchLabsTitle: string;
+    customerResearchLabsDesc: string;
+    customerPharmaTitle: string;
+    customerPharmaDesc: string;
+    customerClinicsTitle: string;
+    customerClinicsDesc: string;
+    customerDistributorsTitle: string;
+    customerDistributorsDesc: string;
+    customerBiotechTitle: string;
+    customerBiotechDesc: string;
+    // Products section
+    productsLabel: string;
+    productsTitle1: string;
+    productsTitle2: string;
+    productsDescription: string;
+    productRetailLabel: string;
+    productViewAll: string;
+    // FAQ section
+    faqLabel: string;
+    faqTitle1: string;
+    faqTitle2: string;
+    faqDescription: string;
+    // CTA section
+    ctaTitle: string;
+    ctaDescription: string;
+    ctaEnquiry: string;
+    ctaBrowseProducts: string;
+  };
+
+  qualityPage: {
+    // Hero
+    breadcrumbHome: string;
+    breadcrumbQuality: string;
+    heroBadge: string;
+    heroTitle1: string;
+    heroTitle2: string;
+    heroDescription: string;
+    statPurityLabel: string;
+    statLabsLabel: string;
+    statTestsLabel: string;
+    statTraceabilityLabel: string;
+
+    // Testing Process section
+    processLabel: string;
+    processTitle1: string;
+    processTitle2: string;
+    processDescription: string;
+    testingSteps: Array<{ title: string; description: string }>;
+
+    // Quality Standards section
+    certificationsLabel: string;
+    standardsTitle1: string;
+    standardsTitle2: string;
+    standardsDescription: string;
+    qualityStandards: Array<{ title: string; description: string }>;
+
+    // COA Grid section
+    coaLabel: string;
+    coaTitle1: string;
+    coaTitle2: string;
+    coaDescription: string;
+    passLabel: string;
+    purityLabel: string;
+    batchLabel: string;
+    testedLabel: string;
+    methodLabel: string;
+    testedDate: string;
+    viewCoa: string;
+
+    // Third-Party Testing section
+    independentLabel: string;
+    partnersTitle1: string;
+    partnersTitle2: string;
+    partnersP1: string;
+    partnersP2: string;
+    partnersBullets: string[];
+    analyticalMethodsLabel: string;
+    analyticalMethods: Array<{ method: string; description: string; standard: string }>;
+
+    // COA Contents section
+    understandingLabel: string;
+    coaContentsTitle1: string;
+    coaContentsTitle2: string;
+    coaContentsDescription: string;
+    coaItems: Array<{ title: string; details: string }>;
+
+    // FAQ section
+    faqLabel: string;
+    faqTitle1: string;
+    faqTitle2: string;
+    faqDescription: string;
+
+    // CTA section
+    ctaTitle: string;
+    ctaDescription: string;
+    ctaBrowseProducts: string;
+    ctaRequestCoa: string;
+  };
+
   share: {
     label: string;
   };
@@ -809,6 +973,84 @@ export interface Dictionary {
   flashSale: {
     flash: string;
     weekend: string;
+  };
+
+  shippingPage: {
+    // Hero
+    heroTagline: string;
+    heroTitle1: string;
+    heroTitle2: string;
+    heroDescription: string;
+    breadcrumbHome: string;
+    breadcrumbShipping: string;
+    // Hero trust bar stats
+    statUkDeliveryLabel: string;
+    statUkDeliveryValue: string;
+    statDispatchLabel: string;
+    statDispatchValue: string;
+    statFreeOverLabel: string;
+    statPackagingLabel: string;
+    statPackagingValue: string;
+    // UK Delivery Zones section
+    ukZonesSectionLabel: string;
+    ukZonesSectionTitle1: string;
+    ukZonesSectionTitle2: string;
+    ukZonesSectionDescription: string;
+    ukDeliveryNote: string;
+    ukZones: Array<{ region: string; days: string }>;
+    // Cold chain / Packaging section
+    coldChainSectionLabel: string;
+    packagingTitle1: string;
+    packagingTitle2: string;
+    packagingDescription: string;
+    packagingBullets: string[];
+    coldChainFeatures: Array<{ title: string; description: string }>;
+    // European Delivery section
+    euSectionLabel: string;
+    euSectionTitle1: string;
+    euSectionTitle2: string;
+    euSectionDescription: string;
+    euCountriesHeader: string;
+    euCountriesNotListed: string;
+    euDeliveryTimeTitle: string;
+    euDeliveryTimeValue: string;
+    euDeliveryTimeDescription: string;
+    euShippingCostTitle: string;
+    euShippingCostValue: string;
+    euShippingCostDescription: string;
+    euCustomsTitle: string;
+    euCustomsValue: string;
+    euCustomsDescription: string;
+    euTrackingTitle: string;
+    euTrackingValue: string;
+    euTrackingDescription: string;
+    // Free Shipping section
+    freeShippingSectionLabel: string;
+    freeShippingTitle1: string;
+    freeShippingTitle2: string;
+    freeShippingDescription: string;
+    freeShippingExampleLabel: string;
+    freeShippingExampleAway: string;
+    // Discreet / Tracking / Returns cards
+    discreetTitle: string;
+    discreetDescription: string;
+    discreetItems: string[];
+    trackingTitle: string;
+    trackingDescription: string;
+    trackingItems: string[];
+    returnsTitle: string;
+    returnsDescription: string;
+    returnsItems: string[];
+    // FAQ section
+    faqSectionLabel: string;
+    faqSectionTitle1: string;
+    faqSectionTitle2: string;
+    faqSectionDescription: string;
+    // CTA section
+    ctaTitle: string;
+    ctaDescription: string;
+    ctaShopNow: string;
+    ctaContactUs: string;
   };
 
   account: {

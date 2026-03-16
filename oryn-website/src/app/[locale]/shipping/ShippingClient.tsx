@@ -2,6 +2,7 @@
 
 import { Link } from "@/components/ui/LocaleLink";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -97,41 +98,12 @@ function ArrowRight({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-/* ─── Data ──────────────────────────────────────────────────────────── */
-
-const ukDeliveryZones = [
-  { region: "London & South East", days: "1 – 2 days", highlight: true },
-  { region: "Midlands & East Anglia", days: "2 – 3 days", highlight: false },
-  { region: "North England", days: "2 – 3 days", highlight: false },
-  { region: "Scotland (Lowlands)", days: "3 – 4 days", highlight: false },
-  { region: "Wales", days: "2 – 3 days", highlight: false },
-  { region: "Northern Ireland", days: "3 – 4 days", highlight: false },
-  { region: "Highlands & Islands", days: "4 – 5 days", highlight: false },
-];
+/* ─── Static data (country list — proper nouns, not translated) ──── */
 
 const euCountries = [
   "Germany", "France", "Spain", "Italy", "Netherlands",
   "Belgium", "Austria", "Ireland", "Portugal", "Sweden",
   "Denmark", "Finland", "Poland", "Czech Republic", "Greece",
-];
-
-const coldChainFeatures = [
-  {
-    title: "Insulated Shipping Boxes",
-    description: "Multi-layer insulated containers maintain 2-8°C internal temperature for up to 48 hours, protecting peptide integrity from warehouse to doorstep.",
-  },
-  {
-    title: "Gel Ice Packs",
-    description: "Non-toxic phase-change gel packs pre-cooled to 2°C provide sustained cooling throughout transit without risk of freezing the product.",
-  },
-  {
-    title: "Seasonal Adjustments",
-    description: "During summer months (June-September), we add extra ice packs and upgraded insulation. In extreme heat, we switch to express delivery to minimise transit time.",
-  },
-  {
-    title: "Temperature Monitoring",
-    description: "Wholesale orders of 25+ units include temperature indicator strips that confirm the shipment remained within the 2-8°C range throughout delivery.",
-  },
 ];
 
 /* ─── FAQ Accordion ───────────────────────────────────────────────── */
@@ -160,8 +132,14 @@ export function ShippingClient({
   locale: string;
 }) {
   usePageTracking("shipping");
+  const { t } = useLocale();
+  const sp = t.shippingPage;
+
   const symbol = "€";
   const freeThreshold = locale === "en" ? "130" : "175";
+
+  // Replace {threshold} placeholder in translated strings
+  const th = (str: string) => str.replace("{threshold}", freeThreshold);
 
   return (
     <div className="pt-[calc(1rem+4px)]">
@@ -175,36 +153,34 @@ export function ShippingClient({
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[10px] font-mono text-white/30 tracking-[0.1em] mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">HOME</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">{sp.breadcrumbHome}</Link>
             <span className="text-white/50">/</span>
-            <span className="text-white/60">SHIPPING &amp; DELIVERY</span>
+            <span className="text-white/60">{sp.breadcrumbShipping}</span>
           </nav>
 
           <div className="inline-flex items-center gap-3 mb-6">
             <Truck className="w-5 h-5 text-[#FF6A1A]" />
             <span className="text-xs font-mono text-[#FF6A1A] tracking-[0.2em]">
-              TEMPERATURE-CONTROLLED
+              {sp.heroTagline}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-            Shipping &amp;
-            <span className="block text-[#FF6A1A]">Delivery</span>
+            {sp.heroTitle1}
+            <span className="block text-[#FF6A1A]">{sp.heroTitle2}</span>
           </h1>
 
           <p className="text-white/60 font-plex max-w-2xl leading-relaxed text-lg mb-10">
-            Every ORYN order is dispatched same day in temperature-controlled packaging,
-            ensuring your peptide pens arrive in perfect condition. Free UK shipping
-            on orders over {symbol}{freeThreshold}.
+            {th(sp.heroDescription)}
           </p>
 
           {/* Trust bar */}
           <div className="flex flex-wrap gap-6 md:gap-10">
             {[
-              { label: "UK Delivery", value: "2-4 Days" },
-              { label: "Dispatch", value: "Same Day" },
-              { label: "Free Over", value: `${symbol}${freeThreshold}` },
-              { label: "Packaging", value: "2-8°C" },
+              { label: sp.statUkDeliveryLabel, value: sp.statUkDeliveryValue },
+              { label: sp.statDispatchLabel, value: sp.statDispatchValue },
+              { label: sp.statFreeOverLabel, value: `${symbol}${freeThreshold}` },
+              { label: sp.statPackagingLabel, value: sp.statPackagingValue },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
@@ -224,37 +200,36 @@ export function ShippingClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                UK DELIVERY ZONES
+                {sp.ukZonesSectionLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Delivery Times by{" "}
-              <span className="text-[#FF6A1A]">Region</span>
+              {sp.ukZonesSectionTitle1}{" "}
+              <span className="text-[#FF6A1A]">{sp.ukZonesSectionTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              All orders placed before 2pm GMT are dispatched the same business day.
-              Delivery times shown are business days from dispatch.
+              {sp.ukZonesSectionDescription}
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto space-y-3">
-            {ukDeliveryZones.map((zone) => (
+            {sp.ukZones.map((zone, idx) => (
               <div
                 key={zone.region}
                 className={`flex items-center justify-between p-5 border transition-colors ${
-                  zone.highlight
+                  idx === 0
                     ? "bg-[#FF6A1A]/10 border-[#FF6A1A]/30"
                     : "bg-white/[0.02] border-white/[0.06] hover:border-[#FF6A1A]/20"
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <MapPin className={`w-4 h-4 ${zone.highlight ? "text-[#FF6A1A]" : "text-white/30"}`} />
+                  <MapPin className={`w-4 h-4 ${idx === 0 ? "text-[#FF6A1A]" : "text-white/30"}`} />
                   <span className="text-sm font-bold text-white">{zone.region}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-white/30" />
-                  <span className={`text-sm font-mono ${zone.highlight ? "text-[#FF6A1A] font-bold" : "text-white/60"}`}>
+                  <span className={`text-sm font-mono ${idx === 0 ? "text-[#FF6A1A] font-bold" : "text-white/60"}`}>
                     {zone.days}
                   </span>
                 </div>
@@ -264,9 +239,7 @@ export function ShippingClient({
 
           <div className="max-w-2xl mx-auto mt-6 p-4 border border-white/[0.06] bg-white/[0.02]">
             <p className="text-xs text-white/40 font-plex text-center">
-              Delivery estimates are for standard shipping. Express options are available
-              at checkout for faster delivery. Weekend and bank holiday orders are dispatched
-              on the next business day.
+              {sp.ukDeliveryNote}
             </p>
           </div>
         </div>
@@ -281,27 +254,19 @@ export function ShippingClient({
               <div className="inline-flex items-center gap-2 mb-4">
                 <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
                 <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                  COLD CHAIN LOGISTICS
+                  {sp.coldChainSectionLabel}
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                Temperature-Controlled{" "}
-                <span className="text-[#FF6A1A]">Packaging</span>
+                {sp.packagingTitle1}{" "}
+                <span className="text-[#FF6A1A]">{sp.packagingTitle2}</span>
               </h2>
               <p className="text-white/50 font-plex leading-relaxed mb-8">
-                Peptides require refrigerated storage at 2-8°C. Our cold chain packaging
-                ensures your order maintains optimal temperature throughout transit —
-                from our climate-controlled warehouse to your door.
+                {sp.packagingDescription}
               </p>
 
               <div className="space-y-4">
-                {[
-                  "Maintains 2-8°C for up to 48 hours in transit",
-                  "Non-toxic gel ice packs, pre-cooled to 2°C",
-                  "Multi-layer insulated shipping containers",
-                  "Extra protection during summer months",
-                  "Custom foam inserts prevent pen movement",
-                ].map((item) => (
+                {sp.packagingBullets.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <div className="mt-0.5 w-4 h-4 border border-[#FF6A1A]/40 flex items-center justify-center shrink-0">
                       <svg className="w-2.5 h-2.5 text-[#FF6A1A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -315,7 +280,7 @@ export function ShippingClient({
             </div>
 
             <div className="space-y-4">
-              {coldChainFeatures.map((feature) => (
+              {sp.coldChainFeatures.map((feature) => (
                 <div
                   key={feature.title}
                   className="p-6 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/20 transition-colors"
@@ -341,17 +306,16 @@ export function ShippingClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                INTERNATIONAL SHIPPING
+                {sp.euSectionLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              European{" "}
-              <span className="text-[#FF6A1A]">Delivery</span>
+              {sp.euSectionTitle1}{" "}
+              <span className="text-[#FF6A1A]">{sp.euSectionTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              ORYN ships to 15+ European countries with full tracking
-              and temperature-controlled packaging.
+              {sp.euSectionDescription}
             </p>
           </div>
 
@@ -361,7 +325,7 @@ export function ShippingClient({
               <div className="flex items-center gap-3 mb-6">
                 <Globe className="w-5 h-5 text-[#FF6A1A]" />
                 <h3 className="text-sm font-mono text-[#FF6A1A] tracking-widest">
-                  EU COUNTRIES WE SHIP TO
+                  {sp.euCountriesHeader}
                 </h3>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -376,7 +340,7 @@ export function ShippingClient({
                 ))}
               </div>
               <p className="text-xs text-white/30 font-plex mt-4 pt-4 border-t border-white/[0.06]">
-                Not listed? Contact us — we may be able to arrange shipping to your country.
+                {sp.euCountriesNotListed}
               </p>
             </div>
 
@@ -384,42 +348,38 @@ export function ShippingClient({
             <div className="space-y-4">
               <div className="p-6 bg-white/[0.02] border border-white/[0.06]">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-bold text-white">Delivery Time</h3>
-                  <span className="text-sm font-mono text-[#FF6A1A]">3 – 7 days</span>
+                  <h3 className="text-sm font-bold text-white">{sp.euDeliveryTimeTitle}</h3>
+                  <span className="text-sm font-mono text-[#FF6A1A]">{sp.euDeliveryTimeValue}</span>
                 </div>
                 <p className="text-xs text-white/40 font-plex">
-                  Business days from dispatch. Western Europe typically 3-5 days,
-                  Eastern Europe 5-7 days.
+                  {sp.euDeliveryTimeDescription}
                 </p>
               </div>
               <div className="p-6 bg-white/[0.02] border border-white/[0.06]">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-bold text-white">Shipping Cost</h3>
-                  <span className="text-sm font-mono text-[#FF6A1A]">Flat Rate</span>
+                  <h3 className="text-sm font-bold text-white">{sp.euShippingCostTitle}</h3>
+                  <span className="text-sm font-mono text-[#FF6A1A]">{sp.euShippingCostValue}</span>
                 </div>
                 <p className="text-xs text-white/40 font-plex">
-                  Flat-rate shipping to all European destinations. Calculated at checkout
-                  based on destination country and order weight.
+                  {sp.euShippingCostDescription}
                 </p>
               </div>
               <div className="p-6 bg-white/[0.02] border border-white/[0.06]">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-bold text-white">Customs & Duties</h3>
-                  <span className="text-sm font-mono text-white/40">Buyer&apos;s Responsibility</span>
+                  <h3 className="text-sm font-bold text-white">{sp.euCustomsTitle}</h3>
+                  <span className="text-sm font-mono text-white/40">{sp.euCustomsValue}</span>
                 </div>
                 <p className="text-xs text-white/40 font-plex">
-                  International orders may be subject to customs duties and import taxes.
-                  These charges are the responsibility of the customer and vary by country.
+                  {sp.euCustomsDescription}
                 </p>
               </div>
               <div className="p-6 bg-white/[0.02] border border-white/[0.06]">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-bold text-white">Tracking</h3>
-                  <span className="text-sm font-mono text-[#FF6A1A]">Full Tracking</span>
+                  <h3 className="text-sm font-bold text-white">{sp.euTrackingTitle}</h3>
+                  <span className="text-sm font-mono text-[#FF6A1A]">{sp.euTrackingValue}</span>
                 </div>
                 <p className="text-xs text-white/40 font-plex">
-                  All international shipments include end-to-end tracking with real-time
-                  status updates via email.
+                  {sp.euTrackingDescription}
                 </p>
               </div>
             </div>
@@ -435,25 +395,24 @@ export function ShippingClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                FREE SHIPPING
+                {sp.freeShippingSectionLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Free UK Shipping Over{" "}
-              <span className="text-[#FF6A1A]">{symbol}{freeThreshold}</span>
+              {sp.freeShippingTitle1}{" "}
+              <span className="text-[#FF6A1A]">{th(sp.freeShippingTitle2)}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Orders over {symbol}{freeThreshold} qualify for free standard UK delivery.
-              Track your progress in your cart.
+              {th(sp.freeShippingDescription)}
             </p>
           </div>
 
           {/* Progress bar example */}
           <div className="max-w-lg mx-auto p-8 bg-white/[0.02] border border-white/[0.06]">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-xs font-mono text-white/40">EXAMPLE: {symbol}120 ORDER</span>
-              <span className="text-xs font-mono text-[#FF6A1A]">{symbol}30 away from free shipping</span>
+              <span className="text-xs font-mono text-white/40">{sp.freeShippingExampleLabel}</span>
+              <span className="text-xs font-mono text-[#FF6A1A]">{sp.freeShippingExampleAway}</span>
             </div>
             <div className="w-full h-2 bg-white/5 overflow-hidden mb-2">
               <div
@@ -476,13 +435,12 @@ export function ShippingClient({
             {/* Discreet Packaging */}
             <div className="p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 transition-all group">
               <Package className="w-8 h-8 text-[#FF6A1A] mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-lg font-bold text-white mb-3">Discreet Packaging</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{sp.discreetTitle}</h3>
               <p className="text-sm text-white/40 font-plex leading-relaxed mb-4">
-                All ORYN orders ship in plain, unmarked boxes. No product names, no branding,
-                and no descriptions are visible on the exterior packaging or shipping label.
+                {sp.discreetDescription}
               </p>
               <ul className="space-y-2">
-                {["Plain outer box", "No visible branding", "Generic sender name", "No product descriptions"].map((item) => (
+                {sp.discreetItems.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-xs text-white/50 font-plex">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#FF6A1A]/40" />
                     {item}
@@ -494,13 +452,12 @@ export function ShippingClient({
             {/* Order Tracking */}
             <div className="p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 transition-all group">
               <MapPin className="w-8 h-8 text-[#FF6A1A] mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-lg font-bold text-white mb-3">Order Tracking</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{sp.trackingTitle}</h3>
               <p className="text-sm text-white/40 font-plex leading-relaxed mb-4">
-                Every order receives a tracking number within 2 hours of dispatch.
-                Follow your shipment in real time from our warehouse to your door.
+                {sp.trackingDescription}
               </p>
               <ul className="space-y-2">
-                {["Tracking email within 2 hours", "Real-time status updates", "Estimated delivery window", "Delivery confirmation"].map((item) => (
+                {sp.trackingItems.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-xs text-white/50 font-plex">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#FF6A1A]/40" />
                     {item}
@@ -512,13 +469,12 @@ export function ShippingClient({
             {/* Returns & Refunds */}
             <div className="p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 transition-all group">
               <RefreshCcw className="w-8 h-8 text-[#FF6A1A] mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-lg font-bold text-white mb-3">Returns &amp; Refunds</h3>
+              <h3 className="text-lg font-bold text-white mb-3">{sp.returnsTitle}</h3>
               <p className="text-sm text-white/40 font-plex leading-relaxed mb-4">
-                If your order arrives damaged or is incorrect, contact us within 48 hours.
-                We will arrange a replacement or full refund at no additional cost to you.
+                {sp.returnsDescription}
               </p>
               <ul className="space-y-2">
-                {["48-hour damage reporting window", "Full replacement or refund", "Photo evidence required", "Free return shipping for errors"].map((item) => (
+                {sp.returnsItems.map((item) => (
                   <li key={item} className="flex items-center gap-2 text-xs text-white/50 font-plex">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#FF6A1A]/40" />
                     {item}
@@ -537,17 +493,16 @@ export function ShippingClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                FAQ
+                {sp.faqSectionLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Shipping{" "}
-              <span className="text-[#FF6A1A]">FAQ</span>
+              {sp.faqSectionTitle1}{" "}
+              <span className="text-[#FF6A1A]">{sp.faqSectionTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Common questions about peptide delivery, packaging,
-              and shipping options.
+              {sp.faqSectionDescription}
             </p>
           </div>
 
@@ -567,25 +522,24 @@ export function ShippingClient({
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <Truck className="w-12 h-12 text-white/80 mx-auto mb-6" />
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Order Today, Receive This Week
+            {sp.ctaTitle}
           </h2>
           <p className="text-white/70 font-plex mb-8 max-w-lg mx-auto">
-            Same-day dispatch before 2pm. Temperature-controlled delivery.
-            Free UK shipping over {symbol}{freeThreshold}.
+            {th(sp.ctaDescription)}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/products"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#FF6A1A] font-bold text-xs tracking-[0.2em] hover:bg-[#FFF8F0] transition-colors"
             >
-              SHOP NOW
+              {sp.ctaShopNow}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-bold text-xs tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-colors"
             >
-              CONTACT US
+              {sp.ctaContactUs}
               <ShieldCheck className="w-3.5 h-3.5" />
             </Link>
           </div>

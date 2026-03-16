@@ -1022,6 +1022,38 @@ const pl = {
     ],
   },
 
+  shippingFaq: {
+    items: [
+      { q: "Jak długo trwa dostawa peptydów w Polsce?", a: "Czasy dostawy w Polsce zależą od lokalizacji. Warszawa, Kraków i Wrocław otrzymują zamówienia w 1-2 dni robocze, inne duże miasta w 2-3 dni robocze, a obszary wiejskie w 3-4 dni robocze. Wszystkie zamówienia złożone przed godziną 14:00 są wysyłane tego samego dnia." },
+      { q: "Czy wysyłka peptydów odbywa się w kontrolowanej temperaturze?", a: "Tak. Wszystkie przesyłki peptydów ORYN są pakowane w izolowane pudełka z żelowymi wkładami chłodzącymi, aby utrzymać temperaturę 2-8 stopni Celsjusza podczas transportu. W miesiącach letnich (czerwiec-wrzesień) dodajemy dodatkową ochronę łańcucha chłodniczego, w tym dodatkowe wkłady chłodzące i izolacyjne wykładziny, aby zapewnić integralność produktu." },
+      { q: "Jak skorzystać z darmowej wysyłki?", a: "Bezpłatna standardowa wysyłka jest dostępna dla wszystkich zamówień powyżej 150 euro. Ten próg dotyczy sumy zamówienia przed zastosowaniem kodów rabatowych. Zamówienia międzynarodowe do Europy podlegają stałej opłacie za wysyłkę niezależnie od wartości zamówienia. Twój koszyk pokaże pasek postępu wskazujący, jak blisko jesteś do progu darmowej wysyłki." },
+      { q: "Czy wysyłacie peptydy za granicę do Europy?", a: "Tak, ORYN wysyła do większości krajów Unii Europejskiej. Dostawa europejska trwa zazwyczaj 3-7 dni roboczych w zależności od kraju docelowego. Wszystkie przesyłki międzynarodowe obejmują opakowanie z kontrolą temperatury i pełne śledzenie. Należności celne i podatki importowe są odpowiedzialnością klienta." },
+      { q: "Jak pakowane jest moje zamówienie peptydów?", a: "Wszystkie zamówienia ORYN są wysyłane w zwykłych, nieoznakowanych pudełkach bez opisów produktów ani oznaczeń widocznych na zewnątrz. W środku peny peptydowe są zabezpieczone w niestandardowych wkładkach piankowych wewnątrz izolowanego pojemnika z żelowymi wkładami chłodzącymi. W pudełku znajduje się list przewozowy i Certyfikat Analizy." },
+      { q: "Czy mogę śledzić moje zamówienie peptydów?", a: "Tak. Wszystkie zamówienia otrzymują numer śledzenia przez e-mail w ciągu 2 godzin od wysyłki. Możesz śledzić swoją przesyłkę w czasie rzeczywistym przez portal naszego partnera kurierskiego. W przypadku zamówień hurtowych 10+ jednostek zapewniamy ulepszone śledzenie z szacowanymi oknami dostawy i potwierdzeniem dostawy z podpisem." },
+    ],
+  },
+
+  qualityFaq: {
+    items: [
+      { q: "Czym jest Certyfikat Analizy (COA)?", a: "Certyfikat Analizy to dokument wydany przez wykwalifikowane laboratorium badawcze potwierdzający tożsamość, czystość i skład produktu peptydowego. Każdy COA ORYN zawiera dane czystości HPLC, potwierdzenie tożsamości metodą spektrometrii masowej, wyniki testów endotoksyn, weryfikację sterylności oraz szczegóły produkcji specyficzne dla partii." },
+      { q: "Jak odczytać wynik czystości HPLC?", a: "Wyniki HPLC (Wysokosprawna Chromatografia Cieczowa) pokazują chromatogram z pikami reprezentującymi różne składniki. Procent powierzchni głównego piku wskazuje na czystość — na przykład 99,2% oznacza, że 99,2% wykrytego materiału to docelowy peptyd. Wszystkie peptydy ORYN konsekwentnie osiągają ponad 98% czystości, a większość partii przekracza 99%." },
+      { q: "Kto przeprowadza testy przez strony trzecie?", a: "Peptydy ORYN są testowane przez niezależne laboratoria analityczne akredytowane według ISO 17025. Laboratoria te działają niezależnie od naszych obiektów produkcyjnych, zapewniając bezstronne potwierdzenie czystości, tożsamości i sterylności każdej produkowanej przez nas partii." },
+      { q: "Jak często testowane są peptydy ORYN?", a: "Każda pojedyncza partia każdego produktu ORYN jest testowana przed wydaniem. Stosujemy ścisły protokół wydania partii: żaden produkt nie opuszcza naszego obiektu bez zatwierdzonego Certyfikatu Analizy z niezależnego laboratorium. Testy obejmują analizę czystości HPLC, potwierdzenie tożsamości spektrometrią masową, badanie przesiewowe endotoksyn i weryfikację sterylności." },
+      { q: "Jakie standardy czystości spełniają peptydy ORYN?", a: "Wszystkie peptydy ORYN są wytwarzane z czystością przekraczającą 98%, przy czym większość partii osiąga ponad 99%. Jest to weryfikowane przez niezależne testy HPLC i potwierdzane spektrometrią masową. Nasze obiekty produkcyjne są certyfikowane GMP i działają zgodnie z systemami zarządzania jakością ISO 9001 w środowiskach czystych pomieszczeń ISO 7." },
+      { q: "Czy mogę poprosić o COA dla mojej konkretnej partii?", a: "Tak. Każdy produkt ORYN jest dostarczany z numerem partii wydrukowanym na opakowaniu. Możesz poprosić o COA dla swojej partii, kontaktując się z naszym zespołem wsparcia pod adresem info@orynpeptides.com z numerem partii. Prowadzimy pełną dokumentację identyfikowalności dla każdej wyprodukowanej partii." },
+    ],
+  },
+
+  wholesaleFaq: {
+    items: [
+      { q: "Jaka jest minimalna ilość zamówienia dla cen hurtowych?", a: "Nasze poziomy cenowe hurtowe zaczynają się od zaledwie 3 jednostek. Zamówienia 3-5 jednostek otrzymują 5% zniżki, 6-9 jednostek 10% zniżki, a 10 lub więcej jednostek 15% zniżki od ceny detalicznej. W przypadku zamówień 50+ jednostek oferujemy niestandardowe wyceny dostosowane do konkretnych wymagań." },
+      { q: "Jak działają ceny hurtowe w ORYN?", a: "Ceny hurtowe ORYN opierają się na poziomach rabatów wolumenowych stosowanych do naszych standardowych cen detalicznych. Rabaty są automatycznie obliczane przy kasie dla kwalifikujących się zamówień. Możesz łączyć produkty z naszych asortymentów Peptide Pen, MediT Pen i NovaDose, aby osiągnąć swój poziom. W przypadku ciągłych umów dostaw skontaktuj się z naszym zespołem hurtowym." },
+      { q: "Jak skonfigurować konto hurtowe?", a: "Konfiguracja konta hurtowego jest prosta. Skontaktuj się z naszym zespołem pod adresem info@orynpeptides.com lub skorzystaj z formularza zapytania hurtowego na naszej stronie kontaktowej. Zweryfikujemy dane Twojej organizacji, przydzielimy dedykowanego opiekuna klienta i aktywujemy ceny wolumenowe na Twoim koncie w ciągu 1-2 dni roboczych." },
+      { q: "Jakie warunki płatności są dostępne dla klientów hurtowych?", a: "Standardowe zamówienia hurtowe są płatne przelewem bankowym, kartą kredytową lub zamówieniem zakupu (dla zatwierdzonych kont). Oferujemy warunki płatności NET-30 dla ugruntowanych klientów hurtowych z potwierdzonym historią handlową. Wszystkie pierwsze zamówienia są przedpłacone. Skontaktuj się z naszym zespołem, aby omówić warunki płatności w przypadku umów na duże wolumeny." },
+      { q: "Jakie są czasy dostawy dla zamówień hurtowych peptydów?", a: "Zamówienia hurtowe są wysyłane w ciągu 1-2 dni roboczych z naszego centrum dystrybucji. Standardowa dostawa trwa 2-4 dni robocze. W przypadku dużych zamówień (50+ jednostek) możemy potrzebować do 5 dni roboczych na przygotowanie. Wszystkie przesyłki hurtowe obejmują opakowanie z kontrolą temperatury bez dodatkowych kosztów, z zapewnionym pełnym śledzeniem." },
+    ],
+  },
+
   account: {
     nav: {
       dashboard: "Panel",
@@ -1431,6 +1463,80 @@ const pl = {
     comparisonSubtitle: "Zobacz, jak ORYN wypada na tle typowych dostawców peptydów w Wielkiej Brytanii.",
   },
 
+  wholesalePage: {
+    breadcrumbHome: "STRONA GŁÓWNA",
+    breadcrumbWholesale: "HURTOWNIA",
+    heroBulkOrders: "ZAMÓWIENIA HURTOWE",
+    heroTitle1: "Hurt i Zamówienia",
+    heroTitle2: "Masowe",
+    heroDescription: "ORYN dostarcza peptydowe systemy pen klasy badawczej do uniwersytetów, laboratoriów, klinik i dystrybutorów w Wielkiej Brytanii i Europie. Rabaty wolumenowe od 5% do 15% — z indywidualnymi cenami dla kontraktów wielkoskalowych.",
+    statMinOrderLabel: "Min. Zamówienie",
+    statMinOrderValue: "3 Jednostki",
+    statMaxDiscountLabel: "Maks. Rabat",
+    statMaxDiscountValue: "15% Zniżki",
+    statPurityLabel: "Czystość",
+    statPurityValue: ">99%",
+    statDispatchLabel: "Wysyłka UK",
+    statDispatchValue: "Tego Samego Dnia",
+    tiersLabel: "CENY WOLUMENOWE",
+    tiersTitle1: "Poziomy",
+    tiersTitle2: "Rabatów",
+    tiersDescription: "Łącz dowolne produkty z całej naszej oferty. Rabaty naliczają się automatycznie na podstawie łącznej liczby jednostek.",
+    tierMostPopular: "NAJPOPULARNIEJSZY",
+    tierOffRetail: "OD CENY DETALICZNEJ",
+    tierPricing: "WYCENA",
+    tierLabelStarter: "STARTER",
+    tierLabelProfessional: "PROFESJONALNY",
+    tierLabelEnterprise: "PRZEDSIĘBIORSTWO",
+    tierLabelCustom: "OFERTA INDYWIDUALNA",
+    benefitsLabel: "KORZYŚCI HURTOWE",
+    benefitsTitle1: "Dlaczego Współpracować Z",
+    benefitsTitle2: "ORYN",
+    benefitsDescription: "Poza cenami wolumenowymi, konta hurtowe ORYN odblokowują zestaw usług zaprojektowanych dla profesjonalnych kupców.",
+    benefitAccountManagerTitle: "Dedykowany Opiekun Konta",
+    benefitAccountManagerDesc: "Jeden punkt kontaktu w sprawach zamówień, cen i zapytań technicznych. Twój opiekun konta rozumie Twoje potrzeby.",
+    benefitShippingTitle: "Priorytetowa Wysyłka",
+    benefitShippingDesc: "Zamówienia hurtowe są wysyłane tego samego dnia przy złożeniu przed godz. 14:00. Opakowanie z kontrolą temperatury w cenie bez dodatkowych kosztów.",
+    benefitVolumePricingTitle: "Ceny Wolumenowe",
+    benefitVolumePricingDesc: "Automatyczne rabaty od 5% do 15% w zależności od ilości zamówienia. Indywidualne ceny dostępne dla stałych kontraktów.",
+    benefitCOATitle: "COA w Zestawie",
+    benefitCOADesc: "Każda przesyłka hurtowa zawiera Certyfikaty Analizy specyficzne dla partii. Pełna identyfikowalność od syntezy do dostawy.",
+    benefitCustomLabellingTitle: "Indywidualne Etykietowanie",
+    benefitCustomLabellingDesc: "Marka własna i niestandardowe opakowanie dostępne dla dystrybutorów i klinik. Minimalne zamówienia 50 jednostek dla niestandardowych etykiet.",
+    benefitTechSupportTitle: "Wsparcie Techniczne",
+    benefitTechSupportDesc: "Dostęp do naszego zespołu nauki o peptydach w celu uzyskania wskazówek dotyczących protokołów, zaleceń dotyczących przechowywania i specyfikacji produktów.",
+    whoWeServeLabel: "NASI KLIENCI",
+    whoWeServeTitle1: "Kogo",
+    whoWeServeTitle2: "Obsługujemy",
+    whoWeServeDescription: "Peptydy hurtowe ORYN są zaufane przez specjalistów badawczych i organizacje w Wielkiej Brytanii i Europie.",
+    customerUniversitiesTitle: "Uczelnie i Akademia",
+    customerUniversitiesDesc: "Wydziały badawcze i programy podyplomowe studiujące biologię peptydów, farmakologię i medycynę regeneracyjną.",
+    customerResearchLabsTitle: "Laboratoria Badawcze",
+    customerResearchLabsDesc: "Prywatne i publiczne laboratoria badawcze prowadzące badania in vitro i in vivo z peptydami klasy badawczej.",
+    customerPharmaTitle: "Firmy Farmaceutyczne",
+    customerPharmaDesc: "Działy R&D farmaceutyczne używające peptydów wzorcowych do opracowywania leków i analitycznych badań porównawczych.",
+    customerClinicsTitle: "Kliniki i Praktyki Medyczne",
+    customerClinicsDesc: "Kliniki medycyny integracyjnej i lekarze wymagający stałych dostaw wysokoczystych peptydów do badań klinicznych.",
+    customerDistributorsTitle: "Dystrybutorzy i Odsprzedawcy",
+    customerDistributorsDesc: "Partnerzy hurtowi dystrybuujący produkty ORYN w Wielkiej Brytanii i Europie. Dostępne opcje marki własnej.",
+    customerBiotechTitle: "Startupy Biotech",
+    customerBiotechDesc: "Wschodzące firmy biotechnologiczne potrzebujące niezawodnych dostaw peptydów do opracowywania produktów i badań proof-of-concept.",
+    productsLabel: "PRZYKŁADY CEN HURTOWYCH",
+    productsTitle1: "Produkty w",
+    productsTitle2: "Cenach Hurtowych",
+    productsDescription: "Zobacz, jak ceny wolumenowe obniżają koszt jednostkowy. Wszystkie produkty ORYN kwalifikują się do rabatów hurtowych.",
+    productRetailLabel: "CENA DETALICZNA",
+    productViewAll: "WYŚWIETL WSZYSTKIE {count} PRODUKTY",
+    faqLabel: "FAQ",
+    faqTitle1: "Często Zadawane",
+    faqTitle2: "Pytania",
+    faqDescription: "Częste pytania dotyczące naszego programu hurtowego, cen i konfiguracji konta.",
+    ctaTitle: "Gotowy na Zamówienie Masowe?",
+    ctaDescription: "Skontaktuj się z naszym zespołem hurtowym, aby skonfigurować konto, omówić indywidualne ceny i zacząć oszczędzać na pentach peptydowych klasy badawczej.",
+    ctaEnquiry: "ZAPYTANIE HURTOWE",
+    ctaBrowseProducts: "PRZEGLĄDAJ PRODUKTY",
+  },
+
   share: {
     label: "UDOSTĘPNIJ",
   },
@@ -1444,6 +1550,309 @@ const pl = {
   flashSale: {
     flash: "Wyprzedaż błyskawiczna — Użyj kodu FLASH15, aby uzyskać 15% zniżki na wszystkie peny peptydowe",
     weekend: "Oferta weekendowa — Użyj kodu WEEKEND10, aby uzyskać 10% zniżki",
+  },
+
+  qualityPage: {
+    breadcrumbHome: "STRONA GŁÓWNA",
+    breadcrumbQuality: "JAKOŚĆ & ANALITYKA",
+    heroBadge: "ZWERYFIKOWANE PRZEZ STRONY TRZECIE",
+    heroTitle1: "Przejrzystość w",
+    heroTitle2: "Każdej Partii",
+    heroDescription:
+      "Każdy peptyd ORYN jest niezależnie badany przez laboratoria akredytowane przez ISO. Publikujemy Certyfikaty Analizy dla każdego produktu, ponieważ wierzymy, że zasługujesz na dokładne sprawdzenie tego, co otrzymujesz — czystość, tożsamość i sterylność, zweryfikowane przez naukę, nie marketing.",
+    statPurityLabel: "CZYSTOŚĆ PARTII",
+    statLabsLabel: "NIEZALEŻNE LABORATORIA",
+    statTestsLabel: "TESTY NA PARTIĘ",
+    statTraceabilityLabel: "IDENTYFIKOWALNOŚĆ",
+    processLabel: "NASZ PROCES",
+    processTitle1: "Od Syntezy do",
+    processTitle2: "Certyfikatu",
+    processDescription:
+      "Rygorystyczny czterostopniowy system zapewnienia jakości gwarantuje, że każdy peptyd ORYN spełnia najwyższe standardy analityczne przed dopuszczeniem do obrotu.",
+    testingSteps: [
+      {
+        title: "Synteza Peptydów",
+        description:
+          "Synteza peptydów w fazie stałej (SPPS) w certyfikowanych GMP europejskich obiektach w ramach systemu zarządzania jakością ISO 9001.",
+      },
+      {
+        title: "Analiza HPLC",
+        description:
+          "Wysokosprawna chromatografia cieczowa oddziela i kwantyfikuje czystość peptydu, potwierdzając >98% dla każdej partii.",
+      },
+      {
+        title: "Spektrometria Mas",
+        description:
+          "Potwierdzenie tożsamości LC-MS/MS weryfikuje dokładną masę cząsteczkową i integralność sekwencji aminokwasowej.",
+      },
+      {
+        title: "Generowanie Certyfikatu",
+        description:
+          "Niezależne laboratorium wydaje Certyfikat Analizy specyficzny dla partii z pełnymi danymi analitycznymi i kryteriami zdania/niezdania.",
+      },
+    ],
+    certificationsLabel: "CERTYFIKACJE",
+    standardsTitle1: "Standardy Jakości, które",
+    standardsTitle2: "Nas Definiują",
+    standardsDescription:
+      "Nasza infrastruktura produkcji i badań spełnia najbardziej wymagające benchmarki jakości farmaceutycznej w branży.",
+    qualityStandards: [
+      {
+        title: "Produkcja GMP",
+        description:
+          "Zakłady produkcyjne certyfikowane w Dobrych Praktykach Wytwarzania w całej UE, zapewniające farmaceutyczną konsekwencję jakości.",
+      },
+      {
+        title: "Jakość ISO 9001",
+        description:
+          "Uznany na arenie międzynarodowej system zarządzania jakością regulujący każdy etap od surowców do gotowego produktu.",
+      },
+      {
+        title: "Czyste Pomieszczenie ISO 7",
+        description:
+          "Sterylne napełnianie wykonywane w czystych pomieszczeniach sklasyfikowanych według ISO 7 z filtracją HEPA i ciągłym monitorowaniem środowiska.",
+      },
+      {
+        title: "Czystość Zweryfikowana przez HPLC",
+        description:
+          "Każda partia zweryfikowana niezależną analizą HPLC. Większość partii przekracza 99% czystości — wśród najwyższych na europejskim rynku.",
+      },
+    ],
+    coaLabel: "CERTYFIKATY ANALIZY",
+    coaTitle1: "Certyfikat Analizy dla",
+    coaTitle2: "Każdego Produktu",
+    coaDescription:
+      "Każdy z naszych produktów peptydowych jest niezależnie weryfikowany. Poniżej przedstawiono najnowsze wyniki badań partii.",
+    passLabel: "ZALICZONO",
+    purityLabel: "CZYSTOŚĆ",
+    batchLabel: "PARTIA",
+    testedLabel: "ZBADANO",
+    methodLabel: "METODA",
+    testedDate: "Lut 2026",
+    viewCoa: "WYŚWIETL COA",
+    independentLabel: "NIEZALEŻNA WERYFIKACJA",
+    partnersTitle1: "Zewnętrzne Laboratoria",
+    partnersTitle2: "Analityczne",
+    partnersP1:
+      "ORYN nie testuje własnych produktów. Każdy Certyfikat Analizy jest generowany przez niezależne laboratoria analityczne akredytowane według ISO 17025, które nie mają żadnych powiązań finansowych z naszą operacją produkcyjną.",
+    partnersP2:
+      "To rozdzielenie zapewnia bezstronną, naukowo rygorystyczną weryfikację czystości, tożsamości i sterylności. Nasi partnerzy testowi stosują zwalidowane metody analityczne, w tym HPLC w odwróconej fazie, LC-MS/MS, test LAL na endotoksyny i badanie sterylności metodą filtracji membranowej.",
+    partnersBullets: [
+      "Laboratoria analityczne akredytowane według ISO 17025",
+      "Brak powiązań finansowych z produkcją ORYN",
+      "Zwalidowane metody HPLC i spektrometrii mas",
+      "Weryfikacja endotoksyn i sterylności",
+      "Pełna identyfikowalność partii od syntezy do certyfikatu",
+    ],
+    analyticalMethodsLabel: "METODY ANALITYCZNE",
+    analyticalMethods: [
+      {
+        method: "Badanie Czystości HPLC",
+        description:
+          "Kolumna C18 w odwróconej fazie, detekcja UV przy 220 nm. Kwantyfikuje czystość peptydu i wykrywa zanieczyszczenia.",
+          standard: "USP <621>",
+      },
+      {
+        method: "Spektrometria Mas (LC-MS)",
+        description:
+          "Jonizacja elektrospray z detekcją mas o wysokiej rozdzielczości. Potwierdza tożsamość molekularną.",
+          standard: "ISO 13528",
+      },
+      {
+        method: "Badanie Endotoksyn",
+        description:
+          "Kinetyczny turbidymetryczny test LAL (lizat amebocytów Limulus). Zapewnia, że poziomy endotoksyn bakteryjnych są poniżej limitów.",
+          standard: "USP <85>",
+      },
+      {
+        method: "Badanie Sterylności",
+        description:
+          "Metoda filtracji membranowej z 14-dniową inkubacją w podłożach TSB i FTM.",
+          standard: "USP <71>",
+      },
+    ],
+    understandingLabel: "ZROZUMIENIE SWOJEGO COA",
+    coaContentsTitle1: "Co Zawiera",
+    coaContentsTitle2: "Każdy COA",
+    coaContentsDescription:
+      "Każdy Certyfikat Analizy ORYN zapewnia pełną przejrzystość analityczną. Oto, co znajdziesz w każdym dokumencie.",
+    coaItems: [
+      {
+        title: "Tożsamość Peptydu",
+        details:
+          "Nazwa związku, wzór cząsteczkowy, masa cząsteczkowa, sekwencja aminokwasowa i numer CAS.",
+      },
+      {
+        title: "Dane Czystości HPLC",
+        details:
+          "Chromatogram, czas retencji, procentowy udział powierzchni szczytu i profil zanieczyszczeń z kryteriami akceptacji.",
+      },
+      {
+        title: "Widmo Mas",
+        details:
+          "Potwierdzenie tożsamości LC-MS pokazujące zaobserwowaną a teoretyczną masę cząsteczkową i stany ładunku.",
+      },
+      {
+        title: "Wyniki Endotoksyn",
+        details:
+          "Wyniki testu LAL w EU/mL z limitami specyfikacji. Wszystkie produkty ORYN testują poniżej 0,5 EU/mL.",
+      },
+      {
+        title: "Raport Sterylności",
+        details:
+          "Wyniki 14-dniowej inkubacji w podłożach TSB i FTM potwierdzające brak wzrostu drobnoustrojów.",
+      },
+      {
+        title: "Informacje o Partii",
+        details:
+          "Unikalny numer partii, data produkcji, data badania, data ważności i identyfikacja analityka.",
+      },
+    ],
+    faqLabel: "FAQ",
+    faqTitle1: "Jakość & Analityka",
+    faqTitle2: "FAQ",
+    faqDescription:
+      "Często zadawane pytania dotyczące naszego procesu zapewnienia jakości, badań czystości peptydów i Certyfikatów Analizy.",
+    ctaTitle: "Jakość, którą Możesz Zweryfikować",
+    ctaDescription:
+      "Każdy peptyd ORYN jest wysyłany z numerem partii, który możesz śledzić do niezależnego Certyfikatu Analizy. Sprawdź naukę sam.",
+    ctaBrowseProducts: "PRZEGLĄDAJ PRODUKTY",
+    ctaRequestCoa: "POPROŚ O COA",
+  },
+
+  shippingPage: {
+    heroTagline: "KONTROLOWANA TEMPERATURA",
+    heroTitle1: "Wysyłka i",
+    heroTitle2: "Dostawa",
+    heroDescription:
+      "Każde zamówienie ORYN jest wysyłane tego samego dnia w opakowaniu z kontrolą temperatury, zapewniając, że peny peptydowe dotrą w idealnym stanie. Darmowa dostawa do Wielkiej Brytanii przy zamówieniach powyżej \u20ac{threshold}.",
+    breadcrumbHome: "STRONA GŁÓWNA",
+    breadcrumbShipping: "WYSYŁKA I DOSTAWA",
+    statUkDeliveryLabel: "Dostawa UK",
+    statUkDeliveryValue: "2-4 Dni",
+    statDispatchLabel: "Wysyłka",
+    statDispatchValue: "Ten Sam Dzień",
+    statFreeOverLabel: "Gratis Powyżej",
+    statPackagingLabel: "Opakowanie",
+    statPackagingValue: "2-8\u00b0C",
+    ukZonesSectionLabel: "STREFY DOSTAWY UK",
+    ukZonesSectionTitle1: "Czasy Dostawy według",
+    ukZonesSectionTitle2: "Regionu",
+    ukZonesSectionDescription:
+      "Wszystkie zamówienia złożone przed 14:00 GMT są wysyłane tego samego dnia roboczego. Podane czasy to dni robocze od wysyłki.",
+    ukDeliveryNote:
+      "Szacunki dotyczą standardowej wysyłki. Opcje ekspresowe dostępne przy kasie. Zamówienia weekendowe i świąteczne są wysyłane następnego dnia roboczego.",
+    ukZones: [
+      { region: "Londyn i Południowy Wschód", days: "1 \u2013 2 dni" },
+      { region: "Midlands i Wschodnia Anglia", days: "2 \u2013 3 dni" },
+      { region: "Północna Anglia", days: "2 \u2013 3 dni" },
+      { region: "Szkocja (Niziny)", days: "3 \u2013 4 dni" },
+      { region: "Walia", days: "2 \u2013 3 dni" },
+      { region: "Irlandia Północna", days: "3 \u2013 4 dni" },
+      { region: "Wyżyny i Wyspy", days: "4 \u2013 5 dni" },
+    ],
+    coldChainSectionLabel: "LOGISTYKA ŁAŃCUCHA CHŁODNICZEGO",
+    packagingTitle1: "Opakowanie z",
+    packagingTitle2: "Kontrolą Temperatury",
+    packagingDescription:
+      "Peptydy wymagają przechowywania w lodówce w temperaturze 2-8\u00b0C. Nasze opakowanie zapewnia utrzymanie optymalnej temperatury podczas całego transportu.",
+    packagingBullets: [
+      "Utrzymuje 2-8\u00b0C do 48 godzin w transporcie",
+      "Nietrujące wkłady żelowe, schłodzone do 2\u00b0C",
+      "Wielowarstwowe izolowane pojemniki",
+      "Dodatkowa ochrona w miesiącach letnich",
+      "Wkładki piankowe chroniące peny",
+    ],
+    coldChainFeatures: [
+      {
+        title: "Izolowane Pudełka Wysyłkowe",
+        description:
+          "Wielowarstwowe pojemniki izolacyjne utrzymują wewnętrzną temperaturę 2-8\u00b0C przez do 48 godzin, chroniąc integralność peptydu od magazynu do drzwi.",
+      },
+      {
+        title: "Żelowe Wkłady Chłodzące",
+        description:
+          "Nietrujące wkłady żelowe ze zmianą fazy, schłodzone do 2\u00b0C, zapewniają ciągłe chłodzenie bez ryzyka zamrożenia produktu.",
+      },
+      {
+        title: "Korekty Sezonowe",
+        description:
+          "W miesiącach letnich (czerwiec-wrzesień) dodajemy dodatkowe wkłady chłodzące i ulepszoną izolację. W ekstremalnym upale wybieramy dostawę ekspresową.",
+      },
+      {
+        title: "Monitorowanie Temperatury",
+        description:
+          "Zamówienia hurtowe 25+ jednostek zawierają paski wskaźnikowe temperatury potwierdzające, że dostawa pozostała w zakresie 2-8\u00b0C.",
+      },
+    ],
+    euSectionLabel: "WYSYŁKA MIĘDZYNARODOWA",
+    euSectionTitle1: "Dostawa",
+    euSectionTitle2: "Europejska",
+    euSectionDescription:
+      "ORYN dostarcza do ponad 15 krajów europejskich z pełnym śledzeniem i opakowaniem z kontrolą temperatury.",
+    euCountriesHeader: "KRAJE UE DO KTÓRYCH WYSYŁAMY",
+    euCountriesNotListed:
+      "Nie ma Twojego kraju? Skontaktuj się z nami \u2014 możemy zorganizować wysyłkę do Twojego kraju.",
+    euDeliveryTimeTitle: "Czas Dostawy",
+    euDeliveryTimeValue: "3 \u2013 7 dni",
+    euDeliveryTimeDescription:
+      "Dni robocze od wysyłki. Europa Zachodnia zazwyczaj 3-5 dni, Europa Wschodnia 5-7 dni.",
+    euShippingCostTitle: "Koszt Wysyłki",
+    euShippingCostValue: "Stała Stawka",
+    euShippingCostDescription:
+      "Wysyłka po stałej stawce do wszystkich europejskich miejsc docelowych. Obliczana przy kasie na podstawie kraju docelowego i wagi zamówienia.",
+    euCustomsTitle: "Cło i Podatki",
+    euCustomsValue: "Odpowiedzialność Kupującego",
+    euCustomsDescription:
+      "Zamówienia międzynarodowe mogą podlegać należnościom celnym i podatkom importowym. Opłaty te są odpowiedzialnością klienta.",
+    euTrackingTitle: "Śledzenie",
+    euTrackingValue: "Pełne Śledzenie",
+    euTrackingDescription:
+      "Wszystkie przesyłki międzynarodowe obejmują śledzenie od końca do końca z aktualizacjami statusu w czasie rzeczywistym przez email.",
+    freeShippingSectionLabel: "DARMOWA WYSYŁKA",
+    freeShippingTitle1: "Darmowa Wysyłka UK Powyżej",
+    freeShippingTitle2: "\u20ac{threshold}",
+    freeShippingDescription:
+      "Zamówienia powyżej \u20ac{threshold} kwalifikują się do darmowej standardowej dostawy do Wielkiej Brytanii. Śledź postęp w koszyku.",
+    freeShippingExampleLabel: "PRZYKŁAD: ZAMÓWIENIE NA \u20ac120",
+    freeShippingExampleAway: "\u20ac30 do darmowej wysyłki",
+    discreetTitle: "Dyskretne Opakowanie",
+    discreetDescription:
+      "Wszystkie zamówienia ORYN są wysyłane w zwykłych, nieoznakowanych pudełkach. Żadne nazwy produktów, marki ani opisy nie są widoczne na zewnętrznym opakowaniu.",
+    discreetItems: [
+      "Zwykłe zewnętrzne pudełko",
+      "Brak widocznego brandingu",
+      "Generyczna nazwa nadawcy",
+      "Brak opisów produktów",
+    ],
+    trackingTitle: "Śledzenie Zamówienia",
+    trackingDescription:
+      "Każde zamówienie otrzymuje numer śledzenia w ciągu 2 godzin od wysyłki. Śledź przesyłkę w czasie rzeczywistym z naszego magazynu do Twoich drzwi.",
+    trackingItems: [
+      "Email ze śledzeniem w ciągu 2 godzin",
+      "Aktualizacje statusu w czasie rzeczywistym",
+      "Szacowane okno dostawy",
+      "Potwierdzenie dostawy",
+    ],
+    returnsTitle: "Zwroty i Zwroty Pieniędzy",
+    returnsDescription:
+      "Jeśli zamówienie dotrze uszkodzone lub nieprawidłowe, skontaktuj się z nami w ciągu 48 godzin. Zorganizujemy wymianę lub pełny zwrot bez dodatkowych kosztów.",
+    returnsItems: [
+      "48-godzinne okno na zgłoszenie uszkodzeń",
+      "Pełna wymiana lub zwrot pieniędzy",
+      "Wymagana dokumentacja fotograficzna",
+      "Darmowa wysyłka zwrotna przy błędach",
+    ],
+    faqSectionLabel: "FAQ",
+    faqSectionTitle1: "Często Zadawane Pytania",
+    faqSectionTitle2: "o Wysyłce",
+    faqSectionDescription:
+      "Często zadawane pytania dotyczące dostawy peptydów, opakowań i opcji wysyłki.",
+    ctaTitle: "Zamów Dziś, Odbierz w Tym Tygodniu",
+    ctaDescription:
+      "Wysyłka tego samego dnia przed 14:00. Dostawa z kontrolą temperatury. Darmowa wysyłka UK powyżej \u20ac{threshold}.",
+    ctaShopNow: "KUP TERAZ",
+    ctaContactUs: "SKONTAKTUJ SIĘ",
   },
 } as unknown as Dictionary;
 

@@ -1022,6 +1022,38 @@ const nl = {
     ],
   },
 
+  shippingFaq: {
+    items: [
+      { q: "Hoe lang duurt de levering van peptiden in Nederland?", a: "De levertijden in Nederland zijn afhankelijk van uw locatie. Amsterdam, Rotterdam en Den Haag ontvangen bestellingen in 1-2 werkdagen, andere grote steden in 2-3 werkdagen en rurale gebieden in 3-4 werkdagen. Alle bestellingen geplaatst voor 14:00 uur worden dezelfde dag verzonden." },
+      { q: "Is de peptidenverzending temperatuurgecontroleerd?", a: "Ja. Alle ORYN peptidenzendingen worden verpakt in geïsoleerde dozen met gelkoelpacks om een temperatuurbereik van 2-8 graden Celsius te handhaven tijdens het transport. Tijdens de zomermaanden (juni-september) voegen wij extra koelkettenbescherming toe met extra koelpacks en isolerende voering om de productintegriteit te waarborgen." },
+      { q: "Hoe kom ik in aanmerking voor gratis verzending?", a: "Gratis standaardverzending is beschikbaar voor alle bestellingen boven 150 euro. Deze drempel geldt voor het subtotaal van de bestelling vóór eventuele kortingscodes. Internationale bestellingen naar Europa zijn onderhevig aan een vaste verzendkosten ongeacht de bestelwaarde. Uw winkelwagen toont een voortgangsbalk die aangeeft hoe dicht u bij de gratis verzenddrempel bent." },
+      { q: "Verzendt u peptiden internationaal naar Europa?", a: "Ja, ORYN verzendt naar de meeste landen van de Europese Unie. Europese levering duurt doorgaans 3-7 werkdagen afhankelijk van het bestemmingsland. Alle internationale zendingen bevatten temperatuurgecontroleerde verpakkingen en volledige tracking. Douanerechten en invoerbelastingen zijn de verantwoordelijkheid van de klant." },
+      { q: "Hoe wordt mijn peptidbestelling verpakt?", a: "Alle ORYN-bestellingen worden verzonden in onopvallende, ongemarkeerde dozen zonder productbeschrijvingen of merken zichtbaar aan de buitenkant. Binnenin zijn de peptidepennen vastgezet in op maat gemaakte schuimstofinserts in een geïsoleerde container met gelkoelpacks. Een pakbon en Analysecertificaat zijn inbegrepen in de doos." },
+      { q: "Kan ik mijn peptidbestelling volgen?", a: "Ja. Alle bestellingen ontvangen binnen 2 uur na verzending een trackingnummer per e-mail. U kunt uw zending in real-time volgen via het portaal van onze koerierpartner. Voor groothandelsbestellingen van 10+ eenheden bieden wij uitgebreide tracking met geschatte levervensters en leverbevestiging met handtekening." },
+    ],
+  },
+
+  qualityFaq: {
+    items: [
+      { q: "Wat is een Analysecertificaat (COA)?", a: "Een Analysecertificaat is een document afgegeven door een gekwalificeerd testlaboratorium dat de identiteit, zuiverheid en samenstelling van een peptideproduct bevestigt. Elk ORYN COA omvat HPLC-zuiverheidsgegevens, identiteitsbevestiging via massaspectrometrie, endotoxinetestresultaten, steriliteitsverificatie en batchspecifieke productiedetails." },
+      { q: "Hoe lees ik een HPLC-zuiverheidsresultaat?", a: "HPLC-resultaten (High-Performance vloeistofchromatografie) tonen een chromatogram met pieken die verschillende componenten vertegenwoordigen. Het percentage van het hoofdpiekoppervlak geeft de zuiverheid aan — bijvoorbeeld betekent 99,2% dat 99,2% van het gedetecteerde materiaal het doelpeptide is. Alle ORYN-peptiden bereiken consequent meer dan 98% zuiverheid, met de meeste batches die 99% overschrijden." },
+      { q: "Wie voert uw tests door derden uit?", a: "ORYN-peptiden worden getest door onafhankelijke, ISO 17025-geaccrediteerde analytische laboratoria. Deze laboratoria opereren onafhankelijk van onze productiefaciliteiten en zorgen voor onbevooroordeelde verificatie van zuiverheid, identiteit en steriliteit voor elke batch die wij produceren." },
+      { q: "Hoe vaak worden ORYN-peptiden getest?", a: "Elke batch van elk ORYN-product wordt getest vóór vrijgave. Wij hanteren een strikt batchvrijgaveprotocol: geen enkel product verlaat onze faciliteit zonder een geslaagd Analysecertificaat van een onafhankelijk laboratorium. Testen omvatten HPLC-zuiverheidsanalyse, identiteitsbevestiging via massaspectrometrie, endotoxinescreening en steriliteitsverificatie." },
+      { q: "Aan welke zuiverheidsnormen voldoen ORYN-peptiden?", a: "Alle ORYN-peptiden worden vervaardigd om 98% zuiverheid te overschrijden, waarbij de meeste batches meer dan 99% bereiken. Dit wordt geverifieerd door onafhankelijke HPLC-tests en bevestigd via massaspectrometrie. Onze productiefaciliteiten zijn GMP-gecertificeerd en werken onder ISO 9001-kwaliteitsmanagementsystemen in ISO 7-cleanroom-omgevingen." },
+      { q: "Kan ik een COA aanvragen voor mijn specifieke batch?", a: "Ja. Elk ORYN-product wordt geleverd met een batchnummer op de verpakking. U kunt het specifieke COA voor uw batch aanvragen door contact op te nemen met ons supportteam via info@orynpeptides.com met uw batchnummer. Wij bewaren volledige traceerbaarheidsdossiers voor elke geproduceerde batch." },
+    ],
+  },
+
+  wholesaleFaq: {
+    items: [
+      { q: "Wat is de minimale bestelhoeveelheid voor groothandelsprijzen?", a: "Onze groothandelsprijsniveaus beginnen bij slechts 3 eenheden. Bestellingen van 3-5 eenheden ontvangen 5% korting, 6-9 eenheden ontvangen 10% korting, en 10 of meer eenheden ontvangen 15% korting op de verkoopprijs. Voor bestellingen van 50+ eenheden bieden wij op maat gemaakte offertes aan." },
+      { q: "Hoe werken groothandelsprijzen bij ORYN?", a: "ORYN-groothandelsprijzen zijn gebaseerd op volumekortingsniveaus toegepast op onze standaard verkoopprijzen. Kortingen worden automatisch berekend bij het afrekenen voor kwalificerende bestellingen. U kunt producten combineren uit onze Peptide Pen-, MediT Pen- en NovaDose-assortimenten om uw niveau te bereiken. Voor doorlopende leveringsovereenkomsten neemt u contact op met ons groothandelsteam." },
+      { q: "Hoe stel ik een groothandelsaccount in?", a: "Een groothandelsaccount instellen is eenvoudig. Neem contact op met ons team via info@orynpeptides.com of gebruik het groothandelsinformatieformulier op onze contactpagina. Wij verifiëren uw organisatiegegevens, wijzen een toegewijde accountmanager toe en activeren volumeprijzen op uw account binnen 1-2 werkdagen." },
+      { q: "Welke betalingsvoorwaarden zijn beschikbaar voor groothandelsklanten?", a: "Standaard groothandelsbestellingen zijn betaalbaar per bankoverschrijving, creditcard of inkooporder (voor goedgekeurde accounts). Wij bieden NET-30-betalingsvoorwaarden voor gevestigde groothandelsklanten met een geverifieerde handelsgeschiedenis. Alle eerste bestellingen zijn vooruitbetaald. Neem contact op met ons team om betalingsregelingen te bespreken voor grootvolume contracten." },
+      { q: "Wat zijn de levertijden voor bulkbestellingen van peptiden?", a: "Groothandelsbestellingen worden binnen 1-2 werkdagen verzonden vanuit ons distributiecentrum. Standaard levering duurt 2-4 werkdagen. Voor grote bestellingen (50+ eenheden) kunnen wij tot 5 werkdagen nodig hebben voor voorbereiding. Alle groothandelszendingen bevatten temperatuurgecontroleerde verpakking zonder extra kosten, met volledige tracking." },
+    ],
+  },
+
   account: {
     nav: {
       dashboard: "Dashboard",
@@ -1431,6 +1463,80 @@ const nl = {
     comparisonSubtitle: "Ontdek hoe ORYN zich verhoudt tot typische Britse peptide-leveranciers.",
   },
 
+  wholesalePage: {
+    breadcrumbHome: "HOME",
+    breadcrumbWholesale: "GROOTHANDEL",
+    heroBulkOrders: "BULKBESTELLINGEN",
+    heroTitle1: "Groothandel &",
+    heroTitle2: "Bulkbestellingen",
+    heroDescription: "ORYN levert peptide-pensystemen van onderzoekskwaliteit aan universiteiten, laboratoria, klinieken en distributeurs in het Verenigd Koninkrijk en Europa. Volumekortingen van 5% tot 15% — met aangepaste prijzen voor grootschalige contracten.",
+    statMinOrderLabel: "Min. Bestelling",
+    statMinOrderValue: "3 Eenheden",
+    statMaxDiscountLabel: "Max. Korting",
+    statMaxDiscountValue: "15% Korting",
+    statPurityLabel: "Zuiverheid",
+    statPurityValue: ">99%",
+    statDispatchLabel: "UK Verzending",
+    statDispatchValue: "Zelfde Dag",
+    tiersLabel: "VOLUMEPRIJZEN",
+    tiersTitle1: "Korting-",
+    tiersTitle2: "Niveaus",
+    tiersDescription: "Combineer elk product uit ons volledige assortiment. Kortingen worden automatisch toegepast op basis van het totale aantal eenheden.",
+    tierMostPopular: "MEEST POPULAIR",
+    tierOffRetail: "OP DE WINKELPRIJS",
+    tierPricing: "PRIJSSTELLING",
+    tierLabelStarter: "STARTER",
+    tierLabelProfessional: "PROFESSIONEEL",
+    tierLabelEnterprise: "ONDERNEMING",
+    tierLabelCustom: "AANGEPASTE OFFERTE",
+    benefitsLabel: "GROOTHANDELSVOORDELEN",
+    benefitsTitle1: "Waarom Samenwerken Met",
+    benefitsTitle2: "ORYN",
+    benefitsDescription: "Naast volumeprijzen bieden ORYN-groothandelsaccounts een reeks diensten die zijn ontworpen voor professionele kopers.",
+    benefitAccountManagerTitle: "Vaste Accountmanager",
+    benefitAccountManagerDesc: "Een enkel aanspreekpunt voor bestellingen, prijzen en technische vragen. Uw accountmanager begrijpt uw behoeften.",
+    benefitShippingTitle: "Prioriteitsverzending",
+    benefitShippingDesc: "Groothandelsbestellingen worden dezelfde dag verzonden bij plaatsing voor 14:00 uur. Temperatuurgecontroleerde verpakking inbegrepen zonder extra kosten.",
+    benefitVolumePricingTitle: "Volumeprijzen",
+    benefitVolumePricingDesc: "Automatische kortingen van 5% tot 15% op basis van bestelhoeveelheid. Aangepaste prijzen beschikbaar voor doorlopende contracten.",
+    benefitCOATitle: "COA Inbegrepen",
+    benefitCOADesc: "Elke groothandelslevering bevat partijspecifieke analysecertificaten. Volledige traceerbaarheid van synthese tot levering.",
+    benefitCustomLabellingTitle: "Aangepaste Etikettering",
+    benefitCustomLabellingDesc: "Witmerk en aangepaste verpakking beschikbaar voor distributeurs en klinieken. Minimale bestellingen van 50 eenheden voor aangepaste etiketten.",
+    benefitTechSupportTitle: "Technische Ondersteuning",
+    benefitTechSupportDesc: "Toegang tot ons peptidewetenschap team voor protocolbegeleiding, opslagaanbevelingen en productspecificaties.",
+    whoWeServeLabel: "ONZE KLANTEN",
+    whoWeServeTitle1: "Wie Wij",
+    whoWeServeTitle2: "Bedienen",
+    whoWeServeDescription: "ORYN groothandel peptiden worden vertrouwd door onderzoeksprofessionals en organisaties in het Verenigd Koninkrijk en Europa.",
+    customerUniversitiesTitle: "Universiteiten & Academie",
+    customerUniversitiesDesc: "Onderzoeksafdelingen en postdoctorale programma's die peptidebiologie, farmacologie en regeneratieve geneeskunde bestuderen.",
+    customerResearchLabsTitle: "Onderzoekslaboratoria",
+    customerResearchLabsDesc: "Private en publieke onderzoekslabs die in vitro en in vivo studies uitvoeren met peptideverbindingen van onderzoekskwaliteit.",
+    customerPharmaTitle: "Farmaceutische Bedrijven",
+    customerPharmaDesc: "Farmaceutische R&D-afdelingen die referentiestandaard peptiden gebruiken voor geneesmiddelontwikkeling en analytische vergelijkingsstudies.",
+    customerClinicsTitle: "Klinieken & Medische Praktijken",
+    customerClinicsDesc: "Integratieve geneeskundeklinieken en beoefenaars die een consistente, hoogzuivere peptidetoevoer nodig hebben voor klinisch onderzoek.",
+    customerDistributorsTitle: "Distributeurs & Wederverkopers",
+    customerDistributorsDesc: "Groothandelspartners die ORYN-producten distribueren in het Verenigd Koninkrijk en Europa. Witmerkopties beschikbaar.",
+    customerBiotechTitle: "Biotech Startups",
+    customerBiotechDesc: "Opkomende biotechbedrijven die een betrouwbare peptidetoevoer nodig hebben voor productontwikkeling en proof-of-conceptstudies.",
+    productsLabel: "VOORBEELDEN VAN GROOTHANDELSPRIJZEN",
+    productsTitle1: "Producten tegen",
+    productsTitle2: "Groothandelsprijzen",
+    productsDescription: "Zie hoe volumeprijzen uw kosten per eenheid verlagen. Alle ORYN-producten komen in aanmerking voor groothandelskortingen.",
+    productRetailLabel: "WINKELPRIJS",
+    productViewAll: "BEKIJK ALLE {count} PRODUCTEN",
+    faqLabel: "FAQ",
+    faqTitle1: "Groothandels-",
+    faqTitle2: "FAQ",
+    faqDescription: "Veelgestelde vragen over ons groothandelsprogramma, prijzen en accountinstelling.",
+    ctaTitle: "Klaar om in Bulk te Bestellen?",
+    ctaDescription: "Neem contact op met ons groothandelsteam om uw account in te stellen, aangepaste prijzen te bespreken en te besparen op peptide-pennen van onderzoekskwaliteit.",
+    ctaEnquiry: "GROOTHANDELSAANVRAAG",
+    ctaBrowseProducts: "BEKIJK PRODUCTEN",
+  },
+
   share: {
     label: "DELEN",
   },
@@ -1444,6 +1550,309 @@ const nl = {
   flashSale: {
     flash: "Flash Sale — Gebruik code FLASH15 voor 15% korting op alle peptide pennen",
     weekend: "Weekend Aanbieding — Gebruik code WEEKEND10 voor 10% korting",
+  },
+
+  qualityPage: {
+    breadcrumbHome: "HOME",
+    breadcrumbQuality: "KWALITEIT & ANALYSE",
+    heroBadge: "GEVERIFIEERD DOOR DERDEN",
+    heroTitle1: "Transparantie in",
+    heroTitle2: "Elk Batch",
+    heroDescription:
+      "Elk ORYN-peptide wordt onafhankelijk getest door ISO-geaccrediteerde laboratoria. We publiceren Analysecertificaten voor elk product omdat we geloven dat u precies moet kunnen zien wat u ontvangt — zuiverheid, identiteit en steriliteit, geverifieerd door wetenschap, niet door marketing.",
+    statPurityLabel: "BATCH-ZUIVERHEID",
+    statLabsLabel: "ONAFHANKELIJKE LABS",
+    statTestsLabel: "TESTEN PER BATCH",
+    statTraceabilityLabel: "TRACEERBAARHEID",
+    processLabel: "ONS PROCES",
+    processTitle1: "Van Synthese tot",
+    processTitle2: "Certificaat",
+    processDescription:
+      "Een rigoureuze vierstaps kwaliteitsborging-pipeline zorgt ervoor dat elk ORYN-peptide voldoet aan de hoogste analytische normen voor vrijgave.",
+    testingSteps: [
+      {
+        title: "Peptidesynthese",
+        description:
+          "Vaste-fase peptidesynthese (SPPS) in GMP-gecertificeerde Europese faciliteiten onder ISO 9001 kwaliteitsmanagement.",
+      },
+      {
+        title: "HPLC-analyse",
+        description:
+          "Hogedruk vloeistofchromatografie scheidt en kwantificeert de peptidezuiverheid en bevestigt >98% voor elk batch.",
+      },
+      {
+        title: "Massaspectrometrie",
+        description:
+          "LC-MS/MS identiteitsbevestiging verifieert exact molecuulgewicht en integriteit van de aminozuursequentie.",
+      },
+      {
+        title: "Certificaatgeneratie",
+        description:
+          "Een onafhankelijk laboratorium geeft een batch-specifiek Analysecertificaat uit met volledige analytische gegevens en goedkeuringscriteria.",
+      },
+    ],
+    certificationsLabel: "CERTIFICERINGEN",
+    standardsTitle1: "Kwaliteitsnormen die",
+    standardsTitle2: "Ons Definiëren",
+    standardsDescription:
+      "Onze productie- en testinfrastructuur voldoet aan de meest veeleisende farmaceutische kwaliteitsbenchmarks in de sector.",
+    qualityStandards: [
+      {
+        title: "GMP-productie",
+        description:
+          "GMP-gecertificeerde productiefaciliteiten in de gehele EU, die farmaceutische kwaliteitsconsistentie garanderen.",
+      },
+      {
+        title: "ISO 9001 Kwaliteit",
+        description:
+          "Internationaal erkend kwaliteitsbeheersysteem dat elke stap van grondstoffen tot eindproduct regelt.",
+      },
+      {
+        title: "ISO 7 Cleanroom",
+        description:
+          "Steriele vulling uitgevoerd in ISO 7 geclassificeerde cleanrooms met HEPA-filtratie en continue omgevingsmonitoring.",
+      },
+      {
+        title: "HPLC-geverifieerde Zuiverheid",
+        description:
+          "Elk batch geverifieerd door onafhankelijke HPLC-analyse. De meeste batches overtreffen 99% zuiverheid — tot de hoogste op de Europese markt.",
+      },
+    ],
+    coaLabel: "ANALYSECERTIFICATEN",
+    coaTitle1: "Analysecertificaat voor Elk",
+    coaTitle2: "Product",
+    coaDescription:
+      "Elk van onze peptideproducten wordt onafhankelijk geverifieerd. Hieronder staan de meest recente batch-testresultaten.",
+    passLabel: "GESLAAGD",
+    purityLabel: "ZUIVERHEID",
+    batchLabel: "BATCH",
+    testedLabel: "GETEST",
+    methodLabel: "METHODE",
+    testedDate: "Feb 2026",
+    viewCoa: "COA BEKIJKEN",
+    independentLabel: "ONAFHANKELIJKE VERIFICATIE",
+    partnersTitle1: "Onafhankelijke Analytische",
+    partnersTitle2: "Laboratoria",
+    partnersP1:
+      "ORYN test zijn eigen producten niet. Elk Analysecertificaat wordt gegenereerd door onafhankelijke, ISO 17025-geaccrediteerde analytische laboratoria die geen financiële relatie hebben met onze productieoperatie.",
+    partnersP2:
+      "Deze scheiding zorgt voor onbevooroordeelde, wetenschappelijk rigoureuze verificatie van zuiverheid, identiteit en steriliteit. Onze testpartners gebruiken gevalideerde analytische methoden waaronder omgekeerde-fase HPLC, LC-MS/MS, LAL-endotoxinetest en membraanfiltratie-steriliteitstesten.",
+    partnersBullets: [
+      "ISO 17025 geaccrediteerde analytische laboratoria",
+      "Geen financiële banden met ORYN-productie",
+      "Gevalideerde HPLC- en massaspectrometriemethoden",
+      "Endotoxine- en steriliteitverificatie",
+      "Volledige batch-traceerbaarheid van synthese tot certificaat",
+    ],
+    analyticalMethodsLabel: "ANALYTISCHE METHODEN",
+    analyticalMethods: [
+      {
+        method: "HPLC-zuiverheidstest",
+        description:
+          "C18 omgekeerde-fase kolom, UV-detectie bij 220 nm. Kwantificeert peptidezuiverheid en detecteert onzuiverheden.",
+          standard: "USP <621>",
+      },
+      {
+        method: "Massaspectrometrie (LC-MS)",
+        description:
+          "Elektrospray-ionisatie met hoogresolutie massadetectie. Bevestigt moleculaire identiteit.",
+          standard: "ISO 13528",
+      },
+      {
+        method: "Endotoxinetest",
+        description:
+          "Kinetische turbidimetrische LAL-test (Limulus Amebocyte Lysaat). Zorgt ervoor dat bacteriële endotoxineniveaus onder de limieten zijn.",
+          standard: "USP <85>",
+      },
+      {
+        method: "Steriliteitstesten",
+        description:
+          "Membraanfiltratiemethode met 14-daagse incubatie in TSB- en FTM-media.",
+          standard: "USP <71>",
+      },
+    ],
+    understandingLabel: "UW COA BEGRIJPEN",
+    coaContentsTitle1: "Wat Elk COA",
+    coaContentsTitle2: "Bevat",
+    coaContentsDescription:
+      "Elk ORYN Analysecertificaat biedt volledige analytische transparantie. Dit is wat u in elk document zult vinden.",
+    coaItems: [
+      {
+        title: "Peptide-identiteit",
+        details:
+          "Verbindingsnaam, molecuulformule, molecuulgewicht, aminozuursequentie en CAS-nummer.",
+      },
+      {
+        title: "HPLC-zuiverheidsgegevens",
+        details:
+          "Chromatogram, retentietijd, piekoppervlakpercentage en onzuiverheidsprofiel met acceptatiecriteria.",
+      },
+      {
+        title: "Massaspectrum",
+        details:
+          "LC-MS identiteitsbevestiging met waargenomen vs. theoretisch molecuulgewicht en ladingstoestanden.",
+      },
+      {
+        title: "Endotoxineresultaten",
+        details:
+          "LAL-testresultaten in EU/mL met specificatielimieten. Alle ORYN-producten testen onder 0,5 EU/mL.",
+      },
+      {
+        title: "Steriliteitenrapport",
+        details:
+          "14-daagse incubatieresultaten in TSB- en FTM-media die geen microbiële groei bevestigen.",
+      },
+      {
+        title: "Batch-informatie",
+        details:
+          "Uniek batchnummer, productiedatum, testdatum, vervaldatum en analistenidentificatie.",
+      },
+    ],
+    faqLabel: "FAQ",
+    faqTitle1: "Kwaliteit & Analyse",
+    faqTitle2: "FAQ",
+    faqDescription:
+      "Veelgestelde vragen over ons kwaliteitsborging-proces, peptidezuiverheidstesten en Analysecertificaten.",
+    ctaTitle: "Kwaliteit die U Kunt Verifiëren",
+    ctaDescription:
+      "Elk ORYN-peptide wordt geleverd met een batchnummer dat u kunt traceren naar een onafhankelijk Analysecertificaat. Bekijk de wetenschap zelf.",
+    ctaBrowseProducts: "BEKIJK PRODUCTEN",
+    ctaRequestCoa: "COA AANVRAGEN",
+  },
+
+  shippingPage: {
+    heroTagline: "TEMPERATUURGECONTROLEERD",
+    heroTitle1: "Verzending &",
+    heroTitle2: "Levering",
+    heroDescription:
+      "Elke ORYN-bestelling wordt dezelfde dag verzonden in temperatuurgecontroleerde verpakking, zodat uw peptide pennen in perfecte staat aankomen. Gratis UK-verzending voor bestellingen boven \u20ac{threshold}.",
+    breadcrumbHome: "HOME",
+    breadcrumbShipping: "VERZENDING & LEVERING",
+    statUkDeliveryLabel: "UK Levering",
+    statUkDeliveryValue: "2-4 Dagen",
+    statDispatchLabel: "Verzending",
+    statDispatchValue: "Zelfde Dag",
+    statFreeOverLabel: "Gratis Vanaf",
+    statPackagingLabel: "Verpakking",
+    statPackagingValue: "2-8\u00b0C",
+    ukZonesSectionLabel: "UK LEVERINGSZONES",
+    ukZonesSectionTitle1: "Levertijden per",
+    ukZonesSectionTitle2: "Regio",
+    ukZonesSectionDescription:
+      "Alle bestellingen voor 14:00 GMT worden dezelfde werkdag verzonden. De aangegeven tijden zijn werkdagen vanaf verzending.",
+    ukDeliveryNote:
+      "Levertijden zijn schattingen voor standaardverzending. Express-opties zijn beschikbaar bij het afrekenen. Bestellingen in het weekend en op feestdagen worden de volgende werkdag verzonden.",
+    ukZones: [
+      { region: "Londen & Zuidoost", days: "1 \u2013 2 dagen" },
+      { region: "Midlands & East Anglia", days: "2 \u2013 3 dagen" },
+      { region: "Noord-Engeland", days: "2 \u2013 3 dagen" },
+      { region: "Schotland (Laagland)", days: "3 \u2013 4 dagen" },
+      { region: "Wales", days: "2 \u2013 3 dagen" },
+      { region: "Noord-Ierland", days: "3 \u2013 4 dagen" },
+      { region: "Hooglanden & Eilanden", days: "4 \u2013 5 dagen" },
+    ],
+    coldChainSectionLabel: "KOUDE KETEN LOGISTIEK",
+    packagingTitle1: "Temperatuurgecontroleerde",
+    packagingTitle2: "Verpakking",
+    packagingDescription:
+      "Peptiden vereisen gekoelde opslag bij 2-8\u00b0C. Onze koude keten-verpakking zorgt ervoor dat uw bestelling de optimale temperatuur behoudt tijdens het transport.",
+    packagingBullets: [
+      "Behoudt 2-8\u00b0C tot 48 uur onderweg",
+      "Niet-toxische gel-koelpacks, voorgekoeld op 2\u00b0C",
+      "Meerlaagse geïsoleerde verzendcontainers",
+      "Extra bescherming tijdens zomermaanden",
+      "Maatgesneden schuiminzetstukken voor pennen",
+    ],
+    coldChainFeatures: [
+      {
+        title: "Geïsoleerde Verzendboxen",
+        description:
+          "Meerlaagse isolatiecontainers houden de inwendige temperatuur tot 48 uur op 2-8\u00b0C, waardoor de integriteit van peptiden van magazijn tot deur wordt beschermd.",
+      },
+      {
+        title: "Gel Koelpacks",
+        description:
+          "Niet-toxische fasewisselende gelpacks, voorgekoeld op 2\u00b0C, zorgen voor aanhoudende koeling zonder risico op bevriezing.",
+      },
+      {
+        title: "Seizoensaanpassingen",
+        description:
+          "In de zomermaanden (juni-september) voegen we extra koelpacks en verbeterde isolatie toe. Bij extreme hitte kiezen we voor expreslevering.",
+      },
+      {
+        title: "Temperatuurbewaking",
+        description:
+          "Groothandelsbestellingen van 25+ eenheden bevatten temperatuurindicatorstrips die bevestigen dat de levering binnen het bereik van 2-8\u00b0C bleef.",
+      },
+    ],
+    euSectionLabel: "INTERNATIONALE VERZENDING",
+    euSectionTitle1: "Europese",
+    euSectionTitle2: "Levering",
+    euSectionDescription:
+      "ORYN levert aan meer dan 15 Europese landen met volledige tracking en temperatuurgecontroleerde verpakking.",
+    euCountriesHeader: "EU-LANDEN WAARNAAR WE VERZENDEN",
+    euCountriesNotListed:
+      "Niet vermeld? Neem contact op \u2014 we kunnen mogelijk verzending naar uw land regelen.",
+    euDeliveryTimeTitle: "Levertijd",
+    euDeliveryTimeValue: "3 \u2013 7 dagen",
+    euDeliveryTimeDescription:
+      "Werkdagen vanaf verzending. West-Europa doorgaans 3-5 dagen, Oost-Europa 5-7 dagen.",
+    euShippingCostTitle: "Verzendkosten",
+    euShippingCostValue: "Vast Tarief",
+    euShippingCostDescription:
+      "Vaste verzendkosten naar alle Europese bestemmingen. Berekend bij het afrekenen op basis van het bestemmingsland en het bestelgewicht.",
+    euCustomsTitle: "Douane & Belastingen",
+    euCustomsValue: "Verantwoordelijkheid van de Koper",
+    euCustomsDescription:
+      "Internationale bestellingen kunnen onderhevig zijn aan douanerechten en invoerbelastingen. Deze kosten zijn voor rekening van de klant.",
+    euTrackingTitle: "Tracking",
+    euTrackingValue: "Volledige Tracking",
+    euTrackingDescription:
+      "Alle internationale zendingen bevatten end-to-end tracking met realtime statusupdates per e-mail.",
+    freeShippingSectionLabel: "GRATIS VERZENDING",
+    freeShippingTitle1: "Gratis UK-Verzending Vanaf",
+    freeShippingTitle2: "\u20ac{threshold}",
+    freeShippingDescription:
+      "Bestellingen boven \u20ac{threshold} komen in aanmerking voor gratis standaardverzending naar het Verenigd Koninkrijk. Volg uw voortgang in uw winkelwagen.",
+    freeShippingExampleLabel: "VOORBEELD: BESTELLING VAN \u20ac120",
+    freeShippingExampleAway: "\u20ac30 verwijderd van gratis verzending",
+    discreetTitle: "Discrete Verpakking",
+    discreetDescription:
+      "Alle ORYN-bestellingen worden verzonden in neutrale, ongemarkeerde dozen. Geen productnamen, branding of beschrijvingen zichtbaar op de buitenverpakking.",
+    discreetItems: [
+      "Neutrale buitendoos",
+      "Geen zichtbare branding",
+      "Generieke afzendernaam",
+      "Geen productbeschrijvingen",
+    ],
+    trackingTitle: "Bestelling Volgen",
+    trackingDescription:
+      "Elke bestelling ontvangt binnen 2 uur na verzending een trackingnummer. Volg uw zending in realtime van ons magazijn tot aan uw deur.",
+    trackingItems: [
+      "Tracking e-mail binnen 2 uur",
+      "Realtime statusupdates",
+      "Geschatte leveringsvenster",
+      "Afleverbevestiging",
+    ],
+    returnsTitle: "Retourzendingen & Terugbetalingen",
+    returnsDescription:
+      "Als uw bestelling beschadigd of onjuist aankomt, neem dan contact met ons op binnen 48 uur. We regelen vervanging of volledige terugbetaling zonder extra kosten.",
+    returnsItems: [
+      "48 uur venster voor schademeldingen",
+      "Volledige vervanging of terugbetaling",
+      "Fotobewijs vereist",
+      "Gratis retourverzending bij fouten",
+    ],
+    faqSectionLabel: "FAQ",
+    faqSectionTitle1: "Verzending",
+    faqSectionTitle2: "FAQ",
+    faqSectionDescription:
+      "Veelgestelde vragen over peptide-levering, verpakking en verzendopties.",
+    ctaTitle: "Bestel Vandaag, Ontvang Deze Week",
+    ctaDescription:
+      "Verzending dezelfde dag voor 14:00. Temperatuurgecontroleerde levering. Gratis UK-verzending vanaf \u20ac{threshold}.",
+    ctaShopNow: "NU WINKELEN",
+    ctaContactUs: "CONTACT OPNEMEN",
   },
 } as unknown as Dictionary;
 

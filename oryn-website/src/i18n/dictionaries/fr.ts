@@ -1022,6 +1022,38 @@ const fr = {
     ],
   },
 
+  shippingFaq: {
+    items: [
+      { q: "Quel est le délai de livraison des peptides en France ?", a: "Les délais de livraison en France dépendent de votre localisation. Paris et l'Île-de-France reçoivent les commandes en 1-2 jours ouvrables, les autres grandes villes en 2-3 jours ouvrables, et les zones rurales en 3-5 jours ouvrables. Toutes les commandes passées avant 14h sont expédiées le jour même." },
+      { q: "L'expédition des peptides est-elle à température contrôlée ?", a: "Oui. Tous les envois de peptides ORYN sont conditionnés dans des boîtes isolantes avec des accumulateurs de froid en gel afin de maintenir une température de 2-8 degrés Celsius pendant le transport. Pendant les mois d'été (juin-septembre), nous ajoutons une protection supplémentaire de la chaîne du froid avec des accumulateurs supplémentaires et des doublures isolantes pour garantir l'intégrité du produit." },
+      { q: "Comment bénéficier de la livraison gratuite ?", a: "La livraison standard gratuite est disponible pour toutes les commandes supérieures à 150 euros. Ce seuil s'applique au sous-total de la commande avant tout code de réduction. Les commandes internationales vers l'Europe sont soumises à des frais de livraison forfaitaires quelle que soit la valeur de la commande. Votre panier affichera une barre de progression indiquant combien il vous reste pour atteindre le seuil de livraison gratuite." },
+      { q: "Livrez-vous les peptides à l'international en Europe ?", a: "Oui, ORYN livre dans la plupart des pays de l'Union européenne. La livraison européenne prend généralement 3-7 jours ouvrables selon le pays de destination. Tous les envois internationaux comprennent un emballage à température contrôlée et un suivi complet. Les droits de douane et taxes à l'importation sont à la charge du client." },
+      { q: "Comment ma commande de peptides est-elle emballée ?", a: "Toutes les commandes ORYN sont expédiées dans des boîtes neutres et non marquées, sans description de produit ni marque visible à l'extérieur. À l'intérieur, les stylos à peptides sont fixés dans des inserts en mousse personnalisés au sein d'un contenant isolant avec des accumulateurs de gel. Un bon de livraison et un Certificat d'Analyse sont inclus dans la boîte." },
+      { q: "Puis-je suivre ma commande de peptides ?", a: "Oui. Toutes les commandes reçoivent un numéro de suivi par e-mail dans les 2 heures suivant l'expédition. Vous pouvez suivre votre colis en temps réel via le portail de notre partenaire de livraison. Pour les commandes en gros de 10 unités et plus, nous proposons un suivi amélioré avec des fenêtres de livraison estimées et une confirmation de livraison avec signature." },
+    ],
+  },
+
+  qualityFaq: {
+    items: [
+      { q: "Qu'est-ce qu'un Certificat d'Analyse (COA) ?", a: "Un Certificat d'Analyse est un document émis par un laboratoire d'analyse qualifié qui confirme l'identité, la pureté et la composition d'un produit peptidique. Chaque COA ORYN comprend des données de pureté HPLC, une confirmation d'identité par spectrométrie de masse, les résultats des tests d'endotoxines, la vérification de stérilité et les détails de fabrication spécifiques au lot." },
+      { q: "Comment lire un résultat de pureté HPLC ?", a: "Les résultats HPLC (Chromatographie Liquide Haute Performance) montrent un chromatogramme avec des pics représentant différents composants. Le pourcentage d'aire du pic principal indique la pureté — par exemple, 99,2% signifie que 99,2% du matériau détecté est le peptide cible. Tous les peptides ORYN atteignent systématiquement plus de 98% de pureté, la plupart des lots dépassant 99%." },
+      { q: "Qui effectue vos tests par des tiers ?", a: "Les peptides ORYN sont analysés par des laboratoires analytiques indépendants accrédités ISO 17025. Ces laboratoires opèrent indépendamment de nos installations de fabrication, assurant une vérification impartiale de la pureté, de l'identité et de la stérilité pour chaque lot que nous produisons." },
+      { q: "À quelle fréquence les peptides ORYN sont-ils testés ?", a: "Chaque lot de chaque produit ORYN est testé avant sa mise en vente. Nous appliquons un protocole strict de libération par lot : aucun produit ne quitte nos installations sans un Certificat d'Analyse approuvé par un laboratoire indépendant. Les analyses comprennent la pureté par HPLC, la confirmation d'identité par spectrométrie de masse, le criblage des endotoxines et la vérification de stérilité." },
+      { q: "Quelles normes de pureté les peptides ORYN respectent-ils ?", a: "Tous les peptides ORYN sont fabriqués pour dépasser 98% de pureté, la plupart des lots atteignant plus de 99%. Cela est vérifié par des analyses HPLC indépendantes et confirmé par spectrométrie de masse. Nos installations de fabrication sont certifiées GMP et fonctionnent selon des systèmes de gestion de la qualité ISO 9001 dans des environnements de salle blanche ISO 7." },
+      { q: "Puis-je demander un COA pour mon lot spécifique ?", a: "Oui. Chaque produit ORYN est livré avec un numéro de lot imprimé sur l'emballage. Vous pouvez demander le COA spécifique à votre lot en contactant notre équipe d'assistance à info@orynpeptides.com avec votre numéro de lot. Nous conservons des enregistrements complets de traçabilité pour chaque lot fabriqué." },
+    ],
+  },
+
+  wholesaleFaq: {
+    items: [
+      { q: "Quelle est la quantité minimale de commande pour les tarifs de gros ?", a: "Nos niveaux de tarification de gros commencent à seulement 3 unités. Les commandes de 3-5 unités bénéficient de 5% de réduction, celles de 6-9 unités de 10%, et celles de 10 unités ou plus de 15% sur le prix de détail. Pour les commandes de 50 unités et plus, nous proposons des devis personnalisés adaptés à vos besoins spécifiques." },
+      { q: "Comment fonctionnent les tarifs de gros chez ORYN ?", a: "Les tarifs de gros ORYN sont basés sur des niveaux de remise volume appliqués à nos prix de détail standard. Les remises sont calculées automatiquement lors du paiement pour les commandes éligibles. Vous pouvez associer et assortir tous les produits de nos gammes Peptide Pen, MediT Pen et NovaDose pour atteindre votre niveau. Pour des accords d'approvisionnement continus, contactez notre équipe de gros." },
+      { q: "Comment créer un compte grossiste ?", a: "La création d'un compte grossiste est simple. Contactez notre équipe à info@orynpeptides.com ou utilisez le formulaire de demande grossiste sur notre page de contact. Nous vérifierons les coordonnées de votre organisation, assignerons un chargé de compte dédié et activerons les tarifs volume sur votre compte dans un délai de 1-2 jours ouvrables." },
+      { q: "Quelles sont les conditions de paiement disponibles pour les clients grossistes ?", a: "Les commandes en gros standard sont réglables par virement bancaire, carte de crédit ou bon de commande (pour les comptes approuvés). Nous proposons des conditions de paiement NET-30 pour les clients grossistes établis avec un historique commercial vérifié. Toutes les premières commandes sont prépayées. Contactez notre équipe pour discuter des modalités de paiement pour les contrats de grand volume." },
+      { q: "Quels sont les délais de livraison pour les commandes en vrac de peptides ?", a: "Les commandes en gros sont expédiées dans un délai de 1-2 jours ouvrables depuis notre centre de distribution. La livraison standard prend 2-4 jours ouvrables. Pour les grandes commandes (50+ unités), nous pouvons avoir besoin de 5 jours ouvrables de préparation. Tous les envois en gros comprennent un emballage à température contrôlée sans frais supplémentaires, avec un suivi complet fourni." },
+    ],
+  },
+
   account: {
     nav: {
       dashboard: "Tableau de Bord",
@@ -1431,6 +1463,80 @@ const fr = {
     comparisonSubtitle: "Découvrez comment ORYN se compare aux fournisseurs de peptides typiques au Royaume-Uni.",
   },
 
+  wholesalePage: {
+    breadcrumbHome: "ACCUEIL",
+    breadcrumbWholesale: "GROSSISTE",
+    heroBulkOrders: "COMMANDES EN GROS",
+    heroTitle1: "Grossiste et Commandes",
+    heroTitle2: "en Volume",
+    heroDescription: "ORYN fournit des systèmes de stylos peptidiques de qualité recherche aux universités, laboratoires, cliniques et distributeurs au Royaume-Uni et en Europe. Remises sur volume de 5% à 15% — avec tarification personnalisée pour les contrats à grande échelle.",
+    statMinOrderLabel: "Commande Min.",
+    statMinOrderValue: "3 Unités",
+    statMaxDiscountLabel: "Remise Max.",
+    statMaxDiscountValue: "15% Off",
+    statPurityLabel: "Pureté",
+    statPurityValue: ">99%",
+    statDispatchLabel: "Expédition UK",
+    statDispatchValue: "Jour Même",
+    tiersLabel: "TARIFICATION PAR VOLUME",
+    tiersTitle1: "Niveaux de",
+    tiersTitle2: "Remise",
+    tiersDescription: "Mélangez et associez n'importe quels produits de toute notre gamme. Les remises s'appliquent automatiquement selon le nombre total d'unités.",
+    tierMostPopular: "PLUS POPULAIRE",
+    tierOffRetail: "SUR PRIX PUBLIC",
+    tierPricing: "TARIFICATION",
+    tierLabelStarter: "DÉBUTANT",
+    tierLabelProfessional: "PROFESSIONNEL",
+    tierLabelEnterprise: "ENTREPRISE",
+    tierLabelCustom: "DEVIS PERSONNALISÉ",
+    benefitsLabel: "AVANTAGES GROSSISTE",
+    benefitsTitle1: "Pourquoi Partnériser Avec",
+    benefitsTitle2: "ORYN",
+    benefitsDescription: "Au-delà de la tarification par volume, les comptes grossistes ORYN débloquent une suite de services conçus pour les acheteurs professionnels.",
+    benefitAccountManagerTitle: "Responsable de Compte Dédié",
+    benefitAccountManagerDesc: "Un point de contact unique pour les commandes, la tarification et les questions techniques. Votre responsable de compte comprend vos besoins.",
+    benefitShippingTitle: "Livraison Prioritaire",
+    benefitShippingDesc: "Les commandes en gros sont expédiées le jour même si passées avant 14h. Emballage contrôlé en température inclus sans frais supplémentaires.",
+    benefitVolumePricingTitle: "Tarification par Volume",
+    benefitVolumePricingDesc: "Remises automatiques de 5% à 15% selon la quantité commandée. Tarification personnalisée disponible pour les contrats récurrents.",
+    benefitCOATitle: "COA Inclus",
+    benefitCOADesc: "Chaque expédition en gros comprend des Certificats d'Analyse spécifiques au lot. Traçabilité complète de la synthèse à la livraison.",
+    benefitCustomLabellingTitle: "Étiquetage Personnalisé",
+    benefitCustomLabellingDesc: "Marque blanche et emballage personnalisé disponibles pour les distributeurs et cliniques. Commandes minimales de 50 unités pour les étiquettes personnalisées.",
+    benefitTechSupportTitle: "Support Technique",
+    benefitTechSupportDesc: "Accès à notre équipe scientifique peptidique pour des conseils de protocole, recommandations de stockage et spécifications produits.",
+    whoWeServeLabel: "NOS CLIENTS",
+    whoWeServeTitle1: "Qui Nous",
+    whoWeServeTitle2: "Servons",
+    whoWeServeDescription: "Les peptides en gros ORYN sont approuvés par des professionnels de la recherche et des organisations au Royaume-Uni et en Europe.",
+    customerUniversitiesTitle: "Universités & Académie",
+    customerUniversitiesDesc: "Départements de recherche et programmes de troisième cycle étudiant la biologie peptidique, la pharmacologie et la médecine régénérative.",
+    customerResearchLabsTitle: "Laboratoires de Recherche",
+    customerResearchLabsDesc: "Laboratoires de recherche privés et publics conduisant des études in vitro et in vivo avec des composés peptidiques de qualité recherche.",
+    customerPharmaTitle: "Entreprises Pharmaceutiques",
+    customerPharmaDesc: "Divisions R&D pharmaceutiques utilisant des peptides de standard de référence pour le développement de médicaments et les études de comparaison analytique.",
+    customerClinicsTitle: "Cliniques & Cabinets Médicaux",
+    customerClinicsDesc: "Cliniques de médecine intégrative et praticiens nécessitant un approvisionnement constant en peptides de haute pureté pour la recherche clinique.",
+    customerDistributorsTitle: "Distributeurs & Revendeurs",
+    customerDistributorsDesc: "Partenaires grossistes distribuant les produits ORYN au Royaume-Uni et en Europe. Options marque blanche disponibles.",
+    customerBiotechTitle: "Startups Biotech",
+    customerBiotechDesc: "Entreprises biotech émergentes ayant besoin d'un approvisionnement fiable en peptides pour le développement de produits et les études de preuve de concept.",
+    productsLabel: "EXEMPLES DE TARIFICATION GROSSISTE",
+    productsTitle1: "Produits aux",
+    productsTitle2: "Prix Grossiste",
+    productsDescription: "Découvrez comment la tarification par volume réduit votre coût par unité. Tous les produits ORYN sont éligibles aux remises grossiste.",
+    productRetailLabel: "PRIX PUBLIC",
+    productViewAll: "VOIR LES {count} PRODUITS",
+    faqLabel: "FAQ",
+    faqTitle1: "Questions",
+    faqTitle2: "Fréquentes",
+    faqDescription: "Questions fréquentes sur notre programme grossiste, la tarification et la création de compte.",
+    ctaTitle: "Prêt à Commander en Gros ?",
+    ctaDescription: "Contactez notre équipe grossiste pour configurer votre compte, discuter des tarifs personnalisés et commencer à économiser sur les stylos peptidiques de qualité recherche.",
+    ctaEnquiry: "DEMANDE GROSSISTE",
+    ctaBrowseProducts: "VOIR LES PRODUITS",
+  },
+
   share: {
     label: "PARTAGER",
   },
@@ -1444,6 +1550,309 @@ const fr = {
   flashSale: {
     flash: "Vente Flash — Utilisez le code FLASH15 pour 15% de remise sur tous les stylos peptidiques",
     weekend: "Offre Week-end — Utilisez le code WEEKEND10 pour 10% de remise",
+  },
+
+  qualityPage: {
+    breadcrumbHome: "ACCUEIL",
+    breadcrumbQuality: "QUALITÉ & ANALYSES",
+    heroBadge: "VÉRIFIÉ PAR DES TIERS",
+    heroTitle1: "Transparence à",
+    heroTitle2: "Chaque Lot",
+    heroDescription:
+      "Chaque peptide ORYN est analysé de manière indépendante par des laboratoires accrédités ISO. Nous publions des Certificats d'Analyse pour chaque produit car nous croyons que vous méritez de voir exactement ce que vous recevez — pureté, identité et stérilité, vérifiés par la science, pas par le marketing.",
+    statPurityLabel: "PURETÉ DU LOT",
+    statLabsLabel: "LABORATOIRES INDÉPENDANTS",
+    statTestsLabel: "TESTS PAR LOT",
+    statTraceabilityLabel: "TRAÇABILITÉ",
+    processLabel: "NOTRE PROCESSUS",
+    processTitle1: "De la Synthèse au",
+    processTitle2: "Certificat",
+    processDescription:
+      "Un pipeline rigoureux d'assurance qualité en quatre étapes garantit que chaque peptide ORYN satisfait les plus hautes normes analytiques avant sa mise en circulation.",
+    testingSteps: [
+      {
+        title: "Synthèse de Peptides",
+        description:
+          "Synthèse de peptides en phase solide (SPPS) dans des installations européennes certifiées GMP sous système de management de la qualité ISO 9001.",
+      },
+      {
+        title: "Analyse HPLC",
+        description:
+          "La Chromatographie Liquide Haute Performance sépare et quantifie la pureté des peptides, confirmant >98% pour chaque lot.",
+      },
+      {
+        title: "Spectrométrie de Masse",
+        description:
+          "La confirmation d'identité LC-MS/MS vérifie le poids moléculaire exact et l'intégrité de la séquence d'acides aminés.",
+      },
+      {
+        title: "Génération du Certificat",
+        description:
+          "Un laboratoire indépendant émet un Certificat d'Analyse spécifique au lot avec toutes les données analytiques et les critères d'acceptation/rejet.",
+      },
+    ],
+    certificationsLabel: "CERTIFICATIONS",
+    standardsTitle1: "Normes Qualité qui",
+    standardsTitle2: "Nous Définissent",
+    standardsDescription:
+      "Notre infrastructure de fabrication et d'analyse répond aux exigences qualité pharmaceutiques les plus strictes du secteur.",
+    qualityStandards: [
+      {
+        title: "Fabrication GMP",
+        description:
+          "Installations de production certifiées Bonnes Pratiques de Fabrication dans toute l'UE, garantissant une cohérence de qualité pharmaceutique.",
+      },
+      {
+        title: "Qualité ISO 9001",
+        description:
+          "Système de management de la qualité reconnu internationalement, régissant chaque étape des matières premières au produit fini.",
+      },
+      {
+        title: "Salle Blanche ISO 7",
+        description:
+          "Le remplissage stérile est effectué dans des salles blanches classifiées ISO 7 avec filtration HEPA et surveillance environnementale continue.",
+      },
+      {
+        title: "Pureté Vérifiée par HPLC",
+        description:
+          "Chaque lot vérifié par analyse HPLC indépendante. La plupart des lots dépassent 99% de pureté — parmi les plus élevés du marché européen.",
+      },
+    ],
+    coaLabel: "CERTIFICATS D'ANALYSE",
+    coaTitle1: "COA pour Chaque",
+    coaTitle2: "Produit",
+    coaDescription:
+      "Chacun de nos produits peptidiques est vérifié de manière indépendante. Voici les derniers résultats de tests par lot.",
+    passLabel: "CONFORME",
+    purityLabel: "PURETÉ",
+    batchLabel: "LOT",
+    testedLabel: "ANALYSÉ",
+    methodLabel: "MÉTHODE",
+    testedDate: "Fév 2026",
+    viewCoa: "VOIR COA",
+    independentLabel: "VÉRIFICATION INDÉPENDANTE",
+    partnersTitle1: "Laboratoires d'Analyse",
+    partnersTitle2: "Indépendants",
+    partnersP1:
+      "ORYN ne teste pas ses propres produits. Chaque Certificat d'Analyse est généré par des laboratoires analytiques indépendants accrédités ISO 17025, sans aucune relation financière avec notre opération de fabrication.",
+    partnersP2:
+      "Cette séparation garantit une vérification impartiale et scientifiquement rigoureuse de la pureté, de l'identité et de la stérilité. Nos partenaires de test utilisent des méthodes analytiques validées incluant HPLC en phase inverse, LC-MS/MS, test LAL d'endotoxines et stérilité par filtration sur membrane.",
+    partnersBullets: [
+      "Laboratoires analytiques accrédités ISO 17025",
+      "Aucun lien financier avec la fabrication ORYN",
+      "Méthodes validées HPLC et spectrométrie de masse",
+      "Vérification des endotoxines et de la stérilité",
+      "Traçabilité complète du lot de la synthèse au certificat",
+    ],
+    analyticalMethodsLabel: "MÉTHODES ANALYTIQUES",
+    analyticalMethods: [
+      {
+        method: "Test de Pureté HPLC",
+        description:
+          "Colonne C18 en phase inverse, détection UV à 220 nm. Quantifie la pureté des peptides et détecte les impuretés.",
+          standard: "USP <621>",
+      },
+      {
+        method: "Spectrométrie de Masse (LC-MS)",
+        description:
+          "Ionisation par électrospray avec détection de masse haute résolution. Confirme l'identité moléculaire.",
+          standard: "ISO 13528",
+      },
+      {
+        method: "Test d'Endotoxines",
+        description:
+          "Essai turbidimétrique cinétique LAL (Lysat d'Amébocytes de Limule). Garantit que les niveaux d'endotoxines bactériennes sont en dessous des limites.",
+          standard: "USP <85>",
+      },
+      {
+        method: "Test de Stérilité",
+        description:
+          "Méthode de filtration sur membrane avec incubation de 14 jours dans les milieux TSB et FTM.",
+          standard: "USP <71>",
+      },
+    ],
+    understandingLabel: "COMPRENDRE VOTRE COA",
+    coaContentsTitle1: "Ce que Contient",
+    coaContentsTitle2: "Chaque COA",
+    coaContentsDescription:
+      "Chaque Certificat d'Analyse ORYN fournit une transparence analytique complète. Voici ce que vous trouverez dans chaque document.",
+    coaItems: [
+      {
+        title: "Identité du Peptide",
+        details:
+          "Nom du composé, formule moléculaire, poids moléculaire, séquence d'acides aminés et numéro CAS.",
+      },
+      {
+        title: "Données de Pureté HPLC",
+        details:
+          "Chromatogramme, temps de rétention, pourcentage d'aire de pic et profil d'impuretés avec critères d'acceptation.",
+      },
+      {
+        title: "Spectre de Masse",
+        details:
+          "Confirmation d'identité LC-MS montrant le poids moléculaire observé vs théorique et les états de charge.",
+      },
+      {
+        title: "Résultats d'Endotoxines",
+        details:
+          "Résultats du test LAL en UE/mL avec limites de spécification. Tous les produits ORYN testent en dessous de 0,5 UE/mL.",
+      },
+      {
+        title: "Rapport de Stérilité",
+        details:
+          "Résultats d'incubation de 14 jours dans les milieux TSB et FTM confirmant l'absence de croissance microbienne.",
+      },
+      {
+        title: "Informations sur le Lot",
+        details:
+          "Numéro de lot unique, date de fabrication, date d'analyse, date d'expiration et identification de l'analyste.",
+      },
+    ],
+    faqLabel: "FAQ",
+    faqTitle1: "Qualité & Analyses",
+    faqTitle2: "FAQ",
+    faqDescription:
+      "Questions fréquentes sur notre processus d'assurance qualité, les tests de pureté des peptides et les Certificats d'Analyse.",
+    ctaTitle: "Qualité que Vous Pouvez Vérifier",
+    ctaDescription:
+      "Chaque peptide ORYN est livré avec un numéro de lot que vous pouvez tracer jusqu'à un Certificat d'Analyse indépendant. Vérifiez la science par vous-même.",
+    ctaBrowseProducts: "VOIR LES PRODUITS",
+    ctaRequestCoa: "DEMANDER UN COA",
+  },
+
+  shippingPage: {
+    heroTagline: "TEMPÉRATURE CONTRÔLÉE",
+    heroTitle1: "Livraison &",
+    heroTitle2: "Expédition",
+    heroDescription:
+      "Chaque commande ORYN est expédiée le jour même dans un emballage à température contrôlée, garantissant que vos stylos peptidiques arrivent en parfait état. Livraison gratuite au Royaume-Uni dès \u20ac{threshold}.",
+    breadcrumbHome: "ACCUEIL",
+    breadcrumbShipping: "LIVRAISON & EXPÉDITION",
+    statUkDeliveryLabel: "Livraison UK",
+    statUkDeliveryValue: "2-4 Jours",
+    statDispatchLabel: "Expédition",
+    statDispatchValue: "Même Jour",
+    statFreeOverLabel: "Gratuit Dès",
+    statPackagingLabel: "Emballage",
+    statPackagingValue: "2-8\u00b0C",
+    ukZonesSectionLabel: "ZONES DE LIVRAISON UK",
+    ukZonesSectionTitle1: "Délais de Livraison par",
+    ukZonesSectionTitle2: "Région",
+    ukZonesSectionDescription:
+      "Toutes les commandes passées avant 14h GMT sont expédiées le jour ouvrable même. Les délais indiqués sont en jours ouvrables à partir de l'expédition.",
+    ukDeliveryNote:
+      "Les délais sont estimatifs pour la livraison standard. Des options express sont disponibles au paiement. Les commandes passées le week-end ou les jours fériés sont expédiées le prochain jour ouvrable.",
+    ukZones: [
+      { region: "Londres & Sud-Est", days: "1 \u2013 2 jours" },
+      { region: "Midlands & Anglie Orientale", days: "2 \u2013 3 jours" },
+      { region: "Nord de l'Angleterre", days: "2 \u2013 3 jours" },
+      { region: "Écosse (Basses Terres)", days: "3 \u2013 4 jours" },
+      { region: "Pays de Galles", days: "2 \u2013 3 jours" },
+      { region: "Irlande du Nord", days: "3 \u2013 4 jours" },
+      { region: "Highlands & Îles", days: "4 \u2013 5 jours" },
+    ],
+    coldChainSectionLabel: "LOGISTIQUE CHAÎNE DU FROID",
+    packagingTitle1: "Emballage à",
+    packagingTitle2: "Température Contrôlée",
+    packagingDescription:
+      "Les peptides nécessitent un stockage réfrigéré à 2-8\u00b0C. Notre emballage de chaîne du froid garantit que votre commande maintient une température optimale tout au long du transit.",
+    packagingBullets: [
+      "Maintient 2-8\u00b0C jusqu'à 48 heures en transit",
+      "Sachets de gel non toxiques, prérefroidis à 2\u00b0C",
+      "Conteneurs isolants multicouches",
+      "Protection renforcée pendant les mois d'été",
+      "Inserts en mousse sur mesure pour les stylos",
+    ],
+    coldChainFeatures: [
+      {
+        title: "Boîtes d'Expédition Isolées",
+        description:
+          "Les conteneurs isolants multicouches maintiennent la température interne à 2-8\u00b0C jusqu'à 48 heures, protégeant l'intégrité des peptides de l'entrepôt à la porte.",
+      },
+      {
+        title: "Sachets de Gel Froid",
+        description:
+          "Des sachets de gel à changement de phase non toxiques prérefroidis à 2\u00b0C assurent un refroidissement continu sans risque de congélation.",
+      },
+      {
+        title: "Ajustements Saisonniers",
+        description:
+          "Pendant les mois d'été (juin-septembre), nous ajoutons des sachets de gel supplémentaires et une isolation renforcée. En cas de chaleur extrême, nous optons pour une livraison express.",
+      },
+      {
+        title: "Suivi de Température",
+        description:
+          "Les commandes en gros de 25+ unités incluent des bandelettes indicatrices de température confirmant que la livraison est restée dans la plage 2-8\u00b0C.",
+      },
+    ],
+    euSectionLabel: "EXPÉDITION INTERNATIONALE",
+    euSectionTitle1: "Livraison",
+    euSectionTitle2: "Européenne",
+    euSectionDescription:
+      "ORYN livre dans plus de 15 pays européens avec un suivi complet et un emballage à température contrôlée.",
+    euCountriesHeader: "PAYS UE OÙ NOUS LIVRONS",
+    euCountriesNotListed:
+      "Votre pays n'est pas listé ? Contactez-nous \u2014 nous pourrons peut-être organiser la livraison.",
+    euDeliveryTimeTitle: "Délai de Livraison",
+    euDeliveryTimeValue: "3 \u2013 7 jours",
+    euDeliveryTimeDescription:
+      "Jours ouvrables à partir de l'expédition. Europe de l'Ouest : 3-5 jours, Europe de l'Est : 5-7 jours.",
+    euShippingCostTitle: "Frais d'Expédition",
+    euShippingCostValue: "Tarif Forfaitaire",
+    euShippingCostDescription:
+      "Expédition à tarif forfaitaire vers toutes les destinations européennes. Calculé au paiement selon le pays de destination et le poids de la commande.",
+    euCustomsTitle: "Douanes & Taxes",
+    euCustomsValue: "Responsabilité de l'Acheteur",
+    euCustomsDescription:
+      "Les commandes internationales peuvent être soumises à des droits de douane et à des taxes d'importation. Ces frais sont à la charge du client.",
+    euTrackingTitle: "Suivi",
+    euTrackingValue: "Suivi Complet",
+    euTrackingDescription:
+      "Tous les envois internationaux comprennent un suivi de bout en bout avec des mises à jour en temps réel par email.",
+    freeShippingSectionLabel: "LIVRAISON GRATUITE",
+    freeShippingTitle1: "Livraison UK Gratuite Dès",
+    freeShippingTitle2: "\u20ac{threshold}",
+    freeShippingDescription:
+      "Les commandes supérieures à \u20ac{threshold} bénéficient de la livraison standard gratuite au Royaume-Uni. Suivez votre progression dans votre panier.",
+    freeShippingExampleLabel: "EXEMPLE : COMMANDE DE \u20ac120",
+    freeShippingExampleAway: "\u20ac30 pour obtenir la livraison gratuite",
+    discreetTitle: "Emballage Discret",
+    discreetDescription:
+      "Toutes les commandes ORYN sont expédiées dans des boîtes neutres et non marquées. Aucun nom de produit, marque ou description n'est visible sur l'emballage extérieur.",
+    discreetItems: [
+      "Boîte extérieure neutre",
+      "Aucune marque visible",
+      "Nom d'expéditeur générique",
+      "Aucune description de produit",
+    ],
+    trackingTitle: "Suivi de Commande",
+    trackingDescription:
+      "Chaque commande reçoit un numéro de suivi dans les 2 heures suivant l'expédition. Suivez votre colis en temps réel de notre entrepôt à votre porte.",
+    trackingItems: [
+      "Email de suivi dans les 2 heures",
+      "Mises à jour en temps réel",
+      "Fenêtre de livraison estimée",
+      "Confirmation de livraison",
+    ],
+    returnsTitle: "Retours & Remboursements",
+    returnsDescription:
+      "Si votre commande arrive endommagée ou incorrecte, contactez-nous dans les 48 heures. Nous organiserons un remplacement ou un remboursement complet sans frais supplémentaires.",
+    returnsItems: [
+      "Fenêtre de 48 heures pour signaler les dommages",
+      "Remplacement complet ou remboursement",
+      "Preuve photo requise",
+      "Retour gratuit pour les erreurs",
+    ],
+    faqSectionLabel: "FAQ",
+    faqSectionTitle1: "Questions sur",
+    faqSectionTitle2: "la Livraison",
+    faqSectionDescription:
+      "Questions fréquentes sur la livraison de peptides, l'emballage et les options d'expédition.",
+    ctaTitle: "Commandez Aujourd'hui, Recevez Cette Semaine",
+    ctaDescription:
+      "Expédition le jour même avant 14h. Livraison à température contrôlée. Livraison UK gratuite dès \u20ac{threshold}.",
+    ctaShopNow: "ACHETER MAINTENANT",
+    ctaContactUs: "NOUS CONTACTER",
   },
 } as unknown as Dictionary;
 

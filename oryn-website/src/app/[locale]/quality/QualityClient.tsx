@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Link } from "@/components/ui/LocaleLink";
 import { products, productImages } from "@/data/products";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ─── Icons (inline SVG) ──────────────────────────────────────────── */
 
@@ -90,60 +91,6 @@ const purityValues: Record<string, string> = {
   "novadose-nad": "99.2%",
 };
 
-/* ─── Testing process steps ───────────────────────────────────────── */
-
-const testingSteps = [
-  {
-    step: "01",
-    title: "Peptide Synthesis",
-    description: "Solid-phase peptide synthesis (SPPS) in GMP-certified European facilities under ISO 9001 quality management.",
-    icon: "synthesis",
-  },
-  {
-    step: "02",
-    title: "HPLC Analysis",
-    description: "High-Performance Liquid Chromatography separates and quantifies peptide purity, confirming >98% for every batch.",
-    icon: "hplc",
-  },
-  {
-    step: "03",
-    title: "Mass Spectrometry",
-    description: "LC-MS/MS identity confirmation verifies exact molecular weight and amino acid sequence integrity.",
-    icon: "mass-spec",
-  },
-  {
-    step: "04",
-    title: "Certificate Generation",
-    description: "Independent lab issues batch-specific Certificate of Analysis with full analytical data and pass/fail criteria.",
-    icon: "certificate",
-  },
-];
-
-/* ─── Quality standards ───────────────────────────────────────────── */
-
-const qualityStandards = [
-  {
-    title: "GMP Manufacturing",
-    value: "GMP",
-    description: "Good Manufacturing Practice certified production facilities across the EU, ensuring pharmaceutical-grade consistency.",
-  },
-  {
-    title: "ISO 9001 Quality",
-    value: "ISO 9001",
-    description: "Internationally recognised quality management system governing every step from raw materials to finished product.",
-  },
-  {
-    title: "ISO 7 Cleanroom",
-    value: "Class 10,000",
-    description: "Sterile filling performed in ISO 7 classified cleanrooms with HEPA filtration and continuous environmental monitoring.",
-  },
-  {
-    title: "HPLC Verified Purity",
-    value: ">98%",
-    description: "Every batch verified by independent HPLC testing. Most batches exceed 99% purity — among the highest in the UK market.",
-  },
-];
-
 /* ─── FAQ Accordion ───────────────────────────────────────────────── */
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -168,6 +115,9 @@ export function QualityClient({
   faqs: { question: string; answer: string }[];
 }) {
   usePageTracking("quality");
+  const { t } = useLocale();
+  const q = t.qualityPage;
+
   return (
     <div className="pt-[calc(1rem+4px)]">
       {/* ── HERO ────────────────────────────────────────────────── */}
@@ -181,42 +131,39 @@ export function QualityClient({
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-[10px] font-mono text-white/30 tracking-[0.1em] mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">HOME</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">{q.breadcrumbHome}</Link>
             <span className="text-white/50">/</span>
-            <span className="text-white/60">QUALITY & TESTING</span>
+            <span className="text-white/60">{q.breadcrumbQuality}</span>
           </nav>
 
           <div className="inline-flex items-center gap-3 mb-6">
             <ShieldCheck className="w-5 h-5 text-[#FF6A1A]" />
             <span className="text-xs font-mono text-[#FF6A1A] tracking-[0.2em]">
-              THIRD-PARTY VERIFIED
+              {q.heroBadge}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-            Transparency in
-            <span className="block text-[#FF6A1A]">Every Batch</span>
+            {q.heroTitle1}
+            <span className="block text-[#FF6A1A]">{q.heroTitle2}</span>
           </h1>
 
           <p className="text-white/60 font-plex max-w-2xl leading-relaxed text-lg mb-10">
-            Every ORYN peptide is independently tested by ISO-accredited laboratories.
-            We publish Certificates of Analysis for every product because we believe
-            you deserve to see exactly what you&apos;re getting — purity, identity, and
-            sterility, verified by science, not marketing.
+            {q.heroDescription}
           </p>
 
           {/* Trust bar */}
           <div className="flex flex-wrap gap-6 md:gap-10">
             {[
-              { label: "Batch Purity", value: ">98%" },
-              { label: "Independent Labs", value: "ISO 17025" },
-              { label: "Tests Per Batch", value: "4+" },
-              { label: "Traceability", value: "100%" },
+              { label: q.statPurityLabel, value: ">98%" },
+              { label: q.statLabsLabel, value: "ISO 17025" },
+              { label: q.statTestsLabel, value: "4+" },
+              { label: q.statTraceabilityLabel, value: "100%" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
                 <div className="text-[10px] font-mono text-white/30 tracking-widest mt-1">
-                  {stat.label.toUpperCase()}
+                  {stat.label}
                 </div>
               </div>
             ))}
@@ -231,34 +178,33 @@ export function QualityClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                OUR PROCESS
+                {q.processLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              From Synthesis to{" "}
-              <span className="text-[#FF6A1A]">Certificate</span>
+              {q.processTitle1}{" "}
+              <span className="text-[#FF6A1A]">{q.processTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              A rigorous four-step quality assurance pipeline ensures every ORYN
-              peptide meets the highest analytical standards before release.
+              {q.processDescription}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {testingSteps.map((step, i) => (
+            {q.testingSteps.map((step, i) => (
               <div
-                key={step.step}
+                key={i}
                 className="relative p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 hover:bg-white/[0.04] transition-all group"
               >
                 {/* Step connector line */}
-                {i < testingSteps.length - 1 && (
+                {i < q.testingSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-[2px] bg-[#FF6A1A]/20" />
                 )}
 
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl font-bold text-[#FF6A1A]/20 font-mono group-hover:text-[#FF6A1A]/40 transition-colors">
-                    {step.step}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   {i === 0 && <Flask className="w-5 h-5 text-[#FF6A1A]" />}
                   {i === 1 && <Microscope className="w-5 h-5 text-[#FF6A1A]" />}
@@ -284,36 +230,38 @@ export function QualityClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                CERTIFICATIONS
+                {q.certificationsLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Quality Standards That{" "}
-              <span className="text-[#FF6A1A]">Define Us</span>
+              {q.standardsTitle1}{" "}
+              <span className="text-[#FF6A1A]">{q.standardsTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Our manufacturing and testing infrastructure meets the most demanding
-              pharmaceutical quality benchmarks in the industry.
+              {q.standardsDescription}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {qualityStandards.map((standard) => (
-              <div
-                key={standard.title}
-                className="p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 transition-all text-center group"
-              >
-                <ShieldCheck className="w-8 h-8 text-[#FF6A1A] mx-auto mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="text-2xl font-bold text-[#FF6A1A] mb-1 font-mono">
-                  {standard.value}
+            {q.qualityStandards.map((standard, i) => {
+              const values = ["GMP", "ISO 9001", "Class 10,000", ">98%"];
+              return (
+                <div
+                  key={i}
+                  className="p-8 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/30 transition-all text-center group"
+                >
+                  <ShieldCheck className="w-8 h-8 text-[#FF6A1A] mx-auto mb-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <div className="text-2xl font-bold text-[#FF6A1A] mb-1 font-mono">
+                    {values[i]}
+                  </div>
+                  <h3 className="text-sm font-bold text-white mb-3">{standard.title}</h3>
+                  <p className="text-xs text-white/40 font-plex leading-relaxed">
+                    {standard.description}
+                  </p>
                 </div>
-                <h3 className="text-sm font-bold text-white mb-3">{standard.title}</h3>
-                <p className="text-xs text-white/40 font-plex leading-relaxed">
-                  {standard.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -325,17 +273,16 @@ export function QualityClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                CERTIFICATES OF ANALYSIS
+                {q.coaLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              COA for Every{" "}
-              <span className="text-[#FF6A1A]">Product</span>
+              {q.coaTitle1}{" "}
+              <span className="text-[#FF6A1A]">{q.coaTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Each of our {products.length} peptide products is independently verified.
-              Below are the latest batch test results — updated with every new production run.
+              {q.coaDescription}
             </p>
           </div>
 
@@ -353,7 +300,7 @@ export function QualityClient({
                   {/* Purity badge */}
                   <div className="absolute top-4 right-4 flex items-center gap-1">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[10px] font-mono text-emerald-400/80">PASS</span>
+                    <span className="text-[10px] font-mono text-emerald-400/80">{q.passLabel}</span>
                   </div>
 
                   {/* Product image */}
@@ -385,7 +332,7 @@ export function QualityClient({
                   {/* Test data */}
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono text-white/30">PURITY</span>
+                      <span className="text-[10px] font-mono text-white/30">{q.purityLabel}</span>
                       <span className="text-sm font-bold text-emerald-400">{purity}</span>
                     </div>
                     <div className="w-full h-1 bg-white/5 overflow-hidden">
@@ -395,15 +342,15 @@ export function QualityClient({
                       />
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono text-white/30">BATCH</span>
+                      <span className="text-[10px] font-mono text-white/30">{q.batchLabel}</span>
                       <span className="text-[10px] font-mono text-white/50">{batch}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono text-white/30">TESTED</span>
-                      <span className="text-[10px] font-mono text-white/50">Feb 2026</span>
+                      <span className="text-[10px] font-mono text-white/30">{q.testedLabel}</span>
+                      <span className="text-[10px] font-mono text-white/50">{q.testedDate}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-mono text-white/30">METHOD</span>
+                      <span className="text-[10px] font-mono text-white/30">{q.methodLabel}</span>
                       <span className="text-[10px] font-mono text-white/50">HPLC + MS</span>
                     </div>
                   </div>
@@ -414,7 +361,7 @@ export function QualityClient({
                     className="flex items-center justify-center gap-2 w-full py-2.5 border border-[#FF6A1A]/30 text-[#FF6A1A] text-[10px] font-mono tracking-widest hover:bg-[#FF6A1A]/10 hover:border-[#FF6A1A]/50 transition-all"
                   >
                     <Certificate className="w-3.5 h-3.5" />
-                    VIEW COA
+                    {q.viewCoa}
                   </a>
                 </div>
               );
@@ -432,33 +379,22 @@ export function QualityClient({
               <div className="inline-flex items-center gap-2 mb-4">
                 <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
                 <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                  INDEPENDENT VERIFICATION
+                  {q.independentLabel}
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                Third-Party Testing{" "}
-                <span className="text-[#FF6A1A]">Partners</span>
+                {q.partnersTitle1}{" "}
+                <span className="text-[#FF6A1A]">{q.partnersTitle2}</span>
               </h2>
               <p className="text-white/50 font-plex leading-relaxed mb-6">
-                ORYN does not test its own products. Every Certificate of Analysis
-                is generated by independent, ISO 17025-accredited analytical laboratories
-                that have no financial relationship with our manufacturing operation.
+                {q.partnersP1}
               </p>
               <p className="text-white/50 font-plex leading-relaxed mb-8">
-                This separation ensures unbiased, scientifically rigorous verification
-                of purity, identity, and sterility. Our testing partners use validated
-                analytical methods including reverse-phase HPLC, LC-MS/MS, LAL endotoxin
-                testing, and membrane filtration sterility testing.
+                {q.partnersP2}
               </p>
 
               <div className="space-y-4">
-                {[
-                  "ISO 17025 accredited analytical laboratories",
-                  "No financial ties to ORYN manufacturing",
-                  "Validated HPLC and mass spectrometry methods",
-                  "Endotoxin and sterility verification",
-                  "Full batch traceability from synthesis to certificate",
-                ].map((item) => (
+                {q.partnersBullets.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <div className="mt-0.5 w-4 h-4 border border-[#FF6A1A]/40 flex items-center justify-center shrink-0">
                       <svg className="w-2.5 h-2.5 text-[#FF6A1A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -475,31 +411,10 @@ export function QualityClient({
               {/* Testing summary card */}
               <div className="p-8 bg-white/[0.02] border border-white/[0.06]">
                 <h3 className="text-sm font-mono text-[#FF6A1A] tracking-widest mb-6">
-                  ANALYTICAL METHODS
+                  {q.analyticalMethodsLabel}
                 </h3>
                 <div className="space-y-5">
-                  {[
-                    {
-                      method: "HPLC Purity Testing",
-                      description: "Reverse-phase C18 column, UV detection at 220nm. Quantifies peptide purity and detects impurities.",
-                      standard: "USP <621>",
-                    },
-                    {
-                      method: "Mass Spectrometry (LC-MS)",
-                      description: "Electrospray ionisation with high-resolution mass detection. Confirms molecular identity.",
-                      standard: "ISO 13528",
-                    },
-                    {
-                      method: "Endotoxin Testing",
-                      description: "Limulus Amebocyte Lysate (LAL) kinetic turbidimetric assay. Ensures bacterial endotoxin levels below limits.",
-                      standard: "USP <85>",
-                    },
-                    {
-                      method: "Sterility Testing",
-                      description: "Membrane filtration method with 14-day incubation in TSB and FTM media.",
-                      standard: "USP <71>",
-                    },
-                  ].map((test) => (
+                  {q.analyticalMethods.map((test) => (
                     <div key={test.method} className="border-l-2 border-[#FF6A1A]/20 pl-4">
                       <div className="flex items-center justify-between mb-1">
                         <h4 className="text-sm font-bold text-white">{test.method}</h4>
@@ -524,47 +439,21 @@ export function QualityClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                UNDERSTANDING YOUR COA
+                {q.understandingLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              What Every COA{" "}
-              <span className="text-[#FF6A1A]">Contains</span>
+              {q.coaContentsTitle1}{" "}
+              <span className="text-[#FF6A1A]">{q.coaContentsTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Each ORYN Certificate of Analysis provides complete analytical transparency.
-              Here is what you will find in every document.
+              {q.coaContentsDescription}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: "Peptide Identity",
-                details: "Compound name, molecular formula, molecular weight, amino acid sequence, and CAS number.",
-              },
-              {
-                title: "HPLC Purity Data",
-                details: "Chromatogram, retention time, peak area percentage, and impurity profile with acceptance criteria.",
-              },
-              {
-                title: "Mass Spectrum",
-                details: "LC-MS identity confirmation showing observed vs. theoretical molecular weight and charge states.",
-              },
-              {
-                title: "Endotoxin Results",
-                details: "LAL test results in EU/mL with specification limits. All ORYN products test below 0.5 EU/mL.",
-              },
-              {
-                title: "Sterility Report",
-                details: "14-day incubation results in TSB and FTM media confirming no microbial growth detected.",
-              },
-              {
-                title: "Batch Information",
-                details: "Unique batch number, manufacturing date, test date, expiry date, and analyst identification.",
-              },
-            ].map((item) => (
+            {q.coaItems.map((item) => (
               <div
                 key={item.title}
                 className="p-6 bg-white/[0.02] border border-white/[0.06] hover:border-[#FF6A1A]/20 transition-colors"
@@ -587,17 +476,16 @@ export function QualityClient({
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
               <span className="text-xs font-mono text-[#FF6A1A] tracking-widest">
-                FAQ
+                {q.faqLabel}
               </span>
               <div className="w-8 h-[2px] bg-[#FF6A1A]/40" />
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              Quality &amp; Testing{" "}
-              <span className="text-[#FF6A1A]">FAQ</span>
+              {q.faqTitle1}{" "}
+              <span className="text-[#FF6A1A]">{q.faqTitle2}</span>
             </h2>
             <p className="text-white/40 font-plex max-w-xl mx-auto">
-              Common questions about our quality assurance process,
-              peptide purity testing, and Certificates of Analysis.
+              {q.faqDescription}
             </p>
           </div>
 
@@ -617,25 +505,24 @@ export function QualityClient({
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ShieldCheck className="w-12 h-12 text-white/80 mx-auto mb-6" />
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Quality You Can Verify
+            {q.ctaTitle}
           </h2>
           <p className="text-white/70 font-plex mb-8 max-w-lg mx-auto">
-            Every ORYN peptide ships with a batch number you can trace back to
-            an independent Certificate of Analysis. See the science for yourself.
+            {q.ctaDescription}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/products"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#FF6A1A] font-bold text-xs tracking-[0.2em] hover:bg-[#FFF8F0] transition-colors"
             >
-              BROWSE PRODUCTS
+              {q.ctaBrowseProducts}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-bold text-xs tracking-[0.2em] hover:bg-white/10 hover:border-white/50 transition-colors"
             >
-              REQUEST A COA
+              {q.ctaRequestCoa}
               <Certificate className="w-3.5 h-3.5" />
             </Link>
           </div>
