@@ -35,6 +35,34 @@ function getDeviceType(): string {
   return "desktop";
 }
 
+/** Get geo context from URL locale for event enrichment */
+function getGeoContext(): { locale: string; country: string; currency: string; market_region: string } {
+  if (typeof window === "undefined") return { locale: "en", country: "GB", currency: "GBP", market_region: "UK" };
+  const pathLocale = window.location.pathname.split("/")[1] || "en";
+  const countryMap: Record<string, string> = { en: "GB", es: "ES", de: "DE", fr: "FR", it: "IT", pt: "PT", nl: "NL" };
+  const marketMap: Record<string, string> = { en: "UK", es: "EU", de: "EU", fr: "EU", it: "EU", pt: "EU", nl: "EU" };
+  return {
+    locale: pathLocale,
+    country: countryMap[pathLocale] || "GB",
+    currency: pathLocale === "en" ? "GBP" : "EUR",
+    market_region: marketMap[pathLocale] || "Other",
+  };
+}
+
+/** Update PostHog geo properties when real country is known (e.g. from shipping address) */
+export function updateGeoFromShipping(countryCode: string) {
+  if (typeof window === "undefined") return;
+  const marketMap: Record<string, string> = {
+    GB: "UK", ES: "EU", DE: "EU", FR: "EU", IT: "EU", PT: "EU", NL: "EU",
+    BE: "EU", AT: "EU", IE: "EU", SE: "EU", DK: "EU", FI: "EU", CY: "EU",
+    GR: "EU", PL: "EU", CZ: "EU", HU: "EU", RO: "EU", BG: "EU", HR: "EU",
+    US: "US", MX: "LATAM", CO: "LATAM", AR: "LATAM", CL: "LATAM", PE: "LATAM",
+  };
+  const market = marketMap[countryCode] || "Other";
+  posthog.register({ country: countryCode, market_region: market });
+  posthog.setPersonProperties({ country: countryCode, market_region: market });
+}
+
 // ─── Page & Navigation Events ─────────────────────────────────
 
 export function trackPageView(pageName: string, properties?: Record<string, unknown>) {
@@ -66,13 +94,16 @@ export function trackAddToCart(product: {
   category?: string;
   quantity?: number;
 }) {
+  const geo = getGeoContext();
   const props = {
     product_name: product.name,
     product_slug: product.slug,
     price: product.price,
     quantity: product.quantity || 1,
     category: product.category || "unknown",
-    currency: "EUR",
+    currency: geo.currency,
+    country: geo.country,
+    market_region: geo.market_region,
   };
   track("add_to_cart", props);
   ph("add_to_cart", {
@@ -146,18 +177,23 @@ export function trackPurchase(data: {
   };
   track("purchase", vercelProps);
 
+  const geo = getGeoContext();
   ph("purchase", {
     ...vercelProps,
     revenue: data.total,
     items: data.items || [],
+    country: data.shippingCountry || geo.country,
+    market_region: geo.market_region,
     $set: {
       last_purchase_date: new Date().toISOString(),
       last_order_value: data.total,
       preferred_currency: data.currency,
-      shipping_country: data.shippingCountry,
+      shipping_country: data.shippingCountry || geo.country,
+      country: data.shippingCountry || geo.country,
     },
     $set_once: {
       first_purchase_date: new Date().toISOString(),
+      first_purchase_country: data.shippingCountry || geo.country,
     },
   });
 }
@@ -168,11 +204,15 @@ export function trackProductView(product: {
   price: number;
   category?: string;
 }) {
+  const geo = getGeoContext();
   const props = {
     product_name: product.name,
     product_slug: product.slug,
     price: product.price,
     category: product.category || "unknown",
+    country: geo.country,
+    currency: geo.currency,
+    market_region: geo.market_region,
   };
   track("product_viewed", props);
   ph("product_viewed", {
@@ -298,10 +338,13 @@ export function trackCheckoutStarted(data: {
   total: number;
   currency: string;
 }) {
+  const geo = getGeoContext();
   ph("checkout_started", {
     item_count: data.itemCount,
     total: data.total,
     currency: data.currency,
+    country: geo.country,
+    market_region: geo.market_region,
   });
 }
 

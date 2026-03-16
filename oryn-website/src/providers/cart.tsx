@@ -12,7 +12,7 @@ import { sdk } from "@/lib/medusa";
 import { products as staticProducts, type Product } from "@/data/products";
 import { useProducts } from "@/providers/products";
 import { calculateVolumeDiscount, getVolumeDiscount, type VolumeDiscount } from "@/lib/discounts";
-import { trackAddToCart, trackRemoveFromCart, trackCartOpened } from "@/lib/analytics";
+import { trackAddToCart, trackRemoveFromCart, trackCartOpened, updateGeoFromShipping } from "@/lib/analytics";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -402,6 +402,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
           billing_address: medusaAddress,
         });
         setCart(updatedCart as unknown as MedusaCart);
+        // Update PostHog with real shipping country for geo segmentation
+        const countryCode = address.country?.toUpperCase();
+        if (countryCode) updateGeoFromShipping(countryCode);
       } catch {
         // Silent fail — address will be set on next attempt
       }

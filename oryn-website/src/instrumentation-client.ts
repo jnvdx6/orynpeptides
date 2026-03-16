@@ -50,14 +50,34 @@ if (hasConsent && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
         ph.setPersonProperties({}, utmProps); // $set_once on person
       }
 
-      // Device & locale info
+      // Device, locale & geo info
       const w = window.innerWidth;
+      const pathLocale = window.location.pathname.split("/")[1] || "en";
+      const localeCountryMap: Record<string, string> = {
+        en: "GB", es: "ES", de: "DE", fr: "FR", it: "IT", pt: "PT", nl: "NL",
+      };
+      const localeMarketMap: Record<string, string> = {
+        en: "UK", es: "EU", de: "EU", fr: "EU", it: "EU", pt: "EU", nl: "EU",
+      };
+      const detectedCountry = localeCountryMap[pathLocale] || "GB";
+      const detectedMarket = localeMarketMap[pathLocale] || "Other";
+      const detectedCurrency = pathLocale === "en" ? "GBP" : "EUR";
+
       ph.register({
         device_type: w < 768 ? "mobile" : w < 1024 ? "tablet" : "desktop",
         viewport_width: w,
-        locale: document.documentElement.lang || "en",
+        locale: pathLocale,
+        country: detectedCountry,
+        market_region: detectedMarket,
+        currency: detectedCurrency,
         site_version: "2026-03",
       });
+
+      // Set person properties for country segmentation
+      ph.setPersonProperties(
+        { country: detectedCountry, market_region: detectedMarket, currency: detectedCurrency },
+        { first_country: detectedCountry, first_locale: pathLocale },
+      );
 
       // Referrer tracking (first touch)
       if (document.referrer && !document.referrer.includes(window.location.hostname)) {
