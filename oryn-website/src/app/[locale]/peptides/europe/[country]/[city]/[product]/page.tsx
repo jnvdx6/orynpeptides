@@ -12,7 +12,8 @@ import { getProductDetail } from "@/data/product-details";
 import { SITE_URL, productSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export const dynamicParams = true;
 export async function generateStaticParams() {
@@ -56,6 +57,7 @@ export default async function EuropeanCityProductPage({
   params: Promise<{ locale: string; country: string; city: string; product: string }>;
 }) {
   const { locale, country: countrySlug, city: citySlug, product: productSlug } = await params;
+  const dict = await getDictionary(locale as Locale);
   const result = getEuropeanCityBySlug(countrySlug, citySlug);
   const product = getProductBySlug(productSlug);
   if (!result || !product) notFound();
@@ -93,8 +95,8 @@ export default async function EuropeanCityProductPage({
           productSchema(product, locale),
           faqSchema(faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Europe", url: `/${locale}/peptides/europe` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.europe, url: `/${locale}/peptides/europe` },
             { name: country.name, url: `/${locale}/peptides/europe/${country.slug}` },
             { name: city.name, url: `/${locale}/peptides/europe/${country.slug}/${city.slug}` },
             { name: product.name, url: `/${locale}/peptides/europe/${country.slug}/${city.slug}/${product.slug}` },

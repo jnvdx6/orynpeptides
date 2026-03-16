@@ -4,7 +4,8 @@ import Image from "next/image";
 import { breadcrumbSchema, faqSchema, organizationSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { products, productImages } from "@/data/products";
 
 /* ─── Static Params ──────────────────────────────────────────────── */
@@ -184,6 +185,7 @@ export default async function WhyOrynPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const currency = "€";
 
   // Enhanced organization schema for this authority page
@@ -229,8 +231,8 @@ export default async function WhyOrynPage({
         items={[
           enhancedOrgSchema,
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Why ORYN", url: `/${locale}/why-oryn` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.whyOryn, url: `/${locale}/why-oryn` },
           ]),
           faqSchema(faqs),
           itemListSchema,

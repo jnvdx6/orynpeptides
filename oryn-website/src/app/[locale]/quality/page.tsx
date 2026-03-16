@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, faqSchema, organizationSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { QualityClient } from "./QualityClient";
 
 export async function generateStaticParams() {
@@ -92,6 +93,7 @@ export default async function QualityPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   const qualityOrgSchema = {
     ...organizationSchema(),
@@ -119,8 +121,8 @@ export default async function QualityPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Quality & Testing", url: `/${locale}/quality` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.quality, url: `/${locale}/quality` },
           ]),
           faqSchema(qualityFaqs),
           qualityOrgSchema,

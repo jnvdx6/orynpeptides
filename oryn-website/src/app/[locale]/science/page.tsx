@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { ScienceClient } from "./ScienceClient";
 
 export async function generateStaticParams() {
@@ -55,6 +56,7 @@ export default async function SciencePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   const scienceFaqs = [
     { question: "What purity standards do ORYN peptides meet?", answer: "All ORYN peptides exceed 99% purity, verified by independent HPLC testing. Each batch comes with a Certificate of Analysis confirming purity, identity, and sterility." },
@@ -68,8 +70,8 @@ export default async function SciencePage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Science", url: `/${locale}/science` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.science, url: `/${locale}/science` },
           ]),
           faqSchema(scienceFaqs),
         ]}

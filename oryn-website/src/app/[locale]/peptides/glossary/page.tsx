@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_URL, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -382,6 +383,7 @@ export default async function GlossaryPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
@@ -389,9 +391,9 @@ export default async function GlossaryPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/peptides` },
-            { name: "Glossary", url: `/${locale}/peptides/glossary` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/peptides` },
+            { name: dict.breadcrumbs.glossary, url: `/${locale}/peptides/glossary` },
           ]),
           definedTermSetSchema(locale),
           faqSchema(glossaryFaqs.slice(0, 10)),

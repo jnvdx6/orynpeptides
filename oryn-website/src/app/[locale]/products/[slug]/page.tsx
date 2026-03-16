@@ -10,7 +10,8 @@ import {
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { TrustBanner } from "@/components/seo/TrustBanner";
 import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { ProductPageClient } from "./ProductPageClient";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ProtocolLinks } from "@/components/seo/ProtocolLinks";
@@ -77,6 +78,7 @@ export default async function ProductPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const product = getProductBySlug(slug);
   if (!product) return <ProductPageClient />;
 
@@ -85,8 +87,8 @@ export default async function ProductPage({
   const schemaItems: Record<string, any>[] = [
     productSchema(product, locale),
     breadcrumbSchema([
-      { name: "Home", url: `/${locale}` },
-      { name: "Products", url: `/${locale}/products` },
+      { name: dict.breadcrumbs.home, url: `/${locale}` },
+      { name: dict.breadcrumbs.products, url: `/${locale}/products` },
       { name: product.name, url: `/${locale}/products/${product.slug}` },
     ]),
   ];

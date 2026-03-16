@@ -19,6 +19,9 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
+import type { Dictionary } from "@/i18n/types";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
 export const dynamicParams = true;
@@ -89,18 +92,19 @@ export default async function LondonAreaSlugPage({
   params: Promise<{ locale: string; area: string; slug: string }>;
 }) {
   const { area: areaSlug, slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const area = getLondonAreaBySlug(areaSlug);
   if (!area) notFound();
 
   // Dispatch: category page or product page
   const category = getCategoryBySlug(slug);
   if (category) {
-    return <CategoryInAreaPage area={area} category={category} locale={locale} />;
+    return <CategoryInAreaPage area={area} category={category} locale={locale} dict={dict} />;
   }
 
   const product = getProductBySlug(slug);
   if (product) {
-    return <ProductInAreaPage area={area} product={product} locale={locale} />;
+    return <ProductInAreaPage area={area} product={product} locale={locale} dict={dict} />;
   }
 
   notFound();
@@ -114,10 +118,12 @@ function CategoryInAreaPage({
   area,
   category,
   locale,
+  dict,
 }: {
   area: ReturnType<typeof getLondonAreaBySlug> & {};
   category: ReturnType<typeof getCategoryBySlug> & {};
   locale: string;
+  dict: Dictionary;
 }) {
   const categoryProducts = getProductsForCategory(category);
   const currency = "€";
@@ -160,9 +166,9 @@ function CategoryInAreaPage({
         items={[
           faqSchema(faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/products` },
-            { name: "London", url: `/${locale}/peptides/london` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
+            { name: dict.breadcrumbs.london, url: `/${locale}/peptides/london` },
             { name: area.name, url: `/${locale}/peptides/london/${area.slug}` },
             { name: category.name, url: `/${locale}/peptides/london/${area.slug}/${category.slug}` },
           ]),
@@ -517,10 +523,12 @@ function ProductInAreaPage({
   area,
   product,
   locale,
+  dict,
 }: {
   area: ReturnType<typeof getLondonAreaBySlug> & {};
   product: ReturnType<typeof getProductBySlug> & {};
   locale: string;
+  dict: Dictionary;
 }) {
   const detail = getProductDetail(product.slug);
   const currency = "€";
@@ -558,8 +566,8 @@ function ProductInAreaPage({
           productSchema(product, locale),
           faqSchema(faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "London", url: `/${locale}/peptides/london` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.london, url: `/${locale}/peptides/london` },
             { name: area.name, url: `/${locale}/peptides/london/${area.slug}` },
             { name: product.name, url: `/${locale}/peptides/london/${area.slug}/${product.slug}` },
           ]),

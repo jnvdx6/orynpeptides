@@ -3,7 +3,8 @@ import Link from "next/link";
 import { PROTOCOLS } from "@/data/protocols";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -45,6 +46,7 @@ export default async function ProtocolsIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const categories = ["recovery", "anti-aging", "performance", "metabolic", "wellness"];
 
   return (
@@ -52,8 +54,8 @@ export default async function ProtocolsIndexPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Protocols", url: `/${locale}/protocols` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.protocols, url: `/${locale}/protocols` },
           ]),
         ]}
       />

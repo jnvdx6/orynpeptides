@@ -5,7 +5,8 @@ import Image from "next/image";
 import { products, getProductBySlug, productImages } from "@/data/products";
 import { SITE_URL, breadcrumbSchema, faqSchema, productSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { bundles, BUNDLE_SLUGS, getBundleBySlug } from "@/data/bundles";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
@@ -80,6 +81,7 @@ export default async function BundlePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const bundle = getBundleBySlug(slug);
   if (!bundle) notFound();
 
@@ -102,8 +104,8 @@ export default async function BundlePage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Bundles", url: `/${locale}/bundles/${bundle.slug}` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.bundles, url: `/${locale}/bundles/${bundle.slug}` },
             {
               name: bundle.name,
               url: `/${locale}/bundles/${bundle.slug}`,

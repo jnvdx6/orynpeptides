@@ -15,6 +15,8 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
 export const dynamicParams = true;
@@ -135,6 +137,7 @@ export default async function RegionSlugPage({
   params: Promise<{ locale: string; region: string; slug: string }>;
 }) {
   const { region: regionSlug, slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const region = getRegionBySlug(regionSlug);
   if (!region) notFound();
 
@@ -170,8 +173,8 @@ export default async function RegionSlugPage({
         <MultiJsonLd
           items={[
             breadcrumbSchema([
-              { name: "Home", url: `/${locale}` },
-              { name: "Peptides", url: `/${locale}/products` },
+              { name: dict.breadcrumbs.home, url: `/${locale}` },
+              { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
               {
                 name: region.name,
                 url: `/${locale}/peptides/region/${region.slug}`,
@@ -761,8 +764,8 @@ export default async function RegionSlugPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/products` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
             {
               name: region.name,
               url: `/${locale}/peptides/region/${region.slug}`,

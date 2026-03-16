@@ -26,39 +26,20 @@ interface ShippingOption {
   region_id?: string;
 }
 
-const COUNTRIES = [
-  { code: "es", name: "Spain", nameEs: "España" },
-  { code: "gb", name: "United Kingdom", nameEs: "Reino Unido" },
-  { code: "us", name: "United States", nameEs: "Estados Unidos" },
-  { code: "de", name: "Germany", nameEs: "Alemania" },
-  { code: "fr", name: "France", nameEs: "Francia" },
-  { code: "it", name: "Italy", nameEs: "Italia" },
-  { code: "pt", name: "Portugal", nameEs: "Portugal" },
-  { code: "nl", name: "Netherlands", nameEs: "Países Bajos" },
-  { code: "be", name: "Belgium", nameEs: "Bélgica" },
-  { code: "at", name: "Austria", nameEs: "Austria" },
-  { code: "ie", name: "Ireland", nameEs: "Irlanda" },
-  { code: "se", name: "Sweden", nameEs: "Suecia" },
-  { code: "dk", name: "Denmark", nameEs: "Dinamarca" },
-  { code: "fi", name: "Finland", nameEs: "Finlandia" },
-  { code: "no", name: "Norway", nameEs: "Noruega" },
-  { code: "pl", name: "Poland", nameEs: "Polonia" },
-  { code: "cz", name: "Czech Republic", nameEs: "República Checa" },
-  { code: "gr", name: "Greece", nameEs: "Grecia" },
-  { code: "ch", name: "Switzerland", nameEs: "Suiza" },
-  { code: "ro", name: "Romania", nameEs: "Rumanía" },
-  { code: "hu", name: "Hungary", nameEs: "Hungría" },
-  { code: "bg", name: "Bulgaria", nameEs: "Bulgaria" },
-  { code: "hr", name: "Croatia", nameEs: "Croacia" },
-  { code: "sk", name: "Slovakia", nameEs: "Eslovaquia" },
-  { code: "si", name: "Slovenia", nameEs: "Eslovenia" },
-  { code: "lt", name: "Lithuania", nameEs: "Lituania" },
-  { code: "lv", name: "Latvia", nameEs: "Letonia" },
-  { code: "ee", name: "Estonia", nameEs: "Estonia" },
-  { code: "cy", name: "Cyprus", nameEs: "Chipre" },
-  { code: "lu", name: "Luxembourg", nameEs: "Luxemburgo" },
-  { code: "mt", name: "Malta", nameEs: "Malta" },
-];
+const COUNTRY_CODES = [
+  "es", "gb", "us", "de", "fr", "it", "pt", "nl", "be", "at",
+  "ie", "se", "dk", "fi", "no", "pl", "cz", "gr", "ch", "ro",
+  "hu", "bg", "hr", "sk", "si", "lt", "lv", "ee", "cy", "lu", "mt",
+] as const;
+
+function getCountryName(code: string, locale: string): string {
+  try {
+    const displayNames = new Intl.DisplayNames([locale], { type: "region" });
+    return displayNames.of(code.toUpperCase()) || code.toUpperCase();
+  } catch {
+    return code.toUpperCase();
+  }
+}
 
 function CheckIcon() {
   return (
@@ -644,7 +625,7 @@ export default function CheckoutPage() {
               {completedSteps.has("information") && activeStep !== "information" && (
                 <div className="px-6 pb-4 text-sm text-oryn-black/60 space-y-0.5 bg-oryn-grey-light/50">
                   <p>{email}</p>
-                  <p>{firstName} {lastName}, {address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
+                  <p>{firstName} {lastName}, {address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}, {getCountryName(country, locale)}</p>
                   {phone && <p>{phone}</p>}
                 </div>
               )}
@@ -717,8 +698,8 @@ export default function CheckoutPage() {
                         } ${!country ? "text-oryn-black/40" : ""}`}
                       >
                         <option value="">{t.checkoutPage.selectCountry}</option>
-                        {COUNTRIES.map((c) => (
-                          <option key={c.code} value={c.code}>{locale === "es" ? c.nameEs : c.name}</option>
+                        {COUNTRY_CODES.map((code) => (
+                          <option key={code} value={code}>{getCountryName(code, locale)}</option>
                         ))}
                       </select>
                       {errors.country && <p className="text-[10px] text-red-500 mt-1">{errors.country}</p>}
@@ -868,7 +849,7 @@ export default function CheckoutPage() {
                   <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 mb-4 text-sm text-oryn-black/60">
                     <p className="font-medium text-oryn-black">{firstName} {lastName}</p>
                     <p>{address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}</p>
-                    <p>{COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
+                    <p>{getCountryName(country, locale)}</p>
                   </div>
 
                   {shippingLoading ? (
@@ -1031,7 +1012,7 @@ export default function CheckoutPage() {
                       <div className="flex justify-between items-start">
                         <div>
                           <p className="text-[10px] font-mono text-oryn-black/30 tracking-wider mb-0.5">{t.checkoutPage.shipTo}</p>
-                          <p>{address}, {city} {postalCode}, {COUNTRIES.find((c) => c.code === country)?.[locale === "es" ? "nameEs" : "name"]}</p>
+                          <p>{address}, {city} {postalCode}, {getCountryName(country, locale)}</p>
                         </div>
                         <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
                       </div>

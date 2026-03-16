@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PeptideCalculator } from "@/components/tools/PeptideCalculator";
@@ -186,6 +187,7 @@ export default async function PeptideCalculatorPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   // Select a few featured products to link to
   const featuredSlugs = [
@@ -206,10 +208,10 @@ export default async function PeptideCalculatorPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Tools", url: `/${locale}/tools/peptide-calculator` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.tools, url: `/${locale}/tools/peptide-calculator` },
             {
-              name: "Peptide Calculator",
+              name: dict.breadcrumbs.peptideCalculator,
               url: `/${locale}/tools/peptide-calculator`,
             },
           ]),

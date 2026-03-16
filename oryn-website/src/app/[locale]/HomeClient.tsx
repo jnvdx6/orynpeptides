@@ -12,6 +12,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { TrustBanner } from "@/components/seo/TrustBanner";
 import { Link } from "@/components/ui/LocaleLink";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useLocale } from "@/i18n/LocaleContext";
 
 const topCities = [
   { slug: "london", name: "London" },
@@ -37,11 +38,11 @@ const topCities = [
 ];
 
 const researchAreas = [
-  { slug: "recovery", name: "Recovery & Healing" },
-  { slug: "weight-loss", name: "Weight Loss" },
-  { slug: "anti-aging", name: "Anti-Aging & Longevity" },
-  { slug: "muscle-growth", name: "Muscle Growth" },
-  { slug: "skin-rejuvenation", name: "Skin Rejuvenation" },
+  { slug: "recovery" },
+  { slug: "weight-loss" },
+  { slug: "anti-aging" },
+  { slug: "muscle-growth" },
+  { slug: "skin-rejuvenation" },
 ];
 
 const topArticles = [
@@ -55,6 +56,7 @@ const topArticles = [
 
 export function HomeClient() {
   usePageTracking("home");
+  const { t } = useLocale();
 
   return (
     <>
@@ -76,7 +78,7 @@ export function HomeClient() {
             {/* UK Delivery Cities */}
             <div>
               <h2 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-5">
-                PEPTIDE DELIVERY ACROSS THE UK
+                {t.homeSeo.deliveryTitle}
               </h2>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {topCities.map((city) => (
@@ -94,7 +96,7 @@ export function HomeClient() {
             {/* Research Areas */}
             <div>
               <h2 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-5">
-                PEPTIDES BY RESEARCH AREA
+                {t.homeSeo.researchAreaTitle}
               </h2>
               <ul className="space-y-2">
                 {researchAreas.map((area) => (
@@ -103,7 +105,7 @@ export function HomeClient() {
                       href={`/peptides-for/${area.slug}`}
                       className="text-[11px] text-oryn-black/35 hover:text-oryn-orange transition-colors font-plex"
                     >
-                      Peptides for {area.name}
+                      {t.homeSeo.peptidesFor} {t.researchCategories[area.slug] || area.slug}
                     </Link>
                   </li>
                 ))}
@@ -113,7 +115,7 @@ export function HomeClient() {
             {/* Research Hub */}
             <div>
               <h2 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-5">
-                RESEARCH HUB
+                {t.homeSeo.researchHubTitle}
               </h2>
               <ul className="space-y-2">
                 {topArticles.map((article) => (

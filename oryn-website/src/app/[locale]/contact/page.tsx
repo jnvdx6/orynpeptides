@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { ContactClient } from "./ContactClient";
 
 const CONTACT_FAQS = [
@@ -62,14 +63,15 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Contact", url: `/${locale}/contact` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.contact, url: `/${locale}/contact` },
           ]),
           faqSchema(CONTACT_FAQS),
         ]}

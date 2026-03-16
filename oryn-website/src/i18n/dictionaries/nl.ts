@@ -268,9 +268,12 @@ const nl = {
       learn: "Kenniscentrum",
       ukDelivery: "UK Levering",
       ukRegions: "UK Regio's",
+      ukCounties: "UK Graafschappen",
       peptideEncyclopedia: "Peptide Encyclopedie",
       resources: "Bronnen",
       londonDelivery: "Londen Levering",
+      europeanDelivery: "Europese Levering",
+      topEuCities: "Top EU Steden",
     },
     certifications: [
       { label: "ISO KLASSE 7", detail: "Cleanroom" },
@@ -871,6 +874,72 @@ const nl = {
       "Geavanceerd NAD+ cartridge-afgiftesysteem voor dagelijkse precisie-microdosering.",
   },
 
+  researchCategories: {
+    recovery: "Herstel en Genezing",
+    "weight-loss": "Gewichtsverlies",
+    "anti-aging": "Anti-Veroudering",
+    "muscle-growth": "Spiergroei",
+    "skin-rejuvenation": "Huidverjonging",
+    "sleep-quality": "Slaap en Herstel",
+    "gut-health": "Darmgezondheid",
+    "joint-health": "Gewrichten en Pezen",
+    "hair-growth": "Haargroei",
+    "immune-support": "Immuunondersteuning",
+    "tendon-repair": "Peesherstel",
+    "sports-recovery": "Sportherstel",
+    "post-surgery": "Na de Operatie",
+    "cognitive-enhancement": "Cognitieve Verbetering",
+    "energy-vitality": "Energie en Vitaliteit",
+    "detox-cleanse": "Detox en Reiniging",
+    "body-composition": "Lichaamssamenstelling",
+    inflammation: "Ontsteking en Pijn",
+    "hormonal-balance": "Hormonaal Evenwicht",
+    "longevity-biohacking": "Levensduur en Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Home",
+    products: "Producten",
+    about: "Over Ons",
+    science: "Wetenschap",
+    contact: "Contact",
+    learn: "Leren",
+    quality: "Kwaliteit",
+    faq: "FAQ",
+    compare: "Vergelijken",
+    shipping: "Verzending",
+    whyOryn: "Waarom ORYN",
+    terms: "Voorwaarden",
+    privacy: "Privacy",
+    disclaimer: "Disclaimer",
+    cart: "Winkelwagen",
+    checkout: "Afrekenen",
+    account: "Account",
+    orders: "Bestellingen",
+    referrals: "Verwijzingen",
+    wishlist: "Verlanglijst",
+    profile: "Profiel",
+    wholesale: "Groothandel",
+    bundles: "Bundels",
+    protocols: "Protocollen",
+    peptides: "Peptiden",
+    peptidePens: "Peptide Pennen",
+    europe: "Europa",
+    glossary: "Woordenlijst",
+    london: "Londen",
+    encyclopedia: "Encyclopedie",
+    ukPeptideDelivery: "VK Peptide Levering",
+    tools: "Tools",
+    peptideCalculator: "Peptide Calculator",
+  },
+
+  homeSeo: {
+    deliveryTitle: "PEPTIDE LEVERING IN HEEL EUROPA",
+    researchAreaTitle: "PEPTIDEN PER ONDERZOEKSGEBIED",
+    researchHubTitle: "ONDERZOEKSCENTRUM",
+    peptidesFor: "Peptiden voor",
+  },
+
   testimonials: {
     label: "VERTROUWD DOOR ONDERZOEKERS",
     titleLine1: "Wat Onze",
@@ -1122,6 +1191,9 @@ const nl = {
         { title: "Zij Bestellen", desc: "Wanneer zij zich registreren met uw code en een bestelling plaatsen, verdient u commissie." },
         { title: "Verdien Beloningen", desc: "Verdien 10% op directe verwijzingen, plus commissies op hun verwijzingen tot 5 niveaus diep." },
       ],
+      whatsappShareText: "Ontdek ORYN Peptides — precisie onderzoekspeptiden uit een Europees biotech laboratorium. Gebruik mijn code {code} bij uw eerste bestelling: {link}",
+      emailShareSubject: "ORYN Peptides — Precisie Onderzoekspeptiden",
+      emailShareBody: "Hallo,\n\nIk wilde ORYN Peptides met u delen. Ze produceren farmaceutische onderzoekspeptiden met >99% zuiverheid.\n\nGebruik mijn verwijzingscode: {code}\n\nOf klik hier: {link}\n\nMet vriendelijke groet",
     },
     wishlist: {
       title: "Verlanglijst",
@@ -1216,6 +1288,9 @@ const nl = {
     unexpectedError: "Er is een onverwachte fout opgetreden.",
     notCompleted: "Betaling niet voltooid. Probeer het opnieuw.",
     preparingPayment: "Veilige betaling voorbereiden...",
+    paymentNotReady: "Het betalingssysteem is niet gereed. Probeer het opnieuw.",
+    paymentFormLoading: "Het betalingsformulier wordt nog geladen. Even geduld.",
+    orderCreationFailed: "Betaling verwerkt maar het aanmaken van de bestelling is mislukt. Neem contact op met support.",
   },
 
   volumeDiscount: {
@@ -1237,6 +1312,11 @@ const nl = {
 
   recentlyViewed: {
     title: "Recent Bekeken",
+  },
+
+  orderBump: {
+    addToOrder: "TOEVOEGEN AAN UW BESTELLING",
+    yesAddIt: "JA, TOEVOEGEN",
   },
 
   share: {

@@ -1,10 +1,11 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { useCart } from "@/lib/cart-context";
+import { trackPurchase } from "@/lib/analytics";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
@@ -20,6 +21,9 @@ function SuccessContent() {
   const orderRef = searchParams.get("order_ref");
   const orderTotal = searchParams.get("total");
   const itemsCount = searchParams.get("items_count");
+  const shippingCountry = searchParams.get("shipping_country");
+  const currency = searchParams.get("currency");
+  const tracked = useRef(false);
 
   useEffect(() => {
     if (redirectStatus === "succeeded") {
@@ -36,6 +40,21 @@ function SuccessContent() {
       setStatus("error");
     }
   }, [redirectStatus, paymentIntentId, clearCart]);
+
+  // Track purchase event (once) on successful payment
+  useEffect(() => {
+    if (status === "success" && paymentIntentId && !tracked.current) {
+      tracked.current = true;
+      trackPurchase({
+        orderId: paymentIntentId,
+        orderRef: orderRef || "",
+        total: parseFloat(orderTotal || "0"),
+        itemCount: parseInt(itemsCount || "0", 10),
+        currency: currency || "EUR",
+        shippingCountry: shippingCountry || undefined,
+      });
+    }
+  }, [status, paymentIntentId, orderRef, orderTotal, itemsCount, currency, shippingCountry]);
 
   if (status === "loading") {
     return (

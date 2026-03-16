@@ -14,7 +14,8 @@ import {
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
 export async function generateStaticParams() {
@@ -62,6 +63,7 @@ export default async function CategoryPage({
   params: Promise<{ locale: string; category: string }>;
 }) {
   const { category: catSlug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const category = getCategoryBySlug(catSlug);
   if (!category) notFound();
 
@@ -75,8 +77,8 @@ export default async function CategoryPage({
         items={[
           faqSchema(category.faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Products", url: `/${locale}/products` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.products, url: `/${locale}/products` },
             { name: category.name, url: `/${locale}/peptides-for/${category.slug}` },
           ]),
           {

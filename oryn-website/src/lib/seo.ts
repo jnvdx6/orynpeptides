@@ -2,6 +2,7 @@ import { products, type Product } from "@/data/products";
 import type { UKCity } from "@/data/uk-cities";
 import { getReviewsByProduct, getAggregateRating } from "@/data/reviews";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
+import { markets, regions } from "@/i18n/config";
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://orynxpeptides.com").trim();
 
@@ -87,7 +88,7 @@ export function websiteSchema() {
     alternateName: "ORYN",
     url: SITE_URL,
     description: "Research-grade peptide pen systems with >99% purity. GMP certified, next-day UK delivery.",
-    inLanguage: ["en", "es"],
+    inLanguage: ["en", "es", "fr", "de", "it", "pt", "nl", "pl"],
     publisher: {
       "@type": "Organization",
       name: "ORYN Peptide Labs",
@@ -116,7 +117,9 @@ const productReviewBoost: Record<string, number> = {
 };
 
 export function productSchema(product: Product, locale: string = "en") {
-  const currency = locale === "es" ? "EUR" : "GBP";
+  const market = markets[locale as keyof typeof markets];
+  const regionConfig = market ? regions[market.defaultRegion] : regions.uk;
+  const currency = regionConfig.currencyCode.toUpperCase();
   return {
     "@context": "https://schema.org",
     "@type": "Product",

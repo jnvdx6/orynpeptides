@@ -15,6 +15,8 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import type { Product } from "@/data/products";
+import { type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
 export const dynamicParams = true;
@@ -156,6 +158,7 @@ export default async function CategoryCityPage({
   params: Promise<{ locale: string; category: string; city: string }>;
 }) {
   const { category: catSlug, city: citySlug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const category = getCategoryBySlug(catSlug);
   const city = getCityBySlug(citySlug);
   if (!category || !city) notFound();
@@ -180,8 +183,8 @@ export default async function CategoryCityPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Products", url: `/${locale}/products` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.products, url: `/${locale}/products` },
             { name: category.name, url: `/${locale}/peptides-for/${category.slug}` },
             { name: city.name, url: pageUrl },
           ]),

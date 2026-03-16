@@ -4,7 +4,8 @@ import { BLOG_ARTICLES } from "@/data/blog-articles";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -71,6 +72,7 @@ export default async function LearnPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const grouped = groupByCategory(BLOG_ARTICLES);
   const sortedCategories = Object.keys(grouped).sort((a, b) => {
     const ai = CATEGORY_ORDER.indexOf(a);
@@ -83,8 +85,8 @@ export default async function LearnPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Learn", url: `/${locale}/learn` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.learn, url: `/${locale}/learn` },
           ]),
           {
             "@context": "https://schema.org",

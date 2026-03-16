@@ -268,9 +268,12 @@ const pl = {
       learn: "Wiedza",
       ukDelivery: "Dostawa UK",
       ukRegions: "Regiony UK",
+      ukCounties: "Hrabstwa UK",
       peptideEncyclopedia: "Encyklopedia peptydów",
       resources: "Zasoby",
       londonDelivery: "Dostawa Londyn",
+      europeanDelivery: "Dostawa Europa",
+      topEuCities: "Główne Miasta UE",
     },
     certifications: [
       { label: "ISO CLASS 7", detail: "Cleanroom" },
@@ -871,6 +874,72 @@ const pl = {
       "Zaawansowany system dostarczania NAD+ na bazie wkładów do precyzyjnego codziennego mikrodawkowania.",
   },
 
+  researchCategories: {
+    recovery: "Regeneracja i Gojenie",
+    "weight-loss": "Utrata Wagi",
+    "anti-aging": "Anti-Aging",
+    "muscle-growth": "Wzrost Mięśni",
+    "skin-rejuvenation": "Odmładzanie Skóry",
+    "sleep-quality": "Sen i Regeneracja",
+    "gut-health": "Zdrowie Jelit",
+    "joint-health": "Stawy i Ścięgna",
+    "hair-growth": "Wzrost Włosów",
+    "immune-support": "Wsparcie Odporności",
+    "tendon-repair": "Naprawa Ścięgien",
+    "sports-recovery": "Regeneracja Sportowa",
+    "post-surgery": "Po Operacji",
+    "cognitive-enhancement": "Poprawa Kognitywna",
+    "energy-vitality": "Energia i Witalność",
+    "detox-cleanse": "Detoks i Oczyszczanie",
+    "body-composition": "Kompozycja Ciała",
+    inflammation: "Zapalenie i Ból",
+    "hormonal-balance": "Równowaga Hormonalna",
+    "longevity-biohacking": "Długowieczność i Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Strona Główna",
+    products: "Produkty",
+    about: "O Nas",
+    science: "Nauka",
+    contact: "Kontakt",
+    learn: "Wiedza",
+    quality: "Jakość",
+    faq: "FAQ",
+    compare: "Porównaj",
+    shipping: "Wysyłka",
+    whyOryn: "Dlaczego ORYN",
+    terms: "Regulamin",
+    privacy: "Prywatność",
+    disclaimer: "Zastrzeżenia",
+    cart: "Koszyk",
+    checkout: "Płatność",
+    account: "Konto",
+    orders: "Zamówienia",
+    referrals: "Polecenia",
+    wishlist: "Lista Życzeń",
+    profile: "Profil",
+    wholesale: "Hurtowy",
+    bundles: "Pakiety",
+    protocols: "Protokoły",
+    peptides: "Peptydy",
+    peptidePens: "Pióra Peptydowe",
+    europe: "Europa",
+    glossary: "Słownik",
+    london: "Londyn",
+    encyclopedia: "Encyklopedia",
+    ukPeptideDelivery: "Dostawa Peptydów w Wielkiej Brytanii",
+    tools: "Narzędzia",
+    peptideCalculator: "Kalkulator Peptydów",
+  },
+
+  homeSeo: {
+    deliveryTitle: "DOSTAWA PEPTYDÓW W CAŁEJ EUROPIE",
+    researchAreaTitle: "PEPTYDY WEDŁUG OBSZARU BADAŃ",
+    researchHubTitle: "CENTRUM BADAWCZE",
+    peptidesFor: "Peptydy dla",
+  },
+
   testimonials: {
     label: "ZAUFANIE NAUKOWCÓW",
     titleLine1: "Co mówią",
@@ -1122,6 +1191,9 @@ const pl = {
         { title: "Składają zamówienie", desc: "Gdy zarejestrują się z Twoim kodem i złożą zamówienie, zarabiasz prowizję." },
         { title: "Zarabiaj nagrody", desc: "Zarabiaj 10% od bezpośrednich poleceń, plus prowizje od ich poleceń do 5 poziomów w głąb." },
       ],
+      whatsappShareText: "Odkryj ORYN Peptides — precyzyjne peptydy badawcze z europejskiego laboratorium biotech. Użyj mojego kodu {code} przy pierwszym zamówieniu: {link}",
+      emailShareSubject: "ORYN Peptides — Precyzyjne Peptydy Badawcze",
+      emailShareBody: "Cześć,\n\nChciałem podzielić się z Tobą ORYN Peptides. Produkują peptydy badawcze klasy farmaceutycznej o czystości >99%.\n\nUżyj mojego kodu polecającego: {code}\n\nLub kliknij tutaj: {link}\n\nPozdrawiam",
     },
     wishlist: {
       title: "Lista życzeń",
@@ -1216,6 +1288,9 @@ const pl = {
     unexpectedError: "Wystąpił nieoczekiwany błąd.",
     notCompleted: "Płatność nie została zrealizowana. Spróbuj ponownie.",
     preparingPayment: "Przygotowywanie bezpiecznej płatności...",
+    paymentNotReady: "System płatności nie jest gotowy. Spróbuj ponownie.",
+    paymentFormLoading: "Formularz płatności wciąż się ładuje. Poczekaj chwilę.",
+    orderCreationFailed: "Płatność przetworzona, ale utworzenie zamówienia nie powiodło się. Skontaktuj się z pomocą.",
   },
 
   volumeDiscount: {
@@ -1237,6 +1312,11 @@ const pl = {
 
   recentlyViewed: {
     title: "Ostatnio przeglądane",
+  },
+
+  orderBump: {
+    addToOrder: "DODAJ DO ZAMÓWIENIA",
+    yesAddIt: "TAK, DODAJ",
   },
 
   share: {

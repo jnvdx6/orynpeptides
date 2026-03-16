@@ -268,9 +268,12 @@ const es = {
       learn: "Aprender",
       ukDelivery: "Env\u00edo Reino Unido",
       ukRegions: "Regiones del Reino Unido",
+      ukCounties: "Condados del Reino Unido",
       peptideEncyclopedia: "Enciclopedia de P\u00e9ptidos",
       resources: "Recursos",
       londonDelivery: "Env\u00edo a Londres",
+      europeanDelivery: "Env\u00edo a Europa",
+      topEuCities: "Principales Ciudades de la UE",
     },
     certifications: [
       { label: "ISO CLASS 7", detail: "Sala Limpia" },
@@ -871,6 +874,72 @@ const es = {
       "Sistema avanzado de administraci\u00f3n NAD+ por cartuchos para microdosificaci\u00f3n diaria de precisi\u00f3n.",
   },
 
+  researchCategories: {
+    recovery: "Recuperaci\u00f3n y Curaci\u00f3n",
+    "weight-loss": "P\u00e9rdida de Peso",
+    "anti-aging": "Anti-Envejecimiento",
+    "muscle-growth": "Crecimiento Muscular",
+    "skin-rejuvenation": "Rejuvenecimiento de la Piel",
+    "sleep-quality": "Sue\u00f1o y Descanso",
+    "gut-health": "Salud Intestinal",
+    "joint-health": "Articulaciones y Tendones",
+    "hair-growth": "Crecimiento Capilar",
+    "immune-support": "Soporte Inmunitario",
+    "tendon-repair": "Reparaci\u00f3n de Tendones",
+    "sports-recovery": "Recuperaci\u00f3n Deportiva",
+    "post-surgery": "Post-Cirug\u00eda",
+    "cognitive-enhancement": "Mejora Cognitiva",
+    "energy-vitality": "Energ\u00eda y Vitalidad",
+    "detox-cleanse": "Desintoxicaci\u00f3n",
+    "body-composition": "Composici\u00f3n Corporal",
+    inflammation: "Inflamaci\u00f3n y Dolor",
+    "hormonal-balance": "Equilibrio Hormonal",
+    "longevity-biohacking": "Longevidad y Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Inicio",
+    products: "Productos",
+    about: "Sobre Nosotros",
+    science: "Ciencia",
+    contact: "Contacto",
+    learn: "Aprender",
+    quality: "Calidad",
+    faq: "FAQ",
+    compare: "Comparar",
+    shipping: "Env\u00edo",
+    whyOryn: "Por Qu\u00e9 ORYN",
+    terms: "T\u00e9rminos",
+    privacy: "Privacidad",
+    disclaimer: "Aviso Legal",
+    cart: "Carrito",
+    checkout: "Pago",
+    account: "Cuenta",
+    orders: "Pedidos",
+    referrals: "Referidos",
+    wishlist: "Lista de Deseos",
+    profile: "Perfil",
+    wholesale: "Mayorista",
+    bundles: "Packs",
+    protocols: "Protocolos",
+    peptides: "Péptidos",
+    peptidePens: "Plumas de Péptidos",
+    europe: "Europa",
+    glossary: "Glosario",
+    london: "Londres",
+    encyclopedia: "Enciclopedia",
+    ukPeptideDelivery: "Entrega de Péptidos en Reino Unido",
+    tools: "Herramientas",
+    peptideCalculator: "Calculadora de Péptidos",
+  },
+
+  homeSeo: {
+    deliveryTitle: "ENTREGA DE P\u00c9PTIDOS EN TODA EUROPA",
+    researchAreaTitle: "P\u00c9PTIDOS POR \u00c1REA DE INVESTIGACI\u00d3N",
+    researchHubTitle: "CENTRO DE INVESTIGACI\u00d3N",
+    peptidesFor: "P\u00e9ptidos para",
+  },
+
   testimonials: {
     label: "CONFIANZA DE INVESTIGADORES",
     titleLine1: "Lo Que Dicen",
@@ -1122,6 +1191,9 @@ const es = {
         { title: "Ellos Piden", desc: "Cuando se registran con tu código y hacen un pedido, tú ganas comisión." },
         { title: "Gana Recompensas", desc: "Gana 10% en referidos directos, más comisiones en sus referidos hasta 5 niveles de profundidad." },
       ],
+      whatsappShareText: "Descubre ORYN Peptides — péptidos de investigación de precisión de un laboratorio biotecnológico europeo. Usa mi código {code} en tu primer pedido: {link}",
+      emailShareSubject: "ORYN Peptides — Péptidos de Investigación de Precisión",
+      emailShareBody: "Hola,\n\nQuería compartir ORYN Peptides contigo. Producen péptidos de investigación de grado farmacéutico con >99% de pureza.\n\nUsa mi código de referido: {code}\n\nO haz clic aquí: {link}\n\nSaludos",
     },
     wishlist: {
       title: "Favoritos",
@@ -1216,6 +1288,9 @@ const es = {
     unexpectedError: "Ha ocurrido un error inesperado.",
     notCompleted: "El pago no se ha completado. Inténtalo de nuevo.",
     preparingPayment: "Preparando pago seguro...",
+    paymentNotReady: "El sistema de pago no está listo. Por favor, inténtalo de nuevo.",
+    paymentFormLoading: "El formulario de pago aún está cargando. Espera un momento.",
+    orderCreationFailed: "Pago procesado pero falló la creación del pedido. Contacta con soporte.",
   },
 
   volumeDiscount: {
@@ -1237,6 +1312,11 @@ const es = {
 
   recentlyViewed: {
     title: "Vistos Recientemente",
+  },
+
+  orderBump: {
+    addToOrder: "AÑADE A TU PEDIDO",
+    yesAddIt: "SÍ, AÑADIR",
   },
 
   share: {

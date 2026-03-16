@@ -178,9 +178,12 @@ export interface Dictionary {
       learn: string;
       ukDelivery: string;
       ukRegions: string;
+      ukCounties: string;
       peptideEncyclopedia: string;
       resources: string;
       londonDelivery: string;
+      europeanDelivery: string;
+      topEuCities: string;
     };
     certifications: Array<{ label: string; detail: string }>;
     copyright: string;
@@ -525,6 +528,52 @@ export interface Dictionary {
   categoryNames: Record<string, string>;
   categoryDescriptions: Record<string, string>;
 
+  /** Research area category names for footer/home SEO links */
+  researchCategories: Record<string, string>;
+
+  breadcrumbs: {
+    home: string;
+    products: string;
+    about: string;
+    science: string;
+    contact: string;
+    learn: string;
+    quality: string;
+    faq: string;
+    compare: string;
+    shipping: string;
+    whyOryn: string;
+    terms: string;
+    privacy: string;
+    disclaimer: string;
+    cart: string;
+    checkout: string;
+    account: string;
+    orders: string;
+    referrals: string;
+    wishlist: string;
+    profile: string;
+    wholesale: string;
+    bundles: string;
+    protocols: string;
+    peptides: string;
+    peptidePens: string;
+    europe: string;
+    glossary: string;
+    london: string;
+    encyclopedia: string;
+    ukPeptideDelivery: string;
+    tools: string;
+    peptideCalculator: string;
+  };
+
+  homeSeo: {
+    deliveryTitle: string;
+    researchAreaTitle: string;
+    researchHubTitle: string;
+    peptidesFor: string;
+  };
+
   testimonials: {
     label: string;
     titleLine1: string;
@@ -616,6 +665,9 @@ export interface Dictionary {
     unexpectedError: string;
     notCompleted: string;
     preparingPayment: string;
+    paymentNotReady: string;
+    paymentFormLoading: string;
+    orderCreationFailed: string;
   };
 
   volumeDiscount: {
@@ -637,6 +689,11 @@ export interface Dictionary {
 
   recentlyViewed: {
     title: string;
+  };
+
+  orderBump: {
+    addToOrder: string;
+    yesAddIt: string;
   };
 
   share: {
@@ -824,6 +881,9 @@ export interface Dictionary {
       tableDate: string;
       howItWorks: string;
       steps: Array<{ title: string; desc: string }>;
+      whatsappShareText: string;
+      emailShareSubject: string;
+      emailShareBody: string;
     };
     wishlist: {
       title: string;

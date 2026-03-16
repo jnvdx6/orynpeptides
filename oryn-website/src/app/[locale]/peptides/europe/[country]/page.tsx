@@ -15,7 +15,8 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export const dynamicParams = true;
 export async function generateStaticParams() {
@@ -57,6 +58,7 @@ export default async function CountryPage({
   params: Promise<{ locale: string; country: string }>;
 }) {
   const { locale, country: countrySlug } = await params;
+  const dict = await getDictionary(locale as Locale);
   const country = getEUCountry(countrySlug);
   if (!country) notFound();
 
@@ -89,8 +91,8 @@ export default async function CountryPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Europe", url: `/${locale}/peptides/europe` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.europe, url: `/${locale}/peptides/europe` },
             {
               name: country.name,
               url: `/${locale}/peptides/europe/${country.slug}`,

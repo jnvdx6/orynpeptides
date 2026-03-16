@@ -5,7 +5,8 @@ import { COMPARISONS } from "@/data/comparisons";
 import { getProductBySlug as getProduct, productImages } from "@/data/products";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { PageTracker } from "@/components/analytics/PageTracker";
 
 export async function generateStaticParams() {
@@ -52,6 +53,7 @@ export default async function ComparePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const currency = "€";
 
   return (
@@ -59,8 +61,8 @@ export default async function ComparePage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Compare Peptides", url: `/${locale}/compare` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.compare, url: `/${locale}/compare` },
           ]),
           {
             "@context": "https://schema.org",

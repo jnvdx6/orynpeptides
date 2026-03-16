@@ -18,7 +18,8 @@ import {
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   const params = [];
@@ -80,6 +81,7 @@ export default async function EncyclopediaEntryPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   // Handle redirects for MediT and NovaDose
   const redirectSlug = getEncyclopediaRedirect(slug);
@@ -118,8 +120,8 @@ export default async function EncyclopediaEntryPage({
     },
     faqSchema(entry.faqs),
     breadcrumbSchema([
-      { name: "Home", url: `/${locale}` },
-      { name: "Peptide Encyclopedia", url: `/${locale}/peptides/encyclopedia` },
+      { name: dict.breadcrumbs.home, url: `/${locale}` },
+      { name: dict.breadcrumbs.encyclopedia, url: `/${locale}/peptides/encyclopedia` },
       { name: entry.name, url: `/${locale}/peptides/encyclopedia/${entry.slug}` },
     ]),
   ];

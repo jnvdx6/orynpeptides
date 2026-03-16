@@ -6,7 +6,8 @@ import type { GlossaryTerm } from "@/data/glossary-terms";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 /* ─── On-demand generation (ISR) to keep build output under Vercel limits ── */
 export const dynamicParams = true;
@@ -96,6 +97,7 @@ export default async function GlossaryTermPage({
   params: Promise<{ locale: string; term: string }>;
 }) {
   const { locale, term } = await params;
+  const dict = await getDictionary(locale as Locale);
   const entry = getTermBySlug(term);
   if (!entry) notFound();
 
@@ -119,9 +121,9 @@ export default async function GlossaryTermPage({
   };
 
   const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: `/${locale}` },
-    { name: "Peptides", url: `/${locale}/peptides/glossary` },
-    { name: "Glossary", url: `/${locale}/peptides/glossary` },
+    { name: dict.breadcrumbs.home, url: `/${locale}` },
+    { name: dict.breadcrumbs.peptides, url: `/${locale}/peptides/glossary` },
+    { name: dict.breadcrumbs.glossary, url: `/${locale}/peptides/glossary` },
     { name: entry.term, url: `/${locale}/peptides/glossary/${term}` },
   ]);
 

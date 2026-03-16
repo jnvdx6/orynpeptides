@@ -5,7 +5,8 @@ import { UK_CITIES } from "@/data/uk-cities";
 import { products, productImages } from "@/data/products";
 import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -78,6 +79,7 @@ export default async function PeptidesUKPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const currency = "€";
 
   const regions = {
@@ -94,8 +96,8 @@ export default async function PeptidesUKPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "UK Peptide Delivery", url: `/${locale}/peptides` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.ukPeptideDelivery, url: `/${locale}/peptides` },
           ]),
           faqSchema(ukDeliveryFaqs),
           {

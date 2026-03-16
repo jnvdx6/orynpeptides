@@ -61,13 +61,13 @@ export default function ReferralsPage() {
   };
 
   const shareViaWhatsApp = () => {
-    const text = `Check out ORYN Peptides — precision research peptides from a European biotech lab. Use my code ${user?.referralCode} for tracking on your first order: ${referralLink}`;
+    const text = r.whatsappShareText.replace("{code}", user?.referralCode || "").replace("{link}", referralLink);
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   const shareViaEmail = () => {
-    const subject = "ORYN Peptides — Precision Research Peptides";
-    const body = `Hi,\n\nI wanted to share ORYN Peptides with you. They produce pharmaceutical-grade research peptides with >99% purity.\n\nUse my referral code: ${user?.referralCode}\n\nOr click here: ${referralLink}\n\nBest regards`;
+    const subject = r.emailShareSubject;
+    const body = r.emailShareBody.replace("{code}", user?.referralCode || "").replace("{link}", referralLink);
     window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
   };
 

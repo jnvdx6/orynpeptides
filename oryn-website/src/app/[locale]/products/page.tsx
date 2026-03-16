@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { products } from "@/data/products";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { ProductsClient } from "./ProductsClient";
 import { PageTracker } from "@/components/analytics/PageTracker";
 
@@ -75,6 +76,7 @@ export default async function ProductsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
@@ -82,8 +84,8 @@ export default async function ProductsPage({
         items={[
           itemListSchema(locale),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Products", url: `/${locale}/products` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.products, url: `/${locale}/products` },
           ]),
           {
             "@context": "https://schema.org",

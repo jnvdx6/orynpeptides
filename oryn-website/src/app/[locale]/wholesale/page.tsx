@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, faqSchema, organizationSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { WholesaleClient } from "./WholesaleClient";
 
 export async function generateStaticParams() {
@@ -87,14 +88,15 @@ export default async function WholesalePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Wholesale", url: `/${locale}/wholesale` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.wholesale, url: `/${locale}/wholesale` },
           ]),
           faqSchema(wholesaleFaqs),
           organizationSchema(),

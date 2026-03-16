@@ -6,7 +6,8 @@ import { getProductBySlug as getProduct, productImages } from "@/data/products";
 import { COMPARISONS, getComparisonBySlug, COMPARISON_SLUGS } from "@/data/comparisons";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   const params = [];
@@ -52,6 +53,7 @@ export default async function ComparisonPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const comparison = getComparisonBySlug(slug);
   if (!comparison) notFound();
 
@@ -68,8 +70,8 @@ export default async function ComparisonPage({
         items={[
           faqSchema(comparison.faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Compare", url: `/${locale}/compare` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.compare, url: `/${locale}/compare` },
             { name: comparison.title, url: `/${locale}/compare/${slug}` },
           ]),
         ]}

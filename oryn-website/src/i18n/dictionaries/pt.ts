@@ -268,9 +268,12 @@ const pt = {
       learn: "Aprender",
       ukDelivery: "Envio Reino Unido",
       ukRegions: "Regiões do Reino Unido",
+      ukCounties: "Condados do Reino Unido",
       peptideEncyclopedia: "Enciclopédia de Peptídeos",
       resources: "Recursos",
       londonDelivery: "Envio para Londres",
+      europeanDelivery: "Entrega Europa",
+      topEuCities: "Principais Cidades da UE",
     },
     certifications: [
       { label: "ISO CLASS 7", detail: "Sala Limpa" },
@@ -871,6 +874,72 @@ const pt = {
       "Sistema avançado de administração NAD+ por cartuchos para microdosagem diária de precisão.",
   },
 
+  researchCategories: {
+    recovery: "Recuperação e Cura",
+    "weight-loss": "Perda de Peso",
+    "anti-aging": "Anti-Envelhecimento",
+    "muscle-growth": "Crescimento Muscular",
+    "skin-rejuvenation": "Rejuvenescimento da Pele",
+    "sleep-quality": "Sono e Recuperação",
+    "gut-health": "Saúde Intestinal",
+    "joint-health": "Articulações e Tendões",
+    "hair-growth": "Crescimento Capilar",
+    "immune-support": "Suporte Imunitário",
+    "tendon-repair": "Reparação de Tendões",
+    "sports-recovery": "Recuperação Desportiva",
+    "post-surgery": "Pós-Cirurgia",
+    "cognitive-enhancement": "Melhoria Cognitiva",
+    "energy-vitality": "Energia e Vitalidade",
+    "detox-cleanse": "Detox e Purificação",
+    "body-composition": "Composição Corporal",
+    inflammation: "Inflamação e Dor",
+    "hormonal-balance": "Equilíbrio Hormonal",
+    "longevity-biohacking": "Longevidade e Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Início",
+    products: "Produtos",
+    about: "Sobre Nós",
+    science: "Ciência",
+    contact: "Contacto",
+    learn: "Aprender",
+    quality: "Qualidade",
+    faq: "FAQ",
+    compare: "Comparar",
+    shipping: "Envio",
+    whyOryn: "Porquê ORYN",
+    terms: "Termos",
+    privacy: "Privacidade",
+    disclaimer: "Aviso Legal",
+    cart: "Carrinho",
+    checkout: "Pagamento",
+    account: "Conta",
+    orders: "Encomendas",
+    referrals: "Referências",
+    wishlist: "Lista de Desejos",
+    profile: "Perfil",
+    wholesale: "Grossista",
+    bundles: "Packs",
+    protocols: "Protocolos",
+    peptides: "Péptidos",
+    peptidePens: "Canetas de Péptidos",
+    europe: "Europa",
+    glossary: "Glossário",
+    london: "Londres",
+    encyclopedia: "Enciclopédia",
+    ukPeptideDelivery: "Entrega de Péptidos no Reino Unido",
+    tools: "Ferramentas",
+    peptideCalculator: "Calculadora de Péptidos",
+  },
+
+  homeSeo: {
+    deliveryTitle: "ENTREGA DE PÉPTIDOS EM TODA A EUROPA",
+    researchAreaTitle: "PÉPTIDOS POR ÁREA DE INVESTIGAÇÃO",
+    researchHubTitle: "CENTRO DE INVESTIGAÇÃO",
+    peptidesFor: "Péptidos para",
+  },
+
   testimonials: {
     label: "CONFIANÇA DOS INVESTIGADORES",
     titleLine1: "O Que Dizem",
@@ -1122,6 +1191,9 @@ const pt = {
         { title: "Eles Encomendam", desc: "Quando se registam com o seu código e fazem uma encomenda, ganha comissão." },
         { title: "Ganhe Recompensas", desc: "Ganhe 10% em referências diretas, mais comissões nas referências deles até 5 níveis de profundidade." },
       ],
+      whatsappShareText: "Descubra ORYN Peptides — péptidos de investigação de precisão de um laboratório biotech europeu. Use o meu código {code} na sua primeira encomenda: {link}",
+      emailShareSubject: "ORYN Peptides — Péptidos de Investigação de Precisão",
+      emailShareBody: "Olá,\n\nQueria partilhar a ORYN Peptides consigo. Produzem péptidos de investigação de grau farmacêutico com >99% de pureza.\n\nUse o meu código de referência: {code}\n\nOu clique aqui: {link}\n\nCumprimentos",
     },
     wishlist: {
       title: "Favoritos",
@@ -1216,6 +1288,9 @@ const pt = {
     unexpectedError: "Ocorreu um erro inesperado.",
     notCompleted: "O pagamento não foi concluído. Tente novamente.",
     preparingPayment: "A preparar pagamento seguro...",
+    paymentNotReady: "O sistema de pagamento não está pronto. Por favor, tente novamente.",
+    paymentFormLoading: "O formulário de pagamento ainda está a carregar. Aguarde um momento.",
+    orderCreationFailed: "Pagamento processado mas a criação do pedido falhou. Contacte o suporte.",
   },
 
   volumeDiscount: {
@@ -1237,6 +1312,11 @@ const pt = {
 
   recentlyViewed: {
     title: "Vistos Recentemente",
+  },
+
+  orderBump: {
+    addToOrder: "ADICIONE AO SEU PEDIDO",
+    yesAddIt: "SIM, ADICIONAR",
   },
 
   share: {

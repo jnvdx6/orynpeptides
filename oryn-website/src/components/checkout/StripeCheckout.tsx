@@ -48,12 +48,12 @@ function PaymentFormInner({
     e.preventDefault();
 
     if (!stripe || !elements || !cart) {
-      onError("Payment system not ready. Please try again.");
+      onError(t.payment.paymentNotReady);
       return;
     }
 
     if (!paymentElementReady) {
-      onError("Payment form is still loading. Please wait a moment.");
+      onError(t.payment.paymentFormLoading);
       return;
     }
 
@@ -66,6 +66,9 @@ function PaymentFormInner({
       const returnUrl = new URL(`${window.location.origin}/${locale}/checkout/success`);
       if (amount) returnUrl.searchParams.set("total", String(amount));
       if (totalItems) returnUrl.searchParams.set("items_count", String(totalItems));
+      const shippingCountry = (cart.shipping_address?.country_code as string)?.toUpperCase();
+      if (shippingCountry) returnUrl.searchParams.set("shipping_country", shippingCountry);
+      returnUrl.searchParams.set("currency", locale === "en" ? "GBP" : "EUR");
 
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
@@ -134,7 +137,7 @@ function PaymentFormInner({
           : `ORY-${orderId.slice(-6).toUpperCase()}`;
         onSuccess(orderId, orderRef);
       } else {
-        onError("Payment processed but order creation failed. Please contact support.");
+        onError(t.payment.orderCreationFailed);
       }
     } catch {
       onError("Payment processed but order creation failed. Please contact support.");

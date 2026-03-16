@@ -16,6 +16,8 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
+import { type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
 export const dynamicParams = true;
@@ -92,6 +94,7 @@ export default async function CountyPage({
   params: Promise<{ locale: string; county: string }>;
 }) {
   const { county: countySlug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const county = getCountyBySlug(countySlug);
   if (!county) notFound();
 
@@ -111,8 +114,8 @@ export default async function CountyPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/products` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
             {
               name: county.name,
               url: `/${locale}/peptides/county/${county.slug}`,

@@ -267,9 +267,12 @@ const en: Dictionary = {
       learn: "Learn",
       ukDelivery: "UK Delivery",
       ukRegions: "UK Regions",
+      ukCounties: "UK Counties",
       peptideEncyclopedia: "Peptide Encyclopedia",
       resources: "Resources",
       londonDelivery: "London Delivery",
+      europeanDelivery: "European Delivery",
+      topEuCities: "Top EU Cities",
     },
     certifications: [
       { label: "ISO CLASS 7", detail: "Cleanroom" },
@@ -870,6 +873,72 @@ const en: Dictionary = {
       "Advanced NAD+ cartridge delivery system for daily precision microdosing.",
   },
 
+  researchCategories: {
+    recovery: "Recovery & Healing",
+    "weight-loss": "Weight Loss",
+    "anti-aging": "Anti-Aging",
+    "muscle-growth": "Muscle Growth",
+    "skin-rejuvenation": "Skin Rejuvenation",
+    "sleep-quality": "Sleep & Recovery",
+    "gut-health": "Gut Health",
+    "joint-health": "Joint & Tendon",
+    "hair-growth": "Hair Growth",
+    "immune-support": "Immune Support",
+    "tendon-repair": "Tendon Repair",
+    "sports-recovery": "Sports Recovery",
+    "post-surgery": "Post-Surgery",
+    "cognitive-enhancement": "Cognitive Enhancement",
+    "energy-vitality": "Energy & Vitality",
+    "detox-cleanse": "Detox & Cleanse",
+    "body-composition": "Body Composition",
+    inflammation: "Inflammation & Pain",
+    "hormonal-balance": "Hormonal Balance",
+    "longevity-biohacking": "Longevity & Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Home",
+    products: "Products",
+    about: "About",
+    science: "Science",
+    contact: "Contact",
+    learn: "Learn",
+    quality: "Quality",
+    faq: "FAQ",
+    compare: "Compare",
+    shipping: "Shipping",
+    whyOryn: "Why ORYN",
+    terms: "Terms",
+    privacy: "Privacy",
+    disclaimer: "Disclaimer",
+    cart: "Cart",
+    checkout: "Checkout",
+    account: "Account",
+    orders: "Orders",
+    referrals: "Referrals",
+    wishlist: "Wishlist",
+    profile: "Profile",
+    wholesale: "Wholesale",
+    bundles: "Bundles",
+    protocols: "Protocols",
+    peptides: "Peptides",
+    peptidePens: "Peptide Pens",
+    europe: "Europe",
+    glossary: "Glossary",
+    london: "London",
+    encyclopedia: "Encyclopedia",
+    ukPeptideDelivery: "UK Peptide Delivery",
+    tools: "Tools",
+    peptideCalculator: "Peptide Calculator",
+  },
+
+  homeSeo: {
+    deliveryTitle: "PEPTIDE DELIVERY ACROSS THE UK",
+    researchAreaTitle: "PEPTIDES BY RESEARCH AREA",
+    researchHubTitle: "RESEARCH HUB",
+    peptidesFor: "Peptides for",
+  },
+
   testimonials: {
     label: "TRUSTED BY RESEARCHERS",
     titleLine1: "What Our",
@@ -1121,6 +1190,9 @@ const en: Dictionary = {
         { title: "They Order", desc: "When they register with your code and place an order, you earn commission." },
         { title: "Earn Rewards", desc: "Earn 10% on direct referrals, plus commissions on their referrals up to 5 levels deep." },
       ],
+      whatsappShareText: "Check out ORYN Peptides — precision research peptides from a European biotech lab. Use my code {code} for tracking on your first order: {link}",
+      emailShareSubject: "ORYN Peptides — Precision Research Peptides",
+      emailShareBody: "Hi,\n\nI wanted to share ORYN Peptides with you. They produce pharmaceutical-grade research peptides with >99% purity.\n\nUse my referral code: {code}\n\nOr click here: {link}\n\nBest regards",
     },
     wishlist: {
       title: "Wishlist",
@@ -1215,6 +1287,9 @@ const en: Dictionary = {
     unexpectedError: "An unexpected error occurred.",
     notCompleted: "Payment was not completed. Please try again.",
     preparingPayment: "Preparing secure payment...",
+    paymentNotReady: "Payment system not ready. Please try again.",
+    paymentFormLoading: "Payment form is still loading. Please wait a moment.",
+    orderCreationFailed: "Payment processed but order creation failed. Please contact support.",
   },
 
   volumeDiscount: {
@@ -1236,6 +1311,11 @@ const en: Dictionary = {
 
   recentlyViewed: {
     title: "Recently Viewed",
+  },
+
+  orderBump: {
+    addToOrder: "ADD TO YOUR ORDER",
+    yesAddIt: "YES, ADD IT",
   },
 
   share: {

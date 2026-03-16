@@ -3,7 +3,8 @@ import Link from "next/link";
 import { FAQ_HUBS } from "@/data/faq-hubs";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -45,14 +46,15 @@ export default async function FAQIndexPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "FAQ", url: `/${locale}/faq` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.faq, url: `/${locale}/faq` },
           ]),
         ]}
       />

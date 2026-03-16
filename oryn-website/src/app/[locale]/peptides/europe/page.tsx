@@ -6,7 +6,8 @@ import { products, productImages } from "@/data/products";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -47,6 +48,7 @@ export default async function EuropeHubPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const totalCities = EUROPEAN_COUNTRIES.reduce(
     (sum, c) => sum + c.cities.length,
     0
@@ -57,9 +59,9 @@ export default async function EuropeHubPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/products` },
-            { name: "Europe", url: `/${locale}/peptides/europe` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
+            { name: dict.breadcrumbs.europe, url: `/${locale}/peptides/europe` },
           ]),
           {
             "@context": "https://schema.org",

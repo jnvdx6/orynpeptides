@@ -268,9 +268,12 @@ const de = {
       learn: "Wissen",
       ukDelivery: "UK-Lieferung",
       ukRegions: "UK-Regionen",
+      ukCounties: "UK-Grafschaften",
       peptideEncyclopedia: "Peptid-Enzyklopädie",
       resources: "Ressourcen",
       londonDelivery: "Lieferung nach London",
+      europeanDelivery: "Europaweite Lieferung",
+      topEuCities: "Top EU-Städte",
     },
     certifications: [
       { label: "ISO KLASSE 7", detail: "Reinraum" },
@@ -871,6 +874,72 @@ const de = {
       "Fortschrittliches NAD+-Kartuschen-Verabreichungssystem für tägliche Präzisions-Mikrodosierung.",
   },
 
+  researchCategories: {
+    recovery: "Erholung und Heilung",
+    "weight-loss": "Gewichtsverlust",
+    "anti-aging": "Anti-Aging",
+    "muscle-growth": "Muskelaufbau",
+    "skin-rejuvenation": "Hautverjüngung",
+    "sleep-quality": "Schlaf und Erholung",
+    "gut-health": "Darmgesundheit",
+    "joint-health": "Gelenke und Sehnen",
+    "hair-growth": "Haarwachstum",
+    "immune-support": "Immununterstützung",
+    "tendon-repair": "Sehnenreparatur",
+    "sports-recovery": "Sporterholung",
+    "post-surgery": "Nach der Operation",
+    "cognitive-enhancement": "Kognitive Verbesserung",
+    "energy-vitality": "Energie und Vitalität",
+    "detox-cleanse": "Entgiftung und Reinigung",
+    "body-composition": "Körperzusammensetzung",
+    inflammation: "Entzündung und Schmerzen",
+    "hormonal-balance": "Hormonelles Gleichgewicht",
+    "longevity-biohacking": "Langlebigkeit und Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Startseite",
+    products: "Produkte",
+    about: "Über Uns",
+    science: "Wissenschaft",
+    contact: "Kontakt",
+    learn: "Lernen",
+    quality: "Qualität",
+    faq: "FAQ",
+    compare: "Vergleichen",
+    shipping: "Versand",
+    whyOryn: "Warum ORYN",
+    terms: "AGB",
+    privacy: "Datenschutz",
+    disclaimer: "Haftungsausschluss",
+    cart: "Warenkorb",
+    checkout: "Kasse",
+    account: "Konto",
+    orders: "Bestellungen",
+    referrals: "Empfehlungen",
+    wishlist: "Wunschliste",
+    profile: "Profil",
+    wholesale: "Großhandel",
+    bundles: "Pakete",
+    protocols: "Protokolle",
+    peptides: "Peptide",
+    peptidePens: "Peptid-Pens",
+    europe: "Europa",
+    glossary: "Glossar",
+    london: "London",
+    encyclopedia: "Enzyklopädie",
+    ukPeptideDelivery: "UK Peptid-Lieferung",
+    tools: "Tools",
+    peptideCalculator: "Peptid-Rechner",
+  },
+
+  homeSeo: {
+    deliveryTitle: "PEPTID-LIEFERUNG IN GANZ EUROPA",
+    researchAreaTitle: "PEPTIDE NACH FORSCHUNGSBEREICH",
+    researchHubTitle: "FORSCHUNGSZENTRUM",
+    peptidesFor: "Peptide für",
+  },
+
   testimonials: {
     label: "VON FORSCHERN VERTRAUT",
     titleLine1: "Was unsere",
@@ -1122,6 +1191,9 @@ const de = {
         { title: "Sie bestellen", desc: "Wenn sie sich mit Ihrem Code registrieren und eine Bestellung aufgeben, verdienen Sie Provision." },
         { title: "Prämien verdienen", desc: "Verdienen Sie 10% bei direkten Empfehlungen, plus Provisionen auf deren Empfehlungen bis zu 5 Ebenen tief." },
       ],
+      whatsappShareText: "Entdecken Sie ORYN Peptides — Präzisions-Forschungspeptide aus einem europäischen Biotech-Labor. Verwenden Sie meinen Code {code} bei Ihrer ersten Bestellung: {link}",
+      emailShareSubject: "ORYN Peptides — Präzisions-Forschungspeptide",
+      emailShareBody: "Hallo,\n\nIch wollte ORYN Peptides mit Ihnen teilen. Sie produzieren pharmazeutische Forschungspeptide mit >99% Reinheit.\n\nVerwenden Sie meinen Empfehlungscode: {code}\n\nOder klicken Sie hier: {link}\n\nMit freundlichen Grüßen",
     },
     wishlist: {
       title: "Wunschliste",
@@ -1216,6 +1288,9 @@ const de = {
     unexpectedError: "Ein unerwarteter Fehler ist aufgetreten.",
     notCompleted: "Zahlung wurde nicht abgeschlossen. Bitte versuchen Sie es erneut.",
     preparingPayment: "Sichere Zahlung wird vorbereitet...",
+    paymentNotReady: "Das Zahlungssystem ist nicht bereit. Bitte versuchen Sie es erneut.",
+    paymentFormLoading: "Das Zahlungsformular wird noch geladen. Bitte warten Sie einen Moment.",
+    orderCreationFailed: "Zahlung verarbeitet, aber Bestellerstellung fehlgeschlagen. Bitte kontaktieren Sie den Support.",
   },
 
   volumeDiscount: {
@@ -1237,6 +1312,11 @@ const de = {
 
   recentlyViewed: {
     title: "Zuletzt angesehen",
+  },
+
+  orderBump: {
+    addToOrder: "ZU IHRER BESTELLUNG HINZUFÜGEN",
+    yesAddIt: "JA, HINZUFÜGEN",
   },
 
   share: {

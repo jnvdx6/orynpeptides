@@ -3,7 +3,8 @@ import Link from "next/link";
 import { PEPTIDE_ENTRIES } from "@/data/peptide-encyclopedia";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { PageTracker } from "@/components/analytics/PageTracker";
 
 export async function generateStaticParams() {
@@ -45,6 +46,7 @@ export default async function EncyclopediaHubPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   const itemListSchema = {
     "@context": "https://schema.org",
@@ -67,8 +69,8 @@ export default async function EncyclopediaHubPage({
         items={[
           itemListSchema,
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptide Encyclopedia", url: `/${locale}/peptides/encyclopedia` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.encyclopedia, url: `/${locale}/peptides/encyclopedia` },
           ]),
         ]}
       />

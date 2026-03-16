@@ -4,7 +4,8 @@ import Link from "next/link";
 import { FAQ_HUBS, FAQ_HUB_SLUGS, getFAQHubBySlug } from "@/data/faq-hubs";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── Static Params ────────────────────────────────────────────────
 export async function generateStaticParams() {
@@ -51,6 +52,7 @@ export default async function FAQHubPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const dict = await getDictionary(locale as Locale);
   const hub = getFAQHubBySlug(slug);
   if (!hub) notFound();
 
@@ -62,8 +64,8 @@ export default async function FAQHubPage({
       <MultiJsonLd
         items={[
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "FAQ", url: `/${locale}/faq` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.faq, url: `/${locale}/faq` },
             { name: hub.title, url: `/${locale}/faq/${slug}` },
           ]),
           faqSchema(hub.faqs),

@@ -7,7 +7,8 @@ import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { TrustBanner } from "@/components/seo/TrustBanner";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -86,6 +87,7 @@ export default async function PeptidePensPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const currency = "€";
 
   const peptidePens = products.filter((p) => p.category === "peptide-pen");
@@ -94,8 +96,8 @@ export default async function PeptidePensPage({
 
   const schemas = [
     breadcrumbSchema([
-      { name: "Home", url: `/${locale}` },
-      { name: "Peptide Pens", url: `/${locale}/peptide-pens` },
+      { name: dict.breadcrumbs.home, url: `/${locale}` },
+      { name: dict.breadcrumbs.peptidePens, url: `/${locale}/peptide-pens` },
     ]),
     {
       "@context": "https://schema.org",

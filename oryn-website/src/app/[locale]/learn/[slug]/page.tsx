@@ -16,7 +16,8 @@ import { RelatedContent } from "@/components/seo/RelatedContent";
 import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
 import { PageTracker } from "@/components/analytics/PageTracker";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   const params = [];
@@ -64,6 +65,7 @@ export default async function ArticlePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
@@ -83,8 +85,8 @@ export default async function ArticlePage({
     articleSchema(article, locale),
     faqSchema(article.faqs),
     breadcrumbSchema([
-      { name: "Home", url: `/${locale}` },
-      { name: "Learn", url: `/${locale}/learn` },
+      { name: dict.breadcrumbs.home, url: `/${locale}` },
+      { name: dict.breadcrumbs.learn, url: `/${locale}/learn` },
       { name: article.title, url: `/${locale}/learn/${article.slug}` },
     ]),
     // Person schema for E-E-A-T

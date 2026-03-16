@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -32,13 +33,14 @@ export default async function DisclaimerPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", url: `/${locale}` },
-          { name: "Disclaimer", url: `/${locale}/disclaimer` },
+          { name: dict.breadcrumbs.home, url: `/${locale}` },
+          { name: dict.breadcrumbs.disclaimer, url: `/${locale}/disclaimer` },
         ])}
       />
       <div className="pt-32 pb-16">

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, organizationSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import { AboutClient } from "./AboutClient";
 
 export async function generateStaticParams() {
@@ -55,6 +56,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const dict = await getDictionary(locale as Locale);
 
   return (
     <>
@@ -62,8 +64,8 @@ export default async function AboutPage({
         items={[
           organizationSchema(),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "About", url: `/${locale}/about` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.about, url: `/${locale}/about` },
           ]),
         ]}
       />

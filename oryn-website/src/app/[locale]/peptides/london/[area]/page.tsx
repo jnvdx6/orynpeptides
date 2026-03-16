@@ -11,6 +11,8 @@ import {
 } from "@/data/london-areas";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
+import { type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
 export const dynamicParams = true;
@@ -77,6 +79,7 @@ export default async function LondonAreaPage({
   params: Promise<{ locale: string; area: string }>;
 }) {
   const { area: areaSlug, locale } = await params;
+  const dict = await getDictionary(locale as Locale);
   const area = getLondonAreaBySlug(areaSlug);
   if (!area) notFound();
 
@@ -120,9 +123,9 @@ export default async function LondonAreaPage({
           },
           faqSchema(faqs),
           breadcrumbSchema([
-            { name: "Home", url: `/${locale}` },
-            { name: "Peptides", url: `/${locale}/products` },
-            { name: "London", url: `/${locale}/peptides/london` },
+            { name: dict.breadcrumbs.home, url: `/${locale}` },
+            { name: dict.breadcrumbs.peptides, url: `/${locale}/products` },
+            { name: dict.breadcrumbs.london, url: `/${locale}/peptides/london` },
             { name: area.name, url: `/${locale}/peptides/london/${area.slug}` },
           ]),
         ]}

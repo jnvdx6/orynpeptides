@@ -65,26 +65,26 @@ export function Footer() {
   };
 
   const categoryLinks = [
-    { href: "/peptides-for/recovery", label: "Recovery & Healing" },
-    { href: "/peptides-for/weight-loss", label: "Weight Loss" },
-    { href: "/peptides-for/anti-aging", label: "Anti-Aging" },
-    { href: "/peptides-for/muscle-growth", label: "Muscle Growth" },
-    { href: "/peptides-for/skin-rejuvenation", label: "Skin Rejuvenation" },
-    { href: "/peptides-for/sleep-quality", label: "Sleep & Recovery" },
-    { href: "/peptides-for/gut-health", label: "Gut Health" },
-    { href: "/peptides-for/joint-health", label: "Joint & Tendon" },
-    { href: "/peptides-for/hair-growth", label: "Hair Growth" },
-    { href: "/peptides-for/immune-support", label: "Immune Support" },
-    { href: "/peptides-for/tendon-repair", label: "Tendon Repair" },
-    { href: "/peptides-for/sports-recovery", label: "Sports Recovery" },
-    { href: "/peptides-for/post-surgery", label: "Post-Surgery" },
-    { href: "/peptides-for/cognitive-enhancement", label: "Cognitive Enhancement" },
-    { href: "/peptides-for/energy-vitality", label: "Energy & Vitality" },
-    { href: "/peptides-for/detox-cleanse", label: "Detox & Cleanse" },
-    { href: "/peptides-for/body-composition", label: "Body Composition" },
-    { href: "/peptides-for/inflammation", label: "Inflammation & Pain" },
-    { href: "/peptides-for/hormonal-balance", label: "Hormonal Balance" },
-    { href: "/peptides-for/longevity-biohacking", label: "Longevity & Biohacking" },
+    { href: "/peptides-for/recovery", label: t.researchCategories["recovery"] || "Recovery & Healing" },
+    { href: "/peptides-for/weight-loss", label: t.researchCategories["weight-loss"] || "Weight Loss" },
+    { href: "/peptides-for/anti-aging", label: t.researchCategories["anti-aging"] || "Anti-Aging" },
+    { href: "/peptides-for/muscle-growth", label: t.researchCategories["muscle-growth"] || "Muscle Growth" },
+    { href: "/peptides-for/skin-rejuvenation", label: t.researchCategories["skin-rejuvenation"] || "Skin Rejuvenation" },
+    { href: "/peptides-for/sleep-quality", label: t.researchCategories["sleep-quality"] || "Sleep & Recovery" },
+    { href: "/peptides-for/gut-health", label: t.researchCategories["gut-health"] || "Gut Health" },
+    { href: "/peptides-for/joint-health", label: t.researchCategories["joint-health"] || "Joint & Tendon" },
+    { href: "/peptides-for/hair-growth", label: t.researchCategories["hair-growth"] || "Hair Growth" },
+    { href: "/peptides-for/immune-support", label: t.researchCategories["immune-support"] || "Immune Support" },
+    { href: "/peptides-for/tendon-repair", label: t.researchCategories["tendon-repair"] || "Tendon Repair" },
+    { href: "/peptides-for/sports-recovery", label: t.researchCategories["sports-recovery"] || "Sports Recovery" },
+    { href: "/peptides-for/post-surgery", label: t.researchCategories["post-surgery"] || "Post-Surgery" },
+    { href: "/peptides-for/cognitive-enhancement", label: t.researchCategories["cognitive-enhancement"] || "Cognitive Enhancement" },
+    { href: "/peptides-for/energy-vitality", label: t.researchCategories["energy-vitality"] || "Energy & Vitality" },
+    { href: "/peptides-for/detox-cleanse", label: t.researchCategories["detox-cleanse"] || "Detox & Cleanse" },
+    { href: "/peptides-for/body-composition", label: t.researchCategories["body-composition"] || "Body Composition" },
+    { href: "/peptides-for/inflammation", label: t.researchCategories["inflammation"] || "Inflammation & Pain" },
+    { href: "/peptides-for/hormonal-balance", label: t.researchCategories["hormonal-balance"] || "Hormonal Balance" },
+    { href: "/peptides-for/longevity-biohacking", label: t.researchCategories["longevity-biohacking"] || "Longevity & Biohacking" },
   ];
 
   const cityLinks = [
@@ -417,7 +417,7 @@ export function Footer() {
               </div>
             </CollapsibleSection>
 
-            <CollapsibleSection title="UK COUNTIES">
+            <CollapsibleSection title={f.seoSections.ukCounties.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {[
                   "kent", "surrey", "hampshire", "essex", "devon", "cornwall",
@@ -496,7 +496,7 @@ export function Footer() {
       {/* European Delivery */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
-          <CollapsibleSection title="EUROPEAN DELIVERY">
+          <CollapsibleSection title={f.seoSections.europeanDelivery.toUpperCase()}>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
               {[
                 { href: "/peptides/europe/germany", label: "Germany" },
@@ -535,7 +535,7 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-            <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">TOP EU CITIES</h4>
+            <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.topEuCities.toUpperCase()}</h4>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5">
               {[
                 { href: "/peptides/europe/germany/berlin", label: "Berlin" },
