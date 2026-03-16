@@ -161,7 +161,7 @@ export function ShippingClient({
 }) {
   usePageTracking("shipping");
   const symbol = "€";
-  const freeThreshold = locale === "es" ? "150" : "150";
+  const freeThreshold = locale === "en" ? "130" : "175";
 
   return (
     <div className="pt-[calc(1rem+4px)]">

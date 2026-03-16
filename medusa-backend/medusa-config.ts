@@ -35,6 +35,18 @@ export default defineConfig({
         ],
       },
     },
+    // Fulfillment Provider (manual fulfillment for shipping)
+    {
+      resolve: "@medusajs/medusa/fulfillment",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/medusa/fulfillment-manual",
+            id: "manual",
+          },
+        ],
+      },
+    },
     // Custom Modules
     {
       resolve: "./src/modules/contact",
