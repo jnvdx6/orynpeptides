@@ -41,6 +41,36 @@ function getCountryName(code: string, locale: string): string {
   }
 }
 
+/** Parse "X-Y business days" from a shipping option name and return estimated delivery range string */
+function getEstimatedDelivery(optionName: string): string | null {
+  const match = optionName.match(/(\d+)\s*-\s*(\d+)\s*business\s*days/i)
+    || optionName.match(/(\d+)\s*-\s*(\d+)\s*días\s*hábiles/i);
+  if (!match) return null;
+  const minDays = parseInt(match[1], 10);
+  const maxDays = parseInt(match[2], 10);
+
+  function addBusinessDays(start: Date, days: number): Date {
+    const result = new Date(start);
+    let added = 0;
+    while (added < days) {
+      result.setDate(result.getDate() + 1);
+      const dow = result.getDay();
+      if (dow !== 0 && dow !== 6) added++;
+    }
+    return result;
+  }
+
+  const today = new Date();
+  const earliest = addBusinessDays(today, minDays);
+  const latest = addBusinessDays(today, maxDays);
+
+  const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  if (earliest.getMonth() === latest.getMonth()) {
+    return `Est. ${fmt(earliest).replace(/\d+/, "")}${earliest.getDate()}\u2013${latest.getDate()}`;
+  }
+  return `Est. ${fmt(earliest)}\u2013${fmt(latest)}`;
+}
+
 function CheckIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -217,11 +247,13 @@ export default function CheckoutPage() {
           region_id: o.region_id,
         }));
         setShippingOptions(mappedOptions);
-        // Pre-select the first option that matches the cart's region
+        // Pre-select the cheapest option that matches the cart's region
         const regionFiltered = mappedOptions.filter(
           (opt) => !opt.region_id || opt.region_id === cart?.region_id
         );
-        setSelectedShipping(regionFiltered.length > 0 ? regionFiltered[0].id : mappedOptions[0].id);
+        const pool = regionFiltered.length > 0 ? regionFiltered : mappedOptions;
+        const cheapest = [...pool].sort((a, b) => a.amount - b.amount)[0];
+        setSelectedShipping(cheapest.id);
       } else {
         setShippingOptions([{
           id: "free_shipping",
@@ -860,37 +892,54 @@ export default function CheckoutPage() {
                   ) : (
                     <>
                     {/* Free shipping progress */}
-                    {!qualifiesForFreeShipping && (
-                      <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/20">
-                        <div className="flex items-center gap-2 mb-2">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
-                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                          </svg>
-                          <span className="text-xs font-mono text-oryn-orange tracking-wider">
-                            {t.cart.freeShippingAway.replace("{amount}", formatPrice(amountUntilFreeShipping))}
-                          </span>
+                    {!qualifiesForFreeShipping && (() => {
+                      const cheapestPaid = shippingOptions
+                        .filter((o) => o.amount > 0 && (!o.region_id || o.region_id === cart?.region_id))
+                        .sort((a, b) => a.amount - b.amount)[0];
+                      const savingsText = cheapestPaid
+                        ? ` to save ${formatPrice(cheapestPaid.amount)} on shipping`
+                        : ` for FREE shipping`;
+                      return (
+                        <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/20">
+                          <div className="flex items-center gap-2 mb-2">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+                              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                            <span className="text-xs font-mono text-oryn-orange tracking-wider">
+                              {`Add ${formatPrice(amountUntilFreeShipping)} more${savingsText}`}
+                            </span>
+                          </div>
+                          <div className="w-full bg-oryn-grey/20 h-1.5">
+                            <div
+                              className="bg-oryn-orange h-1.5 transition-all duration-500"
+                              style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="w-full bg-oryn-grey/20 h-1.5">
-                          <div
-                            className="bg-oryn-orange h-1.5 transition-all duration-500"
-                            style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
-                          />
-                        </div>
-                      </div>
-                    )}
+                      );
+                    })()}
 
-                    {qualifiesForFreeShipping && (
-                      <div className="mb-4 p-3 bg-green-50 border border-green-200">
-                        <div className="flex items-center gap-2">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          <span className="text-xs font-mono text-green-700 tracking-wider">
-                            {t.checkoutPage.freeShippingApplied}
-                          </span>
+                    {qualifiesForFreeShipping && (() => {
+                      const selectedOpt = shippingOptions.find((o) => o.id === selectedShipping);
+                      const savingsAmount = selectedOpt && selectedOpt.amount > 0 ? selectedOpt.amount : 0;
+                      return (
+                        <div className="mb-4 p-3 bg-green-50 border border-green-200">
+                          <div className="flex items-center gap-2">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span className="text-xs font-mono text-green-700 tracking-wider">
+                              {t.checkoutPage.freeShippingApplied}
+                            </span>
+                          </div>
+                          {savingsAmount > 0 && (
+                            <p className="text-xs text-green-600 mt-1.5 ml-[22px]">
+                              {`You're saving ${formatPrice(savingsAmount)} on shipping!`}
+                            </p>
+                          )}
                         </div>
-                      </div>
-                    )}
+                      );
+                    })()}
 
                     <div className="space-y-3 mb-6">
                       {shippingOptions.filter(
@@ -926,6 +975,12 @@ export default function CheckoutPage() {
                               </div>
                               <div>
                                 <p className="text-sm font-medium">{option.name}</p>
+                                {(() => {
+                                  const est = getEstimatedDelivery(option.name);
+                                  return est ? (
+                                    <p className="text-[11px] text-oryn-black/45 mt-0.5">{est}</p>
+                                  ) : null;
+                                })()}
                               </div>
                             </div>
                             <span className="text-sm font-bold">

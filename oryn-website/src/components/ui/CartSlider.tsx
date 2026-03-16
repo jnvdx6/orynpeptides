@@ -19,7 +19,11 @@ function getProductImage(slug: string, category: string): string {
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
     useCart();
-  const { t, formatPrice } = useLocale();
+  const { t, formatPrice, currencyCode } = useLocale();
+
+  // Max shipping savings by currency (express shipping costs)
+  const shippingSavings: Record<string, string> = { gbp: "\u00a39.99", usd: "$14.99", eur: "\u20ac15.99" };
+  const savingsLabel = shippingSavings[currencyCode] || "\u20ac15.99";
   const { products } = useProducts();
 
   const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
@@ -113,6 +117,7 @@ export function CartSlider() {
               <>
                 <p className="text-[10px] font-plex text-oryn-black/50 mb-2">
                   {t.cart.freeShippingAway.replace("{amount}", formatPrice(amountToFreeShipping))}
+                  {" — save up to " + savingsLabel + "!"}
                 </p>
                 <div className="w-full h-1.5 bg-oryn-grey/30 overflow-hidden">
                   <div
@@ -126,7 +131,9 @@ export function CartSlider() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <p className="text-[10px] font-plex text-oryn-orange font-medium">{t.cart.freeShippingUnlocked}</p>
+                <p className="text-[10px] font-plex text-oryn-orange font-medium">
+                  {t.cart.freeShippingUnlocked}{" You're saving up to " + savingsLabel}
+                </p>
               </div>
             )}
           </div>
