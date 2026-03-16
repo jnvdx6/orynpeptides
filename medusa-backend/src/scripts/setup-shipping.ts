@@ -52,19 +52,38 @@ export default async function setupShipping({ container }: ExecArgs) {
   let rowRegion = regions.find((r) => r.name?.includes("Rest of World") || r.name?.includes("International"));
   if (!rowRegion) {
     logger.info("Creating Rest of World region...");
-    rowRegion = await regionModule.createRegions({
-      name: "Rest of World",
-      currency_code: "eur",
-      countries: [
-        "au", "nz", "ca", "jp", "kr", "sg", "hk", "ae", "sa", "qa",
-        "no", "se", "dk", "fi", "ch", "pl", "cz", "hu", "ro", "bg",
-        "hr", "sk", "si", "lt", "lv", "ee", "cy", "mt", "lu", "gr",
-        "mx", "br", "ar", "cl", "co", "pe", "za", "ng", "ke", "in",
-        "th", "my", "ph", "id", "vn", "tw", "il", "tr",
-      ],
-      metadata: { tax_rate: 0 },
-    });
-    logger.info(`Rest of World region created: ${rowRegion.id}`);
+    // Collect all countries already assigned to existing regions
+    const assignedCountries = new Set<string>();
+    for (const r of regions) {
+      const regionDetail = await regionModule.retrieveRegion(r.id, { relations: ["countries"] });
+      for (const c of regionDetail.countries || []) {
+        assignedCountries.add((c as any).iso_2 || (c as any).code || "");
+      }
+    }
+    logger.info(`Countries already assigned: ${[...assignedCountries].join(", ")}`);
+
+    // Only include countries NOT already assigned
+    const rowCandidates = [
+      "au", "nz", "ca", "jp", "kr", "sg", "hk", "ae", "sa", "qa",
+      "no", "se", "dk", "fi", "ch", "pl", "cz", "hu", "ro", "bg",
+      "hr", "sk", "si", "lt", "lv", "ee", "cy", "mt", "lu", "gr",
+      "mx", "br", "ar", "cl", "co", "pe", "za", "ng", "ke", "in",
+      "th", "my", "ph", "id", "vn", "tw", "il", "tr",
+    ];
+    const rowCountriesFiltered = rowCandidates.filter((c) => !assignedCountries.has(c));
+    logger.info(`ROW countries (not yet assigned): ${rowCountriesFiltered.join(", ")}`);
+
+    if (rowCountriesFiltered.length > 0) {
+      rowRegion = await regionModule.createRegions({
+        name: "Rest of World",
+        currency_code: "eur",
+        countries: rowCountriesFiltered,
+        metadata: { tax_rate: 0 },
+      });
+      logger.info(`Rest of World region created: ${rowRegion.id} with ${rowCountriesFiltered.length} countries`);
+    } else {
+      logger.info("No unassigned countries left for ROW region, skipping");
+    }
   } else {
     logger.info(`Rest of World region exists: ${rowRegion.id}`);
   }
@@ -168,33 +187,39 @@ export default async function setupShipping({ container }: ExecArgs) {
   const euZone = euFulfillmentSet.service_zones[0];
   logger.info(`Europe fulfillment set: ${euFulfillmentSet.id}, zone: ${euZone.id}`);
 
-  // Rest of World Fulfillment Set
-  const rowCountries = [
-    "au", "nz", "ca", "jp", "kr", "sg", "hk", "ae", "sa", "qa",
-    "no", "se", "dk", "fi", "ch", "pl", "cz", "hu", "ro", "bg",
-    "hr", "sk", "si", "lt", "lv", "ee", "cy", "mt", "lu", "gr",
-    "mx", "br", "ar", "cl", "co", "pe", "za", "ng", "ke", "in",
-    "th", "my", "ph", "id", "vn", "tw", "il", "tr",
-  ];
-  const rowFulfillmentSet = await fulfillmentModule.createFulfillmentSets({
-    name: "ORYN International Shipping",
-    type: "shipping",
-    service_zones: [
-      {
-        name: "Rest of World",
-        geo_zones: rowCountries.map((cc) => ({ type: "country" as const, country_code: cc })),
-      },
-    ],
-  });
-  const rowZone = rowFulfillmentSet.service_zones[0];
-  logger.info(`ROW fulfillment set: ${rowFulfillmentSet.id}, zone: ${rowZone.id}`);
+  // Rest of World Fulfillment Set — use countries from the ROW region
+  let rowZone: any = null;
+  if (rowRegion) {
+    const rowRegionDetail = await regionModule.retrieveRegion(rowRegion.id, { relations: ["countries"] });
+    const rowCountries = (rowRegionDetail.countries || []).map((c: any) => c.iso_2 || c.code);
+    if (rowCountries.length > 0) {
+      const rowFulfillmentSet = await fulfillmentModule.createFulfillmentSets({
+        name: "ORYN International Shipping",
+        type: "shipping",
+        service_zones: [
+          {
+            name: "Rest of World",
+            geo_zones: rowCountries.map((cc: string) => ({ type: "country" as const, country_code: cc })),
+          },
+        ],
+      });
+      rowZone = rowFulfillmentSet.service_zones[0];
+      logger.info(`ROW fulfillment set: ${rowFulfillmentSet.id}, zone: ${rowZone.id}`);
+
+      // Link ROW fulfillment set to UK warehouse
+      await link.create([
+        { [Modules.STOCK_LOCATION]: { stock_location_id: ukLocation.id }, [Modules.FULFILLMENT]: { fulfillment_set_id: rowFulfillmentSet.id } },
+      ]);
+    }
+  } else {
+    logger.info("Skipping ROW fulfillment set (no ROW region)");
+  }
 
   // ─── 5. Link fulfillment sets to stock locations ──────────────
   logger.info("Linking fulfillment sets to stock locations...");
   await link.create([
     { [Modules.STOCK_LOCATION]: { stock_location_id: ukLocation.id }, [Modules.FULFILLMENT]: { fulfillment_set_id: ukFulfillmentSet.id } },
     { [Modules.STOCK_LOCATION]: { stock_location_id: ukLocation.id }, [Modules.FULFILLMENT]: { fulfillment_set_id: euFulfillmentSet.id } },
-    { [Modules.STOCK_LOCATION]: { stock_location_id: ukLocation.id }, [Modules.FULFILLMENT]: { fulfillment_set_id: rowFulfillmentSet.id } },
     { [Modules.STOCK_LOCATION]: { stock_location_id: usLocation.id }, [Modules.FULFILLMENT]: { fulfillment_set_id: usFulfillmentSet.id } },
   ]);
 
@@ -309,37 +334,41 @@ export default async function setupShipping({ container }: ExecArgs) {
   logger.info("Europe shipping options created (Standard €8.99, Express €15.99, free from €175)");
 
   // === REST OF WORLD SHIPPING ===
-  await createShippingOptionsWorkflow(container).run({
-    input: [
-      // ROW Standard
-      {
-        name: "International Standard Shipping (7-14 business days)",
-        service_zone_id: rowZone.id,
-        shipping_profile_id: shippingProfile.id,
-        provider_id: PROVIDER_ID,
-        type: { label: "Standard", description: "International Tracked Post", code: "row-standard" },
-        price_type: "flat",
-        prices: [
-          { currency_code: "eur", amount: 17.99, rules: [] },
-          { currency_code: "eur", amount: 0, rules: [{ attribute: "item_total", operator: "gte", value: 30000 }] },
-        ],
-      },
-      // ROW Express
-      {
-        name: "International Express Shipping (5-8 business days)",
-        service_zone_id: rowZone.id,
-        shipping_profile_id: shippingProfile.id,
-        provider_id: PROVIDER_ID,
-        type: { label: "Express", description: "DHL Express Worldwide", code: "row-express" },
-        price_type: "flat",
-        prices: [
-          { currency_code: "eur", amount: 29.99, rules: [] },
-          { currency_code: "eur", amount: 0, rules: [{ attribute: "item_total", operator: "gte", value: 30000 }] },
-        ],
-      },
-    ],
-  });
-  logger.info("International shipping options created (Standard €17.99, Express €29.99, free from €300)");
+  if (rowZone) {
+    await createShippingOptionsWorkflow(container).run({
+      input: [
+        // ROW Standard
+        {
+          name: "International Standard Shipping (7-14 business days)",
+          service_zone_id: rowZone.id,
+          shipping_profile_id: shippingProfile.id,
+          provider_id: PROVIDER_ID,
+          type: { label: "Standard", description: "International Tracked Post", code: "row-standard" },
+          price_type: "flat",
+          prices: [
+            { currency_code: "eur", amount: 17.99, rules: [] },
+            { currency_code: "eur", amount: 0, rules: [{ attribute: "item_total", operator: "gte", value: 30000 }] },
+          ],
+        },
+        // ROW Express
+        {
+          name: "International Express Shipping (5-8 business days)",
+          service_zone_id: rowZone.id,
+          shipping_profile_id: shippingProfile.id,
+          provider_id: PROVIDER_ID,
+          type: { label: "Express", description: "DHL Express Worldwide", code: "row-express" },
+          price_type: "flat",
+          prices: [
+            { currency_code: "eur", amount: 29.99, rules: [] },
+            { currency_code: "eur", amount: 0, rules: [{ attribute: "item_total", operator: "gte", value: 30000 }] },
+          ],
+        },
+      ],
+    });
+    logger.info("International shipping options created (Standard €17.99, Express €29.99, free from €300)");
+  } else {
+    logger.info("Skipping ROW shipping options (no ROW zone)");
+  }
 
   // ─── Done ─────────────────────────────────────────────────────
   logger.info("=== Shipping setup complete! ===");
