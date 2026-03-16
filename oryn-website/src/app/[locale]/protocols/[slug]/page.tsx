@@ -6,6 +6,7 @@ import {
   PROTOCOL_SLUGS,
   getProtocolBySlug,
 } from "@/data/protocols";
+import { getLocalizedProtocol } from "@/data/protocols-i18n";
 import { getProductBySlug, productImages } from "@/data/products";
 import {
   faqSchema,
@@ -34,14 +35,17 @@ export async function generateMetadata({
   const protocol = getProtocolBySlug(slug);
   if (!protocol) return {};
 
-  const title = `${protocol.name} | Research Protocol Guide | ORYN`;
+  const localized = getLocalizedProtocol(slug, locale as Locale);
+  const name = localized?.name ?? protocol.name;
+  const metaDescription = localized?.metaDescription ?? protocol.metaDescription;
+  const title = `${name} | Research Protocol Guide | ORYN`;
 
   return {
     title,
-    description: protocol.metaDescription,
+    description: metaDescription,
     openGraph: {
       title,
-      description: protocol.metaDescription,
+      description: metaDescription,
       url: `${SITE_URL}/${locale}/protocols/${slug}`,
       type: "article",
       images: [
@@ -77,6 +81,15 @@ export default async function ProtocolPage({
   const protocol = getProtocolBySlug(slug);
   if (!protocol) notFound();
 
+  const localized = getLocalizedProtocol(slug, locale as Locale);
+  const displayName = localized?.name ?? protocol.name;
+  const displaySubtitle = localized?.subtitle ?? protocol.subtitle;
+  const displayOverview = localized?.overview ?? protocol.overview;
+  const displayHowItWorks = localized?.howItWorks ?? protocol.howItWorks;
+  const displayIdealFor = localized?.idealFor ?? protocol.idealFor;
+  const displayResearchHighlights = localized?.researchHighlights ?? protocol.researchHighlights;
+  const displayFaqs = localized?.faqs ?? protocol.faqs;
+
   const protocolProducts = protocol.productSlugs
     .map((s) => getProductBySlug(s))
     .filter((p): p is NonNullable<typeof p> => !!p);
@@ -91,24 +104,24 @@ export default async function ProtocolPage({
           breadcrumbSchema([
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.protocols, url: `/${locale}/protocols` },
-            { name: protocol.name, url: `/${locale}/protocols/${slug}` },
+            { name: displayName, url: `/${locale}/protocols/${slug}` },
           ]),
           {
             "@context": "https://schema.org",
             "@type": "HowTo",
-            name: protocol.name,
-            description: protocol.metaDescription,
+            name: displayName,
+            description: localized?.metaDescription ?? protocol.metaDescription,
             totalTime: protocol.duration,
             step: [
               {
                 "@type": "HowToStep",
                 name: "Research Overview",
-                text: protocol.overview,
+                text: displayOverview,
               },
               {
                 "@type": "HowToStep",
                 name: "Mechanism of Action",
-                text: protocol.howItWorks,
+                text: displayHowItWorks,
               },
             ],
             supply: protocolProducts.map((p) => ({
@@ -116,7 +129,7 @@ export default async function ProtocolPage({
               name: `ORYN ${p.name} Peptide Pen`,
             })),
           },
-          faqSchema(protocol.faqs),
+          faqSchema(displayFaqs),
         ]}
       />
 
@@ -129,7 +142,7 @@ export default async function ProtocolPage({
             <Link href={`/${locale}/protocols`} className="hover:text-oryn-orange transition-colors">PROTOCOLS</Link>
             <span className="text-oryn-orange">/</span>
             <span className="text-oryn-orange truncate max-w-[250px]">
-              {protocol.name.toUpperCase()}
+              {displayName.toUpperCase()}
             </span>
           </nav>
         </div>
@@ -147,10 +160,10 @@ export default async function ProtocolPage({
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
-              {protocol.name}
+              {displayName}
             </h1>
             <p className="text-lg text-white/60 font-plex max-w-2xl mb-8">
-              {protocol.subtitle}
+              {displaySubtitle}
             </p>
             <div className="flex flex-wrap gap-6">
               <div>
@@ -176,7 +189,7 @@ export default async function ProtocolPage({
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">OVERVIEW</span>
           </div>
           <p className="text-sm text-oryn-black/70 font-plex leading-[1.9] mb-8">
-            {protocol.overview}
+            {displayOverview}
           </p>
 
           <div className="inline-flex items-center gap-3 mb-6">
@@ -184,7 +197,7 @@ export default async function ProtocolPage({
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">MECHANISM OF ACTION</span>
           </div>
           <p className="text-sm text-oryn-black/70 font-plex leading-[1.9]">
-            {protocol.howItWorks}
+            {displayHowItWorks}
           </p>
         </section>
 
@@ -239,7 +252,7 @@ export default async function ProtocolPage({
                 <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">IDEAL FOR</span>
               </div>
               <ul className="space-y-3">
-                {protocol.idealFor.map((item, i) => (
+                {displayIdealFor.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0 mt-0.5">
                       <path d="M5 13l4 4L19 7" />
@@ -255,7 +268,7 @@ export default async function ProtocolPage({
                 <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">RESEARCH HIGHLIGHTS</span>
               </div>
               <ul className="space-y-3">
-                {protocol.researchHighlights.map((item, i) => (
+                {displayResearchHighlights.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0 mt-0.5">
                       <circle cx="12" cy="12" r="10" />
@@ -276,7 +289,7 @@ export default async function ProtocolPage({
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              {protocol.faqs.map((faq, i) => (
+              {displayFaqs.map((faq, i) => (
                 <details key={i} className="group bg-white border border-oryn-grey/20 open:border-oryn-orange/20">
                   <summary className="flex items-center justify-between p-5 cursor-pointer">
                     <h3 className="text-sm font-bold pr-4">{faq.question}</h3>

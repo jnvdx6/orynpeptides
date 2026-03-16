@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FAQ_HUBS, FAQ_HUB_SLUGS, getFAQHubBySlug } from "@/data/faq-hubs";
+import { getLocalizedFAQHub } from "@/data/faq-hubs-i18n";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
@@ -24,12 +25,16 @@ export async function generateMetadata({
   const hub = getFAQHubBySlug(slug);
   if (!hub) return {};
 
+  const t = getLocalizedFAQHub(slug, locale as Locale);
+  const metaTitle = t?.metaTitle ?? hub.metaTitle;
+  const metaDescription = t?.metaDescription ?? hub.metaDescription;
+
   return {
-    title: hub.metaTitle,
-    description: hub.metaDescription,
+    title: metaTitle,
+    description: metaDescription,
     openGraph: {
-      title: hub.metaTitle,
-      description: hub.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: `${SITE_URL}/${locale}/faq/${slug}`,
       type: "website",
       images: [
@@ -56,6 +61,11 @@ export default async function FAQHubPage({
   const hub = getFAQHubBySlug(slug);
   if (!hub) notFound();
 
+  const t = getLocalizedFAQHub(slug, locale as Locale);
+  const displayTitle = t?.title ?? hub.title;
+  const displayIntroduction = t?.introduction ?? hub.introduction;
+  const displayFaqs = t?.faqs ?? hub.faqs;
+
   const otherHubs = FAQ_HUBS.filter((h) => h.slug !== hub.slug).slice(0, 6);
   const isProduct = hub.type === "product";
 
@@ -66,9 +76,9 @@ export default async function FAQHubPage({
           breadcrumbSchema([
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.faq, url: `/${locale}/faq` },
-            { name: hub.title, url: `/${locale}/faq/${slug}` },
+            { name: displayTitle, url: `/${locale}/faq/${slug}` },
           ]),
-          faqSchema(hub.faqs),
+          faqSchema(displayFaqs),
         ]}
       />
 
@@ -81,7 +91,7 @@ export default async function FAQHubPage({
             <span className="hover:text-oryn-orange transition-colors">FAQ</span>
             <span className="text-oryn-orange">/</span>
             <span className="text-oryn-orange truncate max-w-[250px]">
-              {hub.title.toUpperCase()}
+              {displayTitle.toUpperCase()}
             </span>
           </nav>
         </div>
@@ -96,10 +106,10 @@ export default async function FAQHubPage({
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-              {hub.title}
+              {displayTitle}
             </h1>
             <p className="text-lg text-white/60 font-plex max-w-2xl">
-              {hub.introduction}
+              {displayIntroduction}
             </p>
           </div>
         </section>
@@ -109,14 +119,14 @@ export default async function FAQHubPage({
           <div className="inline-flex items-center gap-3 mb-2">
             <div className="w-6 h-px bg-oryn-orange" />
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
-              {hub.faqs.length} QUESTIONS ANSWERED
+              {displayFaqs.length} QUESTIONS ANSWERED
             </span>
           </div>
           <h2 className="text-2xl font-bold mb-8">
             All Questions
           </h2>
           <div className="space-y-4">
-            {hub.faqs.map((faq, i) => (
+            {displayFaqs.map((faq, i) => (
               <details
                 key={i}
                 className="group border border-oryn-grey/20 open:border-oryn-orange/20"
@@ -182,26 +192,29 @@ export default async function FAQHubPage({
             </div>
             <h2 className="text-2xl font-bold mb-8">Explore Other FAQs</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {otherHubs.map((h) => (
-                <Link
-                  key={h.slug}
-                  href={`/${locale}/faq/${h.slug}`}
-                  className="p-5 border border-oryn-grey/15 hover:border-oryn-orange/30 transition-all group"
-                >
-                  <span className="text-[8px] font-mono text-oryn-orange tracking-[0.15em]">
-                    {h.type === "product" ? "PRODUCT" : "TOPIC"}
-                  </span>
-                  <h3 className="text-sm font-bold mt-1 mb-2 group-hover:text-oryn-orange transition-colors">
-                    {h.title}
-                  </h3>
-                  <p className="text-xs text-oryn-black/50 font-plex line-clamp-2">
-                    {h.metaDescription}
-                  </p>
-                  <span className="text-[9px] font-mono text-oryn-black/30 mt-2 inline-block">
-                    {h.faqs.length} questions
-                  </span>
-                </Link>
-              ))}
+              {otherHubs.map((h) => {
+                const ht = getLocalizedFAQHub(h.slug, locale as Locale);
+                return (
+                  <Link
+                    key={h.slug}
+                    href={`/${locale}/faq/${h.slug}`}
+                    className="p-5 border border-oryn-grey/15 hover:border-oryn-orange/30 transition-all group"
+                  >
+                    <span className="text-[8px] font-mono text-oryn-orange tracking-[0.15em]">
+                      {h.type === "product" ? "PRODUCT" : "TOPIC"}
+                    </span>
+                    <h3 className="text-sm font-bold mt-1 mb-2 group-hover:text-oryn-orange transition-colors">
+                      {ht?.title ?? h.title}
+                    </h3>
+                    <p className="text-xs text-oryn-black/50 font-plex line-clamp-2">
+                      {ht?.metaDescription ?? h.metaDescription}
+                    </p>
+                    <span className="text-[9px] font-mono text-oryn-black/30 mt-2 inline-block">
+                      {h.faqs.length} questions
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -1854,6 +1854,139 @@ const it = {
     ctaShopNow: "ACQUISTA ORA",
     ctaContactUs: "CONTATTACI",
   },
+
+  termsPage: {
+    tagline: "LEGALE",
+    title: "Termini di Servizio",
+    lastUpdated: "Ultimo aggiornamento: marzo 2026",
+    sections: [
+      {
+        heading: "1. Accettazione dei Termini",
+        content:
+          "Accedendo e utilizzando il sito web e i servizi di ORYN Peptide Labs, accetti di essere vincolato dai presenti Termini di Servizio. Se non sei d'accordo con questi termini, ti preghiamo di non utilizzare i nostri servizi.",
+      },
+      {
+        heading: "2. Solo per Uso nella Ricerca",
+        content:
+          "Tutti i prodotti venduti da ORYN Peptide Labs sono destinati esclusivamente a fini di laboratorio e ricerca. I prodotti non sono destinati al consumo umano o animale. Acquistando, confermi di acquisire i prodotti per scopi di ricerca legittimi e di rispettare tutte le leggi e i regolamenti applicabili nella tua giurisdizione.",
+      },
+      {
+        heading: "3. Requisiti",
+        content:
+          "Devi avere almeno 18 anni e rappresentare un'organizzazione di ricerca legittima, laboratorio o istituzione accademica per acquistare prodotti. ORYN si riserva il diritto di richiedere la verifica delle credenziali di ricerca.",
+      },
+      {
+        heading: "4. Ordini e Pagamento",
+        content:
+          "Tutti i prezzi sono in EUR. Il pagamento viene elaborato in modo sicuro. ORYN si riserva il diritto di annullare ordini che sembrano fraudolenti o che violano questi termini. Per ordini all'ingrosso: 50% di pagamento anticipato, 50% prima della spedizione.",
+      },
+      {
+        heading: "5. Spedizione e Consegna",
+        content:
+          "I prodotti vengono spediti con gestione della catena del freddo ove necessario. I tempi di consegna sono stime. ORYN non è responsabile per ritardi causati da dogane, corrieri o eventi di forza maggiore.",
+      },
+      {
+        heading: "6. Resi e Rimborsi",
+        content:
+          "A causa della natura dei nostri prodotti, i resi sono accettati solo per articoli danneggiati o errati entro 14 giorni dalla consegna. I prodotti devono essere non aperti e nella confezione originale.",
+      },
+      {
+        heading: "7. Proprietà Intellettuale",
+        content:
+          "Tutti i contenuti, il marchio e i materiali su questo sito web sono di proprietà di ORYN Peptide Labs. La riproduzione non autorizzata è vietata.",
+      },
+      {
+        heading: "8. Limitazione di Responsabilità",
+        content:
+          "ORYN Peptide Labs fornisce prodotti nello stato in cui si trovano per scopi di ricerca. Non offriamo garanzie riguardo all'idoneità per uno scopo particolare oltre alle specifiche indicate. La nostra responsabilità è limitata al prezzo di acquisto del prodotto.",
+      },
+      {
+        heading: "9. Contatto",
+        content: "Per domande riguardanti questi termini, contattaci a legal@orynlabs.com.",
+      },
+    ],
+  },
+
+  privacyPage: {
+    tagline: "LEGALE",
+    title: "Informativa sulla Privacy",
+    lastUpdated: "Ultimo aggiornamento: marzo 2026",
+    sections: [
+      {
+        heading: "1. Informazioni che Raccogliamo",
+        content:
+          "Raccogliamo le informazioni che fornisci direttamente: nome, e-mail, organizzazione, indirizzo di spedizione e dati di pagamento quando crei un account o effettui un ordine.",
+      },
+      {
+        heading: "2. Come Utilizziamo le Tue Informazioni",
+        content:
+          "Le tue informazioni vengono utilizzate per: elaborare gli ordini, comunicare riguardo al tuo account, fornire assistenza clienti, inviare aggiornamenti sugli ordini e rispettare gli obblighi legali. Non vendiamo i tuoi dati personali.",
+      },
+      {
+        heading: "3. Protezione dei Dati",
+        content:
+          "ORYN Peptide Labs è conforme al GDPR e alle normative europee applicabili sulla protezione dei dati. I tuoi dati vengono archiviati in modo sicuro con crittografia a riposo e in transito.",
+      },
+      {
+        heading: "4. I Tuoi Diritti",
+        content:
+          "Ai sensi del GDPR, hai il diritto di: accedere ai tuoi dati, rettificare inesattezze, richiedere la cancellazione, limitare il trattamento, la portabilità dei dati e opporti al trattamento. Contatta privacy@orynlabs.com per esercitare questi diritti.",
+      },
+      {
+        heading: "5. Cookie",
+        content:
+          "Utilizziamo cookie essenziali per la funzionalità del sito e cookie analitici per migliorare il nostro servizio. Puoi gestire le preferenze dei cookie nelle impostazioni del tuo browser.",
+      },
+      {
+        heading: "6. Contatto",
+        content: "Responsabile della Protezione dei Dati: privacy@orynlabs.com",
+      },
+    ],
+  },
+
+  disclaimerPage: {
+    tagline: "LEGALE",
+    title: "Dichiarazione di Ricerca",
+    lastUpdated: "Ultimo aggiornamento: marzo 2026",
+    alertTitle: "Avviso Importante",
+    alertContent:
+      "Tutti i prodotti venduti da ORYN Peptide Labs sono strettamente destinati alla ricerca di laboratorio e allo studio scientifico. NON sono destinati all'uso umano o veterinario, additivi alimentari, farmaci, cosmetici, prodotti chimici domestici o qualsiasi altra forma di consumo.",
+    buyerResponsibilityIntro:
+      "Acquistando da ORYN Peptide Labs, l'acquirente riconosce e accetta che:",
+    buyerResponsibilityItems: [
+      "I prodotti saranno utilizzati esclusivamente per scopi di ricerca legittimi",
+      "L'acquirente conosce e rispetta tutte le normative applicabili",
+      "I prodotti non verranno rivenduti per il consumo umano",
+      "L'acquirente si assume la piena responsabilità per la corretta manipolazione e utilizzo",
+      "L'acquirente è maggiorenne e rappresenta un'entità di ricerca legittima",
+    ],
+    sections: [
+      {
+        heading: "Dichiarazione sull'Uso nella Ricerca",
+        content:
+          "ORYN Peptide Labs produce e distribuisce composti peptidici esclusivamente per ricerca in vitro, sperimentazione di laboratorio e indagine scientifica. Tutti i composti vengono forniti come prodotti chimici per la ricerca con Certificati di Analisi (COA) allegati per la verifica dei lotti.",
+      },
+      {
+        heading: "Responsabilità dell'Acquirente",
+        content: "",
+      },
+      {
+        heading: "Nessuna Dichiarazione Medica",
+        content:
+          "ORYN Peptide Labs non avanza alcuna pretesa riguardo alle proprietà terapeutiche, diagnostiche o preventive di alcun prodotto. Le descrizioni dei prodotti fanno riferimento alla letteratura scientifica pubblicata solo a scopo informativo e non costituiscono consulenza medica né dichiarazioni di efficacia.",
+      },
+      {
+        heading: "Garanzia della Qualità",
+        content:
+          "Tutti i prodotti ORYN sono prodotti in strutture cleanroom ISO Classe 7 certificate GMP con validazione analitica di terze parti. I livelli di purezza superano il 99% come verificato dall'analisi HPLC. La documentazione completa del lotto, inclusi COA, dati di stabilità e documentazione DMF, è disponibile su richiesta.",
+      },
+      {
+        heading: "Conformità Normativa",
+        content:
+          "È responsabilità dell'acquirente garantire la conformità a tutte le normative locali, nazionali e internazionali riguardanti l'acquisto, l'importazione, il possesso e l'utilizzo di peptidi per la ricerca. ORYN Peptide Labs opera nel quadro normativo europeo.",
+      },
+    ],
+  },
 } as unknown as Dictionary;
 
 export default it;

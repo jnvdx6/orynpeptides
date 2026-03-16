@@ -7,6 +7,7 @@ import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { getLocalizedBundle } from "@/data/bundles-i18n";
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -103,6 +104,7 @@ export default async function BundlesIndexPage({
         <section className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {bundles.map((bundle) => {
+              const t = getLocalizedBundle(bundle.slug, locale as Locale);
               const bundleProducts = bundle.productSlugs
                 .map((s) => getProductBySlug(s))
                 .filter((p): p is NonNullable<typeof p> => !!p);
@@ -145,10 +147,10 @@ export default async function BundlesIndexPage({
                       </span>
                     </div>
                     <h2 className="text-lg font-bold mb-2 group-hover:text-oryn-orange transition-colors">
-                      {bundle.name}
+                      {t?.name ?? bundle.name}
                     </h2>
                     <p className="text-xs text-oryn-black/50 font-plex mb-4 line-clamp-2">
-                      {bundle.tagline}
+                      {t?.tagline ?? bundle.tagline}
                     </p>
                     <div className="flex items-center gap-3">
                       <span className="text-xl font-bold text-oryn-orange">

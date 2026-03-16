@@ -1053,6 +1053,31 @@ export interface Dictionary {
     ctaContactUs: string;
   };
 
+  termsPage: {
+    tagline: string;
+    title: string;
+    lastUpdated: string;
+    sections: Array<{ heading: string; content: string }>;
+  };
+
+  privacyPage: {
+    tagline: string;
+    title: string;
+    lastUpdated: string;
+    sections: Array<{ heading: string; content: string }>;
+  };
+
+  disclaimerPage: {
+    tagline: string;
+    title: string;
+    lastUpdated: string;
+    alertTitle: string;
+    alertContent: string;
+    buyerResponsibilityIntro: string;
+    buyerResponsibilityItems: string[];
+    sections: Array<{ heading: string; content: string }>;
+  };
+
   account: {
     nav: {
       dashboard: string;

@@ -8,6 +8,7 @@ import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { bundles, BUNDLE_SLUGS, getBundleBySlug } from "@/data/bundles";
+import { getLocalizedBundle } from "@/data/bundles-i18n";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 
 // ─── Static Params ──────────────────────────────────────────────────
@@ -85,6 +86,8 @@ export default async function BundlePage({
   const bundle = getBundleBySlug(slug);
   if (!bundle) notFound();
 
+  const t = getLocalizedBundle(slug, locale as Locale);
+
   const bundleProducts = bundle.productSlugs
     .map((s) => getProductBySlug(s))
     .filter(Boolean)
@@ -107,15 +110,15 @@ export default async function BundlePage({
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.bundles, url: `/${locale}/bundles/${bundle.slug}` },
             {
-              name: bundle.name,
+              name: t?.name ?? bundle.name,
               url: `/${locale}/bundles/${bundle.slug}`,
             },
           ]),
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: `ORYN ${bundle.name}`,
-            description: bundle.tagline,
+            name: `ORYN ${t?.name ?? bundle.name}`,
+            description: t?.tagline ?? bundle.tagline,
             numberOfItems: bundleProducts.length,
             itemListElement: bundleProducts.map((product, i) => ({
               "@type": "ListItem",
@@ -124,7 +127,7 @@ export default async function BundlePage({
               name: `ORYN ${product.name}`,
             })),
           },
-          faqSchema(bundle.faqs),
+          faqSchema(t?.faqs ?? bundle.faqs),
         ]}
       />
 
@@ -147,7 +150,7 @@ export default async function BundlePage({
             </Link>
             <span className="text-oryn-orange">/</span>
             <span className="text-oryn-orange">
-              {bundle.name.toUpperCase()}
+              {(t?.name ?? bundle.name).toUpperCase()}
             </span>
           </nav>
         </div>
@@ -163,10 +166,10 @@ export default async function BundlePage({
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-              {bundle.name}
+              {t?.name ?? bundle.name}
             </h1>
             <p className="text-lg text-white/60 font-plex max-w-3xl mb-8">
-              {bundle.tagline}
+              {t?.tagline ?? bundle.tagline}
             </p>
 
             <div className="flex items-center gap-6 flex-wrap">
@@ -275,7 +278,7 @@ export default async function BundlePage({
           </div>
           <h2 className="text-2xl font-bold mb-8">Why This Stack Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {bundle.benefits.map((benefit, i) => (
+            {(t?.benefits ?? bundle.benefits).map((benefit, i) => (
               <div
                 key={i}
                 className="flex items-start gap-3 p-4 bg-oryn-orange/5 border border-oryn-orange/10"
@@ -310,7 +313,7 @@ export default async function BundlePage({
             </div>
             <h2 className="text-2xl font-bold mb-6">Protocol Overview</h2>
             <p className="text-sm text-white/60 font-plex leading-relaxed mb-8">
-              {bundle.protocol}
+              {t?.protocol ?? bundle.protocol}
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -350,7 +353,7 @@ export default async function BundlePage({
         <section className="max-w-4xl mx-auto px-6 py-16">
           <h2 className="text-2xl font-bold mb-6">About This Bundle</h2>
           <p className="text-sm text-oryn-black/60 font-plex leading-relaxed">
-            {bundle.description}
+            {t?.description ?? bundle.description}
           </p>
         </section>
 
@@ -358,10 +361,10 @@ export default async function BundlePage({
         <section className="bg-oryn-cream py-16">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-2xl font-bold mb-8">
-              {bundle.name} &mdash; Frequently Asked Questions
+              {t?.name ?? bundle.name} &mdash; Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              {bundle.faqs.map((faq, i) => (
+              {(t?.faqs ?? bundle.faqs).map((faq, i) => (
                 <details
                   key={i}
                   className="group border border-oryn-grey/20 bg-white open:border-oryn-orange/20"
@@ -406,6 +409,7 @@ export default async function BundlePage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {otherBundles.slice(0, 4).map((b) => {
+              const bT = getLocalizedBundle(b.slug, locale as Locale);
               const bProducts = b.productSlugs
                 .map((s) => getProductBySlug(s))
                 .filter(Boolean)
@@ -440,10 +444,10 @@ export default async function BundlePage({
                     ))}
                   </div>
                   <p className="text-sm font-bold group-hover:text-oryn-orange transition-colors">
-                    {b.name}
+                    {bT?.name ?? b.name}
                   </p>
                   <p className="text-[10px] text-oryn-black/40 font-plex mt-1 line-clamp-2">
-                    {b.tagline}
+                    {bT?.tagline ?? b.tagline}
                   </p>
                   <div className="flex items-center gap-2 mt-3">
                     <span className="text-lg font-bold text-oryn-orange">
@@ -466,7 +470,7 @@ export default async function BundlePage({
         <section className="bg-oryn-orange py-16">
           <div className="max-w-4xl mx-auto px-6 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Get the {bundle.name}
+              Get the {t?.name ?? bundle.name}
             </h2>
             <p className="text-sm text-white/70 font-plex mb-4 max-w-lg mx-auto">
               Save {currency}{savings} with this bundle. GMP manufactured,

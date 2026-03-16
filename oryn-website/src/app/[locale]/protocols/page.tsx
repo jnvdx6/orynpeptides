@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PROTOCOLS } from "@/data/protocols";
+import { getLocalizedProtocol } from "@/data/protocols-i18n";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
@@ -106,17 +107,19 @@ export default async function ProtocolsIndexPage({
                   </span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {catProtocols.map((protocol) => (
+                  {catProtocols.map((protocol) => {
+                    const localized = getLocalizedProtocol(protocol.slug, locale as Locale);
+                    return (
                     <Link
                       key={protocol.slug}
                       href={`/${locale}/protocols/${protocol.slug}`}
                       className="group border border-oryn-grey/15 hover:border-oryn-orange/30 transition-all p-6"
                     >
                       <h3 className="text-lg font-bold mb-2 group-hover:text-oryn-orange transition-colors">
-                        {protocol.name}
+                        {localized?.name ?? protocol.name}
                       </h3>
                       <p className="text-xs text-oryn-black/50 font-plex mb-4 line-clamp-2">
-                        {protocol.subtitle}
+                        {localized?.subtitle ?? protocol.subtitle}
                       </p>
                       <div className="flex items-center gap-4 text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
                         <span>{protocol.duration}</span>
@@ -124,7 +127,8 @@ export default async function ProtocolsIndexPage({
                         <span>{protocol.productSlugs.length} PRODUCT{protocol.productSlugs.length > 1 ? "S" : ""}</span>
                       </div>
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </section>

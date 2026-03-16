@@ -1854,6 +1854,139 @@ const nl = {
     ctaShopNow: "NU WINKELEN",
     ctaContactUs: "CONTACT OPNEMEN",
   },
+
+  termsPage: {
+    tagline: "JURIDISCH",
+    title: "Gebruiksvoorwaarden",
+    lastUpdated: "Laatst bijgewerkt: maart 2026",
+    sections: [
+      {
+        heading: "1. Aanvaarding van de Voorwaarden",
+        content:
+          "Door toegang te krijgen tot en gebruik te maken van de website en diensten van ORYN Peptide Labs, stemt u in met deze Gebruiksvoorwaarden. Als u niet akkoord gaat met deze voorwaarden, gebruik dan geen gebruik van onze diensten.",
+      },
+      {
+        heading: "2. Alleen voor Onderzoeksdoeleinden",
+        content:
+          "Alle producten die door ORYN Peptide Labs worden verkocht, zijn uitsluitend bedoeld voor laboratorium- en onderzoeksdoeleinden. Producten zijn niet bedoeld voor menselijke of dierlijke consumptie. Door te kopen, bevestigt u dat u producten aanschaft voor legitieme onderzoeksdoeleinden en alle toepasselijke wetten en regelgeving in uw rechtsgebied naleeft.",
+      },
+      {
+        heading: "3. Geschiktheid",
+        content:
+          "U moet minimaal 18 jaar oud zijn en een legitieme onderzoeksorganisatie, laboratorium of academische instelling vertegenwoordigen om producten te kunnen kopen. ORYN behoudt zich het recht voor om verificatie van onderzoekskwalificaties te vragen.",
+      },
+      {
+        heading: "4. Bestellingen en Betaling",
+        content:
+          "Alle prijzen zijn in EUR. Betaling wordt veilig verwerkt. ORYN behoudt zich het recht voor bestellingen te annuleren die frauduleus lijken of deze voorwaarden schenden. Voor groothandelbestellingen: 50% aanbetaling, 50% voor verzending.",
+      },
+      {
+        heading: "5. Verzending en Levering",
+        content:
+          "Producten worden indien nodig verzonden met koude-ketenverwerking. Levertijden zijn schattingen. ORYN is niet verantwoordelijk voor vertragingen veroorzaakt door douane, vervoerders of overmacht.",
+      },
+      {
+        heading: "6. Retouren en Terugbetalingen",
+        content:
+          "Vanwege de aard van onze producten worden retouren alleen geaccepteerd voor beschadigde of onjuiste artikelen binnen 14 dagen na levering. Producten moeten ongeopend en in originele verpakking zijn.",
+      },
+      {
+        heading: "7. Intellectueel Eigendom",
+        content:
+          "Alle inhoud, merkrecht en materialen op deze website zijn eigendom van ORYN Peptide Labs. Ongeautoriseerde reproductie is verboden.",
+      },
+      {
+        heading: "8. Beperking van Aansprakelijkheid",
+        content:
+          "ORYN Peptide Labs levert producten in de huidige staat voor onderzoeksdoeleinden. Wij bieden geen garanties met betrekking tot geschiktheid voor een bepaald doel buiten de vermelde specificaties. Onze aansprakelijkheid is beperkt tot de aankoopprijs van het product.",
+      },
+      {
+        heading: "9. Contact",
+        content: "Voor vragen over deze voorwaarden, neem contact met ons op via legal@orynlabs.com.",
+      },
+    ],
+  },
+
+  privacyPage: {
+    tagline: "JURIDISCH",
+    title: "Privacybeleid",
+    lastUpdated: "Laatst bijgewerkt: maart 2026",
+    sections: [
+      {
+        heading: "1. Informatie die Wij Verzamelen",
+        content:
+          "Wij verzamelen informatie die u direct verstrekt: naam, e-mail, organisatie, verzendadres en betalingsgegevens wanneer u een account aanmaakt of een bestelling plaatst.",
+      },
+      {
+        heading: "2. Hoe Wij Uw Informatie Gebruiken",
+        content:
+          "Uw informatie wordt gebruikt voor: het verwerken van bestellingen, communicatie over uw account, klantenondersteuning, het verzenden van bestelupdates en het naleven van wettelijke verplichtingen. Wij verkopen uw persoonlijke gegevens niet.",
+      },
+      {
+        heading: "3. Gegevensbescherming",
+        content:
+          "ORYN Peptide Labs voldoet aan de AVG en toepasselijke Europese regelgeving inzake gegevensbescherming. Uw gegevens worden veilig opgeslagen met versleuteling in rust en in transit.",
+      },
+      {
+        heading: "4. Uw Rechten",
+        content:
+          "Op grond van de AVG heeft u het recht op: toegang tot uw gegevens, rectificatie van onjuistheden, verzoek tot verwijdering, beperking van verwerking, gegevensoverdraagbaarheid en bezwaar tegen verwerking. Neem contact op met privacy@orynlabs.com om deze rechten uit te oefenen.",
+      },
+      {
+        heading: "5. Cookies",
+        content:
+          "Wij gebruiken essentiële cookies voor de sitefunctionaliteit en analytische cookies om onze service te verbeteren. U kunt cookievoorkeuren beheren in uw browserinstellingen.",
+      },
+      {
+        heading: "6. Contact",
+        content: "Functionaris voor Gegevensbescherming: privacy@orynlabs.com",
+      },
+    ],
+  },
+
+  disclaimerPage: {
+    tagline: "JURIDISCH",
+    title: "Onderzoeksdisclaimer",
+    lastUpdated: "Laatst bijgewerkt: maart 2026",
+    alertTitle: "Belangrijke Mededeling",
+    alertContent:
+      "Alle producten die door ORYN Peptide Labs worden verkocht, zijn uitsluitend bedoeld voor laboratoriumonderzoek en wetenschappelijke studie. Ze zijn NIET bedoeld voor menselijk of veterinair gebruik, voedseladditieven, geneesmiddelen, cosmetica, huishoudelijke chemicaliën of enige andere vorm van consumptie.",
+    buyerResponsibilityIntro:
+      "Door te kopen bij ORYN Peptide Labs erkent en stemt de koper in dat:",
+    buyerResponsibilityItems: [
+      "Producten uitsluitend worden gebruikt voor legitieme onderzoeksdoeleinden",
+      "De koper bekend is met en voldoet aan alle toepasselijke regelgeving",
+      "Producten niet worden doorverkocht voor menselijke consumptie",
+      "De koper alle verantwoordelijkheid aanvaardt voor correcte behandeling en gebruik",
+      "De koper meerderjarig is en een legitieme onderzoeksinstelling vertegenwoordigt",
+    ],
+    sections: [
+      {
+        heading: "Verklaring Onderzoeksgebruik",
+        content:
+          "ORYN Peptide Labs vervaardigt en distribueert peptideverbindingen uitsluitend voor in-vitro onderzoek, laboratoriumexperimenten en wetenschappelijk onderzoek. Alle verbindingen worden geleverd als onderzoekschemicaliën met bijgevoegde Analysecertificaten (COA) voor batchverificatie.",
+      },
+      {
+        heading: "Verantwoordelijkheid van de Koper",
+        content: "",
+      },
+      {
+        heading: "Geen Medische Claims",
+        content:
+          "ORYN Peptide Labs maakt geen claims met betrekking tot de therapeutische, diagnostische of preventieve eigenschappen van enig product. Productbeschrijvingen verwijzen naar gepubliceerde wetenschappelijke literatuur uitsluitend voor informatieve doeleinden en vormen geen medisch advies of werkzaamheidsclaims.",
+      },
+      {
+        heading: "Kwaliteitsborging",
+        content:
+          "Alle ORYN-producten worden vervaardigd in GMP-gecertificeerde ISO Klasse 7 cleanroomfaciliteiten met analytische validatie door derden. Zuiverheidsgraden overschrijden 99% zoals geverifieerd door HPLC-analyse. Volledige batchdocumentatie inclusief COA, stabiliteitsgegevens en DMF-documentatie is op verzoek beschikbaar.",
+      },
+      {
+        heading: "Naleving van Regelgeving",
+        content:
+          "Het is de verantwoordelijkheid van de koper om naleving te waarborgen van alle lokale, nationale en internationale regelgeving met betrekking tot aankoop, invoer, bezit en gebruik van onderzoekspeptiden. ORYN Peptide Labs opereert binnen Europese regelgevingskaders.",
+      },
+    ],
+  },
 } as unknown as Dictionary;
 
 export default nl;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ_HUBS } from "@/data/faq-hubs";
+import { getLocalizedFAQHub } from "@/data/faq-hubs-i18n";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
@@ -100,23 +101,26 @@ export default async function FAQIndexPage({
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {section.hubs.map((hub) => (
-                  <Link
-                    key={hub.slug}
-                    href={`/${locale}/faq/${hub.slug}`}
-                    className="group border border-oryn-grey/15 hover:border-oryn-orange/30 transition-all p-6"
-                  >
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-oryn-orange transition-colors">
-                      {hub.title}
-                    </h3>
-                    <p className="text-xs text-oryn-black/50 font-plex mb-4 line-clamp-2">
-                      {hub.metaDescription}
-                    </p>
-                    <div className="flex items-center gap-4 text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
-                      <span>{hub.faqs.length} QUESTION{hub.faqs.length !== 1 ? "S" : ""}</span>
-                    </div>
-                  </Link>
-                ))}
+                {section.hubs.map((hub) => {
+                  const t = getLocalizedFAQHub(hub.slug, locale as Locale);
+                  return (
+                    <Link
+                      key={hub.slug}
+                      href={`/${locale}/faq/${hub.slug}`}
+                      className="group border border-oryn-grey/15 hover:border-oryn-orange/30 transition-all p-6"
+                    >
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-oryn-orange transition-colors">
+                        {t?.title ?? hub.title}
+                      </h3>
+                      <p className="text-xs text-oryn-black/50 font-plex mb-4 line-clamp-2">
+                        {t?.metaDescription ?? hub.metaDescription}
+                      </p>
+                      <div className="flex items-center gap-4 text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">
+                        <span>{hub.faqs.length} QUESTION{hub.faqs.length !== 1 ? "S" : ""}</span>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </section>
