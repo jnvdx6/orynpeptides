@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Locale, RegionKey } from "./config";
-import { markets, regions, defaultRegion, isValidRegion } from "./config";
+import { markets, regions, defaultRegion, isValidRegion, localeToIntlTag } from "./config";
 import type { Dictionary } from "./types";
 
 interface LocaleContextType {
@@ -67,14 +67,21 @@ export function LocaleProvider({
 
   const regionConfig = regions[region];
 
-  // Prices from Medusa are already in the region's currency — just format.
+  // Prices from Medusa are already in the region's currency — format with Intl.
   const formatPrice = useCallback((amount: number): string => {
-    if (amount >= 1000) {
-      const formatted = Math.round(amount).toLocaleString("en-US");
-      return `${regionConfig.symbol}${formatted}`;
+    const intlTag = localeToIntlTag[locale];
+    try {
+      return new Intl.NumberFormat(intlTag, {
+        style: "currency",
+        currency: regionConfig.currencyCode.toUpperCase(),
+        minimumFractionDigits: 0,
+        maximumFractionDigits: amount % 1 !== 0 ? 2 : 0,
+      }).format(amount);
+    } catch {
+      // Fallback if Intl fails
+      return `${regionConfig.symbol}${Math.round(amount)}`;
     }
-    return `${regionConfig.symbol}${Math.round(amount)}`;
-  }, [regionConfig]);
+  }, [regionConfig, locale]);
 
   const localePath = useCallback((path: string): string => {
     if (path.startsWith("/")) {

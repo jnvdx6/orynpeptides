@@ -77,6 +77,41 @@ export const countryToRegion: Record<string, RegionKey> = {
   GT: "americas", AU: "americas", NZ: "americas",
 };
 
+// ── Country → locale mapping (for Vercel geo-detection) ─────────
+// Maps ISO 3166-1 alpha-2 country codes to their most likely locale
+export const countryToLocale: Record<string, Locale> = {
+  // English
+  GB: "en", IE: "en", US: "en", CA: "en", AU: "en", NZ: "en",
+  // Spanish
+  ES: "es", MX: "es", AR: "es", CL: "es", CO: "es", PE: "es",
+  EC: "es", VE: "es", UY: "es", PY: "es", BO: "es", CR: "es",
+  PA: "es", DO: "es", GT: "es", HN: "es", SV: "es", NI: "es", CU: "es",
+  // French
+  FR: "fr", BE: "fr", CH: "fr", LU: "fr", MC: "fr",
+  // German
+  DE: "de", AT: "de", LI: "de",
+  // Italian
+  IT: "it", SM: "it", VA: "it",
+  // Portuguese
+  PT: "pt", BR: "pt", AO: "pt", MZ: "pt",
+  // Dutch
+  NL: "nl",
+  // Polish
+  PL: "pl",
+};
+
+// ── Locale → Intl locale tag (for Intl.NumberFormat) ────────────
+export const localeToIntlTag: Record<Locale, string> = {
+  en: "en-GB",
+  es: "es-ES",
+  fr: "fr-FR",
+  de: "de-DE",
+  it: "it-IT",
+  pt: "pt-PT",
+  nl: "nl-NL",
+  pl: "pl-PL",
+};
+
 export function isValidLocale(locale: string): locale is Locale {
   return locales.includes(locale as Locale);
 }
