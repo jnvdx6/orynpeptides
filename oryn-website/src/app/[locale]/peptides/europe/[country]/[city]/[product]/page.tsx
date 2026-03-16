@@ -37,6 +37,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -45,8 +46,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`])),
+      canonical: `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
     },
   };
 }

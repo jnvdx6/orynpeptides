@@ -37,16 +37,16 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: locale === "en" ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}`,
+      url: `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}/${citySlug}`])),
+      canonical: `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}`,
     },
   };
 }

@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   const now = new Date();
 
-  // ── Static pages + product pages (both locales) ──────────────────
+  // ── Static pages (all locales) ──────────────────────────────────
   const staticPages = [
     { path: "", priority: 1.0 },
     { path: "/products", priority: 0.95 },
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Product pages (both locales)
+  // ── Product pages (all locales) ─────────────────────────────────
   for (const locale of locales) {
     for (const product of products) {
       entries.push({
@@ -64,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // ── City landing pages (EN only) ─────────────────────────────────
+  // ── City hub pages (EN only) — NO city×product combos ──────────
   for (const citySlug of CITY_SLUGS) {
     entries.push({
       url: `${SITE_URL}/en/peptides/${citySlug}`,
@@ -73,18 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // City x product pages (EN only)
-  for (const citySlug of CITY_SLUGS) {
-    for (const product of products) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/${citySlug}/${product.slug}`,
-        lastModified: now,
-        priority: 0.6,
-      });
-    }
-  }
-
-  // ── London area pages (EN only) ──────────────────────────────────
+  // ── London area hub pages (EN only) — NO area×product/category ─
   for (const areaSlug of LONDON_AREA_SLUGS) {
     entries.push({
       url: `${SITE_URL}/en/peptides/london/${areaSlug}`,
@@ -93,48 +82,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // London area x product + category pages (EN only)
-  for (const areaSlug of LONDON_AREA_SLUGS) {
-    for (const product of products) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/london/${areaSlug}/${product.slug}`,
-        lastModified: now,
-        priority: 0.55,
-      });
-    }
-    for (const category of SEO_CATEGORIES) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/london/${areaSlug}/${category.slug}`,
-        lastModified: now,
-        priority: 0.6,
-      });
-    }
-  }
-
-  // ── Regional pages (EN only) ─────────────────────────────────────
+  // ── Regional hub pages (EN only) — NO region×product/category ──
   for (const regionSlug of REGION_SLUGS) {
     entries.push({
       url: `${SITE_URL}/en/peptides/region/${regionSlug}`,
       lastModified: now,
       priority: 0.8,
     });
-    for (const product of products) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/region/${regionSlug}/${product.slug}`,
-        lastModified: now,
-        priority: 0.65,
-      });
-    }
-    for (const category of SEO_CATEGORIES) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/region/${regionSlug}/${category.slug}`,
-        lastModified: now,
-        priority: 0.65,
-      });
-    }
   }
 
-  // ── Category pages (both locales) + category x city (EN only) ───
+  // ── County hub pages (EN only) — NO county×product/category ────
+  for (const countySlug of COUNTY_SLUGS) {
+    entries.push({
+      url: `${SITE_URL}/en/peptides/county/${countySlug}`,
+      lastModified: now,
+      priority: 0.75,
+    });
+  }
+
+  // ── Category pages (all locales) — NO category×city combos ─────
   for (const locale of locales) {
     for (const category of SEO_CATEGORIES) {
       entries.push({
@@ -144,17 +110,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
-  for (const category of SEO_CATEGORIES) {
-    for (const citySlug of CITY_SLUGS) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides-for/${category.slug}/${citySlug}`,
-        lastModified: now,
-        priority: 0.65,
-      });
-    }
-  }
 
-  // ── Encyclopedia + blog + comparisons + bundles + glossary ───────
+  // ── Encyclopedia + blog + comparisons + bundles + glossary ──────
   for (const locale of locales) {
     for (const slug of ENCYCLOPEDIA_SLUGS) {
       entries.push({
@@ -193,30 +150,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // ── County pages (EN only) ──────────────────────────────────────
-  for (const countySlug of COUNTY_SLUGS) {
-    entries.push({
-      url: `${SITE_URL}/en/peptides/county/${countySlug}`,
-      lastModified: now,
-      priority: 0.75,
-    });
-    for (const product of products) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/county/${countySlug}/${product.slug}`,
-        lastModified: now,
-        priority: 0.55,
-      });
-    }
-    for (const category of SEO_CATEGORIES) {
-      entries.push({
-        url: `${SITE_URL}/en/peptides/county/${countySlug}/${category.slug}`,
-        lastModified: now,
-        priority: 0.6,
-      });
-    }
-  }
-
-  // ── Protocols + FAQ hubs (both locales) ─────────────────────────
+  // ── Protocols + FAQ hubs (all locales) ──────────────────────────
   for (const locale of locales) {
     entries.push({
       url: `${SITE_URL}/${locale}/protocols`,
@@ -239,7 +173,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // ── Europe country pages (both locales) ─────────────────────────
+  // ── Europe country hub pages (all locales) ──────────────────────
   for (const locale of locales) {
     for (const country of EUROPEAN_COUNTRIES) {
       entries.push({
@@ -250,31 +184,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // ── Europe city pages (both locales) ────────────────────────────
-  for (const locale of locales) {
-    for (const country of EUROPEAN_COUNTRIES) {
-      for (const city of country.cities) {
-        entries.push({
-          url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}/${city.slug}`,
-          lastModified: now,
-          priority: 0.7,
-        });
-      }
-    }
-  }
-
-  // ── Europe city x product pages (both locales) ──────────────────
-  for (const locale of locales) {
-    for (const country of EUROPEAN_COUNTRIES) {
-      for (const city of country.cities) {
-        for (const product of products) {
-          entries.push({
-            url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}/${city.slug}/${product.slug}`,
-            lastModified: now,
-            priority: 0.55,
-          });
-        }
-      }
+  // ── Europe city hub pages (EN only) — NO city×product combos ───
+  for (const country of EUROPEAN_COUNTRIES) {
+    for (const city of country.cities) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides/europe/${country.slug}/${city.slug}`,
+        lastModified: now,
+        priority: 0.7,
+      });
     }
   }
 
