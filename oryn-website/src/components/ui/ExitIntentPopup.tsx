@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 import { EXIT_INTENT_SHOWN_KEY, FIRST_PURCHASE_KEY } from "@/lib/discounts";
 import { useLocale } from "@/i18n/LocaleContext";
 import { trackExitIntentShown, trackExitIntentConverted } from "@/lib/analytics";
@@ -9,6 +10,9 @@ export function ExitIntentPopup() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [minutesLeft, setMinutesLeft] = useState(15);
+  const [secondsLeft, setSecondsLeft] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const { t } = useLocale();
   const p = t.popups.exitIntent;
 
@@ -49,6 +53,23 @@ export function ExitIntentPopup() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [show, handleClose]);
 
+  // Countdown timer for urgency
+  useEffect(() => {
+    if (!show || submitted) return;
+    timerRef.current = setInterval(() => {
+      setSecondsLeft((prev) => {
+        if (prev === 0) {
+          setMinutesLeft((m) => Math.max(0, m - 1));
+          return 59;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [show, submitted]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -80,7 +101,7 @@ export function ExitIntentPopup() {
       />
 
       {/* Modal */}
-      <div className="relative bg-white max-w-md w-full shadow-2xl animate-in fade-in zoom-in duration-300">
+      <div className="relative bg-white max-w-lg w-full shadow-2xl animate-in fade-in zoom-in duration-300">
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 p-1 text-oryn-black/30 hover:text-oryn-black transition-colors z-10"
@@ -109,16 +130,45 @@ export function ExitIntentPopup() {
             </div>
           ) : (
             <>
-              <div className="text-center mb-6">
-                <span className="text-[9px] font-mono text-oryn-orange tracking-[0.2em]">
-                  {p.tagline}
+              {/* Top section: Product image + headline side by side */}
+              <div className="flex items-center gap-5 mb-5">
+                {/* Product image */}
+                <div className="flex-shrink-0 w-28 h-28 relative">
+                  <Image
+                    src="/images/products/peptide-pen-black.png"
+                    alt="ORYN Peptide Pen"
+                    fill
+                    className="object-contain"
+                    sizes="112px"
+                  />
+                </div>
+
+                {/* Headline area */}
+                <div className="flex-1 text-left">
+                  <span className="text-[9px] font-mono text-oryn-orange tracking-[0.2em]">
+                    {p.tagline}
+                  </span>
+                  <h3 className="text-3xl font-bold mt-1 leading-tight">
+                    <span className="text-oryn-orange">10% OFF</span>
+                    <br />
+                    <span className="text-xl">YOUR FIRST ORDER</span>
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-xs text-oryn-black/50 font-plex text-center mb-4">
+                {p.description}
+              </p>
+
+              {/* Urgency countdown */}
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+                <span className="text-[11px] font-mono text-oryn-orange tracking-wide">
+                  Offer expires in {String(minutesLeft).padStart(2, "0")}:{String(secondsLeft).padStart(2, "0")}
                 </span>
-                <h3 className="text-2xl font-bold mt-2 mb-2">
-                  {p.title}
-                </h3>
-                <p className="text-xs text-oryn-black/40 font-plex">
-                  {p.description}
-                </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -132,13 +182,27 @@ export function ExitIntentPopup() {
                 />
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-oryn-orange text-white text-xs font-medium tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors"
+                  className="w-full py-4 bg-oryn-orange text-white text-sm font-bold tracking-[0.15em] hover:bg-oryn-orange-dark transition-colors"
                 >
-                  {p.claimDiscount}
+                  GET MY 10% OFF
                 </button>
               </form>
 
-              <p className="text-[9px] text-oryn-black/20 font-plex text-center mt-4">
+              {/* Social proof */}
+              <div className="flex items-center justify-center gap-1.5 mt-3">
+                <div className="flex -space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width="10" height="10" viewBox="0 0 24 24" fill="#FF6A1A" stroke="none">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-[10px] text-oryn-black/40 font-plex">
+                  Join 500+ researchers who trust ORYN
+                </span>
+              </div>
+
+              <p className="text-[9px] text-oryn-black/20 font-plex text-center mt-3">
                 {p.noSpam}
               </p>
 

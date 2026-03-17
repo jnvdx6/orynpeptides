@@ -19,7 +19,7 @@ function getProductImage(slug: string, category: string): string {
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
     useCart();
-  const { t, formatPrice, currencyCode } = useLocale();
+  const { t, formatPrice, currencyCode, locale } = useLocale();
 
   // Max shipping savings by currency (express shipping costs)
   const shippingSavings: Record<string, string> = { gbp: "\u00a39.99", usd: "$14.99", eur: "\u20ac15.99" };
@@ -294,6 +294,16 @@ export function CartSlider() {
             <div className="flex items-center justify-between">
               <span className="text-sm text-oryn-black/60">{t.cart.subtotal}</span>
               <span className={`text-lg font-bold ${(appliedPromotion || volumeDiscount) ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-oryn-black/40 font-plex">Estimated shipping</span>
+              {totalPrice >= FREE_SHIPPING_THRESHOLD ? (
+                <span className="text-xs font-bold text-oryn-orange">FREE</span>
+              ) : (
+                <span className="text-xs text-oryn-black/40 font-plex">
+                  {locale === "en" ? "from £4.99" : "from €8.99"}
+                </span>
+              )}
             </div>
             {appliedPromotion && (
               <div className="flex items-center justify-between">

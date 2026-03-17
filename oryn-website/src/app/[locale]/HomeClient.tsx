@@ -61,9 +61,9 @@ export function HomeClient() {
   return (
     <>
       <HeroSection />
+      <ProductsShowcase />
       <TrustBanner />
       <CategoriesSection />
-      <ProductsShowcase />
       <HowItWorksSection />
       <TestimonialsSection />
       <ScienceSection />
