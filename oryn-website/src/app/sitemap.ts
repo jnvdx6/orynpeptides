@@ -197,6 +197,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // ── Category × London area cross-product pages (EN only) ──────
+  for (const category of SEO_CATEGORIES) {
+    for (const areaSlug of LONDON_AREA_SLUGS) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides-for/${category.slug}/london/${areaSlug}`,
+        lastModified: now,
+        priority: 0.65,
+      });
+    }
+  }
+
+  // ── Category × UK region cross-product pages (EN only) ────────
+  for (const category of SEO_CATEGORIES) {
+    for (const regionSlug of REGION_SLUGS) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides-for/${category.slug}/region/${regionSlug}`,
+        lastModified: now,
+        priority: 0.7,
+      });
+    }
+  }
+
+  // ── Category × UK county cross-product pages (EN only) ────────
+  for (const category of SEO_CATEGORIES) {
+    for (const countySlug of COUNTY_SLUGS) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides-for/${category.slug}/county/${countySlug}`,
+        lastModified: now,
+        priority: 0.65,
+      });
+    }
+  }
+
   // ── Encyclopedia + blog + comparisons + bundles + glossary ─────
   for (const locale of locales) {
     for (const slug of ENCYCLOPEDIA_SLUGS) {
