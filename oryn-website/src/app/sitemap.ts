@@ -41,6 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/protocols", priority: 0.8 },
     { path: "/bundles", priority: 0.8 },
     { path: "/peptides/europe", priority: 0.85 },
+    { path: "/privacy", priority: 0.3 },
+    { path: "/terms", priority: 0.3 },
+    { path: "/disclaimer", priority: 0.3 },
   ];
 
   for (const locale of locales) {
@@ -98,6 +101,65 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       priority: 0.75,
     });
+  }
+
+  // ── Product × City pages (EN only) ────────────────────────────
+  for (const citySlug of CITY_SLUGS) {
+    for (const product of products) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides/${citySlug}/${product.slug}`,
+        lastModified: now,
+        priority: 0.7,
+      });
+    }
+  }
+
+  // ── Product × London area pages (EN only) ────────────────────
+  for (const areaSlug of LONDON_AREA_SLUGS) {
+    for (const product of products) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides/london/${areaSlug}/${product.slug}`,
+        lastModified: now,
+        priority: 0.65,
+      });
+    }
+  }
+
+  // ── Product × Region pages (EN only) ─────────────────────────
+  for (const regionSlug of REGION_SLUGS) {
+    for (const product of products) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides/region/${regionSlug}/${product.slug}`,
+        lastModified: now,
+        priority: 0.7,
+      });
+    }
+  }
+
+  // ── Product × County pages (EN only) ─────────────────────────
+  for (const countySlug of COUNTY_SLUGS) {
+    for (const product of products) {
+      entries.push({
+        url: `${SITE_URL}/en/peptides/county/${countySlug}/${product.slug}`,
+        lastModified: now,
+        priority: 0.65,
+      });
+    }
+  }
+
+  // ── Product × European city pages (all locales) ──────────────
+  for (const locale of locales) {
+    for (const country of EUROPEAN_COUNTRIES) {
+      for (const city of country.cities) {
+        for (const product of products) {
+          entries.push({
+            url: `${SITE_URL}/${locale}/peptides/europe/${country.slug}/${city.slug}/${product.slug}`,
+            lastModified: now,
+            priority: 0.6,
+          });
+        }
+      }
+    }
   }
 
   // ── Category pages (all locales) ───────────────────────────────
