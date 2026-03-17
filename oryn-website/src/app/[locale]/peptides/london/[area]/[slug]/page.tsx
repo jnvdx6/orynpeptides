@@ -19,7 +19,7 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { type Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import type { Dictionary } from "@/i18n/types";
 
@@ -57,6 +57,9 @@ export async function generateMetadata({
       },
       alternates: {
         canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
+        languages: Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
+        ),
       },
     };
   }
@@ -80,6 +83,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
+      ),
     },
   };
 }

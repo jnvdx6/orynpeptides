@@ -15,7 +15,7 @@ import {
 } from "@/lib/seo";
 import { JsonLd, MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
-import { type Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
@@ -37,7 +37,6 @@ export async function generateMetadata({
   return {
     title,
     description,
-    robots: locale === "en" ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -47,6 +46,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/peptides/${citySlug}`,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/peptides/${citySlug}`])
+      ),
     },
   };
 }

@@ -15,7 +15,7 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import type { Product } from "@/data/products";
-import { type Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 // ─── On-demand generation (ISR) to keep build output under Vercel limits ──
@@ -55,6 +55,9 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
+      languages: Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}/peptides-for/${catSlug}/${citySlug}`])
+      ),
     },
   };
 }
