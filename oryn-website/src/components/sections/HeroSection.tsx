@@ -24,13 +24,16 @@ export function HeroSection() {
  </span>
  </div>
 
- <h1 className="text-7xl sm:text-8xl md:text-[10rem] font-bold tracking-[-0.04em] text-white mb-2 leading-[0.85]">
- ORYN
+ <h1 className="text-white mb-2">
+ <span className="block text-7xl sm:text-8xl md:text-[10rem] font-bold tracking-[-0.04em] leading-[0.85]">ORYN</span>
+ <span className="block text-base sm:text-lg md:text-xl font-light text-white/60 tracking-wide mt-2">
+ Research-Grade Peptide Pen Systems
+ </span>
  </h1>
 
- <h2 className="text-lg sm:text-xl md:text-2xl font-light text-white/80 mb-6 sm:mb-8 tracking-wide">
+ <p className="text-lg sm:text-xl md:text-2xl font-light text-white/80 mb-6 sm:mb-8 tracking-wide">
  {t.hero.subtitle}
- </h2>
+ </p>
 
  <div className="w-16 h-px bg-white/30 mb-6 sm:mb-8" />
 
