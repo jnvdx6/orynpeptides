@@ -197,6 +197,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // ── Category × European city cross-product pages (all locales) ────
+  for (const locale of locales) {
+    for (const category of SEO_CATEGORIES) {
+      for (const country of EUROPEAN_COUNTRIES) {
+        for (const city of country.cities) {
+          entries.push({
+            url: `${SITE_URL}/${locale}/peptides-for/${category.slug}/europe/${country.slug}/${city.slug}`,
+            lastModified: now,
+            priority: 0.6,
+          });
+        }
+      }
+    }
+  }
+
   // ── Category × London area cross-product pages (EN only) ──────
   for (const category of SEO_CATEGORIES) {
     for (const areaSlug of LONDON_AREA_SLUGS) {
