@@ -184,6 +184,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // ── Category × European country cross-product pages (all locales) ──
+  for (const locale of locales) {
+    for (const category of SEO_CATEGORIES) {
+      for (const country of EUROPEAN_COUNTRIES) {
+        entries.push({
+          url: `${SITE_URL}/${locale}/peptides-for/${category.slug}/europe/${country.slug}`,
+          lastModified: now,
+          priority: 0.65,
+        });
+      }
+    }
+  }
+
   // ── Encyclopedia + blog + comparisons + bundles + glossary ─────
   for (const locale of locales) {
     for (const slug of ENCYCLOPEDIA_SLUGS) {
