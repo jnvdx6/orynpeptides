@@ -57,7 +57,7 @@ export async function generateMetadata({
         images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
       },
       alternates: {
-        canonical: `${SITE_URL}/en/peptides/london/${areaSlug}/${slug}`,
+        canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
       },
     };
   }
@@ -81,7 +81,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/london/${areaSlug}/${slug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
     },
   };
 }

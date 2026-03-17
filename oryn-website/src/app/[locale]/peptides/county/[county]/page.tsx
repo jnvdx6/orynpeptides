@@ -31,7 +31,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; county: string }>;
 }): Promise<Metadata> {
-  const { county: countySlug } = await params;
+  const { county: countySlug, locale } = await params;
   const county = getCountyBySlug(countySlug);
   if (!county) return {};
 
@@ -41,17 +41,18 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: locale === "en" ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/en/peptides/county/${countySlug}`,
+      url: `${SITE_URL}/${locale}/peptides/county/${countySlug}`,
       type: "website",
       images: [
         { url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 },
       ],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/county/${countySlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/county/${countySlug}`,
     },
   };
 }
@@ -125,7 +126,7 @@ export default async function CountyPage({
             "@context": "https://schema.org",
             "@type": "OnlineBusiness",
             name: `ORYN Peptide Labs — ${county.name}`,
-            url: `${SITE_URL}/en/peptides/county/${county.slug}`,
+            url: `${SITE_URL}/${locale}/peptides/county/${county.slug}`,
             description: `Buy research-grade peptide pens in ${county.name}. ${county.deliveryDays}-day UK delivery, >99% purity, GMP manufactured.`,
             areaServed: {
               "@type": "AdministrativeArea",

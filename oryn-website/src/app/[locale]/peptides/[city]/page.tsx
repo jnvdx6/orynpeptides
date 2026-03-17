@@ -37,6 +37,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: locale === "en" ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -45,7 +46,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/${citySlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/${citySlug}`,
     },
   };
 }

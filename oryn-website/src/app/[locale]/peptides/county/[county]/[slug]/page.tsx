@@ -29,7 +29,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; county: string; slug: string }>;
 }): Promise<Metadata> {
-  const { county: countySlug, slug } = await params;
+  const { county: countySlug, slug, locale } = await params;
   const county = getCountyBySlug(countySlug);
   if (!county) return {};
 
@@ -56,14 +56,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/en/peptides/county/${countySlug}/${slug}`,
+      url: `${SITE_URL}/${locale}/peptides/county/${countySlug}/${slug}`,
       type: "website",
       images: [
         { url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 },
       ],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/county/${countySlug}/${slug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/county/${countySlug}/${slug}`,
     },
   };
 }

@@ -45,7 +45,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/${citySlug}/${productSlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/${citySlug}/${productSlug}`,
     },
   };
 }

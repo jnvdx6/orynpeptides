@@ -69,7 +69,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/region/${regionSlug}/${slug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/region/${regionSlug}/${slug}`,
     },
   };
 }
@@ -191,7 +191,7 @@ export default async function RegionSlugPage({
               "@context": "https://schema.org",
               "@type": "OnlineBusiness",
               name: `ORYN Peptide Labs \u2014 ${product.name} in ${region.name}`,
-              url: `${SITE_URL}/en/peptides/region/${region.slug}/${product.slug}`,
+              url: `${SITE_URL}/${locale}/peptides/region/${region.slug}/${product.slug}`,
               description: `Buy ORYN ${product.name} peptide pen in ${region.name}. ${region.deliveryDays}-day delivery, >99% purity, GMP manufactured.`,
               areaServed: {
                 "@type": "AdministrativeArea",
@@ -781,7 +781,7 @@ export default async function RegionSlugPage({
             "@context": "https://schema.org",
             "@type": "OnlineBusiness",
             name: `ORYN Peptide Labs \u2014 ${cat.name} in ${region.name}`,
-            url: `${SITE_URL}/en/peptides/region/${region.slug}/${cat.slug}`,
+            url: `${SITE_URL}/${locale}/peptides/region/${region.slug}/${cat.slug}`,
             description: `Buy ${cat.name.toLowerCase()} peptide pens in ${region.name}. ${region.deliveryDays}-day UK delivery, >99% purity, GMP manufactured.`,
             areaServed: {
               "@type": "AdministrativeArea",

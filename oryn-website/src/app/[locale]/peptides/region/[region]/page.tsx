@@ -31,6 +31,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: locale === "en" ? undefined : { index: false, follow: true },
     openGraph: {
       title,
       description,
@@ -39,7 +40,7 @@ export async function generateMetadata({
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
     alternates: {
-      canonical: `${SITE_URL}/en/peptides/region/${regionSlug}`,
+      canonical: `${SITE_URL}/${locale}/peptides/region/${regionSlug}`,
     },
   };
 }
@@ -95,7 +96,7 @@ export default async function RegionPage({
             "@context": "https://schema.org",
             "@type": "OnlineBusiness",
             name: `ORYN Peptide Labs \u2014 ${region.name}`,
-            url: `${SITE_URL}/en/peptides/region/${region.slug}`,
+            url: `${SITE_URL}/${locale}/peptides/region/${region.slug}`,
             description: `Buy research-grade peptide pens in ${region.name}. ${region.deliveryDays}-day UK delivery, >99% purity, GMP manufactured.`,
             areaServed: {
               "@type": "AdministrativeArea",
