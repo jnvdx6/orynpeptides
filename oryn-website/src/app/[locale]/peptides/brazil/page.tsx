@@ -8,6 +8,8 @@ import {
   SITE_URL,
   faqSchema,
   breadcrumbSchema,
+  geoCountryHubMeta,
+  pageAlternates,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
@@ -21,21 +23,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
 
-  const title = locale === "pt-br"
-    ? `Comprar Peptídeos no Brasil | ORYN — Entrega em ${BRAZIL_COUNTRY.deliveryDays} Dias`
-    : locale === "pt"
-    ? `Comprar Peptídeos no Brasil | ORYN — Entrega em ${BRAZIL_COUNTRY.deliveryDays} Dias`
-    : locale === "es"
-    ? `Comprar Péptidos en Brasil | ORYN — Entrega en ${BRAZIL_COUNTRY.deliveryDays} Días`
-    : `Buy Peptides in Brazil | ORYN — ${BRAZIL_COUNTRY.deliveryDays}-Day Delivery`;
-
-  const description = locale === "pt-br"
-    ? `Compre canetas de peptídeos de pesquisa no Brasil. Entrega rastreada em ${BRAZIL_COUNTRY.deliveryDays} dias para mais de ${BRAZIL_COUNTRY.cities.length} cidades. Pureza >99%, fabricação GMP. BPC-157, Tirzepatida, NAD+ e mais. Pague em R$ BRL.`
-    : locale === "pt"
-    ? `Compre canetas de peptídeos de investigação no Brasil. Entrega rastreada em ${BRAZIL_COUNTRY.deliveryDays} dias para mais de ${BRAZIL_COUNTRY.cities.length} cidades. Pureza >99%, fabricação GMP. BPC-157, Tirzepatida, NAD+ e mais. Pague em R$ BRL.`
-    : locale === "es"
-    ? `Pida plumas de péptidos de investigación en Brasil. Entrega rastreada en ${BRAZIL_COUNTRY.deliveryDays} días a más de ${BRAZIL_COUNTRY.cities.length} ciudades. Pureza >99%, fabricación GMP. BPC-157, Tirzepatida, NAD+ y más. Pague en R$ BRL.`
-    : `Order research-grade peptide pens in Brazil. ${BRAZIL_COUNTRY.deliveryDays}-day tracked delivery to ${BRAZIL_COUNTRY.cities.length}+ cities. >99% purity, GMP manufactured. BPC-157, Tirzepatide, NAD+ & more. Pay in R$ BRL.`;
+  const brazilCountry = { ...BRAZIL_COUNTRY, name: "Brasil" };
+  const { title, description } = geoCountryHubMeta(locale, brazilCountry);
 
   return {
     title,
@@ -47,15 +36,7 @@ export async function generateMetadata({
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/brazil`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/brazil`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/brazil`,
-      },
-    },
+    alternates: pageAlternates("/peptides/brazil", locale),
   };
 }
 
@@ -75,7 +56,7 @@ export default async function BrazilPage({
     ? [
         {
           question: `Posso comprar peptídeos no Brasil?`,
-          answer: `Sim. A ORYN entrega canetas de peptídeos de grau farmacêutico para mais de ${country.cities.length} cidades no Brasil com entrega rastreada em ${country.deliveryDays} dias. Todos os produtos têm pureza superior a 99% e são fabricados em instalações europeias com certificação GMP.`,
+          answer: `Sim. A ORYN entrega canetas de peptídeos de grau farmacêutico para mais de ${country.cities.length} cidades no Brasil com entrega rastreada em ${country.deliveryDays} dias. Todos os produtos têm pureza superior a 99% e são fabricados em instalações com certificação GMP na Coreia do Sul.`,
         },
         {
           question: `Qual o prazo de entrega para o Brasil?`,
@@ -93,7 +74,7 @@ export default async function BrazilPage({
     : [
         {
           question: `Can I buy peptides in Brazil?`,
-          answer: `Yes. ORYN delivers research-grade peptide pens to ${country.cities.length}+ cities across Brazil with ${country.deliveryDays}-day tracked delivery. All products exceed 99% purity and are manufactured in GMP-certified European facilities.`,
+          answer: `Yes. ORYN delivers research-grade peptide pens to ${country.cities.length}+ cities across Brazil with ${country.deliveryDays}-day tracked delivery. All products exceed 99% purity and are manufactured in GMP-certified facilities in South Korea.`,
         },
         {
           question: `How fast is delivery to Brazil?`,

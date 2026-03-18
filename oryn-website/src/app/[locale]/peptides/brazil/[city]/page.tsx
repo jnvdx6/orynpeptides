@@ -8,7 +8,7 @@ import {
   type BrazilianCity,
 } from "@/data/brazilian-cities";
 import { products, productImages } from "@/data/products";
-import { SEO_CATEGORIES, SITE_URL, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { SEO_CATEGORIES, SITE_URL, faqSchema, breadcrumbSchema, geoCityHubMeta, pageAlternates } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales, type Locale } from "@/i18n/config";
@@ -29,14 +29,8 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { city } = result;
-
-  const title = locale === "pt-br"
-    ? `Peptídeos em ${city.name} | Entrega em ${city.deliveryDays} Dias — ORYN`
-    : `Buy Peptides in ${city.name}, Brazil | ORYN — ${city.deliveryDays}-Day Delivery`;
-
-  const description = locale === "pt-br"
-    ? `Compre canetas de peptídeos de pesquisa em ${city.name}, Brasil. Entrega rastreada em ${city.deliveryDays} dias. ${products.length} produtos, pureza >99%, certificação GMP. BPC-157, Tirzepatida, NAD+ e mais. Pague em R$.`
-    : `Order research-grade peptide pens in ${city.name}, Brazil. ${city.deliveryDays}-day tracked delivery. ${products.length} products, >99% purity, GMP manufactured. Pay in R$ BRL.`;
+  const { title, description } = geoCityHubMeta(locale, city, { name: "Brasil" }, products.length);
+  const pagePath = `/peptides/brazil/${citySlug}`;
 
   return {
     title,
@@ -44,19 +38,11 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/peptides/brazil/${citySlug}`,
+      url: `${SITE_URL}/${locale}${pagePath}`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/brazil/${citySlug}`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/brazil/${citySlug}`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/brazil/${citySlug}`,
-      },
-    },
+    alternates: pageAlternates(pagePath, locale),
   };
 }
 

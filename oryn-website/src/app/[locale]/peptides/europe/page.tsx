@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { EUROPEAN_COUNTRIES } from "@/data/european-countries";
 import { products, productImages } from "@/data/products";
-import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, breadcrumbSchema, pageAlternates } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales, type Locale } from "@/i18n/config";
@@ -19,9 +19,32 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = "Buy Peptides in Europe | ORYN — Fast EU Delivery";
-  const description =
-    "Order research-grade peptide pens across Europe. Fast tracked delivery to 30 countries, >99% purity, GMP manufactured. BPC-157, Tirzepatide, NAD+ & more.";
+
+  const europeTitle: Record<string, string> = {
+    en: "Buy Peptides in Europe | ORYN — Fast EU Delivery",
+    es: "Comprar Péptidos en Europa | ORYN — Envío Rápido UE",
+    fr: "Acheter Peptides en Europe | ORYN — Livraison Rapide UE",
+    de: "Peptide kaufen in Europa | ORYN — Schnelle EU-Lieferung",
+    it: "Acquista Peptidi in Europa | ORYN — Consegna Rapida UE",
+    pt: "Comprar Peptídeos na Europa | ORYN — Entrega Rápida UE",
+    "pt-br": "Comprar Peptídeos na Europa | ORYN — Entrega Rápida UE",
+    nl: "Koop Peptiden in Europa | ORYN — Snelle EU-Levering",
+    pl: "Kup Peptydy w Europie | ORYN — Szybka Dostawa UE",
+  };
+  const europeDesc: Record<string, string> = {
+    en: "Order research-grade peptide pens across Europe. Fast tracked delivery to 30 countries, >99% purity, GMP manufactured. BPC-157, Tirzepatide, NAD+ & more.",
+    es: "Pida plumas de péptidos de grado investigación en toda Europa. Envío rápido rastreado a 30 países, >99% pureza, fabricación GMP. BPC-157, Tirzepatida, NAD+ y más.",
+    fr: "Commandez des stylos peptidiques de qualité recherche dans toute l'Europe. Livraison rapide vers 30 pays, >99% pureté, fabrication GMP. BPC-157, Tirzepatide, NAD+ et plus.",
+    de: "Bestellen Sie forschungsgrade Peptid-Pens in ganz Europa. Schnelle Lieferung in 30 Länder, >99% Reinheit, GMP-hergestellt. BPC-157, Tirzepatid, NAD+ & mehr.",
+    it: "Ordina penne peptidiche di grado ricerca in tutta Europa. Consegna rapida in 30 paesi, >99% purezza, produzione GMP. BPC-157, Tirzepatide, NAD+ e altro.",
+    pt: "Encomende canetas peptídicas de grau de investigação em toda a Europa. Entrega rápida para 30 países, >99% pureza, fabrico GMP. BPC-157, Tirzepatida, NAD+ e mais.",
+    "pt-br": "Peça canetas peptídicas de grau de pesquisa em toda a Europa. Entrega rápida para 30 países, >99% pureza, fabricação GMP. BPC-157, Tirzepatida, NAD+ e mais.",
+    nl: "Bestel onderzoekskwaliteit peptide-pennen in heel Europa. Snelle levering naar 30 landen, >99% zuiverheid, GMP-geproduceerd. BPC-157, Tirzepatide, NAD+ & meer.",
+    pl: "Zamów peny peptydowe klasy badawczej w całej Europie. Szybka dostawa do 30 krajów, >99% czystości, produkcja GMP. BPC-157, Tyrzepatyd, NAD+ i więcej.",
+  };
+
+  const title = europeTitle[locale] || europeTitle.en;
+  const description = europeDesc[locale] || europeDesc.en;
 
   return {
     title,
@@ -33,15 +56,7 @@ export async function generateMetadata({
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/europe`,
-      },
-    },
+    alternates: pageAlternates("/peptides/europe", locale),
   };
 }
 
@@ -119,7 +134,7 @@ export default async function EuropeHubPage({
               purity guaranteed.
             </p>
             <p className="text-sm text-white/40 font-plex max-w-2xl mb-8">
-              {products.length} products available. GMP manufactured in European
+              {products.length} products available. GMP manufactured in South Korean
               facilities. Every batch independently verified via HPLC and mass
               spectrometry.
             </p>

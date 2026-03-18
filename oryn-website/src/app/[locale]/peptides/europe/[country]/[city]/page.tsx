@@ -10,7 +10,7 @@ import {
   type EuropeanCity,
 } from "@/data/european-countries";
 import { products, productImages } from "@/data/products";
-import { SEO_CATEGORIES, SITE_URL, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { SEO_CATEGORIES, SITE_URL, faqSchema, breadcrumbSchema, geoCityHubMeta, pageAlternates } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales, type Locale } from "@/i18n/config";
@@ -31,8 +31,8 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { country, city } = result;
-  const title = `Buy Peptides in ${city.name}, ${country.name} | ORYN — ${city.deliveryDays}-Day Delivery`;
-  const description = `Order research-grade peptide pens in ${city.name}, ${country.name}. ${city.deliveryDays}-day tracked delivery. ${products.length} products, >99% purity, GMP manufactured.`;
+  const { title, description } = geoCityHubMeta(locale, city, country, products.length);
+  const pagePath = `/peptides/europe/${countrySlug}/${citySlug}`;
 
   return {
     title,
@@ -40,19 +40,11 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}`,
+      url: `${SITE_URL}/${locale}${pagePath}`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}/${citySlug}`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}`,
-      },
-    },
+    alternates: pageAlternates(pagePath, locale),
   };
 }
 

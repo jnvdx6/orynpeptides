@@ -11,6 +11,8 @@ import {
   faqSchema,
   breadcrumbSchema,
   SITE_URL,
+  geoCategoryMeta,
+  pageAlternates,
   type SEOCategory,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
@@ -45,30 +47,20 @@ export async function generateMetadata({
 
   const products = getProductsForCategory(category);
   const productNames = products.map((p) => p.name).join(", ");
+  const { title, description } = geoCategoryMeta(locale, category, city, country, productNames);
+  const pagePath = `/peptides-for/${catSlug}/europe/${countrySlug}/${citySlug}`;
 
-  const title = `Buy ${category.name} Peptides in ${city.name}, ${country.name} | ORYN — ${city.deliveryDays} Day Delivery`;
-  const description = `Order research-grade ${category.name.toLowerCase()} peptide pens in ${city.name}, ${country.name}. ${city.deliveryDays}-day EU delivery, >99% purity, GMP manufactured. ${productNames}.`;
-
-  const url = `${SITE_URL}/${locale}/peptides-for/${catSlug}/europe/${countrySlug}/${citySlug}`;
   return {
     title,
     description,
     openGraph: {
       title,
       description,
-      url,
+      url: `${SITE_URL}/${locale}${pagePath}`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: url,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides-for/${catSlug}/europe/${countrySlug}/${citySlug}`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides-for/${catSlug}/europe/${countrySlug}/${citySlug}`,
-      },
-    },
+    alternates: pageAlternates(pagePath, locale),
   };
 }
 
@@ -83,7 +75,7 @@ function generateCityCategoryFaqs(
   return [
     {
       question: `Where can I buy ${category.name.toLowerCase()} peptides in ${city.name}?`,
-      answer: `ORYN delivers research-grade ${category.name.toLowerCase()} peptide pens directly to ${city.name}, ${country.name}. Available products include ${productNames}. All orders ship from EU-based GMP facilities with ${city.deliveryDays}-day tracked delivery to ${city.name}.`,
+      answer: `ORYN delivers research-grade ${category.name.toLowerCase()} peptide pens directly to ${city.name}, ${country.name}. Available products include ${productNames}. All orders are GMP manufactured in South Korea and ship with ${city.deliveryDays}-day tracked delivery to ${city.name}.`,
     },
     {
       question: `How quickly can I get ${category.name.toLowerCase()} peptides delivered to ${city.name}?`,
@@ -267,7 +259,7 @@ export default async function CategoryCityPage({
                 high-quality {category.name.toLowerCase()} peptide compounds, ORYN provides a trusted
                 EU-based source with {city.deliveryDays}-day delivery. Our{" "}
                 {category.name.toLowerCase()} range is manufactured to &gt;99% purity in GMP-certified
-                European facilities, with every batch independently verified via HPLC and mass spectrometry.
+                facilities in South Korea, with every batch independently verified via HPLC and mass spectrometry.
               </p>
               <h3 className="text-lg font-bold mb-3">
                 Why {city.name} Researchers Choose ORYN

@@ -12,6 +12,8 @@ import {
   SITE_URL,
   faqSchema,
   breadcrumbSchema,
+  geoCountryHubMeta,
+  pageAlternates,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
@@ -32,8 +34,8 @@ export async function generateMetadata({
   const country = getEUCountry(countrySlug);
   if (!country) return {};
 
-  const title = `Buy Peptides in ${country.name} | ORYN — ${country.deliveryDays}-Day Delivery`;
-  const description = `Order research-grade peptide pens in ${country.name}. ${country.deliveryDays}-day tracked delivery to ${country.cities.length}+ cities. >99% purity, GMP manufactured. BPC-157, Tirzepatide, NAD+ & more.`;
+  const { title, description } = geoCountryHubMeta(locale, country);
+  const pagePath = `/peptides/europe/${countrySlug}`;
 
   return {
     title,
@@ -41,19 +43,11 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}`,
+      url: `${SITE_URL}/${locale}${pagePath}`,
       type: "website",
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/europe/${countrySlug}`,
-      },
-    },
+    alternates: pageAlternates(pagePath, locale),
   };
 }
 
@@ -75,7 +69,7 @@ export default async function CountryPage({
   const faqs = [
     {
       question: `Can I buy peptides in ${country.name}?`,
-      answer: `Yes. ORYN delivers research-grade peptide pens to ${country.cities.length}+ cities across ${country.name} with ${country.deliveryDays}-day tracked delivery. All products exceed 99% purity and are manufactured in GMP-certified European facilities.`,
+      answer: `Yes. ORYN delivers research-grade peptide pens to ${country.cities.length}+ cities across ${country.name} with ${country.deliveryDays}-day tracked delivery. All products exceed 99% purity and are manufactured in GMP-certified facilities in South Korea.`,
     },
     {
       question: `How fast is delivery to ${country.name}?`,

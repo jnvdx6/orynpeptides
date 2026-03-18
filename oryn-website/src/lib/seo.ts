@@ -30,6 +30,244 @@ export function pageAlternates(pagePath: string, locale: string) {
   };
 }
 
+// ─── Localized Geo Page Meta Templates ──────────────────────────────
+// Fixes "Duplicate: Google chose different canonical" by ensuring
+// non-English locale pages have truly localized meta titles/descriptions.
+
+interface GeoMetaStrings {
+  buyProductTitle: string;
+  buyProductDesc: string;
+  buyCategoryTitle: string;
+  buyCategoryDesc: string;
+  buyCityTitle: string;      // "Buy Peptides in {city}, {country} | ORYN — {days}-Day Delivery"
+  buyCityDesc: string;
+  buyCountryTitle: string;   // "Buy Peptides in {country} | ORYN — {days}-Day Delivery"
+  buyCountryDesc: string;
+  buyCategoryCountryTitle: string; // "Buy {category} Peptides in {country} | ORYN"
+  buyCategoryCountryDesc: string;
+}
+
+const GEO_META: Record<string, GeoMetaStrings> = {
+  en: {
+    buyProductTitle: "Buy {product} in {city}, {country} | ORYN — {days}-Day Delivery",
+    buyProductDesc: "Order ORYN {product} {dosage} peptide pen in {city}, {country}. {days}-day delivery, >99% purity, pre-mixed & ready to use. From {currency}{price}.",
+    buyCategoryTitle: "Buy {category} Peptides in {city}, {country} | ORYN — {days} Day Delivery",
+    buyCategoryDesc: "Order research-grade {category} peptide pens in {city}, {country}. {days}-day delivery, >99% purity, GMP manufactured. {products}.",
+    buyCityTitle: "Buy Peptides in {city}, {country} | ORYN — {days}-Day Delivery",
+    buyCityDesc: "Order research-grade peptide pens in {city}, {country}. {days}-day tracked delivery. {count} products, >99% purity, GMP manufactured.",
+    buyCountryTitle: "Buy Peptides in {country} | ORYN — {days}-Day Delivery",
+    buyCountryDesc: "Order research-grade peptide pens in {country}. {days}-day tracked delivery to {cityCount}+ cities. >99% purity, GMP manufactured. BPC-157, Tirzepatide, NAD+ & more.",
+    buyCategoryCountryTitle: "Buy {category} Peptides in {country} | ORYN — {days} Day Delivery",
+    buyCategoryCountryDesc: "Order research-grade {category} peptide pens in {country}. {days}-day EU delivery, >99% purity, GMP manufactured. {products}.",
+  },
+  es: {
+    buyProductTitle: "Comprar {product} en {city}, {country} | ORYN — Entrega en {days} Días",
+    buyProductDesc: "Pide ORYN {product} {dosage} pluma de péptidos en {city}, {country}. Entrega en {days} días, >99% pureza, premezclado y listo para usar. Desde {currency}{price}.",
+    buyCategoryTitle: "Comprar Péptidos {category} en {city}, {country} | ORYN — Entrega {days} Días",
+    buyCategoryDesc: "Pide plumas de péptidos {category} de grado investigación en {city}, {country}. Entrega en {days} días, >99% pureza, fabricación GMP. {products}.",
+    buyCityTitle: "Comprar Péptidos en {city}, {country} | ORYN — Entrega en {days} Días",
+    buyCityDesc: "Pide plumas de péptidos de grado investigación en {city}, {country}. Entrega en {days} días. {count} productos, >99% pureza, fabricación GMP.",
+    buyCountryTitle: "Comprar Péptidos en {country} | ORYN — Entrega en {days} Días",
+    buyCountryDesc: "Pide plumas de péptidos de grado investigación en {country}. Entrega en {days} días a {cityCount}+ ciudades. >99% pureza, fabricación GMP. BPC-157, Tirzepatida, NAD+ y más.",
+    buyCategoryCountryTitle: "Comprar Péptidos {category} en {country} | ORYN — Entrega {days} Días",
+    buyCategoryCountryDesc: "Pide plumas de péptidos {category} de grado investigación en {country}. Entrega en {days} días, >99% pureza, fabricación GMP. {products}.",
+  },
+  fr: {
+    buyProductTitle: "Acheter {product} à {city}, {country} | ORYN — Livraison {days} Jours",
+    buyProductDesc: "Commandez ORYN {product} {dosage} stylo peptidique à {city}, {country}. Livraison {days} jours, >99% pureté, prêt à l'emploi. À partir de {currency}{price}.",
+    buyCategoryTitle: "Acheter Peptides {category} à {city}, {country} | ORYN — Livraison {days} Jours",
+    buyCategoryDesc: "Commandez des stylos peptidiques {category} de qualité recherche à {city}, {country}. Livraison {days} jours, >99% pureté, fabrication GMP. {products}.",
+    buyCityTitle: "Acheter Peptides à {city}, {country} | ORYN — Livraison {days} Jours",
+    buyCityDesc: "Commandez des stylos peptidiques de qualité recherche à {city}, {country}. Livraison {days} jours. {count} produits, >99% pureté, fabrication GMP.",
+    buyCountryTitle: "Acheter Peptides en {country} | ORYN — Livraison {days} Jours",
+    buyCountryDesc: "Commandez des stylos peptidiques de qualité recherche en {country}. Livraison {days} jours vers {cityCount}+ villes. >99% pureté, fabrication GMP. BPC-157, Tirzepatide, NAD+ et plus.",
+    buyCategoryCountryTitle: "Acheter Peptides {category} en {country} | ORYN — Livraison {days} Jours",
+    buyCategoryCountryDesc: "Commandez des stylos peptidiques {category} de qualité recherche en {country}. Livraison {days} jours, >99% pureté, fabrication GMP. {products}.",
+  },
+  de: {
+    buyProductTitle: "{product} kaufen in {city}, {country} | ORYN — Lieferung in {days} Tagen",
+    buyProductDesc: "Bestellen Sie ORYN {product} {dosage} Peptid-Pen in {city}, {country}. Lieferung in {days} Tagen, >99% Reinheit, vorgemischt & gebrauchsfertig. Ab {currency}{price}.",
+    buyCategoryTitle: "{category}-Peptide kaufen in {city}, {country} | ORYN — Lieferung {days} Tage",
+    buyCategoryDesc: "Bestellen Sie forschungsgrade {category}-Peptid-Pens in {city}, {country}. Lieferung in {days} Tagen, >99% Reinheit, GMP-hergestellt. {products}.",
+    buyCityTitle: "Peptide kaufen in {city}, {country} | ORYN — Lieferung in {days} Tagen",
+    buyCityDesc: "Bestellen Sie forschungsgrade Peptid-Pens in {city}, {country}. Lieferung in {days} Tagen. {count} Produkte, >99% Reinheit, GMP-hergestellt.",
+    buyCountryTitle: "Peptide kaufen in {country} | ORYN — Lieferung in {days} Tagen",
+    buyCountryDesc: "Bestellen Sie forschungsgrade Peptid-Pens in {country}. Lieferung in {days} Tagen in {cityCount}+ Städte. >99% Reinheit, GMP-hergestellt. BPC-157, Tirzepatid, NAD+ & mehr.",
+    buyCategoryCountryTitle: "{category}-Peptide kaufen in {country} | ORYN — Lieferung {days} Tage",
+    buyCategoryCountryDesc: "Bestellen Sie forschungsgrade {category}-Peptid-Pens in {country}. Lieferung in {days} Tagen, >99% Reinheit, GMP-hergestellt. {products}.",
+  },
+  it: {
+    buyProductTitle: "Acquista {product} a {city}, {country} | ORYN — Consegna in {days} Giorni",
+    buyProductDesc: "Ordina ORYN {product} {dosage} penna peptidica a {city}, {country}. Consegna in {days} giorni, >99% purezza, premiscelato e pronto all'uso. Da {currency}{price}.",
+    buyCategoryTitle: "Acquista Peptidi {category} a {city}, {country} | ORYN — Consegna {days} Giorni",
+    buyCategoryDesc: "Ordina penne peptidiche {category} di grado ricerca a {city}, {country}. Consegna in {days} giorni, >99% purezza, produzione GMP. {products}.",
+    buyCityTitle: "Acquista Peptidi a {city}, {country} | ORYN — Consegna in {days} Giorni",
+    buyCityDesc: "Ordina penne peptidiche di grado ricerca a {city}, {country}. Consegna in {days} giorni. {count} prodotti, >99% purezza, produzione GMP.",
+    buyCountryTitle: "Acquista Peptidi in {country} | ORYN — Consegna in {days} Giorni",
+    buyCountryDesc: "Ordina penne peptidiche di grado ricerca in {country}. Consegna in {days} giorni in {cityCount}+ città. >99% purezza, produzione GMP. BPC-157, Tirzepatide, NAD+ e altro.",
+    buyCategoryCountryTitle: "Acquista Peptidi {category} in {country} | ORYN — Consegna {days} Giorni",
+    buyCategoryCountryDesc: "Ordina penne peptidiche {category} di grado ricerca in {country}. Consegna in {days} giorni, >99% purezza, produzione GMP. {products}.",
+  },
+  pt: {
+    buyProductTitle: "Comprar {product} em {city}, {country} | ORYN — Entrega em {days} Dias",
+    buyProductDesc: "Encomende ORYN {product} {dosage} caneta peptídica em {city}, {country}. Entrega em {days} dias, >99% pureza, pré-misturado e pronto a usar. Desde {currency}{price}.",
+    buyCategoryTitle: "Comprar Peptídeos {category} em {city}, {country} | ORYN — Entrega {days} Dias",
+    buyCategoryDesc: "Encomende canetas peptídicas {category} de grau de investigação em {city}, {country}. Entrega em {days} dias, >99% pureza, fabrico GMP. {products}.",
+    buyCityTitle: "Comprar Peptídeos em {city}, {country} | ORYN — Entrega em {days} Dias",
+    buyCityDesc: "Encomende canetas peptídicas de grau de investigação em {city}, {country}. Entrega em {days} dias. {count} produtos, >99% pureza, fabrico GMP.",
+    buyCountryTitle: "Comprar Peptídeos em {country} | ORYN — Entrega em {days} Dias",
+    buyCountryDesc: "Encomende canetas peptídicas de grau de investigação em {country}. Entrega em {days} dias para {cityCount}+ cidades. >99% pureza, fabrico GMP. BPC-157, Tirzepatida, NAD+ e mais.",
+    buyCategoryCountryTitle: "Comprar Peptídeos {category} em {country} | ORYN — Entrega {days} Dias",
+    buyCategoryCountryDesc: "Encomende canetas peptídicas {category} de grau de investigação em {country}. Entrega em {days} dias, >99% pureza, fabrico GMP. {products}.",
+  },
+  "pt-br": {
+    buyProductTitle: "Comprar {product} em {city}, {country} | ORYN — Entrega em {days} Dias",
+    buyProductDesc: "Peça ORYN {product} {dosage} caneta peptídica em {city}, {country}. Entrega em {days} dias, >99% pureza, pré-misturado e pronto para uso. A partir de {currency}{price}.",
+    buyCategoryTitle: "Comprar Peptídeos {category} em {city}, {country} | ORYN — Entrega {days} Dias",
+    buyCategoryDesc: "Peça canetas peptídicas {category} de grau de pesquisa em {city}, {country}. Entrega em {days} dias, >99% pureza, fabricação GMP. {products}.",
+    buyCityTitle: "Comprar Peptídeos em {city}, {country} | ORYN — Entrega em {days} Dias",
+    buyCityDesc: "Peça canetas peptídicas de grau de pesquisa em {city}, {country}. Entrega em {days} dias. {count} produtos, >99% pureza, fabricação GMP.",
+    buyCountryTitle: "Comprar Peptídeos em {country} | ORYN — Entrega em {days} Dias",
+    buyCountryDesc: "Peça canetas peptídicas de grau de pesquisa em {country}. Entrega em {days} dias para {cityCount}+ cidades. >99% pureza, fabricação GMP. BPC-157, Tirzepatida, NAD+ e mais.",
+    buyCategoryCountryTitle: "Comprar Peptídeos {category} em {country} | ORYN — Entrega {days} Dias",
+    buyCategoryCountryDesc: "Peça canetas peptídicas {category} de grau de pesquisa em {country}. Entrega em {days} dias, >99% pureza, fabricação GMP. {products}.",
+  },
+  nl: {
+    buyProductTitle: "Koop {product} in {city}, {country} | ORYN — Levering in {days} Dagen",
+    buyProductDesc: "Bestel ORYN {product} {dosage} peptide-pen in {city}, {country}. Levering in {days} dagen, >99% zuiverheid, voorgemengd & gebruiksklaar. Vanaf {currency}{price}.",
+    buyCategoryTitle: "Koop {category}-Peptiden in {city}, {country} | ORYN — Levering {days} Dagen",
+    buyCategoryDesc: "Bestel onderzoekskwaliteit {category}-peptide-pennen in {city}, {country}. Levering in {days} dagen, >99% zuiverheid, GMP-geproduceerd. {products}.",
+    buyCityTitle: "Koop Peptiden in {city}, {country} | ORYN — Levering in {days} Dagen",
+    buyCityDesc: "Bestel onderzoekskwaliteit peptide-pennen in {city}, {country}. Levering in {days} dagen. {count} producten, >99% zuiverheid, GMP-geproduceerd.",
+    buyCountryTitle: "Koop Peptiden in {country} | ORYN — Levering in {days} Dagen",
+    buyCountryDesc: "Bestel onderzoekskwaliteit peptide-pennen in {country}. Levering in {days} dagen naar {cityCount}+ steden. >99% zuiverheid, GMP-geproduceerd. BPC-157, Tirzepatide, NAD+ & meer.",
+    buyCategoryCountryTitle: "Koop {category}-Peptiden in {country} | ORYN — Levering {days} Dagen",
+    buyCategoryCountryDesc: "Bestel onderzoekskwaliteit {category}-peptide-pennen in {country}. Levering in {days} dagen, >99% zuiverheid, GMP-geproduceerd. {products}.",
+  },
+  pl: {
+    buyProductTitle: "Kup {product} w {city}, {country} | ORYN — Dostawa w {days} Dni",
+    buyProductDesc: "Zamów ORYN {product} {dosage} pen peptydowy w {city}, {country}. Dostawa w {days} dni, >99% czystości, wstępnie zmieszany i gotowy do użycia. Od {currency}{price}.",
+    buyCategoryTitle: "Kup Peptydy {category} w {city}, {country} | ORYN — Dostawa {days} Dni",
+    buyCategoryDesc: "Zamów peny peptydowe {category} klasy badawczej w {city}, {country}. Dostawa w {days} dni, >99% czystości, produkcja GMP. {products}.",
+    buyCityTitle: "Kup Peptydy w {city}, {country} | ORYN — Dostawa w {days} Dni",
+    buyCityDesc: "Zamów peny peptydowe klasy badawczej w {city}, {country}. Dostawa w {days} dni. {count} produktów, >99% czystości, produkcja GMP.",
+    buyCountryTitle: "Kup Peptydy w {country} | ORYN — Dostawa w {days} Dni",
+    buyCountryDesc: "Zamów peny peptydowe klasy badawczej w {country}. Dostawa w {days} dni do {cityCount}+ miast. >99% czystości, produkcja GMP. BPC-157, Tyrzepatyd, NAD+ i więcej.",
+    buyCategoryCountryTitle: "Kup Peptydy {category} w {country} | ORYN — Dostawa {days} Dni",
+    buyCategoryCountryDesc: "Zamów peny peptydowe {category} klasy badawczej w {country}. Dostawa w {days} dni, >99% czystości, produkcja GMP. {products}.",
+  },
+};
+
+function fillTemplate(template: string, vars: Record<string, string>): string {
+  let result = template;
+  for (const [key, value] of Object.entries(vars)) {
+    result = result.replaceAll(`{${key}}`, value);
+  }
+  return result;
+}
+
+/** Localized meta for product × geo pages (European cities, Brazil cities, etc.) */
+export function geoProductMeta(
+  locale: string,
+  product: { name: string; dosage: string; price: number },
+  city: { name: string; deliveryDays: string },
+  country: { name: string; currencySymbol: string },
+) {
+  const t = GEO_META[locale] || GEO_META.en;
+  const vars = {
+    product: product.name,
+    dosage: product.dosage,
+    price: String(product.price),
+    city: city.name,
+    country: country.name,
+    days: city.deliveryDays,
+    currency: country.currencySymbol,
+  };
+  return {
+    title: fillTemplate(t.buyProductTitle, vars),
+    description: fillTemplate(t.buyProductDesc, vars),
+  };
+}
+
+/** Localized meta for category × geo pages */
+export function geoCategoryMeta(
+  locale: string,
+  category: { name: string },
+  city: { name: string; deliveryDays: string },
+  country: { name: string },
+  productNames: string,
+) {
+  const t = GEO_META[locale] || GEO_META.en;
+  const vars = {
+    category: category.name,
+    city: city.name,
+    country: country.name,
+    days: city.deliveryDays,
+    products: productNames,
+  };
+  return {
+    title: fillTemplate(t.buyCategoryTitle, vars),
+    description: fillTemplate(t.buyCategoryDesc, vars),
+  };
+}
+
+/** Localized meta for city hub pages (e.g., /peptides/europe/germany/berlin) */
+export function geoCityHubMeta(
+  locale: string,
+  city: { name: string; deliveryDays: string },
+  country: { name: string },
+  productCount: number,
+) {
+  const t = GEO_META[locale] || GEO_META.en;
+  const vars = {
+    city: city.name,
+    country: country.name,
+    days: city.deliveryDays,
+    count: String(productCount),
+  };
+  return {
+    title: fillTemplate(t.buyCityTitle, vars),
+    description: fillTemplate(t.buyCityDesc, vars),
+  };
+}
+
+/** Localized meta for country hub pages (e.g., /peptides/europe/germany) */
+export function geoCountryHubMeta(
+  locale: string,
+  country: { name: string; deliveryDays: string; cities: unknown[] },
+) {
+  const t = GEO_META[locale] || GEO_META.en;
+  const vars = {
+    country: country.name,
+    days: country.deliveryDays,
+    cityCount: String(country.cities.length),
+  };
+  return {
+    title: fillTemplate(t.buyCountryTitle, vars),
+    description: fillTemplate(t.buyCountryDesc, vars),
+  };
+}
+
+/** Localized meta for category × country pages */
+export function geoCategoryCountryMeta(
+  locale: string,
+  category: { name: string },
+  country: { name: string; deliveryDays: string },
+  productNames: string,
+) {
+  const t = GEO_META[locale] || GEO_META.en;
+  const vars = {
+    category: category.name,
+    country: country.name,
+    days: country.deliveryDays,
+    products: productNames,
+  };
+  return {
+    title: fillTemplate(t.buyCategoryCountryTitle, vars),
+    description: fillTemplate(t.buyCategoryCountryDesc, vars),
+  };
+}
+
 // ─── JSON-LD Schema Generators ──────────────────────────────────────
 
 export function organizationSchema() {
@@ -41,7 +279,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/opengraph-image`,
     image: `${SITE_URL}/opengraph-image`,
-    description: "European biotech laboratory delivering research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured.",
+    description: "Biotech laboratory delivering research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured in South Korea.",
     foundingDate: "2024",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10, maxValue: 50 },
     areaServed: [
@@ -236,7 +474,7 @@ export function productSchema(product: Product, locale: string = "en") {
     ],
     category: product.category,
     mpn: product.id,
-    countryOfOrigin: { "@type": "Country", name: "European Union" },
+    countryOfOrigin: { "@type": "Country", name: "South Korea" },
     material: "Pharmaceutical Grade Peptide",
     audience: { "@type": "Audience", audienceType: "Research Scientists & Laboratories" },
     manufacturer: {
@@ -1119,7 +1357,7 @@ export const SEO_CATEGORIES: SEOCategory[] = [
       { question: "What are growth hormone peptides?", answer: "Growth hormone peptides, or secretagogues, stimulate the pituitary gland to release growth hormone naturally. CJC-1295 is a GHRH analogue that provides sustained GH elevation, while Ipamorelin is a selective ghrelin receptor agonist that triggers GH pulses without affecting other hormones." },
       { question: "How do CJC-1295 and Ipamorelin work together?", answer: "CJC-1295 extends the duration of GH release by mimicking GHRH, while Ipamorelin triggers additional GH pulses through the ghrelin pathway. Together, they provide a synergistic approach to GH research — amplifying and sustaining natural growth hormone release." },
       { question: "Why is Ipamorelin considered selective?", answer: "Unlike other GH secretagogues, Ipamorelin does not significantly increase cortisol, prolactin, or ACTH levels. This selectivity makes it one of the cleanest GH-releasing peptides for research, with fewer potential side effects." },
-      { question: "What purity are ORYN growth peptides?", answer: "All ORYN peptides exceed 99% purity, manufactured in GMP-certified European facilities. Each batch is independently tested via HPLC and mass spectrometry." },
+      { question: "What purity are ORYN growth peptides?", answer: "All ORYN peptides exceed 99% purity, manufactured in GMP-certified facilities in South Korea. Each batch is independently tested via HPLC and mass spectrometry." },
     ],
   },
   {

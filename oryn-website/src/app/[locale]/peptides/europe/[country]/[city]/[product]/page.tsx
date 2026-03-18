@@ -9,7 +9,7 @@ import {
 } from "@/data/european-countries";
 import { products, getProductBySlug, productImages } from "@/data/products";
 import { getProductDetail } from "@/data/product-details";
-import { SITE_URL, productSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, productSchema, faqSchema, breadcrumbSchema, geoProductMeta, pageAlternates } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales, type Locale } from "@/i18n/config";
@@ -31,8 +31,8 @@ export async function generateMetadata({
   if (!result || !product) return {};
 
   const { country, city } = result;
-  const title = `Buy ${product.name} in ${city.name}, ${country.name} | ORYN — ${city.deliveryDays}-Day Delivery`;
-  const description = `Order ORYN ${product.name} ${product.dosage} peptide pen in ${city.name}, ${country.name}. ${city.deliveryDays}-day delivery, >99% purity, pre-mixed & ready to use. From ${country.currencySymbol}${product.price}.`;
+  const { title, description } = geoProductMeta(locale, product, city, country);
+  const pagePath = `/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`;
 
   return {
     title,
@@ -40,19 +40,11 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
+      url: `${SITE_URL}/${locale}${pagePath}`,
       type: "website",
       images: [{ url: `${SITE_URL}${product.image}`, width: 800, height: 800 }],
     },
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
-      languages: {
-        ...Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`])
-        ),
-        "x-default": `${SITE_URL}/en/peptides/europe/${countrySlug}/${citySlug}/${productSlug}`,
-      },
-    },
+    alternates: pageAlternates(pagePath, locale),
   };
 }
 
