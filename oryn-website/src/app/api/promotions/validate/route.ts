@@ -16,6 +16,7 @@ const PROMO_CODES: Record<
     discountType: "percentage" | "fixed";
     discountValue: number;
     minSubtotal?: number;
+    tiered?: { minItems: number; discountValue: number }[];
   }
 > = {
   [FIRST_PURCHASE_DISCOUNT.code]: {
@@ -23,6 +24,16 @@ const PROMO_CODES: Record<
     label: FIRST_PURCHASE_DISCOUNT.label,
     discountType: "percentage",
     discountValue: FIRST_PURCHASE_DISCOUNT.percentage,
+  },
+  PEAK26: {
+    code: "PEAK26",
+    label: "Peak Performance Campaign — up to 15% off",
+    discountType: "percentage",
+    discountValue: 10,
+    tiered: [
+      { minItems: 3, discountValue: 15 },
+      { minItems: 2, discountValue: 10 },
+    ],
   },
 };
 
@@ -47,14 +58,26 @@ export async function POST(request: Request) {
       });
     }
 
+    // Resolve tiered discount if applicable
+    let effectiveValue = promo.discountValue;
+    const itemCount = body.productIds?.length ?? 0;
+    if (promo.tiered && itemCount > 0) {
+      for (const tier of promo.tiered) {
+        if (itemCount >= tier.minItems) {
+          effectiveValue = tier.discountValue;
+          break;
+        }
+      }
+    }
+
     const discountAmount =
       promo.discountType === "percentage"
-        ? Math.round((subtotal * promo.discountValue) / 100 * 100) / 100
-        : promo.discountValue;
+        ? Math.round((subtotal * effectiveValue) / 100 * 100) / 100
+        : effectiveValue;
 
     return NextResponse.json({
       valid: true,
-      promotion: promo,
+      promotion: { ...promo, discountValue: effectiveValue },
       discountAmount,
     });
   } catch {

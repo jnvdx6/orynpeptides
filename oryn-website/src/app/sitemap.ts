@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/peptides/glossary", priority: 0.75 },
     { path: "/protocols", priority: 0.8 },
     { path: "/bundles", priority: 0.8 },
+    { path: "/peak-performance", priority: 0.85 },
     { path: "/peptides/europe", priority: 0.85 },
     { path: "/privacy", priority: 0.3 },
     { path: "/terms", priority: 0.3 },
