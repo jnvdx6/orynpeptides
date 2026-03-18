@@ -14,6 +14,7 @@ export interface Product {
   badge?: string;
   image: string;
   images?: string[];
+  researchAreas?: string[];
   videoUrl?: string;
   collectionHandle?: string | null;
 }
@@ -129,6 +130,7 @@ export const products: Product[] = [
     },
     badge: "Best Seller",
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["recovery", "anti-aging"],
   },
   {
     id: "oryn-tb-500",
@@ -160,6 +162,7 @@ export const products: Product[] = [
       "Shelf Life": "24 months",
     },
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["recovery", "muscle-growth"],
   },
   {
     id: "oryn-cjc-1295",
@@ -191,6 +194,7 @@ export const products: Product[] = [
       "Shelf Life": "24 months",
     },
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["muscle-growth", "weight-loss", "recovery"],
   },
   {
     id: "oryn-ipamorelin",
@@ -222,6 +226,7 @@ export const products: Product[] = [
       "Shelf Life": "24 months",
     },
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["muscle-growth", "weight-loss", "anti-aging"],
   },
   {
     id: "oryn-tirzepatide-pen",
@@ -254,6 +259,7 @@ export const products: Product[] = [
     },
     badge: "Popular",
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["weight-loss"],
   },
   {
     id: "oryn-ghk-cu",
@@ -285,6 +291,7 @@ export const products: Product[] = [
       "Shelf Life": "24 months",
     },
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["skin-rejuvenation", "anti-aging"],
   },
   {
     id: "oryn-glutathione",
@@ -316,6 +323,7 @@ export const products: Product[] = [
       "Shelf Life": "24 months",
     },
     image: "/images/products/peptide-pen-black.png",
+    researchAreas: ["anti-aging", "skin-rejuvenation"],
   },
   {
     id: "oryn-nad",
@@ -349,6 +357,7 @@ export const products: Product[] = [
     },
     badge: "Premium",
     image: "/images/products/novanad-vial.png",
+    researchAreas: ["anti-aging", "recovery"],
   },
   {
     id: "oryn-medit-tirzepatide",
@@ -382,6 +391,7 @@ export const products: Product[] = [
     },
     badge: "New",
     image: "/images/products/medit-pen-with-box.png",
+    researchAreas: ["weight-loss"],
   },
   {
     id: "oryn-novadose-nad",
@@ -415,6 +425,7 @@ export const products: Product[] = [
     },
     badge: "Innovation",
     image: "/images/products/novadose-pen-horizontal.png",
+    researchAreas: ["anti-aging", "recovery"],
   },
 ];
 

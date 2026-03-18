@@ -13,6 +13,7 @@ function ProductsContent() {
   const searchParams = useSearchParams();
   const urlCategory = searchParams.get("category");
   const [activeCategory, setActiveCategory] = useState<string>(urlCategory || "all");
+  const [activeResearchArea, setActiveResearchArea] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("default");
   const { t } = useLocale();
@@ -27,6 +28,10 @@ function ProductsContent() {
       activeCategory === "all"
         ? products
         : products.filter((p) => p.category === activeCategory);
+
+    if (activeResearchArea !== "all") {
+      result = result.filter((p) => p.researchAreas?.includes(activeResearchArea));
+    }
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -48,7 +53,7 @@ function ProductsContent() {
     }
 
     return result;
-  }, [products, activeCategory, searchQuery, sortBy]);
+  }, [products, activeCategory, activeResearchArea, searchQuery, sortBy]);
 
   return (
     <div className="pt-[calc(1rem+4px)] pb-16">
@@ -153,6 +158,34 @@ function ProductsContent() {
           </span>
         </div>
 
+        {/* Research area filter */}
+        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:flex-wrap scrollbar-hide">
+          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em] shrink-0 mr-1">RESEARCH:</span>
+          <button
+            onClick={() => setActiveResearchArea("all")}
+            className={`px-3 py-1.5 text-[9px] font-medium tracking-[0.1em] transition-all whitespace-nowrap shrink-0 rounded-full ${
+              activeResearchArea === "all"
+                ? "bg-oryn-orange/10 text-oryn-orange border border-oryn-orange/30"
+                : "bg-transparent text-oryn-black/40 border border-oryn-grey/15 hover:border-oryn-orange/20"
+            }`}
+          >
+            ALL
+          </button>
+          {Array.from(new Set(products.flatMap((p) => p.researchAreas || []))).map((area) => (
+            <button
+              key={area}
+              onClick={() => setActiveResearchArea(activeResearchArea === area ? "all" : area)}
+              className={`px-3 py-1.5 text-[9px] font-medium tracking-[0.1em] transition-all whitespace-nowrap shrink-0 rounded-full ${
+                activeResearchArea === area
+                  ? "bg-oryn-orange/10 text-oryn-orange border border-oryn-orange/30"
+                  : "bg-transparent text-oryn-black/40 border border-oryn-grey/15 hover:border-oryn-orange/20"
+              }`}
+            >
+              {(t.researchCategories[area] || area).toUpperCase()}
+            </button>
+          ))}
+        </div>
+
         {filtered.length === 0 ? (
           <div className="py-16 text-center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" strokeWidth="1.5" className="mx-auto mb-4">
@@ -163,7 +196,7 @@ function ProductsContent() {
               {searchQuery ? `${t.productsPage.noResults} "${searchQuery}"` : t.productsPage.noCategory}
             </p>
             <button
-              onClick={() => { setSearchQuery(""); setActiveCategory("all"); }}
+              onClick={() => { setSearchQuery(""); setActiveCategory("all"); setActiveResearchArea("all"); }}
               className="mt-3 text-xs text-oryn-orange hover:underline"
             >
               {t.productsPage.clearFilters}
