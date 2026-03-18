@@ -19,7 +19,7 @@ function getProductImage(slug: string, category: string): string {
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
     useCart();
-  const { t, formatPrice, currencyCode, locale } = useLocale();
+  const { t, formatPrice, currencyCode } = useLocale();
 
   // Max shipping savings by currency (express shipping costs)
   const shippingSavings: Record<string, string> = { gbp: "\u00a39.99", usd: "$14.99", eur: "\u20ac15.99" };
@@ -301,7 +301,7 @@ export function CartSlider() {
                 <span className="text-xs font-bold text-oryn-orange">FREE</span>
               ) : (
                 <span className="text-xs text-oryn-black/40 font-plex">
-                  {locale === "en" ? "from £4.99" : "from €8.99"}
+                  {"from " + formatPrice(currencyCode === "gbp" ? 4.99 : currencyCode === "usd" ? 9.99 : 8.99)}
                 </span>
               )}
             </div>

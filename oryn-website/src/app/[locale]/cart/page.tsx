@@ -219,7 +219,7 @@ export default function CartPage() {
                     <span className="text-oryn-orange text-xs font-medium">{t.cart.free}</span>
                   ) : (
                     <span className="text-xs text-oryn-black/60">
-                      {t.cart.estimatedShippingFrom || "Est."} {formatPrice(currencyCode === "gbp" ? 3.99 : 4.99)}
+                      {t.cart.estimatedShippingFrom || "Est."} {formatPrice(currencyCode === "gbp" ? 3.99 : currencyCode === "usd" ? 7.99 : 4.99)}
                     </span>
                   )}
                 </div>
