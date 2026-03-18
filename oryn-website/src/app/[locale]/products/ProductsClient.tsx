@@ -16,8 +16,17 @@ function ProductsContent() {
   const [activeResearchArea, setActiveResearchArea] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortOption>("default");
-  const { t } = useLocale();
+  const { t, formatPrice } = useLocale();
   const { products, categories } = useProducts();
+
+  const priceMin = useMemo(() => Math.min(...products.map((p) => p.price)), [products]);
+  const priceMax = useMemo(() => Math.max(...products.map((p) => p.price)), [products]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, Infinity]);
+
+  // Initialize price range once products load
+  useEffect(() => {
+    if (products.length > 0) setPriceRange([priceMin, priceMax]);
+  }, [products.length, priceMin, priceMax]);
 
   useEffect(() => {
     if (urlCategory) setActiveCategory(urlCategory);
@@ -32,6 +41,8 @@ function ProductsContent() {
     if (activeResearchArea !== "all") {
       result = result.filter((p) => p.researchAreas?.includes(activeResearchArea));
     }
+
+    result = result.filter((p) => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -53,7 +64,7 @@ function ProductsContent() {
     }
 
     return result;
-  }, [products, activeCategory, activeResearchArea, searchQuery, sortBy]);
+  }, [products, activeCategory, activeResearchArea, priceRange, searchQuery, sortBy]);
 
   return (
     <div className="pt-[calc(1rem+4px)] pb-16">
@@ -186,6 +197,37 @@ function ProductsContent() {
           ))}
         </div>
 
+        {/* Price range filter */}
+        {products.length > 0 && (
+          <div className="flex items-center gap-4 mb-8">
+            <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em] shrink-0">PRICE:</span>
+            <div className="flex items-center gap-3 flex-1 max-w-md">
+              <span className="text-[10px] font-mono text-oryn-black/50 shrink-0">{formatPrice(priceRange[0])}</span>
+              <div className="relative flex-1 h-8 flex items-center">
+                <input
+                  type="range"
+                  min={priceMin}
+                  max={priceMax}
+                  value={priceRange[0]}
+                  onChange={(e) => setPriceRange([Math.min(Number(e.target.value), priceRange[1]), priceRange[1]])}
+                  className="absolute w-full h-1 appearance-none bg-oryn-grey/15 rounded pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-oryn-orange [&::-webkit-slider-thumb]:cursor-pointer"
+                  aria-label="Minimum price"
+                />
+                <input
+                  type="range"
+                  min={priceMin}
+                  max={priceMax}
+                  value={priceRange[1]}
+                  onChange={(e) => setPriceRange([priceRange[0], Math.max(Number(e.target.value), priceRange[0])])}
+                  className="absolute w-full h-1 appearance-none bg-transparent rounded pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-oryn-orange [&::-webkit-slider-thumb]:cursor-pointer"
+                  aria-label="Maximum price"
+                />
+              </div>
+              <span className="text-[10px] font-mono text-oryn-black/50 shrink-0">{formatPrice(priceRange[1])}</span>
+            </div>
+          </div>
+        )}
+
         {filtered.length === 0 ? (
           <div className="py-16 text-center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ddd" strokeWidth="1.5" className="mx-auto mb-4">
@@ -196,7 +238,7 @@ function ProductsContent() {
               {searchQuery ? `${t.productsPage.noResults} "${searchQuery}"` : t.productsPage.noCategory}
             </p>
             <button
-              onClick={() => { setSearchQuery(""); setActiveCategory("all"); setActiveResearchArea("all"); }}
+              onClick={() => { setSearchQuery(""); setActiveCategory("all"); setActiveResearchArea("all"); setPriceRange([priceMin, priceMax]); }}
               className="mt-3 text-xs text-oryn-orange hover:underline"
             >
               {t.productsPage.clearFilters}
