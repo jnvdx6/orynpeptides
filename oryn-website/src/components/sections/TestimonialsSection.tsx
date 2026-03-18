@@ -44,7 +44,7 @@ export function TestimonialsSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold">{item.name}</p>
-                  <p className="text-[10px] text-oryn-black/40 font-plex">{item.role}</p>
+                  <p className="text-[10px] text-oryn-black/60 font-plex">{item.role}</p>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ export function TestimonialsSection() {
           {t.testimonials.stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl font-bold text-oryn-orange">{stat.value}</div>
-              <div className="text-[10px] font-mono text-oryn-black/30 tracking-[0.1em] mt-1">{stat.label}</div>
+              <div className="text-[10px] font-mono text-oryn-black/60 tracking-[0.1em] mt-1">{stat.label}</div>
             </div>
           ))}
         </div>

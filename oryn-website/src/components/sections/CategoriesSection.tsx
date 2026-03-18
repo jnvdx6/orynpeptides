@@ -58,7 +58,7 @@ export function CategoriesSection() {
  <span className="block text-gradient-orange">{t.categories.titleLine2}</span>
  </h2>
  </div>
- <p className="text-oryn-black/40 font-plex max-w-sm text-sm leading-relaxed">
+ <p className="text-oryn-black/60 font-plex max-w-sm text-sm leading-relaxed">
  {t.categories.description}
  </p>
  </div>

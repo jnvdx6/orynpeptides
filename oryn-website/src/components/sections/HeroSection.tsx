@@ -122,7 +122,7 @@ export function HeroSection() {
 
  {/* Dosing badge — top-right, inside container, no overlap */}
  <div className="absolute top-0 right-0 sm:top-2 sm:right-2 bg-white/95 backdrop-blur-sm px-4 py-2.5 sm:px-5 sm:py-3 shadow-lg rounded-sm">
- <div className="text-[9px] font-mono text-oryn-black/40 tracking-[0.15em] mb-0.5">{t.hero.dosingLabel}</div>
+ <div className="text-[9px] font-mono text-oryn-black/60 tracking-[0.15em] mb-0.5">{t.hero.dosingLabel}</div>
  <div className="text-base sm:text-lg font-bold text-oryn-orange">{t.hero.dosingValue}</div>
  </div>
 
@@ -141,7 +141,7 @@ export function HeroSection() {
  </div>
  <div>
  <p className="text-[9px] font-bold text-oryn-black">{t.hero.socialProofCount}</p>
- <p className="text-[8px] text-oryn-black/40 font-plex">{t.hero.socialProofLabel}</p>
+ <p className="text-[8px] text-oryn-black/60 font-plex">{t.hero.socialProofLabel}</p>
  </div>
  </div>
  </div>

@@ -75,7 +75,7 @@ export function QualitySection() {
  {pillar.icon}
  </div>
  <h3 className="text-sm font-bold mb-2 tracking-wide">{pillar.title}</h3>
- <p className="text-xs text-oryn-black/40 font-plex leading-relaxed">
+ <p className="text-xs text-oryn-black/60 font-plex leading-relaxed">
  {pillar.description}
  </p>
  </div>

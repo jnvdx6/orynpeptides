@@ -26,7 +26,7 @@ export function ProductsShowcase() {
  {t.showcase.titleLine1}
  <span className="block text-gradient-orange">{t.showcase.titleLine2}</span>
  </h2>
- <p className="text-sm text-oryn-black/40 font-plex mt-3 max-w-md">
+ <p className="text-sm text-oryn-black/60 font-plex mt-3 max-w-md">
  {t.showcase.subtitle}
  </p>
  </div>
@@ -60,7 +60,7 @@ export function ProductsShowcase() {
  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
  <path d={item.icon} />
  </svg>
- <span className="text-[10px] font-mono text-oryn-black/40 tracking-[0.1em]">{item.label}</span>
+ <span className="text-[10px] font-mono text-oryn-black/60 tracking-[0.1em]">{item.label}</span>
  </div>
  ))}
  </div>

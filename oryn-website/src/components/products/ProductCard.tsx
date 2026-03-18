@@ -89,7 +89,7 @@ export function ProductCard({ product }: { product: Product }) {
             <h3 className="text-sm font-bold tracking-wide group-hover:text-oryn-orange transition-colors truncate">
               {product.name.startsWith("ORYN") ? product.name : `ORYN ${product.name}`}
             </h3>
-            <p className="text-xs text-oryn-black/40 font-plex mt-1 truncate">
+            <p className="text-xs text-oryn-black/60 font-plex mt-1 truncate">
               {subtitle}
             </p>
           </div>
@@ -99,15 +99,15 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4 mb-4 sm:mb-5">
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em]">
+          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em]">
             {t.productCard.purity}
           </span>
           <span className="w-px h-3 bg-oryn-grey" />
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em]">
+          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em]">
             {product.volume}
           </span>
           <span className="w-px h-3 bg-oryn-grey hidden sm:block" />
-          <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.05em] sm:tracking-[0.1em] hidden sm:inline">
+          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em] hidden sm:inline">
             {t.productCard.pharmaGrade}
           </span>
         </div>

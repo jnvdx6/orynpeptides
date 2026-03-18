@@ -65,7 +65,7 @@ export function HowItWorksSection() {
             {t.howItWorks.titleLine1}
             <span className="text-gradient-orange"> {t.howItWorks.titleLine2}</span>
           </h2>
-          <p className="text-sm text-oryn-black/40 font-plex mt-4 max-w-lg mx-auto">
+          <p className="text-sm text-oryn-black/60 font-plex mt-4 max-w-lg mx-auto">
             {t.howItWorks.description}
           </p>
         </div>
@@ -92,7 +92,7 @@ export function HowItWorksSection() {
                 </div>
 
                 <h3 className="text-sm font-bold mb-2 tracking-wide">{step.title}</h3>
-                <p className="text-xs text-oryn-black/40 font-plex leading-relaxed">
+                <p className="text-xs text-oryn-black/60 font-plex leading-relaxed">
                   {step.description}
                 </p>
               </div>
