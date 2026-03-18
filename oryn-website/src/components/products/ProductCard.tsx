@@ -10,6 +10,17 @@ import { Link } from "@/components/ui/LocaleLink";
 
 // Product.image is now populated by ProductsProvider (Medusa thumbnail or static fallback)
 
+// Color-coded labels for peptide pens that share the same product image
+const PEPTIDE_COLORS: Record<string, { bg: string; text: string }> = {
+  "bpc-157":         { bg: "bg-blue-600",    text: "text-white" },
+  "tb-500":          { bg: "bg-emerald-600", text: "text-white" },
+  "cjc-1295":        { bg: "bg-violet-600",  text: "text-white" },
+  "ipamorelin":      { bg: "bg-amber-500",   text: "text-white" },
+  "tirzepatide-pen": { bg: "bg-rose-600",    text: "text-white" },
+  "ghk-cu":          { bg: "bg-cyan-600",    text: "text-white" },
+  "glutathione":     { bg: "bg-lime-600",    text: "text-white" },
+};
+
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
@@ -44,6 +55,13 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="absolute top-4 right-4 px-2 py-1 bg-white/90 text-oryn-orange text-[9px] font-mono tracking-[0.1em] z-10">
           {categoryLabel}
         </span>
+
+        {/* Color-coded label for peptide pens sharing the same image */}
+        {PEPTIDE_COLORS[product.slug] && (
+          <span className={`absolute bottom-3 left-3 px-2.5 py-1 ${PEPTIDE_COLORS[product.slug].bg} ${PEPTIDE_COLORS[product.slug].text} text-[10px] font-bold tracking-[0.08em] z-10 shadow-sm`}>
+            {product.name}
+          </span>
+        )}
 
         {/* Wishlist button */}
         <button
