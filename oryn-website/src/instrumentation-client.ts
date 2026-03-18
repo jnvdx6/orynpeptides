@@ -1,11 +1,15 @@
 import posthog from "posthog-js";
 
-// Only initialize PostHog if user has accepted analytics cookies (GDPR)
+// Only initialize PostHog on production and with user consent (GDPR)
+const isProduction =
+  typeof window !== "undefined" &&
+  window.location.hostname === "orynxpeptides.com";
+
 const hasConsent =
   typeof window !== "undefined" &&
   localStorage.getItem("oryn_cookie_consent") === "accepted";
 
-if (hasConsent && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+if (isProduction && hasConsent && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     // Recommended defaults for new projects
