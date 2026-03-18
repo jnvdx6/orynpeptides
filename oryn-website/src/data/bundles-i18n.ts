@@ -315,6 +315,44 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
         },
       ],
     },
+    "pt-br": {
+      name: "Stack de Recuperação & Reparação",
+      tagline: "O duo clássico de cura para reparação tecidual acelerada",
+      description:
+        "BPC-157 e TB-500 são os dois péptidos mais amplamente investigados para reparação e regeneração de tecidos. Este stack combina as propriedades curativas de origem gástrica do BPC-157 com a ação de migração celular e anti-inflamatória do TB-500, criando um protocolo de recuperação abrangente. Investigadores de todo o mundo associam estes péptidos pelos seus mecanismos complementares — BPC-157 promove a angiogénese e a expressão de fatores de crescimento enquanto TB-500 melhora a regulação da actina e reduz a fibrose.",
+      benefits: [
+        "Reparação tecidual sinérgica através de mecanismos duplos",
+        "Cicatrização acelerada e tempo de recuperação reduzido",
+        "Ação anti-inflamatória em articulações, tendões e músculos",
+        "Apoia a integridade do revestimento intestinal e a cura da mucosa",
+        "Promove a angiogénese para melhor suprimento sanguíneo ao tecido danificado",
+        "Reduz a fibrose e a formação de tecido cicatricial",
+      ],
+      protocol:
+        "O protocolo de recuperação BPC-157 + TB-500 é um dos stacks de péptidos mais documentados na literatura de investigação. Os protocolos típicos envolvem administração concomitante ao longo de 4-8 semanas, com BPC-157 direcionado à reparação tecidual local via modulação de óxido nítrico e TB-500 fornecendo suporte anti-inflamatório sistémico e de migração celular.",
+      faqs: [
+        {
+          question: "Por que BPC-157 e TB-500 são considerados o stack de recuperação padrão ouro?",
+          answer:
+            "BPC-157 e TB-500 atuam em vias de cura complementares. BPC-157 promove angiogénese, expressão de fatores de crescimento e síntese de óxido nítrico a nível tecidual, enquanto TB-500 melhora a migração celular, reduz a inflamação sistemicamente e promove a polimerização da actina para reparação estrutural.",
+        },
+        {
+          question: "Posso usar ambos os péptidos ao mesmo tempo?",
+          answer:
+            "Sim, a administração simultânea é o protocolo de investigação mais comum. Os dois compostos atuam por mecanismos independentes e não interferem entre si.",
+        },
+        {
+          question: "Quanto tempo dura um protocolo típico do stack de recuperação?",
+          answer:
+            "Os protocolos publicados duram tipicamente 4-8 semanas para lesões agudas e até 12 semanas para condições crónicas. O sistema de caneta de 30 dias da ORYN fornece dosagem consistente para um ciclo completo.",
+        },
+        {
+          question: "Este stack é adequado para lesões articulares e tendinosas?",
+          answer:
+            "Lesões articulares e tendinosas estão entre as aplicações mais investigadas para este stack. BPC-157 foi estudado em modelos de tendões de Aquiles seccionados, enquanto TB-500 mostrou eficácia na redução da inflamação articular em estudos animais.",
+        },
+      ],
+    },
   },
   "anti-aging-stack": {
     en: {
@@ -621,6 +659,44 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
         },
       ],
     },
+    "pt-br": {
+      name: "Stack Anti-Envelhecimento & Longevidade",
+      tagline: "Protocolo de longevidade triple para renovação celular",
+      description:
+        "Este abrangente stack anti-envelhecimento combina três compostos poderosos que atuam em vias de envelhecimento distintas. GHK-Cu estimula a síntese de colagénio e o remodelamento tecidual, NAD+ alimenta a produção de energia celular e a reparação do ADN, e o Glutatião fornece a defesa antioxidante mestre contra danos oxidativos.",
+      benefits: [
+        "Síntese de colagénio e restauração da elasticidade cutânea via GHK-Cu",
+        "Produção de energia celular e suporte mitocondrial via NAD+",
+        "Defesa antioxidante mestre e desintoxicação via Glutatião",
+        "Ativação de vias de reparação do ADN para integridade genómica",
+        "Propriedades de luminosidade cutânea, rejuvenescimento e antirrugas",
+        "Suporte neuroprotector e da função cognitiva",
+      ],
+      protocol:
+        "O triple stack anti-envelhecimento atua em três características distintas do envelhecimento simultaneamente. GHK-Cu aborda a degradação da matriz extracelular estimulando a produção de colagénio e elastina, enquanto NAD+ repõe a coenzima crítica para a ativação das sirtuínas, função mitocondrial e reparação do ADN.",
+      faqs: [
+        {
+          question: "Por que combinar três compostos para pesquisa anti-envelhecimento?",
+          answer:
+            "O envelhecimento é um processo multifatorial envolvendo degradação estrutural (perda de colagénio), declínio energético (depleção de NAD+) e danos oxidativos (depleção de glutatião). Abordar as três vias simultaneamente produz benefícios sinérgicos que abordagens de composto único não conseguem igualar.",
+        },
+        {
+          question: "O que faz o NAD+ pelo envelhecimento?",
+          answer:
+            "Os níveis de NAD+ diminuem até 50% entre os 40 e os 60 anos. Esta coenzima é essencial para a ativação das sirtuínas (os 'genes da longevidade'), produção de energia mitocondrial e reparação do ADN mediada por PARP.",
+        },
+        {
+          question: "Como o GHK-Cu complementa os outros compostos?",
+          answer:
+            "GHK-Cu atua a nível estrutural estimulando a produção de colagénio, elastina e glicosaminoglicanos enquanto NAD+ e Glutatião atuam a nível celular.",
+        },
+        {
+          question: "Existe uma ordem de administração recomendada?",
+          answer:
+            "Muitos investigadores escalonam a administração ao longo do dia. Um protocolo comum é GHK-Cu de manhã, Glutatião ao meio-dia e NAD+ à noite, pois o metabolismo do NAD+ está ligado aos ritmos circadianos.",
+        },
+      ],
+    },
   },
   "gh-stack": {
     en: {
@@ -887,6 +963,39 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
         },
       ],
     },
+    "pt-br": {
+      name: "Stack Hormona de Crescimento",
+      tagline: "Otimização de GH de dupla via para desempenho máximo",
+      description:
+        "A combinação CJC-1295 e Ipamorelin é o stack de secretagogos de hormona de crescimento mais amplamente investigado. CJC-1295 imita o GHRH para fornecer elevação sustentada de GH, enquanto Ipamorelin desencadeia pulsos de GH direcionados através do receptor de grelina sem afetar o cortisol ou a prolactina.",
+      benefits: [
+        "Amplificação da libertação natural de hormona de crescimento através de dupla via",
+        "Promove composição corporal magra e preservação muscular",
+        "Melhoria do sono profundo e restaurador via otimização dos pulsos de GH",
+        "Recuperação acelerada entre sessões de treino",
+        "Suporta a densidade óssea e a saúde articular",
+        "Perfil hormonal limpo — sem elevação de cortisol ou prolactina",
+      ],
+      protocol:
+        "O protocolo CJC-1295 + Ipamorelin aproveita duas vias distintas de libertação de GH para elevação sinérgica. CJC-1295 atua como análogo do GHRH, fornecendo uma elevação basal sustentada da hormona de crescimento, enquanto Ipamorelin desencadeia pulsos de GH adicionais direcionados via receptor de grelina.",
+      faqs: [
+        {
+          question: "Por que combinar CJC-1295 com Ipamorelin em vez de usar um só?",
+          answer:
+            "CJC-1295 e Ipamorelin atuam através de receptores completamente diferentes — GHRH e grelina, respetivamente. CJC-1295 fornece uma elevação basal sustentada de GH enquanto Ipamorelin desencadeia pulsos de GH agudos e direcionados. Juntos produzem uma resposta GH sinérgica significativamente superior à de cada péptido isoladamente.",
+        },
+        {
+          question: "Este stack afetará o cortisol ou outras hormonas?",
+          answer:
+            "Uma das principais vantagens da combinação CJC-1295 + Ipamorelin é a sua seletividade. Ipamorelin é um dos secretagogos de GH mais seletivos disponíveis, estimulando a libertação de GH sem elevar significativamente cortisol, prolactina ou ACTH.",
+        },
+        {
+          question: "Qual é o melhor momento para administrar este stack?",
+          answer:
+            "A maioria dos protocolos recomenda administração noturna, 30-60 minutos antes de dormir. Este timing alinha-se com o padrão GH circadiano natural do corpo.",
+        },
+      ],
+    },
   },
   "metabolic-stack": {
     en: {
@@ -1150,6 +1259,39 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
           question: "Czy eskalacja dawki jest konieczna przy tizepratydzie?",
           answer:
             "Opublikowane protokoły badań klinicznych powszechnie stosują eskalację dawki tizepratydu, zaczynając od niższych dawek i stopniowo zwiększając przez 4-8 tygodni.",
+        },
+      ],
+    },
+    "pt-br": {
+      name: "Stack de Transformação Metabólica",
+      tagline: "Tirzepatida em formato duplo para suporte metabólico abrangente",
+      description:
+        "Este stack combina o ORYN Tirzepatide Pen (10mg, micro-dosagem diária) com o MediT Pen (40mg, uma vez por semana), dando aos investigadores máxima flexibilidade para estudos metabólicos. A tirzepatida é um agonista duplo do receptor GIP/GLP-1 — a classe mais avançada de péptido metabólico disponível.",
+      benefits: [
+        "Agonismo duplo do receptor GIP/GLP-1 para ação metabólica melhorada",
+        "Dosagem flexível: caneta de micro-dosagem diária + caneta de injeção semanal",
+        "Regulação do apetite e modulação da sinalização de saciedade",
+        "Gestão do açúcar no sangue e suporte à sensibilidade à insulina",
+        "Classe de composto clinicamente provada com extensos dados de ensaios",
+        "Suporta protocolos de investigação metabólica de longo prazo",
+      ],
+      protocol:
+        "O protocolo de transformação metabólica aproveita dois formatos de administração de tirzepatida para flexibilidade ótima. Muitos investigadores começam com a Tirzepatide Pen diária (10mg) para titulação precisa de dose, depois utilizam o MediT Pen (40mg semanal) para a fase de manutenção.",
+      faqs: [
+        {
+          question: "Qual é a vantagem de ter ambos os formatos de tirzepatida?",
+          answer:
+            "A caneta diária (10mg) permite micro-dosagem para titulação precisa na fase de início. O MediT Pen semanal (40mg) proporciona conveniência para protocolos estabelecidos.",
+        },
+        {
+          question: "Como a tirzepatida difere dos agonistas só de GLP-1?",
+          answer:
+            "A tirzepatida é um agonista duplo do receptor GIP/GLP-1, ativando simultaneamente duas vias hormonais metabólicas chave. Os dados clínicos sugerem que este mecanismo duplo produz resultados metabólicos superiores.",
+        },
+        {
+          question: "É necessária escalada de dose com tirzepatida?",
+          answer:
+            "Os protocolos de ensaios clínicos publicados empregam universalmente escalada de dose com tirzepatida, começando com doses mais baixas e aumentando gradualmente durante 4-8 semanas.",
         },
       ],
     },
@@ -1459,6 +1601,44 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
         },
       ],
     },
+    "pt-br": {
+      name: "Stack de Bem-Estar Total",
+      tagline: "Protocolo de base para a otimização da saúde sistémica",
+      description:
+        "O Stack de Bem-Estar Total combina três compostos que visam os aspetos mais fundamentais da saúde: integridade tecidual, energia celular e defesa antioxidante. BPC-157 apoia a saúde intestinal e a reparação tecidual sistémica, NAD+ alimenta a produção de energia mitocondrial e os mecanismos de reparação do ADN, e o Glutatião fornece o escudo antioxidante mestre que protege cada célula de danos oxidativos.",
+      benefits: [
+        "Saúde intestinal abrangente e integridade tecidual via BPC-157",
+        "Produção de energia mitocondrial e suporte metabólico via NAD+",
+        "Defesa antioxidante sistémica e desintoxicação via Glutatião",
+        "Modulação do sistema imunitário e equilíbrio inflamatório",
+        "Suporte neuroprotector e da função cognitiva",
+        "Protocolo de base compatível com stacks peptídicos adicionais",
+      ],
+      protocol:
+        "O protocolo de Bem-Estar Total aborda três pilares da saúde sistémica. BPC-157 mira o eixo intestino-corpo, NAD+ repõe a coenzima que diminui com a idade, e o Glutatião fornece a estrutura antioxidante que protege as estruturas celulares do stress oxidativo.",
+      faqs: [
+        {
+          question: "Por que estes três compostos são considerados uma base de bem-estar?",
+          answer:
+            "BPC-157, NAD+ e Glutatião abordam cada um um pilar fundamental da saúde. BPC-157 suporta integridade estrutural, NAD+ alimenta energia celular e mecanismos de reparação, e Glutatião protege contra danos oxidativos.",
+        },
+        {
+          question: "Este stack pode ser combinado com outros protocolos peptídicos?",
+          answer:
+            "Sim, o Stack de Bem-Estar Total é projetado como protocolo de base, frequentemente combinado com o Stack de Recuperação ou o Stack de GH.",
+        },
+        {
+          question: "Como o BPC-157 apoia o bem-estar geral além da saúde intestinal?",
+          answer:
+            "Além da cura intestinal, BPC-157 tem efeitos sistémicos incluindo neuroproteção, reparação de tendões e ligamentos e modulação anti-inflamatória.",
+        },
+        {
+          question: "Qual é a duração recomendada para um protocolo de bem-estar?",
+          answer:
+            "A maioria dos investigadores realiza um protocolo de bem-estar mínimo de 30 dias, muitos estendendo para 60-90 dias para avaliação de referência abrangente.",
+        },
+      ],
+    },
   },
   "skin-renewal": {
     en: {
@@ -1722,6 +1902,39 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
           question: "Czy GHK-Cu do iniekcji jest skuteczniejszy niż miejscowe produkty z peptydami miedzi?",
           answer:
             "Injekcyjny GHK-Cu dostarcza peptyd systemowo, umożliwiając mu dotarcie do warstwy skórnej bezpośrednio przez krwiobieg, z znacznie wyższą biodostępnością niż produkty miejscowe.",
+        },
+      ],
+    },
+    "pt-br": {
+      name: "Stack de Renovação Cutânea",
+      tagline: "Rejuvenescimento dérmico avançado através da ciência dos péptidos",
+      description:
+        "O Stack de Renovação Cutânea combina dois dos compostos mais potentes na investigação dermatológica peptídica. GHK-Cu (péptido de cobre) estimula a síntese de colagénio e elastina, promove o remodelamento tecidual e melhora as proteínas estruturais da pele. O Glutatião, o principal antioxidante do organismo, fornece potente clareamento cutâneo, desintoxicação e proteção contra danos oxidativos induzidos por UV.",
+      benefits: [
+        "Estimula a síntese de colagénio e elastina para renovação estrutural",
+        "Clareamento cutâneo e tom uniforme via regulação da melanina pelo glutatião",
+        "Proteção antioxidante contra UV e danos ambientais",
+        "Promove a cicatrização de feridas e redução de cicatrizes",
+        "Suporta a produção de ácido hialurónico para hidratação cutânea",
+        "Ação anti-inflamatória para reduzir vermelhidão e irritação",
+      ],
+      protocol:
+        "O protocolo de Renovação Cutânea visa vias dérmicas complementares. GHK-Cu aborda o componente estrutural do envelhecimento cutâneo estimulando fibroblastos a produzir colagénio, elastina e glicosaminoglicanos. O Glutatião atua no lado oxidativo e de pigmentação. Os protocolos de investigação duram tipicamente 8-12 semanas.",
+      faqs: [
+        {
+          question: "Como o GHK-Cu e o Glutatião atuam juntos para a pele?",
+          answer:
+            "GHK-Cu estimula a produção de proteínas estruturais (colagénio, elastina, proteoglicanos) que conferem firmeza e elasticidade à pele, enquanto o Glutatião fornece proteção antioxidante, clareia a pele inibindo a produção de melanina e apoia a desintoxicação.",
+        },
+        {
+          question: "Quanto tempo antes de se esperar melhorias cutâneas visíveis?",
+          answer:
+            "Melhorias iniciais no tom cutâneo (do Glutatião) podem aparecer em 2-4 semanas, enquanto melhorias estruturais da síntese de colagénio (GHK-Cu) tornam-se tipicamente visíveis às 6-12 semanas.",
+        },
+        {
+          question: "O GHK-Cu injetável é mais eficaz do que produtos tópicos de péptidos de cobre?",
+          answer:
+            "O GHK-Cu injetável fornece o péptido sistemicamente, permitindo-lhe atingir a camada dérmica diretamente pela corrente sanguínea, com biodisponibilidade muito superior aos produtos tópicos.",
         },
       ],
     },
@@ -2031,6 +2244,44 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
         },
       ],
     },
+    "pt-br": {
+      name: "Stack de Recuperação do Atleta",
+      tagline: "Recuperação de nível elite com reparação tecidual potenciada por GH",
+      description:
+        "O Stack de Recuperação do Atleta baseia-se no clássico duo de cura BPC-157 + TB-500 adicionando CJC-1295 para otimização da hormona de crescimento. Este protocolo de três compostos aborda cada dimensão da recuperação atlética: BPC-157 promove reparação tecidual e reduz inflamação, TB-500 melhora migração celular e reduz fibrose, e CJC-1295 eleva a hormona de crescimento natural.",
+      benefits: [
+        "Abordagem de triple composto para reparação tecidual acelerada",
+        "Elevação da hormona de crescimento para recuperação muscular melhorada",
+        "Promoção do sono profundo e restaurador para regeneração noturna",
+        "Inflamação reduzida em articulações, tendões e músculos",
+        "Suporta composição corporal magra durante períodos de recuperação",
+        "Minimiza tecido cicatricial e fibrose de lesões de treino",
+      ],
+      protocol:
+        "O protocolo de Recuperação do Atleta combina dois péptidos de cura com um secretagogo da hormona de crescimento. BPC-157 e TB-500 são tipicamente administrados juntos para maximizar a reparação tecidual local, enquanto CJC-1295 é administrado à noite. Os protocolos duram tipicamente 6-8 semanas para lesões agudas e 8-12 semanas para condições crónicas.",
+      faqs: [
+        {
+          question: "Por que adicionar CJC-1295 ao stack de recuperação BPC-157 + TB-500?",
+          answer:
+            "CJC-1295 adiciona uma dimensão de hormona de crescimento ao protocolo de recuperação. GH elevado apoia a síntese de proteínas musculares, sono profundo e composição corporal magra.",
+        },
+        {
+          question: "Este stack é adequado durante treino ativo ou apenas durante recuperação de lesões?",
+          answer:
+            "Muitos investigadores estudam este stack tanto durante fases de treino ativo como durante reabilitação de lesões, suportando recuperação mais rápida e melhor qualidade de sono.",
+        },
+        {
+          question: "Como devem ser administrados os três péptidos?",
+          answer:
+            "Protocolos comuns administram BPC-157 e TB-500 juntos de manhã ou após treino, e CJC-1295 separadamente à noite antes de dormir.",
+        },
+        {
+          question: "O Ipamorelin pode ser adicionado a este stack?",
+          answer:
+            "Sim, alguns investigadores adicionam Ipamorelin ao lado de CJC-1295 para maior libertação de GH. A combinação de quatro péptidos está bem documentada na literatura.",
+        },
+      ],
+    },
   },
   "nad-complete": {
     en: {
@@ -2334,6 +2585,44 @@ const bundleTranslations: Record<string, Record<Locale, BundleTranslation>> = {
           question: "Czy mogę łączyć Stack NAD+ Complete z innymi stackami ORYN?",
           answer:
             "Tak, NAD+ jest podstawowym związkiem uzupełniającym praktycznie każdy protokół peptydowy, szczególnie synergistyczny ze Stackiem Anti-Aging i Stackiem Totalnego Dobrostanu.",
+        },
+      ],
+    },
+    "pt-br": {
+      name: "Stack NAD+ Completo",
+      tagline: "NAD+ de dupla administração para máximo rejuvenescimento celular",
+      description:
+        "O Stack NAD+ Completo combina dois sistemas de administração para reposição abrangente de NAD+. O ORYN NAD+ Pen (500mg) fornece uma dose mensal concentrada, enquanto o NovaDose NAD+ (500mg, sistema de cartucho) permite micro-dosagem diária para elevação sustentada de NAD+ ao longo do dia.",
+      benefits: [
+        "Sistema de dupla administração para reposição abrangente de NAD+",
+        "Produção de energia celular sustentada e suporte mitocondrial",
+        "Ativação de vias de reparação do ADN para estabilidade genómica",
+        "Clareza cognitiva e benefícios neuroprotetores",
+        "Mais acessível e conveniente do que a terapia IV de NAD+",
+        "Suporta ativação das sirtuínas — a via do gene da longevidade",
+      ],
+      protocol:
+        "O protocolo NAD+ Completo aproveita dois sistemas de administração complementares. O ORYN NAD+ Pen fornece administração subcutânea concentrada de NAD+, enquanto o sistema NovaDose complementa com micro-doses diárias para manter NAD+ elevado durante todo o dia.",
+      faqs: [
+        {
+          question: "Por que usar dois sistemas de administração de NAD+ diferentes?",
+          answer:
+            "Os dois sistemas servem funções complementares. A caneta NAD+ fornece dose concentrada para elevação aguda de NAD+, enquanto o sistema NovaDose mantém níveis sustentados com micro-doses diárias.",
+        },
+        {
+          question: "Como se compara com a terapia IV de NAD+?",
+          answer:
+            "A terapia IV de NAD+ custa tipicamente centenas de libras por sessão e requer visitas clínicas. O Stack NAD+ Completo fornece administração comparável de NAD+ a uma fração do custo.",
+        },
+        {
+          question: "Quais são os sinais de depleção de NAD+?",
+          answer:
+            "A investigação associa depleção de NAD+ com fadiga, névoa cognitiva, capacidade de exercício reduzida, má qualidade de sono e marcadores de envelhecimento acelerado.",
+        },
+        {
+          question: "Posso combinar o Stack NAD+ Completo com outros stacks ORYN?",
+          answer:
+            "Sim, NAD+ é um composto fundamental que complementa praticamente qualquer protocolo peptídico, sendo especialmente sinérgico com o Stack Anti-Envelhecimento e o Stack de Bem-Estar Total.",
         },
       ],
     },
