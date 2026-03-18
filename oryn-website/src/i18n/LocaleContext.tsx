@@ -27,11 +27,12 @@ interface LocaleContextType {
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 
-function getRegionFromCookie(): RegionKey | null {
+function getRegionFromCookie(locale: Locale): RegionKey | null {
   if (typeof document === "undefined") return null;
-  const match = document.cookie.match(/ORYN_REGION=([^;]+)/);
-  if (match && isValidRegion(match[1])) {
-    return match[1] as RegionKey;
+  // First try locale-specific cookie (set by this version)
+  const localeMatch = document.cookie.match(new RegExp(`ORYN_REGION_${locale}=([^;]+)`));
+  if (localeMatch && isValidRegion(localeMatch[1])) {
+    return localeMatch[1] as RegionKey;
   }
   return null;
 }
@@ -48,12 +49,12 @@ export function LocaleProvider({
   const market = markets[locale];
 
   const [region, setRegionState] = useState<RegionKey>(() => {
-    const cookieRegion = getRegionFromCookie();
+    const cookieRegion = getRegionFromCookie(locale);
     return cookieRegion || market.defaultRegion;
   });
 
   useEffect(() => {
-    const cookieRegion = getRegionFromCookie();
+    const cookieRegion = getRegionFromCookie(locale);
     if (cookieRegion && cookieRegion !== region) {
       setRegionState(cookieRegion);
     }
@@ -62,8 +63,8 @@ export function LocaleProvider({
 
   const setRegion = useCallback((newRegion: RegionKey) => {
     setRegionState(newRegion);
-    document.cookie = `ORYN_REGION=${newRegion};path=/;max-age=${60 * 60 * 24 * 365}`;
-  }, []);
+    document.cookie = `ORYN_REGION_${locale}=${newRegion};path=/;max-age=${60 * 60 * 24 * 365}`;
+  }, [locale]);
 
   const regionConfig = regions[region];
 
