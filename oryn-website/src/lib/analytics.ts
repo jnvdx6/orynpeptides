@@ -1,5 +1,6 @@
 import { track } from "@vercel/analytics";
 import posthog from "posthog-js";
+import { markets, regions, type Locale, isValidLocale } from "@/i18n/config";
 
 // ─── Helpers ──────────────────────────────────────────────────
 function ph(event: string, properties?: Record<string, unknown>) {
@@ -39,12 +40,21 @@ function getDeviceType(): string {
 function getGeoContext(): { locale: string; country: string; currency: string; market_region: string } {
   if (typeof window === "undefined") return { locale: "en", country: "GB", currency: "GBP", market_region: "UK" };
   const pathLocale = window.location.pathname.split("/")[1] || "en";
-  const countryMap: Record<string, string> = { en: "GB", es: "ES", de: "DE", fr: "FR", it: "IT", pt: "PT", nl: "NL" };
-  const marketMap: Record<string, string> = { en: "UK", es: "EU", de: "EU", fr: "EU", it: "EU", pt: "EU", nl: "EU" };
+  const countryMap: Record<string, string> = { en: "GB", es: "ES", de: "DE", fr: "FR", it: "IT", pt: "PT", "pt-br": "BR", nl: "NL", pl: "PL" };
+  const marketMap: Record<string, string> = { en: "UK", es: "EU", de: "EU", fr: "EU", it: "EU", pt: "EU", "pt-br": "LATAM", nl: "EU", pl: "EU" };
+
+  // Derive currency from config rather than hardcoding
+  let currency = "EUR";
+  if (isValidLocale(pathLocale)) {
+    const market = markets[pathLocale as Locale];
+    const region = regions[market.defaultRegion];
+    currency = region.currencyCode.toUpperCase();
+  }
+
   return {
     locale: pathLocale,
     country: countryMap[pathLocale] || "GB",
-    currency: pathLocale === "en" ? "GBP" : "EUR",
+    currency,
     market_region: marketMap[pathLocale] || "Other",
   };
 }
@@ -56,7 +66,7 @@ export function updateGeoFromShipping(countryCode: string) {
     GB: "UK", ES: "EU", DE: "EU", FR: "EU", IT: "EU", PT: "EU", NL: "EU",
     BE: "EU", AT: "EU", IE: "EU", SE: "EU", DK: "EU", FI: "EU", CY: "EU",
     GR: "EU", PL: "EU", CZ: "EU", HU: "EU", RO: "EU", BG: "EU", HR: "EU",
-    US: "US", MX: "LATAM", CO: "LATAM", AR: "LATAM", CL: "LATAM", PE: "LATAM",
+    US: "US", BR: "LATAM", MX: "LATAM", CO: "LATAM", AR: "LATAM", CL: "LATAM", PE: "LATAM",
   };
   const market = marketMap[countryCode] || "Other";
   posthog.register({ country: countryCode, market_region: market });

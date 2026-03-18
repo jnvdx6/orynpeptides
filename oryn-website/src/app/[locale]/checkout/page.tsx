@@ -112,7 +112,7 @@ export default function CheckoutPage() {
     cartLoaded,
   } = useCart();
 
-  const { t, formatPrice, locale } = useLocale();
+  const { t, formatPrice, locale, currencyCode } = useLocale();
   const router = useRouter();
   const { user } = useAuth();
   usePageTracking("checkout");
@@ -198,8 +198,7 @@ export default function CheckoutPage() {
   // Track checkout start
   useEffect(() => {
     if (items.length > 0) {
-      const currency = locale === "es" ? "EUR" : "GBP";
-      trackCheckoutStarted({ itemCount: totalItems, total: totalPrice, currency });
+      trackCheckoutStarted({ itemCount: totalItems, total: totalPrice, currency: currencyCode.toUpperCase() });
       trackCheckoutStep("information", { item_count: totalItems, total: totalPrice });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

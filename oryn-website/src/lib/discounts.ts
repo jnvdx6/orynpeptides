@@ -3,6 +3,7 @@ const FREE_SHIPPING_BY_CURRENCY: Record<string, number> = {
   GBP: 130,
   USD: 150,
   EUR: 150,
+  BRL: 750,
 };
 
 /** Get free shipping threshold for a given currency */

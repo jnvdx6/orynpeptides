@@ -9,7 +9,7 @@ import {
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
-import { locales, type Locale } from "@/i18n/config";
+import { locales, type Locale, markets, regions, isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { ProductPageClient } from "./ProductPageClient";
 import { RelatedContent } from "@/components/seo/RelatedContent";
@@ -34,8 +34,10 @@ export async function generateMetadata({
   const product = getProductBySlug(slug);
   if (!product) return {};
 
-  const currency = "EUR";
-  const symbol = "€";
+  const market = isValidLocale(locale) ? markets[locale as Locale] : markets.en;
+  const regionConfig = regions[market.defaultRegion];
+  const currency = regionConfig.currencyCode.toUpperCase();
+  const symbol = regionConfig.symbol;
   const title = `Buy ORYN ${product.name} ${product.dosage} | Peptide Pen UK — ${symbol}${product.price}`;
   const description = `Order ORYN ${product.name} (${product.subtitle}) — ${product.dosage} pre-mixed peptide pen. >99% purity, GMP manufactured, next-day UK delivery. ${product.description.slice(0, 120)}`;
 

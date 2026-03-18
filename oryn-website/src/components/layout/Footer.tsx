@@ -5,6 +5,7 @@ import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { trackNewsletterSignup } from "@/lib/analytics";
+import { BRAZILIAN_CITIES } from "@/data/brazilian-cities";
 
 
 function CollapsibleSection({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
@@ -36,8 +37,9 @@ function CollapsibleSection({ title, children, defaultOpen = false }: { title: s
 }
 
 export function Footer() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const f = t.footer;
+  const isBrazil = locale === "pt-br";
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -87,7 +89,7 @@ export function Footer() {
     { href: "/peptides-for/longevity-biohacking", label: t.researchCategories["longevity-biohacking"] || "Longevity & Biohacking" },
   ];
 
-  const cityLinks = [
+  const ukCityLinks = [
     { href: "/peptides/london", label: "London" },
     { href: "/peptides/manchester", label: "Manchester" },
     { href: "/peptides/birmingham", label: "Birmingham" },
@@ -144,6 +146,13 @@ export function Footer() {
     { href: "/peptides/basildon", label: "Basildon" },
     { href: "/peptides/crawley", label: "Crawley" },
   ];
+
+  const brazilCityLinks = BRAZILIAN_CITIES.map((city) => ({
+    href: `/peptides/brazil/${city.slug}`,
+    label: city.name,
+  }));
+
+  const cityLinks = isBrazil ? brazilCityLinks : ukCityLinks;
 
   const learnLinks = [
     { href: "/learn/are-peptides-legal-in-the-uk", label: "Are Peptides Legal in the UK?" },
@@ -402,15 +411,21 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             <CollapsibleSection title={f.seoSections.ukRegions.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-                {[
+                {(isBrazil ? [
+                  { href: "/peptides/brazil", label: "Sudeste" },
+                  { href: "/peptides/brazil", label: "Sul" },
+                  { href: "/peptides/brazil", label: "Nordeste" },
+                  { href: "/peptides/brazil", label: "Centro-Oeste" },
+                  { href: "/peptides/brazil", label: "Norte" },
+                ] : [
                   { href: "/peptides/region/scotland", label: "Scotland" },
                   { href: "/peptides/region/wales", label: "Wales" },
                   { href: "/peptides/region/north-england", label: "North England" },
                   { href: "/peptides/region/south-england", label: "South England" },
                   { href: "/peptides/region/midlands", label: "Midlands" },
                   { href: "/peptides/region/east-england", label: "East England" },
-                ].map((link) => (
-                  <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                ]).map((link) => (
+                  <Link key={link.label} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
                     {link.label}
                   </Link>
                 ))}
@@ -419,7 +434,17 @@ export function Footer() {
 
             <CollapsibleSection title={f.seoSections.ukCounties.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-                {[
+                {isBrazil ? [
+                  "São Paulo", "Rio de Janeiro", "Minas Gerais", "Bahia", "Paraná",
+                  "Rio Grande do Sul", "Pernambuco", "Ceará", "Pará", "Santa Catarina",
+                  "Goiás", "Maranhão", "Amazonas", "Espírito Santo", "Paraíba",
+                  "Mato Grosso", "Rio Grande do Norte", "Alagoas", "Piauí", "Distrito Federal",
+                  "Mato Grosso do Sul", "Sergipe", "Rondônia", "Tocantins", "Acre", "Amapá", "Roraima",
+                ].map((state) => (
+                  <Link key={state} href="/peptides/brazil" className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                    {state}
+                  </Link>
+                )) : [
                   "kent", "surrey", "hampshire", "essex", "devon", "cornwall",
                   "oxfordshire", "cambridgeshire", "norfolk", "suffolk",
                   "lancashire", "cheshire", "west-yorkshire", "greater-manchester",
@@ -493,91 +518,126 @@ export function Footer() {
         </div>
       </div>
 
-      {/* European Delivery */}
+      {/* European / Brazil Delivery */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
           <CollapsibleSection title={f.seoSections.europeanDelivery.toUpperCase()}>
-            <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
-              {[
-                { href: "/peptides/europe/germany", label: "Germany" },
-                { href: "/peptides/europe/france", label: "France" },
-                { href: "/peptides/europe/spain", label: "Spain" },
-                { href: "/peptides/europe/italy", label: "Italy" },
-                { href: "/peptides/europe/netherlands", label: "Netherlands" },
-                { href: "/peptides/europe/belgium", label: "Belgium" },
-                { href: "/peptides/europe/austria", label: "Austria" },
-                { href: "/peptides/europe/portugal", label: "Portugal" },
-                { href: "/peptides/europe/sweden", label: "Sweden" },
-                { href: "/peptides/europe/denmark", label: "Denmark" },
-                { href: "/peptides/europe/poland", label: "Poland" },
-                { href: "/peptides/europe/switzerland", label: "Switzerland" },
-                { href: "/peptides/europe/ireland", label: "Ireland" },
-                { href: "/peptides/europe/greece", label: "Greece" },
-                { href: "/peptides/europe/czech-republic", label: "Czech Republic" },
-                { href: "/peptides/europe/finland", label: "Finland" },
-                { href: "/peptides/europe/norway", label: "Norway" },
-                { href: "/peptides/europe/hungary", label: "Hungary" },
-                { href: "/peptides/europe/romania", label: "Romania" },
-                { href: "/peptides/europe/croatia", label: "Croatia" },
-                { href: "/peptides/europe/bulgaria", label: "Bulgaria" },
-                { href: "/peptides/europe/slovakia", label: "Slovakia" },
-                { href: "/peptides/europe/lithuania", label: "Lithuania" },
-                { href: "/peptides/europe/latvia", label: "Latvia" },
-                { href: "/peptides/europe/estonia", label: "Estonia" },
-                { href: "/peptides/europe/slovenia", label: "Slovenia" },
-                { href: "/peptides/europe/luxembourg", label: "Luxembourg" },
-                { href: "/peptides/europe/cyprus", label: "Cyprus" },
-                { href: "/peptides/europe/malta", label: "Malta" },
-                { href: "/peptides/europe/iceland", label: "Iceland" },
-              ].map((link) => (
-                <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.topEuCities.toUpperCase()}</h4>
-            <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-              {[
-                { href: "/peptides/europe/germany/berlin", label: "Berlin" },
-                { href: "/peptides/europe/germany/munich", label: "Munich" },
-                { href: "/peptides/europe/france/paris", label: "Paris" },
-                { href: "/peptides/europe/france/lyon", label: "Lyon" },
-                { href: "/peptides/europe/spain/madrid", label: "Madrid" },
-                { href: "/peptides/europe/spain/barcelona", label: "Barcelona" },
-                { href: "/peptides/europe/italy/rome", label: "Rome" },
-                { href: "/peptides/europe/italy/milan", label: "Milan" },
-                { href: "/peptides/europe/netherlands/amsterdam", label: "Amsterdam" },
-                { href: "/peptides/europe/netherlands/rotterdam", label: "Rotterdam" },
-                { href: "/peptides/europe/belgium/brussels", label: "Brussels" },
-                { href: "/peptides/europe/austria/vienna", label: "Vienna" },
-                { href: "/peptides/europe/portugal/lisbon", label: "Lisbon" },
-                { href: "/peptides/europe/sweden/stockholm", label: "Stockholm" },
-                { href: "/peptides/europe/denmark/copenhagen", label: "Copenhagen" },
-                { href: "/peptides/europe/poland/warsaw", label: "Warsaw" },
-                { href: "/peptides/europe/switzerland/zurich", label: "Zurich" },
-                { href: "/peptides/europe/ireland/dublin", label: "Dublin" },
-                { href: "/peptides/europe/czech-republic/prague", label: "Prague" },
-                { href: "/peptides/europe/finland/helsinki", label: "Helsinki" },
-                { href: "/peptides/europe/norway/oslo", label: "Oslo" },
-                { href: "/peptides/europe/hungary/budapest", label: "Budapest" },
-                { href: "/peptides/europe/greece/athens", label: "Athens" },
-                { href: "/peptides/europe/romania/bucharest", label: "Bucharest" },
-              ].map((link) => (
-                <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            {isBrazil ? (
+              <>
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
+                  {BRAZILIAN_CITIES.map((city) => (
+                    <Link key={city.slug} href={`/peptides/brazil/${city.slug}`} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                      {city.name}
+                    </Link>
+                  ))}
+                </div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.topEuCities.toUpperCase()}</h4>
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                  {BRAZILIAN_CITIES.flatMap((city) =>
+                    city.nearbyAreas.map((area) => (
+                      <Link key={`${city.slug}-${area}`} href={`/peptides/brazil/${city.slug}`} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                        {area}
+                      </Link>
+                    ))
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-6">
+                  {[
+                    { href: "/peptides/europe/germany", label: "Germany" },
+                    { href: "/peptides/europe/france", label: "France" },
+                    { href: "/peptides/europe/spain", label: "Spain" },
+                    { href: "/peptides/europe/italy", label: "Italy" },
+                    { href: "/peptides/europe/netherlands", label: "Netherlands" },
+                    { href: "/peptides/europe/belgium", label: "Belgium" },
+                    { href: "/peptides/europe/austria", label: "Austria" },
+                    { href: "/peptides/europe/portugal", label: "Portugal" },
+                    { href: "/peptides/europe/sweden", label: "Sweden" },
+                    { href: "/peptides/europe/denmark", label: "Denmark" },
+                    { href: "/peptides/europe/poland", label: "Poland" },
+                    { href: "/peptides/europe/switzerland", label: "Switzerland" },
+                    { href: "/peptides/europe/ireland", label: "Ireland" },
+                    { href: "/peptides/europe/greece", label: "Greece" },
+                    { href: "/peptides/europe/czech-republic", label: "Czech Republic" },
+                    { href: "/peptides/europe/finland", label: "Finland" },
+                    { href: "/peptides/europe/norway", label: "Norway" },
+                    { href: "/peptides/europe/hungary", label: "Hungary" },
+                    { href: "/peptides/europe/romania", label: "Romania" },
+                    { href: "/peptides/europe/croatia", label: "Croatia" },
+                    { href: "/peptides/europe/bulgaria", label: "Bulgaria" },
+                    { href: "/peptides/europe/slovakia", label: "Slovakia" },
+                    { href: "/peptides/europe/lithuania", label: "Lithuania" },
+                    { href: "/peptides/europe/latvia", label: "Latvia" },
+                    { href: "/peptides/europe/estonia", label: "Estonia" },
+                    { href: "/peptides/europe/slovenia", label: "Slovenia" },
+                    { href: "/peptides/europe/luxembourg", label: "Luxembourg" },
+                    { href: "/peptides/europe/cyprus", label: "Cyprus" },
+                    { href: "/peptides/europe/malta", label: "Malta" },
+                    { href: "/peptides/europe/iceland", label: "Iceland" },
+                  ].map((link) => (
+                    <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+                <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-4">{f.seoSections.topEuCities.toUpperCase()}</h4>
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                  {[
+                    { href: "/peptides/europe/germany/berlin", label: "Berlin" },
+                    { href: "/peptides/europe/germany/munich", label: "Munich" },
+                    { href: "/peptides/europe/france/paris", label: "Paris" },
+                    { href: "/peptides/europe/france/lyon", label: "Lyon" },
+                    { href: "/peptides/europe/spain/madrid", label: "Madrid" },
+                    { href: "/peptides/europe/spain/barcelona", label: "Barcelona" },
+                    { href: "/peptides/europe/italy/rome", label: "Rome" },
+                    { href: "/peptides/europe/italy/milan", label: "Milan" },
+                    { href: "/peptides/europe/netherlands/amsterdam", label: "Amsterdam" },
+                    { href: "/peptides/europe/netherlands/rotterdam", label: "Rotterdam" },
+                    { href: "/peptides/europe/belgium/brussels", label: "Brussels" },
+                    { href: "/peptides/europe/austria/vienna", label: "Vienna" },
+                    { href: "/peptides/europe/portugal/lisbon", label: "Lisbon" },
+                    { href: "/peptides/europe/sweden/stockholm", label: "Stockholm" },
+                    { href: "/peptides/europe/denmark/copenhagen", label: "Copenhagen" },
+                    { href: "/peptides/europe/poland/warsaw", label: "Warsaw" },
+                    { href: "/peptides/europe/switzerland/zurich", label: "Zurich" },
+                    { href: "/peptides/europe/ireland/dublin", label: "Dublin" },
+                    { href: "/peptides/europe/czech-republic/prague", label: "Prague" },
+                    { href: "/peptides/europe/finland/helsinki", label: "Helsinki" },
+                    { href: "/peptides/europe/norway/oslo", label: "Oslo" },
+                    { href: "/peptides/europe/hungary/budapest", label: "Budapest" },
+                    { href: "/peptides/europe/greece/athens", label: "Athens" },
+                    { href: "/peptides/europe/romania/bucharest", label: "Bucharest" },
+                  ].map((link) => (
+                    <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
           </CollapsibleSection>
         </div>
       </div>
 
-      {/* London Areas */}
+      {/* London / São Paulo Areas */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
           <CollapsibleSection title={f.seoSections.londonDelivery.toUpperCase()}>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-              {[
+              {isBrazil ? [
+                "Paulista", "Pinheiros", "Vila Mariana", "Moema", "Itaim Bibi", "Jardins",
+                "Higienópolis", "Consolação", "Liberdade", "Bela Vista", "Vila Madalena",
+                "Brooklin", "Campo Belo", "Santo Amaro", "Morumbi", "Butantã",
+                "Perdizes", "Lapa", "Vila Leopoldina", "Santana", "Tucuruvi",
+                "Tatuapé", "Mooca", "Vila Prudente", "Penha", "São Miguel",
+                "Campinas", "Guarulhos", "Santo André", "Osasco", "Sorocaba",
+              ].map((area) => (
+                <Link key={area} href="/peptides/brazil/sao-paulo" className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                  {area}
+                </Link>
+              )) : [
                 "westminster", "city-of-london", "mayfair", "marylebone", "fitzrovia", "bloomsbury", "south-kensington",
                 "covent-garden", "holborn", "soho",
                 "camden", "islington", "hackney", "hampstead", "shoreditch", "finsbury-park", "muswell-hill", "highgate", "wood-green",

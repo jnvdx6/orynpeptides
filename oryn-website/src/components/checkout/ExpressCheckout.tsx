@@ -21,7 +21,7 @@ interface ExpressCheckoutProps {
 export function ExpressCheckout({ onSuccess, onError, totalItems, amount, dividerLabel }: ExpressCheckoutProps) {
   const stripe = useStripe();
   const elements = useElements();
-  const { locale } = useLocale();
+  const { locale, currencyCode } = useLocale();
   const { cart, completeCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -36,7 +36,7 @@ export function ExpressCheckout({ onSuccess, onError, totalItems, amount, divide
       if (totalItems) returnUrl.searchParams.set("items_count", String(totalItems));
       const shippingCountry = (cart?.shipping_address?.country_code as string)?.toUpperCase();
       if (shippingCountry) returnUrl.searchParams.set("shipping_country", shippingCountry);
-      returnUrl.searchParams.set("currency", locale === "en" ? "GBP" : "EUR");
+      returnUrl.searchParams.set("currency", currencyCode.toUpperCase());
 
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,

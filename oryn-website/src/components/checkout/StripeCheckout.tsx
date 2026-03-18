@@ -34,7 +34,7 @@ function PaymentFormInner({
   totalItems,
 }: StripeCheckoutProps) {
   const { cart, completeCart } = useCart();
-  const { locale, t } = useLocale();
+  const { locale, t, currencyCode } = useLocale();
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
@@ -69,7 +69,7 @@ function PaymentFormInner({
       if (totalItems) returnUrl.searchParams.set("items_count", String(totalItems));
       const shippingCountry = (cart.shipping_address?.country_code as string)?.toUpperCase();
       if (shippingCountry) returnUrl.searchParams.set("shipping_country", shippingCountry);
-      returnUrl.searchParams.set("currency", locale === "en" ? "GBP" : "EUR");
+      returnUrl.searchParams.set("currency", currencyCode.toUpperCase());
 
       const { error: confirmError, paymentIntent } = await stripe.confirmPayment({
         elements,
