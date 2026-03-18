@@ -39,9 +39,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/products`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/products`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/products`])
+        ),
+        "x-default": `${SITE_URL}/en/products`,
+      },
     },
   };
 }

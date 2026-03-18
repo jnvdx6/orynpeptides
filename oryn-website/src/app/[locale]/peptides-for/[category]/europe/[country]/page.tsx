@@ -56,9 +56,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/peptides-for/${catSlug}/europe/${countrySlug}`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/peptides-for/${catSlug}/europe/${countrySlug}`])
+        ),
+        "x-default": `${SITE_URL}/en/peptides-for/${catSlug}/europe/${countrySlug}`,
+      },
     },
   };
 }

@@ -20,9 +20,12 @@ export async function generateMetadata({
     description: "ORYN Peptide Labs research disclaimer. All products are sold for in-vitro research and laboratory use only. Not for human or animal consumption.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/disclaimer`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/disclaimer`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/disclaimer`])
+        ),
+        "x-default": `${SITE_URL}/en/disclaimer`,
+      },
     },
   };
 }

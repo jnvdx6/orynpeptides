@@ -57,9 +57,12 @@ export async function generateMetadata({
       },
       alternates: {
         canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
-        ),
+        languages: {
+          ...Object.fromEntries(
+            locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
+          ),
+          "x-default": `${SITE_URL}/en/peptides/london/${areaSlug}/${slug}`,
+        },
       },
     };
   }
@@ -83,9 +86,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/peptides/london/${areaSlug}/${slug}`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/peptides/london/${areaSlug}/${slug}`])
+        ),
+        "x-default": `${SITE_URL}/en/peptides/london/${areaSlug}/${slug}`,
+      },
     },
   };
 }

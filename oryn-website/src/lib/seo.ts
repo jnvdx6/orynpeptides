@@ -2,9 +2,33 @@ import { products, type Product } from "@/data/products";
 import type { UKCity } from "@/data/uk-cities";
 import { getReviewsByProduct, getAggregateRating } from "@/data/reviews";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
-import { markets, regions } from "@/i18n/config";
+import { markets, regions, locales } from "@/i18n/config";
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://orynxpeptides.com").trim();
+
+// ─── Metadata Alternates Helper ─────────────────────────────────────
+
+/**
+ * Generates correct alternates object for any page, including:
+ * - canonical URL for the current locale
+ * - hreflang links for all locales
+ * - x-default pointing to the /en version of THIS page (not homepage)
+ *
+ * Fixes the "Duplicate: Google chose different canonical" issue caused by
+ * x-default pointing to /en homepage on all pages.
+ */
+export function pageAlternates(pagePath: string, locale: string) {
+  const path = pagePath.startsWith("/") ? pagePath : `/${pagePath}`;
+  return {
+    canonical: `${SITE_URL}/${locale}${path}`,
+    languages: {
+      ...Object.fromEntries(
+        locales.map((l) => [l, `${SITE_URL}/${l}${path}`])
+      ),
+      "x-default": `${SITE_URL}/en${path}`,
+    },
+  };
+}
 
 // ─── JSON-LD Schema Generators ──────────────────────────────────────
 

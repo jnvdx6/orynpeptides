@@ -20,9 +20,12 @@ export async function generateMetadata({
     description: "ORYN Peptide Labs privacy policy. GDPR compliant data handling, cookie policy, your rights, and how we protect your personal information.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/privacy`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/privacy`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/privacy`])
+        ),
+        "x-default": `${SITE_URL}/en/privacy`,
+      },
     },
   };
 }

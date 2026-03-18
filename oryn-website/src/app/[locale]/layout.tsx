@@ -57,6 +57,7 @@ export async function generateMetadata({
       description: dict.meta.ogDescription,
     },
     alternates: {
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
         ...Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}`])),
         "x-default": `${SITE_URL}/en`,

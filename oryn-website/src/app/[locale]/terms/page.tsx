@@ -20,9 +20,12 @@ export async function generateMetadata({
     description: "ORYN Peptide Labs terms of service. Research use only policy, ordering, shipping, returns, and legal information for peptide purchases in the UK and Europe.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/terms`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/terms`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/terms`])
+        ),
+        "x-default": `${SITE_URL}/en/terms`,
+      },
     },
   };
 }

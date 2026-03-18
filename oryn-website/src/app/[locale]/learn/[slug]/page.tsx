@@ -52,9 +52,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/learn/${slug}`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/learn/${slug}`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/learn/${slug}`])
+        ),
+        "x-default": `${SITE_URL}/en/learn/${slug}`,
+      },
     },
   };
 }

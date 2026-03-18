@@ -60,9 +60,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/why-oryn`,
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${SITE_URL}/${l}/why-oryn`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          locales.map((l) => [l, `${SITE_URL}/${l}/why-oryn`])
+        ),
+        "x-default": `${SITE_URL}/en/why-oryn`,
+      },
     },
   };
 }
