@@ -147,14 +147,32 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [adminEmail, setAdminEmail] = useState('');
 
   useEffect(() => {
+    if (pathname === '/admin/login') return;
+
     const token = localStorage.getItem('oryn_admin_token');
-    const email = localStorage.getItem('oryn_admin_email');
-    if (!token && pathname !== '/admin/login') {
+    if (!token) {
       router.push('/admin/login');
-    } else {
-      setIsAuthed(true);
-      setAdminEmail(email || 'Admin');
+      return;
     }
+
+    // Validate token against Medusa via session API
+    fetch('/api/admin/auth/session', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Invalid session');
+        return res.json();
+      })
+      .then((data) => {
+        setIsAuthed(true);
+        setAdminEmail(data.user?.email || localStorage.getItem('oryn_admin_email') || 'Admin');
+      })
+      .catch(() => {
+        // Token invalid or expired — clear and redirect
+        localStorage.removeItem('oryn_admin_token');
+        localStorage.removeItem('oryn_admin_email');
+        router.push('/admin/login');
+      });
   }, [pathname, router]);
 
   const handleLogout = () => {

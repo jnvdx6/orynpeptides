@@ -2,8 +2,8 @@
 // Used by API routes to fetch data from Medusa backend
 
 const MEDUSA_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000";
-const ADMIN_EMAIL = "admin@oryn.com";
-const ADMIN_PASSWORD = "OrynAdmin2026";
+const ADMIN_EMAIL = process.env.MEDUSA_ADMIN_EMAIL || "admin@oryn.com";
+const ADMIN_PASSWORD = process.env.MEDUSA_ADMIN_PASSWORD || "";
 
 let cachedToken: string | null = null;
 let tokenExpiry = 0;

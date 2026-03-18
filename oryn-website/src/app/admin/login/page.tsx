@@ -34,14 +34,7 @@ export default function AdminLoginPage() {
       localStorage.setItem('oryn_admin_email', email);
       router.push('/admin');
     } catch {
-      // If API doesn't exist yet, use mock auth
-      if (email === 'admin@oryn.com' && password === 'admin123') {
-        localStorage.setItem('oryn_admin_token', 'mock_admin_token_' + Date.now());
-        localStorage.setItem('oryn_admin_email', email);
-        router.push('/admin');
-      } else {
-        setError('Invalid email or password');
-      }
+      setError('Unable to connect to authentication service');
       setLoading(false);
     }
   };
@@ -83,7 +76,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@oryn.com"
+                placeholder="you@oryn.com"
                 required
                 className="w-full px-3.5 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-oryn-orange focus:ring-2 focus:ring-oryn-orange/20 transition-all"
               />
@@ -111,10 +104,6 @@ export default function AdminLoginPage() {
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
-
-          <p className="mt-5 text-center text-gray-400 text-xs">
-            Default: admin@oryn.com / admin123
-          </p>
         </div>
       </div>
     </div>
