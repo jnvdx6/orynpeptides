@@ -59,7 +59,7 @@ export function ProductPageClient() {
   }, []);
   const gallery = productImages.gallery[product?.slug || ""] || [productImages.bySlug[product?.slug || ""] || "/images/products/peptide-pen-black.png"];
   const [activeImage, setActiveImage] = useState(0);
-  const [activeTab, setActiveTab] = useState<"benefits" | "specs" | "science">("benefits");
+  const [activeTab, setActiveTab] = useState<"benefits" | "specs">("benefits");
 
   const detail = product ? getProductDetail(product.slug) : undefined;
 
@@ -413,7 +413,7 @@ export function ProductPageClient() {
             {/* Tabbed content: Benefits / Specs / Science */}
             <div className="mb-10">
               <div className="flex border-b border-oryn-grey/20 mb-6">
-                {(["benefits", "specs", "science"] as const).map((tab) => (
+                {(["benefits", "specs"] as const).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
@@ -423,7 +423,7 @@ export function ProductPageClient() {
                         : "text-oryn-black/30 hover:text-oryn-black/60"
                     }`}
                   >
-                    {tab === "benefits" ? t.productDetail.keyBenefits : tab === "specs" ? t.productDetail.specifications : t.productDetail.scienceTab}
+                    {tab === "benefits" ? t.productDetail.keyBenefits : t.productDetail.specifications}
                     {activeTab === tab && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-oryn-orange" />
                     )}
@@ -457,34 +457,6 @@ export function ProductPageClient() {
                 </div>
               )}
 
-              {activeTab === "science" && detail?.science && (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3">
-                    {detail.science.molecularFormula && (
-                      <div className="p-3 bg-oryn-orange/5 border border-oryn-orange/10">
-                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.formulaLabel}</span>
-                        <p className="text-xs font-medium mt-1">{detail.science.molecularFormula}</p>
-                      </div>
-                    )}
-                    {detail.science.molecularWeight && (
-                      <div className="p-3 bg-oryn-orange/5 border border-oryn-orange/10">
-                        <span className="text-[9px] font-mono text-oryn-black/30 tracking-[0.1em]">{t.productDetail.weightLabel}</span>
-                        <p className="text-xs font-medium mt-1">{detail.science.molecularWeight}</p>
-                      </div>
-                    )}
-                  </div>
-                  <p className="text-xs text-oryn-black/50 font-plex leading-relaxed">
-                    {detail.science.mechanism}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {detail.science.researchAreas.map((area) => (
-                      <span key={area} className="px-2 py-1 bg-oryn-cream text-[9px] font-mono text-oryn-black/50 tracking-[0.05em]">
-                        {area}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>

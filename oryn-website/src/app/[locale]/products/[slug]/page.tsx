@@ -8,7 +8,6 @@ import {
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { TrustBanner } from "@/components/seo/TrustBanner";
 import { MedicalDisclaimer } from "@/components/seo/MedicalDisclaimer";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -103,7 +102,6 @@ export default async function ProductPage({
   return (
     <>
       <MultiJsonLd items={schemaItems} />
-      <TrustBanner />
       <ProductPageClient />
       <MedicalDisclaimer />
       <RelatedContent productSlug={product.slug} locale={locale} />
