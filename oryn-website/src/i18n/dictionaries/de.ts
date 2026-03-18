@@ -320,6 +320,8 @@ const de = {
     saveForLater: "Für später speichern",
     saved: "GESPEICHERT",
     save: "SPEICHERN",
+    havePromoCode: "Haben Sie einen Promo-Code?",
+    cancel: "Abbrechen",
   },
 
   productsPage: {

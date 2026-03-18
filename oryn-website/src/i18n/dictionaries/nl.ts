@@ -320,6 +320,8 @@ const nl = {
     saveForLater: "Bewaar voor later",
     saved: "BEWAARD",
     save: "BEWAREN",
+    havePromoCode: "Heb je een promotiecode?",
+    cancel: "Annuleren",
   },
 
   productsPage: {

@@ -12,7 +12,7 @@ import { sdk } from "@/lib/medusa";
 import { products as staticProducts, productImages, type Product } from "@/data/products";
 import { useProducts } from "@/providers/products";
 import { calculateVolumeDiscount, getVolumeDiscount, type VolumeDiscount } from "@/lib/discounts";
-import { trackAddToCart, trackRemoveFromCart, trackCartOpened, updateGeoFromShipping } from "@/lib/analytics";
+import { trackAddToCart, trackRemoveFromCart, trackCartOpened, trackPromoApplied, updateGeoFromShipping } from "@/lib/analytics";
 
 // Medusa cart types (simplified for what we need)
 interface MedusaLineItem {
@@ -108,6 +108,7 @@ interface CartContextType {
   appliedPromotion: AppliedPromotion | null;
   applyPromotion: (promo: AppliedPromotion) => void;
   removePromotion: () => void;
+  validateAndApplyPromoCode: (code: string) => Promise<{ success: boolean; error?: string }>;
   discountedPrice: number;
   volumeDiscount: { discount: number; tier: VolumeDiscount } | null;
   finalPrice: number;
@@ -525,6 +526,72 @@ export function CartProvider({ children }: { children: ReactNode }) {
     ? Math.max(0, Math.round((discountedPrice - volumeDiscount.discount) * 100) / 100)
     : discountedPrice;
 
+  const validateAndApplyPromoCode = useCallback(
+    async (code: string): Promise<{ success: boolean; error?: string }> => {
+      const normalizedCode = code.trim().toUpperCase();
+      if (!normalizedCode) return { success: false, error: "Code is required" };
+
+      try {
+        // Try Medusa native promotions first
+        if (medusaConnected && cart) {
+          try {
+            await sdk.store.cart.update(cart.id, { promo_codes: [normalizedCode] });
+            const refreshedCart = await refreshCart();
+            const discountTotal = (refreshedCart?.discount_total as number) || 0;
+            if (discountTotal > 0) {
+              const promo: AppliedPromotion = {
+                code: normalizedCode,
+                label: normalizedCode,
+                discountAmount: discountTotal,
+                discountType: "fixed",
+                discountValue: discountTotal,
+              };
+              setAppliedPromotion(promo);
+              trackPromoApplied(normalizedCode, "fixed", discountTotal);
+              return { success: true };
+            }
+          } catch {
+            // Fall through to local validation
+          }
+        }
+
+        // Fallback: local promotion system
+        const res = await fetch("/api/promotions/validate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            code: normalizedCode,
+            subtotal: totalPrice,
+            productIds: items.map((i) => i.product.id),
+          }),
+        });
+        const data = await res.json();
+        if (data.valid && data.promotion) {
+          const promo: AppliedPromotion = {
+            code: data.promotion.code,
+            label: data.promotion.label,
+            discountAmount: data.discountAmount,
+            discountType: data.promotion.discountType,
+            discountValue: data.promotion.discountValue,
+          };
+          setAppliedPromotion(promo);
+          if (cart && medusaConnected) {
+            sdk.store.cart
+              .update(cart.id, { promo_codes: [promo.code] })
+              .then(({ cart: updatedCart }) => setCart(updatedCart as unknown as MedusaCart))
+              .catch(() => {});
+          }
+          trackPromoApplied(data.promotion.code, data.promotion.discountType, data.promotion.discountValue);
+          return { success: true };
+        }
+        return { success: false, error: data.error || "Invalid promo code" };
+      } catch {
+        return { success: false, error: "Failed to validate code" };
+      }
+    },
+    [cart, medusaConnected, refreshCart, totalPrice, items]
+  );
+
   return (
     <CartContext.Provider
       value={{
@@ -547,6 +614,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         appliedPromotion,
         applyPromotion,
         removePromotion,
+        validateAndApplyPromoCode,
         discountedPrice,
         volumeDiscount,
         finalPrice,

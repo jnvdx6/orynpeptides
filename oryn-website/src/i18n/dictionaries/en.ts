@@ -319,6 +319,8 @@ const en: Dictionary = {
     saveForLater: "Save for later",
     saved: "SAVED",
     save: "SAVE",
+    havePromoCode: "Have a promo code?",
+    cancel: "Cancel",
   },
 
   productsPage: {

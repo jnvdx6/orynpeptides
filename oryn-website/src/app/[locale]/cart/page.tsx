@@ -7,6 +7,7 @@ import { useWishlist } from "@/providers/wishlist";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { PromoCodeInput } from "@/components/ui/PromoCodeInput";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
@@ -224,6 +225,10 @@ export default function CartPage() {
                     </span>
                   )}
                 </div>
+              </div>
+              {/* Promo code input */}
+              <div className="mb-4">
+                <PromoCodeInput />
               </div>
               <div className="border-t border-oryn-grey/30 pt-4 mb-6">
                 <div className="flex justify-between text-lg font-bold">

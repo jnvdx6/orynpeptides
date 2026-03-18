@@ -320,6 +320,8 @@ const pl = {
     saveForLater: "Zapisz na później",
     saved: "ZAPISANO",
     save: "ZAPISZ",
+    havePromoCode: "Masz kod promocyjny?",
+    cancel: "Anuluj",
   },
 
   productsPage: {

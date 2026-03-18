@@ -320,6 +320,8 @@ const pt = {
     saveForLater: "Guardar para mais tarde",
     saved: "GUARDADO",
     save: "GUARDAR",
+    havePromoCode: "Tem um c\u00f3digo promocional?",
+    cancel: "Cancelar",
   },
 
   productsPage: {

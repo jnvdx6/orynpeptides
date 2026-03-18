@@ -7,6 +7,7 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { PromoCodeInput } from "@/components/ui/PromoCodeInput";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { trackCartViewed, trackRemoveFromCart, trackQuantityChanged, trackCTAClick } from "@/lib/analytics";
 
@@ -337,6 +338,10 @@ export function CartSlider() {
                 </div>
               </>
             )}
+            {/* Promo code input */}
+            <div className="border-t border-oryn-grey/20 pt-3">
+              <PromoCodeInput compact />
+            </div>
             <Link
               href="/checkout"
               onClick={() => setIsOpen(false)}

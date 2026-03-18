@@ -225,6 +225,8 @@ export interface Dictionary {
     saveForLater: string;
     saved: string;
     save: string;
+    havePromoCode: string;
+    cancel: string;
   };
 
   productsPage: {
