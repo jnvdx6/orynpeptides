@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
-          // ── Private routes ──────────────────────────────────────
+          // ── Private routes (non-indexable user flows) ──────────
           "/admin/",
           "/api/",
           "/*/checkout",
