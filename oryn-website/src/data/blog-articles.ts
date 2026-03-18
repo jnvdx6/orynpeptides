@@ -2470,6 +2470,102 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       { question: "Can Brazilian universities order peptides from ORYN?", answer: "Yes. ORYN delivers to all Brazilian institutional addresses including USP, UNICAMP, UFRJ, Fiocruz, Instituto Butantan, and all other research institutions. Institutional buyers can request bulk pricing, formal quotations (cotação), and documentation compatible with Brazilian procurement processes. Contact ORYN for institutional orders." },
     ],
   },
+  {
+    slug: "tb-500-vs-tb4-frag",
+    title: "TB-500 vs TB4 FRAG: Differences, Benefits & Research Guide 2026",
+    metaTitle: "TB-500 vs TB4 FRAG 500 — Differences & Research Comparison | ORYN",
+    metaDescription: "Compare TB-500 and TB4 FRAG 500 peptides. Molecular differences, research applications, dosing protocols, and which is right for your study. Complete 2026 guide.",
+    category: "Product Education",
+    readTime: "10 min read",
+    datePublished: "2026-03-18",
+    dateModified: "2026-03-18",
+    heroImage: "/og-image.png",
+    excerpt: "A comprehensive comparison of TB-500 (Thymosin Beta-4) and TB4 FRAG 500 — their molecular structures, research applications, and how they differ for laboratory use.",
+    relatedProducts: ["tb-500", "bpc-157"],
+    sections: [
+      {
+        heading: "What Are TB-500 and TB4 FRAG?",
+        content: "TB-500 and TB4 FRAG are both derived from Thymosin Beta-4 (Tβ4), a 43-amino acid protein naturally produced in nearly all human and animal cells. While they share a common origin, they are distinct compounds with different molecular structures and research profiles.\n\n**TB-500** is a synthetic version of the full Thymosin Beta-4 protein. It retains the complete 43-amino acid sequence and replicates the full biological activity of natural Tβ4. TB-500 has been extensively studied for its roles in tissue repair, cell migration, and anti-inflammatory signalling.\n\n**TB4 FRAG 500** (also written as TB4 Frag, TB-4 Fragment, or Ac-SDKP) is a shorter peptide fragment derived from the active region of Thymosin Beta-4. It typically consists of the N-terminal tetrapeptide Ac-SDKP (amino acids 1–4) or a longer fragment encompassing the actin-binding domain (amino acids 17–23). These fragments isolate specific functional regions of the parent protein.",
+      },
+      {
+        heading: "Molecular Structure Comparison",
+        content: "Understanding the structural differences between TB-500 and TB4 FRAG is essential for selecting the right compound for your research.\n\n| Property | TB-500 (Full Tβ4) | TB4 FRAG 500 (Ac-SDKP) |\n|----------|-------------------|-------------------------|\n| Amino acids | 43 | 4 (Ac-Ser-Asp-Lys-Pro) |\n| Molecular weight | ~4,963 Da | ~487 Da |\n| Sequence | Full Thymosin Beta-4 | N-terminal fragment |\n| Half-life | ~2–3 hours | ~5–10 minutes |\n| Stability | Moderate | Higher (smaller molecule) |\n| Production | Recombinant synthesis | Chemical synthesis |\n\nThe full-length TB-500 contains multiple functional domains including the actin-binding region (LKKTET, residues 17–22) responsible for G-actin sequestration, as well as regions involved in cell migration, angiogenesis, and anti-inflammatory signalling. TB4 FRAG isolates a single functional domain, offering a more targeted mechanism of action.",
+      },
+      {
+        heading: "Research Applications: TB-500",
+        content: "TB-500 has been the subject of extensive research across multiple fields:\n\n**Tissue repair and wound healing:** Published studies demonstrate that Tβ4 promotes keratinocyte migration, collagen deposition, and angiogenesis in dermal wound models. Full-length TB-500 activates multiple repair pathways simultaneously.\n\n**Cardiac research:** Tβ4 has shown cardioprotective properties in ischaemia-reperfusion injury models. It promotes the survival of cardiomyocytes and activates epicardial progenitor cells, suggesting regenerative potential.\n\n**Neurological research:** Studies indicate Tβ4 promotes oligodendrocyte differentiation and remyelination in CNS injury models, with implications for neurodegenerative conditions.\n\n**Anti-inflammatory activity:** TB-500 down-regulates inflammatory cytokines including IL-1β, TNF-α, and IL-6, while promoting anti-inflammatory mediator production.\n\n**Hair follicle research:** Tβ4 is expressed in hair follicle stem cells, and exogenous application has shown effects on hair follicle cycling in murine models.",
+      },
+      {
+        heading: "Research Applications: TB4 FRAG 500",
+        content: "TB4 FRAG (Ac-SDKP) has a more focused research profile:\n\n**Anti-fibrotic research:** Ac-SDKP is primarily studied for its anti-fibrotic properties. It inhibits collagen synthesis by blocking the TGF-β/Smad signalling pathway, making it relevant to fibrosis research in cardiac, renal, and hepatic models.\n\n**Haematopoietic regulation:** Ac-SDKP acts as a negative regulator of haematopoietic stem cell proliferation. It keeps stem cells in G0 phase, which is relevant to bone marrow protection research during chemotherapy.\n\n**Cardiovascular research:** The fragment has demonstrated anti-hypertensive effects in some models, linked to its anti-fibrotic activity and its role in nitric oxide-dependent vasodilation.\n\n**ACE inhibitor connection:** Ac-SDKP is naturally degraded by angiotensin-converting enzyme (ACE). ACE inhibitor drugs raise endogenous Ac-SDKP levels, which may partly explain some of their cardioprotective effects beyond blood pressure reduction.",
+      },
+      {
+        heading: "TB-500 vs TB4 FRAG: Which to Choose for Your Research",
+        content: "The choice between TB-500 and TB4 FRAG depends entirely on your research objectives:\n\n**Choose TB-500 (full-length) when:**\n- Your research requires the complete signalling profile of Thymosin Beta-4\n- You are studying wound healing, tissue repair, or cell migration\n- You need the actin-binding domain (LKKTET) activity\n- Your protocol calls for multi-pathway activation\n- You want the most extensively published compound\n\n**Choose TB4 FRAG 500 (Ac-SDKP) when:**\n- Your research focuses specifically on anti-fibrotic mechanisms\n- You need to study TGF-β/Smad pathway modulation in isolation\n- You are researching haematopoietic stem cell regulation\n- You require a smaller, more stable peptide for assay conditions\n- Your study specifically requires the N-terminal fragment\n\n**Can they be used together?** Some researchers use both in combination protocols to study the differential contributions of the fragment versus the parent protein. However, this requires careful experimental design to distinguish their individual effects.",
+      },
+      {
+        heading: "Dosing in Published Research",
+        content: "Research protocols vary based on the model system and objectives. The following ranges reflect commonly cited dosing in published literature:\n\n**TB-500 in published research:**\n- In vitro: 10–100 ng/mL in cell culture media\n- In vivo (murine): 6–150 μg per animal, typically administered IP\n- Common research protocol: Loading phase of 2–6 mg/week, maintenance at 2 mg/week (scaled from animal data)\n\n**TB4 FRAG 500 (Ac-SDKP) in published research:**\n- In vitro: 0.1–10 nM in cell culture media\n- In vivo (murine): 400–800 μg/kg/day via osmotic minipump\n- Note: The very short half-life (~5 minutes) of Ac-SDKP means continuous infusion is preferred in animal studies\n\n**Important:** These are research reference values from published literature, not dosing recommendations. All ORYN products are sold strictly for laboratory research use only.",
+      },
+      {
+        heading: "Storage, Stability and Handling",
+        content: "Both peptides require proper handling to maintain integrity:\n\n**TB-500:**\n- Store lyophilised powder at -20°C\n- Reconstituted: stable 7–14 days at 4°C\n- Avoid repeated freeze-thaw cycles\n- Reconstitute with bacteriostatic water or sterile saline\n\n**TB4 FRAG 500:**\n- More stable in lyophilised form due to smaller molecular weight\n- Store lyophilised at -20°C\n- Reconstituted: stable up to 4 weeks at 4°C\n- Less susceptible to denaturation than the full protein\n\nORYN's pre-mixed peptide pen system eliminates reconstitution uncertainty. Each pen contains precisely dosed, pharmaceutical-grade peptide in a ready-to-use format with a 30-day stability window.",
+      },
+    ],
+    faqs: [
+      { question: "Is TB4 FRAG the same as TB-500?", answer: "No. TB-500 is the full-length synthetic Thymosin Beta-4 protein (43 amino acids), while TB4 FRAG 500 is a short fragment (typically 4 amino acids, Ac-SDKP) from the N-terminal region of Thymosin Beta-4. They share a parent protein but have different molecular weights, half-lives, and research applications." },
+      { question: "What does TB4 FRAG 500 stand for?", answer: "TB4 FRAG 500 stands for Thymosin Beta-4 Fragment. The '500' typically refers to the 500mcg dosage unit or the approximate molecular weight (~487 Da) of the Ac-SDKP tetrapeptide fragment." },
+      { question: "Can TB-500 and TB4 FRAG be used together in research?", answer: "Yes, some researchers use both compounds in combination protocols to study the differential effects of the full-length protein versus the isolated fragment. This can help identify which functional domains contribute to specific observed effects." },
+      { question: "Which has more published research: TB-500 or TB4 FRAG?", answer: "TB-500 (Thymosin Beta-4) has substantially more published research, with over 1,000 papers in PubMed. However, TB4 FRAG (Ac-SDKP) has a focused body of literature, particularly in anti-fibrotic and haematopoietic stem cell research, with several hundred publications." },
+      { question: "Where can I buy TB-500 in the UK?", answer: "ORYN Peptide Labs offers pharmaceutical-grade TB-500 in a convenient pre-mixed peptide pen format. All products are GMP manufactured with >99% purity and come with Certificates of Analysis. Next-day UK delivery is available for orders placed before 2pm." },
+    ],
+  },
+  {
+    slug: "peptide-molecular-weight-calculator",
+    title: "Peptide Molecular Weight Calculator — Complete Reference Table 2026",
+    metaTitle: "Peptide Molecular Weight Calculator & Reference Table | ORYN",
+    metaDescription: "Complete peptide molecular weight reference table with amino acid sequences, molecular formulas, and properties for 50+ research peptides. Essential lab reference guide.",
+    category: "Research Tools",
+    readTime: "6 min read",
+    datePublished: "2026-03-18",
+    dateModified: "2026-03-18",
+    heroImage: "/og-image.png",
+    excerpt: "A comprehensive reference table of peptide molecular weights, amino acid sequences, and physicochemical properties for researchers. Covers all major research peptides available in 2026.",
+    relatedProducts: ["bpc-157", "tb-500", "ghk-cu", "nad-plus", "cjc-1295", "ipamorelin", "glutathione", "tirzepatide-pen"],
+    sections: [
+      {
+        heading: "How to Calculate Peptide Molecular Weight",
+        content: "The molecular weight (MW) of a peptide is calculated by summing the residue weights of each amino acid in the sequence, then subtracting the mass of water molecules lost during peptide bond formation.\n\n**Formula:**\nMW = Σ (amino acid residue masses) − (n−1) × 18.015 + 18.015\n\nWhere n is the number of amino acids. Each peptide bond formation releases one water molecule (H₂O, 18.015 Da), but the intact peptide retains one water molecule at the termini.\n\n**Average vs. Monoisotopic mass:** The table below provides average molecular weights (using average isotopic abundances), which are standard for laboratory work. Monoisotopic masses (using the most abundant isotope of each element) are used in mass spectrometry and are typically 0.05–0.5 Da lower for peptides in the 500–5000 Da range.",
+      },
+      {
+        heading: "Amino Acid Residue Masses — Quick Reference",
+        content: "These residue masses are used when calculating peptide molecular weight from a sequence:\n\n| Amino Acid | 3-Letter | 1-Letter | Residue Mass (Da) |\n|-----------|----------|----------|-------------------|\n| Glycine | Gly | G | 57.021 |\n| Alanine | Ala | A | 71.037 |\n| Valine | Val | V | 99.068 |\n| Leucine | Leu | L | 113.084 |\n| Isoleucine | Ile | I | 113.084 |\n| Proline | Pro | P | 97.053 |\n| Phenylalanine | Phe | F | 147.068 |\n| Tryptophan | Trp | W | 186.079 |\n| Methionine | Met | M | 131.040 |\n| Serine | Ser | S | 87.032 |\n| Threonine | Thr | T | 101.048 |\n| Cysteine | Cys | C | 103.009 |\n| Tyrosine | Tyr | Y | 163.063 |\n| Histidine | His | H | 137.059 |\n| Lysine | Lys | K | 128.095 |\n| Arginine | Arg | R | 156.101 |\n| Aspartate | Asp | D | 115.027 |\n| Glutamate | Glu | E | 129.043 |\n| Asparagine | Asn | N | 114.043 |\n| Glutamine | Gln | Q | 128.059 |\n\nFor modified amino acids or non-standard residues, add the modification mass to the base residue mass.",
+      },
+      {
+        heading: "Research Peptide Molecular Weights — Complete Table",
+        content: "The following table covers all major research peptides available from ORYN and other suppliers in 2026. Data sourced from UniProt, PubChem, and published literature.\n\n**ORYN Catalogue Peptides:**\n\n| Peptide | Molecular Weight (Da) | Amino Acids | Molecular Formula | CAS Number |\n|---------|----------------------|-------------|-------------------|------------|\n| BPC-157 | 1,419.53 | 15 | C₆₂H₉₈N₁₆O₂₂ | 137525-51-0 |\n| TB-500 (Thymosin β4) | 4,963.50 | 43 | C₂₁₂H₃₅₀N₅₆O₇₈S | 77591-33-4 |\n| GHK-Cu | 403.93 (free) / 467.44 (Cu²⁺) | 3 + Cu | C₁₄H₂₄N₆O₄ · Cu | 49557-75-7 |\n| CJC-1295 (no DAC) | 3,367.97 | 29 | C₁₅₂H₂₅₂N₄₄O₄₂ | 863288-34-0 |\n| Ipamorelin | 711.85 | 5 | C₃₈H₄₉N₉O₅ | 170851-70-4 |\n| Glutathione (GSH) | 307.32 | 3 | C₁₀H₁₇N₃O₆S | 70-18-8 |\n| NAD+ | 663.43 | N/A (dinucleotide) | C₂₁H₂₇N₇O₁₄P₂ | 53-84-9 |\n| Tirzepatide | 4,813.45 | 39 + C₂₀ fatty acid | C₂₂₅H₃₄₈N₄₈O₆₈ | 2023788-19-2 |\n| Semaglutide | 4,113.58 | 31 + C₁₈ fatty acid | C₁₈₇H₂₉₁N₄₅O₅₉ | 910463-68-2 |\n\n**Other Common Research Peptides:**\n\n| Peptide | Molecular Weight (Da) | Amino Acids | CAS Number |\n|---------|----------------------|-------------|------------|\n| Ac-SDKP (TB4 FRAG) | 487.51 | 4 | 49557-75-7 |\n| GHRP-6 | 873.01 | 6 | 87616-84-0 |\n| GHRP-2 | 817.97 | 6 | 158861-67-7 |\n| Hexarelin | 887.04 | 6 | 140703-51-1 |\n| Sermorelin | 3,357.93 | 29 | 86168-78-7 |\n| Epithalon (Epitalon) | 390.35 | 4 | 307297-39-8 |\n| Selank | 751.87 | 7 | 129954-34-3 |\n| Semax | 813.93 | 7 | 80714-61-0 |\n| Melanotan II | 1,024.18 | 7 (cyclic) | 121062-08-6 |\n| PT-141 (Bremelanotide) | 1,025.18 | 7 (cyclic) | 189691-06-3 |\n| AOD-9604 | 1,815.08 | 15 | 221231-10-3 |\n| DSIP (Delta Sleep) | 848.81 | 9 | 62568-57-4 |\n| LL-37 | 4,493.33 | 37 | 154947-66-7 |\n| KPV | 342.43 | 3 | 67727-97-3 |\n| Thymalin | 858.97 | 2 (Glu-Trp) | 63958-90-7 |\n| Dihexa | 507.63 | Modified hexapeptide | 1401708-83-5 |\n| PE-22-28 | 737.85 | 7 | N/A |\n| GLP-1 (7-36) | 3,297.68 | 30 | 112149-90-1 |",
+      },
+      {
+        heading: "How Molecular Weight Affects Peptide Research",
+        content: "Understanding molecular weight is critical for several aspects of peptide research:\n\n**Dosing and concentration calculations:** Molar concentrations (μM, nM) require accurate molecular weight. A 1 mg/mL solution of BPC-157 (MW 1,419.53 Da) = 704.5 μM, whereas the same mass concentration of TB-500 (MW 4,963.50 Da) = only 201.5 μM.\n\n**Solubility prediction:** Smaller peptides (<1,000 Da) generally dissolve more readily in aqueous solutions. Larger peptides may require co-solvents or pH adjustment.\n\n**Membrane permeability:** Peptides below ~500 Da may cross cell membranes more readily (Lipinski's Rule of Five applies as a rough guide). Larger peptides typically require receptor-mediated uptake.\n\n**Half-life correlation:** Smaller peptide fragments (like Ac-SDKP at 487 Da) are typically degraded faster by peptidases than larger proteins with tertiary structure. Modifications like PEGylation or fatty acid conjugation (as in semaglutide and tirzepatide) extend half-life.\n\n**Mass spectrometry identification:** Accurate molecular weight is essential for peptide identification via MALDI-TOF or ESI-MS. The values in this table can serve as reference standards for QC analysis.",
+      },
+      {
+        heading: "Converting Between Mass and Moles",
+        content: "For laboratory calculations, use these conversion formulas:\n\n**Mass to moles:**\nmoles = mass (g) / molecular weight (Da)\n\n**Moles to mass:**\nmass (g) = moles × molecular weight (Da)\n\n**Practical examples:**\n\n1. **BPC-157 (MW 1,419.53 Da):** To prepare 1 mL of a 100 μM solution:\n   mass = 100 × 10⁻⁶ × 1,419.53 = 0.142 mg\n\n2. **Ipamorelin (MW 711.85 Da):** To prepare 10 mL of a 1 mM solution:\n   mass = 1 × 10⁻³ × 711.85 × 10 = 7.12 mg\n\n3. **TB-500 (MW 4,963.50 Da):** 5 mg reconstituted in 1 mL:\n   concentration = 5 / 4,963.50 × 10⁶ = 1,007 μM ≈ 1 mM\n\nORYN peptide pens come pre-mixed at precise concentrations, eliminating the need for manual reconstitution calculations.",
+      },
+      {
+        heading: "Quality Verification Using Molecular Weight",
+        content: "Molecular weight analysis is one of the primary quality control methods for peptide verification:\n\n**Mass spectrometry (MS):** MALDI-TOF or ESI-MS confirms the molecular weight matches the expected value within ±0.1% tolerance. This verifies correct synthesis and absence of truncated sequences or modifications.\n\n**HPLC-MS:** Combines chromatographic separation with mass detection for simultaneous purity and identity confirmation.\n\n**What to look for in a Certificate of Analysis (COA):**\n- Observed mass should match theoretical mass within instrument tolerance\n- Major peak should represent >99% of total ion current (for >99% purity)\n- No significant peaks at unexpected masses (indicating impurities or degradation)\n\nAll ORYN peptides ship with third-party COAs including mass spectrometry data, HPLC purity analysis (>99%), and endotoxin testing results.",
+      },
+    ],
+    faqs: [
+      { question: "How do I calculate the molecular weight of a peptide?", answer: "Sum the residue masses of each amino acid in the sequence, then add 18.015 Da for the water molecule retained at the N- and C-termini. For modified peptides, add the mass of any post-translational modifications (acetylation +42.01 Da, amidation -0.98 Da, phosphorylation +79.97 Da, etc.)." },
+      { question: "What is the molecular weight of BPC-157?", answer: "BPC-157 has a molecular weight of approximately 1,419.53 Da. It is a 15-amino acid peptide with the molecular formula C₆₂H₉₈N₁₆O₂₂ and CAS number 137525-51-0." },
+      { question: "What is the difference between average and monoisotopic molecular weight?", answer: "Average molecular weight uses the weighted average of all naturally occurring isotopes, making it suitable for most laboratory work. Monoisotopic mass uses only the most abundant isotope of each element and is used in high-resolution mass spectrometry. The difference is typically 0.05–0.5 Da for peptides in the 500–5000 Da range." },
+      { question: "Why is molecular weight important for peptide dosing?", answer: "Molecular weight is essential for converting between mass-based dosing (mg) and molar-based dosing (μM, nM). Research protocols often specify molar concentrations, so you need the exact molecular weight to calculate how much peptide mass to use. For example, 1 mg of a small peptide (MW 500) gives a much higher molar concentration than 1 mg of a large peptide (MW 5000)." },
+      { question: "Does ORYN provide molecular weight data with their peptides?", answer: "Yes. Every ORYN peptide pen ships with a Certificate of Analysis (COA) that includes mass spectrometry data confirming the molecular weight, HPLC purity analysis (>99%), and endotoxin testing results. This data is essential for researchers who need verified compound identity." },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
