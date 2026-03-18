@@ -129,6 +129,7 @@ function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product
     badge: (meta.badge as string) || staticProduct?.badge,
     image,
     images: medusaImgs.length > 0 ? medusaImgs : staticProduct?.images,
+    videoUrl: (meta.videoUrl as string) || staticProduct?.videoUrl,
     collectionHandle,
   };
 }

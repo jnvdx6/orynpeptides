@@ -14,6 +14,7 @@ export interface Product {
   badge?: string;
   image: string;
   images?: string[];
+  videoUrl?: string;
   collectionHandle?: string | null;
 }
 

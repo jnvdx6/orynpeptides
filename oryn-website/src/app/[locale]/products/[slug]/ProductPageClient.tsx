@@ -24,6 +24,7 @@ import { DeliveryEstimator } from "@/components/product/DeliveryEstimator";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { ShareButtons } from "@/components/ui/ShareButtons";
 import { CustomerReviews } from "@/components/product/CustomerReviews";
+import { ProductVideo } from "@/components/product/ProductVideo";
 import { trackProductView } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
@@ -161,6 +162,9 @@ export function ProductPageClient() {
                   </button>
                 ))}
               </div>
+            )}
+            {product.videoUrl && (
+              <ProductVideo videoUrl={product.videoUrl} productName={product.name} />
             )}
           </div>
 
