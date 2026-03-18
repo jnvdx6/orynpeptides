@@ -23,7 +23,7 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement>(null);
   const { totalItems, setIsOpen } = useCart();
-  const { t, formatPrice } = useLocale();
+  const { t, formatPrice, locale } = useLocale();
   const { isAuthenticated, user } = useAuth();
   const { products } = useProducts();
   const { totalItems: wishlistCount } = useWishlist();
@@ -111,40 +111,41 @@ export function Header() {
     { href: "/contact", label: t.nav.contact },
   ], [t.nav]);
 
+  const pt = locale === "pt-br";
   const megaMenus: Record<string, { columns: { title: string; links: { href: string; label: string }[] }[] }> = useMemo(() => ({
     products: {
       columns: [
         {
-          title: "PEPTIDE PENS",
+          title: pt ? "CANETAS DE PEPTÍDEOS" : "PEPTIDE PENS",
           links: [
             { href: "/products/bpc-157", label: "BPC-157 Pen" },
-            { href: "/products/tirzepatide", label: "Tirzepatide Pen" },
+            { href: "/products/tirzepatide", label: pt ? "Caneta Tirzepatida" : "Tirzepatide Pen" },
             { href: "/products/ghk-cu", label: "GHK-Cu Pen" },
-            { href: "/products/glutathione", label: "Glutathione Pen" },
+            { href: "/products/glutathione", label: pt ? "Caneta Glutationa" : "Glutathione Pen" },
             { href: "/products/nad-plus", label: "NAD+ Pen" },
-            { href: "/products", label: "View All Products →" },
+            { href: "/products", label: pt ? "Ver Todos os Produtos →" : "View All Products →" },
           ],
         },
         {
-          title: "RESEARCH AREAS",
+          title: pt ? "ÁREAS DE PESQUISA" : "RESEARCH AREAS",
           links: [
-            { href: "/peptides-for/recovery", label: "Recovery & Healing" },
-            { href: "/peptides-for/weight-loss", label: "Weight Loss" },
-            { href: "/peptides-for/anti-aging", label: "Anti-Aging" },
-            { href: "/peptides-for/muscle-growth", label: "Muscle Growth" },
-            { href: "/peptides-for/skin-rejuvenation", label: "Skin Rejuvenation" },
-            { href: "/peptides-for/gut-health", label: "Gut Health" },
+            { href: "/peptides-for/recovery", label: pt ? "Recuperação" : "Recovery & Healing" },
+            { href: "/peptides-for/weight-loss", label: pt ? "Perda de Peso" : "Weight Loss" },
+            { href: "/peptides-for/anti-aging", label: pt ? "Antienvelhecimento" : "Anti-Aging" },
+            { href: "/peptides-for/muscle-growth", label: pt ? "Crescimento Muscular" : "Muscle Growth" },
+            { href: "/peptides-for/skin-rejuvenation", label: pt ? "Rejuvenescimento da Pele" : "Skin Rejuvenation" },
+            { href: "/peptides-for/gut-health", label: pt ? "Saúde Intestinal" : "Gut Health" },
           ],
         },
         {
-          title: "BUNDLES & DELIVERY",
+          title: pt ? "COMBOS E ENTREGA" : "BUNDLES & DELIVERY",
           links: [
-            { href: "/bundles", label: "All Bundles" },
-            { href: "/bundles/recovery-stack", label: "Recovery Stack" },
-            { href: "/protocols", label: "Research Protocols" },
-            { href: "/peptide-pens", label: "Peptide Pens Guide" },
-            { href: "/peptides/europe", label: "European Delivery →" },
-            { href: "/shipping", label: "Shipping Info" },
+            { href: "/bundles", label: pt ? "Todos os Combos" : "All Bundles" },
+            { href: "/bundles/recovery-stack", label: pt ? "Combo Recuperação" : "Recovery Stack" },
+            { href: "/protocols", label: pt ? "Protocolos de Pesquisa" : "Research Protocols" },
+            { href: "/peptide-pens", label: pt ? "Guia de Canetas" : "Peptide Pens Guide" },
+            { href: pt ? "/peptides/brazil" : "/peptides/europe", label: pt ? "Entrega no Brasil →" : "European Delivery →" },
+            { href: "/shipping", label: pt ? "Info de Envio" : "Shipping Info" },
           ],
         },
       ],
@@ -152,42 +153,42 @@ export function Header() {
     learn: {
       columns: [
         {
-          title: "GUIDES & ARTICLES",
+          title: pt ? "GUIAS E ARTIGOS" : "GUIDES & ARTICLES",
           links: [
-            { href: "/learn/are-peptides-legal-in-the-uk", label: "Are Peptides Legal in the UK?" },
-            { href: "/learn/bpc-157-complete-guide", label: "BPC-157 Complete Guide" },
-            { href: "/learn/how-to-use-peptide-pen", label: "How to Use a Peptide Pen" },
-            { href: "/learn/peptide-pens-for-beginners-uk", label: "Beginner's Guide" },
-            { href: "/learn/peptide-sciences-alternative-2026", label: "Peptide Sciences Alternative" },
-            { href: "/learn/peptide-stacking-guide-uk", label: "Stacking Guide" },
-            { href: "/learn", label: "All Articles →" },
+            { href: "/learn/are-peptides-legal-in-the-uk", label: pt ? "Peptídeos São Legais?" : "Are Peptides Legal in the UK?" },
+            { href: "/learn/bpc-157-complete-guide", label: pt ? "Guia Completo BPC-157" : "BPC-157 Complete Guide" },
+            { href: "/learn/how-to-use-peptide-pen", label: pt ? "Como Usar uma Caneta" : "How to Use a Peptide Pen" },
+            { href: "/learn/peptide-pens-for-beginners-uk", label: pt ? "Guia para Iniciantes" : "Beginner's Guide" },
+            { href: "/learn/peptide-sciences-alternative-2026", label: pt ? "Alternativa a Peptide Sciences" : "Peptide Sciences Alternative" },
+            { href: "/learn/peptide-stacking-guide-uk", label: pt ? "Guia de Combinação" : "Stacking Guide" },
+            { href: "/learn", label: pt ? "Todos os Artigos →" : "All Articles →" },
           ],
         },
         {
-          title: "COMPARE & REFERENCE",
+          title: pt ? "COMPARAÇÃO E REFERÊNCIA" : "COMPARE & REFERENCE",
           links: [
             { href: "/compare/bpc-157-vs-tb-500", label: "BPC-157 vs TB-500" },
             { href: "/compare/tirzepatide-vs-semaglutide", label: "Tirzepatide vs Semaglutide" },
             { href: "/compare/cjc-1295-vs-ipamorelin", label: "CJC-1295 vs Ipamorelin" },
-            { href: "/peptides/encyclopedia", label: "Peptide Encyclopedia" },
-            { href: "/peptides/glossary", label: "Peptide Glossary" },
-            { href: "/compare", label: "All Comparisons →" },
+            { href: "/peptides/encyclopedia", label: pt ? "Enciclopédia de Peptídeos" : "Peptide Encyclopedia" },
+            { href: "/peptides/glossary", label: pt ? "Glossário de Peptídeos" : "Peptide Glossary" },
+            { href: "/compare", label: pt ? "Todas as Comparações →" : "All Comparisons →" },
           ],
         },
         {
-          title: "FAQ & RESOURCES",
+          title: pt ? "FAQ E RECURSOS" : "FAQ & RESOURCES",
           links: [
-            { href: "/faq", label: "All FAQs" },
-            { href: "/faq/peptide-pens-faq", label: "Peptide Pens FAQ" },
-            { href: "/faq/ordering-delivery-faq", label: "Ordering & Delivery FAQ" },
-            { href: "/faq/purity-testing-faq", label: "Purity & Testing FAQ" },
-            { href: "/quality", label: "Quality & Testing" },
-            { href: "/tools/peptide-calculator", label: "Peptide Calculator" },
+            { href: "/faq", label: pt ? "Todas as Perguntas" : "All FAQs" },
+            { href: "/faq/peptide-pens-faq", label: pt ? "FAQ Canetas de Peptídeos" : "Peptide Pens FAQ" },
+            { href: "/faq/ordering-delivery-faq", label: pt ? "FAQ Pedidos e Entrega" : "Ordering & Delivery FAQ" },
+            { href: "/faq/purity-testing-faq", label: pt ? "FAQ Pureza e Testes" : "Purity & Testing FAQ" },
+            { href: "/quality", label: pt ? "Qualidade e Testes" : "Quality & Testing" },
+            { href: "/tools/peptide-calculator", label: pt ? "Calculadora de Peptídeos" : "Peptide Calculator" },
           ],
         },
       ],
     },
-  }), []);
+  }), [pt]);
 
   const handleDropdownEnter = useCallback((key: string) => {
     if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);

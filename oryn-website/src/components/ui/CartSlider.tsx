@@ -19,7 +19,8 @@ function getProductImage(slug: string, category: string): string {
 export function CartSlider() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
     useCart();
-  const { t, formatPrice, currencyCode } = useLocale();
+  const { t, formatPrice, currencyCode, locale } = useLocale();
+  const pt = locale === "pt-br";
 
   // Max shipping savings by currency (express shipping costs)
   const shippingSavings: Record<string, string> = { gbp: "\u00a39.99", usd: "$14.99", eur: "\u20ac15.99" };
@@ -117,7 +118,7 @@ export function CartSlider() {
               <>
                 <p className="text-[10px] font-plex text-oryn-black/50 mb-2">
                   {t.cart.freeShippingAway.replace("{amount}", formatPrice(amountToFreeShipping))}
-                  {" — save up to " + savingsLabel + "!"}
+                  {pt ? ` — economize até ${savingsLabel}!` : ` — save up to ${savingsLabel}!`}
                 </p>
                 <div className="w-full h-1.5 bg-oryn-grey/30 overflow-hidden">
                   <div
@@ -132,7 +133,7 @@ export function CartSlider() {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <p className="text-[10px] font-plex text-oryn-orange font-medium">
-                  {t.cart.freeShippingUnlocked}{" You're saving up to " + savingsLabel}
+                  {t.cart.freeShippingUnlocked}{pt ? ` Você está economizando até ${savingsLabel}` : ` You're saving up to ${savingsLabel}`}
                 </p>
               </div>
             )}
@@ -296,12 +297,12 @@ export function CartSlider() {
               <span className={`text-lg font-bold ${(appliedPromotion || volumeDiscount) ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-xs text-oryn-black/40 font-plex">Estimated shipping</span>
+              <span className="text-xs text-oryn-black/40 font-plex">{pt ? "Envio estimado" : "Estimated shipping"}</span>
               {totalPrice >= FREE_SHIPPING_THRESHOLD ? (
-                <span className="text-xs font-bold text-oryn-orange">FREE</span>
+                <span className="text-xs font-bold text-oryn-orange">{pt ? "GRÁTIS" : "FREE"}</span>
               ) : (
                 <span className="text-xs text-oryn-black/40 font-plex">
-                  {"from " + formatPrice(currencyCode === "gbp" ? 4.99 : currencyCode === "usd" ? 9.99 : 8.99)}
+                  {pt ? "a partir de " : "from "}{formatPrice(currencyCode === "gbp" ? 4.99 : currencyCode === "usd" ? 9.99 : currencyCode === "brl" ? 49.99 : 8.99)}
                 </span>
               )}
             </div>
