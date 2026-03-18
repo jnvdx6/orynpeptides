@@ -25,7 +25,7 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
-      title: "Buy Peptides UK | Peptide Pen Systems from €99 | ORYN Peptide Labs",
+      title,
       description,
       url: `${SITE_URL}/${locale}`,
       type: "website",
@@ -33,8 +33,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: "Buy Peptides UK | ORYN Peptide Labs",
-      description: "UK's leading peptide pen supplier. >99% purity. Next-day delivery from €99.",
+      title,
+      description,
       images: [`${SITE_URL}/opengraph-image`],
     },
     alternates: {
