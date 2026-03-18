@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { sdk } from "@/lib/medusa";
-import { products as staticProducts, type Product } from "@/data/products";
+import { products as staticProducts, productImages, type Product } from "@/data/products";
 import { useProducts } from "@/providers/products";
 import { calculateVolumeDiscount, getVolumeDiscount, type VolumeDiscount } from "@/lib/discounts";
 import { trackAddToCart, trackRemoveFromCart, trackCartOpened, updateGeoFromShipping } from "@/lib/analytics";
@@ -126,11 +126,16 @@ const MAX_QUANTITY_PER_PRODUCT = 10;
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 // Helper: find product by Medusa handle/slug — tries resolved list first, falls back to static
-function findProduct(handle: string | undefined, resolvedProducts: Product[], title?: string): Product | undefined {
+function findProduct(handle: string | undefined, resolvedProducts: Product[], title?: string, productId?: string): Product | undefined {
   if (handle) {
     const bySlug = resolvedProducts.find((p) => p.slug === handle)
       || staticProducts.find((p) => p.slug === handle);
     if (bySlug) return bySlug;
+  }
+  // Try by Medusa product ID
+  if (productId) {
+    const byId = resolvedProducts.find((p) => p.id === productId);
+    if (byId) return byId;
   }
   // Fallback: match by title/name when handle is missing or doesn't match
   if (title) {
@@ -146,11 +151,16 @@ function deriveItemsFromMedusa(cart: MedusaCart, resolvedProducts: Product[]): C
   if (!cart.items || cart.items.length === 0) return [];
   return cart.items.map((lineItem) => {
     const handle = lineItem.variant?.product?.handle;
-    const matched = findProduct(handle, resolvedProducts, lineItem.title);
+    const productId = lineItem.variant?.product_id;
+    const matched = findProduct(handle, resolvedProducts, lineItem.title, productId);
+    // Derive a readable slug from the title when handle is missing
+    const fallbackSlug = handle
+      || lineItem.title?.replace(/^ORYN\s+/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-")
+      || lineItem.id;
     // Build a Product from Medusa data if no match
     const product: Product = matched || {
-      id: lineItem.variant?.product_id || lineItem.id,
-      slug: handle || lineItem.id,
+      id: productId || lineItem.id,
+      slug: fallbackSlug,
       name: lineItem.title,
       subtitle: lineItem.subtitle || "",
       category: "peptide-pen",
@@ -161,7 +171,7 @@ function deriveItemsFromMedusa(cart: MedusaCart, resolvedProducts: Product[]): C
       description: "",
       benefits: [],
       specs: {},
-      image: lineItem.thumbnail || "/images/products/peptide-pen-black.png",
+      image: productImages.bySlug[fallbackSlug] || lineItem.thumbnail || "/images/products/peptide-pen-black.png",
     };
     return {
       product,
