@@ -62,7 +62,7 @@ export function CartSlider() {
       .slice(0, 2);
     // Fallback: if no complements, show popular products
     if (suggested.length === 0) {
-      return products.filter((p) => !cartIds.has(p.id) && p.badge).slice(0, 2);
+      return products.filter((p) => !cartIds.has(p.id) && !cartSlugs.has(p.slug) && p.badge).slice(0, 2);
     }
     return suggested;
   })();
@@ -95,7 +95,7 @@ export function CartSlider() {
             <h2 className="text-lg font-bold tracking-wide">{t.cart.title}</h2>
             {items.length > 0 && (
               <span className="text-[9px] font-mono text-oryn-orange bg-oryn-orange/10 px-2 py-0.5">
-                {items.reduce((sum, i) => sum + i.quantity, 0)} {t.cart.itemsLabel}
+                {items.reduce((sum, i) => sum + i.quantity, 0)} {items.reduce((sum, i) => sum + i.quantity, 0) === 1 ? t.cart.itemLabel : t.cart.itemsLabel}
               </span>
             )}
           </div>

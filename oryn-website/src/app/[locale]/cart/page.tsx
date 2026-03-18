@@ -32,7 +32,8 @@ export default function CartPage() {
 
   // Suggest products not in cart
   const cartIds = new Set(items.map((i) => i.product.id));
-  const suggestions = products.filter((p) => !cartIds.has(p.id) && p.badge).slice(0, 3);
+  const cartSlugs = new Set(items.map((i) => i.product.slug));
+  const suggestions = products.filter((p) => !cartIds.has(p.id) && !cartSlugs.has(p.slug) && p.badge).slice(0, 3);
 
   if (items.length === 0 && !cartLoaded) {
     return (
@@ -80,7 +81,7 @@ export default function CartPage() {
 
         <h1 className="text-3xl font-bold mb-2">{t.cart.title}</h1>
         <p className="text-oryn-black/50 font-plex mb-4 text-sm">
-          {items.length} {t.cart.itemsLabel}
+          {items.length} {items.length === 1 ? t.cart.itemLabel : t.cart.itemsLabel}
         </p>
 
         {/* Free shipping bar */}

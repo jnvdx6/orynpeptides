@@ -299,6 +299,7 @@ const en: Dictionary = {
     subtotal: "Subtotal",
     checkout: "SECURE CHECKOUT",
     researchOnly: "For research purposes only",
+    itemLabel: "item",
     itemsLabel: "items",
     freeShippingAway: "Add {amount} more for FREE shipping",
     freeShippingUnlocked: "You've unlocked FREE shipping!",

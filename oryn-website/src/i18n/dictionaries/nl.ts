@@ -300,6 +300,7 @@ const nl = {
     subtotal: "Subtotaal",
     checkout: "VEILIG AFREKENEN",
     researchOnly: "Uitsluitend voor onderzoeksdoeleinden",
+    itemLabel: "artikel",
     itemsLabel: "artikelen",
     freeShippingAway: "Nog {amount} voor GRATIS verzending",
     freeShippingUnlocked: "U heeft GRATIS verzending ontgrendeld!",

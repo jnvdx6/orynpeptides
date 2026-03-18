@@ -205,6 +205,7 @@ export interface Dictionary {
     subtotal: string;
     checkout: string;
     researchOnly: string;
+    itemLabel: string;
     itemsLabel: string;
     freeShippingAway: string;
     freeShippingUnlocked: string;

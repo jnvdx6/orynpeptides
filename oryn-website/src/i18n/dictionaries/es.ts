@@ -300,6 +300,7 @@ const es = {
     subtotal: "Subtotal",
     checkout: "PAGO SEGURO",
     researchOnly: "Solo para fines de investigaci\u00f3n",
+    itemLabel: "art\u00edculo",
     itemsLabel: "art\u00edculos",
     freeShippingAway: "A\u00f1ade {amount} m\u00e1s para env\u00edo GRATIS",
     freeShippingUnlocked: "\u00a1Has desbloqueado env\u00edo GRATIS!",

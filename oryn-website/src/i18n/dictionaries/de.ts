@@ -300,6 +300,7 @@ const de = {
     subtotal: "Zwischensumme",
     checkout: "SICHERER CHECKOUT",
     researchOnly: "Nur für Forschungszwecke",
+    itemLabel: "Artikel",
     itemsLabel: "Artikel",
     freeShippingAway: "Noch {amount} bis zum KOSTENLOSEN Versand",
     freeShippingUnlocked: "Sie haben KOSTENLOSEN Versand freigeschaltet!",

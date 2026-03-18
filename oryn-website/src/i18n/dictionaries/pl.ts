@@ -300,6 +300,7 @@ const pl = {
     subtotal: "Suma częściowa",
     checkout: "BEZPIECZNA KASA",
     researchOnly: "Wyłącznie do celów badawczych",
+    itemLabel: "produkt",
     itemsLabel: "produktów",
     freeShippingAway: "Dodaj jeszcze {amount} do DARMOWEJ wysyłki",
     freeShippingUnlocked: "Odblokowano DARMOWĄ wysyłkę!",

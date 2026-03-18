@@ -300,6 +300,7 @@ const pt = {
     subtotal: "Subtotal",
     checkout: "PAGAMENTO SEGURO",
     researchOnly: "Apenas para fins de investigação",
+    itemLabel: "artigo",
     itemsLabel: "artigos",
     freeShippingAway: "Adicione mais {amount} para envio GRATUITO",
     freeShippingUnlocked: "Desbloqueou envio GRATUITO!",

@@ -300,6 +300,7 @@ const fr = {
     subtotal: "Sous-total",
     checkout: "PAIEMENT SÉCURISÉ",
     researchOnly: "À des fins de recherche uniquement",
+    itemLabel: "article",
     itemsLabel: "articles",
     freeShippingAway: "Ajoutez {amount} de plus pour la LIVRAISON GRATUITE",
     freeShippingUnlocked: "Vous avez débloqué la LIVRAISON GRATUITE !",
