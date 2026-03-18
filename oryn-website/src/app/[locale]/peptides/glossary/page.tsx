@@ -113,7 +113,7 @@ const glossaryTerms: GlossaryTerm[] = [
   {
     term: "GMP (Good Manufacturing Practice)",
     definition:
-      "A regulatory framework ensuring pharmaceutical products are consistently produced and controlled according to quality standards. GMP covers facility design, equipment calibration, personnel training, raw material testing, manufacturing processes, and record keeping. All ORYN peptides are manufactured in GMP-certified European facilities.",
+      "A regulatory framework ensuring pharmaceutical products are consistently produced and controlled according to quality standards. GMP covers facility design, equipment calibration, personnel training, raw material testing, manufacturing processes, and record keeping. All ORYN peptides are manufactured in GMP-certified facilities in South Korea.",
     related: { label: "Quality & Testing", href: "/quality" },
   },
   {

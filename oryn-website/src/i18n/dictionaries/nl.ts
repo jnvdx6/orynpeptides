@@ -225,7 +225,7 @@ const nl = {
 
   footer: {
     description:
-      "Precisie Peptide Wetenschap. Europees biotech laboratorium dat onderzoekskwaliteit peptide-oplossingen levert, ontworpen voor moleculaire precisie.",
+      "Precisie Peptide Wetenschap. Biotech laboratorium dat onderzoekskwaliteit peptide-oplossingen levert, ontworpen voor moleculaire precisie.",
     researchOnly: "UITSLUITEND VOOR ONDERZOEKSDOELEINDEN",
     newsletterTitle: "Blijf Op De Hoogte",
     newsletterDescription: "Ontvang het laatste nieuws over nieuwe peptiden, onderzoeksupdates en exclusieve aanbiedingen.",
@@ -439,7 +439,7 @@ const nl = {
     heroTitle1: "De Wetenschap Achter",
     heroTitle2: "de Precisie",
     heroDescription:
-      "ORYN is een Europees biotech laboratorium dat zich richt op het bevorderen van peptide-onderzoek door middel van farmaceutische productie, innovatieve afgiftesystemen en compromisloze kwaliteitsnormen.",
+      "ORYN is een biotech laboratorium dat zich richt op het bevorderen van peptide-onderzoek door middel van farmaceutische productie, innovatieve afgiftesystemen en compromisloze kwaliteitsnormen.",
     brandStatement:
       "Wij geloven dat peptide-onderzoek dezelfde productiestandaarden verdient als",
     brandHighlight: "farmaceutische productie.",
@@ -1020,7 +1020,7 @@ const nl = {
     items: [
       { q: "Wat zijn ORYN Peptide Pennen?", a: "ORYN Peptide Pennen zijn voorgemengde, gebruiksklare peptide-afgiftesystemen voor onderzoek. Elke pen bevat farmaceutische peptiden met >99% zuiverheid, geproduceerd in onze ISO 7 cleanroom faciliteit. Het penformaat elimineert de noodzaak voor reconstitutie en zorgt voor consistente dosering bij onderzoekstoepassingen." },
       { q: "Zijn peptiden legaal in Nederland en Europa?", a: "Ja, onderzoekspeptiden zijn legaal te kopen in Nederland en heel Europa voor onderzoeksdoeleinden. ORYN Peptiden worden uitsluitend verkocht voor in-vitro onderzoek en laboratoriumgebruik. Ze zijn niet bedoeld voor menselijke consumptie." },
-      { q: "Hoe worden uw peptiden geproduceerd?", a: "Alle ORYN peptiden worden gesynthetiseerd in ons GMP-gecertificeerd, ISO 7 cleanroom laboratorium in Europa. Elke batch ondergaat strenge HPLC- en massaspectrometrie-testen om >99% zuiverheid te verifiëren. Een Analysecertificaat (COA) wordt bij elke bestelling meegeleverd." },
+      { q: "Hoe worden uw peptiden geproduceerd?", a: "Alle ORYN peptiden worden gesynthetiseerd in ons GMP-gecertificeerd, ISO 7 cleanroom laboratorium in Zuid-Korea. Elke batch ondergaat strenge HPLC- en massaspectrometrie-testen om >99% zuiverheid te verifiëren. Een Analysecertificaat (COA) wordt bij elke bestelling meegeleverd." },
       { q: "Hoe lang duurt de levering?", a: "UK-bestellingen komen doorgaans binnen 2-4 werkdagen aan. Europese bestellingen duren 3-7 werkdagen afhankelijk van de bestemming. Alle bestellingen worden verzonden in discrete, temperatuurgecontroleerde verpakking. Bestellingen boven €150 komen in aanmerking voor gratis verzending." },
       { q: "Wat is het ORYN Verwijzingsprogramma?", a: "Ons meerlagen-verwijzingsprogramma laat u 10% commissie verdienen op aankopen van collega's die u doorverwijst. U verdient ook commissies tot 5 niveaus diep naarmate uw netwerk groeit. Maak een gratis account aan om uw unieke verwijzingscode te ontvangen." },
       { q: "Biedt u volume- of groothandelsprijzen?", a: "Ja, wij bieden volumekortingen vanaf 3+ stuks. Hoe meer u bestelt, hoe groter de korting — tot 15% voor grote onderzoeksbestellingen. Neem contact met ons op voor maatwerk groothandelsprijzen bij bulkbestellingen." },
@@ -1238,7 +1238,7 @@ const nl = {
         { title: "Zij Bestellen", desc: "Wanneer zij zich registreren met uw code en een bestelling plaatsen, verdient u commissie." },
         { title: "Verdien Beloningen", desc: "Verdien 10% op directe verwijzingen, plus commissies op hun verwijzingen tot 5 niveaus diep." },
       ],
-      whatsappShareText: "Ontdek ORYN Peptides — precisie onderzoekspeptiden uit een Europees biotech laboratorium. Gebruik mijn code {code} bij uw eerste bestelling: {link}",
+      whatsappShareText: "Ontdek ORYN Peptides — precisie onderzoekspeptiden uit een biotech laboratorium. Gebruik mijn code {code} bij uw eerste bestelling: {link}",
       emailShareSubject: "ORYN Peptides — Precisie Onderzoekspeptiden",
       emailShareBody: "Hallo,\n\nIk wilde ORYN Peptides met u delen. Ze produceren farmaceutische onderzoekspeptiden met >99% zuiverheid.\n\nGebruik mijn verwijzingscode: {code}\n\nOf klik hier: {link}\n\nMet vriendelijke groet",
     },
@@ -1302,7 +1302,7 @@ const nl = {
       tagline: "WELKOM BIJ ORYN",
       title: "Precisie Peptide Wetenschap",
       description:
-        "Europees biotech lab dat >99% zuivere onderzoekspeptiden levert in precisie-pensystemen. Gebruik code WELCOME10 bij uw eerste bestelling.",
+        "Biotech lab dat >99% zuivere onderzoekspeptiden levert in precisie-pensystemen. Gebruik code WELCOME10 bij uw eerste bestelling.",
       benefits: [
         "Gratis verzending boven €150",
         "GMP-gecertificeerde productie",
@@ -1579,7 +1579,7 @@ const nl = {
       {
         title: "Peptidesynthese",
         description:
-          "Vaste-fase peptidesynthese (SPPS) in GMP-gecertificeerde Europese faciliteiten onder ISO 9001 kwaliteitsmanagement.",
+          "Vaste-fase peptidesynthese (SPPS) in GMP-gecertificeerde faciliteiten onder ISO 9001 kwaliteitsmanagement.",
       },
       {
         title: "HPLC-analyse",

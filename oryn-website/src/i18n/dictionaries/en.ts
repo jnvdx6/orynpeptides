@@ -224,7 +224,7 @@ const en: Dictionary = {
 
   footer: {
     description:
-      "Precision Peptide Science. European biotech laboratory delivering research-grade peptide solutions engineered for molecular precision.",
+      "Precision Peptide Science. Biotech laboratory delivering research-grade peptide solutions engineered for molecular precision.",
     researchOnly: "FOR RESEARCH PURPOSES ONLY",
     newsletterTitle: "Stay Updated",
     newsletterDescription: "Get the latest on new peptides, research updates, and exclusive offers.",
@@ -438,7 +438,7 @@ const en: Dictionary = {
     heroTitle1: "The Science Behind",
     heroTitle2: "the Precision",
     heroDescription:
-      "ORYN is a European biotech laboratory dedicated to advancing peptide research through pharmaceutical-grade manufacturing, innovative delivery systems, and uncompromising quality standards.",
+      "ORYN is a biotech laboratory dedicated to advancing peptide research through pharmaceutical-grade manufacturing in South Korea, innovative delivery systems, and uncompromising quality standards.",
     brandStatement:
       "We believe peptide research deserves the same manufacturing rigor as",
     brandHighlight: "pharmaceutical production.",
@@ -1237,7 +1237,7 @@ const en: Dictionary = {
         { title: "They Order", desc: "When they register with your code and place an order, you earn commission." },
         { title: "Earn Rewards", desc: "Earn 10% on direct referrals, plus commissions on their referrals up to 5 levels deep." },
       ],
-      whatsappShareText: "Check out ORYN Peptides — precision research peptides from a European biotech lab. Use my code {code} for tracking on your first order: {link}",
+      whatsappShareText: "Check out ORYN Peptides — precision research peptides with GMP manufacturing in South Korea. Use my code {code} for tracking on your first order: {link}",
       emailShareSubject: "ORYN Peptides — Precision Research Peptides",
       emailShareBody: "Hi,\n\nI wanted to share ORYN Peptides with you. They produce pharmaceutical-grade research peptides with >99% purity.\n\nUse my referral code: {code}\n\nOr click here: {link}\n\nBest regards",
     },
@@ -1301,7 +1301,7 @@ const en: Dictionary = {
       tagline: "WELCOME TO ORYN",
       title: "Precision Peptide Science",
       description:
-        "European biotech lab delivering >99% purity research peptides in precision pen systems. Use code WELCOME10 on your first order.",
+        "Biotech lab delivering >99% purity research peptides in precision pen systems. Manufactured in South Korea. Use code WELCOME10 on your first order.",
       benefits: [
         "Free shipping over €150",
         "GMP certified manufacturing",
@@ -1434,7 +1434,7 @@ const en: Dictionary = {
     differentiators: [
       { title: "Pre-Dosed Peptide Pens", description: "Unlike competitors selling loose vials requiring reconstitution, ORYN delivers pre-mixed, precision-dosed peptide pens ready for immediate research use. No mixing, no math, no contamination risk.", highlight: "Unique in the UK market" },
       { title: "98%+ HPLC Verified Purity", description: "Every ORYN batch exceeds 98% purity, independently verified via High-Performance Liquid Chromatography and Mass Spectrometry. Most UK competitors offer only 95% or unverified claims.", highlight: "Above industry standard" },
-      { title: "UK-Based GMP Manufacturing", description: "All ORYN peptides are manufactured in GMP-certified facilities adhering to pharmaceutical production standards. Full batch traceability from raw material to finished product.", highlight: "Pharmaceutical grade" },
+      { title: "GMP Manufacturing in South Korea", description: "All ORYN peptides are manufactured in GMP-certified facilities in South Korea adhering to pharmaceutical production standards. Full batch traceability from raw material to finished product.", highlight: "Pharmaceutical grade" },
       { title: "Free UK Shipping Over \u20ac150", description: "Enjoy complimentary next-day delivery on all UK orders over \u20ac150. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.", highlight: "Next-day delivery" },
       { title: "Comprehensive COA with Every Order", description: "Every ORYN order ships with a full Certificate of Analysis confirming purity, identity, endotoxin levels, and sterility. No waiting, no requesting \u2014 it is included as standard.", highlight: "Transparency guaranteed" },
       { title: "ISO 7 Cleanroom Production", description: "ORYN peptides are filled and sealed in ISO 7 classified cleanrooms with continuous environmental monitoring. This exceeds the standards of most UK peptide suppliers.", highlight: "Hospital-grade environment" },
@@ -1566,7 +1566,7 @@ const en: Dictionary = {
       {
         title: "Peptide Synthesis",
         description:
-          "Solid-phase peptide synthesis (SPPS) in GMP-certified European facilities under ISO 9001 quality management.",
+          "Solid-phase peptide synthesis (SPPS) in GMP-certified facilities in South Korea under ISO 9001 quality management.",
       },
       {
         title: "HPLC Analysis",

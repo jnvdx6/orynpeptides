@@ -225,7 +225,7 @@ const de = {
 
   footer: {
     description:
-      "Präzisions-Peptid-Wissenschaft. Europäisches Biotech-Labor, das forschungstaugliche Peptidlösungen mit molekularer Präzision liefert.",
+      "Präzisions-Peptid-Wissenschaft. Biotech-Labor, das forschungstaugliche Peptidlösungen mit molekularer Präzision liefert.",
     researchOnly: "NUR FÜR FORSCHUNGSZWECKE",
     newsletterTitle: "Auf dem Laufenden bleiben",
     newsletterDescription: "Erhalten Sie Neuigkeiten zu Peptiden, Forschungsupdates und exklusiven Angeboten.",
@@ -439,7 +439,7 @@ const de = {
     heroTitle1: "Die Wissenschaft hinter",
     heroTitle2: "der Präzision",
     heroDescription:
-      "ORYN ist ein europäisches Biotech-Labor, das sich der Weiterentwicklung der Peptidforschung durch pharmazeutische Herstellung, innovative Verabreichungssysteme und kompromisslose Qualitätsstandards widmet.",
+      "ORYN ist ein Biotech-Labor, das sich der Weiterentwicklung der Peptidforschung durch pharmazeutische Herstellung, innovative Verabreichungssysteme und kompromisslose Qualitätsstandards widmet.",
     brandStatement:
       "Wir glauben, dass Peptidforschung dieselbe Herstellungssorgfalt verdient wie",
     brandHighlight: "die pharmazeutische Produktion.",
@@ -1020,7 +1020,7 @@ const de = {
     items: [
       { q: "Was sind ORYN Peptide Pens?", a: "ORYN Peptide Pens sind vorgemischte, sofort einsatzbereite Forschungspeptid-Verabreichungssysteme. Jeder Pen enthält Peptide in pharmazeutischer Qualität mit >99% Reinheit, hergestellt in unserer ISO-7-Reinraumanlage. Das Pen-Format macht die Rekonstitution überflüssig und gewährleistet eine konsistente Dosierung für Forschungsanwendungen." },
       { q: "Sind Peptide in Deutschland und Europa legal?", a: "Ja, Forschungspeptide können in Deutschland und in ganz Europa für Forschungszwecke legal erworben werden. ORYN Peptide werden ausschließlich für die In-vitro-Forschung und den Laborgebrauch verkauft. Sie sind nicht zum menschlichen Verzehr bestimmt." },
-      { q: "Wie werden Ihre Peptide hergestellt?", a: "Alle ORYN-Peptide werden in unserem GMP-zertifizierten ISO-7-Reinraumlabor in Europa synthetisiert. Jede Charge wird mittels HPLC und Massenspektrometrie auf >99% Reinheit geprüft. Ein Analysezertifikat (COA) ist bei jeder Bestellung enthalten." },
+      { q: "Wie werden Ihre Peptide hergestellt?", a: "Alle ORYN-Peptide werden in unserem GMP-zertifizierten ISO-7-Reinraumlabor in Südkorea synthetisiert. Jede Charge wird mittels HPLC und Massenspektrometrie auf >99% Reinheit geprüft. Ein Analysezertifikat (COA) ist bei jeder Bestellung enthalten." },
       { q: "Wie lange dauert die Lieferung?", a: "UK-Bestellungen kommen in der Regel innerhalb von 2-4 Werktagen an. Europäische Bestellungen dauern je nach Zielort 3-7 Werktage. Alle Bestellungen werden in diskreter, temperaturkontrollierter Verpackung versendet. Bestellungen über 150€ qualifizieren sich für kostenlosen Versand." },
       { q: "Was ist das ORYN-Empfehlungsprogramm?", a: "Unser mehrstufiges Empfehlungsprogramm ermöglicht es Ihnen, 10% Provision auf Einkäufe zu verdienen, die von empfohlenen Kollegen getätigt werden. Sie verdienen außerdem Provisionen bis zu 5 Ebenen tief, wenn Ihr Netzwerk wächst. Melden Sie sich für ein kostenloses Konto an, um Ihren einzigartigen Empfehlungscode zu erhalten." },
       { q: "Bieten Sie Mengen- oder Großhandelspreise an?", a: "Ja, wir bieten Mengenrabatte ab 3+ Einheiten an. Je mehr Sie bestellen, desto größer der Rabatt — bis zu 15% auf große Forschungsbestellungen. Kontaktieren Sie uns für individuelle Großhandelspreise bei Sammelbestellungen." },
@@ -1238,7 +1238,7 @@ const de = {
         { title: "Sie bestellen", desc: "Wenn sie sich mit Ihrem Code registrieren und eine Bestellung aufgeben, verdienen Sie Provision." },
         { title: "Prämien verdienen", desc: "Verdienen Sie 10% bei direkten Empfehlungen, plus Provisionen auf deren Empfehlungen bis zu 5 Ebenen tief." },
       ],
-      whatsappShareText: "Entdecken Sie ORYN Peptides — Präzisions-Forschungspeptide aus einem europäischen Biotech-Labor. Verwenden Sie meinen Code {code} bei Ihrer ersten Bestellung: {link}",
+      whatsappShareText: "Entdecken Sie ORYN Peptides — Präzisions-Forschungspeptide aus einem Biotech-Labor. Verwenden Sie meinen Code {code} bei Ihrer ersten Bestellung: {link}",
       emailShareSubject: "ORYN Peptides — Präzisions-Forschungspeptide",
       emailShareBody: "Hallo,\n\nIch wollte ORYN Peptides mit Ihnen teilen. Sie produzieren pharmazeutische Forschungspeptide mit >99% Reinheit.\n\nVerwenden Sie meinen Empfehlungscode: {code}\n\nOder klicken Sie hier: {link}\n\nMit freundlichen Grüßen",
     },
@@ -1302,7 +1302,7 @@ const de = {
       tagline: "WILLKOMMEN BEI ORYN",
       title: "Präzisions-Peptid-Wissenschaft",
       description:
-        "Europäisches Biotech-Labor mit >99% Reinheit Forschungspeptiden in Präzisions-Pen-Systemen. Verwenden Sie den Code WELCOME10 bei Ihrer ersten Bestellung.",
+        "Biotech-Labor mit >99% Reinheit Forschungspeptiden in Präzisions-Pen-Systemen. Verwenden Sie den Code WELCOME10 bei Ihrer ersten Bestellung.",
       benefits: [
         "Kostenloser Versand ab 150€",
         "GMP-zertifizierte Herstellung",
@@ -1579,7 +1579,7 @@ const de = {
       {
         title: "Peptidsynthese",
         description:
-          "Festphasen-Peptidsynthese (SPPS) in GMP-zertifizierten europäischen Einrichtungen unter ISO 9001 Qualitätsmanagement.",
+          "Festphasen-Peptidsynthese (SPPS) in GMP-zertifizierten Einrichtungen unter ISO 9001 Qualitätsmanagement.",
       },
       {
         title: "HPLC-Analyse",

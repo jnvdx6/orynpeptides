@@ -161,7 +161,7 @@ export default async function CityPage({
             {[
               { label: `${city.deliveryDays}-Day Delivery`, sub: `To ${city.name}` },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "Pre-Mixed Pens", sub: "Ready to Use" },
             ].map((item) => (
               <div key={item.label} className="text-center">

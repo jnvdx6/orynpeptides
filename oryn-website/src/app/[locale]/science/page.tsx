@@ -57,7 +57,7 @@ export default async function SciencePage({
 
   const scienceFaqs = [
     { question: "What purity standards do ORYN peptides meet?", answer: "All ORYN peptides exceed 99% purity, verified by independent HPLC testing. Each batch comes with a Certificate of Analysis confirming purity, identity, and sterility." },
-    { question: "How are ORYN peptides manufactured?", answer: "ORYN peptides are synthesised in GMP-certified European laboratories using solid-phase peptide synthesis (SPPS). The process includes raw material verification, synthesis, purification, lyophilisation, sterile filling, and independent third-party testing." },
+    { question: "How are ORYN peptides manufactured?", answer: "ORYN peptides are synthesised in GMP-certified laboratories in South Korea using solid-phase peptide synthesis (SPPS). The process includes raw material verification, synthesis, purification, lyophilisation, sterile filling, and independent third-party testing." },
     { question: "What is a peptide pen system?", answer: "ORYN's peptide pen is a pre-mixed, pre-loaded delivery system that eliminates the need for reconstitution. Each pen contains a precise amount of peptide in bacteriostatic solution, ready for immediate research use with consistent dosing." },
     { question: "Are ORYN peptides legal in the UK?", answer: "Research peptides are legal to purchase in the UK for research purposes. ORYN products are sold strictly for in-vitro research and are not intended for human consumption or self-administration." },
   ];

@@ -110,7 +110,7 @@ function generateCountyIntroText(
       : `${county.deliveryDays}-day delivery`;
   const citiesList = county.majorCities.join(", ");
 
-  return `${county.name} is a county in ${county.region} with a population of ${county.population}, encompassing major centres including ${citiesList}. For researchers and professionals in ${county.name} seeking high-quality ${category.name.toLowerCase()} peptide compounds, ORYN provides a trusted source with ${deliveryPhrase} across ${county.region}. Our ${category.name.toLowerCase()} range \u2014 featuring ${productNames} \u2014 is manufactured to >99% purity in GMP-certified European facilities, with every batch independently verified via HPLC and mass spectrometry.`;
+  return `${county.name} is a county in ${county.region} with a population of ${county.population}, encompassing major centres including ${citiesList}. For researchers and professionals in ${county.name} seeking high-quality ${category.name.toLowerCase()} peptide compounds, ORYN provides a trusted source with ${deliveryPhrase} across ${county.region}. Our ${category.name.toLowerCase()} range \u2014 featuring ${productNames} \u2014 is manufactured to >99% purity in GMP-certified facilities in South Korea, with every batch independently verified via HPLC and mass spectrometry.`;
 }
 
 // ─── Other Counties Helper ─────────────────────────────────────────────────
@@ -268,7 +268,7 @@ export default async function CategoryCountyPage({
             {[
               { label: `${deliveryLabel} Delivery`, sub: `To ${county.name}` },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "Pre-Mixed Pens", sub: "Ready to Use" },
             ].map((item) => (
               <div key={item.label} className="text-center">

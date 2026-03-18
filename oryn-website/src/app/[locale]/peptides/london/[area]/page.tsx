@@ -189,7 +189,7 @@ export default async function LondonAreaPage({
             {[
               { label: "Next-Day Delivery", sub: `To ${area.postcode}` },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "Pre-Mixed Pens", sub: "Ready to Use" },
             ].map((item) => (
               <div key={item.label} className="text-center">

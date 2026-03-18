@@ -29,7 +29,7 @@ export const AUTHORS: Author[] = [
     name: "Dr. Marcus Weber",
     title: "European Research Director",
     credentials: "PhD in Molecular Biology",
-    bio: "Dr. Marcus Weber holds a PhD in Molecular Biology from ETH Zurich and specialises in European regulatory frameworks for research-grade biologics. As ORYN's European Research Director, he manages cross-border compliance, EU regulatory filings, and partnerships with European GMP facilities. His decade of experience navigating MHRA, EMA, and national regulatory bodies makes him a trusted voice on peptide legality across Europe.",
+    bio: "Dr. Marcus Weber holds a PhD in Molecular Biology from ETH Zurich and specialises in European regulatory frameworks for research-grade biologics. As ORYN's European Research Director, he manages cross-border compliance, EU regulatory filings, and partnerships with GMP facilities. His decade of experience navigating MHRA, EMA, and national regulatory bodies makes him a trusted voice on peptide legality across Europe.",
     image: "/og-image.png",
   },
 ];

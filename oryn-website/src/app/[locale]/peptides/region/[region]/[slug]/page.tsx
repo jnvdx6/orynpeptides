@@ -126,7 +126,7 @@ function categoryFaqs(
     },
     {
       question: `Why choose ORYN for ${categoryName.toLowerCase()} peptides in ${regionName}?`,
-      answer: `ORYN delivers pharmaceutical-grade ${categoryName.toLowerCase()} peptides to all major cities in ${regionName}. Every product exceeds 99% purity, is manufactured in GMP-certified European facilities, and comes with a Certificate of Analysis. Our pen system eliminates reconstitution and dosing errors.`,
+      answer: `ORYN delivers pharmaceutical-grade ${categoryName.toLowerCase()} peptides to all major cities in ${regionName}. Every product exceeds 99% purity, is manufactured in GMP-certified facilities in South Korea, and comes with a Certificate of Analysis. Our pen system eliminates reconstitution and dosing errors.`,
     },
     {
       question: `Are ${categoryName.toLowerCase()} peptides legal in ${regionName}?`,
@@ -293,7 +293,7 @@ export default async function RegionSlugPage({
                 },
                 { label: ">99% Purity", sub: "HPLC Verified" },
                 { label: product.dosage, sub: "Precision Dosed" },
-                { label: "GMP Certified", sub: "European Facility" },
+                { label: "GMP Certified", sub: "South Korea" },
               ].map((item) => (
                 <div key={item.label} className="text-center">
                   <p className="text-sm font-bold">{item.label}</p>
@@ -884,7 +884,7 @@ export default async function RegionSlugPage({
                 label: `${categoryProducts.length} Products`,
                 sub: cat.name,
               },
-              { label: "GMP Certified", sub: "European Facility" },
+              { label: "GMP Certified", sub: "South Korea" },
             ].map((item) => (
               <div key={item.label} className="text-center">
                 <p className="text-sm font-bold">{item.label}</p>

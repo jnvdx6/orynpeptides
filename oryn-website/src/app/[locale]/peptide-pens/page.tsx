@@ -62,7 +62,7 @@ const PEN_ADVANTAGES = [
   },
   {
     title: ">99% Purity",
-    desc: "Every batch independently verified by HPLC and mass spectrometry. GMP manufactured in EU facilities.",
+    desc: "Every batch independently verified by HPLC and mass spectrometry. GMP manufactured in South Korea.",
   },
   {
     title: "Next-Day UK Delivery",
@@ -343,7 +343,7 @@ export default async function PeptidePensPage({
               Peptide Pens Delivered Across Europe
             </h2>
             <p className="text-sm text-white/50 font-plex mb-8 max-w-2xl">
-              ORYN ships from EU GMP-certified facilities to 30+ countries with
+              ORYN ships GMP-certified peptides manufactured in South Korea to 30+ countries with
               tracked delivery. No customs fees, no import duties for EU customers.
             </p>
 
@@ -382,7 +382,7 @@ export default async function PeptidePensPage({
             {[
               {
                 q: "What is a peptide pen?",
-                a: "A peptide pen is a pre-mixed, dial-a-dose injection device containing research-grade peptides. Unlike traditional vials that require reconstitution with bacteriostatic water and syringe measurement, peptide pens come ready to use with factory-calibrated dosing. ORYN peptide pens are manufactured in EU GMP-certified facilities with >99% purity.",
+                a: "A peptide pen is a pre-mixed, dial-a-dose injection device containing research-grade peptides. Unlike traditional vials that require reconstitution with bacteriostatic water and syringe measurement, peptide pens come ready to use with factory-calibrated dosing. ORYN peptide pens are manufactured in South Korea in GMP-certified facilities with >99% purity.",
               },
               {
                 q: "How do I use a peptide pen?",
@@ -398,7 +398,7 @@ export default async function PeptidePensPage({
               },
               {
                 q: "Can I buy peptide pens in Europe?",
-                a: "Yes. ORYN delivers peptide pens to 30+ European countries from EU-based facilities. UK orders arrive next business day, EU orders within 3-5 business days. No customs fees or import duties apply for EU customers.",
+                a: "Yes. ORYN delivers peptide pens to 30+ European countries, manufactured in GMP-certified facilities in South Korea. UK orders arrive next business day, EU orders within 3-5 business days. No customs fees or import duties apply for EU customers.",
               },
               {
                 q: "How much do peptide pens cost?",

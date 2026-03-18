@@ -100,7 +100,7 @@ function generateAreaIntroText(
 ): string {
   const productNames = products.map((p) => p.name).join(" and ");
 
-  return `${area.name} is ${area.description}. For researchers and professionals in ${area.name} seeking high-quality ${category.name.toLowerCase()} peptide compounds, ORYN provides a trusted source with next-day delivery across ${area.borough}. Our ${category.name.toLowerCase()} range \u2014 featuring ${productNames} \u2014 is manufactured to >99% purity in GMP-certified European facilities, with every batch independently verified via HPLC and mass spectrometry.`;
+  return `${area.name} is ${area.description}. For researchers and professionals in ${area.name} seeking high-quality ${category.name.toLowerCase()} peptide compounds, ORYN provides a trusted source with next-day delivery across ${area.borough}. Our ${category.name.toLowerCase()} range \u2014 featuring ${productNames} \u2014 is manufactured to >99% purity in GMP-certified facilities in South Korea, with every batch independently verified via HPLC and mass spectrometry.`;
 }
 
 function generateWhyChooseText(
@@ -287,7 +287,7 @@ export default async function CategoryLondonAreaPage({
             {[
               { label: "Next-Day Delivery", sub: `To ${area.name}` },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "Pre-Mixed Pens", sub: "Ready to Use" },
             ].map((item) => (
               <div key={item.label} className="text-center">
@@ -570,7 +570,7 @@ export default async function CategoryLondonAreaPage({
                   `${categoryProducts.length} ${category.name.toLowerCase()} product${categoryProducts.length !== 1 ? "s" : ""} available`,
                   `Next-day delivery to ${area.name}`,
                   ">99% purity, HPLC verified",
-                  "GMP-certified European manufacturing",
+                  "GMP-certified manufacturing in South Korea",
                   "Pre-mixed, precision-dosed pens",
                   "Temperature-controlled shipping",
                 ].map((item) => (

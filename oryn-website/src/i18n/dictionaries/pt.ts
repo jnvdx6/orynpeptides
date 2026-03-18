@@ -225,7 +225,7 @@ const pt = {
 
   footer: {
     description:
-      "Ciência Peptídica de Precisão. Laboratório biotecnológico europeu que fornece soluções peptídicas de grau de investigação projetadas com precisão molecular.",
+      "Ciência Peptídica de Precisão. Laboratório biotecnológico que fornece soluções peptídicas de grau de investigação projetadas com precisão molecular.",
     researchOnly: "APENAS PARA FINS DE INVESTIGAÇÃO",
     newsletterTitle: "Mantenha-se Atualizado",
     newsletterDescription: "Receba as últimas novidades sobre peptídeos, investigação e ofertas exclusivas.",
@@ -439,7 +439,7 @@ const pt = {
     heroTitle1: "A Ciência Por Trás",
     heroTitle2: "da Precisão",
     heroDescription:
-      "A ORYN é um laboratório biotecnológico europeu dedicado a avançar na investigação peptídica através de fabrico de grau farmacêutico, sistemas de administração inovadores e padrões de qualidade intransigentes.",
+      "A ORYN é um laboratório biotecnológico dedicado a avançar na investigação peptídica através de fabrico de grau farmacêutico, sistemas de administração inovadores e padrões de qualidade intransigentes.",
     brandStatement:
       "Acreditamos que a investigação peptídica merece o mesmo rigor de fabrico que a",
     brandHighlight: "produção farmacêutica.",
@@ -1020,7 +1020,7 @@ const pt = {
     items: [
       { q: "O que são as ORYN Peptide Pens?", a: "As ORYN Peptide Pens são sistemas de administração de peptídeos de investigação pré-misturados e prontos a usar. Cada caneta contém peptídeos de grau farmacêutico com >99% de pureza, fabricados nas nossas instalações de sala limpa ISO 7. O formato de caneta elimina a necessidade de reconstituição, assegurando uma dosagem consistente para aplicações de investigação." },
       { q: "Os peptídeos são legais em Portugal e na Europa?", a: "Sim, os peptídeos de investigação são legais para compra em Portugal e em toda a Europa para fins de investigação. Os peptídeos ORYN são vendidos estritamente para investigação in-vitro e uso laboratorial. Não se destinam a consumo humano." },
-      { q: "Como são fabricados os vossos peptídeos?", a: "Todos os peptídeos ORYN são sintetizados no nosso laboratório de sala limpa ISO 7 certificado GMP na Europa. Cada lote é submetido a rigorosas análises de HPLC e espectrometria de massa para verificar >99% de pureza. É incluído um Certificado de Análise (COA) em cada encomenda." },
+      { q: "Como são fabricados os vossos peptídeos?", a: "Todos os peptídeos ORYN são sintetizados no nosso laboratório de sala limpa ISO 7 certificado GMP na Coreia do Sul. Cada lote é submetido a rigorosas análises de HPLC e espectrometria de massa para verificar >99% de pureza. É incluído um Certificado de Análise (COA) em cada encomenda." },
       { q: "Quanto tempo demora a entrega?", a: "As encomendas em Portugal chegam normalmente em 3-5 dias úteis. Encomendas europeias demoram 3-7 dias úteis conforme o destino. Todas as encomendas são enviadas em embalagem discreta e com temperatura controlada. Encomendas superiores a 150€ têm envio gratuito." },
       { q: "O que é o Programa de Referências ORYN?", a: "O nosso programa de referências multinível permite-lhe ganhar 10% de comissão nas compras feitas por colegas que referir. Também ganha comissões até 5 níveis de profundidade à medida que a sua rede cresce. Registe-se gratuitamente para obter o seu código de referência único." },
       { q: "Oferecem preços por volume ou por grosso?", a: "Sim, oferecemos descontos por volume a partir de 3+ unidades. Quanto mais encomendar, maior o desconto — até 15% de desconto para encomendas de investigação de grande volume. Contacte-nos para preços por grosso personalizados." },
@@ -1238,7 +1238,7 @@ const pt = {
         { title: "Eles Encomendam", desc: "Quando se registam com o seu código e fazem uma encomenda, ganha comissão." },
         { title: "Ganhe Recompensas", desc: "Ganhe 10% em referências diretas, mais comissões nas referências deles até 5 níveis de profundidade." },
       ],
-      whatsappShareText: "Descubra ORYN Peptides — péptidos de investigação de precisão de um laboratório biotech europeu. Use o meu código {code} na sua primeira encomenda: {link}",
+      whatsappShareText: "Descubra ORYN Peptides — péptidos de investigação de precisão de um laboratório biotech. Use o meu código {code} na sua primeira encomenda: {link}",
       emailShareSubject: "ORYN Peptides — Péptidos de Investigação de Precisão",
       emailShareBody: "Olá,\n\nQueria partilhar a ORYN Peptides consigo. Produzem péptidos de investigação de grau farmacêutico com >99% de pureza.\n\nUse o meu código de referência: {code}\n\nOu clique aqui: {link}\n\nCumprimentos",
     },
@@ -1302,7 +1302,7 @@ const pt = {
       tagline: "BEM-VINDO À ORYN",
       title: "Ciência Peptídica de Precisão",
       description:
-        "Laboratório europeu de biotecnologia com peptídeos de investigação de >99% de pureza em sistemas de caneta de precisão. Use o código WELCOME10 na sua primeira encomenda.",
+        "Laboratório de biotecnologia com peptídeos de investigação de >99% de pureza em sistemas de caneta de precisão. Use o código WELCOME10 na sua primeira encomenda.",
       benefits: [
         "Envio gratuito a partir de 150€",
         "Fabrico certificado GMP",
@@ -1579,7 +1579,7 @@ const pt = {
       {
         title: "Síntese de Péptidos",
         description:
-          "Síntese de péptidos em fase sólida (SPPS) em instalações europeias certificadas GMP sob sistema de gestão de qualidade ISO 9001.",
+          "Síntese de péptidos em fase sólida (SPPS) em instalações certificadas GMP sob sistema de gestão de qualidade ISO 9001.",
       },
       {
         title: "Análise HPLC",

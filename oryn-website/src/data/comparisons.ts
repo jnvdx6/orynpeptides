@@ -97,7 +97,7 @@ export const COMPARISONS: PeptideComparison[] = [
       },
       {
         heading: "ORYN Tirzepatide Options",
-        content: "ORYN offers two tirzepatide formats to suit different research needs:\n\n**Tirzepatide Pen (€169)**\n- 10mg in a multi-dose pen system\n- 30-day supply with daily precision dosing\n- Fully adjustable dose — ideal for dose-finding research\n- >99% purity, GMP manufactured\n\n**MediT Pen (€249)**\n- 40mg prefilled, single-use injection pen\n- Once-weekly administration\n- Maximum convenience — no dose adjustment needed\n- Ideal for fixed-dose weekly protocols\n\nBoth formats deliver the same pharmaceutical-grade tirzepatide with >99% purity from GMP-certified European facilities.",
+        content: "ORYN offers two tirzepatide formats to suit different research needs:\n\n**Tirzepatide Pen (€169)**\n- 10mg in a multi-dose pen system\n- 30-day supply with daily precision dosing\n- Fully adjustable dose — ideal for dose-finding research\n- >99% purity, GMP manufactured\n\n**MediT Pen (€249)**\n- 40mg prefilled, single-use injection pen\n- Once-weekly administration\n- Maximum convenience — no dose adjustment needed\n- Ideal for fixed-dose weekly protocols\n\nBoth formats deliver the same pharmaceutical-grade tirzepatide with >99% purity from GMP-certified facilities in South Korea.",
       },
       {
         heading: "Side Effect Considerations",

@@ -225,7 +225,7 @@ const pl = {
 
   footer: {
     description:
-      "Precyzyjna nauka peptydowa. Europejskie laboratorium biotechnologiczne dostarczające rozwiązania peptydowe klasy badawczej, zaprojektowane z precyzją molekularną.",
+      "Precyzyjna nauka peptydowa. Laboratorium biotechnologiczne dostarczające rozwiązania peptydowe klasy badawczej, zaprojektowane z precyzją molekularną.",
     researchOnly: "WYŁĄCZNIE DO CELÓW BADAWCZYCH",
     newsletterTitle: "Bądź na bieżąco",
     newsletterDescription: "Otrzymuj najnowsze informacje o nowych peptydach, aktualnościach badawczych i ekskluzywnych ofertach.",
@@ -439,7 +439,7 @@ const pl = {
     heroTitle1: "Nauka stojąca za",
     heroTitle2: "precyzją",
     heroDescription:
-      "ORYN to europejskie laboratorium biotechnologiczne, którego celem jest rozwój badań peptydowych poprzez produkcję klasy farmaceutycznej, innowacyjne systemy dostarczania i bezkompromisowe standardy jakości.",
+      "ORYN to laboratorium biotechnologiczne, którego celem jest rozwój badań peptydowych poprzez produkcję klasy farmaceutycznej, innowacyjne systemy dostarczania i bezkompromisowe standardy jakości.",
     brandStatement:
       "Wierzymy, że badania peptydowe zasługują na taką samą rygorystyczność produkcji jak",
     brandHighlight: "produkcja farmaceutyczna.",
@@ -1020,7 +1020,7 @@ const pl = {
     items: [
       { q: "Czym są ORYN Peptide Pens?", a: "ORYN Peptide Pens to wstępnie przygotowane, gotowe do użycia systemy dostarczania peptydów badawczych. Każdy pen zawiera peptydy klasy farmaceutycznej o czystości >99%, wytwarzane w naszym obiekcie z cleanroomem klasy ISO 7. Format pena eliminuje konieczność rekonstitucji, zapewniając spójne dawkowanie w zastosowaniach badawczych." },
       { q: "Czy peptydy są legalne w UK i Europie?", a: "Tak, peptydy badawcze można legalnie kupić w UK i w całej Europie do celów badawczych. Peptydy ORYN sprzedawane są wyłącznie do badań in-vitro i użytku laboratoryjnego. Nie są przeznaczone do spożycia przez ludzi." },
-      { q: "Jak wytwarzane są wasze peptydy?", a: "Wszystkie peptydy ORYN są syntetyzowane w naszym laboratorium z certyfikatem GMP i cleanroomem klasy ISO 7 w Europie. Każda partia przechodzi rygorystyczne testy HPLC i spektrometrii masowej, potwierdzające czystość >99%. Certyfikat Analizy (COA) jest dołączany do każdego zamówienia." },
+      { q: "Jak wytwarzane są wasze peptydy?", a: "Wszystkie peptydy ORYN są syntetyzowane w naszym laboratorium z certyfikatem GMP i cleanroomem klasy ISO 7 w Korei Południowej. Każda partia przechodzi rygorystyczne testy HPLC i spektrometrii masowej, potwierdzające czystość >99%. Certyfikat Analizy (COA) jest dołączany do każdego zamówienia." },
       { q: "Jak długo trwa dostawa?", a: "Zamówienia UK zazwyczaj docierają w ciągu 2-4 dni roboczych. Zamówienia europejskie w ciągu 3-7 dni roboczych, w zależności od destynacji. Wszystkie zamówienia wysyłane są w dyskretnym opakowaniu z kontrolą temperatury. Zamówienia powyżej €150 kwalifikują się do darmowej wysyłki." },
       { q: "Czym jest Program Poleceń ORYN?", a: "Nasz wielopoziomowy program poleceń pozwala zarabiać 10% prowizji od zakupów dokonanych przez poleconych współpracowników. Zarabiasz prowizje do 5 poziomów w głąb, w miarę rozrastania się Twojej sieci. Załóż darmowe konto, aby otrzymać swój unikatowy kod polecenia." },
       { q: "Czy oferujecie rabaty ilościowe lub hurtowe?", a: "Tak, oferujemy rabaty ilościowe zaczynając od 3+ jednostek. Im więcej zamawiasz, tym większy rabat — nawet do 15% zniżki na duże zamówienia badawcze. Skontaktuj się z nami w sprawie indywidualnych cen hurtowych." },
@@ -1238,7 +1238,7 @@ const pl = {
         { title: "Składają zamówienie", desc: "Gdy zarejestrują się z Twoim kodem i złożą zamówienie, zarabiasz prowizję." },
         { title: "Zarabiaj nagrody", desc: "Zarabiaj 10% od bezpośrednich poleceń, plus prowizje od ich poleceń do 5 poziomów w głąb." },
       ],
-      whatsappShareText: "Odkryj ORYN Peptides — precyzyjne peptydy badawcze z europejskiego laboratorium biotech. Użyj mojego kodu {code} przy pierwszym zamówieniu: {link}",
+      whatsappShareText: "Odkryj ORYN Peptides — precyzyjne peptydy badawcze z laboratorium biotech. Użyj mojego kodu {code} przy pierwszym zamówieniu: {link}",
       emailShareSubject: "ORYN Peptides — Precyzyjne Peptydy Badawcze",
       emailShareBody: "Cześć,\n\nChciałem podzielić się z Tobą ORYN Peptides. Produkują peptydy badawcze klasy farmaceutycznej o czystości >99%.\n\nUżyj mojego kodu polecającego: {code}\n\nLub kliknij tutaj: {link}\n\nPozdrawiam",
     },
@@ -1302,7 +1302,7 @@ const pl = {
       tagline: "WITAJ W ORYN",
       title: "Precyzyjna nauka peptydowa",
       description:
-        "Europejskie laboratorium biotechnologiczne dostarczające peptydy badawcze o czystości >99% w precyzyjnych systemach penów. Użyj kodu WELCOME10 przy pierwszym zamówieniu.",
+        "Laboratorium biotechnologiczne dostarczające peptydy badawcze o czystości >99% w precyzyjnych systemach penów. Użyj kodu WELCOME10 przy pierwszym zamówieniu.",
       benefits: [
         "Darmowa wysyłka powyżej €150",
         "Produkcja z certyfikatem GMP",
@@ -1579,7 +1579,7 @@ const pl = {
       {
         title: "Synteza Peptydów",
         description:
-          "Synteza peptydów w fazie stałej (SPPS) w certyfikowanych GMP europejskich obiektach w ramach systemu zarządzania jakością ISO 9001.",
+          "Synteza peptydów w fazie stałej (SPPS) w certyfikowanych GMP obiektach w ramach systemu zarządzania jakością ISO 9001.",
       },
       {
         title: "Analiza HPLC",

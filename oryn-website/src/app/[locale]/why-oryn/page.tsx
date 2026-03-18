@@ -109,9 +109,9 @@ const faqs = [
       "Yes, ORYN provides free next-day delivery on all UK orders over €150. All shipments use temperature-controlled packaging to maintain peptide integrity during transit. We deliver to over 15 major UK cities with same-day dispatch available for London orders. Orders under €150 ship for a flat rate with the same quality packaging.",
   },
   {
-    question: "Are ORYN peptides manufactured in the UK?",
+    question: "Where are ORYN peptides manufactured?",
     answer:
-      "ORYN peptides are manufactured in GMP-certified European facilities with ISO 7 cleanroom production standards. Our manufacturing process includes solid-phase peptide synthesis (SPPS), multi-step HPLC purification, sterile filling under ISO 7 conditions, 0.22\u03BCm filtration, gamma ray sterilisation, and independent third-party testing. Every step is documented for full batch traceability.",
+      "ORYN peptides are manufactured in GMP-certified facilities in South Korea with ISO 7 cleanroom production standards. Our manufacturing process includes solid-phase peptide synthesis (SPPS), multi-step HPLC purification, sterile filling under ISO 7 conditions, 0.22\u03BCm filtration, gamma ray sterilisation, and independent third-party testing. Every step is documented for full batch traceability.",
   },
 ];
 

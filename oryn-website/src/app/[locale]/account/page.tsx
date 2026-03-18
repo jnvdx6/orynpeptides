@@ -153,7 +153,7 @@ export default function AccountDashboard() {
             </button>
             <button
               onClick={() => {
-                const body = `Hi, check out ORYN Peptides — European biotech lab with >99% purity research peptides.\n\nUse my referral code: ${user.referralCode}\n${window.location.origin}/${locale}/products?ref=${user.referralCode}`;
+                const body = `Hi, check out ORYN Peptides — biotech lab with >99% purity research peptides.\n\nUse my referral code: ${user.referralCode}\n${window.location.origin}/${locale}/products?ref=${user.referralCode}`;
                 window.open(`mailto:?subject=${encodeURIComponent("ORYN Peptides")}&body=${encodeURIComponent(body)}`, "_blank");
               }}
               className="px-2 py-1 bg-oryn-black text-white text-[8px] font-medium hover:bg-oryn-black/80 transition-colors"

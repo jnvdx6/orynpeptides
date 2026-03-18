@@ -225,7 +225,7 @@ const fr = {
 
   footer: {
     description:
-      "Science Peptidique de Précision. Laboratoire européen de biotechnologie fournissant des solutions peptidiques de qualité recherche, conçues pour la précision moléculaire.",
+      "Science Peptidique de Précision. Laboratoire de biotechnologie fournissant des solutions peptidiques de qualité recherche, conçues pour la précision moléculaire.",
     researchOnly: "À DES FINS DE RECHERCHE UNIQUEMENT",
     newsletterTitle: "Restez Informé",
     newsletterDescription: "Recevez les dernières actualités sur les nouveaux peptides, les avancées de la recherche et les offres exclusives.",
@@ -439,7 +439,7 @@ const fr = {
     heroTitle1: "La Science Derrière",
     heroTitle2: "la Précision",
     heroDescription:
-      "ORYN est un laboratoire européen de biotechnologie dédié à l'avancement de la recherche peptidique grâce à une fabrication de qualité pharmaceutique, des systèmes d'administration innovants et des normes de qualité intransigeantes.",
+      "ORYN est un laboratoire de biotechnologie dédié à l'avancement de la recherche peptidique grâce à une fabrication de qualité pharmaceutique en Corée du Sud, des systèmes d'administration innovants et des normes de qualité intransigeantes.",
     brandStatement:
       "Nous croyons que la recherche peptidique mérite la même rigueur de fabrication que la",
     brandHighlight: "production pharmaceutique.",
@@ -1020,7 +1020,7 @@ const fr = {
     items: [
       { q: "Que sont les Stylos Peptidiques ORYN ?", a: "Les Stylos Peptidiques ORYN sont des systèmes d'administration de peptides de recherche prémélangés et prêts à l'emploi. Chaque stylo contient des peptides de qualité pharmaceutique à une pureté >99%, fabriqués dans notre installation de salle blanche ISO 7. Le format stylo élimine le besoin de reconstitution, assurant un dosage constant pour les applications de recherche." },
       { q: "Les peptides sont-ils légaux en France et en Europe ?", a: "Oui, les peptides de recherche sont légaux à l'achat en France et dans toute l'Europe à des fins de recherche. Les Peptides ORYN sont vendus strictement pour la recherche in vitro et l'usage en laboratoire. Ils ne sont pas destinés à la consommation humaine." },
-      { q: "Comment sont fabriqués vos peptides ?", a: "Tous les peptides ORYN sont synthétisés dans notre laboratoire certifié GMP en salle blanche ISO 7 en Europe. Chaque lot subit des tests rigoureux HPLC et de spectrométrie de masse pour vérifier une pureté >99%. Un Certificat d'Analyse (COA) est inclus avec chaque commande." },
+      { q: "Comment sont fabriqués vos peptides ?", a: "Tous les peptides ORYN sont synthétisés dans notre laboratoire certifié GMP en salle blanche ISO 7 en Corée du Sud. Chaque lot subit des tests rigoureux HPLC et de spectrométrie de masse pour vérifier une pureté >99%. Un Certificat d'Analyse (COA) est inclus avec chaque commande." },
       { q: "Quels sont les délais de livraison ?", a: "Les commandes en France arrivent généralement en 2-4 jours ouvrables. Les commandes européennes prennent 3-7 jours ouvrables selon la destination. Toutes les commandes sont expédiées dans un emballage discret à température contrôlée. Les commandes de plus de €150 bénéficient de la livraison gratuite." },
       { q: "Qu'est-ce que le Programme de Parrainage ORYN ?", a: "Notre programme de parrainage multi-niveaux vous permet de gagner 10% de commission sur les achats effectués par les collègues que vous parrainez. Vous gagnez également des commissions jusqu'à 5 niveaux de profondeur à mesure que votre réseau s'agrandit. Créez un compte gratuit pour obtenir votre code de parrainage unique." },
       { q: "Proposez-vous des tarifs de gros ou en volume ?", a: "Oui, nous proposons des remises volume à partir de 3 unités et plus. Plus vous commandez, plus la remise est importante — jusqu'à 15% de réduction pour les grosses commandes de recherche. Contactez-nous pour des tarifs de gros personnalisés sur les commandes en volume." },
@@ -1238,7 +1238,7 @@ const fr = {
         { title: "Ils Commandent", desc: "Lorsqu'ils s'inscrivent avec votre code et passent une commande, vous gagnez une commission." },
         { title: "Gagnez des Récompenses", desc: "Gagnez 10% sur les parrainages directs, plus des commissions sur leurs parrainages jusqu'à 5 niveaux de profondeur." },
       ],
-      whatsappShareText: "Découvrez ORYN Peptides — des peptides de recherche de précision d'un laboratoire biotech européen. Utilisez mon code {code} pour votre première commande : {link}",
+      whatsappShareText: "Découvrez ORYN Peptides — des peptides de recherche de précision fabriqués en Corée du Sud. Utilisez mon code {code} pour votre première commande : {link}",
       emailShareSubject: "ORYN Peptides — Peptides de Recherche de Précision",
       emailShareBody: "Bonjour,\n\nJe voulais partager ORYN Peptides avec vous. Ils produisent des peptides de recherche de qualité pharmaceutique avec >99% de pureté.\n\nUtilisez mon code de parrainage : {code}\n\nOu cliquez ici : {link}\n\nCordialement",
     },
@@ -1302,7 +1302,7 @@ const fr = {
       tagline: "BIENVENUE CHEZ ORYN",
       title: "Science Peptidique de Précision",
       description:
-        "Laboratoire européen de biotechnologie livrant des peptides de recherche à pureté >99% dans des systèmes de stylos de précision. Utilisez le code WELCOME10 sur votre première commande.",
+        "Laboratoire de biotechnologie livrant des peptides de recherche à pureté >99% dans des systèmes de stylos de précision. Fabriqués en Corée du Sud. Utilisez le code WELCOME10 sur votre première commande.",
       benefits: [
         "Livraison gratuite dès 150€",
         "Fabrication certifiée GMP",
@@ -1579,7 +1579,7 @@ const fr = {
       {
         title: "Synthèse de Peptides",
         description:
-          "Synthèse de peptides en phase solide (SPPS) dans des installations européennes certifiées GMP sous système de management de la qualité ISO 9001.",
+          "Synthèse de peptides en phase solide (SPPS) dans des installations certifiées GMP en Corée du Sud sous système de management de la qualité ISO 9001.",
       },
       {
         title: "Analyse HPLC",

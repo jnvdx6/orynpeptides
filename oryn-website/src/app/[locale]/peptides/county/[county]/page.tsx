@@ -214,7 +214,7 @@ export default async function CountyPage({
                 sub: `Across ${county.name}`,
               },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "10 Products", sub: "Full Range Available" },
             ].map((item) => (
               <div key={item.label} className="text-center">
@@ -249,7 +249,7 @@ export default async function CountyPage({
                 to a growing peptide research community. ORYN supports
                 researchers with the highest standards of purity, precision
                 dosing, and reliable supply — all manufactured in GMP-certified
-                European facilities.
+                facilities in South Korea.
               </p>
             </div>
             <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-8">

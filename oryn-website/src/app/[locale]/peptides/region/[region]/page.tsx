@@ -178,7 +178,7 @@ export default async function RegionPage({
             {[
               { label: `${region.deliveryDays}-Day Delivery`, sub: `Across ${region.name}` },
               { label: ">99% Purity", sub: "HPLC Verified" },
-              { label: "GMP Manufactured", sub: "European Facility" },
+              { label: "GMP Manufactured", sub: "South Korea" },
               { label: "10 Products", sub: "Full Range Available" },
             ].map((item) => (
               <div key={item.label} className="text-center">
