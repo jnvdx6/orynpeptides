@@ -8,12 +8,18 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
+const STRIPE_LOCALE_MAP: Record<string, string> = {
+  en: "en", es: "es", fr: "fr", de: "de", it: "it",
+  pt: "pt", "pt-br": "pt-BR", nl: "nl", pl: "pl",
+};
+
 interface StripeProviderProps {
   clientSecret: string;
   children: ReactNode;
+  locale?: string;
 }
 
-export function StripeProvider({ clientSecret, children }: StripeProviderProps) {
+export function StripeProvider({ clientSecret, children, locale }: StripeProviderProps) {
   const options: StripeElementsOptions = {
     clientSecret,
     appearance: {
@@ -71,7 +77,7 @@ export function StripeProvider({ clientSecret, children }: StripeProviderProps) 
         },
       },
     },
-    locale: "auto",
+    locale: (locale ? STRIPE_LOCALE_MAP[locale] ?? "auto" : "auto") as "auto",
   };
 
   return (

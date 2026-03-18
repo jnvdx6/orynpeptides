@@ -240,9 +240,15 @@ function PaymentFormInner({
   );
 }
 
+// Map app locale to Stripe-supported locale (Stripe uses BCP 47 codes)
+const STRIPE_LOCALE_MAP: Record<string, string> = {
+  en: "en", es: "es", fr: "fr", de: "de", it: "it",
+  pt: "pt", "pt-br": "pt-BR", nl: "nl", pl: "pl",
+};
+
 export default function StripeCheckout(props: StripeCheckoutProps) {
   const { cart } = useCart();
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   const clientSecret = cart?.payment_collection?.payment_sessions?.[0]?.data?.client_secret as string | undefined;
 
@@ -332,7 +338,7 @@ export default function StripeCheckout(props: StripeCheckoutProps) {
             },
           },
         },
-        locale: "auto",
+        locale: (STRIPE_LOCALE_MAP[locale] ?? "auto") as "auto",
       }}
     >
       <PaymentFormInner {...props} />
