@@ -5,6 +5,7 @@ import type { Product } from "@/data/products";
 import { productImages } from "@/data/products";
 import { useCart } from "@/lib/cart-context";
 import { useWishlist } from "@/providers/wishlist";
+import { useCompare } from "@/providers/compare";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 
@@ -24,7 +25,9 @@ const PEPTIDE_COLORS: Record<string, { bg: string; text: string }> = {
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
+  const { toggleCompare, isComparing } = useCompare();
   const { t, formatPrice } = useLocale();
+  const comparing = isComparing(product.id);
 
   const productT = t.products[product.slug];
   const subtitle = productT?.subtitle || product.subtitle;
@@ -34,7 +37,11 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="product-card group bg-white border border-oryn-orange/10 overflow-hidden hover:border-oryn-orange/30 block cursor-pointer"
+      className={`product-card group bg-white border overflow-hidden block cursor-pointer ${
+        comparing
+          ? "border-oryn-orange/50 ring-1 ring-oryn-orange/20"
+          : "border-oryn-orange/10 hover:border-oryn-orange/30"
+      }`}
     >
       <div className="relative aspect-[4/3] bg-oryn-cream overflow-hidden flex items-center justify-center p-6 sm:p-8">
         <Image
@@ -62,6 +69,26 @@ export function ProductCard({ product }: { product: Product }) {
             {product.name}
           </span>
         )}
+
+        {/* Compare toggle */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleCompare(product);
+          }}
+          className={`absolute ${PEPTIDE_COLORS[product.slug] ? "bottom-12" : "bottom-3"} left-3 h-7 flex items-center gap-1 px-2 text-[8px] font-mono tracking-[0.1em] transition-all z-10 active:scale-95 ${
+            comparing
+              ? "bg-oryn-orange text-white opacity-100"
+              : "bg-white/90 text-oryn-black/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:text-oryn-orange"
+          }`}
+          aria-label={comparing ? "Remove from comparison" : "Add to comparison"}
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+          </svg>
+          {comparing ? (t.compare?.comparing || "COMPARING") : (t.compare?.compare || "COMPARE")}
+        </button>
 
         {/* Wishlist button */}
         <button

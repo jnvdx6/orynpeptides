@@ -1995,6 +1995,19 @@ const es = {
       },
     ],
   },
+
+  compare: {
+    title: "Comparar Productos",
+    customTitle: "Personalizado",
+    compare: "COMPARAR",
+    comparing: "COMPARANDO",
+    compareNow: "COMPARAR",
+    clearAll: "BORRAR TODO",
+    selectMore: "Selecciona 1 m\u00e1s",
+    remove: "Eliminar",
+    productsSelected: "productos seleccionados",
+    emptyMessage: "Selecciona al menos 2 productos del cat\u00e1logo para compararlos lado a lado.",
+  },
 } as unknown as Dictionary;
 
 export default es;

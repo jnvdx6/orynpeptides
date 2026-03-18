@@ -1995,6 +1995,19 @@ const de = {
       },
     ],
   },
+
+  compare: {
+    title: "Produkte Vergleichen",
+    customTitle: "Benutzerdefiniert",
+    compare: "VERGLEICHEN",
+    comparing: "IM VERGLEICH",
+    compareNow: "VERGLEICHEN",
+    clearAll: "ALLE L\u00d6SCHEN",
+    selectMore: "W\u00e4hlen Sie 1 mehr",
+    remove: "Entfernen",
+    productsSelected: "Produkte ausgew\u00e4hlt",
+    emptyMessage: "W\u00e4hlen Sie mindestens 2 Produkte aus dem Katalog, um sie nebeneinander zu vergleichen.",
+  },
 } as unknown as Dictionary;
 
 export default de;

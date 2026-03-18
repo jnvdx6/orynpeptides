@@ -2018,6 +2018,19 @@ const en: Dictionary = {
       },
     ],
   },
+
+  compare: {
+    title: "Compare Products",
+    customTitle: "Custom",
+    compare: "COMPARE",
+    comparing: "COMPARING",
+    compareNow: "COMPARE",
+    clearAll: "CLEAR ALL",
+    selectMore: "Select 1 more",
+    remove: "Remove",
+    productsSelected: "products selected",
+    emptyMessage: "Select at least 2 products from the catalog to compare them side by side.",
+  },
 };
 
 export default en;

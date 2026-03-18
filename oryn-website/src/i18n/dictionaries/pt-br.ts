@@ -1996,6 +1996,19 @@ const ptBr = {
       },
     ],
   },
+
+  compare: {
+    title: "Comparar Produtos",
+    customTitle: "Personalizado",
+    compare: "COMPARAR",
+    comparing: "COMPARANDO",
+    compareNow: "COMPARAR",
+    clearAll: "LIMPAR TUDO",
+    selectMore: "Selecione mais 1",
+    remove: "Remover",
+    productsSelected: "produtos selecionados",
+    emptyMessage: "Selecione pelo menos 2 produtos do cat\u00e1logo para compar\u00e1-los lado a lado.",
+  },
 } as unknown as Dictionary;
 
 export default ptBr;

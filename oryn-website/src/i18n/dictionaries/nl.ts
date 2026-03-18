@@ -1995,6 +1995,19 @@ const nl = {
       },
     ],
   },
+
+  compare: {
+    title: "Producten Vergelijken",
+    customTitle: "Aangepast",
+    compare: "VERGELIJKEN",
+    comparing: "VERGELIJKEN",
+    compareNow: "VERGELIJKEN",
+    clearAll: "ALLES WISSEN",
+    selectMore: "Selecteer er nog 1",
+    remove: "Verwijderen",
+    productsSelected: "producten geselecteerd",
+    emptyMessage: "Selecteer minimaal 2 producten uit de catalogus om ze naast elkaar te vergelijken.",
+  },
 } as unknown as Dictionary;
 
 export default nl;

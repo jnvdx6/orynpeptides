@@ -1292,4 +1292,17 @@ export interface Dictionary {
       countries: Record<string, string>;
     };
   };
+
+  compare?: {
+    title: string;
+    customTitle: string;
+    compare: string;
+    comparing: string;
+    compareNow: string;
+    clearAll: string;
+    selectMore: string;
+    remove: string;
+    productsSelected: string;
+    emptyMessage: string;
+  };
 }

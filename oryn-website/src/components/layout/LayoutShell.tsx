@@ -8,6 +8,8 @@ import { CartProvider } from "@/lib/cart-context";
 import { ProductsProvider } from "@/providers/products";
 import { AuthProvider } from "@/providers/auth";
 import { WishlistProvider } from "@/providers/wishlist";
+import { CompareProvider } from "@/providers/compare";
+import { CompareBar } from "@/components/products/CompareBar";
 import { AddToCartToast } from "@/components/ui/AddToCartToast";
 import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
 import { FirstVisitPopup } from "@/components/ui/FirstVisitPopup";
@@ -36,25 +38,28 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       <ProductsProvider>
         <CartProvider>
           <WishlistProvider>
-            <Suspense fallback={null}>
-              <ReferralCaptureProvider />
-            </Suspense>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-oryn-orange focus:text-white focus:text-sm focus:font-medium"
-            >
-              Skip to main content
-            </a>
-            <FlashSaleBanner />
-            <Header />
-            <main id="main-content">{children}</main>
-            <AddToCartToast />
-            <ExitIntentPopup />
-            <FirstVisitPopup />
-            <CookieConsent />
-            <SocialProofToast />
-            <BackToTop />
-            <Footer />
+            <CompareProvider>
+              <Suspense fallback={null}>
+                <ReferralCaptureProvider />
+              </Suspense>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-oryn-orange focus:text-white focus:text-sm focus:font-medium"
+              >
+                Skip to main content
+              </a>
+              <FlashSaleBanner />
+              <Header />
+              <main id="main-content">{children}</main>
+              <AddToCartToast />
+              <CompareBar />
+              <ExitIntentPopup />
+              <FirstVisitPopup />
+              <CookieConsent />
+              <SocialProofToast />
+              <BackToTop />
+              <Footer />
+            </CompareProvider>
           </WishlistProvider>
         </CartProvider>
       </ProductsProvider>

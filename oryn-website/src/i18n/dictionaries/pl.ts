@@ -1995,6 +1995,19 @@ const pl = {
       },
     ],
   },
+
+  compare: {
+    title: "Por\u00f3wnaj Produkty",
+    customTitle: "W\u0142asne",
+    compare: "POR\u00d3WNAJ",
+    comparing: "POR\u00d3WNYWANIE",
+    compareNow: "POR\u00d3WNAJ",
+    clearAll: "WYCZY\u015a\u0106 WSZYSTKO",
+    selectMore: "Wybierz jeszcze 1",
+    remove: "Usu\u0144",
+    productsSelected: "wybranych produkt\u00f3w",
+    emptyMessage: "Wybierz co najmniej 2 produkty z katalogu, aby por\u00f3wna\u0107 je obok siebie.",
+  },
 } as unknown as Dictionary;
 
 export default pl;

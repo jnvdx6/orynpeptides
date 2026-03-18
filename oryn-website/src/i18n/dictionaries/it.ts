@@ -1995,6 +1995,19 @@ const it = {
       },
     ],
   },
+
+  compare: {
+    title: "Confronta Prodotti",
+    customTitle: "Personalizzato",
+    compare: "CONFRONTA",
+    comparing: "IN CONFRONTO",
+    compareNow: "CONFRONTA",
+    clearAll: "CANCELLA TUTTO",
+    selectMore: "Seleziona 1 in pi\u00f9",
+    remove: "Rimuovi",
+    productsSelected: "prodotti selezionati",
+    emptyMessage: "Seleziona almeno 2 prodotti dal catalogo per confrontarli fianco a fianco.",
+  },
 } as unknown as Dictionary;
 
 export default it;
