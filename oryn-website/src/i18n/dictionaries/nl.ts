@@ -311,6 +311,8 @@ const nl = {
     shipping: "Verzending",
     free: "GRATIS",
     atCheckout: "BIJ AFREKENEN",
+    estimatedShippingFrom: "Vanaf",
+    weAccept: "GEACCEPTEERDE BETAALMETHODEN",
     total: "Totaal",
     volumeDiscount: "Volumekorting",
     saveForLater: "Bewaar voor later",
@@ -694,6 +696,7 @@ const nl = {
     discount: "Korting",
     volumeDiscountLabel: "Volumekorting",
     calculatedNextStep: "Berekend in volgende stap",
+    selectCountryForShipping: "Selecteer land voor schatting",
     securePayment: "VEILIG BETALEN",
     discreetShipping: "DISCRETE VERZENDING",
     coaIncluded: "COA INBEGREPEN",
@@ -1333,6 +1336,7 @@ const nl = {
     paymentNotReady: "Het betalingssysteem is niet gereed. Probeer het opnieuw.",
     paymentFormLoading: "Het betalingsformulier wordt nog geladen. Even geduld.",
     orderCreationFailed: "Betaling verwerkt maar het aanmaken van de bestelling is mislukt. Neem contact op met support.",
+    orPayWith: "OF BETAAL MET KAART",
   },
 
   volumeDiscount: {

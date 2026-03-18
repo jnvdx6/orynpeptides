@@ -218,7 +218,9 @@ export default function CartPage() {
                   {amountToFreeShipping <= 0 ? (
                     <span className="text-oryn-orange text-xs font-medium">{t.cart.free}</span>
                   ) : (
-                    <span className="text-xs font-mono text-oryn-black/40">{t.cart.atCheckout}</span>
+                    <span className="text-xs text-oryn-black/60">
+                      {t.cart.estimatedShippingFrom || "Est."} {formatPrice(currencyCode === "gbp" ? 3.99 : 4.99)}
+                    </span>
                   )}
                 </div>
               </div>
@@ -237,9 +239,18 @@ export default function CartPage() {
                 </svg>
                 {t.cart.checkout}
               </Link>
+              {/* Accepted payment methods */}
+              <div className="flex items-center justify-center gap-3 mt-4 pb-1">
+                <span className="text-[8px] font-mono text-oryn-black/25 tracking-wider">{t.cart.weAccept || "WE ACCEPT"}</span>
+                <div className="flex items-center gap-2">
+                  {["Visa", "MC", "Klarna", "iDEAL", "GPay"].map((m) => (
+                    <span key={m} className="text-[9px] font-mono text-oryn-black/40 px-1.5 py-0.5 border border-oryn-grey/20 bg-white">{m}</span>
+                  ))}
+                </div>
+              </div>
               <Link
                 href="/products"
-                className="block w-full text-center text-sm text-oryn-black/40 hover:text-oryn-orange mt-4 transition-colors"
+                className="block w-full text-center text-sm text-oryn-black/40 hover:text-oryn-orange mt-3 transition-colors"
               >
                 {t.cart.continueShopping}
               </Link>

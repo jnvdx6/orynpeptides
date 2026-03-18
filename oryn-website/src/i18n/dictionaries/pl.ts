@@ -311,6 +311,8 @@ const pl = {
     shipping: "Wysyłka",
     free: "GRATIS",
     atCheckout: "PRZY KASIE",
+    estimatedShippingFrom: "Od",
+    weAccept: "AKCEPTOWANE METODY PŁATNOŚCI",
     total: "Razem",
     volumeDiscount: "Rabat ilościowy",
     saveForLater: "Zapisz na później",
@@ -694,6 +696,7 @@ const pl = {
     discount: "Rabat",
     volumeDiscountLabel: "Rabat ilościowy",
     calculatedNextStep: "Obliczone w następnym kroku",
+    selectCountryForShipping: "Wybierz kraj, aby oszacować",
     securePayment: "BEZPIECZNA PŁATNOŚĆ",
     discreetShipping: "DYSKRETNA WYSYŁKA",
     coaIncluded: "CERTYFIKAT ANALIZY",
@@ -1333,6 +1336,7 @@ const pl = {
     paymentNotReady: "System płatności nie jest gotowy. Spróbuj ponownie.",
     paymentFormLoading: "Formularz płatności wciąż się ładuje. Poczekaj chwilę.",
     orderCreationFailed: "Płatność przetworzona, ale utworzenie zamówienia nie powiodło się. Skontaktuj się z pomocą.",
+    orPayWith: "LUB ZAPŁAĆ KARTĄ",
   },
 
   volumeDiscount: {

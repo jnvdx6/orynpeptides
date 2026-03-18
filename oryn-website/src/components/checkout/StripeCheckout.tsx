@@ -7,9 +7,10 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { useCart } from "@/providers/cart";
+import { useCart } from "@/lib/cart-context";
 import { useLocale } from "@/i18n/LocaleContext";
 import { useState, useCallback } from "react";
+import { ExpressCheckout } from "./ExpressCheckout";
 
 // Only load Stripe if key is available
 const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
@@ -147,7 +148,17 @@ function PaymentFormInner({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <div className="space-y-5">
+      {/* Express Checkout — Apple Pay / Google Pay */}
+      <ExpressCheckout
+        onSuccess={onSuccess}
+        onError={onError}
+        totalItems={totalItems}
+        amount={amount}
+        dividerLabel={t.payment.orPayWith || "OR PAY WITH CARD"}
+      />
+
+      <form onSubmit={handleSubmit} className="space-y-5">
       <PaymentElement
         onReady={handleReady}
         options={{
@@ -225,6 +236,7 @@ function PaymentFormInner({
         </div>
       </div>
     </form>
+    </div>
   );
 }
 

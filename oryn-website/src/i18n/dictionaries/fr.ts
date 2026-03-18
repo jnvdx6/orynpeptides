@@ -311,6 +311,8 @@ const fr = {
     shipping: "Livraison",
     free: "GRATUITE",
     atCheckout: "AU PAIEMENT",
+    estimatedShippingFrom: "À partir de",
+    weAccept: "MOYENS DE PAIEMENT ACCEPTÉS",
     total: "Total",
     volumeDiscount: "Remise volume",
     saveForLater: "Sauvegarder pour plus tard",
@@ -694,6 +696,7 @@ const fr = {
     discount: "Réduction",
     volumeDiscountLabel: "Remise volume",
     calculatedNextStep: "Calculé à l'étape suivante",
+    selectCountryForShipping: "Sélectionnez le pays pour estimer",
     securePayment: "PAIEMENT SÉCURISÉ",
     discreetShipping: "EXPÉDITION DISCRÈTE",
     coaIncluded: "COA INCLUS",
@@ -1333,6 +1336,7 @@ const fr = {
     paymentNotReady: "Le système de paiement n'est pas prêt. Veuillez réessayer.",
     paymentFormLoading: "Le formulaire de paiement est en cours de chargement. Patientez un instant.",
     orderCreationFailed: "Paiement traité mais la création de la commande a échoué. Contactez le support.",
+    orPayWith: "OU PAYER PAR CARTE",
   },
 
   volumeDiscount: {

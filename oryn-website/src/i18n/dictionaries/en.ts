@@ -2,12 +2,12 @@ import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   meta: {
-    title: "ORYN | Peptide Pen Systems — Buy Precision-Dosed Peptides Online",
+    title: "Buy Peptides UK | Peptide Pen Systems from €99 | ORYN Peptide Labs",
     titleTemplate: "%s | ORYN Peptide Labs",
     description:
-      "Buy pharmaceutical-grade peptide pens online. BPC-157, NAD+, Tirzepatide, GHK-CU and more in reusable pen systems. GMP certified, >99% purity, manufactured in South Korea. From \u20ac99. Free shipping.",
+      "UK's leading peptide pen supplier. Buy BPC-157, NAD+, Tirzepatide, GHK-Cu & more in precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery from €99. Free shipping over €150.",
     ogDescription:
-      "Precision-dosed peptide pen systems. 10 research peptides from \u20ac99. Reusable pens with replaceable cartridges. GMP certified. >99% purity. Free shipping across Europe.",
+      "Buy research-grade peptide pens in the UK. 10 peptides from €99. Pre-mixed reusable pen systems. GMP certified, >99% purity. Next-day UK delivery. Free shipping across Europe.",
   },
 
   header: {
@@ -310,6 +310,8 @@ const en: Dictionary = {
     shipping: "Shipping",
     free: "FREE",
     atCheckout: "AT CHECKOUT",
+    estimatedShippingFrom: "From",
+    weAccept: "ACCEPTED PAYMENT METHODS",
     total: "Total",
     volumeDiscount: "Volume discount",
     saveForLater: "Save for later",
@@ -693,6 +695,7 @@ const en: Dictionary = {
     discount: "Discount",
     volumeDiscountLabel: "Volume discount",
     calculatedNextStep: "Calculated at next step",
+    selectCountryForShipping: "Select country for estimate",
     securePayment: "SECURE PAYMENT",
     discreetShipping: "DISCREET SHIPPING",
     coaIncluded: "COA INCLUDED",
@@ -1332,6 +1335,7 @@ const en: Dictionary = {
     paymentNotReady: "Payment system not ready. Please try again.",
     paymentFormLoading: "Payment form is still loading. Please wait a moment.",
     orderCreationFailed: "Payment processed but order creation failed. Please contact support.",
+    orPayWith: "OR PAY WITH CARD",
   },
 
   volumeDiscount: {

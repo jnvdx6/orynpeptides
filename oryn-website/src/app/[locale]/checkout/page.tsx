@@ -622,6 +622,7 @@ export default function CheckoutPage() {
               formatPrice={formatPrice}
               activeStep={activeStep}
               totalItems={totalItems}
+              selectedCountry={country}
             />
           </div>
         )}
@@ -1162,6 +1163,7 @@ export default function CheckoutPage() {
                 formatPrice={formatPrice}
                 activeStep={activeStep}
                 totalItems={totalItems}
+                selectedCountry={country}
               />
             </div>
           </div>
@@ -1192,6 +1194,7 @@ function OrderSummary({
   formatPrice,
   activeStep,
   totalItems,
+  selectedCountry,
 }: {
   items: Array<{ product: { id: string; name: string; image: string; price: number }; quantity: number }>;
   totalPrice: number;
@@ -1212,8 +1215,18 @@ function OrderSummary({
   formatPrice: (n: number) => string;
   activeStep: CheckoutStep;
   totalItems: number;
+  selectedCountry?: string;
 }) {
-  const { t } = useLocale();
+  const { t, locale, currencyCode } = useLocale();
+
+  // Estimate shipping based on selected country before actual rates are fetched
+  const shippingEstimate = (() => {
+    if (!selectedCountry || activeStep !== "information") return null;
+    if (totalPrice >= FREE_SHIPPING_THRESHOLD) return { amount: 0, isFree: true };
+    // UK gets GBP rates, rest of Europe gets EUR rates
+    const isUK = selectedCountry === "gb";
+    return { amount: isUK ? 3.99 : 4.99, isFree: false };
+  })();
   return (
     <div className="bg-oryn-grey-light/50 border border-oryn-grey/20 p-6">
       {/* Cart items */}
@@ -1331,7 +1344,11 @@ function OrderSummary({
           <span className="text-oryn-black/50">{t.checkoutPage.shipping}</span>
           <span>
             {activeStep === "information"
-              ? <span className="text-xs text-oryn-black/30">{t.checkoutPage.calculatedNextStep}</span>
+              ? shippingEstimate
+                ? shippingEstimate.isFree
+                  ? <span className="text-green-600 text-xs font-mono">{t.checkoutPage.free.toUpperCase()}</span>
+                  : <span className="text-xs text-oryn-black/60">{t.cart.estimatedShippingFrom || "Est."} {formatPrice(shippingEstimate.amount)}</span>
+                : <span className="text-xs text-oryn-black/30">{t.checkoutPage.selectCountryForShipping || "Select country for estimate"}</span>
               : shippingCost === 0
                 ? <span className="text-green-600 text-xs font-mono">{t.checkoutPage.free.toUpperCase()}</span>
                 : formatPrice(shippingCost)
@@ -1365,6 +1382,16 @@ function OrderSummary({
             <span className="text-[9px] font-mono text-oryn-black/40 tracking-[0.05em]">{trust.label}</span>
           </div>
         ))}
+      </div>
+
+      {/* Accepted payment methods */}
+      <div className="mt-4 pt-4 border-t border-oryn-grey/20">
+        <p className="text-[8px] font-mono text-oryn-black/25 tracking-wider mb-2">{t.cart.weAccept || "ACCEPTED PAYMENT METHODS"}</p>
+        <div className="flex flex-wrap gap-1.5">
+          {["Visa", "Mastercard", "Klarna", "iDEAL", "Apple Pay", "Google Pay"].map((m) => (
+            <span key={m} className="text-[9px] font-mono text-oryn-black/40 px-2 py-1 border border-oryn-grey/20 bg-white">{m}</span>
+          ))}
+        </div>
       </div>
 
       <p className="text-[9px] text-oryn-black/25 font-mono mt-4 text-center">

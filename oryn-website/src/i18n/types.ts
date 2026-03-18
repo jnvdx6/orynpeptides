@@ -216,6 +216,8 @@ export interface Dictionary {
     shipping: string;
     free: string;
     atCheckout: string;
+    estimatedShippingFrom: string;
+    weAccept: string;
     total: string;
     volumeDiscount: string;
     saveForLater: string;
@@ -496,6 +498,7 @@ export interface Dictionary {
     discount: string;
     volumeDiscountLabel: string;
     calculatedNextStep: string;
+    selectCountryForShipping: string;
     securePayment: string;
     discreetShipping: string;
     coaIncluded: string;
@@ -691,6 +694,7 @@ export interface Dictionary {
     paymentNotReady: string;
     paymentFormLoading: string;
     orderCreationFailed: string;
+    orPayWith: string;
   };
 
   volumeDiscount: {
