@@ -48,8 +48,8 @@ const ptBr = {
     socialProofCount: "2.400+ pedidos",
     socialProofLabel: "enviados neste trimestre",
     stats: {
-      peptidesValue: "10",
-      peptidesLabel: "Peptídeos",
+      productsValue: "10",
+      productsLabel: "Produtos",
       purityValue: ">99%",
       purityLabel: "Pureza",
       cleanroomValue: "ISO 7",

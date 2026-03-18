@@ -42,8 +42,8 @@ export interface Dictionary {
     socialProofCount: string;
     socialProofLabel: string;
     stats: {
-      peptidesValue: string;
-      peptidesLabel: string;
+      productsValue: string;
+      productsLabel: string;
       purityValue: string;
       purityLabel: string;
       cleanroomValue: string;

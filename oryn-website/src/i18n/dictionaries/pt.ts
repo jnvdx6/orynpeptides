@@ -48,8 +48,8 @@ const pt = {
     socialProofCount: "2.400+ encomendas",
     socialProofLabel: "enviadas este trimestre",
     stats: {
-      peptidesValue: "10",
-      peptidesLabel: "Peptídeos",
+      productsValue: "10",
+      productsLabel: "Produtos",
       purityValue: ">99%",
       purityLabel: "Pureza",
       cleanroomValue: "ISO 7",

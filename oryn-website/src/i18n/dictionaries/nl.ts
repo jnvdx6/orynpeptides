@@ -48,8 +48,8 @@ const nl = {
     socialProofCount: "2.400+ bestellingen",
     socialProofLabel: "verzonden dit kwartaal",
     stats: {
-      peptidesValue: "10",
-      peptidesLabel: "Peptiden",
+      productsValue: "10",
+      productsLabel: "Producten",
       purityValue: ">99%",
       purityLabel: "Zuiverheid",
       cleanroomValue: "ISO 7",

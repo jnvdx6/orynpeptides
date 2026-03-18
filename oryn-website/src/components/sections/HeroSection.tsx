@@ -81,7 +81,7 @@ export function HeroSection() {
  {/* Stats */}
  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 pt-8 border-t border-white/10">
  {[
- { value: t.hero.stats.peptidesValue, label: t.hero.stats.peptidesLabel },
+ { value: t.hero.stats.productsValue, label: t.hero.stats.productsLabel },
  { value: t.hero.stats.purityValue, label: t.hero.stats.purityLabel },
  { value: t.hero.stats.cleanroomValue, label: t.hero.stats.cleanroomLabel },
  { value: t.hero.stats.certifiedValue, label: t.hero.stats.certifiedLabel },

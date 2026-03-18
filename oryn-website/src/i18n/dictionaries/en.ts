@@ -47,8 +47,8 @@ const en: Dictionary = {
     socialProofCount: "2,400+ orders",
     socialProofLabel: "shipped this quarter",
     stats: {
-      peptidesValue: "10",
-      peptidesLabel: "Peptides",
+      productsValue: "10",
+      productsLabel: "Products",
       purityValue: ">99%",
       purityLabel: "Purity",
       cleanroomValue: "ISO 7",
