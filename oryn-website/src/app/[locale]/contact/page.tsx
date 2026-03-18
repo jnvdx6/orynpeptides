@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, contactPageSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -66,6 +66,7 @@ export default async function ContactPage({
     <>
       <MultiJsonLd
         items={[
+          contactPageSchema(locale),
           breadcrumbSchema([
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.contact, url: `/${locale}/contact` },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { breadcrumbSchema, organizationSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, organizationSchema, aboutPageSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -60,6 +60,7 @@ export default async function AboutPage({
       <MultiJsonLd
         items={[
           organizationSchema(),
+          aboutPageSchema(locale),
           breadcrumbSchema([
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.about, url: `/${locale}/about` },

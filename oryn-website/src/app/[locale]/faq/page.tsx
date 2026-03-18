@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ_HUBS } from "@/data/faq-hubs";
 import { getLocalizedFAQHub } from "@/data/faq-hubs-i18n";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, COMPREHENSIVE_FAQ_ITEMS, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -60,6 +60,24 @@ export default async function FAQIndexPage({
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.faq, url: `/${locale}/faq` },
           ]),
+          faqSchema(COMPREHENSIVE_FAQ_ITEMS),
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/${locale}/faq`,
+            name: "Frequently Asked Questions — ORYN Peptide Labs",
+            description: "Browse all FAQ hubs covering ORYN peptide products and research topics.",
+            url: `${SITE_URL}/${locale}/faq`,
+            isPartOf: { "@type": "WebSite", url: SITE_URL },
+            mainEntity: {
+              "@type": "FAQPage",
+              name: "ORYN Peptide Labs FAQ",
+            },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".hero-subtitle"],
+            },
+          },
         ]}
       />
 

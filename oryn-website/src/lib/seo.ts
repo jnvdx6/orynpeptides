@@ -751,6 +751,191 @@ export function howToSchema(article: {
   };
 }
 
+// ─── GEO: Enhanced Schema for AI Platform Visibility ────────────────
+
+/**
+ * ChemicalSubstance schema for peptide product pages.
+ * Tells AI platforms exactly what compound the product contains.
+ */
+export function chemicalSubstanceSchema(
+  product: Product,
+  detail: {
+    molecularFormula?: string;
+    molecularWeight?: string;
+    sequence?: string;
+    classification: string;
+    mechanism: string;
+  },
+  locale = "en"
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ChemicalSubstance",
+    name: product.name,
+    description: detail.mechanism,
+    url: `${SITE_URL}/${locale}/products/${product.slug}`,
+    chemicalComposition: detail.molecularFormula,
+    ...(detail.sequence && {
+      molecularFormula: detail.molecularFormula,
+    }),
+    additionalProperty: [
+      ...(detail.molecularWeight
+        ? [{ "@type": "PropertyValue", name: "Molecular Weight", value: detail.molecularWeight }]
+        : []),
+      ...(detail.sequence
+        ? [{ "@type": "PropertyValue", name: "Amino Acid Sequence", value: detail.sequence }]
+        : []),
+      { "@type": "PropertyValue", name: "Classification", value: detail.classification },
+      { "@type": "PropertyValue", name: "Purity", value: ">99%" },
+      { "@type": "PropertyValue", name: "Manufacturing Standard", value: "GMP Certified" },
+    ],
+    potentialAction: {
+      "@type": "ViewAction",
+      target: `${SITE_URL}/${locale}/products/${product.slug}`,
+    },
+  };
+}
+
+/**
+ * ChemicalSubstance schema for peptide encyclopedia entries.
+ */
+export function encyclopediaChemicalSchema(
+  entry: {
+    slug: string;
+    name: string;
+    fullName: string;
+    molecularFormula: string;
+    molecularWeight: string;
+    sequence: string;
+    classification: string;
+    mechanism: string;
+    applications: string[];
+  },
+  locale = "en"
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ChemicalSubstance",
+    name: entry.name,
+    alternateName: entry.fullName,
+    description: entry.mechanism.slice(0, 300),
+    url: `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
+    chemicalComposition: entry.molecularFormula,
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Molecular Weight", value: entry.molecularWeight },
+      { "@type": "PropertyValue", name: "Amino Acid Sequence", value: entry.sequence },
+      { "@type": "PropertyValue", name: "Classification", value: entry.classification },
+    ],
+    subjectOf: {
+      "@type": "ScholarlyArticle",
+      name: `${entry.name} — ${entry.fullName}`,
+      url: `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
+    },
+    hasHealthAspect: entry.applications.map((app) => ({
+      "@type": "HealthAspectEnumeration",
+      name: app,
+    })),
+  };
+}
+
+/**
+ * AboutPage schema — tells AI this is the canonical about page.
+ */
+export function aboutPageSchema(locale = "en") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}/${locale}/about`,
+    name: "About ORYN Peptide Labs",
+    description:
+      "ORYN Peptide Labs is a European biotech company delivering research-grade peptide pen systems with >99% purity. GMP certified, ISO 7 cleanroom manufactured.",
+    url: `${SITE_URL}/${locale}/about`,
+    mainEntity: {
+      "@type": "Organization",
+      name: "ORYN Peptide Labs",
+      url: SITE_URL,
+    },
+    isPartOf: { "@type": "WebSite", url: SITE_URL },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".hero-description"],
+    },
+  };
+}
+
+/**
+ * ContactPage schema — identifies the contact page for AI platforms.
+ */
+export function contactPageSchema(locale = "en") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${SITE_URL}/${locale}/contact`,
+    name: "Contact ORYN Peptide Labs",
+    description:
+      "Get in touch with ORYN Peptide Labs. Customer support, wholesale enquiries, and research partnerships.",
+    url: `${SITE_URL}/${locale}/contact`,
+    mainEntity: {
+      "@type": "Organization",
+      name: "ORYN Peptide Labs",
+      url: SITE_URL,
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          email: "info@orynpeptides.com",
+          contactType: "customer service",
+          availableLanguage: ["English", "Spanish", "Portuguese"],
+        },
+        {
+          "@type": "ContactPoint",
+          email: "wholesale@orynpeptides.com",
+          contactType: "sales",
+          availableLanguage: ["English"],
+        },
+      ],
+    },
+    isPartOf: { "@type": "WebSite", url: SITE_URL },
+  };
+}
+
+/**
+ * Comprehensive FAQ Q&A pairs for the main FAQ index page.
+ * 25+ Q&A covering peptides, ordering, shipping, quality, and usage.
+ */
+export const COMPREHENSIVE_FAQ_ITEMS: { question: string; answer: string }[] = [
+  // Company & Products
+  { question: "What is ORYN Peptide Labs?", answer: "ORYN Peptide Labs is a European biotech company specialising in research-grade peptide pen systems. All products are manufactured in GMP-certified facilities with ISO 7 cleanroom standards, ensuring >99% purity verified by third-party HPLC and mass spectrometry testing." },
+  { question: "What peptide products does ORYN offer?", answer: "ORYN offers a range of pre-mixed peptide pens including BPC-157, TB-500, CJC-1295, Ipamorelin, GHK-Cu, Glutathione, NAD+, and Tirzepatide. We also offer the MediT Pen (tirzepatide) and NovaDose NAD+ systems. All products come in ready-to-use pen format." },
+  { question: "What is a peptide pen and how does it work?", answer: "A peptide pen is a precision dosing device pre-filled with reconstituted peptide solution. Unlike traditional vial-and-syringe methods, peptide pens eliminate the need for mixing, reduce contamination risk, and ensure consistent dosing with each use. Simply dial the dose, attach a needle, and administer." },
+  { question: "Are ORYN peptides pharmaceutical grade?", answer: "Yes. All ORYN peptides are manufactured in GMP-certified facilities using pharmaceutical-grade raw materials. Each batch undergoes third-party testing via HPLC (High-Performance Liquid Chromatography) and mass spectrometry to verify >99% purity and correct molecular identity." },
+  // Ordering & Shipping
+  { question: "How do I order peptides from ORYN?", answer: "You can order directly through our website at orynxpeptides.com. Browse our product catalog, add items to your cart, and proceed to checkout. We accept credit cards, debit cards, and cryptocurrency payments." },
+  { question: "What countries does ORYN ship to?", answer: "ORYN ships across Europe including the United Kingdom, Germany, France, Spain, Italy, Netherlands, and Portugal. We also ship to Brazil and select international markets. Shipping times vary by destination — typically 2-4 business days for UK and 3-7 days for Europe." },
+  { question: "Is shipping free?", answer: "Yes, ORYN offers free standard shipping on all orders within the United Kingdom. European and international orders may have a small shipping fee depending on destination. All orders ship in discreet, temperature-controlled packaging." },
+  { question: "Can I track my order?", answer: "Yes. Once your order is dispatched, you will receive a tracking number via email. You can also track your order status through your ORYN account dashboard at any time." },
+  { question: "What is your return policy?", answer: "ORYN offers a 30-day money-back guarantee on unopened products. If you are unsatisfied with your purchase, contact us at info@orynpeptides.com to initiate a return. Products must be in their original, sealed packaging." },
+  // Quality & Safety
+  { question: "How does ORYN ensure peptide purity?", answer: "Every batch is tested by independent third-party laboratories using HPLC and mass spectrometry. We publish certificates of analysis (CoAs) for each product. Our manufacturing facilities hold GMP certification and operate under ISO 7 cleanroom conditions to prevent contamination." },
+  { question: "What is GMP certification?", answer: "GMP (Good Manufacturing Practice) is a regulatory standard ensuring products are consistently produced and controlled to quality standards. GMP certification covers all aspects of production: raw materials, facilities, equipment, training, hygiene, and documentation." },
+  { question: "What does >99% purity mean?", answer: "Purity >99% means that more than 99% of the product is the intended peptide compound, with less than 1% being related impurities, salts, or residual solvents. This is verified by HPLC analysis and is the gold standard for research-grade peptides." },
+  { question: "Are ORYN peptides tested by third parties?", answer: "Yes. All ORYN products undergo independent third-party testing at accredited analytical laboratories. Tests include HPLC for purity analysis, mass spectrometry for molecular identity confirmation, and endotoxin testing for safety. Certificates of analysis are available for every product." },
+  // Peptide Science
+  { question: "What is BPC-157?", answer: "BPC-157 (Body Protection Compound-157) is a synthetic 15-amino acid peptide derived from a protective protein found in human gastric juice. It has been extensively studied in over 100 peer-reviewed papers for its regenerative properties, including tendon repair, gastrointestinal healing, and anti-inflammatory effects." },
+  { question: "What is Tirzepatide?", answer: "Tirzepatide is a dual GIP/GLP-1 receptor agonist peptide. It activates both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors, making it a subject of extensive metabolic research. It has shown significant results in clinical trials for metabolic conditions." },
+  { question: "What is GHK-Cu?", answer: "GHK-Cu (Copper Peptide) is a naturally occurring tripeptide with a copper ion. Found in human plasma, saliva, and urine, it has been researched for skin remodelling, wound healing, anti-inflammatory, and antioxidant properties. Studies show it can stimulate collagen synthesis and promote tissue regeneration." },
+  { question: "What is NAD+?", answer: "NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme present in every cell. It plays a critical role in cellular energy metabolism, DNA repair, and sirtuin activation. Research suggests NAD+ levels decline with age, and supplementation is being studied for its potential anti-aging and neuroprotective benefits." },
+  { question: "What is TB-500?", answer: "TB-500 is a synthetic fragment of Thymosin Beta-4, a naturally occurring protein involved in cell migration, wound healing, and tissue repair. Research has focused on its potential for muscle repair, reducing inflammation, and promoting new blood vessel growth (angiogenesis)." },
+  { question: "What is CJC-1295?", answer: "CJC-1295 is a synthetic analogue of growth hormone-releasing hormone (GHRH). It has been modified with a Drug Affinity Complex (DAC) to extend its half-life. Research focuses on its ability to stimulate growth hormone secretion without disrupting natural pulsatile release patterns." },
+  { question: "What is Ipamorelin?", answer: "Ipamorelin is a selective growth hormone secretagogue that mimics the natural hormone ghrelin. Unlike other GH secretagogues, it does not significantly increase cortisol or prolactin levels, making it one of the most selective peptides studied for growth hormone research." },
+  // Storage & Handling
+  { question: "How should I store peptide pens?", answer: "Store ORYN peptide pens in a refrigerator at 2-8°C (36-46°F). Keep them away from direct sunlight and do not freeze. Once in use, pens can be kept at room temperature for up to 28 days. Always store pens upright with the cap on to prevent leakage." },
+  { question: "What is the shelf life of ORYN peptide pens?", answer: "Unopened ORYN peptide pens have a shelf life of 12-18 months when stored refrigerated at 2-8°C. Once the pen is first used, it should be consumed within 30 days. Always check the expiry date printed on the pen packaging." },
+  { question: "Do peptide pens need to be reconstituted?", answer: "No. ORYN peptide pens come pre-mixed and ready to use. This is one of the key advantages of our pen system — it eliminates the reconstitution step required by traditional vial formats, reducing contamination risk and ensuring precise dosing." },
+  // Research & Compliance
+  { question: "Are ORYN peptides for human consumption?", answer: "ORYN peptides are sold strictly for research purposes only. They are not intended for human consumption, veterinary use, or therapeutic application. All buyers must confirm they understand and agree to this research-use-only policy." },
+  { question: "Do you offer wholesale or institutional pricing?", answer: "Yes. ORYN offers tiered wholesale pricing for research institutions, laboratories, and qualified resellers. Contact wholesale@orynpeptides.com for volume pricing, bulk order terms, and institutional account setup." },
+];
+
 // ─── Metadata Helpers ───────────────────────────────────────────────
 
 export function cityMetadata(city: UKCity) {

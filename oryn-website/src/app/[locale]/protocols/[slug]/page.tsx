@@ -133,6 +133,22 @@ export default async function ProtocolPage({
             })),
           },
           faqSchema(displayFaqs),
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/${locale}/protocols/${slug}`,
+            name: displayName,
+            url: `${SITE_URL}/${locale}/protocols/${slug}`,
+            isPartOf: { "@type": "WebSite", url: SITE_URL },
+            mainEntity: {
+              "@type": "HowTo",
+              name: displayName,
+            },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".protocol-overview"],
+            },
+          },
         ]}
       />
 

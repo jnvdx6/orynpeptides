@@ -86,6 +86,24 @@ export default async function QualityPage({
           ]),
           faqSchema(dict.qualityFaq.items.map(f => ({ question: f.q, answer: f.a }))),
           qualityOrgSchema,
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/${locale}/quality`,
+            name: "Quality Assurance — ORYN Peptide Labs",
+            description: "GMP certified manufacturing, ISO 7 cleanroom, third-party HPLC testing. Learn about ORYN's quality standards.",
+            url: `${SITE_URL}/${locale}/quality`,
+            isPartOf: { "@type": "WebSite", url: SITE_URL },
+            mainEntity: {
+              "@type": "Organization",
+              name: "ORYN Peptide Labs",
+              url: SITE_URL,
+            },
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["h1", ".quality-intro"],
+            },
+          },
         ]}
       />
       <QualityClient faqs={dict.qualityFaq.items.map(f => ({ question: f.q, answer: f.a }))} />

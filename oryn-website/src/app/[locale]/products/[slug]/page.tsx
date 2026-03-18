@@ -6,6 +6,7 @@ import {
   productSchema,
   faqSchema,
   breadcrumbSchema,
+  chemicalSubstanceSchema,
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
@@ -98,9 +99,33 @@ export default async function ProductPage({
     ]),
   ];
 
+  if (detail?.science) {
+    schemaItems.push(chemicalSubstanceSchema(product, detail.science, locale));
+  }
+
   if (detail?.faq) {
     schemaItems.push(faqSchema(detail.faq));
   }
+
+  // WebPage with mainEntity + speakable for AI visibility
+  schemaItems.push({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/${locale}/products/${product.slug}`,
+    name: `ORYN ${product.name} — ${product.subtitle}`,
+    description: product.description,
+    url: `${SITE_URL}/${locale}/products/${product.slug}`,
+    isPartOf: { "@type": "WebSite", url: SITE_URL },
+    mainEntity: {
+      "@type": "Product",
+      name: `ORYN ${product.name}`,
+      url: `${SITE_URL}/${locale}/products/${product.slug}`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".product-description"],
+    },
+  });
 
   return (
     <>

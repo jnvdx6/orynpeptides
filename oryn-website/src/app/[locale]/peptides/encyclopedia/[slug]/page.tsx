@@ -13,6 +13,7 @@ import {
   articleSchema,
   faqSchema,
   breadcrumbSchema,
+  encyclopediaChemicalSchema,
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
@@ -119,8 +120,14 @@ export default async function EncyclopediaEntryPage({
   const schemaItems: Record<string, any>[] = [
     {
       ...articleSchema(articleData, locale),
+      "@type": "ScholarlyArticle",
       url: `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
+      },
     },
+    encyclopediaChemicalSchema(entry, locale),
     faqSchema(entry.faqs),
     breadcrumbSchema([
       { name: dict.breadcrumbs.home, url: `/${locale}` },
