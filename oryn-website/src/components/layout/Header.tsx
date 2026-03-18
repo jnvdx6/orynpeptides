@@ -6,7 +6,7 @@ import { useCart } from "@/lib/cart-context";
 import { CartSlider } from "@/components/ui/CartSlider";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
-import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
+import { LocaleSwitcher, MobileLocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { useAuth } from "@/providers/auth";
 import { useProducts } from "@/providers/products";
 import { useWishlist } from "@/providers/wishlist";
@@ -684,12 +684,13 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Locale switcher + CTA */}
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center justify-center">
-                <LocaleSwitcher />
-              </div>
+            {/* Locale & currency switcher — mobile-optimized */}
+            <div className="mt-4">
+              <MobileLocaleSwitcher />
+            </div>
 
+            {/* CTA */}
+            <div className="mt-4">
               <Link
                 href="/products"
                 onClick={closeMobileMenu}
