@@ -35,7 +35,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
           </svg>
           <span className="text-[10px] font-plex text-oryn-black/50">
-            {v.addMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage))}
+            {v.addMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage)).replace("{itemWord}", nextTier.itemsNeeded === 1 ? "item" : "items")}
           </span>
         </div>
       );
@@ -90,7 +90,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
 
       {nextTier && (
         <p className="text-[10px] text-oryn-black/40 font-plex mt-3">
-          {v.unlockMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage))}
+          {v.unlockMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage)).replace("{itemWord}", nextTier.itemsNeeded === 1 ? "item" : "items")}
         </p>
       )}
     </div>

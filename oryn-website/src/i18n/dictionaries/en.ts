@@ -1340,12 +1340,12 @@ const en: Dictionary = {
 
   volumeDiscount: {
     applied: "Volume discount applied:",
-    addMore: "Add {count} more item for {percent}% OFF",
+    addMore: "Add {count} more {itemWord} for {percent}% OFF",
     title: "VOLUME DISCOUNTS",
     items: "{count}+ items",
     off: "{percent}% OFF",
     active: "ACTIVE",
-    unlockMore: "Add {count} more item to unlock {percent}% off!",
+    unlockMore: "Add {count} more {itemWord} to unlock {percent}% off!",
   },
 
   frequentlyBought: {
