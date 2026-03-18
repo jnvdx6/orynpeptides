@@ -118,6 +118,7 @@ export default async function BrazilCityPage({
     .filter((c) => c.slug !== city.slug)
     .slice(0, 6);
   const topCategories = SEO_CATEGORIES.slice(0, 6);
+  const pt = locale === "pt-br";
 
   return (
     <>
@@ -164,29 +165,28 @@ export default async function BrazilCityPage({
             <div className="inline-flex items-center gap-3 mb-4">
               <div className="w-8 h-px bg-oryn-orange" />
               <span className="text-[10px] font-mono text-oryn-orange tracking-[0.25em]">
-                BR &middot; {city.name.toUpperCase()} &middot; {city.deliveryDays}-DAY DELIVERY
+                BR &middot; {city.name.toUpperCase()} &middot; {city.deliveryDays}-{pt ? "DIAS" : "DAY DELIVERY"}
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Buy Peptides
+              {pt ? "Compre Peptídeos" : "Buy Peptides"}
               <br />
-              in <span className="text-oryn-orange">{city.name}</span>
+              {pt ? "em" : "in"} <span className="text-oryn-orange">{city.name}</span>
             </h1>
             <p className="text-lg text-white/60 font-plex max-w-2xl mb-4">
-              {city.description}. ORYN delivers {products.length} research-grade
-              peptide pens to {city.name} with {city.deliveryDays}-day tracked
-              delivery. All products &gt;99% purity, GMP manufactured, pre-mixed
-              &amp; ready to use.
+              {pt
+                ? `${city.description}. A ORYN entrega ${products.length} canetas de peptídeos de grau farmacêutico em ${city.name} com entrega rastreada em ${city.deliveryDays} dias. Todos os produtos com pureza >99%, fabricação GMP, pré-misturados e prontos para uso.`
+                : `${city.description}. ORYN delivers ${products.length} research-grade peptide pens to ${city.name} with ${city.deliveryDays}-day tracked delivery. All products >99% purity, GMP manufactured, pre-mixed & ready to use.`}
             </p>
             <p className="text-sm text-white/40 font-plex mb-8">
-              Population: {city.population} &middot; From R$
+              {pt ? "População" : "Population"}: {city.population} &middot; {pt ? "A partir de" : "From"} R$
               {Math.min(...products.map((p) => p.price))}
             </p>
             <Link
               href={`/${locale}/products`}
               className="px-8 py-4 bg-oryn-orange text-white text-xs font-medium tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors"
             >
-              SHOP ALL PEPTIDES
+              {pt ? "VER TODOS OS PEPTÍDEOS" : "SHOP ALL PEPTIDES"}
             </Link>
           </div>
         </section>
@@ -194,12 +194,17 @@ export default async function BrazilCityPage({
         {/* Trust Signals */}
         <section className="border-b border-oryn-grey/20">
           <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
+            {(pt ? [
+              { label: `Entrega em ${city.deliveryDays} Dias`, sub: city.name },
+              { label: "Pureza >99%", sub: "Verificado por HPLC" },
+              { label: `${products.length} Produtos`, sub: "Disponíveis" },
+              { label: "Canetas Pré-Misturadas", sub: "Prontas para Uso" },
+            ] : [
               { label: `${city.deliveryDays}-Day Delivery`, sub: city.name },
               { label: ">99% Purity", sub: "HPLC Verified" },
               { label: `${products.length} Products`, sub: "Available" },
               { label: "Pre-Mixed Pens", sub: "Ready to Use" },
-            ].map((item) => (
+            ]).map((item) => (
               <div key={item.label} className="text-center">
                 <p className="text-sm font-bold">{item.label}</p>
                 <p className="text-[10px] text-oryn-black/40 font-mono tracking-[0.1em] mt-1">
@@ -215,17 +220,16 @@ export default async function BrazilCityPage({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold mb-4">
-                Peptide Research in {city.name}
+                {pt ? `Pesquisa de Peptídeos em ${city.name}` : `Peptide Research in ${city.name}`}
               </h2>
               <p className="text-sm text-oryn-black/60 font-plex leading-relaxed mb-6">
-                {city.name} is {city.description.toLowerCase()}. ORYN delivers our full
-                range of research-grade peptide pens to researchers and
-                professionals in {city.name} and surrounding areas including{" "}
-                {city.nearbyAreas.slice(0, 3).join(", ")}.
+                {pt
+                  ? `${city.name} é ${city.description.toLowerCase()}. A ORYN entrega nossa linha completa de canetas de peptídeos de grau farmacêutico para pesquisadores e profissionais em ${city.name} e regiões próximas, incluindo ${city.nearbyAreas.slice(0, 3).join(", ")}.`
+                  : `${city.name} is ${city.description.toLowerCase()}. ORYN delivers our full range of research-grade peptide pens to researchers and professionals in ${city.name} and surrounding areas including ${city.nearbyAreas.slice(0, 3).join(", ")}.`}
               </p>
               {city.landmarks.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-bold mb-3">Notable Institutions</h3>
+                  <h3 className="text-sm font-bold mb-3">{pt ? "Instituições Notáveis" : "Notable Institutions"}</h3>
                   <ul className="space-y-2">
                     {city.landmarks.map((l) => (
                       <li
@@ -244,15 +248,20 @@ export default async function BrazilCityPage({
             {/* Delivery Info */}
             <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-8">
               <h3 className="text-lg font-bold mb-4">
-                Delivery to {city.name}
+                {pt ? `Entrega em ${city.name}` : `Delivery to ${city.name}`}
               </h3>
               <div className="space-y-4">
-                {[
+                {(pt ? [
+                  { title: "Envio no Mesmo Dia", desc: "Pedidos antes das 15h são enviados no mesmo dia" },
+                  { title: `Entrega em ${city.deliveryDays} Dias`, desc: `Envio expresso rastreado para ${city.name}` },
+                  { title: "Controle de Temperatura", desc: "Embalagem isolada, integridade da cadeia fria" },
+                  { title: "Embalagem Discreta", desc: "Embalagem simples, sem descrição do produto" },
+                ] : [
                   { title: "Same-Day Dispatch", desc: "Orders before 3 PM ship the same day" },
                   { title: `${city.deliveryDays}-Day Delivery`, desc: `Express tracked to ${city.name}` },
                   { title: "Temperature Controlled", desc: "Insulated packaging, cold chain integrity" },
                   { title: "Discreet Packaging", desc: "Plain packaging, no product description" },
-                ].map((item) => (
+                ]).map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0 mt-0.5">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -274,11 +283,11 @@ export default async function BrazilCityPage({
             <div className="inline-flex items-center gap-3 mb-2">
               <div className="w-6 h-px bg-oryn-orange" />
               <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
-                AVAILABLE IN {city.name.toUpperCase()}
+                {pt ? `DISPONÍVEL EM ${city.name.toUpperCase()}` : `AVAILABLE IN ${city.name.toUpperCase()}`}
               </span>
             </div>
             <h2 className="text-2xl font-bold mb-8">
-              Peptide Pens for {city.name}
+              {pt ? `Canetas de Peptídeos para ${city.name}` : `Peptide Pens for ${city.name}`}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product) => (
@@ -290,7 +299,7 @@ export default async function BrazilCityPage({
                   <div className="bg-oryn-cream/50 p-6 flex items-center justify-center min-h-[140px]">
                     <Image
                       src={productImages.bySlug[product.slug] || product.image}
-                      alt={`${product.name} — delivery to ${city.name}`}
+                      alt={pt ? `${product.name} — entrega em ${city.name}` : `${product.name} — delivery to ${city.name}`}
                       width={100}
                       height={100}
                       className="object-contain group-hover:scale-105 transition-transform"
@@ -319,7 +328,7 @@ export default async function BrazilCityPage({
         {/* Categories */}
         <section className="max-w-7xl mx-auto px-6 py-16">
           <h2 className="text-xl font-bold mb-6">
-            Peptide Categories Available in {city.name}
+            {pt ? `Categorias de Peptídeos Disponíveis em ${city.name}` : `Peptide Categories Available in ${city.name}`}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {topCategories.map((cat) => (
@@ -335,7 +344,7 @@ export default async function BrazilCityPage({
                   {cat.description}
                 </p>
                 <span className="text-[9px] font-mono text-oryn-orange tracking-[0.1em] mt-2 inline-block">
-                  {cat.productSlugs.length} PRODUCTS &rarr;
+                  {cat.productSlugs.length} {pt ? "PRODUTOS" : "PRODUCTS"} &rarr;
                 </span>
               </Link>
             ))}
@@ -346,7 +355,7 @@ export default async function BrazilCityPage({
         <section className="bg-oryn-cream/50 border-t border-oryn-grey/10">
           <div className="max-w-4xl mx-auto px-6 py-16">
             <h2 className="text-2xl font-bold mb-8">
-              Peptides in {city.name} &mdash; FAQ
+              {pt ? `Peptídeos em ${city.name} — FAQ` : `Peptides in ${city.name} — FAQ`}
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, i) => (
@@ -376,7 +385,7 @@ export default async function BrazilCityPage({
           <section className="bg-oryn-black text-white py-16">
             <div className="max-w-7xl mx-auto px-6">
               <h2 className="text-xl font-bold mb-6">
-                Also Delivering to Other Brazilian Cities
+                {pt ? "Também Entregamos em Outras Cidades Brasileiras" : "Also Delivering to Other Brazilian Cities"}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                 {nearbyCities.map((c) => (
@@ -387,7 +396,7 @@ export default async function BrazilCityPage({
                   >
                     <p className="text-sm font-bold">{c.name}</p>
                     <p className="text-[10px] text-white/40 font-mono tracking-[0.1em]">
-                      {c.deliveryDays}-DAY DELIVERY
+                      {pt ? `ENTREGA EM ${c.deliveryDays} DIAS` : `${c.deliveryDays}-DAY DELIVERY`}
                     </p>
                   </Link>
                 ))}
@@ -400,17 +409,18 @@ export default async function BrazilCityPage({
         <section className="bg-oryn-orange py-16">
           <div className="max-w-4xl mx-auto px-6 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Order Peptides in {city.name}
+              {pt ? `Peça Peptídeos em ${city.name}` : `Order Peptides in ${city.name}`}
             </h2>
             <p className="text-sm text-white/70 font-plex mb-8 max-w-lg mx-auto">
-              {city.deliveryDays}-day tracked delivery. GMP manufactured, &gt;99%
-              purity guaranteed. Pre-mixed peptide pens ready to use.
+              {pt
+                ? `Entrega rastreada em ${city.deliveryDays} dias. Fabricação GMP, pureza >99% garantida. Canetas de peptídeos pré-misturadas prontas para uso.`
+                : `${city.deliveryDays}-day tracked delivery. GMP manufactured, >99% purity guaranteed. Pre-mixed peptide pens ready to use.`}
             </p>
             <Link
               href={`/${locale}/products`}
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-oryn-orange font-medium text-xs tracking-[0.2em] hover:bg-oryn-cream transition-colors"
             >
-              SHOP ALL PEPTIDES
+              {pt ? "VER TODOS OS PEPTÍDEOS" : "SHOP ALL PEPTIDES"}
             </Link>
           </div>
         </section>
