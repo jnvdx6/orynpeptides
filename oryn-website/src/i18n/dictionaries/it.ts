@@ -33,6 +33,7 @@ const it = {
 
   hero: {
     tagline: "SISTEMI PENNA PEPTIDICA DI PRECISIONE",
+    brandDescriptor: "Sistemi Penna Peptidica di Grado Ricerca",
     subtitle: "Ferma l'Invecchiamento. Potenzia il Benessere. Prolunga la Longevità.",
     description:
       "Peptidi di grado farmaceutico in sistemi penna riutilizzabili con cartucce sostituibili. Praticità click-and-go, dosaggio preciso, fornitura per 30 giorni. Certificazione GMP. Prodotti in Corea del Sud. Purezza >99%.",

@@ -27,7 +27,7 @@ export function HeroSection() {
  <h1 className="text-white mb-2">
  <span className="block text-7xl sm:text-8xl md:text-[10rem] font-bold tracking-[-0.04em] leading-[0.85]">ORYN</span>
  <span className="block text-base sm:text-lg md:text-xl font-light text-white/60 tracking-wide mt-2">
- Research-Grade Peptide Pen Systems
+ {t.hero.brandDescriptor}
  </span>
  </h1>
 

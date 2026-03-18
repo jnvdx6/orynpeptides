@@ -33,6 +33,7 @@ const nl = {
 
   hero: {
     tagline: "PRECISIE PEPTIDE PENSYSTEMEN",
+    brandDescriptor: "Onderzoekskwaliteit Peptide Pensystemen",
     subtitle: "Stop Veroudering. Versterk Welzijn. Verleng Levensduur.",
     description:
       "Farmaceutische peptiden in herbruikbare pensystemen met vervangbare cartridges. Klik-en-ga gemak, nauwkeurige dosering, 30 dagen voorraad. GMP-gecertificeerd. Geproduceerd in Zuid-Korea. Zuiverheid >99%.",

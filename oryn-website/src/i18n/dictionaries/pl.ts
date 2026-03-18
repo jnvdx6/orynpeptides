@@ -33,6 +33,7 @@ const pl = {
 
   hero: {
     tagline: "PRECYZYJNE SYSTEMY PENÓW PEPTYDOWYCH",
+    brandDescriptor: "Systemy Penów Peptydowych Klasy Badawczej",
     subtitle: "Zatrzymaj starzenie. Wzmocnij zdrowie. Wydłuż długowieczność.",
     description:
       "Peptydy klasy farmaceutycznej w systemach penów wielokrotnego użytku z wymiennymi wkładami. Wygoda i precyzyjne dawkowanie na 30 dni. Certyfikat GMP. Produkcja w Korei Południowej. Czystość >99%.",

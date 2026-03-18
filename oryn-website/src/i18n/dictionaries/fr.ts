@@ -33,6 +33,7 @@ const fr = {
 
   hero: {
     tagline: "SYSTÈMES DE STYLOS PEPTIDIQUES DE PRÉCISION",
+    brandDescriptor: "Systèmes de Stylos Peptidiques de Qualité Recherche",
     subtitle: "Stoppez le Vieillissement. Boostez votre Bien-être. Prolongez votre Longévité.",
     description:
       "Peptides de qualité pharmaceutique dans des systèmes de stylos réutilisables avec cartouches remplaçables. Praticité click-and-go, dosage précis, approvisionnement de 30 jours. Certifié GMP. Fabriqué en Corée du Sud. Pureté >99%.",

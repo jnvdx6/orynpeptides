@@ -33,6 +33,7 @@ const es = {
 
   hero: {
     tagline: "SISTEMAS DE PEN PEPT\u00cdDICO DE PRECISI\u00d3N",
+    brandDescriptor: "Sistemas de Pen Peptídico de Grado Investigación",
     subtitle: "Frena el Envejecimiento. Potencia tu Bienestar.",
     description:
       "P\u00e9ptidos de grado farmac\u00e9utico en sistemas de pen reutilizables con cartuchos reemplazables. Dosificaci\u00f3n precisa, 30 d\u00edas de suministro. Certificaci\u00f3n GMP. Fabricados en Corea del Sur. Pureza >99%.",
@@ -734,7 +735,7 @@ const es = {
   products: {
     "bpc-157": {
       subtitle: "Curaci\u00f3n y Recuperaci\u00f3n",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "Body Protection Compound-157 es un p\u00e9ptido sint\u00e9tico derivado de una prote\u00edna natural del jugo g\u00e1strico. ORYN BPC-157 est\u00e1 formulado con grado farmac\u00e9utico en un sistema de pluma de dosificaci\u00f3n precisa para una administraci\u00f3n consistente y fiable durante 30 d\u00edas.",
       benefits: [
@@ -748,7 +749,7 @@ const es = {
     },
     "tb-500": {
       subtitle: "Reparaci\u00f3n Tisular",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "El fragmento de Timosina Beta-4, TB-500, juega un papel crucial en la reparaci\u00f3n y regeneraci\u00f3n de tejidos. ORYN TB-500 ofrece una dosis precisa de 15mg en nuestro sistema avanzado de pluma, dise\u00f1ado para biodisponibilidad \u00f3ptima y resultados consistentes.",
       benefits: [
@@ -761,7 +762,7 @@ const es = {
     },
     "cjc-1295": {
       subtitle: "Estimulaci\u00f3n GH",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "CJC-1295 es un an\u00e1logo sint\u00e9tico de la hormona liberadora de hormona de crecimiento (GHRH). ORYN CJC-1295 proporciona elevaci\u00f3n sostenida de GH a trav\u00e9s de nuestro sistema de dosificaci\u00f3n de precisi\u00f3n, fabricado con los m\u00e1s altos est\u00e1ndares farmac\u00e9uticos.",
       benefits: [
@@ -774,7 +775,7 @@ const es = {
     },
     ipamorelin: {
       subtitle: "Estimulaci\u00f3n GH",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "Ipamorelin es un secretagogo selectivo de hormona de crecimiento que estimula la gl\u00e1ndula pituitaria. ORYN Ipamorelin ofrece liberaci\u00f3n de GH dirigida sin la disrupci\u00f3n hormonal m\u00e1s amplia vista en compuestos menos selectivos.",
       benefits: [
@@ -787,7 +788,7 @@ const es = {
     },
     "tirzepatide-pen": {
       subtitle: "Metab\u00f3lico",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "Tirzepatida es un agonista dual del receptor GIP/GLP-1 que representa la vanguardia de la ciencia pept\u00eddica metab\u00f3lica. El sistema de pluma ORYN Tirzepatida ofrece dosificaci\u00f3n de precisi\u00f3n para aplicaciones de investigaci\u00f3n metab\u00f3lica.",
       benefits: [
@@ -801,7 +802,7 @@ const es = {
     },
     "ghk-cu": {
       subtitle: "Reparaci\u00f3n Cut\u00e1nea",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "GHK-Cu (p\u00e9ptido de cobre) es un trip\u00e9ptido natural con alta afinidad por los iones de cobre. ORYN GHK-CU apoya la remodelaci\u00f3n y reparaci\u00f3n cut\u00e1nea con una formulaci\u00f3n potente de 60mg.",
       benefits: [
@@ -814,7 +815,7 @@ const es = {
     },
     glutathione: {
       subtitle: "Antioxidante",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "El glutati\u00f3n es el antioxidante maestro del cuerpo, cr\u00edtico para la desintoxicaci\u00f3n celular y la funci\u00f3n inmune. ORYN Glutathione ofrece una potente dosis de 6g a trav\u00e9s de nuestro sistema de pluma de precisi\u00f3n para m\u00e1xima biodisponibilidad.",
       benefits: [
@@ -827,7 +828,7 @@ const es = {
     },
     "nad-plus": {
       subtitle: "Metab\u00f3lico y Antienvejecimiento",
-      categoryLabel: "Peptide Pen",
+      categoryLabel: "Pen Peptídico",
       description:
         "La Nicotinamida Adenina Dinucle\u00f3tido (NAD+) es una coenzima cr\u00edtica presente en cada c\u00e9lula. La pluma ORYN NAD+ ofrece una dosis concentrada de 500mg para apoyar la producci\u00f3n de energ\u00eda celular, la reparaci\u00f3n del ADN y el envejecimiento saludable.",
       benefits: [

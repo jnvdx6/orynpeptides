@@ -33,6 +33,7 @@ const ptBr = {
 
   hero: {
     tagline: "SISTEMAS DE CANETA PEPTÍDICA DE PRECISÃO",
+    brandDescriptor: "Sistemas de Caneta Peptídica de Grau Pesquisa",
     subtitle: "Trave o Envelhecimento. Potencialize o Bem-Estar. Prolongue a Longevidade.",
     description:
       "Peptídeos de grau farmacêutico em sistemas de caneta reutilizáveis com cartuchos substituíveis. Dosagem precisa, fornecimento de 30 dias. Certificação GMP. Fabricados na Coreia do Sul. Pureza >99%.",

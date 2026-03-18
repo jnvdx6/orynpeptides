@@ -33,6 +33,7 @@ const de = {
 
   hero: {
     tagline: "PRÄZISIONS-PEPTID-PEN-SYSTEME",
+    brandDescriptor: "Forschungsqualität Peptid-Pen-Systeme",
     subtitle: "Alterung stoppen. Wohlbefinden steigern. Langlebigkeit fördern.",
     description:
       "Pharmazeutische Peptide in wiederverwendbaren Pen-Systemen mit austauschbaren Kartuschen. Einfache Anwendung, präzise Dosierung, 30-Tage-Versorgung. GMP-zertifiziert. Hergestellt in Südkorea. Reinheit >99%.",

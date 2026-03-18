@@ -28,6 +28,7 @@ export interface Dictionary {
 
   hero: {
     tagline: string;
+    brandDescriptor: string;
     subtitle: string;
     description: string;
     explorePeptides: string;

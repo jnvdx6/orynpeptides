@@ -32,6 +32,7 @@ const en: Dictionary = {
 
   hero: {
     tagline: "PRECISION PEPTIDE PEN SYSTEMS",
+    brandDescriptor: "Research-Grade Peptide Pen Systems",
     subtitle: "Stop Aging. Boost Wellness. Prolong Longevity.",
     description:
       "Pharmaceutical-grade peptides in reusable pen systems with replaceable cartridges. Click-and-go convenience, precise dosing, 30-day supply. GMP certified. Manufactured in South Korea. Purity >99%.",
