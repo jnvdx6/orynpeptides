@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { products, getProductBySlug } from "@/data/products";
 import { getProductDetail } from "@/data/product-details";
+import { getEncyclopediaEntry } from "@/data/peptide-encyclopedia";
 import {
   productSchema,
   faqSchema,
@@ -89,9 +90,34 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const detail = getProductDetail(product.slug);
+
+  // Look up matching peptide encyclopedia entry for ChemicalSubstance schema
+  const peptideEntry = getEncyclopediaEntry(product.slug)
+    || (product.slug === "medit-tirzepatide" ? getEncyclopediaEntry("tirzepatide-pen") : undefined)
+    || (product.slug === "novadose-nad" ? getEncyclopediaEntry("nad-plus") : undefined);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const schemaItems: Record<string, any>[] = [
     productSchema(product, locale),
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/${locale}/products/${product.slug}`,
+      name: `Buy ORYN ${product.name} — ${product.subtitle}`,
+      description: product.description,
+      url: `${SITE_URL}/${locale}/products/${product.slug}`,
+      isPartOf: { "@type": "WebSite", url: SITE_URL },
+      mainEntity: {
+        "@type": "Product",
+        name: `ORYN ${product.name}`,
+        url: `${SITE_URL}/${locale}/products/${product.slug}`,
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".product-description", ".product-specs"],
+      },
+      inLanguage: locale,
+    },
     breadcrumbSchema([
       { name: dict.breadcrumbs.home, url: `/${locale}` },
       { name: dict.breadcrumbs.products, url: `/${locale}/products` },
@@ -99,33 +125,14 @@ export default async function ProductPage({
     ]),
   ];
 
-  if (detail?.science) {
-    schemaItems.push(chemicalSubstanceSchema(product, detail.science, locale));
+  // Add ChemicalSubstance schema for peptide products (links product to its molecular data)
+  if (peptideEntry) {
+    schemaItems.push(chemicalSubstanceSchema(peptideEntry, locale));
   }
 
   if (detail?.faq) {
     schemaItems.push(faqSchema(detail.faq));
   }
-
-  // WebPage with mainEntity + speakable for AI visibility
-  schemaItems.push({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/${locale}/products/${product.slug}`,
-    name: `ORYN ${product.name} — ${product.subtitle}`,
-    description: product.description,
-    url: `${SITE_URL}/${locale}/products/${product.slug}`,
-    isPartOf: { "@type": "WebSite", url: SITE_URL },
-    mainEntity: {
-      "@type": "Product",
-      name: `ORYN ${product.name}`,
-      url: `${SITE_URL}/${locale}/products/${product.slug}`,
-    },
-    speakable: {
-      "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".product-description"],
-    },
-  });
 
   return (
     <>

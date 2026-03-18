@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { GLOSSARY_TERMS, getTermBySlug, GLOSSARY_TERM_SLUGS } from "@/data/glossary-terms";
 import type { GlossaryTerm } from "@/data/glossary-terms";
-import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
+import { SITE_URL, breadcrumbSchema, webPageSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { locales, type Locale } from "@/i18n/config";
@@ -159,9 +159,19 @@ export default async function GlossaryTermPage({
     mainEntity: faqItems,
   };
 
+  const webPage = webPageSchema({
+    url: `/${locale}/peptides/glossary/${term}`,
+    name: `What is ${entry.term}?`,
+    description: entry.shortDefinition,
+    mainEntityType: "DefinedTerm",
+    mainEntityName: entry.term,
+    speakableSelectors: ["h1", ".term-definition"],
+    locale,
+  });
+
   return (
     <>
-      <MultiJsonLd items={[definedTermSchema, breadcrumb, faqSchema]} />
+      <MultiJsonLd items={[definedTermSchema, breadcrumb, faqSchema, webPage]} />
 
       <div className="pt-[calc(1rem+4px)]">
         {/* Breadcrumb */}

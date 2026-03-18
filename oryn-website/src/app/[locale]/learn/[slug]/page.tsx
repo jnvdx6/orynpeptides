@@ -10,6 +10,7 @@ import {
   breadcrumbSchema,
   howToSchema,
   SITE_URL,
+  webPageSchema,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
@@ -82,10 +83,17 @@ export default async function ArticlePage({
   const reviewer = getReviewerForArticle(article);
 
   const isHowTo = article.slug === "how-to-use-peptide-pen" || article.slug === "peptide-storage-guide";
+  const isResearch = article.category === "Peptide Research" || article.category === "Research Guides";
+
+  // Build article schema — upgrade to ScholarlyArticle for research content
+  const baseArticle = articleSchema(article, locale);
+  const articleSchemaItem = isResearch
+    ? { ...baseArticle, "@type": "ScholarlyArticle" }
+    : baseArticle;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const schemaItems: Record<string, any>[] = [
-    articleSchema(article, locale),
+    articleSchemaItem,
     faqSchema(article.faqs),
     breadcrumbSchema([
       { name: dict.breadcrumbs.home, url: `/${locale}` },
@@ -110,6 +118,16 @@ export default async function ArticlePage({
         credentialCategory: author.credentials,
       },
     },
+    // WebPage with mainEntity + speakable for AI visibility
+    webPageSchema({
+      url: `/${locale}/learn/${article.slug}`,
+      name: article.title,
+      description: article.metaDescription,
+      mainEntityType: isResearch ? "ScholarlyArticle" : "Article",
+      mainEntityName: article.title,
+      speakableSelectors: ["h1", ".article-intro", ".article-content h2"],
+      locale,
+    }),
   ];
 
   if (isHowTo) {

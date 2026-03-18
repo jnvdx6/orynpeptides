@@ -13,7 +13,8 @@ import {
   articleSchema,
   faqSchema,
   breadcrumbSchema,
-  encyclopediaChemicalSchema,
+  chemicalSubstanceSchema,
+  webPageSchema,
   SITE_URL,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
@@ -122,18 +123,29 @@ export default async function EncyclopediaEntryPage({
       ...articleSchema(articleData, locale),
       "@type": "ScholarlyArticle",
       url: `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": `${SITE_URL}/${locale}/peptides/encyclopedia/${entry.slug}`,
+      about: {
+        "@type": "ChemicalSubstance",
+        name: entry.name,
+        molecularFormula: entry.molecularFormula,
       },
     },
-    encyclopediaChemicalSchema(entry, locale),
+    chemicalSubstanceSchema(entry, locale),
     faqSchema(entry.faqs),
     breadcrumbSchema([
       { name: dict.breadcrumbs.home, url: `/${locale}` },
       { name: dict.breadcrumbs.encyclopedia, url: `/${locale}/peptides/encyclopedia` },
       { name: entry.name, url: `/${locale}/peptides/encyclopedia/${entry.slug}` },
     ]),
+    // WebPage with mainEntity + speakable for AI visibility
+    webPageSchema({
+      url: `/${locale}/peptides/encyclopedia/${entry.slug}`,
+      name: `${entry.name} — ${entry.fullName}`,
+      description: `Scientific profile of ${entry.name}: molecular formula ${entry.molecularFormula}, mechanism of action, research, and studies.`,
+      mainEntityType: "ChemicalSubstance",
+      mainEntityName: entry.name,
+      speakableSelectors: ["h1", ".mechanism-section", ".research-section"],
+      locale,
+    }),
   ];
 
   return (
