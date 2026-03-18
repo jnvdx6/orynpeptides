@@ -412,11 +412,11 @@ export function Footer() {
             <CollapsibleSection title={f.seoSections.ukRegions.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
                 {(isBrazil ? [
-                  { href: "/peptides/brazil", label: "Sudeste" },
-                  { href: "/peptides/brazil", label: "Sul" },
-                  { href: "/peptides/brazil", label: "Nordeste" },
-                  { href: "/peptides/brazil", label: "Centro-Oeste" },
-                  { href: "/peptides/brazil", label: "Norte" },
+                  { href: "/peptides/brazil/region/sudeste", label: "Sudeste" },
+                  { href: "/peptides/brazil/region/sul", label: "Sul" },
+                  { href: "/peptides/brazil/region/nordeste", label: "Nordeste" },
+                  { href: "/peptides/brazil/region/centro-oeste", label: "Centro-Oeste" },
+                  { href: "/peptides/brazil/region/norte", label: "Norte" },
                 ] : [
                   { href: "/peptides/region/scotland", label: "Scotland" },
                   { href: "/peptides/region/wales", label: "Wales" },
@@ -425,7 +425,7 @@ export function Footer() {
                   { href: "/peptides/region/midlands", label: "Midlands" },
                   { href: "/peptides/region/east-england", label: "East England" },
                 ]).map((link) => (
-                  <Link key={link.label} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                  <Link key={link.href} href={link.href} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
                     {link.label}
                   </Link>
                 ))}
@@ -434,26 +434,22 @@ export function Footer() {
 
             <CollapsibleSection title={f.seoSections.ukCounties.toUpperCase()}>
               <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-                {isBrazil ? [
-                  "São Paulo", "Rio de Janeiro", "Minas Gerais", "Bahia", "Paraná",
-                  "Rio Grande do Sul", "Pernambuco", "Ceará", "Pará", "Santa Catarina",
-                  "Goiás", "Maranhão", "Amazonas", "Espírito Santo", "Paraíba",
-                  "Mato Grosso", "Rio Grande do Norte", "Alagoas", "Piauí", "Distrito Federal",
-                  "Mato Grosso do Sul", "Sergipe", "Rondônia", "Tocantins", "Acre", "Amapá", "Roraima",
-                ].map((state) => (
-                  <Link key={state} href="/peptides/brazil" className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                    {state}
-                  </Link>
-                )) : [
+                {(isBrazil ? [
+                  "sao-paulo", "rio-de-janeiro", "minas-gerais", "bahia", "parana",
+                  "rio-grande-do-sul", "pernambuco", "ceara", "para", "santa-catarina",
+                  "goias", "maranhao", "amazonas", "espirito-santo", "paraiba",
+                  "mato-grosso", "rio-grande-do-norte", "alagoas", "piaui", "distrito-federal",
+                  "mato-grosso-do-sul", "sergipe", "rondonia", "tocantins", "acre", "amapa", "roraima",
+                ] : [
                   "kent", "surrey", "hampshire", "essex", "devon", "cornwall",
                   "oxfordshire", "cambridgeshire", "norfolk", "suffolk",
                   "lancashire", "cheshire", "west-yorkshire", "greater-manchester",
                   "warwickshire", "nottinghamshire", "derbyshire", "leicestershire",
                   "highland", "lothian", "fife", "glamorgan", "gwynedd", "antrim",
-                ].map((slug) => {
+                ]).map((slug) => {
                   const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
                   return (
-                    <Link key={slug} href={`/peptides/county/${slug}`} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
+                    <Link key={slug} href={isBrazil ? `/peptides/brazil/state/${slug}` : `/peptides/county/${slug}`} className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
                       {name}
                     </Link>
                   );
@@ -626,18 +622,14 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-6 py-4 md:py-8">
           <CollapsibleSection title={f.seoSections.londonDelivery.toUpperCase()}>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5">
-              {isBrazil ? [
-                "Paulista", "Pinheiros", "Vila Mariana", "Moema", "Itaim Bibi", "Jardins",
-                "Higienópolis", "Consolação", "Liberdade", "Bela Vista", "Vila Madalena",
-                "Brooklin", "Campo Belo", "Santo Amaro", "Morumbi", "Butantã",
-                "Perdizes", "Lapa", "Vila Leopoldina", "Santana", "Tucuruvi",
-                "Tatuapé", "Mooca", "Vila Prudente", "Penha", "São Miguel",
-                "Campinas", "Guarulhos", "Santo André", "Osasco", "Sorocaba",
-              ].map((area) => (
-                <Link key={area} href="/peptides/brazil/sao-paulo" className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex">
-                  {area}
-                </Link>
-              )) : [
+              {(isBrazil ? [
+                "jardins", "vila-mariana", "pinheiros", "moema", "itaim-bibi", "brooklin",
+                "vila-olimpia", "perdizes", "higienopolis", "consolacao",
+                "liberdade", "bela-vista", "santa-cecilia", "lapa", "butanta",
+                "morumbi", "campo-belo", "santo-amaro", "saude", "ipiranga",
+                "tatuape", "mooca", "penha", "santana", "tucuruvi",
+                "agua-branca", "barra-funda", "republica", "se", "cambuci",
+              ] : [
                 "westminster", "city-of-london", "mayfair", "marylebone", "fitzrovia", "bloomsbury", "south-kensington",
                 "covent-garden", "holborn", "soho",
                 "camden", "islington", "hackney", "hampstead", "shoreditch", "finsbury-park", "muswell-hill", "highgate", "wood-green",
@@ -646,13 +638,13 @@ export function Footer() {
                 "streatham", "tooting", "lewisham", "dulwich", "woolwich", "crystal-palace",
                 "kensington", "chelsea", "notting-hill", "fulham", "hammersmith", "ealing", "richmond", "kingston",
                 "chiswick", "acton", "shepherds-bush", "brentford", "twickenham",
-              ].map((slug) => {
+              ]).map((slug) => {
                 const name = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
                   .replace("Of", "of");
                 return (
                   <Link
                     key={slug}
-                    href={`/peptides/london/${slug}`}
+                    href={isBrazil ? `/peptides/brazil/sao-paulo/${slug}` : `/peptides/london/${slug}`}
                     className="text-[10px] text-oryn-white/40 hover:text-oryn-orange transition-colors font-plex"
                   >
                     {name}
