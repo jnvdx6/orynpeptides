@@ -24,6 +24,7 @@ import { DeliveryEstimator } from "@/components/product/DeliveryEstimator";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { ShareButtons } from "@/components/ui/ShareButtons";
 import { CustomerReviews } from "@/components/product/CustomerReviews";
+import { ReviewForm } from "@/components/product/ReviewForm";
 import { ProductVideo } from "@/components/product/ProductVideo";
 import { trackProductView } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
@@ -40,6 +41,7 @@ export function ProductPageClient() {
   const [quantity, setQuantity] = useState(1);
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
+  const [reviewRefreshKey, setReviewRefreshKey] = useState(0);
   usePageTracking("product_detail", product ? { product_slug: product.slug, product_name: product.name } : {});
 
   // Track recently viewed & analytics
@@ -482,7 +484,10 @@ export function ProductPageClient() {
       {detail && <ProductReviews detail={detail} productName={product.name} />}
 
       {/* Customer Reviews (from centralized reviews data) */}
-      <CustomerReviews productSlug={product.slug} productName={product.name} />
+      <CustomerReviews productSlug={product.slug} productName={product.name} refreshKey={reviewRefreshKey} />
+
+      {/* Write a Review */}
+      <ReviewForm productSlug={product.slug} onSubmit={() => setReviewRefreshKey((k) => k + 1)} />
 
       {/* FAQ */}
       {detail && <ProductFAQ detail={detail} productName={product.name} />}

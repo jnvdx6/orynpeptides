@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { getReviewsByProduct, getAggregateRating, type Review } from "@/data/reviews";
+import { getStoredReviews } from "./ReviewForm";
 
 function StarRating({ rating, size = 14 }: { rating: number; size?: number }) {
   return (
@@ -68,9 +70,18 @@ function ReviewCard({ review }: { review: Review }) {
   );
 }
 
-export function CustomerReviews({ productSlug, productName }: { productSlug: string; productName: string }) {
-  const reviews = getReviewsByProduct(productSlug);
-  const aggregate = getAggregateRating(productSlug);
+export function CustomerReviews({ productSlug, productName, refreshKey }: { productSlug: string; productName: string; refreshKey?: number }) {
+  const staticReviews = getReviewsByProduct(productSlug);
+  const [userReviews, setUserReviews] = useState<Review[]>([]);
+
+  useEffect(() => {
+    setUserReviews(getStoredReviews(productSlug));
+  }, [productSlug, refreshKey]);
+
+  const reviews = [...staticReviews, ...userReviews];
+  const aggregate = reviews.length > 0
+    ? { average: parseFloat((reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1)), count: reviews.length }
+    : getAggregateRating(productSlug);
 
   if (reviews.length === 0) return null;
 
