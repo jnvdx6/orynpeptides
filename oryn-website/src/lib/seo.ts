@@ -158,6 +158,120 @@ const GEO_META: Record<string, GeoMetaStrings> = {
   },
 };
 
+// ─── Localized Category Names ────────────────────────────────────────
+// Translates English category names for use in geo meta titles/descriptions.
+// Without this, pages like "/es/peptides-for/weight-loss/europe/spain/madrid"
+// would show "Péptidos Weight Loss & Metabolic" instead of proper Spanish.
+
+const CATEGORY_NAMES_I18N: Record<string, Record<string, string>> = {
+  "Recovery & Healing": {
+    es: "Recuperación y Curación", fr: "Récupération et Guérison", de: "Erholung und Heilung",
+    it: "Recupero e Guarigione", pt: "Recuperação e Cura", "pt-br": "Recuperação e Cura",
+    nl: "Herstel en Genezing", pl: "Regeneracja i Gojenie",
+  },
+  "Weight Loss & Metabolic": {
+    es: "Pérdida de Peso", fr: "Perte de Poids", de: "Gewichtsverlust",
+    it: "Perdita di Peso", pt: "Perda de Peso", "pt-br": "Perda de Peso",
+    nl: "Gewichtsverlies", pl: "Odchudzanie",
+  },
+  "Anti-Aging & Longevity": {
+    es: "Antienvejecimiento", fr: "Anti-Âge", de: "Anti-Aging",
+    it: "Anti-Invecchiamento", pt: "Anti-Envelhecimento", "pt-br": "Anti-Envelhecimento",
+    nl: "Anti-Veroudering", pl: "Przeciwstarzeniowe",
+  },
+  "Muscle Growth & Performance": {
+    es: "Crecimiento Muscular", fr: "Croissance Musculaire", de: "Muskelwachstum",
+    it: "Crescita Muscolare", pt: "Crescimento Muscular", "pt-br": "Crescimento Muscular",
+    nl: "Spiergroei", pl: "Wzrost Mięśni",
+  },
+  "Skin Rejuvenation": {
+    es: "Rejuvenecimiento de la Piel", fr: "Rajeunissement de la Peau", de: "Hautverjüngung",
+    it: "Ringiovanimento della Pelle", pt: "Rejuvenescimento da Pele", "pt-br": "Rejuvenescimento da Pele",
+    nl: "Huidverjonging", pl: "Odmładzanie Skóry",
+  },
+  "Sleep & Recovery": {
+    es: "Sueño y Recuperación", fr: "Sommeil et Récupération", de: "Schlaf und Erholung",
+    it: "Sonno e Recupero", pt: "Sono e Recuperação", "pt-br": "Sono e Recuperação",
+    nl: "Slaap en Herstel", pl: "Sen i Regeneracja",
+  },
+  "Gut Health & Digestive": {
+    es: "Salud Intestinal", fr: "Santé Intestinale", de: "Darmgesundheit",
+    it: "Salute Intestinale", pt: "Saúde Intestinal", "pt-br": "Saúde Intestinal",
+    nl: "Darmgezondheid", pl: "Zdrowie Jelit",
+  },
+  "Joint & Tendon Support": {
+    es: "Articulaciones y Tendones", fr: "Articulations et Tendons", de: "Gelenke und Sehnen",
+    it: "Articolazioni e Tendini", pt: "Articulações e Tendões", "pt-br": "Articulações e Tendões",
+    nl: "Gewrichten en Pezen", pl: "Stawy i Ścięgna",
+  },
+  "Hair Growth & Restoration": {
+    es: "Crecimiento Capilar", fr: "Croissance Capillaire", de: "Haarwachstum",
+    it: "Crescita dei Capelli", pt: "Crescimento Capilar", "pt-br": "Crescimento Capilar",
+    nl: "Haargroei", pl: "Wzrost Włosów",
+  },
+  "Immune System Support": {
+    es: "Sistema Inmunológico", fr: "Système Immunitaire", de: "Immunsystem",
+    it: "Sistema Immunitario", pt: "Sistema Imunitário", "pt-br": "Sistema Imunológico",
+    nl: "Immuunsysteem", pl: "Układ Odpornościowy",
+  },
+  "Tendon & Ligament Repair": {
+    es: "Tendones y Ligamentos", fr: "Tendons et Ligaments", de: "Sehnen und Bänder",
+    it: "Tendini e Legamenti", pt: "Tendões e Ligamentos", "pt-br": "Tendões e Ligamentos",
+    nl: "Pezen en Banden", pl: "Ścięgna i Więzadła",
+  },
+  "Sports Injury Recovery": {
+    es: "Lesiones Deportivas", fr: "Blessures Sportives", de: "Sportverletzungen",
+    it: "Infortuni Sportivi", pt: "Lesões Desportivas", "pt-br": "Lesões Esportivas",
+    nl: "Sportblessures", pl: "Kontuzje Sportowe",
+  },
+  "Post-Surgery Healing": {
+    es: "Curación Postoperatoria", fr: "Guérison Post-Chirurgicale", de: "Postoperative Heilung",
+    it: "Guarigione Post-Operatoria", pt: "Cura Pós-Cirúrgica", "pt-br": "Cura Pós-Cirúrgica",
+    nl: "Postoperatief Herstel", pl: "Gojenie Pooperacyjne",
+  },
+  "Cognitive Enhancement": {
+    es: "Mejora Cognitiva", fr: "Amélioration Cognitive", de: "Kognitive Verbesserung",
+    it: "Potenziamento Cognitivo", pt: "Melhoria Cognitiva", "pt-br": "Melhoria Cognitiva",
+    nl: "Cognitieve Verbetering", pl: "Wspomaganie Kognitywne",
+  },
+  "Energy & Vitality": {
+    es: "Energía y Vitalidad", fr: "Énergie et Vitalité", de: "Energie und Vitalität",
+    it: "Energia e Vitalità", pt: "Energia e Vitalidade", "pt-br": "Energia e Vitalidade",
+    nl: "Energie en Vitaliteit", pl: "Energia i Witalność",
+  },
+  "Detox & Cellular Cleanse": {
+    es: "Desintoxicación Celular", fr: "Détox Cellulaire", de: "Zellerneuerung",
+    it: "Detox Cellulare", pt: "Desintoxicação Celular", "pt-br": "Desintoxicação Celular",
+    nl: "Celreiniging", pl: "Detoks Komórkowy",
+  },
+  "Body Composition": {
+    es: "Composición Corporal", fr: "Composition Corporelle", de: "Körperzusammensetzung",
+    it: "Composizione Corporea", pt: "Composição Corporal", "pt-br": "Composição Corporal",
+    nl: "Lichaamssamenstelling", pl: "Skład Ciała",
+  },
+  "Inflammation & Pain": {
+    es: "Inflamación y Dolor", fr: "Inflammation et Douleur", de: "Entzündung und Schmerz",
+    it: "Infiammazione e Dolore", pt: "Inflamação e Dor", "pt-br": "Inflamação e Dor",
+    nl: "Ontsteking en Pijn", pl: "Stan Zapalny i Ból",
+  },
+  "Hormonal Balance & Optimisation": {
+    es: "Equilibrio Hormonal", fr: "Équilibre Hormonal", de: "Hormonelles Gleichgewicht",
+    it: "Equilibrio Ormonale", pt: "Equilíbrio Hormonal", "pt-br": "Equilíbrio Hormonal",
+    nl: "Hormonale Balans", pl: "Równowaga Hormonalna",
+  },
+  "Longevity & Biohacking": {
+    es: "Longevidad y Biohacking", fr: "Longévité et Biohacking", de: "Langlebigkeit und Biohacking",
+    it: "Longevità e Biohacking", pt: "Longevidade e Biohacking", "pt-br": "Longevidade e Biohacking",
+    nl: "Levensduur en Biohacking", pl: "Długowieczność i Biohacking",
+  },
+};
+
+/** Returns localized category name, falling back to English */
+export function localizedCategoryName(englishName: string, locale: string): string {
+  if (locale === "en") return englishName;
+  return CATEGORY_NAMES_I18N[englishName]?.[locale] || englishName;
+}
+
 function fillTemplate(template: string, vars: Record<string, string>): string {
   let result = template;
   for (const [key, value] of Object.entries(vars)) {
@@ -199,7 +313,7 @@ export function geoCategoryMeta(
 ) {
   const t = GEO_META[locale] || GEO_META.en;
   const vars = {
-    category: category.name,
+    category: localizedCategoryName(category.name, locale),
     city: city.name,
     country: country.name,
     days: city.deliveryDays,
@@ -257,7 +371,7 @@ export function geoCategoryCountryMeta(
 ) {
   const t = GEO_META[locale] || GEO_META.en;
   const vars = {
-    category: category.name,
+    category: localizedCategoryName(category.name, locale),
     country: country.name,
     days: country.deliveryDays,
     products: productNames,

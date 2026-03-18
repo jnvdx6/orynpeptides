@@ -11,6 +11,7 @@ import {
   faqSchema,
   breadcrumbSchema,
   SITE_URL,
+  localizedCategoryName,
   type SEOCategory,
 } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
@@ -38,9 +39,10 @@ export async function generateMetadata({
   const products = getProductsForCategory(category);
   const productNames = products.map((p) => p.name).join(", ");
   const deliveryLabel = city.deliveryDays === "1" ? "Next" : city.deliveryDays;
+  const catName = localizedCategoryName(category.name, locale);
 
-  const title = `Buy ${category.name} Peptides in ${city.name} | ORYN \u2014 ${deliveryLabel}-Day Delivery`;
-  const description = `Order research-grade ${category.name.toLowerCase()} peptide pens in ${city.name}, ${city.region}. ${city.deliveryDays}-day delivery, >99% purity. ${productNames}.`;
+  const title = `Buy ${catName} Peptides in ${city.name} | ORYN \u2014 ${deliveryLabel}-Day Delivery`;
+  const description = `Order research-grade ${catName.toLowerCase()} peptide pens in ${city.name}, ${city.region}. ${city.deliveryDays}-day delivery, >99% purity. ${productNames}.`;
 
   const url = `${SITE_URL}/${locale}/peptides-for/${catSlug}/${citySlug}`;
   return {
