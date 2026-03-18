@@ -136,7 +136,7 @@ export function ShippingClient({
   const sp = t.shippingPage;
 
   const symbol = "€";
-  const freeThreshold = locale === "en" ? "130" : "175";
+  const freeThreshold = locale === "en" ? "130" : "150";
 
   // Replace {threshold} placeholder in translated strings
   const th = (str: string) => str.replace("{threshold}", freeThreshold);
