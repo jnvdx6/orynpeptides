@@ -29,8 +29,14 @@ export async function generateMetadata({
   if (!result) return {};
 
   const { city } = result;
-  const title = `Buy Peptides in ${city.name}, Brazil | ORYN — ${city.deliveryDays}-Day Delivery`;
-  const description = `Order research-grade peptide pens in ${city.name}, Brazil. ${city.deliveryDays}-day tracked delivery. ${products.length} products, >99% purity, GMP manufactured. Pay in R$ BRL.`;
+
+  const title = locale === "pt-br"
+    ? `Peptídeos em ${city.name} | Entrega em ${city.deliveryDays} Dias — ORYN`
+    : `Buy Peptides in ${city.name}, Brazil | ORYN — ${city.deliveryDays}-Day Delivery`;
+
+  const description = locale === "pt-br"
+    ? `Compre canetas de peptídeos de pesquisa em ${city.name}, Brasil. Entrega rastreada em ${city.deliveryDays} dias. ${products.length} produtos, pureza >99%, certificação GMP. BPC-157, Tirzepatida, NAD+ e mais. Pague em R$.`
+    : `Order research-grade peptide pens in ${city.name}, Brazil. ${city.deliveryDays}-day tracked delivery. ${products.length} products, >99% purity, GMP manufactured. Pay in R$ BRL.`;
 
   return {
     title,
@@ -51,7 +57,27 @@ export async function generateMetadata({
   };
 }
 
-function cityFaqs(city: BrazilianCity) {
+function cityFaqs(city: BrazilianCity, locale: string) {
+  if (locale === "pt-br") {
+    return [
+      {
+        question: `Posso comprar peptídeos em ${city.name}?`,
+        answer: `Sim. A ORYN entrega canetas de peptídeos de grau farmacêutico em ${city.name}, Brasil, com entrega rastreada em ${city.deliveryDays} dias. Todos os ${products.length} produtos estão disponíveis, incluindo BPC-157, Tirzepatida, NAD+ e mais. Pureza >99%, fabricação GMP.`,
+      },
+      {
+        question: `Qual o prazo de entrega de peptídeos para ${city.name}?`,
+        answer: `A ORYN envia no mesmo dia para pedidos feitos antes das 15h. A entrega para ${city.name} leva ${city.deliveryDays} dias úteis via envio internacional expresso rastreado com embalagem com controle de temperatura.`,
+      },
+      {
+        question: `Peptídeos são legais no Brasil?`,
+        answer: `Peptídeos de pesquisa estão disponíveis para compra para fins de pesquisa no Brasil. Os produtos ORYN são vendidos estritamente para uso em pesquisa e não são licenciados para autoadministração. Todos os envios cumprem as regulamentações internacionais de envio.`,
+      },
+      {
+        question: `Posso pagar em Reais para entrega em ${city.name}?`,
+        answer: `Sim. A ORYN aceita pagamentos em BRL (R$), além de GBP, EUR, USD e outras moedas para pedidos entregues em ${city.name}. Os preços podem ser exibidos na sua moeda local.`,
+      },
+    ];
+  }
   return [
     {
       question: `Can I buy peptides in ${city.name}?`,
@@ -84,7 +110,7 @@ export default async function BrazilCityPage({
 
   const { city } = result;
   const country = BRAZIL_COUNTRY;
-  const faqs = cityFaqs(city);
+  const faqs = cityFaqs(city, locale);
   const nearbyCities = country.cities
     .filter((c) => c.slug !== city.slug)
     .slice(0, 6);

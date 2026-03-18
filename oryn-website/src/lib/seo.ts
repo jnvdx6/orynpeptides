@@ -27,13 +27,14 @@ export function organizationSchema() {
       { "@type": "Country", name: "Spain" },
       { "@type": "Country", name: "Italy" },
       { "@type": "Country", name: "Netherlands" },
+      { "@type": "Country", name: "Brazil" },
     ],
     contactPoint: [
       {
         "@type": "ContactPoint",
         email: "info@orynpeptides.com",
         contactType: "customer service",
-        availableLanguage: ["English", "Spanish"],
+        availableLanguage: ["English", "Spanish", "Portuguese"],
       },
       {
         "@type": "ContactPoint",
@@ -88,7 +89,7 @@ export function websiteSchema() {
     alternateName: "ORYN",
     url: SITE_URL,
     description: "Research-grade peptide pen systems with >99% purity. GMP certified, next-day UK delivery.",
-    inLanguage: ["en", "es", "fr", "de", "it", "pt", "nl", "pl"],
+    inLanguage: ["en", "es", "fr", "de", "it", "pt", "pt-BR", "nl", "pl"],
     publisher: {
       "@type": "Organization",
       name: "ORYN Peptide Labs",

@@ -119,13 +119,13 @@ export default async function BrazilPage({
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: `Peptide Delivery Cities in Brazil`,
+            name: isPtBr ? `Cidades de Entrega de Peptídeos no Brasil` : `Peptide Delivery Cities in Brazil`,
             numberOfItems: country.cities.length,
             itemListElement: country.cities.map((city, i) => ({
               "@type": "ListItem",
               position: i + 1,
               url: `${SITE_URL}/${locale}/peptides/brazil/${city.slug}`,
-              name: `Peptides in ${city.name}, Brazil`,
+              name: isPtBr ? `Peptídeos em ${city.name}, Brasil` : `Peptides in ${city.name}, Brazil`,
             })),
           },
         ]}
@@ -176,7 +176,7 @@ export default async function BrazilPage({
                 href={`/${locale}/products`}
                 className="px-8 py-4 bg-oryn-orange text-white text-xs font-medium tracking-[0.2em] hover:bg-oryn-orange-dark transition-colors"
               >
-                SHOP ALL PEPTIDES
+                {isPtBr ? "VER TODOS OS PEPTÍDEOS" : "SHOP ALL PEPTIDES"}
               </Link>
             </div>
           </div>
@@ -187,15 +187,15 @@ export default async function BrazilPage({
           <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               {
-                label: `${country.deliveryDays}-Day Delivery`,
-                sub: "Brazil",
+                label: isPtBr ? `Entrega em ${country.deliveryDays} Dias` : `${country.deliveryDays}-Day Delivery`,
+                sub: isPtBr ? "Brasil" : "Brazil",
               },
-              { label: ">99% Purity", sub: "HPLC Verified" },
+              { label: isPtBr ? "Pureza >99%" : ">99% Purity", sub: isPtBr ? "Verificado por HPLC" : "HPLC Verified" },
               {
-                label: `${country.cities.length}+ Cities`,
-                sub: "Direct Delivery",
+                label: `${country.cities.length}+ ${isPtBr ? "Cidades" : "Cities"}`,
+                sub: isPtBr ? "Entrega Direta" : "Direct Delivery",
               },
-              { label: "Pre-Mixed Pens", sub: "Ready to Use" },
+              { label: isPtBr ? "Canetas Prontas" : "Pre-Mixed Pens", sub: isPtBr ? "Pronto para Uso" : "Ready to Use" },
             ].map((item) => (
               <div key={item.label} className="text-center">
                 <p className="text-sm font-bold">{item.label}</p>
@@ -298,7 +298,7 @@ export default async function BrazilPage({
         <section className="bg-oryn-cream/50 border-t border-oryn-grey/10">
           <div className="max-w-4xl mx-auto px-6 py-16">
             <h2 className="text-2xl font-bold mb-8">
-              Peptides in Brazil &mdash; FAQ
+              {isPtBr ? "Peptídeos no Brasil — Perguntas Frequentes" : "Peptides in Brazil \u2014 FAQ"}
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, i) => (
@@ -335,18 +335,18 @@ export default async function BrazilPage({
         <section className="bg-oryn-orange py-16">
           <div className="max-w-4xl mx-auto px-6 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Order Peptides in Brazil
+              {isPtBr ? "Compre Peptídeos no Brasil" : "Order Peptides in Brazil"}
             </h2>
             <p className="text-sm text-white/70 font-plex mb-8 max-w-lg mx-auto">
-              {country.deliveryDays}-day tracked delivery to{" "}
-              {country.cities.length}+ cities. GMP manufactured, &gt;99% purity
-              guaranteed. Pay in R$ BRL.
+              {isPtBr
+                ? `Entrega rastreada em ${country.deliveryDays} dias para mais de ${country.cities.length} cidades. Fabricação GMP, pureza >99% garantida. Pague em R$ BRL.`
+                : `${country.deliveryDays}-day tracked delivery to ${country.cities.length}+ cities. GMP manufactured, >99% purity guaranteed. Pay in R$ BRL.`}
             </p>
             <Link
               href={`/${locale}/products`}
               className="inline-flex items-center gap-3 px-8 py-4 bg-white text-oryn-orange font-medium text-xs tracking-[0.2em] hover:bg-oryn-cream transition-colors"
             >
-              SHOP ALL PEPTIDES
+              {isPtBr ? "VER TODOS OS PEPTÍDEOS" : "SHOP ALL PEPTIDES"}
             </Link>
           </div>
         </section>
