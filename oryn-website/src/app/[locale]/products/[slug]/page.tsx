@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { products, getProductBySlug } from "@/data/products";
 import { getProductDetail } from "@/data/product-details";
 import {
@@ -84,7 +85,7 @@ export default async function ProductPage({
   const { slug, locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const product = getProductBySlug(slug);
-  if (!product) return <ProductPageClient />;
+  if (!product) notFound();
 
   const detail = getProductDetail(product.slug);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
