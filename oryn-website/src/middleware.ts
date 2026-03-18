@@ -99,7 +99,7 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   url.pathname = `/${detectedLocale}${pathname}`;
 
-  const response = NextResponse.redirect(url);
+  const response = NextResponse.redirect(url, 308);
 
   response.cookies.set("ORYN_LOCALE", detectedLocale, {
     maxAge: 60 * 60 * 24 * 365,
