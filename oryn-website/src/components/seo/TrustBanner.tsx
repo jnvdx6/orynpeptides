@@ -47,13 +47,13 @@ export function TrustBanner() {
 
           <span className="hidden sm:block w-px h-4 bg-oryn-orange/20" />
 
-          {/* EU Manufactured */}
+          {/* Manufactured in South Korea */}
           <div className="flex items-center gap-2">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
               <circle cx="12" cy="12" r="10" />
               <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
             </svg>
-            <span className="text-[11px] font-mono text-oryn-black/60 tracking-[0.05em]">EU Manufactured</span>
+            <span className="text-[11px] font-mono text-oryn-black/60 tracking-[0.05em]">Manufactured in South Korea</span>
           </div>
         </div>
       </div>
