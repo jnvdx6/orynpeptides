@@ -154,7 +154,33 @@ export function Footer() {
 
   const cityLinks = isBrazil ? brazilCityLinks : ukCityLinks;
 
-  const learnLinks = [
+  const learnLinks = isBrazil ? [
+    { href: "/learn/are-peptides-legal-in-the-uk", label: "Peptídeos São Legais no Brasil?" },
+    { href: "/learn/peptide-pen-vs-vial", label: "Caneta vs Frasco de Peptídeos" },
+    { href: "/learn/bpc-157-complete-guide", label: "Guia Completo BPC-157" },
+    { href: "/learn/tirzepatide-vs-semaglutide", label: "Tirzepatida vs Semaglutida" },
+    { href: "/learn/how-to-use-peptide-pen", label: "Como Usar uma Caneta de Peptídeos" },
+    { href: "/learn/best-peptides-for-recovery-uk", label: "Melhores Peptídeos para Recuperação" },
+    { href: "/learn/best-peptide-pens-uk-2026", label: "Melhores Canetas de Peptídeos 2026" },
+    { href: "/learn/buy-peptides-online-uk-guide", label: "Comprar Peptídeos Online" },
+    { href: "/learn/tirzepatide-pen-uk-guide", label: "Guia Caneta Tirzepatida" },
+    { href: "/learn/peptides-for-athletes-uk", label: "Peptídeos para Atletas" },
+    { href: "/learn/copper-peptide-ghk-cu-hair-skin", label: "Guia GHK-Cu Cabelo e Pele" },
+    { href: "/peptides/brazil", label: "Guia de Entrega Brasil" },
+    { href: "/learn/peptide-stacking-guide-uk", label: "Guia de Combinação de Peptídeos" },
+    { href: "/learn/peptide-safety-side-effects-guide", label: "Guia de Segurança de Peptídeos" },
+    { href: "/learn/what-is-a-peptide-pen", label: "O Que É uma Caneta de Peptídeos?" },
+    { href: "/learn/nad-iv-therapy-vs-injection-pen", label: "NAD+ IV vs Caneta" },
+    { href: "/learn/peptide-pens-for-beginners-uk", label: "Guia para Iniciantes" },
+    { href: "/compare/bpc-157-vs-tb-500", label: "BPC-157 vs TB-500" },
+    { href: "/compare/tirzepatide-vs-semaglutide", label: "Tirzepatida vs Semaglutida" },
+    { href: "/compare/cjc-1295-vs-ipamorelin", label: "CJC-1295 vs Ipamorelina" },
+    { href: "/compare/ghk-cu-vs-glutathione", label: "GHK-Cu vs Glutationa" },
+    { href: "/compare/nad-plus-pen-vs-iv-therapy", label: "Caneta NAD+ vs Terapia IV" },
+    { href: "/learn/peptides-vs-hrt", label: "Peptídeos vs TRH" },
+    { href: "/learn/do-peptides-really-work", label: "Peptídeos Realmente Funcionam?" },
+    { href: "/learn/semaglutide-vs-tirzepatide-2026", label: "Semaglutida vs Tirzepatida" },
+  ] : [
     { href: "/learn/are-peptides-legal-in-the-uk", label: "Are Peptides Legal in the UK?" },
     { href: "/learn/peptide-pen-vs-vial", label: "Peptide Pen vs Vial" },
     { href: "/learn/bpc-157-complete-guide", label: "BPC-157 Complete Guide" },
