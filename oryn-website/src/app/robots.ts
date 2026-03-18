@@ -21,25 +21,30 @@ export default function robots(): MetadataRoute.Robots {
           "/*/wishlist/",
         ],
       },
+      // ── AI crawlers: allow public pages for AI platform visibility ──
       {
         userAgent: "GPTBot",
-        disallow: ["/"],
-      },
-      {
-        userAgent: "CCBot",
-        disallow: ["/"],
+        allow: "/",
+        disallow: ["/admin/", "/api/", "/*/checkout", "/*/checkout/", "/*/cart", "/*/cart/", "/*/account", "/*/account/"],
       },
       {
         userAgent: "anthropic-ai",
-        disallow: ["/"],
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
       },
       {
         userAgent: "Google-Extended",
-        disallow: ["/"],
+        allow: "/",
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
       },
       {
         userAgent: "Bytespider",
-        disallow: ["/"],
+        allow: "/",
+        disallow: ["/admin/", "/api/", "/*/checkout", "/*/checkout/", "/*/cart", "/*/cart/", "/*/account", "/*/account/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
