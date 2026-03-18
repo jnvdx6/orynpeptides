@@ -1,4 +1,4 @@
-export const locales = ["en", "es", "fr", "de", "it", "pt", "nl", "pl"] as const;
+export const locales = ["en", "es", "fr", "de", "it", "pt", "pt-br", "nl", "pl"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
@@ -34,6 +34,13 @@ export const regions: Record<string, RegionConfig> = {
     symbol: "$",
     flag: "\ud83c\uddfa\ud83c\uddf8",
   },
+  brazil: {
+    id: "reg_01KKZDR8TR19B8CMZB9W2FN1XV",
+    name: "Brazil",
+    currencyCode: "brl",
+    symbol: "R$",
+    flag: "\ud83c\udde7\ud83c\uddf7",
+  },
 };
 
 export type RegionKey = keyof typeof regions;
@@ -55,6 +62,7 @@ export const markets: Record<Locale, Market> = {
   de: { locale: "de", defaultRegion: "europe", label: "Deutsch", flag: "\ud83c\udde9\ud83c\uddea" },
   it: { locale: "it", defaultRegion: "europe", label: "Italiano", flag: "\ud83c\uddee\ud83c\uddf9" },
   pt: { locale: "pt", defaultRegion: "europe", label: "Portugu\u00eas", flag: "\ud83c\uddf5\ud83c\uddf9" },
+  "pt-br": { locale: "pt-br", defaultRegion: "brazil", label: "Portugu\u00eas (Brasil)", flag: "\ud83c\udde7\ud83c\uddf7" },
   nl: { locale: "nl", defaultRegion: "europe", label: "Nederlands", flag: "\ud83c\uddf3\ud83c\uddf1" },
   pl: { locale: "pl", defaultRegion: "europe", label: "Polski", flag: "\ud83c\uddf5\ud83c\uddf1" },
 };
@@ -70,7 +78,7 @@ export const countryToRegion: Record<string, RegionKey> = {
   LV: "europe", MT: "europe", NL: "europe", NO: "europe", PL: "europe",
   PT: "europe", RO: "europe", SE: "europe", SI: "europe", SK: "europe",
   // Americas
-  US: "americas", CA: "americas", MX: "americas", BR: "americas",
+  US: "americas", CA: "americas", MX: "americas", BR: "brazil",
   AR: "americas", CL: "americas", CO: "americas", PE: "americas",
   EC: "americas", VE: "americas", UY: "americas", PY: "americas",
   BO: "americas", CR: "americas", PA: "americas", DO: "americas",
@@ -93,7 +101,9 @@ export const countryToLocale: Record<string, Locale> = {
   // Italian
   IT: "it", SM: "it", VA: "it",
   // Portuguese
-  PT: "pt", BR: "pt", AO: "pt", MZ: "pt",
+  PT: "pt", AO: "pt", MZ: "pt",
+  // Brazilian Portuguese
+  BR: "pt-br",
   // Dutch
   NL: "nl",
   // Polish
@@ -108,6 +118,7 @@ export const localeToIntlTag: Record<Locale, string> = {
   de: "de-DE",
   it: "it-IT",
   pt: "pt-PT",
+  "pt-br": "pt-BR",
   nl: "nl-NL",
   pl: "pl-PL",
 };

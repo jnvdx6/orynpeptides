@@ -1,0 +1,1998 @@
+import type { Dictionary } from "../types";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ptBr = {
+  meta: {
+    title: "ORYN | Sistemas de Caneta Peptídica — Compre Peptídeos no Brasil",
+    titleTemplate: "%s | ORYN Peptide Labs",
+    description:
+      "Compre canetas de peptídeos de grau farmacêutico online. BPC-157, NAD+, Tirzepatide, GHK-CU e mais em sistemas de caneta reutilizáveis. Certificação GMP, pureza >99%. A partir de R$499. Envio gratuito.",
+    ogDescription:
+      "Sistemas de caneta peptídica de precisão. 10 peptídeos a partir de R$499. Canetas reutilizáveis com cartuchos substituíveis. Certificação GMP. Pureza >99%. Envio gratuito para o Brasil.",
+  },
+
+  header: {
+    announcementText: "ENVIO GRATUITO PARA PEDIDOS ACIMA DE R$750",
+    shopNow: "COMPRAR",
+    myAccount: "Minha Conta",
+    signIn: "Entrar",
+    searchPlaceholder: "Pesquisar peptídeos...",
+    noResults: "Sem resultados para",
+    typeToSearch: "Digite para pesquisar...",
+    viewAll: "VER TODOS OS PRODUTOS",
+  },
+
+  nav: {
+    products: "Produtos",
+    science: "Ciência",
+    about: "Sobre Nós",
+    contact: "Contato",
+    compare: "Comparar",
+    learn: "Aprender",
+  },
+
+  hero: {
+    tagline: "SISTEMAS DE CANETA PEPTÍDICA DE PRECISÃO",
+    subtitle: "Trave o Envelhecimento. Potencialize o Bem-Estar. Prolongue a Longevidade.",
+    description:
+      "Peptídeos de grau farmacêutico em sistemas de caneta reutilizáveis com cartuchos substituíveis. Dosagem precisa, fornecimento de 30 dias. Certificação GMP. Fabricados na Coreia do Sul. Pureza >99%.",
+    explorePeptides: "EXPLORAR PEPTÍDEOS",
+    ourScience: "NOSSA CIÊNCIA",
+    purityLabel: "PUREZA",
+    dosingLabel: "DOSAGEM",
+    dosingValue: "30 Dias",
+    trustFreeShipping: "ENVIO GRATUITO",
+    trustSecure: "PAGAMENTO SEGURO",
+    trustCOA: "COA INCLUÍDO",
+    socialProofCount: "2.400+ pedidos",
+    socialProofLabel: "enviados neste trimestre",
+    stats: {
+      peptidesValue: "10",
+      peptidesLabel: "Peptídeos",
+      purityValue: ">99%",
+      purityLabel: "Pureza",
+      cleanroomValue: "ISO 7",
+      cleanroomLabel: "Sala Limpa",
+      certifiedValue: "GMP",
+      certifiedLabel: "Certificado",
+    },
+  },
+
+  categories: {
+    label: "LINHAS DE PRODUTO",
+    titleLine1: "Três Sistemas.",
+    titleLine2: "Um Padrão.",
+    description:
+      "Cada produto ORYN é fabricado em salas limpas ISO Classe 7 com certificação GMP e validação por terceiros.",
+    from: "A partir de",
+    items: [
+      {
+        name: "Sistema Peptide Pen",
+        tagline: "Dosagem de Precisão 30 Dias",
+        description:
+          "8 peptídeos de pesquisa em canetas reutilizáveis multidose. Formulações de grau farmacêutico com visor digital de dosagem.",
+      },
+      {
+        name: "MediT Pen",
+        tagline: "Injeção Semanal",
+        description:
+          "Caneta pré-carregada de Tirzepatide 40mg. Ação dupla GIP/GLP-1 para pesquisa metabólica.",
+      },
+      {
+        name: "Sistema NovaDose",
+        tagline: "Microdosagem Diária NAD+",
+        description:
+          "Sistema avançado de administração NAD+ baseado em cartuchos. Grau farmacêutico com biodisponibilidade próxima de 100%.",
+      },
+    ],
+  },
+
+  showcase: {
+    label: "DESTAQUES",
+    titleLine1: "Peptídeos de",
+    titleLine2: "Grau de Pesquisa",
+    subtitle: "Compostos de grau farmacêutico a partir de R$499. Sistemas de caneta reutilizáveis com dosagem de precisão de 30 dias.",
+    viewAll: "VER TODOS OS PRODUTOS",
+    trustShipping: "ENVIO GRATUITO",
+    trustPurity: "PUREZA >99%",
+    trustCOA: "COA INCLUÍDO",
+    trustReturn: "LOTE RASTREÁVEL",
+  },
+
+  science: {
+    label: "NOSSO PROCESSO",
+    titleLine1: "Precisão",
+    titleLine2: "Molecular Projetada",
+    description:
+      "Desde a obtenção de matérias-primas até a esterilização final, cada etapa do processo de fabricação ORYN é regida por protocolos de grau farmacêutico e validada por laboratórios independentes.",
+    specs: {
+      manufacturingLabel: "Fabricação",
+      manufacturingValue: "Coreia",
+      capacityLabel: "Capacidade",
+      capacityValue: "100K/mês",
+      batchSizeLabel: "Tamanho do Lote",
+      batchSizeValue: "20.000 un",
+      leadTimeLabel: "Prazo",
+      leadTimeValue: "45-60 dias",
+    },
+    steps: [
+      {
+        title: "Síntese",
+        description:
+          "Síntese de peptídeos em fase sólida com protocolos de purificação proprietários que atingem >99% de pureza em todas as formulações.",
+      },
+      {
+        title: "Formulação",
+        description:
+          "Formulações aquosas de grau farmacêutico com agentes de viscosidade PEG. pH otimizado (6,8-7,4) para estabilidade e biodisponibilidade.",
+      },
+      {
+        title: "Esterilização",
+        description:
+          "Fabricação completa em câmara asséptica com filtração de 0,22um e acabamento por esterilização com raios gama. Salas limpas ISO Classe 7.",
+      },
+      {
+        title: "Validação",
+        description:
+          "Controle de qualidade por terceiros: POSTECH, UNIST e SGS. Cada lote inclui Certificado de Análise com dados analíticos completos.",
+      },
+    ],
+  },
+
+  howItWorks: {
+    label: "COMO FUNCIONA",
+    titleLine1: "Simples.",
+    titleLine2: "Eficaz.",
+    description: "Desde escolher o seu peptídeo até ver resultados — nosso sistema de caneta torna a pesquisa descomplicada.",
+    cta: "EXPLORAR PEPTÍDEOS",
+    steps: [
+      {
+        title: "Escolha Seu Peptídeo",
+        description: "Explore nossa linha de peptídeos com >99% de pureza. Cada caneta vem pré-misturada e pronta para usar.",
+      },
+      {
+        title: "Compre com Segurança",
+        description: "Pagamento rápido com Stripe. Envio gratuito em pedidos acima de R$750.",
+      },
+      {
+        title: "Receba Discretamente",
+        description: "Embalagem discreta, envio com temperatura controlada. COA incluído em cada pedido.",
+      },
+      {
+        title: "Inicie Sua Pesquisa",
+        description: "Dosagem ajustável através de caneta de precisão. Sem misturar, sem frascos, sem desperdício.",
+      },
+    ],
+  },
+
+  quality: {
+    label: "GARANTIA DE QUALIDADE",
+    titleLine1: "Padrões",
+    titleLine2: "Farmacêuticos",
+    pillars: [
+      {
+        title: "Sala Limpa ISO Classe 7",
+        description:
+          "Ambientes livres de partículas que cumprem os padrões de fabricação farmacêutica.",
+      },
+      {
+        title: "Certificação GMP",
+        description:
+          "Qualidade consistente, documentação adequada e produção rastreável.",
+      },
+      {
+        title: "Pureza >99%",
+        description:
+          "Análise HPLC e validação por terceiros — POSTECH, UNIST e SGS.",
+      },
+      {
+        title: "Rastreabilidade de Lotes",
+        description:
+          "Documentação DMF completa, dados de estabilidade e COA para cada lote.",
+      },
+      {
+        title: "Esterilização por Raios Gama",
+        description:
+          "Esterilidade completa por irradiação gama após fabricação asséptica.",
+      },
+      {
+        title: "Padrões Internacionais",
+        description:
+          "Conformidade total com os quadros regulamentares farmacêuticos internacionais.",
+      },
+    ],
+  },
+
+  cta: {
+    label: "INICIE SUA PESQUISA",
+    titleLine1: "Pronto para avançar na sua",
+    titleLine2: "pesquisa peptídica?",
+    description:
+      "Explore nosso catálogo completo de peptídeos de grau de pesquisa. Cada produto inclui Certificado de Análise e documentação completa do lote.",
+    browseProducts: "VER TODOS OS PRODUTOS",
+    contactTeam: "ENTRE EM CONTATO",
+    valueProp1: "ENVIO GRATUITO BRASIL",
+    valueProp2: "COA EM CADA PEDIDO",
+    valueProp3: "CERTIFICAÇÃO GMP",
+    badges: [
+      { value: "ISO 7", label: "SALA LIMPA" },
+      { value: "GMP", label: "CERTIFICADO" },
+      { value: ">99%", label: "PUREZA" },
+      { value: "SGS", label: "VALIDADO" },
+    ],
+  },
+
+  footer: {
+    description:
+      "Ciência Peptídica de Precisão. Laboratório de biotecnologia que fornece soluções peptídicas de grau de pesquisa projetadas com precisão molecular.",
+    researchOnly: "APENAS PARA FINS DE PESQUISA",
+    newsletterTitle: "Fique Atualizado",
+    newsletterDescription: "Receba as últimas novidades sobre peptídeos, pesquisa e ofertas exclusivas.",
+    newsletterPlaceholder: "seu@email.com",
+    newsletterButton: "ASSINAR",
+    newsletterSuccess: "Obrigado! Você agora está inscrito.",
+    paymentMethods: "ACEITAMOS",
+    sections: {
+      products: "Produtos",
+      company: "Empresa",
+      legal: "Legal",
+    },
+    productLinks: {
+      all: "Todos os Produtos",
+      pens: "Peptide Pens",
+      medit: "MediT Pen",
+      novadose: "NovaDose",
+    },
+    companyLinks: {
+      about: "Sobre a ORYN",
+      science: "Ciência",
+      contact: "Contato",
+      quality: "Qualidade",
+      whyOryn: "Por que a ORYN",
+      researchHub: "Centro de Pesquisa",
+      calculator: "Calculadora de Peptídeos",
+    },
+    trustBadges: {
+      ssl: "Criptografia SSL",
+      secure: "Pagamento Seguro",
+      coa: "COA Incluído",
+      guarantee: "Pureza Garantida",
+    },
+    legalLinks: {
+      terms: "Termos de Serviço",
+      privacy: "Política de Privacidade",
+      disclaimer: "Aviso de Pesquisa",
+    },
+    seoSections: {
+      researchAreas: "Áreas de Pesquisa",
+      learn: "Aprender",
+      ukDelivery: "Envio Brasil",
+      ukRegions: "Regiões do Brasil",
+      ukCounties: "Estados do Brasil",
+      peptideEncyclopedia: "Enciclopédia de Peptídeos",
+      resources: "Recursos",
+      londonDelivery: "Envio para São Paulo",
+      europeanDelivery: "Entrega Brasil",
+      topEuCities: "Principais Cidades do Brasil",
+    },
+    certifications: [
+      { label: "ISO CLASS 7", detail: "Sala Limpa" },
+      { label: "GMP", detail: "Certificado" },
+      { label: ">99%", detail: "Pureza" },
+      { label: "GMP", detail: "Fabricado" },
+    ],
+    copyright: "ORYN PEPTIDE LABS — TODOS OS DIREITOS RESERVADOS",
+  },
+
+  productCard: {
+    purity: "PUREZA >99%",
+    pharmaGrade: "GRAU FARMACÊUTICO",
+    details: "DETALHES",
+    addToCart: "ADICIONAR AO CARRINHO",
+  },
+
+  cart: {
+    title: "SEU PEDIDO",
+    empty: "Seu carrinho está vazio",
+    emptySubtext: "Comece a adicionar peptídeos de pesquisa ao seu carrinho.",
+    browseProducts: "VER PRODUTOS",
+    continueShopping: "Continuar Comprando",
+    subtotal: "Subtotal",
+    checkout: "PAGAMENTO SEGURO",
+    researchOnly: "Apenas para fins de pesquisa",
+    itemLabel: "item",
+    itemsLabel: "itens",
+    freeShippingAway: "Adicione mais {amount} para envio GRATUITO",
+    freeShippingUnlocked: "Você desbloqueou envio GRATUITO!",
+    youMightLike: "VOCÊ TAMBÉM PODE GOSTAR",
+    trustSecure: "PAGAMENTO SEGURO",
+    trustDiscreet: "ENVIO DISCRETO",
+    trustCOA: "COA INCLUÍDO",
+    orderSummary: "RESUMO DO PEDIDO",
+    shipping: "Envio",
+    free: "GRATUITO",
+    atCheckout: "NO PAGAMENTO",
+    estimatedShippingFrom: "A partir de",
+    weAccept: "MÉTODOS DE PAGAMENTO ACEITOS",
+    total: "Total",
+    volumeDiscount: "Desconto por volume",
+    saveForLater: "Salvar para depois",
+    saved: "SALVO",
+    save: "SALVAR",
+  },
+
+  productsPage: {
+    label: "CATÁLOGO",
+    title: "Peptídeos de Pesquisa",
+    description:
+      "Explore nossa linha completa de soluções peptídicas de precisão. Cada produto fabricado segundo padrões farmacêuticos com pureza >99%.",
+    all: "TODOS",
+    results: "produtos",
+    searchPlaceholder: "Pesquisar peptídeos...",
+    sortBy: "ORDENAR POR",
+    sortPriceAsc: "PREÇO: MENOR PARA MAIOR",
+    sortPriceDesc: "PREÇO: MAIOR PARA MENOR",
+    sortName: "NOME: A-Z",
+    noResults: "Não foram encontrados produtos para",
+    noCategory: "Não existem produtos nesta categoria",
+    clearFilters: "Limpar filtros",
+    disclaimer:
+      "TODOS OS PRODUTOS ORYN DESTINAM-SE EXCLUSIVAMENTE A PESQUISA E USO LABORATORIAL. NÃO SE DESTINAM AO CONSUMO HUMANO.",
+  },
+
+  productDetail: {
+    notFound: "Produto Não Encontrado",
+    backToProducts: "Voltar aos Produtos",
+    home: "INÍCIO",
+    products: "PRODUTOS",
+    perUnit: "por unidade",
+    addToCart: "ADICIONAR AO CARRINHO",
+    adding: "ADICIONANDO...",
+    keyBenefits: "BENEFÍCIOS PRINCIPAIS",
+    specifications: "ESPECIFICAÇÕES",
+    researchOnlyTitle: "Apenas para Pesquisa",
+    researchOnlyDescription:
+      "Este produto destina-se exclusivamente a uso laboratorial e de pesquisa. Não se destina ao consumo humano.",
+    relatedProducts: "Produtos Relacionados",
+    trustShipping: "ENVIO GRATUITO",
+    trustPurity: "PUREZA >99%",
+    trustCOA: "COA INCLUÍDO",
+    secureCheckout: "PAGAMENTO SEGURO",
+    discreetShipping: "ENVIO DISCRETO",
+    inStock: "EM ESTOQUE",
+    readyToShip: "Pronto para enviar",
+    reviews: "avaliações",
+    scienceTab: "Ciência",
+    readyToExperience: "Pronto para experimentar",
+    premiumPenDescription: "Sistema de caneta premium com dosagem totalmente ajustável. Fabricação GMP, pureza >99% garantida.",
+    dosingProtocol: "PROTOCOLO DE DOSAGEM",
+    howToUse: "Como Usar Sua Caneta ORYN",
+    quickReference: "REFERÊNCIA RÁPIDA",
+    recommendedDose: "Dose Recomendada",
+    frequency: "Frequência",
+    duration: "Duração",
+    proTips: "DICAS PRO",
+    stepByStep: "INSTRUÇÕES PASSO A PASSO",
+    importantLabel: "IMPORTANTE",
+    safetyNote: "Utilize sempre uma agulha estéril nova para cada administração. Descarte as agulhas usadas em um recipiente apropriado para objetos cortantes. Armazene a caneta refrigerada a 2-8°C.",
+    scienceLabel: "CIÊNCIA",
+    scienceBehind: "A Ciência Por Trás de",
+    compoundProfile: "PERFIL DO COMPOSTO",
+    classificationLabel: "CLASSIFICAÇÃO",
+    molecularFormula: "FÓRMULA MOLECULAR",
+    molecularWeightLabel: "PESO MOLECULAR",
+    halfLifeLabel: "MEIA-VIDA",
+    sequenceLabel: "SEQUÊNCIA",
+    researchAreasLabel: "ÁREAS DE PESQUISA",
+    mechanismOfAction: "MECANISMO DE AÇÃO",
+    keyResearchFindings: "PRINCIPAIS DESCOBERTAS DE PESQUISA",
+    trustedByResearchers: "CONFIANÇA DOS PESQUISADORES",
+    whatLabsSay: "O Que Dizem os Laboratórios Sobre",
+    fromVerifiedReviews: "de {count} avaliações verificadas",
+    verifiedLabel: "VERIFICADO",
+    faqLabel: "FAQ",
+    frequentlyAsked: "Perguntas Frequentes Sobre",
+    buyInYourCity: "COMPRAR {product} NA SUA CIDADE",
+    relatedResearch: "PESQUISA RELACIONADA",
+    formulaLabel: "FÓRMULA",
+    weightLabel: "PESO",
+    add: "ADICIONAR",
+    closeCart: "Fechar carrinho",
+    decreaseQuantity: "Diminuir quantidade",
+    increaseQuantity: "Aumentar quantidade",
+    removeItem: "Remover item",
+    toggleWishlist: "Alternar lista de desejos",
+    closeSearch: "Fechar pesquisa",
+    closePopup: "Fechar",
+    purityBadge: ">99% PUREZA",
+    gmpBadge: "GMP CERTIFICADO",
+    freeShippingBadge: "ENVIO GRATUITO R$750+",
+    whyChoosePen: "POR QUE ESCOLHER A CANETA",
+    traditionalVials: "FRASCOS TRADICIONAIS",
+    orynPenSystem: "SISTEMA DE CANETA ORYN",
+    vialProblems: [
+      { label: "Reconstituição necessária", detail: "Água bacteriostática, seringa, mistura precisa" },
+      { label: "Variabilidade de dosagem", detail: "As marcações da seringa podem variar 10-20%" },
+      { label: "Risco de contaminação", detail: "Rolha de borracha perfurada múltiplas vezes" },
+      { label: "Degradação rápida", detail: "A potência diminui após a reconstituição" },
+      { label: "Preparação complexa", detail: "5-10 minutos por preparação" },
+      { label: "Viagem impraticável", detail: "Frascos, seringas, água, agulhas..." },
+    ],
+    comparisonBar: [
+      { vial: "5-10 min", pen: "30 seg", label: "Preparação" },
+      { vial: "~80%", pen: ">99%", label: "Precisão da Dose" },
+      { vial: "Decrescente", pen: "Mantida", label: "Esterilidade" },
+      { vial: "7-14 dias", pen: "30 dias", label: "Estabilidade" },
+    ],
+    compareWith: "COMPARAR COM PRODUTOS SIMILARES",
+    sideBy: "Comparar Produtos",
+    vsLabel: "OCULTAR",
+    keyDifferences: "BENEFÍCIOS PRINCIPAIS",
+    bestFor: "benefícios",
+    viewProduct: "ADICIONAR",
+    comparisonDisclaimer: "PREÇO",
+  },
+
+  aboutPage: {
+    tagline: "SOBRE A ORYN",
+    heroTitle1: "A Ciência Por Trás",
+    heroTitle2: "da Precisão",
+    heroDescription:
+      "A ORYN é um laboratório de biotecnologia dedicado a avançar na pesquisa peptídica através de fabricação de grau farmacêutico, sistemas de administração inovadores e padrões de qualidade intransigentes.",
+    brandStatement:
+      "Acreditamos que a pesquisa peptídica merece o mesmo rigor de fabricação que a",
+    brandHighlight: "produção farmacêutica.",
+    brandParagraphs: [
+      "A ORYN nasceu de uma frustração com o mercado de pesquisa peptídica. Compostos demais com pureza incerta, dosagem inconsistente e cadeias de fornecimento opacas. Nos propusemos a mudar isso.",
+      "Nossos parceiros de fabricação operam salas limpas ISO Classe 7 com certificação GMP. Cada formulação é submetida a análise HPLC e validação independente por terceiros. Fornecemos documentação completa de cada lote porque a transparência não é opcional — é fundamental.",
+      "O resultado: peptídeos de grau de pesquisa nos quais cientistas e laboratórios podem confiar, entregues em sistemas de precisão projetados para resultados consistentes e confiáveis.",
+    ],
+    valuesLabel: "NOSSOS VALORES",
+    valuesTitle: "O Que Nos Move",
+    values: [
+      {
+        title: "Precisão",
+        description:
+          "Cada medição conta. Da síntese ao enchimento final, controlamos as variáveis no nível molecular.",
+      },
+      {
+        title: "Pureza",
+        description:
+          "99% é o nosso mínimo. Validado por terceiros: POSTECH, UNIST e SGS para confiança absoluta.",
+      },
+      {
+        title: "Inovação",
+        description:
+          "Três plataformas de administração únicas projetadas para estabilidade ótima, precisão de dosagem e experiência de uso.",
+      },
+      {
+        title: "Transparência",
+        description:
+          "Documentação completa de cada lote, COA para cada produto e rastreabilidade total da cadeia de fornecimento.",
+      },
+    ],
+    journeyLabel: "NOSSA TRAJETÓRIA",
+    journeyTitle: "Construindo",
+    timeline: [
+      {
+        year: "Fundação",
+        title: "Precisão Desde o Primeiro Dia",
+        description:
+          "A ORYN foi fundada com uma visão singular: levar a pesquisa peptídica de grau farmacêutico aos laboratórios com padrões de qualidade intransigentes.",
+      },
+      {
+        year: "Fabricação",
+        title: "Parceria Biotecnológica Coreana",
+        description:
+          "Parceria estratégica com instalações de fabricação certificadas ISO Classe 7 em Eumseong e Osan, Coreia. Capacidade de 100.000 unidades por mês.",
+      },
+      {
+        year: "Inovação",
+        title: "Sistemas de Administração Avançados",
+        description:
+          "Desenvolvimento de três plataformas de administração proprietárias: Peptide Pen multidose, MediT Pen pré-carregada e o sistema de cartuchos NovaDose.",
+      },
+      {
+        year: "Hoje",
+        title: "10 Peptídeos de Pesquisa",
+        description:
+          "Catálogo completo de peptídeos de grau de pesquisa que abrange cicatrização, metabolismo, anti-envelhecimento e pesquisa de hormônio de crescimento com distribuição global.",
+      },
+    ],
+    manufacturingLabel: "FABRICAÇÃO",
+    manufacturingTitle: "Especificações de Produção",
+    manufacturingSpecs: [
+      { value: "ISO 7", label: "Classe Sala Limpa", sub: "Certificado" },
+      { value: "GMP", label: "Fabricação", sub: "Certificado" },
+      { value: "100K", label: "Capacidade Mensal", sub: "Unidades/Mês" },
+      { value: "24m", label: "Prazo de Validade", sub: "Estabilidade Testada" },
+      { value: "0,22um", label: "Esterilização", sub: "Filtração" },
+      { value: "SGS", label: "Validação", sub: "Terceiros" },
+      { value: "6,8-7,4", label: "Faixa de pH", sub: "Otimizado" },
+      { value: "PEG", label: "Viscosidade", sub: "Agente" },
+    ],
+  },
+
+  sciencePage: {
+    tagline: "CIÊNCIA",
+    heroTitle1: "Biblioteca de",
+    heroTitle2: "Pesquisa Peptídica",
+    heroDescription:
+      "Compreender os mecanismos moleculares por trás de cada produto ORYN. Esta biblioteca apresenta uma visão científica geral do nosso catálogo de peptídeos de pesquisa e das respectivas áreas de estudo.",
+    processLabel: "PROCESSO",
+    processTitle1: "Da Síntese à",
+    processTitle2: "Entrega",
+    processDescription:
+      "Um pipeline de fabricação farmacêutica de seis etapas que garante consistência, pureza e estabilidade em cada produto.",
+    processSteps: [
+      { step: "01", label: "Matéria-Prima", time: "2 Semanas" },
+      { step: "02", label: "Síntese", time: "8 Dias" },
+      { step: "03", label: "Purificação", time: "HPLC" },
+      { step: "04", label: "Formulação", time: "pH 6,8-7,4" },
+      { step: "05", label: "Enchimento e Selagem", time: "2 Semanas" },
+      { step: "06", label: "Esterilizar e CQ", time: "1 Semana" },
+    ],
+    libraryLabel: "BIBLIOTECA",
+    libraryTitle1: "Perfis de",
+    libraryTitle2: "Compostos Peptídicos",
+    classification: "CLASSIFICAÇÃO",
+    mechanism: "MECANISMO",
+    researchAreas: "ÁREAS DE PESQUISA",
+    specsLabel: "ESPECIFICAÇÕES",
+    specsTitle: "Parâmetros de Qualidade Universais",
+    specsItems: [
+      { value: ">99%", label: "Pureza (HPLC)" },
+      { value: "6,8-7,4", label: "Faixa de pH" },
+      { value: "0,22um", label: "Filtração Estéril" },
+      { value: "3 mL", label: "Volume de Enchimento" },
+      { value: "PEG", label: "Agente de Viscosidade" },
+      { value: "30 Dias", label: "Período de Dosagem" },
+      { value: "24 m", label: "Prazo de Validade" },
+      { value: "2-8°C", label: "Temp. Armazenamento" },
+    ],
+  },
+
+  contactPage: {
+    tagline: "CONTATO",
+    heroTitle: "Entre em Contato",
+    heroDescription:
+      "Para pedidos no atacado, parcerias de pesquisa ou dúvidas sobre produtos. Nossa equipe responde em 24 horas.",
+    companyName: "ORYN Peptide Labs",
+    emailLabel: "EMAIL",
+    wholesaleLabel: "ATACADO",
+    locationLabel: "LOCALIZAÇÃO",
+    locationLine1: "Operações Internacionais",
+    locationLine2: "Pesquisa e Distribuição",
+    infoBoxes: [
+      {
+        title: "Pedidos no Atacado",
+        description:
+          "MOQ: 1.000 por SKU. Marca OEM completa disponível. Pagamento: 50% adiantado / 50% antes do envio. Suporte de envio DDP disponível.",
+      },
+      {
+        title: "Parcerias de Pesquisa",
+        description:
+          "Apoiamos programas de pesquisa acadêmica e institucional com formulações personalizadas, preços por volume e fabricação prioritária.",
+      },
+      {
+        title: "Documentação",
+        description:
+          "COA, dados de estabilidade, documentação DMF e materiais de marketing disponíveis para todos os produtos ORYN mediante solicitação.",
+      },
+    ],
+    formTitle: "Envie-nos uma mensagem",
+    formDescription:
+      "Preencha o formulário e nossa equipe responderá em breve.",
+    firstName: "PRIMEIRO NOME",
+    lastName: "SOBRENOME",
+    email: "EMAIL",
+    organization: "ORGANIZAÇÃO",
+    inquiryType: "TIPO DE SOLICITAÇÃO",
+    inquiryOptions: [
+      "Dúvida sobre Produto",
+      "Pedido no Atacado",
+      "Parceria de Pesquisa",
+      "Formulação Personalizada",
+      "Solicitação de Documentação",
+      "Outro",
+    ],
+    message: "MENSAGEM",
+    messagePlaceholder: "Conte-nos sobre suas necessidades de pesquisa...",
+    sendMessage: "ENVIAR MENSAGEM",
+    messageSent: "Mensagem Enviada",
+    messageSentDescription: "Responderemos em 24 horas.",
+  },
+
+  checkoutPage: {
+    emptyCart: "Seu carrinho está vazio",
+    emptyCartDescription: "Adicione produtos antes de prosseguir para o pagamento.",
+    browseProducts: "Ver Produtos",
+    steps: ["Informação", "Envio", "Pagamento"],
+    shippingTitle: "Informação de Envio",
+    firstName: "PRIMEIRO NOME",
+    lastName: "SOBRENOME",
+    email: "EMAIL",
+    phone: "TELEFONE",
+    address: "ENDEREÇO",
+    city: "Cidade",
+    postalCode: "CEP",
+    country: "País",
+    referralCode: "CÓDIGO DE INDICAÇÃO",
+    referralCodePlaceholder: "Insira o código de indicação",
+    referralCodeHint: "Tem um código de indicação? Insira-o para rastreamento.",
+    continueToPayment: "CONTINUAR PARA O PAGAMENTO",
+    paymentTitle: "Pagamento",
+    cardPayment: "Pagamento com Cartão",
+    cryptoPayment: "Pagamento com Crypto",
+    cardNumber: "NÚMERO DO CARTÃO",
+    expiry: "VALIDADE",
+    cvc: "CVC",
+    selectCrypto: "SELECIONAR CRIPTOMOEDA",
+    amountToPay: "VALOR A PAGAR",
+    discountApplied: "(5% de desconto aplicado)",
+    sendToAddress: "ENVIAR PARA ENDEREÇO",
+    copy: "COPIAR",
+    copied: "COPIADO",
+    timeRemaining: "TEMPO RESTANTE",
+    sendBeforeExpiry: "Envie o pagamento antes do temporizador expirar",
+    sentPayment: "JÁ ENVIEI O PAGAMENTO",
+    txHash: "HASH DA TRANSAÇÃO",
+    txHashPlaceholder: "Insira o hash da transação",
+    sessionExpired: "SESSÃO DE PAGAMENTO EXPIRADA",
+    restartSession: "REINICIAR SESSÃO",
+    back: "Voltar",
+    placeOrder: "CONFIRMAR PEDIDO",
+    processing: "PROCESSANDO...",
+    orderSummary: "RESUMO DO PEDIDO",
+    qty: "Qtd",
+    subtotal: "Subtotal",
+    cryptoDiscount: "Desconto Crypto (5%)",
+    shipping: "Envio",
+    shippingNote: "CALCULADO NA PRÓXIMA ETAPA",
+    referral: "Indicação",
+    total: "Total",
+    researchOnly: "Apenas para fins de pesquisa",
+    orderConfirmed: "Pedido Confirmado",
+    orderConfirmedDescription:
+      "Obrigado pelo seu pedido. Um email de confirmação foi enviado com os detalhes do pedido e informação de rastreamento.",
+    paymentVerifying: "PAGAMENTO EM VERIFICAÇÃO",
+    paymentVerifyingDescription:
+      "Seu pagamento em criptomoeda está sendo confirmado na blockchain. Este processo pode levar até 30 minutos.",
+    paymentConfirmed: "PAGAMENTO CONFIRMADO",
+    referralApplied: "CÓDIGO DE INDICAÇÃO APLICADO",
+    continueShopping: "Continuar Comprando",
+    secureCheckout: "PAGAMENTO SEGURO",
+    orderRef: "REF. PEDIDO",
+    contactShipping: "Informação de contato e envio",
+    change: "Alterar",
+    emailPlaceholder: "seu@email.com",
+    shippingAddress: "ENDEREÇO DE ENVIO",
+    useSavedAddress: "USAR ENDEREÇO SALVO",
+    selectCountry: "Selecionar país...",
+    firstNamePlaceholder: "Primeiro nome",
+    lastNamePlaceholder: "Sobrenome",
+    addressPlaceholder: "Endereço",
+    apartmentPlaceholder: "Apartamento, andar, etc. (opcional)",
+    cityPlaceholder: "Cidade",
+    postalCodePlaceholder: "CEP",
+    phonePlaceholder: "Celular (opcional)",
+    continueToShipping: "CONTINUAR PARA O ENVIO",
+    shippingMethod: "Método de envio",
+    loadingShipping: "Carregando opções de envio...",
+    freeShippingApplied: "ENVIO GRATUITO APLICADO!",
+    freeShippingLabel: "ENVIO GRATUITO (PEDIDO +R${threshold})",
+    freeStandardShipping: "Envio standard gratuito",
+    returnToInformation: "← Voltar à informação",
+    returnToShipping: "← Voltar ao envio",
+    contact: "CONTATO",
+    shipTo: "ENVIAR PARA",
+    method: "MÉTODO",
+    free: "Gratuito",
+    required: "Obrigatório",
+    validEmailRequired: "Email válido obrigatório",
+    invalidCode: "Código inválido",
+    failedToValidate: "Falha na validação",
+    hideOrderSummary: "Ocultar resumo",
+    showOrderSummary: "Mostrar resumo",
+    discount: "Desconto",
+    volumeDiscountLabel: "Desc. volume",
+    calculatedNextStep: "Calculado na próxima etapa",
+    selectCountryForShipping: "Selecione o país para estimar",
+    securePayment: "PAGAMENTO SEGURO",
+    discreetShipping: "ENVIO DISCRETO",
+    coaIncluded: "COA INCLUÍDO",
+    gmpCertified: "CERTIFICAÇÃO GMP",
+    allSecure: "TODAS AS TRANSAÇÕES SÃO SEGURAS E CRIPTOGRAFADAS",
+    backendRequired: "BACKEND NECESSÁRIO",
+    backendDescription: "O backend Medusa é necessário para processar pagamentos.",
+    promoCodePlaceholder: "Código de desconto",
+    apply: "APLICAR",
+    referralPlaceholder: "Código de indicação (opcional)",
+    sslEncrypted: "SSL Criptografado",
+    purity99: "Pureza >99%",
+    guaranteed: "Garantido",
+    gmpCertifiedBadge: "Certificação GMP",
+    guarantee30: "Garantia 30 Dias",
+    noQuestions: "Sem perguntas",
+    emailHint: "Você não precisa de conta. Seu pedido será associado a este email.",
+    verifyingPayment: "Verificando pagamento...",
+    paymentFailed: "Pagamento Falhou",
+    paymentFailedDescription: "Não foi possível processar seu pagamento. Tente novamente ou use outro método de pagamento.",
+    tryAgain: "Tentar Novamente",
+    whatHappensNext: "O QUE ACONTECE EM SEGUIDA",
+    nextSteps: [
+      "Email de confirmação enviado para sua caixa de entrada",
+      "Seu pedido está sendo preparado e verificado",
+      "Enviado com rastreamento — normalmente no próximo dia útil",
+    ],
+    viewOrders: "VER PEDIDOS",
+    referralTitle: "Compartilhe a ORYN e ganhe 10% de comissão",
+    referralDescription: "Gosta dos nossos produtos? Compartilhe seu link de indicação e ganhe 10% em cada compra.",
+    getReferralLink: "OBTENHA SEU LINK DE INDICAÇÃO →",
+  },
+
+  products: {
+    "bpc-157": {
+      subtitle: "Cicatrização e Recuperação",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O Body Protection Compound-157 é um peptídeo sintético derivado de uma proteína natural do suco gástrico. O ORYN BPC-157 é formulado com grau farmacêutico em um sistema de caneta de dosagem precisa para uma administração consistente e confiável durante 30 dias.",
+      benefits: [
+        "Apoia a cicatrização e recuperação de tecidos",
+        "Promove a saúde e integridade intestinal",
+        "Apoia a reparação de tendões e ligamentos",
+        "Propriedades anti-inflamatórias",
+        "Potencial neuroprotetor",
+      ],
+      badge: "Mais Vendido",
+    },
+    "tb-500": {
+      subtitle: "Reparação Tecidual",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O fragmento de Timosina Beta-4, TB-500, desempenha um papel crucial na reparação e regeneração de tecidos. O ORYN TB-500 fornece uma dose precisa de 15mg no nosso sistema avançado de caneta, projetado para biodisponibilidade ótima e resultados consistentes.",
+      benefits: [
+        "Acelera a cicatrização de feridas",
+        "Reduz a inflamação",
+        "Promove a reparação do tecido muscular",
+        "Apoia a saúde cardiovascular",
+        "Melhora a flexibilidade e mobilidade",
+      ],
+    },
+    "cjc-1295": {
+      subtitle: "Estimulação GH",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O CJC-1295 é um análogo sintético do hormônio liberador de hormônio de crescimento (GHRH). O ORYN CJC-1295 proporciona elevação sustentada de GH através do nosso sistema de dosagem de precisão, fabricado segundo os mais elevados padrões farmacêuticos.",
+      benefits: [
+        "Estimula a liberação de hormônio de crescimento",
+        "Apoia a composição corporal magra",
+        "Promove o sono profundo reparador",
+        "Melhora a recuperação entre sessões",
+        "Apoia a função metabólica",
+      ],
+    },
+    ipamorelin: {
+      subtitle: "Estimulação GH",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O Ipamorelin é um secretagogo seletivo de hormônio de crescimento que estimula a glândula pituitária. O ORYN Ipamorelin oferece liberação dirigida de GH sem a perturbação hormonal mais ampla observada em compostos menos seletivos.",
+      benefits: [
+        "Liberação seletiva de GH",
+        "Perfil mínimo de efeitos colaterais",
+        "Apoia a densidade óssea",
+        "Promove o tecido magro",
+        "Melhora a qualidade do sono",
+      ],
+    },
+    "tirzepatide-pen": {
+      subtitle: "Metabólico",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O Tirzepatide é um agonista duplo do receptor GIP/GLP-1 que representa a vanguarda da ciência peptídica metabólica. O sistema de caneta ORYN Tirzepatide oferece dosagem de precisão para aplicações de pesquisa metabólica.",
+      benefits: [
+        "Ação dupla em receptores hormonais",
+        "Apoia a função metabólica",
+        "Gestão do açúcar no sangue",
+        "Regulação do apetite",
+        "Composto clinicamente estudado",
+      ],
+      badge: "Popular",
+    },
+    "ghk-cu": {
+      subtitle: "Reparação Cutânea",
+      categoryLabel: "Peptide Pen",
+      description:
+        "O GHK-Cu (peptídeo de cobre) é um tripeptídeo natural com alta afinidade para íons de cobre. O ORYN GHK-CU apoia a remodelação e reparação cutânea com uma formulação potente de 60mg.",
+      benefits: [
+        "Promove a síntese de colágeno",
+        "Apoia a elasticidade da pele",
+        "Propriedades antioxidantes",
+        "Apoio à cicatrização",
+        "Aplicações de pesquisa anti-envelhecimento",
+      ],
+    },
+    glutathione: {
+      subtitle: "Antioxidante",
+      categoryLabel: "Peptide Pen",
+      description:
+        "A Glutationa é o principal antioxidante do corpo, essencial para a desintoxicação celular e a função imunológica. O ORYN Glutathione fornece uma dose potente de 6g através do nosso sistema de caneta de precisão para máxima biodisponibilidade.",
+      benefits: [
+        "Defesa antioxidante principal",
+        "Desintoxicação celular",
+        "Apoio ao sistema imunológico",
+        "Propriedades de luminosidade da pele",
+        "Apoio à função hepática",
+      ],
+    },
+    "nad-plus": {
+      subtitle: "Metabólico e Anti-Envelhecimento",
+      categoryLabel: "Peptide Pen",
+      description:
+        "A Nicotinamida Adenina Dinucleotídeo (NAD+) é uma coenzima essencial presente em todas as células. A caneta ORYN NAD+ fornece uma dose concentrada de 500mg para apoiar a produção de energia celular, a reparação do DNA e o envelhecimento saudável.",
+      benefits: [
+        "Produção de energia celular",
+        "Apoio à reparação do DNA",
+        "Pesquisa do envelhecimento saudável",
+        "Apoio à função cognitiva",
+        "Eficiência metabólica",
+      ],
+      badge: "Premium",
+    },
+    "medit-tirzepatide": {
+      subtitle: "Tirzepatide 40mg — Gestão de Peso",
+      categoryLabel: "MediT Pen",
+      description:
+        "A ORYN MediT Pen é uma caneta de injeção pré-carregada de uso único contendo 40mg de Tirzepatide. Projetada para administração semanal, combina ação hormonal dupla GIP/GLP-1 para suporte metabólico completo.",
+      benefits: [
+        "Ação hormonal dupla (GIP + GLP-1)",
+        "Comodidade semanal",
+        "Eficácia clinicamente comprovada",
+        "Controle do apetite e aumento da saciedade",
+        "Gestão do açúcar no sangue",
+        "Apoia a gestão de peso a longo prazo",
+        "Pode reduzir o risco de doenças associadas à obesidade",
+      ],
+      badge: "Novo",
+    },
+    "novadose-nad": {
+      subtitle: "Juventude nas Suas Mãos",
+      categoryLabel: "Sistema NovaDose",
+      description:
+        "O NovaDose fornece NAD+ de grau farmacêutico através de um inovador sistema de caneta baseado em cartuchos. Projetado para microdosagem diária precisa, apoia a energia celular, a eficiência metabólica e a reparação natural. Mais acessível e sustentável do que a terapia IV.",
+      benefits: [
+        "NAD+ de grau farmacêutico da Coreia",
+        "Microdosagem diária precisa",
+        "Biodisponibilidade próxima de 100%",
+        "Apoia a energia celular e a clareza mental",
+        "Melhora o humor e o desempenho físico",
+        "Mais econômico do que a terapia IV",
+        "Fabricação certificada GMP",
+      ],
+      badge: "Inovação",
+    },
+  },
+
+  categoryNames: {
+    "peptide-pen": "Sistema Peptide Pen",
+    "medit-pen": "MediT Pen",
+    novadose: "Sistema NovaDose",
+  },
+
+  categoryDescriptions: {
+    "peptide-pen":
+      "Canetas reutilizáveis multidose com dosagem de precisão de 30 dias. 8 peptídeos de pesquisa disponíveis.",
+    "medit-pen":
+      "Caneta de injeção semanal pré-carregada de uso único. Tirzepatide 40mg para pesquisa metabólica.",
+    novadose:
+      "Sistema avançado de administração NAD+ por cartuchos para microdosagem diária de precisão.",
+  },
+
+  researchCategories: {
+    recovery: "Recuperação e Cura",
+    "weight-loss": "Perda de Peso",
+    "anti-aging": "Anti-Envelhecimento",
+    "muscle-growth": "Crescimento Muscular",
+    "skin-rejuvenation": "Rejuvenescimento da Pele",
+    "sleep-quality": "Sono e Recuperação",
+    "gut-health": "Saúde Intestinal",
+    "joint-health": "Articulações e Tendões",
+    "hair-growth": "Crescimento Capilar",
+    "immune-support": "Suporte Imunológico",
+    "tendon-repair": "Reparação de Tendões",
+    "sports-recovery": "Recuperação Esportiva",
+    "post-surgery": "Pós-Cirurgia",
+    "cognitive-enhancement": "Melhoria Cognitiva",
+    "energy-vitality": "Energia e Vitalidade",
+    "detox-cleanse": "Detox e Purificação",
+    "body-composition": "Composição Corporal",
+    inflammation: "Inflamação e Dor",
+    "hormonal-balance": "Equilíbrio Hormonal",
+    "longevity-biohacking": "Longevidade e Biohacking",
+  },
+
+  breadcrumbs: {
+    home: "Início",
+    products: "Produtos",
+    about: "Sobre Nós",
+    science: "Ciência",
+    contact: "Contato",
+    learn: "Aprender",
+    quality: "Qualidade",
+    faq: "FAQ",
+    compare: "Comparar",
+    shipping: "Envio",
+    whyOryn: "Por que ORYN",
+    terms: "Termos",
+    privacy: "Privacidade",
+    disclaimer: "Aviso Legal",
+    cart: "Carrinho",
+    checkout: "Pagamento",
+    account: "Conta",
+    orders: "Pedidos",
+    referrals: "Indicações",
+    wishlist: "Lista de Desejos",
+    profile: "Perfil",
+    wholesale: "Atacado",
+    bundles: "Packs",
+    protocols: "Protocolos",
+    peptides: "Peptídeos",
+    peptidePens: "Canetas de Peptídeos",
+    europe: "América Latina",
+    glossary: "Glossário",
+    london: "São Paulo",
+    encyclopedia: "Enciclopédia",
+    ukPeptideDelivery: "Entrega de Peptídeos no Brasil",
+    tools: "Ferramentas",
+    peptideCalculator: "Calculadora de Peptídeos",
+    brazil: "Brasil",
+  },
+
+  homeSeo: {
+    deliveryTitle: "ENTREGA DE PEPTÍDEOS EM TODO O BRASIL",
+    researchAreaTitle: "PEPTÍDEOS POR ÁREA DE PESQUISA",
+    researchHubTitle: "CENTRO DE PESQUISA",
+    peptidesFor: "Peptídeos para",
+  },
+
+  testimonials: {
+    label: "CONFIANÇA DOS PESQUISADORES",
+    titleLine1: "O Que Dizem",
+    titleLine2: "Nossos Clientes",
+    items: [
+      {
+        quote: "A pureza e consistência dos peptídeos ORYN é incomparável. O sistema de caneta torna a dosagem incrivelmente precisa e confiável para nossos protocolos laboratoriais.",
+        name: "Dr. M. Richter",
+        role: "Diretor de Pesquisa, Munique",
+      },
+      {
+        quote: "Mudamos para a ORYN há seis meses. A documentação COA, a rastreabilidade de lotes e a certificação GMP nos dão total confiança em cada pedido.",
+        name: "Dr. S. Lindberg",
+        role: "Pesquisador Clínico, Estocolmo",
+      },
+      {
+        quote: "Qualidade de produto excepcional e envio rápido. O sistema NovaDose é revolucionário para nossa pesquisa NAD+. Altamente recomendado para qualquer laboratório sério.",
+        name: "Prof. J. Torres",
+        role: "Diretor de Lab. Biotech, Barcelona",
+      },
+    ],
+    stats: [
+      { value: "2.400+", label: "PEDIDOS ENVIADOS" },
+      { value: "98%", label: "TAXA DE RECOMPRA" },
+      { value: "4.9/5", label: "SATISFAÇÃO" },
+      { value: "24h", label: "TEMPO DE RESPOSTA" },
+    ],
+  },
+
+  localeSwitcher: {
+    label: "Mercado",
+    uk: "UK (€)",
+    eu: "UE (€)",
+  },
+
+  wishlistPage: {
+    title: "Lista de Desejos",
+    breadcrumb: "LISTA DE DESEJOS",
+    empty: "Sua lista de desejos está vazia",
+    emptyTitle: "Sem itens salvos",
+    emptyDescription: "Explore nossos produtos e clique no ícone de coração para salvar itens.",
+    browseProducts: "VER PRODUTOS",
+    itemsSaved: "itens salvos",
+    itemSaved: "item salvo",
+  },
+
+  faq: {
+    title: "Perguntas Frequentes",
+    label: "FAQ",
+  },
+
+  contactFaq: {
+    title: "ANTES DE ENTRAR EM CONTATO",
+    items: [
+      { q: "Quanto tempo demora a entrega?", a: "Pedidos no Brasil: 5-10 dias úteis. América Latina: 7-15 dias úteis. Todos os pedidos são enviados em embalagem discreta e com temperatura controlada." },
+      { q: "Posso rastrear meu pedido?", a: "Sim! Assim que despachado, você receberá um número de rastreamento por email. Você também pode rastrear pedidos no painel da sua conta." },
+      { q: "Qual é a política de devoluções?", a: "Oferecemos garantia de devolução de 30 dias em produtos lacrados. Entre em contato com info@orynlabs.com para iniciar uma devolução." },
+      { q: "Vocês oferecem preços no atacado?", a: "Sim, entre em contato com wholesale@orynlabs.com para preços por volume. Oferecemos descontos escalonados para instituições de pesquisa e revendedores." },
+    ],
+  },
+
+  homeFaq: {
+    items: [
+      { q: "O que são as ORYN Peptide Pens?", a: "As ORYN Peptide Pens são sistemas de administração de peptídeos de pesquisa pré-misturados e prontos para usar. Cada caneta contém peptídeos de grau farmacêutico com >99% de pureza, fabricados em instalações de sala limpa ISO 7. O formato de caneta elimina a necessidade de reconstituição, assegurando uma dosagem consistente para aplicações de pesquisa." },
+      { q: "Os peptídeos são legais no Brasil?", a: "Os peptídeos de pesquisa podem ser adquiridos no Brasil para fins de pesquisa. Os peptídeos ORYN são vendidos estritamente para pesquisa in-vitro e uso laboratorial. Não se destinam ao consumo humano." },
+      { q: "Como são fabricados os peptídeos?", a: "Todos os peptídeos ORYN são sintetizados em laboratório de sala limpa ISO 7 certificado GMP. Cada lote é submetido a rigorosas análises de HPLC e espectrometria de massa para verificar >99% de pureza. Um Certificado de Análise (COA) é incluído em cada pedido." },
+      { q: "Quanto tempo demora a entrega?", a: "Os pedidos no Brasil chegam normalmente em 5-10 dias úteis. Todos os pedidos são enviados em embalagem discreta e com temperatura controlada. Pedidos acima de R$750 têm envio gratuito." },
+      { q: "O que é o Programa de Indicações ORYN?", a: "Nosso programa de indicações multinível permite que você ganhe 10% de comissão nas compras feitas por colegas que você indicar. Você também ganha comissões em até 5 níveis de profundidade à medida que sua rede cresce. Registre-se gratuitamente para obter seu código de indicação único." },
+      { q: "Vocês oferecem preços por volume ou atacado?", a: "Sim, oferecemos descontos por volume a partir de 3+ unidades. Quanto mais você pedir, maior o desconto — até 15% de desconto para pedidos de pesquisa de grande volume. Entre em contato para preços de atacado personalizados." },
+    ],
+  },
+
+  shippingFaq: {
+    items: [
+      { q: "Quanto tempo demora a entrega de peptídeos no Brasil?", a: "Os tempos de entrega no Brasil dependem da sua localização. São Paulo e Rio de Janeiro recebem pedidos em 3-5 dias úteis, outras capitais em 5-7 dias úteis, e regiões mais distantes em 7-10 dias úteis. Todos os pedidos realizados antes das 14h são despachados no mesmo dia." },
+      { q: "O envio de peptídeos tem temperatura controlada?", a: "Sim. Todos os envios de peptídeos ORYN são embalados em caixas isoladas com acumuladores de frio em gel para manter uma temperatura de 2-8 graus Celsius durante o transporte. Adicionamos proteção extra da cadeia de frio com acumuladores adicionais e forros isolantes para garantir a integridade do produto." },
+      { q: "Como me qualifico para envio gratuito?", a: "O envio padrão gratuito está disponível em todos os pedidos acima de R$750. Este limite se aplica ao subtotal do pedido antes de quaisquer códigos de desconto. Seu carrinho mostrará uma barra de progresso indicando quanto falta para atingir o limite de envio gratuito." },
+      { q: "Vocês enviam para toda a América Latina?", a: "Sim, a ORYN envia para a maioria dos países da América Latina. A entrega internacional leva normalmente 7-15 dias úteis conforme o país de destino. Todos os envios internacionais incluem embalagem com temperatura controlada e rastreamento completo. Taxas aduaneiras e impostos de importação são de responsabilidade do cliente." },
+      { q: "Como meu pedido de peptídeos é embalado?", a: "Todos os pedidos ORYN são enviados em caixas simples e sem identificação, sem descrições de produtos ou marcas visíveis no exterior. No interior, as canetas de peptídeos estão fixadas em insertos de espuma personalizados dentro de um contêiner isolado com acumuladores de gel. Uma guia de remessa e o Certificado de Análise estão incluídos dentro da caixa." },
+      { q: "Posso rastrear meu pedido de peptídeos?", a: "Sim. Todos os pedidos recebem um número de rastreamento por email até 2 horas após o despacho. Você pode rastrear seu envio em tempo real através do portal do nosso parceiro de correio. Para pedidos no atacado de 10+ unidades, fornecemos rastreamento aprimorado com janelas de entrega estimadas e confirmação de entrega com assinatura." },
+    ],
+  },
+
+  qualityFaq: {
+    items: [
+      { q: "O que é um Certificado de Análise (COA)?", a: "Um Certificado de Análise é um documento emitido por um laboratório de testes qualificado que confirma a identidade, pureza e composição de um produto peptídico. Cada COA da ORYN inclui dados de pureza por HPLC, confirmação de identidade por espectrometria de massa, resultados de testes de endotoxinas, verificação de esterilidade e detalhes de fabricação específicos do lote." },
+      { q: "Como leio um resultado de pureza HPLC?", a: "Os resultados de HPLC (Cromatografia Líquida de Alta Eficiência) mostram um cromatograma com picos representando diferentes componentes. A porcentagem da área do pico principal indica a pureza — por exemplo, 99,2% significa que 99,2% do material detectado é o peptídeo alvo. Todos os peptídeos ORYN atingem consistentemente mais de 98% de pureza, com a maioria dos lotes ultrapassando 99%." },
+      { q: "Quem realiza os testes por terceiros?", a: "Os peptídeos ORYN são analisados por laboratórios analíticos independentes credenciados com ISO 17025. Esses laboratórios operam independentemente das nossas instalações de fabricação, garantindo verificação imparcial de pureza, identidade e esterilidade para cada lote que produzimos." },
+      { q: "Com que frequência os peptídeos ORYN são testados?", a: "Cada lote de cada produto ORYN é testado antes da liberação. Operamos um protocolo rigoroso de liberação por lote: nenhum produto sai das nossas instalações sem um Certificado de Análise aprovado por um laboratório independente. Os testes incluem análise de pureza por HPLC, confirmação de identidade por espectrometria de massa, triagem de endotoxinas e verificação de esterilidade." },
+      { q: "Que padrões de pureza os peptídeos ORYN atendem?", a: "Todos os peptídeos ORYN são fabricados para exceder 98% de pureza, com a maioria dos lotes atingindo mais de 99%. Isso é verificado por testes HPLC independentes e confirmado por espectrometria de massa. Nossas instalações de fabricação são certificadas GMP e operam sob sistemas de gestão de qualidade ISO 9001 em ambientes de sala limpa ISO 7." },
+      { q: "Posso solicitar um COA para meu lote específico?", a: "Sim. Cada produto ORYN é enviado com um número de lote impresso na embalagem. Você pode solicitar o COA específico para o seu lote entrando em contato com nossa equipe de suporte em info@orynpeptides.com com o seu número de lote. Mantemos registros completos de rastreabilidade para cada lote fabricado." },
+    ],
+  },
+
+  wholesaleFaq: {
+    items: [
+      { q: "Qual é a quantidade mínima de pedido para preços de atacado?", a: "Nossos níveis de preços de atacado começam em apenas 3 unidades. Pedidos de 3-5 unidades recebem 5% de desconto, 6-9 unidades recebem 10% de desconto, e 10 ou mais unidades recebem 15% de desconto sobre o preço de varejo. Para pedidos de 50+ unidades, oferecemos orçamentos personalizados adaptados às suas necessidades específicas." },
+      { q: "Como funcionam os preços de atacado na ORYN?", a: "Os preços de atacado da ORYN se baseiam em níveis de desconto por volume aplicados aos nossos preços de varejo padrão. Os descontos são calculados automaticamente no checkout para pedidos elegíveis. Você pode combinar qualquer produto das nossas linhas Peptide Pen, MediT Pen e NovaDose para atingir seu nível. Para acordos de fornecimento contínuos, entre em contato com nossa equipe de atacado." },
+      { q: "Como configuro uma conta de atacado?", a: "Configurar uma conta de atacado é simples. Entre em contato com nossa equipe em info@orynpeptides.com ou utilize o formulário de consulta de atacado na nossa página de contato. Verificaremos os detalhes da sua organização, atribuiremos um gerente de conta dedicado e ativaremos os preços por volume na sua conta dentro de 1-2 dias úteis." },
+      { q: "Quais condições de pagamento estão disponíveis para clientes de atacado?", a: "Os pedidos de atacado padrão são pagáveis por transferência bancária, cartão de crédito ou ordem de compra (para contas aprovadas). Oferecemos condições de pagamento NET-30 para clientes de atacado estabelecidos com histórico comercial verificado. Todos os primeiros pedidos são pré-pagos. Entre em contato com nossa equipe para discutir condições de pagamento para contratos de grande volume." },
+      { q: "Quais são os prazos de entrega para pedidos em massa de peptídeos?", a: "Os pedidos de atacado são enviados dentro de 1-2 dias úteis a partir do nosso centro de distribuição. A entrega padrão leva 5-10 dias úteis para o Brasil. Para pedidos grandes (50+ unidades), podemos precisar de até 5 dias úteis para preparação. Todos os envios de atacado incluem embalagem com temperatura controlada sem custo adicional, com rastreamento completo fornecido." },
+    ],
+  },
+
+  account: {
+    nav: {
+      dashboard: "Painel",
+      orders: "Pedidos",
+      referrals: "Indicações",
+      wishlist: "Favoritos",
+      profile: "Perfil",
+      signOut: "Sair",
+    },
+    dashboard: {
+      welcome: "Bem-vindo(a),",
+      subtitle: "Gerencie seus pedidos, rastreie envios e atualize os dados da sua conta.",
+      yourOrders: "Seus Pedidos",
+      yourOrdersDesc: "Ver histórico de pedidos e rastrear envios",
+      profileSettings: "Configurações do Perfil",
+      profileSettingsDesc: "Atualizar suas informações pessoais",
+      shopPeptides: "Comprar Peptídeos",
+      shopPeptidesDesc: "Explorar nosso catálogo de grau de pesquisa",
+      orynRewards: "ORYN Rewards",
+      earnPoints: "Ganhe 1 ponto por cada R$5 gastos",
+      points: "PONTOS",
+      tier: "NÍVEL",
+      member: "Membro",
+      nextReward: "PRÓXIMA RECOMPENSA",
+      nextRewardValue: "R$50 desc. aos 500pts",
+      multiplier: "MULTIPLICADOR",
+      multiplierValue: "1x",
+      inviteEarn: "Convide e Ganhe",
+      viewDashboard: "VER PAINEL",
+      inviteDescription: "Ganhe 10% de comissão quando seus colegas fazem pedidos com seu código. Além disso, comissões em até 5 níveis de profundidade.",
+      copyCode: "COPIAR CÓDIGO",
+      copyLink: "COPIAR LINK",
+      share: "COMPARTILHAR:",
+      accountBenefits: "BENEFÍCIOS DA CONTA",
+      benefits: [
+        { title: "Rastreamento de Pedidos", desc: "Atualizações em tempo real de todos os seus envios" },
+        { title: "Histórico de Pedidos", desc: "Histórico completo com opção de refazer pedido" },
+        { title: "Ganhos por Indicações", desc: "Ganhe comissões por indicações" },
+        { title: "Suporte Prioritário", desc: "Titulares de conta recebem respostas mais rápidas" },
+      ],
+    },
+    login: {
+      title: "Bem-vindo(a)",
+      subtitle: "Faça login na sua conta ORYN",
+      email: "EMAIL",
+      password: "SENHA",
+      emailPlaceholder: "seu@email.com",
+      passwordPlaceholder: "Insira sua senha",
+      signingIn: "ENTRANDO...",
+      signIn: "ENTRAR",
+      noAccount: "Não tem conta?",
+      createOne: "Crie uma",
+      continueWithout: "Continuar comprando sem conta",
+      loginFailed: "Falha ao entrar",
+    },
+    register: {
+      title: "Criar Conta",
+      subtitle: "Junte-se à ORYN para rastreamento de pedidos, ofertas exclusivas e mais",
+      firstName: "PRIMEIRO NOME *",
+      lastName: "SOBRENOME *",
+      email: "EMAIL *",
+      emailPlaceholder: "seu@email.com",
+      password: "SENHA *",
+      passwordPlaceholder: "Mínimo 8 caracteres",
+      confirmPassword: "CONFIRMAR SENHA *",
+      organization: "ORGANIZAÇÃO",
+      organizationPlaceholder: "Laboratório, universidade, empresa...",
+      referralCode: "CÓDIGO DE INDICAÇÃO",
+      referralCodePlaceholder: "Opcional",
+      creating: "CRIANDO CONTA...",
+      createAccount: "CRIAR CONTA",
+      termsPrefix: "Ao criar uma conta, você concorda com os",
+      termsOfService: "Termos de Serviço",
+      and: "e a",
+      privacyPolicy: "Política de Privacidade",
+      hasAccount: "Já tem conta?",
+      signIn: "Entrar",
+      passwordsMismatch: "As senhas não coincidem",
+      passwordTooShort: "A senha deve ter pelo menos 8 caracteres",
+      registrationFailed: "Falha no registro",
+    },
+    profile: {
+      title: "Configurações do Perfil",
+      subtitle: "Gerenciar as informações da sua conta",
+      personalInfo: "INFORMAÇÕES PESSOAIS",
+      firstName: "PRIMEIRO NOME",
+      lastName: "SOBRENOME",
+      email: "EMAIL",
+      emailNotChangeable: "O email não pode ser alterado",
+      referralCode: "CÓDIGO DE INDICAÇÃO",
+      saveChanges: "SALVAR ALTERAÇÕES",
+      saved: "Salvo",
+      changePassword: "ALTERAR SENHA",
+      currentPassword: "SENHA ATUAL",
+      newPassword: "NOVA SENHA",
+      newPasswordPlaceholder: "Mínimo 8 caracteres",
+      confirmNewPassword: "CONFIRMAR NOVA SENHA",
+      updatePassword: "ATUALIZAR SENHA",
+      passwordUpdated: "Senha atualizada",
+      passwordsMismatch: "As senhas não coincidem",
+      passwordTooShort: "A senha deve ter pelo menos 8 caracteres",
+    },
+    orders: {
+      title: "Seus Pedidos",
+      subtitle: "Rastreie e gerencie todos os seus pedidos ORYN",
+      noOrders: "Sem pedidos ainda",
+      noOrdersDesc: "Seu histórico de pedidos aparecerá aqui assim que fizer sua primeira compra.",
+      browseProducts: "VER PRODUTOS",
+      addedToCart: "ADICIONADO AO CARRINHO \u2713",
+      reorder: "REFAZER PEDIDO",
+      items: "itens",
+      item: "item",
+    },
+    orderDetail: {
+      notFound: "Pedido não encontrado",
+      backToOrders: "Voltar aos pedidos",
+      ordersBreadcrumb: "Pedidos",
+      orderTitle: "Pedido",
+      placedOn: "Realizado em",
+      print: "IMPRIMIR",
+      orderTracking: "RASTREAMENTO DO PEDIDO",
+      pending: "Pendente",
+      processing: "Em Processamento",
+      shipped: "Enviado",
+      delivered: "Entregue",
+      cancelled: "Cancelado",
+      orderItems: "ITENS DO PEDIDO",
+      qty: "Qtd:",
+      subtotal: "Subtotal",
+      shipping: "Envio",
+      free: "GRATUITO",
+      discount: "Desconto",
+      total: "Total",
+      shippingAddress: "ENDEREÇO DE ENVIO",
+      shippingNotAvailable: "Detalhes de envio não disponíveis",
+      payment: "PAGAMENTO",
+      method: "Método",
+      status: "Status",
+      addedToCart: "ADICIONADO AO CARRINHO",
+      reorderAll: "REFAZER TODOS OS ITENS",
+      needHelp: "Precisa de Ajuda?",
+      needHelpDesc: "Se tiver dúvidas sobre seu pedido, entre em contato em",
+    },
+    referrals: {
+      title: "Programa de Indicações",
+      subtitle: "Compartilhe a ORYN com colegas e ganhe comissões em cada pedido que eles fizerem.",
+      yourCode: "SEU CÓDIGO DE INDICAÇÃO",
+      copied: "COPIADO!",
+      copyCode: "COPIAR CÓDIGO",
+      yourLink: "SEU LINK DE INDICAÇÃO",
+      copyLink: "COPIAR LINK",
+      shareVia: "COMPARTILHAR VIA:",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      directReferrals: "INDICAÇÕES DIRETAS",
+      networkSize: "TAMANHO DA REDE",
+      totalEarned: "TOTAL GANHO",
+      available: "DISPONÍVEL",
+      earningsByLevel: "GANHOS POR NÍVEL",
+      levelLabel: "Nível",
+      commission: "comissão",
+      ordersLabel: "pedidos",
+      pending: "PENDENTE",
+      approved: "APROVADO",
+      paidOut: "PAGO",
+      yourReferrals: "SUAS INDICAÇÕES",
+      commissionHistory: "HISTÓRICO DE COMISSÕES",
+      tableOrder: "PEDIDO",
+      tableLevel: "NÍVEL",
+      tableRate: "TAXA",
+      tableAmount: "VALOR",
+      tableStatus: "STATUS",
+      tableDate: "DATA",
+      howItWorks: "COMO FUNCIONA",
+      steps: [
+        { title: "Compartilhe Seu Código", desc: "Envie seu código ou link de indicação único para colegas e pesquisadores." },
+        { title: "Eles Fazem o Pedido", desc: "Quando se registram com seu código e fazem um pedido, você ganha comissão." },
+        { title: "Ganhe Recompensas", desc: "Ganhe 10% em indicações diretas, mais comissões nas indicações deles em até 5 níveis de profundidade." },
+      ],
+      whatsappShareText: "Conheça ORYN Peptides — peptídeos de pesquisa de precisão de um laboratório biotech. Use meu código {code} no seu primeiro pedido: {link}",
+      emailShareSubject: "ORYN Peptides — Peptídeos de Pesquisa de Precisão",
+      emailShareBody: "Olá,\n\nQueria compartilhar a ORYN Peptides com você. Eles produzem peptídeos de pesquisa de grau farmacêutico com >99% de pureza.\n\nUse meu código de indicação: {code}\n\nOu clique aqui: {link}\n\nAbraços",
+    },
+    wishlist: {
+      title: "Favoritos",
+      itemsSaved: "itens salvos",
+      itemSaved: "item salvo",
+      empty: "Sua lista de favoritos está vazia",
+      emptyDesc: "Salve os produtos que te interessam para depois.",
+      browseProducts: "VER PRODUTOS",
+      addToCart: "ADICIONAR AO CARRINHO",
+      remove: "REMOVER",
+    },
+    savedAddresses: {
+      title: "ENDEREÇOS SALVOS",
+      cancel: "CANCELAR",
+      addAddress: "+ ADICIONAR ENDEREÇO",
+      labelField: "ETIQUETA (ex. Casa, Escritório)",
+      labelPlaceholder: "Casa",
+      firstName: "PRIMEIRO NOME",
+      lastName: "SOBRENOME",
+      address: "ENDEREÇO",
+      city: "CIDADE",
+      postcode: "CEP",
+      country: "PAÍS",
+      phone: "CELULAR",
+      setAsDefault: "Definir como endereço padrão",
+      saveAddress: "SALVAR ENDEREÇO",
+      noAddresses: "Sem endereços salvos. Adicione um para um pagamento mais rápido.",
+      default: "PADRÃO",
+      setDefault: "DEFINIR PADRÃO",
+      remove: "REMOVER",
+      countries: {
+        GB: "Reino Unido",
+        ES: "Espanha",
+        IE: "Irlanda",
+        DE: "Alemanha",
+        FR: "França",
+        NL: "Países Baixos",
+      },
+    },
+  },
+
+  cookie: {
+    message:
+      "Utilizamos cookies para melhorar sua experiência e para funcionalidades essenciais do site. Ao continuar, você concorda com nossa",
+    privacyPolicy: "Política de Privacidade",
+    acceptAll: "ACEITAR TUDO",
+    essentialOnly: "APENAS ESSENCIAIS",
+  },
+
+  toast: {
+    addedToCart: "ADICIONADO AO CARRINHO",
+  },
+
+  popups: {
+    firstVisit: {
+      discount: "10%",
+      yourFirstOrder: "SEU PRIMEIRO PEDIDO",
+      code: "WELCOME10",
+      tagline: "BEM-VINDO À ORYN",
+      title: "Ciência Peptídica de Precisão",
+      description:
+        "Laboratório de biotecnologia com peptídeos de pesquisa de >99% de pureza em sistemas de caneta de precisão. Use o código WELCOME10 no seu primeiro pedido.",
+      benefits: [
+        "Envio gratuito a partir de R$750",
+        "Fabricação certificada GMP",
+        "Certificado de Análise incluído",
+      ],
+      shopNow: "COMPRAR AGORA",
+      noThanks: "Não, obrigado, prefiro navegar por conta própria",
+    },
+    exitIntent: {
+      tagline: "ESPERE — ANTES DE SAIR",
+      title: "Ganhe 10% de Desconto no Seu Primeiro Pedido",
+      description:
+        "Junte-se a pesquisadores de todo o mundo que utilizam peptídeos de precisão ORYN. Insira seu email para receber seu código de desconto exclusivo.",
+      placeholder: "seu@email.com",
+      claimDiscount: "QUERO MEU 10% DE DESCONTO",
+      noSpam: "Sem spam. Cancele quando quiser.",
+      welcomeTitle: "Bem-vindo à ORYN!",
+      welcomeMessage:
+        "Use o código WELCOME10 no checkout para 10% de desconto.",
+    },
+  },
+
+  payment: {
+    processing: "PROCESSANDO...",
+    loadingPayment: "CARREGANDO PAGAMENTO...",
+    completeOrder: "CONCLUIR PEDIDO",
+    sslEncrypted: "SSL CRIPTOGRAFADO",
+    pciCompliant: "COMPATÍVEL PCI",
+    paymentFailed: "O pagamento falhou. Tente novamente.",
+    unexpectedError: "Ocorreu um erro inesperado.",
+    notCompleted: "O pagamento não foi concluído. Tente novamente.",
+    preparingPayment: "Preparando pagamento seguro...",
+    paymentNotReady: "O sistema de pagamento não está pronto. Por favor, tente novamente.",
+    paymentFormLoading: "O formulário de pagamento ainda está carregando. Aguarde um momento.",
+    orderCreationFailed: "Pagamento processado mas a criação do pedido falhou. Entre em contato com o suporte.",
+    orPayWith: "OU PAGAR COM CARTÃO",
+  },
+
+  volumeDiscount: {
+    applied: "Desconto por volume aplicado:",
+    addMore: "Adicione mais {count} para {percent}% DE DESCONTO",
+    title: "DESCONTOS POR VOLUME",
+    items: "{count}+ itens",
+    off: "{percent}% DESC",
+    active: "ATIVO",
+    unlockMore: "Adicione mais {count} para desbloquear {percent}% de desconto!",
+  },
+
+  frequentlyBought: {
+    title: "Frequentemente Comprados Juntos",
+    save: "ECONOMIZE 10%",
+    bundlePrice: "Preço do pack — economize {amount} com esta combinação",
+    addAll: "ADICIONAR TUDO AO CARRINHO",
+  },
+
+  recentlyViewed: {
+    title: "Vistos Recentemente",
+  },
+
+  orderBump: {
+    addToOrder: "ADICIONE AO SEU PEDIDO",
+    yesAddIt: "SIM, ADICIONAR",
+  },
+
+  aria: {
+    search: "Pesquisar",
+    account: "Conta",
+    wishlist: "Lista de desejos",
+    openCart: "Abrir carrinho",
+    toggleMenu: "Alternar menu",
+    mobileMenu: "Menu móvel",
+    backToTop: "Voltar ao topo",
+    cookieConsent: "Consentimento de cookies",
+    shareWhatsApp: "Compartilhar no WhatsApp",
+    shareX: "Compartilhar no X",
+    shareFacebook: "Compartilhar no Facebook",
+    copyLink: "Copiar link",
+    switchLanguage: "Mudar idioma",
+    switchRegion: "Mudar região",
+    breadcrumb: "Navegação estrutural",
+    dismiss: "Fechar",
+    close: "Fechar",
+    instagram: "Instagram",
+    linkedin: "LinkedIn",
+    email: "E-mail",
+    researchDisclaimer: "Aviso de pesquisa",
+  },
+
+  calculator: {
+    interactiveTool: "FERRAMENTA INTERATIVA",
+    title: "Calculadora de Reconstituição de Peptídeos",
+    description: "Insira a quantidade de peptídeo, volume de água e dose desejada para calcular a concentração e o volume de injeção.",
+    peptideAmount: "Quantidade de Peptídeo",
+    bacteriostaticWater: "Volume de Água Bacteriostática",
+    desiredDose: "Dose Desejada por Injeção",
+    customAmount: "Quantidade personalizada",
+    customVolume: "Volume personalizado",
+    customDose: "Dose personalizada",
+    concentration: "Concentração",
+    injectionVolume: "Volume de Injeção",
+    insulinSyringe: "Seringa de Insulina",
+    totalDoses: "Doses Totais",
+    mcgPerMl: "mcg / mL",
+    mlPerDose: "mL por dose",
+    unitsIuMarks: "unidades (marcas UI)",
+    fromVial: "do frasco",
+    units: "unidades",
+    overHundredUnits: "> 100 unidades",
+    zeroUnits: "0 unidades",
+    ml: "mL",
+    overOneMl: "> 1,0 mL (usar seringa maior)",
+    zeroMl: "0,000 mL",
+    syringeLabel: "Seringa de Insulina (100 unidades = 1 mL)",
+    warningNote: "Nota:",
+    warningText: "A dose calculada excede uma seringa de insulina padrão de 100 unidades (1 mL). Considere adicionar mais água bacteriostática para aumentar o volume, o que reduzirá a concentração e diminuirá o volume de injeção por dose.",
+    enterValues: "Insira valores válidos acima para ver os resultados calculados.",
+    quickReference: "Referência Rápida",
+    unitConversions: "Conversões de Unidades",
+    standardSyringe: "Seringa Padrão",
+    theFormula: "A Fórmula",
+    mgToMcg: "1 mg = 1.000 mcg",
+    mlToUnits: "1 mL = 100 unidades de insulina",
+    u100Syringe: "Seringa de insulina U-100",
+    hundredUnitsOneMl: "100 unidades = 1,0 mL",
+    formulaLine1: "Dose (mcg) / Concentração (mcg/mL)",
+    formulaLine2: "= Volume a injetar (mL)",
+  },
+
+  whyOrynPage: {
+    differentiators: [
+      { title: "Canetas de Peptídeos Pré-Dosadas", description: "Ao contrário dos concorrentes que vendem frascos soltos que requerem reconstituição, a ORYN oferece canetas de peptídeos pré-misturadas e com dosagem precisa, prontas para uso imediato em pesquisa. Sem mistura, sem cálculos, sem risco de contaminação.", highlight: "Único no mercado" },
+      { title: "Pureza Verificada por HPLC ≥98%", description: "Cada lote ORYN supera 98% de pureza, verificado de forma independente por Cromatografia Líquida de Alta Eficiência e Espectrometria de Massa. A maioria dos concorrentes oferece apenas 95% ou alegações não verificadas.", highlight: "Acima do padrão da indústria" },
+      { title: "Fabricação GMP", description: "Todos os peptídeos ORYN são fabricados em instalações certificadas GMP, em conformidade com os padrões de produção farmacêutica. Rastreabilidade completa do lote, desde a matéria-prima até o produto acabado.", highlight: "Grau farmacêutico" },
+      { title: "Envio Gratuito para o Brasil acima de R$750", description: "Aproveite a entrega gratuita em todos os pedidos para o Brasil acima de R$750. A embalagem com controle de temperatura garante a integridade do peptídeo desde nossas instalações até seu laboratório de pesquisa.", highlight: "Entrega rápida" },
+      { title: "COA Completo com Cada Pedido", description: "Cada pedido ORYN é enviado com um Certificado de Análise completo que confirma pureza, identidade, níveis de endotoxina e esterilidade. Sem espera, sem solicitações — está incluído como padrão.", highlight: "Transparência garantida" },
+      { title: "Produção em Sala Limpa ISO 7", description: "Os peptídeos ORYN são preenchidos e selados em salas limpas classificadas ISO 7, com monitoramento ambiental contínuo. Isso supera os padrões da maioria dos fornecedores de peptídeos.", highlight: "Ambiente de grau hospitalar" },
+    ],
+    comparisonFeatures: [
+      { feature: "Formato de Entrega", oryn: "Sistema de Caneta Pré-Dosada", competitor: "Frascos Soltos (reconstituição necessária)" },
+      { feature: "Padrão de Pureza", oryn: "≥98% Verificado por HPLC e EM", competitor: "≥95% (muitas vezes não verificado)" },
+      { feature: "Protocolo de Teste", oryn: "HPLC + Espectrometria de Massa + Endotoxina", competitor: "Apenas HPLC básico" },
+      { feature: "Envio para o Brasil", oryn: "Gratuito acima de R$750", competitor: "Variável" },
+      { feature: "COA Incluído", oryn: "Cada lote, cada pedido", competitor: "Mediante solicitação (se disponível)" },
+      { feature: "Instalação de Produção", oryn: "Sala Limpa ISO 7, Certificado GMP", competitor: "Variável (muitas vezes não divulgado)" },
+      { feature: "Esterilidade", oryn: "Filtro 0,22μm + Raio Gama", competitor: "Apenas filtração" },
+      { feature: "Prazo de Validade", oryn: "24 meses (lacrado)", competitor: "6-12 meses" },
+      { feature: "Suporte ao Cliente", oryn: "Equipe de pesquisa dedicada", competitor: "Apenas e-mail" },
+      { feature: "Linha de Produtos", oryn: "10 peptídeos em 3 sistemas de entrega", competitor: "5-8 peptídeos, apenas frascos" },
+    ],
+    stats: [
+      { value: "10", label: "Peptídeos de Pesquisa", sublabel: "em 3 sistemas de entrega" },
+      { value: "98%+", label: "Pureza Verificada", sublabel: "testado por HPLC + EM" },
+      { value: "ISO 7", label: "Padrão de Sala Limpa", sublabel: "grau farmacêutico" },
+      { value: "27", label: "Estados Brasileiros Atendidos", sublabel: "entrega rastreada" },
+      { value: "50+", label: "Cidades Atendidas", sublabel: "no Brasil" },
+      { value: "24", label: "Meses de Prazo de Validade", sublabel: "lacrado, refrigerado" },
+    ],
+    tableOryn: "ORYN",
+    tableCompetitors: "CONCORRENTES TÍPICOS",
+    feature: "Característica",
+    viewProducts: "VER NOSSOS PRODUTOS",
+    ourNumbers: "NOSSOS NÚMEROS",
+    comparisonTitle: "Como a ORYN Se Compara",
+    comparisonSubtitle: "Veja como a ORYN se compara com os fornecedores típicos de peptídeos.",
+  },
+
+  wholesalePage: {
+    breadcrumbHome: "INÍCIO",
+    breadcrumbWholesale: "ATACADO",
+    heroBulkOrders: "PEDIDOS EM MASSA",
+    heroTitle1: "Atacado e Pedidos",
+    heroTitle2: "em Volume",
+    heroDescription: "A ORYN fornece sistemas de canetas peptídicas de qualidade para pesquisa a universidades, laboratórios, clínicas e distribuidores no Brasil e na América Latina. Descontos por volume de 5% a 15% — com preços personalizados para contratos de grande escala.",
+    statMinOrderLabel: "Pedido Mín.",
+    statMinOrderValue: "3 Unidades",
+    statMaxDiscountLabel: "Desconto Máximo",
+    statMaxDiscountValue: "15% Desc.",
+    statPurityLabel: "Pureza",
+    statPurityValue: ">99%",
+    statDispatchLabel: "Envio Brasil",
+    statDispatchValue: "Rápido",
+    tiersLabel: "PREÇOS POR VOLUME",
+    tiersTitle1: "Níveis de",
+    tiersTitle2: "Desconto",
+    tiersDescription: "Combine quaisquer produtos de toda a nossa linha. Os descontos se aplicam automaticamente com base no total de unidades.",
+    tierMostPopular: "MAIS POPULAR",
+    tierOffRetail: "NO PREÇO DE VAREJO",
+    tierPricing: "PREÇO",
+    tierLabelStarter: "BÁSICO",
+    tierLabelProfessional: "PROFISSIONAL",
+    tierLabelEnterprise: "EMPRESA",
+    tierLabelCustom: "ORÇAMENTO PERSONALIZADO",
+    benefitsLabel: "VANTAGENS DE ATACADO",
+    benefitsTitle1: "Por Que Ser Parceiro da",
+    benefitsTitle2: "ORYN",
+    benefitsDescription: "Além dos preços por volume, as contas de atacado ORYN desbloqueiam um conjunto de serviços projetados para compradores profissionais.",
+    benefitAccountManagerTitle: "Gerente de Conta Dedicado",
+    benefitAccountManagerDesc: "Um único ponto de contato para pedidos, preços e consultas técnicas. Seu gerente de conta compreende suas necessidades.",
+    benefitShippingTitle: "Envio Prioritário",
+    benefitShippingDesc: "Os pedidos de atacado são enviados rapidamente. Embalagem com controle de temperatura incluída sem custo adicional.",
+    benefitVolumePricingTitle: "Preços por Volume",
+    benefitVolumePricingDesc: "Descontos automáticos de 5% a 15% com base na quantidade pedida. Preços personalizados disponíveis para contratos contínuos.",
+    benefitCOATitle: "COA Incluído",
+    benefitCOADesc: "Cada envio de atacado inclui Certificados de Análise específicos por lote. Rastreabilidade completa desde a síntese até a entrega.",
+    benefitCustomLabellingTitle: "Rotulagem Personalizada",
+    benefitCustomLabellingDesc: "Marca branca e embalagem personalizada disponíveis para distribuidores e clínicas. Pedidos mínimos de 50 unidades para rótulos personalizados.",
+    benefitTechSupportTitle: "Suporte Técnico",
+    benefitTechSupportDesc: "Acesso à nossa equipe de ciência peptídica para orientação sobre protocolos, recomendações de armazenamento e especificações de produtos.",
+    whoWeServeLabel: "NOSSOS CLIENTES",
+    whoWeServeTitle1: "A Quem",
+    whoWeServeTitle2: "Atendemos",
+    whoWeServeDescription: "Os peptídeos de atacado da ORYN são confiados a profissionais de pesquisa e organizações no Brasil e na América Latina.",
+    customerUniversitiesTitle: "Universidades e Academia",
+    customerUniversitiesDesc: "Departamentos de pesquisa e programas de pós-graduação que estudam biologia peptídica, farmacologia e medicina regenerativa.",
+    customerResearchLabsTitle: "Laboratórios de Pesquisa",
+    customerResearchLabsDesc: "Laboratórios de pesquisa privados e públicos que conduzem estudos in vitro e in vivo com compostos peptídicos de qualidade para pesquisa.",
+    customerPharmaTitle: "Empresas Farmacêuticas",
+    customerPharmaDesc: "Divisões de P&D farmacêuticas que utilizam peptídeos de padrão de referência para desenvolvimento de medicamentos e estudos de comparação analítica.",
+    customerClinicsTitle: "Clínicas e Consultórios Médicos",
+    customerClinicsDesc: "Clínicas de medicina integrativa e profissionais que necessitam de fornecimento consistente de peptídeos de alta pureza para pesquisa clínica.",
+    customerDistributorsTitle: "Distribuidores e Revendedores",
+    customerDistributorsDesc: "Parceiros de atacado que distribuem produtos ORYN no Brasil e na América Latina. Opções de marca branca disponíveis.",
+    customerBiotechTitle: "Startups de Biotech",
+    customerBiotechDesc: "Empresas de biotecnologia emergentes que necessitam de fornecimento confiável de peptídeos para desenvolvimento de produtos e estudos de prova de conceito.",
+    productsLabel: "EXEMPLOS DE PREÇOS DE ATACADO",
+    productsTitle1: "Produtos a",
+    productsTitle2: "Preços de Atacado",
+    productsDescription: "Veja como os preços por volume reduzem seu custo por unidade. Todos os produtos ORYN são elegíveis para descontos de atacado.",
+    productRetailLabel: "PREÇO DE VAREJO",
+    productViewAll: "VER TODOS OS {count} PRODUTOS",
+    faqLabel: "FAQ",
+    faqTitle1: "Perguntas",
+    faqTitle2: "Frequentes",
+    faqDescription: "Perguntas comuns sobre nosso programa de atacado, preços e configuração de conta.",
+    ctaTitle: "Pronto para Pedir em Volume?",
+    ctaDescription: "Entre em contato com nossa equipe de atacado para configurar sua conta, discutir preços personalizados e começar a economizar em canetas peptídicas de qualidade para pesquisa.",
+    ctaEnquiry: "CONSULTA ATACADO",
+    ctaBrowseProducts: "VER PRODUTOS",
+  },
+
+  share: {
+    label: "COMPARTILHAR",
+  },
+
+  socialProof: {
+    from: "de",
+    purchased: "comprou",
+    minAgo: "há {min} min",
+  },
+
+  flashSale: {
+    flash: "Venda Relâmpago — Use o código FLASH15 para 15% de desconto em todas as canetas peptídicas",
+    weekend: "Especial de Fim de Semana — Use o código WEEKEND10 para 10% de desconto",
+  },
+
+  qualityPage: {
+    breadcrumbHome: "INÍCIO",
+    breadcrumbQuality: "QUALIDADE & ANÁLISES",
+    heroBadge: "VERIFICADO POR TERCEIROS",
+    heroTitle1: "Transparência em",
+    heroTitle2: "Cada Lote",
+    heroDescription:
+      "Cada peptídeo ORYN é analisado de forma independente por laboratórios credenciados pela ISO. Publicamos Certificados de Análise para cada produto porque acreditamos que você merece ver exatamente o que recebe — pureza, identidade e esterilidade, verificados pela ciência, não pelo marketing.",
+    statPurityLabel: "PUREZA DO LOTE",
+    statLabsLabel: "LABORATÓRIOS INDEPENDENTES",
+    statTestsLabel: "TESTES POR LOTE",
+    statTraceabilityLabel: "RASTREABILIDADE",
+    processLabel: "NOSSO PROCESSO",
+    processTitle1: "Da Síntese ao",
+    processTitle2: "Certificado",
+    processDescription:
+      "Um rigoroso processo de garantia de qualidade em quatro etapas garante que cada peptídeo ORYN atende aos mais elevados padrões analíticos antes da liberação.",
+    testingSteps: [
+      {
+        title: "Síntese de Peptídeos",
+        description:
+          "Síntese de peptídeos em fase sólida (SPPS) em instalações certificadas GMP sob sistema de gestão de qualidade ISO 9001.",
+      },
+      {
+        title: "Análise HPLC",
+        description:
+          "A Cromatografia Líquida de Alta Eficiência separa e quantifica a pureza do peptídeo, confirmando >98% em cada lote.",
+      },
+      {
+        title: "Espectrometria de Massa",
+        description:
+          "A confirmação de identidade LC-MS/MS verifica o peso molecular exato e a integridade da sequência de aminoácidos.",
+      },
+      {
+        title: "Geração do Certificado",
+        description:
+          "Um laboratório independente emite um Certificado de Análise específico do lote com todos os dados analíticos e critérios de aprovação/rejeição.",
+      },
+    ],
+    certificationsLabel: "CERTIFICAÇÕES",
+    standardsTitle1: "Padrões de Qualidade que",
+    standardsTitle2: "Nos Definem",
+    standardsDescription:
+      "Nossa infraestrutura de fabricação e análise atende aos requisitos de qualidade farmacêutica mais exigentes do setor.",
+    qualityStandards: [
+      {
+        title: "Fabricação GMP",
+        description:
+          "Instalações de produção certificadas em Boas Práticas de Fabricação, garantindo consistência de qualidade farmacêutica.",
+      },
+      {
+        title: "Qualidade ISO 9001",
+        description:
+          "Sistema de gestão de qualidade reconhecido internacionalmente que rege cada etapa das matérias-primas ao produto acabado.",
+      },
+      {
+        title: "Sala Limpa ISO 7",
+        description:
+          "O enchimento estéril é realizado em salas limpas classificadas ISO 7 com filtração HEPA e monitoramento ambiental contínuo.",
+      },
+      {
+        title: "Pureza Verificada por HPLC",
+        description:
+          "Cada lote verificado por análise HPLC independente. A maioria dos lotes supera os 99% de pureza — entre os mais elevados do mercado.",
+      },
+    ],
+    coaLabel: "CERTIFICADOS DE ANÁLISE",
+    coaTitle1: "COA para Cada",
+    coaTitle2: "Produto",
+    coaDescription:
+      "Cada um dos nossos produtos peptídicos é verificado de forma independente. Abaixo estão os resultados dos testes do lote mais recente.",
+    passLabel: "APROVADO",
+    purityLabel: "PUREZA",
+    batchLabel: "LOTE",
+    testedLabel: "ANALISADO",
+    methodLabel: "MÉTODO",
+    testedDate: "Fev 2026",
+    viewCoa: "VER COA",
+    independentLabel: "VERIFICAÇÃO INDEPENDENTE",
+    partnersTitle1: "Laboratórios de Análise",
+    partnersTitle2: "Independentes",
+    partnersP1:
+      "A ORYN não analisa seus próprios produtos. Cada Certificado de Análise é gerado por laboratórios analíticos independentes credenciados ISO 17025, sem qualquer relação financeira com nossa operação de fabricação.",
+    partnersP2:
+      "Essa separação garante uma verificação imparcial e cientificamente rigorosa de pureza, identidade e esterilidade. Nossos parceiros de análise utilizam métodos analíticos validados, incluindo HPLC de fase reversa, LC-MS/MS, ensaio LAL de endotoxinas e esterilidade por filtração em membrana.",
+    partnersBullets: [
+      "Laboratórios analíticos credenciados ISO 17025",
+      "Sem laços financeiros com a fabricação ORYN",
+      "Métodos validados de HPLC e espectrometria de massa",
+      "Verificação de endotoxinas e esterilidade",
+      "Rastreabilidade completa do lote da síntese ao certificado",
+    ],
+    analyticalMethodsLabel: "MÉTODOS ANALÍTICOS",
+    analyticalMethods: [
+      {
+        method: "Teste de Pureza HPLC",
+        description:
+          "Coluna C18 de fase reversa, detecção UV a 220 nm. Quantifica a pureza do peptídeo e detecta impurezas.",
+          standard: "USP <621>",
+      },
+      {
+        method: "Espectrometria de Massa (LC-MS)",
+        description:
+          "Ionização por electrospray com detecção de massa de alta resolução. Confirma a identidade molecular.",
+          standard: "ISO 13528",
+      },
+      {
+        method: "Teste de Endotoxinas",
+        description:
+          "Ensaio turbidimétrico cinético LAL (Lisado de Amebócitos de Limulus). Garante que os níveis de endotoxinas bacterianas estão abaixo dos limites.",
+          standard: "USP <85>",
+      },
+      {
+        method: "Teste de Esterilidade",
+        description:
+          "Método de filtração em membrana com incubação de 14 dias em meios TSB e FTM.",
+          standard: "USP <71>",
+      },
+    ],
+    understandingLabel: "ENTENDA SEU COA",
+    coaContentsTitle1: "O que Contém",
+    coaContentsTitle2: "Cada COA",
+    coaContentsDescription:
+      "Cada Certificado de Análise ORYN fornece transparência analítica completa. Aqui está o que você encontrará em cada documento.",
+    coaItems: [
+      {
+        title: "Identidade do Peptídeo",
+        details:
+          "Nome do composto, fórmula molecular, peso molecular, sequência de aminoácidos e número CAS.",
+      },
+      {
+        title: "Dados de Pureza HPLC",
+        details:
+          "Cromatograma, tempo de retenção, porcentagem de área do pico e perfil de impurezas com critérios de aceitação.",
+      },
+      {
+        title: "Espectro de Massa",
+        details:
+          "Confirmação de identidade LC-MS mostrando o peso molecular observado vs. teórico e estados de carga.",
+      },
+      {
+        title: "Resultados de Endotoxinas",
+        details:
+          "Resultados do teste LAL em UE/mL com limites de especificação. Todos os produtos ORYN testam abaixo de 0,5 UE/mL.",
+      },
+      {
+        title: "Relatório de Esterilidade",
+        details:
+          "Resultados de incubação de 14 dias em meios TSB e FTM confirmando ausência de crescimento microbiano.",
+      },
+      {
+        title: "Informação do Lote",
+        details:
+          "Número de lote único, data de fabricação, data de análise, data de validade e identificação do analista.",
+      },
+    ],
+    faqLabel: "FAQ",
+    faqTitle1: "Qualidade & Análises",
+    faqTitle2: "FAQ",
+    faqDescription:
+      "Perguntas frequentes sobre nosso processo de garantia de qualidade, testes de pureza de peptídeos e Certificados de Análise.",
+    ctaTitle: "Qualidade que Você Pode Verificar",
+    ctaDescription:
+      "Cada peptídeo ORYN é enviado com um número de lote que você pode rastrear até um Certificado de Análise independente. Veja a ciência por si mesmo.",
+    ctaBrowseProducts: "VER PRODUTOS",
+    ctaRequestCoa: "SOLICITAR UM COA",
+  },
+
+  shippingPage: {
+    heroTagline: "TEMPERATURA CONTROLADA",
+    heroTitle1: "Envio e",
+    heroTitle2: "Entrega",
+    heroDescription:
+      "Cada pedido ORYN é despachado em embalagem de temperatura controlada, garantindo que suas canetas peptídicas cheguem em perfeitas condições. Envio grátis para o Brasil em pedidos acima de R${threshold}.",
+    breadcrumbHome: "INÍCIO",
+    breadcrumbShipping: "ENVIO E ENTREGA",
+    statUkDeliveryLabel: "Entrega Brasil",
+    statUkDeliveryValue: "5-10 Dias",
+    statDispatchLabel: "Despacho",
+    statDispatchValue: "Rápido",
+    statFreeOverLabel: "Grátis a Partir de",
+    statPackagingLabel: "Embalagem",
+    statPackagingValue: "2-8\u00b0C",
+    ukZonesSectionLabel: "ZONAS DE ENTREGA BRASIL",
+    ukZonesSectionTitle1: "Prazos de Entrega por",
+    ukZonesSectionTitle2: "Região",
+    ukZonesSectionDescription:
+      "Todos os pedidos são despachados o mais rápido possível. Os prazos indicados são dias úteis a partir do despacho.",
+    ukDeliveryNote:
+      "Os prazos são estimativas para envio standard. Opções expresso disponíveis no pagamento. Os pedidos de fim de semana e feriados são despachados no próximo dia útil.",
+    ukZones: [
+      { region: "São Paulo & Sudeste", days: "3 \u2013 5 dias" },
+      { region: "Rio de Janeiro & Minas Gerais", days: "4 \u2013 6 dias" },
+      { region: "Sul (PR, SC, RS)", days: "5 \u2013 7 dias" },
+      { region: "Centro-Oeste (DF, GO, MT, MS)", days: "5 \u2013 8 dias" },
+      { region: "Nordeste", days: "6 \u2013 9 dias" },
+      { region: "Norte", days: "7 \u2013 10 dias" },
+      { region: "Regiões Remotas", days: "8 \u2013 12 dias" },
+    ],
+    coldChainSectionLabel: "LOGÍSTICA DE CADEIA DE FRIO",
+    packagingTitle1: "Embalagem de",
+    packagingTitle2: "Temperatura Controlada",
+    packagingDescription:
+      "Os peptídeos requerem armazenamento refrigerado a 2-8\u00b0C. Nossa embalagem de cadeia de frio garante que o pedido mantenha a temperatura ideal durante o transporte.",
+    packagingBullets: [
+      "Mantém 2-8\u00b0C até 48 horas em trânsito",
+      "Packs de gel não tóxicos, pré-resfriados a 2\u00b0C",
+      "Contêineres isolados multicamada",
+      "Proteção extra durante os meses quentes",
+      "Insertos de espuma personalizados para as canetas",
+    ],
+    coldChainFeatures: [
+      {
+        title: "Caixas de Envio Isoladas",
+        description:
+          "Contêineres isolados multicamada mantêm a temperatura interna a 2-8\u00b0C até 48 horas, protegendo a integridade do peptídeo do armazém à porta.",
+      },
+      {
+        title: "Packs de Gel Refrigerante",
+        description:
+          "Packs de gel de mudança de fase não tóxicos, pré-resfriados a 2\u00b0C, fornecem resfriamento sustentado sem risco de congelamento.",
+      },
+      {
+        title: "Ajustes para Clima Quente",
+        description:
+          "Em períodos de calor intenso adicionamos packs de gel extra e isolamento reforçado. Em calor extremo, optamos por entrega expressa.",
+      },
+      {
+        title: "Monitoramento de Temperatura",
+        description:
+          "Pedidos de atacado de 25+ unidades incluem tiras indicadoras de temperatura que confirmam que a entrega se manteve na faixa de 2-8\u00b0C.",
+      },
+    ],
+    euSectionLabel: "ENVIO INTERNACIONAL",
+    euSectionTitle1: "Entrega",
+    euSectionTitle2: "América Latina",
+    euSectionDescription:
+      "A ORYN envia para diversos países da América Latina com rastreamento completo e embalagem de temperatura controlada.",
+    euCountriesHeader: "PAÍSES PARA ONDE ENVIAMOS",
+    euCountriesNotListed:
+      "Não está listado? Entre em contato conosco \u2014 podemos providenciar envio para o seu país.",
+    euDeliveryTimeTitle: "Prazo de Entrega",
+    euDeliveryTimeValue: "5 \u2013 15 dias",
+    euDeliveryTimeDescription:
+      "Dias úteis desde o despacho. Brasil tipicamente 5-10 dias, outros países da América Latina 10-15 dias.",
+    euShippingCostTitle: "Custo de Envio",
+    euShippingCostValue: "Taxa Fixa",
+    euShippingCostDescription:
+      "Envio a taxa fixa para todos os destinos. Calculado no pagamento com base no país de destino e peso do pedido.",
+    euCustomsTitle: "Alfândega & Taxas",
+    euCustomsValue: "Responsabilidade do Comprador",
+    euCustomsDescription:
+      "Os pedidos internacionais podem estar sujeitos a taxas aduaneiras e impostos de importação. Esses encargos são de responsabilidade do cliente.",
+    euTrackingTitle: "Rastreamento",
+    euTrackingValue: "Rastreamento Completo",
+    euTrackingDescription:
+      "Todos os envios internacionais incluem rastreamento de ponta a ponta com atualizações em tempo real por email.",
+    freeShippingSectionLabel: "ENVIO GRÁTIS",
+    freeShippingTitle1: "Envio Brasil Grátis a Partir de",
+    freeShippingTitle2: "R${threshold}",
+    freeShippingDescription:
+      "Pedidos acima de R${threshold} têm envio standard grátis para o Brasil. Acompanhe o progresso no carrinho.",
+    freeShippingExampleLabel: "EXEMPLO: PEDIDO DE R$600",
+    freeShippingExampleAway: "R$150 para envio grátis",
+    discreetTitle: "Embalagem Discreta",
+    discreetDescription:
+      "Todos os pedidos ORYN são enviados em caixas neutras e sem identificação. Nenhum nome de produto, marca ou descrição é visível no exterior.",
+    discreetItems: [
+      "Caixa exterior neutra",
+      "Sem marcas visíveis",
+      "Nome do remetente genérico",
+      "Sem descrição do produto",
+    ],
+    trackingTitle: "Rastreamento do Pedido",
+    trackingDescription:
+      "Cada pedido recebe um número de rastreamento nas 2 horas após o despacho. Siga o envio em tempo real do nosso armazém até sua porta.",
+    trackingItems: [
+      "Email de rastreamento em 2 horas",
+      "Atualizações de status em tempo real",
+      "Janela de entrega estimada",
+      "Confirmação de entrega",
+    ],
+    returnsTitle: "Devoluções & Reembolsos",
+    returnsDescription:
+      "Se o pedido chegar danificado ou incorreto, entre em contato em 48 horas. Providenciaremos a substituição ou reembolso completo sem custos adicionais.",
+    returnsItems: [
+      "Prazo de 48 horas para reportar danos",
+      "Substituição completa ou reembolso",
+      "Evidência fotográfica necessária",
+      "Devolução gratuita por erros",
+    ],
+    faqSectionLabel: "FAQ",
+    faqSectionTitle1: "Perguntas sobre",
+    faqSectionTitle2: "Envio",
+    faqSectionDescription:
+      "Perguntas frequentes sobre entrega de peptídeos, embalagem e opções de envio.",
+    ctaTitle: "Peça Hoje, Receba em Breve",
+    ctaDescription:
+      "Despacho rápido. Entrega de temperatura controlada. Envio grátis para o Brasil a partir de R${threshold}.",
+    ctaShopNow: "COMPRAR AGORA",
+    ctaContactUs: "ENTRE EM CONTATO",
+  },
+
+  termsPage: {
+    tagline: "LEGAL",
+    title: "Termos de Serviço",
+    lastUpdated: "Última atualização: março de 2026",
+    sections: [
+      {
+        heading: "1. Aceitação dos Termos",
+        content:
+          "Ao acessar e utilizar o website e os serviços da ORYN Peptide Labs, você concorda em ficar vinculado a estes Termos de Serviço. Se não concordar com estes termos, por favor não utilize nossos serviços.",
+      },
+      {
+        heading: "2. Apenas para Uso em Pesquisa",
+        content:
+          "Todos os produtos vendidos pela ORYN Peptide Labs destinam-se exclusivamente a fins de laboratório e pesquisa. Os produtos não se destinam ao consumo humano ou animal. Ao adquirir, você confirma que está obtendo os produtos para fins de pesquisa legítimos e cumpre todas as leis e regulamentos aplicáveis em sua jurisdição.",
+      },
+      {
+        heading: "3. Elegibilidade",
+        content:
+          "Você deve ter pelo menos 18 anos e representar uma organização de pesquisa legítima, laboratório ou instituição acadêmica para adquirir produtos. A ORYN reserva-se o direito de solicitar verificação de credenciais de pesquisa.",
+      },
+      {
+        heading: "4. Pedidos e Pagamento",
+        content:
+          "Todos os preços estão listados em BRL (R$). O pagamento é processado de forma segura. A ORYN reserva-se o direito de cancelar pedidos que pareçam fraudulentos ou violem estes termos. Para pedidos de atacado: 50% de pagamento antecipado, 50% antes do envio.",
+      },
+      {
+        heading: "5. Envio e Entrega",
+        content:
+          "Os produtos são enviados com manuseio de cadeia de frio quando necessário. Os prazos de entrega são estimativas. A ORYN não é responsável por atrasos causados por alfândega, transportadoras ou eventos de força maior.",
+      },
+      {
+        heading: "6. Devoluções e Reembolsos",
+        content:
+          "Devido à natureza dos nossos produtos, as devoluções são aceitas apenas para itens danificados ou incorretos no prazo de 14 dias após a entrega. Os produtos devem estar lacrados e na embalagem original.",
+      },
+      {
+        heading: "7. Propriedade Intelectual",
+        content:
+          "Todo o conteúdo, marca e materiais neste website são propriedade da ORYN Peptide Labs. A reprodução não autorizada é proibida.",
+      },
+      {
+        heading: "8. Limitação de Responsabilidade",
+        content:
+          "A ORYN Peptide Labs fornece produtos no estado em que se encontram para fins de pesquisa. Não oferecemos garantias quanto à adequação para qualquer fim específico além das especificações indicadas. Nossa responsabilidade é limitada ao preço de compra do produto.",
+      },
+      {
+        heading: "9. Contato",
+        content: "Para dúvidas relacionadas com estes termos, entre em contato conosco em legal@orynlabs.com.",
+      },
+    ],
+  },
+
+  privacyPage: {
+    tagline: "LEGAL",
+    title: "Política de Privacidade",
+    lastUpdated: "Última atualização: março de 2026",
+    sections: [
+      {
+        heading: "1. Informações que Coletamos",
+        content:
+          "Coletamos informações que você fornece diretamente: nome, e-mail, organização, endereço de envio e dados de pagamento quando cria uma conta ou faz um pedido.",
+      },
+      {
+        heading: "2. Como Utilizamos Suas Informações",
+        content:
+          "Suas informações são utilizadas para: processar pedidos, comunicar sobre sua conta, prestar suporte ao cliente, enviar atualizações de pedidos e cumprir obrigações legais. Não vendemos seus dados pessoais.",
+      },
+      {
+        heading: "3. Proteção de Dados",
+        content:
+          "A ORYN Peptide Labs cumpre a LGPD e os regulamentos de proteção de dados aplicáveis. Seus dados são armazenados de forma segura com criptografia em repouso e em trânsito.",
+      },
+      {
+        heading: "4. Seus Direitos",
+        content:
+          "De acordo com a LGPD, você tem o direito de: acessar seus dados, retificar imprecisões, solicitar a eliminação, restringir o processamento, portabilidade de dados e se opor ao processamento. Entre em contato com privacy@orynlabs.com para exercer esses direitos.",
+      },
+      {
+        heading: "5. Cookies",
+        content:
+          "Utilizamos cookies essenciais para a funcionalidade do site e cookies analíticos para melhorar nosso serviço. Você pode gerenciar as preferências de cookies nas configurações do seu navegador.",
+      },
+      {
+        heading: "6. Contato",
+        content: "Encarregado de Proteção de Dados: privacy@orynlabs.com",
+      },
+    ],
+  },
+
+  disclaimerPage: {
+    tagline: "LEGAL",
+    title: "Aviso de Pesquisa",
+    lastUpdated: "Última atualização: março de 2026",
+    alertTitle: "Aviso Importante",
+    alertContent:
+      "Todos os produtos vendidos pela ORYN Peptide Labs destinam-se estritamente à pesquisa laboratorial e ao estudo científico. NÃO se destinam ao uso humano ou veterinário, aditivos alimentares, medicamentos, cosméticos, produtos químicos domésticos ou qualquer outra forma de consumo.",
+    buyerResponsibilityIntro:
+      "Ao comprar da ORYN Peptide Labs, o comprador reconhece e concorda que:",
+    buyerResponsibilityItems: [
+      "Os produtos serão utilizados exclusivamente para fins de pesquisa legítimos",
+      "O comprador está familiarizado e em conformidade com todos os regulamentos aplicáveis",
+      "Os produtos não serão revendidos para consumo humano",
+      "O comprador assume toda a responsabilidade pelo manuseio e uso corretos",
+      "O comprador é maior de idade e representa uma entidade de pesquisa legítima",
+    ],
+    sections: [
+      {
+        heading: "Declaração de Uso em Pesquisa",
+        content:
+          "A ORYN Peptide Labs fabrica e distribui compostos peptídicos exclusivamente para pesquisa in vitro, experimentação laboratorial e investigação científica. Todos os compostos são fornecidos como produtos químicos de pesquisa com Certificados de Análise (COA) acompanhantes para verificação de lotes.",
+      },
+      {
+        heading: "Responsabilidade do Comprador",
+        content: "",
+      },
+      {
+        heading: "Sem Alegações Médicas",
+        content:
+          "A ORYN Peptide Labs não faz quaisquer alegações sobre as propriedades terapêuticas, diagnósticas ou preventivas de qualquer produto. As descrições dos produtos fazem referência à literatura científica publicada apenas para fins informativos e não constituem aconselhamento médico nem alegações de eficácia.",
+      },
+      {
+        heading: "Garantia de Qualidade",
+        content:
+          "Todos os produtos ORYN são fabricados em instalações de sala limpa ISO Classe 7 certificadas GMP com validação analítica de terceiros. Os níveis de pureza excedem 99% conforme verificado pela análise HPLC. A documentação completa do lote, incluindo COA, dados de estabilidade e documentação DMF, está disponível mediante solicitação.",
+      },
+      {
+        heading: "Conformidade Regulamentar",
+        content:
+          "É de responsabilidade do comprador garantir a conformidade com todos os regulamentos locais, nacionais e internacionais relativos à compra, importação, posse e utilização de peptídeos de pesquisa. A ORYN Peptide Labs opera no âmbito dos quadros regulamentares internacionais.",
+      },
+    ],
+  },
+} as unknown as Dictionary;
+
+export default ptBr;

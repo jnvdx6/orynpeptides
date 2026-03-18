@@ -13,6 +13,7 @@ import { COUNTY_SLUGS } from "@/data/uk-counties";
 import { PROTOCOL_SLUGS } from "@/data/protocols";
 import { FAQ_HUB_SLUGS } from "@/data/faq-hubs";
 import { EUROPEAN_COUNTRIES } from "@/data/european-countries";
+import { BRAZIL_COUNTRY } from "@/data/brazilian-cities";
 import { locales } from "@/i18n/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -304,6 +305,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: now,
         priority: 0.7,
       });
+    }
+  }
+
+  // ── Brazil country hub page (all locales) ──────────────────────
+  for (const locale of locales) {
+    entries.push({
+      url: `${SITE_URL}/${locale}/peptides/brazil`,
+      lastModified: now,
+      priority: 0.8,
+    });
+  }
+
+  // ── Brazil city hub pages (all locales) ───────────────────────
+  for (const locale of locales) {
+    for (const city of BRAZIL_COUNTRY.cities) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/peptides/brazil/${city.slug}`,
+        lastModified: now,
+        priority: 0.7,
+      });
+    }
+  }
+
+  // ── Product × Brazil city pages (all locales) ─────────────────
+  for (const locale of locales) {
+    for (const city of BRAZIL_COUNTRY.cities) {
+      for (const product of products) {
+        entries.push({
+          url: `${SITE_URL}/${locale}/peptides/brazil/${city.slug}/${product.slug}`,
+          lastModified: now,
+          priority: 0.6,
+        });
+      }
     }
   }
 
