@@ -58,7 +58,7 @@ export function CartSlider() {
     }
     const suggested = Array.from(suggestedSlugs)
       .map((slug) => products.find((p) => p.slug === slug))
-      .filter(Boolean)
+      .filter((p): p is NonNullable<typeof p> => !!p && !cartIds.has(p.id) && !cartSlugs.has(p.slug))
       .slice(0, 2);
     // Fallback: if no complements, show popular products
     if (suggested.length === 0) {

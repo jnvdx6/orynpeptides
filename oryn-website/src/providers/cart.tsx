@@ -126,10 +126,19 @@ const MAX_QUANTITY_PER_PRODUCT = 10;
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 // Helper: find product by Medusa handle/slug — tries resolved list first, falls back to static
-function findProduct(handle: string | undefined, resolvedProducts: Product[]): Product | undefined {
-  if (!handle) return undefined;
-  return resolvedProducts.find((p) => p.slug === handle)
-    || staticProducts.find((p) => p.slug === handle);
+function findProduct(handle: string | undefined, resolvedProducts: Product[], title?: string): Product | undefined {
+  if (handle) {
+    const bySlug = resolvedProducts.find((p) => p.slug === handle)
+      || staticProducts.find((p) => p.slug === handle);
+    if (bySlug) return bySlug;
+  }
+  // Fallback: match by title/name when handle is missing or doesn't match
+  if (title) {
+    const normalizedTitle = title.replace(/^ORYN\s+/i, "");
+    return resolvedProducts.find((p) => p.name === title || p.name === normalizedTitle)
+      || staticProducts.find((p) => p.name === title || p.name === normalizedTitle);
+  }
+  return undefined;
 }
 
 // Helper: derive CartItems from Medusa cart line items
@@ -137,7 +146,7 @@ function deriveItemsFromMedusa(cart: MedusaCart, resolvedProducts: Product[]): C
   if (!cart.items || cart.items.length === 0) return [];
   return cart.items.map((lineItem) => {
     const handle = lineItem.variant?.product?.handle;
-    const matched = findProduct(handle, resolvedProducts);
+    const matched = findProduct(handle, resolvedProducts, lineItem.title);
     // Build a Product from Medusa data if no match
     const product: Product = matched || {
       id: lineItem.variant?.product_id || lineItem.id,
@@ -300,7 +309,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         // Find the Medusa line item for this product
         const lineItem = cart.items?.find((li) => {
           const handle = li.variant?.product?.handle;
-          const localProduct = findProduct(handle, resolvedProducts);
+          const localProduct = findProduct(handle, resolvedProducts, li.title);
           return localProduct?.id === productId || li.id === productId;
         });
 
@@ -334,7 +343,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (medusaConnected && cart) {
         const lineItem = cart.items?.find((li) => {
           const handle = li.variant?.product?.handle;
-          const localProduct = findProduct(handle, resolvedProducts);
+          const localProduct = findProduct(handle, resolvedProducts, li.title);
           return localProduct?.id === productId || li.id === productId;
         });
 
