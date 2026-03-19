@@ -237,7 +237,7 @@ export function Header() {
             </Link>
 
             {/* Center nav — desktop */}
-            <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
               {navLinks.map((link) => (
                 <div
                   key={link.href}
@@ -247,7 +247,7 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="text-[11px] font-medium text-oryn-black/50 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase relative group flex items-center gap-1"
+                    className="text-[11px] font-medium text-oryn-black/50 hover:text-oryn-orange transition-colors tracking-[0.15em] uppercase relative group flex items-center gap-1 whitespace-nowrap"
                   >
                     {link.label}
                     {link.dropdown && (
