@@ -74,12 +74,12 @@ export function LocaleProvider({
       return new Intl.NumberFormat(intlTag, {
         style: "currency",
         currency: regionConfig.currencyCode.toUpperCase(),
-        minimumFractionDigits: amount % 1 !== 0 ? 2 : 0,
-        maximumFractionDigits: amount % 1 !== 0 ? 2 : 0,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
       }).format(amount);
     } catch {
       // Fallback if Intl fails
-      return `${regionConfig.symbol}${Math.round(amount)}`;
+      return `${regionConfig.symbol}${amount.toFixed(2)}`;
     }
   }, [regionConfig, locale]);
 
