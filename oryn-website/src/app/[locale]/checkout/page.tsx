@@ -412,7 +412,7 @@ export default function CheckoutPage() {
       orderRef: ref,
       total: cart?.total != null ? cart.total : finalTotal,
       itemCount: totalItems,
-      currency: locale === "es" ? "EUR" : "GBP",
+      currency: currencyCode.toUpperCase(),
       promoCode: appliedPromotion?.code,
       shippingCountry: country,
       items: items.map((i) => ({

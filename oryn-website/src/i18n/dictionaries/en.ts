@@ -2,12 +2,12 @@ import type { Dictionary } from "../types";
 
 const en: Dictionary = {
   meta: {
-    title: "Buy Peptides UK | Peptide Pen Systems from €99 | ORYN Peptide Labs",
+    title: "Buy Peptides UK | Peptide Pen Systems from £99 | ORYN Peptide Labs",
     titleTemplate: "%s | ORYN Peptide Labs",
     description:
-      "UK's leading peptide pen supplier. Buy BPC-157, NAD+, Tirzepatide, GHK-Cu & more in precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery from €99. Free shipping over €150.",
+      "UK's leading peptide pen supplier. Buy BPC-157, NAD+, Tirzepatide, GHK-Cu & more in precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery from £99. Free shipping over £150.",
     ogDescription:
-      "Buy research-grade peptide pens in the UK. 10 peptides from €99. Pre-mixed reusable pen systems. GMP certified, >99% purity. Next-day UK delivery. Free shipping across Europe.",
+      "Buy research-grade peptide pens in the UK. 10 peptides from £99. Pre-mixed reusable pen systems. GMP certified, >99% purity. Next-day UK delivery. Free shipping across Europe.",
   },
 
   header: {
@@ -152,7 +152,7 @@ const en: Dictionary = {
       },
       {
         title: "Order Securely",
-        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over €150.",
+        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over £150.",
       },
       {
         title: "Receive Discreetly",
@@ -682,7 +682,7 @@ const en: Dictionary = {
     shippingMethod: "Shipping method",
     loadingShipping: "Loading shipping options...",
     freeShippingApplied: "FREE SHIPPING APPLIED!",
-    freeShippingLabel: "FREE SHIPPING (ORDER +€{threshold})",
+    freeShippingLabel: "FREE SHIPPING (ORDER +£{threshold})",
     freeStandardShipping: "Free standard shipping",
     returnToInformation: "← Return to information",
     returnToShipping: "← Return to shipping",
@@ -987,7 +987,7 @@ const en: Dictionary = {
 
   localeSwitcher: {
     label: "Market",
-    uk: "UK (€)",
+    uk: "UK (£)",
     eu: "EU (\u20ac)",
   },
 
@@ -1305,7 +1305,7 @@ const en: Dictionary = {
       description:
         "Biotech lab delivering >99% purity research peptides in precision pen systems. Manufactured in South Korea. Use code WELCOME10 on your first order.",
       benefits: [
-        "Free shipping over €150",
+        "Free shipping over £150",
         "GMP certified manufacturing",
         "Certificate of Analysis included",
       ],

@@ -6,7 +6,7 @@ import { getProductBySlug as getProduct, productImages } from "@/data/products";
 import { COMPARISONS, getComparisonBySlug, COMPARISON_SLUGS } from "@/data/comparisons";
 import { faqSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales, type Locale } from "@/i18n/config";
+import { locales, type Locale, markets, regions } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateStaticParams() {
@@ -64,7 +64,7 @@ export default async function ComparisonPage({
   const productB = getProduct(comparison.productB);
   if (!productA || !productB) notFound();
 
-  const currency = "€";
+  const currency = regions[markets[locale as Locale]?.defaultRegion ?? "europe"]?.symbol ?? "€";
   const otherComparisons = COMPARISONS.filter((c) => c.slug !== comparison.slug);
 
   return (

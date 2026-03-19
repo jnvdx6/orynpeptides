@@ -5,7 +5,7 @@ import { COMPARISONS } from "@/data/comparisons";
 import { getProductBySlug as getProduct, productImages } from "@/data/products";
 import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
-import { locales, type Locale } from "@/i18n/config";
+import { locales, type Locale, markets, regions } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { PageTracker } from "@/components/analytics/PageTracker";
 
@@ -53,7 +53,7 @@ export default async function ComparePage({
 }) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  const currency = "€";
+  const currency = regions[markets[locale as Locale]?.defaultRegion ?? "europe"]?.symbol ?? "€";
 
   return (
     <>
