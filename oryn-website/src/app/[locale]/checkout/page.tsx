@@ -1221,8 +1221,13 @@ function OrderSummary({
 
   // Estimate shipping based on selected country before actual rates are fetched
   const shippingEstimate = (() => {
-    if (!selectedCountry || activeStep !== "information") return null;
+    if (activeStep !== "information") return null;
     if (totalPrice >= FREE_SHIPPING_THRESHOLD) return { amount: 0, isFree: true };
+    if (!selectedCountry) {
+      // Show default estimate based on locale's region before country is selected
+      const defaultAmount = currencyCode === "gbp" ? 3.99 : currencyCode === "usd" ? 7.99 : currencyCode === "brl" ? 49.99 : 4.99;
+      return { amount: defaultAmount, isFree: false };
+    }
     // UK gets GBP rates, rest of Europe gets EUR rates
     const isUK = selectedCountry === "gb";
     return { amount: isUK ? 3.99 : 4.99, isFree: false };
