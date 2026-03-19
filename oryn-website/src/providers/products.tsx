@@ -108,7 +108,7 @@ function mapMedusaProduct(mp: MedusaStoreProduct, currencyCode: string): Product
     || (medusaImgs.length > 0 ? medusaImgs[0] : undefined)
     || productImages.bySlug[slug]
     || staticProduct?.image
-    || "/images/products/peptide-pen-black.png";
+    || "/images/products/bpc157-hero.png";
 
   let name = mp.title;
   if (name.startsWith("ORYN ")) name = name.substring(5);

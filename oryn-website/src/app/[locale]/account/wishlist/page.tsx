@@ -53,7 +53,7 @@ export default function WishlistPage() {
             <div key={product.id} className="bg-white border border-oryn-grey/15 p-4 flex gap-4">
               <Link href={`/products/${product.slug}`} className="w-20 h-20 bg-oryn-cream flex items-center justify-center shrink-0">
                 <Image
-                  src={productImages.bySlug[product.slug] || "/images/products/peptide-pen-black.png"}
+                  src={productImages.bySlug[product.slug] || "/images/products/bpc157-hero.png"}
                   alt={product.name}
                   width={60}
                   height={60}

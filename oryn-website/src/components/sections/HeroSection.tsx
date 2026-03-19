@@ -105,7 +105,7 @@ export function HeroSection() {
 
  <div className="relative w-full max-w-md lg:max-w-none mx-auto">
  <Image
- src="/images/products/peptide-pen-black.png"
+ src="/images/products/bpc157-hero.png"
  alt="ORYN Peptide Pen System"
  width={600}
  height={200}

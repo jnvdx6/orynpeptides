@@ -32,7 +32,7 @@ export function CompareBar() {
                   src={
                     productImages.bySlug[product.slug] ||
                     productImages.categoryCard[product.category] ||
-                    "/images/products/peptide-pen-black.png"
+                    "/images/products/bpc157-hero.png"
                   }
                   alt={product.name}
                   width={24}

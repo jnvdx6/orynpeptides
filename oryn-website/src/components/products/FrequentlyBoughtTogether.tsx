@@ -67,7 +67,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
           <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-0 flex-1 sm:flex-initial sm:min-w-[160px]">
             <div className="w-12 h-12 bg-oryn-cream flex items-center justify-center shrink-0">
               <Image
-                src={productImages.bySlug[currentProduct.slug] || "/images/products/peptide-pen-black.png"}
+                src={productImages.bySlug[currentProduct.slug] || "/images/products/bpc157-hero.png"}
                 alt={currentProduct.name}
                 width={36}
                 height={36}
@@ -86,7 +86,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
               <div className="flex items-center gap-3 p-3 bg-white border border-oryn-grey/15 min-w-0 flex-1 sm:flex-initial sm:min-w-[160px]">
                 <div className="w-12 h-12 bg-oryn-cream flex items-center justify-center shrink-0">
                   <Image
-                    src={productImages.bySlug[product.slug] || "/images/products/peptide-pen-black.png"}
+                    src={productImages.bySlug[product.slug] || "/images/products/bpc157-hero.png"}
                     alt={product.name}
                     width={36}
                     height={36}

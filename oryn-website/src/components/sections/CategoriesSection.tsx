@@ -10,7 +10,7 @@ const categoryStaticData = [
  {
  id: "peptide-pen",
  specs: ["3 mL", "30 Days", "8 Peptides"],
- image: "/images/products/peptide-pen-black.png",
+ image: "/images/products/bpc157-hero.png",
  href: "/products?category=peptide-pen",
  },
  {

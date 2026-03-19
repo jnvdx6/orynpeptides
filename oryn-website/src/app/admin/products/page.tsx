@@ -69,7 +69,7 @@ const EMPTY_FORM: ProductForm = {
 };
 
 const CATEGORY_META: Record<CategoryId, { label: string; description: string; defaultImage: string }> = {
-  'peptide-pen': { label: 'Peptide Pens', description: 'Injectable peptide pens', defaultImage: '/images/products/peptide-pen-black.png' },
+  'peptide-pen': { label: 'Peptide Pens', description: 'Injectable peptide pens', defaultImage: '/images/products/bpc157-hero.png' },
   'medit-pen': { label: 'MediT Pens', description: 'Prefilled injection pens', defaultImage: '/images/products/pen-medit.png' },
   novadose: { label: 'NovaDose', description: 'Precision dosing products', defaultImage: '/images/products/pen-novadose.png' },
 };
@@ -77,13 +77,13 @@ const CATEGORY_META: Record<CategoryId, { label: string; description: string; de
 const BADGE_OPTIONS = ['', 'Best Seller', 'Popular', 'New', 'Premium', 'Innovation', 'Sale'];
 
 const IMAGE_OPTIONS = [
-  { label: 'BPC-157', value: '/images/products/peptide-pen-black.png' },
-  { label: 'TB-500', value: '/images/products/pen-tb500.png' },
-  { label: 'CJC-1295', value: '/images/products/pen-cjc1295.png' },
-  { label: 'Ipamorelin', value: '/images/products/pen-ipamorelin.png' },
-  { label: 'Tirzepatide', value: '/images/products/pen-tirzepatide.png' },
-  { label: 'GHK-CU', value: '/images/products/pen-ghkcu.png' },
-  { label: 'Glutathione', value: '/images/products/pen-glutathione.png' },
+  { label: 'BPC-157', value: '/images/products/bpc157-hero.png' },
+  { label: 'TB-500', value: '/images/products/tb500-hero.png' },
+  { label: 'CJC-1295', value: '/images/products/cjc1295-hero.png' },
+  { label: 'Ipamorelin', value: '/images/products/ipamorelin-hero.png' },
+  { label: 'Tirzepatide', value: '/images/products/tirzepatide-hero.png' },
+  { label: 'GHK-CU', value: '/images/products/ghkcu-hero.png' },
+  { label: 'Glutathione', value: '/images/products/glutathione-hero.png' },
   { label: 'NAD+', value: '/images/products/pen-nad.png' },
   { label: 'MediT Pen', value: '/images/products/pen-medit.png' },
   { label: 'NovaDose', value: '/images/products/pen-novadose.png' },

@@ -76,7 +76,7 @@ export function ProductComparison({ currentProduct }: Props) {
                   <Link href={`/products/${p.slug}`} className="block group">
                     <div className="w-16 h-16 bg-oryn-cream flex items-center justify-center mx-auto mb-2">
                       <Image
-                        src={productImages.bySlug[p.slug] || "/images/products/peptide-pen-black.png"}
+                        src={productImages.bySlug[p.slug] || "/images/products/bpc157-hero.png"}
                         alt={p.name}
                         width={48}
                         height={48}

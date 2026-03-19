@@ -14,7 +14,7 @@ import { usePageTracking } from "@/hooks/usePageTracking";
 import { productImages } from "@/data/products";
 
 function getProductImage(slug: string, category: string): string {
-  return productImages.bySlug[slug] || productImages.categoryCard[category] || "/images/products/peptide-pen-black.png";
+  return productImages.bySlug[slug] || productImages.categoryCard[category] || "/images/products/bpc157-hero.png";
 }
 
 export default function CartPage() {

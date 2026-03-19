@@ -135,7 +135,7 @@ export function ExitIntentPopup() {
                 {/* Product image */}
                 <div className="flex-shrink-0 w-28 h-28 relative">
                   <Image
-                    src="/images/products/peptide-pen-black.png"
+                    src="/images/products/bpc157-hero.png"
                     alt="ORYN Peptide Pen"
                     fill
                     className="object-contain"

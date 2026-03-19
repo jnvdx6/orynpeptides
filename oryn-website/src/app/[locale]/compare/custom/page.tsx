@@ -79,7 +79,7 @@ export default function CustomComparePage() {
                     <Link href={`/products/${p.slug}`} className="block group">
                       <div className="w-20 h-20 bg-oryn-cream flex items-center justify-center mx-auto mb-3">
                         <Image
-                          src={productImages.bySlug[p.slug] || productImages.categoryCard[p.category] || "/images/products/peptide-pen-black.png"}
+                          src={productImages.bySlug[p.slug] || productImages.categoryCard[p.category] || "/images/products/bpc157-hero.png"}
                           alt={p.name}
                           width={60}
                           height={60}

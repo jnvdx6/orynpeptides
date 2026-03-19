@@ -1234,7 +1234,7 @@ function OrderSummary({
         {items.map((item) => (
           <div key={item.product.id} className="flex items-center gap-3">
             <div className="w-14 h-14 bg-oryn-cream border border-oryn-grey/20 flex items-center justify-center shrink-0 relative">
-              <Image src={productImages.bySlug[item.product.slug] || productImages.categoryCard[item.product.category] || "/images/products/peptide-pen-black.png"} alt={item.product.name} width={48} height={48} className="object-contain" />
+              <Image src={productImages.bySlug[item.product.slug] || productImages.categoryCard[item.product.category] || "/images/products/bpc157-hero.png"} alt={item.product.name} width={48} height={48} className="object-contain" />
               <div className="absolute -top-2 -right-2 w-5 h-5 bg-oryn-black/70 text-white text-[10px] flex items-center justify-center rounded-full">
                 {item.quantity}
               </div>
