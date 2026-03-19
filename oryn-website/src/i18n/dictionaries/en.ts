@@ -279,7 +279,7 @@ const en: Dictionary = {
       { label: "ISO CLASS 7", detail: "Cleanroom" },
       { label: "GMP", detail: "Certified" },
       { label: ">99%", detail: "Purity" },
-      { label: "EU", detail: "Manufactured" },
+      { label: "KOREA", detail: "Manufactured" },
     ],
     copyright: "ORYN PEPTIDE LABS — ALL RIGHTS RESERVED",
   },

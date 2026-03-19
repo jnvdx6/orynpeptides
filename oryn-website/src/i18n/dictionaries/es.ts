@@ -280,7 +280,7 @@ const es = {
       { label: "ISO CLASS 7", detail: "Sala Limpia" },
       { label: "GMP", detail: "Certificado" },
       { label: ">99%", detail: "Pureza" },
-      { label: "EU", detail: "Fabricado" },
+      { label: "COREA", detail: "Fabricado" },
     ],
     copyright: "ORYN PEPTIDE LABS \u2014 TODOS LOS DERECHOS RESERVADOS",
   },

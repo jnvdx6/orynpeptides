@@ -280,7 +280,7 @@ const nl = {
       { label: "ISO KLASSE 7", detail: "Cleanroom" },
       { label: "GMP", detail: "Gecertificeerd" },
       { label: ">99%", detail: "Zuiverheid" },
-      { label: "EU", detail: "Geproduceerd" },
+      { label: "KOREA", detail: "Geproduceerd" },
     ],
     copyright: "ORYN PEPTIDE LABS — ALLE RECHTEN VOORBEHOUDEN",
   },
