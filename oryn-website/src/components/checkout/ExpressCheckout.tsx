@@ -111,6 +111,8 @@ export function ExpressCheckout({ onSuccess, onError, totalItems, amount, divide
             buttonType: {
               applePay: "buy",
               googlePay: "buy",
+              paypal: "buynow",
+              klarna: "pay",
             },
             buttonTheme: {
               applePay: "black",
@@ -119,9 +121,17 @@ export function ExpressCheckout({ onSuccess, onError, totalItems, amount, divide
             buttonHeight: 48,
             layout: {
               maxColumns: 2,
-              maxRows: 1,
+              maxRows: 2,
               overflow: "auto",
             },
+            paymentMethodOrder: [
+              "applePay",
+              "googlePay",
+              "klarna",
+              "paypal",
+              "amazonPay",
+              "link",
+            ],
           }}
         />
       </div>
