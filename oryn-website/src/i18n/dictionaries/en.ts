@@ -262,6 +262,7 @@ const en: Dictionary = {
       terms: "Terms of Service",
       privacy: "Privacy Policy",
       disclaimer: "Research Disclaimer",
+      cookieSettings: "Cookie Settings",
     },
     seoSections: {
       researchAreas: "Research Areas",
@@ -1289,6 +1290,14 @@ const en: Dictionary = {
     privacyPolicy: "Privacy Policy",
     acceptAll: "ACCEPT ALL",
     essentialOnly: "ESSENTIAL ONLY",
+    essential: "Essential cookies",
+    alwaysOn: "always on",
+    analyticsLabel: "Analytics cookies",
+    marketingLabel: "Marketing cookies",
+    savePreferences: "SAVE PREFERENCES",
+    manageSettings: "MANAGE",
+    hideSettings: "HIDE SETTINGS",
+    manageCookies: "Cookie Settings",
   },
 
   toast: {

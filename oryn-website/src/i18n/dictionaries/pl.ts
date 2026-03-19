@@ -263,6 +263,7 @@ const pl = {
       terms: "Regulamin",
       privacy: "Polityka prywatności",
       disclaimer: "Zastrzeżenie badawcze",
+      cookieSettings: "Ustawienia plików cookie",
     },
     seoSections: {
       researchAreas: "Obszary badań",
@@ -1290,6 +1291,14 @@ const pl = {
     privacyPolicy: "Politykę prywatności",
     acceptAll: "AKCEPTUJ WSZYSTKIE",
     essentialOnly: "TYLKO NIEZBĘDNE",
+    essential: "Niezbędne pliki cookie",
+    alwaysOn: "zawsze włączone",
+    analyticsLabel: "Analityczne pliki cookie",
+    marketingLabel: "Marketingowe pliki cookie",
+    savePreferences: "ZAPISZ PREFERENCJE",
+    manageSettings: "ZARZĄDZAJ",
+    hideSettings: "UKRYJ USTAWIENIA",
+    manageCookies: "Ustawienia plików cookie",
   },
 
   toast: {

@@ -263,6 +263,7 @@ const ptBr = {
       terms: "Termos de Serviço",
       privacy: "Política de Privacidade",
       disclaimer: "Aviso de Pesquisa",
+      cookieSettings: "Configurações de cookies",
     },
     seoSections: {
       researchAreas: "Áreas de Pesquisa",
@@ -1291,6 +1292,14 @@ const ptBr = {
     privacyPolicy: "Política de Privacidade",
     acceptAll: "ACEITAR TUDO",
     essentialOnly: "APENAS ESSENCIAIS",
+    essential: "Cookies essenciais",
+    alwaysOn: "sempre ativo",
+    analyticsLabel: "Cookies de análise",
+    marketingLabel: "Cookies de marketing",
+    savePreferences: "SALVAR PREFERÊNCIAS",
+    manageSettings: "GERENCIAR",
+    hideSettings: "OCULTAR CONFIGURAÇÕES",
+    manageCookies: "Configurações de cookies",
   },
 
   toast: {

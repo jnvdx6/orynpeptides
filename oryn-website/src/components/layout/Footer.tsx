@@ -5,6 +5,7 @@ import { OrynLogo } from "@/components/icons/OrynLogo";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { trackNewsletterSignup } from "@/lib/analytics";
+import { openCookieSettings } from "@/components/ui/CookieConsent";
 import { BRAZILIAN_CITIES } from "@/data/brazilian-cities";
 
 
@@ -63,6 +64,7 @@ export function Footer() {
       { href: "/terms", label: f.legalLinks.terms },
       { href: "/privacy", label: f.legalLinks.privacy },
       { href: "/disclaimer", label: f.legalLinks.disclaimer },
+      { href: "#cookie-settings", label: f.legalLinks.cookieSettings, onClick: openCookieSettings },
     ],
   };
 
@@ -369,12 +371,21 @@ export function Footer() {
                 <ul className="space-y-3">
                   {links.map((link) => (
                     <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-xs text-oryn-white/30 hover:text-oryn-orange transition-colors font-plex"
-                      >
-                        {link.label}
-                      </Link>
+                      {"onClick" in link && link.onClick ? (
+                        <button
+                          onClick={link.onClick as () => void}
+                          className="text-xs text-oryn-white/30 hover:text-oryn-orange transition-colors font-plex cursor-pointer"
+                        >
+                          {link.label}
+                        </button>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-xs text-oryn-white/30 hover:text-oryn-orange transition-colors font-plex"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

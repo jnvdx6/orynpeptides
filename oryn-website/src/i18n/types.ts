@@ -173,6 +173,7 @@ export interface Dictionary {
       terms: string;
       privacy: string;
       disclaimer: string;
+      cookieSettings: string;
     };
     seoSections: {
       researchAreas: string;
@@ -655,6 +656,14 @@ export interface Dictionary {
     privacyPolicy: string;
     acceptAll: string;
     essentialOnly: string;
+    essential: string;
+    alwaysOn: string;
+    analyticsLabel: string;
+    marketingLabel: string;
+    savePreferences: string;
+    manageSettings: string;
+    hideSettings: string;
+    manageCookies: string;
   };
 
   toast: {
