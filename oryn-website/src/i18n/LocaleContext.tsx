@@ -74,7 +74,7 @@ export function LocaleProvider({
       return new Intl.NumberFormat(intlTag, {
         style: "currency",
         currency: regionConfig.currencyCode.toUpperCase(),
-        minimumFractionDigits: 0,
+        minimumFractionDigits: amount % 1 !== 0 ? 2 : 0,
         maximumFractionDigits: amount % 1 !== 0 ? 2 : 0,
       }).format(amount);
     } catch {
