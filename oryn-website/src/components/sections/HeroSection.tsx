@@ -26,6 +26,7 @@ export function HeroSection() {
 
  <h1 className="text-white mb-2">
  <span className="block text-7xl sm:text-8xl md:text-[10rem] font-bold tracking-[-0.04em] leading-[0.85]">ORYN</span>
+ <span className="sr-only"> — </span>
  <span className="block text-base sm:text-lg md:text-xl font-light text-white/60 tracking-wide mt-2">
  {t.hero.brandDescriptor}
  </span>
@@ -62,19 +63,19 @@ export function HeroSection() {
  </Link>
  </div>
 
- {/* Trust badges — below CTAs, never overlap image */}
+ {/* Trust badges — below CTAs, clickable links to policy pages */}
  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10">
  {[
- { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: t.hero.trustFreeShipping },
- { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: t.hero.trustSecure },
- { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: t.hero.trustCOA },
+ { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: t.hero.trustFreeShipping, href: "/shipping" },
+ { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: t.hero.trustSecure, href: "/faq" },
+ { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: t.hero.trustCOA, href: "/quality" },
  ].map((trust) => (
- <div key={trust.label} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 rounded-sm">
+ <Link key={trust.label} href={trust.href} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/20 hover:border-white/20 transition-all duration-200">
  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/70 shrink-0">
  <path d={trust.icon} />
  </svg>
  <span className="text-[9px] font-mono text-white/70 tracking-[0.1em] whitespace-nowrap">{trust.label}</span>
- </div>
+ </Link>
  ))}
  </div>
 

@@ -269,9 +269,9 @@ export function Header() {
                         <div className="grid grid-cols-3 gap-0 divide-x divide-oryn-grey/10">
                           {megaMenus[link.dropdown].columns.map((col) => (
                             <div key={col.title} className="p-5">
-                              <h3 className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-3">
+                              <div role="presentation" className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-3">
                                 {col.title}
-                              </h3>
+                              </div>
                               <ul className="space-y-2">
                                 {col.links.map((l) => (
                                   <li key={l.href}>
@@ -616,9 +616,9 @@ export function Header() {
                     <div className="pb-4 pl-1 space-y-5">
                       {megaMenus[link.dropdown].columns.map((col) => (
                         <div key={col.title}>
-                          <h4 className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-2 pl-3 border-l-2 border-oryn-orange/30">
+                          <div role="presentation" className="text-[9px] font-bold tracking-[0.2em] text-oryn-orange mb-2 pl-3 border-l-2 border-oryn-orange/30">
                             {col.title}
-                          </h4>
+                          </div>
                           <div className="space-y-0.5 pl-3">
                             {col.links.map((l) => (
                               <Link
