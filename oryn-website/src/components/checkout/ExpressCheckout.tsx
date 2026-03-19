@@ -112,7 +112,6 @@ export function ExpressCheckout({ onSuccess, onError, totalItems, amount, divide
               applePay: "buy",
               googlePay: "buy",
               paypal: "buynow",
-              klarna: "pay",
             },
             buttonTheme: {
               applePay: "black",
