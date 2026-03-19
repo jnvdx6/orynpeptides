@@ -43,9 +43,9 @@ export function CategoriesSection() {
  });
 
  return (
- <section className="py-16 md:py-28 bg-oryn-white">
+ <section className="py-12 md:py-20 bg-oryn-white">
  <div className="max-w-7xl mx-auto px-4 sm:px-6">
- <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6">
+ <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-6">
  <div>
  <div className="inline-flex items-center gap-3 mb-4">
  <div className="w-8 h-px bg-oryn-orange" />

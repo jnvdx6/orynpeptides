@@ -45,7 +45,7 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: "radial-gradient(circle at 1px 1px, #FF6A1A 1px, transparent 0)",
@@ -53,7 +53,7 @@ export function HowItWorksSection() {
       }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-oryn-orange" />
             <span className="text-[10px] font-mono text-oryn-orange tracking-[0.2em]">
