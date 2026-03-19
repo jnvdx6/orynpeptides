@@ -48,14 +48,13 @@ export function LocaleProvider({
 }) {
   const market = markets[locale];
 
-  const [region, setRegionState] = useState<RegionKey>(() => {
-    const cookieRegion = getRegionFromCookie(locale);
-    return cookieRegion || market.defaultRegion;
-  });
+  // Always initialize with defaultRegion to avoid SSR/client hydration mismatch.
+  // Cookie-based region is synced in useEffect after hydration.
+  const [region, setRegionState] = useState<RegionKey>(market.defaultRegion);
 
   useEffect(() => {
     const cookieRegion = getRegionFromCookie(locale);
-    if (cookieRegion && cookieRegion !== region) {
+    if (cookieRegion && cookieRegion !== market.defaultRegion) {
       setRegionState(cookieRegion);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
