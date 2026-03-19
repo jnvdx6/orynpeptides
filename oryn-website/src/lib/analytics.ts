@@ -269,6 +269,18 @@ export function trackPromoApplied(code: string, discountType: string, discountVa
   ph("promo_applied", props);
 }
 
+export function trackCampaignPromoCopied(code: string, campaignSlug: string) {
+  const props = { code, campaign_slug: campaignSlug };
+  track("campaign_promo_copied", props);
+  ph("campaign_promo_copied", props);
+}
+
+export function trackCampaignPageViewed(slug: string, name: string) {
+  const props = { campaign_slug: slug, campaign_name: name };
+  track("campaign_page_viewed", props);
+  ph("campaign_page_viewed", props);
+}
+
 export function trackNewsletterSignup(source: string) {
   track("newsletter_signup", { source });
   ph("newsletter_signup", {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ_HUBS } from "@/data/faq-hubs";
 import { getLocalizedFAQHub } from "@/data/faq-hubs-i18n";
-import { breadcrumbSchema, faqSchema, COMPREHENSIVE_FAQ_ITEMS, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, COMPREHENSIVE_PEPTIDE_FAQS, SITE_URL } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -60,7 +60,7 @@ export default async function FAQIndexPage({
             { name: dict.breadcrumbs.home, url: `/${locale}` },
             { name: dict.breadcrumbs.faq, url: `/${locale}/faq` },
           ]),
-          faqSchema(COMPREHENSIVE_FAQ_ITEMS),
+          faqSchema(COMPREHENSIVE_PEPTIDE_FAQS),
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
