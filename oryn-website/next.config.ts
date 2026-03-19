@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "medusa.skyodoo.com",
-        pathname: "/custom/uploads/**",
+        pathname: "/static/**",
       },
     ],
   },
