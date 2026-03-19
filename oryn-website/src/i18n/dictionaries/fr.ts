@@ -12,7 +12,7 @@ const fr = {
   },
 
   header: {
-    announcementText: "LIVRAISON GRATUITE POUR TOUTE COMMANDE SUPÉRIEURE À 150€",
+    announcementText: "LIVRAISON GRATUITE POUR TOUTE COMMANDE SUPÉRIEURE À {threshold}",
     shopNow: "ACHETER",
     myAccount: "Mon Compte",
     signIn: "Se Connecter",

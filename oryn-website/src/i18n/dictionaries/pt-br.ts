@@ -12,7 +12,7 @@ const ptBr = {
   },
 
   header: {
-    announcementText: "ENVIO GRATUITO PARA PEDIDOS ACIMA DE R$750",
+    announcementText: "ENVIO GRATUITO PARA PEDIDOS ACIMA DE {threshold}",
     shopNow: "COMPRAR",
     myAccount: "Minha Conta",
     signIn: "Entrar",

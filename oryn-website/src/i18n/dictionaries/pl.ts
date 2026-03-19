@@ -12,7 +12,7 @@ const pl = {
   },
 
   header: {
-    announcementText: "DARMOWA WYSYŁKA PRZY ZAMÓWIENIACH POWYŻEJ 150€",
+    announcementText: "DARMOWA WYSYŁKA PRZY ZAMÓWIENIACH POWYŻEJ {threshold}",
     shopNow: "KUP TERAZ",
     myAccount: "Moje Konto",
     signIn: "Zaloguj się",

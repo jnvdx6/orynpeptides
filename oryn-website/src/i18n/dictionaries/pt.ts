@@ -12,7 +12,7 @@ const pt = {
   },
 
   header: {
-    announcementText: "ENVIO GRATUITO PARA ENCOMENDAS SUPERIORES A 150€",
+    announcementText: "ENVIO GRATUITO PARA ENCOMENDAS SUPERIORES A {threshold}",
     shopNow: "COMPRAR",
     myAccount: "A Minha Conta",
     signIn: "Iniciar Sessão",

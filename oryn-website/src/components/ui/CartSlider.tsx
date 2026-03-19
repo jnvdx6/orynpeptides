@@ -8,7 +8,7 @@ import { useProducts } from "@/providers/products";
 import { Link } from "@/components/ui/LocaleLink";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput";
-import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
+import { getFreeShippingThreshold } from "@/lib/discounts";
 import { trackCartViewed, trackRemoveFromCart, trackQuantityChanged, trackCTAClick } from "@/lib/analytics";
 
 import { productImages } from "@/data/products";
@@ -28,8 +28,9 @@ export function CartSlider() {
   const savingsLabel = shippingSavings[currencyCode] || "\u20ac15.99";
   const { products } = useProducts();
 
-  const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
-  const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
+  const freeShippingThreshold = getFreeShippingThreshold(currencyCode);
+  const shippingProgress = Math.min((totalPrice / freeShippingThreshold) * 100, 100);
+  const amountToFreeShipping = freeShippingThreshold - totalPrice;
 
   // Suggest complementary products not in cart
   const cartIds = new Set(items.map((i) => i.product.id));
@@ -299,7 +300,7 @@ export function CartSlider() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-oryn-black/40 font-plex">{pt ? "Envio estimado" : "Estimated shipping"}</span>
-              {totalPrice >= FREE_SHIPPING_THRESHOLD ? (
+              {totalPrice >= freeShippingThreshold ? (
                 <span className="text-xs font-bold text-oryn-orange">{pt ? "GRÁTIS" : "FREE"}</span>
               ) : (
                 <span className="text-xs text-oryn-black/40 font-plex">

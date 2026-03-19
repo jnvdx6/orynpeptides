@@ -12,7 +12,7 @@ const nl = {
   },
 
   header: {
-    announcementText: "GRATIS VERZENDING BIJ BESTELLINGEN BOVEN €150",
+    announcementText: "GRATIS VERZENDING BIJ BESTELLINGEN BOVEN {threshold}",
     shopNow: "WINKELEN",
     myAccount: "Mijn Account",
     signIn: "Inloggen",

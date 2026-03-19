@@ -12,7 +12,7 @@ const it = {
   },
 
   header: {
-    announcementText: "SPEDIZIONE GRATUITA PER ORDINI SUPERIORI A 150€",
+    announcementText: "SPEDIZIONE GRATUITA PER ORDINI SUPERIORI A {threshold}",
     shopNow: "ACQUISTA ORA",
     myAccount: "Il Mio Account",
     signIn: "Accedi",

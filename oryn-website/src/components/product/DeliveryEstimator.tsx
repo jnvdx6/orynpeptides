@@ -35,13 +35,13 @@ const i18n = {
     orderWithin: "Order within",
     forDeliveryBy: "for delivery by",
     estDelivery: "Est. delivery",
-    freeShipping: (amount: number) => `Free shipping on orders over €${amount}`,
+    freeShipping: (formattedAmount: string) => `Free shipping on orders over ${formattedAmount}`,
   },
   es: {
     orderWithin: "Pide en las próximas",
     forDeliveryBy: "para entrega el",
     estDelivery: "Entrega est.",
-    freeShipping: (amount: number) => `Envío gratis en pedidos superiores a €${amount}`,
+    freeShipping: (formattedAmount: string) => `Envío gratis en pedidos superiores a ${formattedAmount}`,
   },
 } as const;
 
@@ -50,7 +50,7 @@ function getStrings(locale: string) {
 }
 
 export function DeliveryEstimator() {
-  const { locale } = useLocale();
+  const { locale, currencyCode, formatPrice } = useLocale();
   const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number } | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -88,7 +88,7 @@ export function DeliveryEstimator() {
   const maxFormatted = formatDeliveryDate(maxDate, dateLocale);
 
   const strings = getStrings(locale);
-  const threshold = getFreeShippingThreshold("EUR");
+  const threshold = getFreeShippingThreshold(currencyCode);
 
   // Before mount, render static range only (no countdown) to avoid hydration mismatch
   const showCountdown = mounted && timeLeft !== null;
@@ -126,7 +126,7 @@ export function DeliveryEstimator() {
         </div>
       </div>
       <span className="text-[9px] font-mono text-neutral-400 tracking-[0.04em] px-3">
-        {strings.freeShipping(threshold)}
+        {strings.freeShipping(formatPrice(threshold))}
       </span>
     </div>
   );

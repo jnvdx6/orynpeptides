@@ -11,7 +11,7 @@ const en: Dictionary = {
   },
 
   header: {
-    announcementText: "FREE SHIPPING ON ALL ORDERS OVER €150",
+    announcementText: "FREE SHIPPING ON ALL ORDERS OVER {threshold}",
     shopNow: "SHOP NOW",
     myAccount: "My Account",
     signIn: "Sign In",

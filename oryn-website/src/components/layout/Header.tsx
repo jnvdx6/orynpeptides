@@ -11,6 +11,7 @@ import { useAuth } from "@/providers/auth";
 import { useProducts } from "@/providers/products";
 import { useWishlist } from "@/providers/wishlist";
 import { usePathname } from "next/navigation";
+import { getFreeShippingThreshold } from "@/lib/discounts";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,7 +24,7 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement>(null);
   const { totalItems, setIsOpen } = useCart();
-  const { t, formatPrice, locale } = useLocale();
+  const { t, formatPrice, currencyCode, locale } = useLocale();
   const { isAuthenticated, user } = useAuth();
   const { products } = useProducts();
   const { totalItems: wishlistCount } = useWishlist();
@@ -216,7 +217,7 @@ export function Header() {
       <div className="fixed top-0 left-0 right-0 z-50 bg-oryn-black text-white h-8 flex items-center justify-center">
         <Link href="/products" className="flex items-center gap-2 group">
           <span className="text-[9px] font-mono tracking-[0.25em] text-white/60 group-hover:text-white/80 transition-colors">
-            {t.header.announcementText}
+            {t.header.announcementText.replace("{threshold}", formatPrice(getFreeShippingThreshold(currencyCode)))}
           </span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-oryn-orange group-hover:translate-x-0.5 transition-transform">
             <path d="M5 12h14M12 5l7 7-7 7" />

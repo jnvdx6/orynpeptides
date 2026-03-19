@@ -12,7 +12,7 @@ const de = {
   },
 
   header: {
-    announcementText: "KOSTENLOSER VERSAND AB EINEM BESTELLWERT VON 150€",
+    announcementText: "KOSTENLOSER VERSAND AB EINEM BESTELLWERT VON {threshold}",
     shopNow: "JETZT KAUFEN",
     myAccount: "Mein Konto",
     signIn: "Anmelden",
