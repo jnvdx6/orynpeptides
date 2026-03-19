@@ -22,7 +22,7 @@ export interface ComparisonTranslation {
   }>;
 }
 
-const comparisonTranslations: Record<string, Record<Locale, ComparisonTranslation>> = {
+const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTranslation>>> = {
 
   // ─────────────────────────────────────────────────────────────────
   // 1. BPC-157 vs TB-500
@@ -365,7 +365,6 @@ const comparisonTranslations: Record<string, Record<Locale, ComparisonTranslatio
       ],
     },
   },
-,
 
   // ─────────────────────────────────────────────────────────────────
   // 2. Tirzepatide vs Semaglutide
@@ -970,7 +969,6 @@ const comparisonTranslations: Record<string, Record<Locale, ComparisonTranslatio
       ],
     },
   },
-};
 
   // ─────────────────────────────────────────────────────────────────
   // 4. GHK-Cu vs Glutathione
@@ -3956,6 +3954,7 @@ const comparisonTranslations: Record<string, Record<Locale, ComparisonTranslatio
       { question: "Czy CJC-1295 pomaga ze zdrowiem jelit?", answer: "Do zdrowia jelit BPC-157 jest wyraźnym pierwszym wyborem. CJC-1295 nie ma specyficznych badań gojenia jelit." },
     ] },
   },
+};
 
 export function getLocalizedComparison(slug: string, locale: Locale): ComparisonTranslation | undefined {
   return comparisonTranslations[slug]?.[locale] || comparisonTranslations[slug]?.["en"];
