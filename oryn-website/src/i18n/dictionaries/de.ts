@@ -1013,7 +1013,7 @@ const de = {
     items: [
       { q: "Wie lange dauert die Lieferung?", a: "UK-Bestellungen: 2-4 Werktage. Europa: 3-7 Werktage. Alle Bestellungen werden in diskreter, temperaturkontrollierter Verpackung versendet." },
       { q: "Kann ich meine Bestellung verfolgen?", a: "Ja! Nach dem Versand erhalten Sie eine Sendungsverfolgungsnummer per E-Mail. Sie können Bestellungen auch in Ihrem Konto-Dashboard verfolgen." },
-      { q: "Wie lautet Ihre Rückgaberichtlinie?", a: "Wir bieten eine 30-Tage-Geld-zurück-Garantie für ungeöffnete Produkte. Kontaktieren Sie uns unter info@orynlabs.com, um eine Rücksendung einzuleiten." },
+      { q: "Wie lautet Ihre Rückgaberichtlinie?", a: "Wir akzeptieren Rücksendungen innerhalb von 30 Tagen nach Lieferung. Ungeöffnete Produkte in Originalverpackung haben Anspruch auf eine vollständige Rückerstattung. Bei beschädigten oder falschen Artikeln melden Sie sich bitte innerhalb von 48 Stunden mit Fotos — wir organisieren einen kostenlosen Ersatz oder eine Rückerstattung. Die Rücksendekosten tragen Sie, es sei denn, der Fehler lag bei uns. Rückerstattungen werden innerhalb von 5-10 Werktagen bearbeitet. Kontaktieren Sie info@orynlabs.com, um eine Rücksendung einzuleiten." },
       { q: "Bieten Sie Großhandelspreise an?", a: "Ja, kontaktieren Sie wholesale@orynlabs.com für Mengenpreise. Wir bieten gestaffelte Rabatte für Forschungseinrichtungen und Wiederverkäufer." },
     ],
   },
@@ -1844,12 +1844,13 @@ const de = {
     ],
     returnsTitle: "Rückgaben & Rückerstattungen",
     returnsDescription:
-      "Wenn Ihre Bestellung beschädigt oder falsch ankommt, kontaktieren Sie uns innerhalb von 48 Stunden. Wir organisieren Ersatz oder eine vollständige Rückerstattung ohne zusätzliche Kosten.",
+      "Wir akzeptieren Rücksendungen innerhalb von 30 Tagen nach Lieferung. Ungeöffnete Produkte in Originalverpackung haben Anspruch auf eine vollständige Rückerstattung. Beschädigte oder falsche Artikel müssen innerhalb von 48 Stunden mit Fotos für einen kostenlosen Ersatz oder eine Rückerstattung gemeldet werden.",
     returnsItems: [
-      "48-Stunden-Frist zur Schadensmeldung",
-      "Vollständiger Ersatz oder Rückerstattung",
-      "Fotodokumentation erforderlich",
-      "Kostenloser Rückversand bei Fehlern",
+      "30-Tage-Rückgabefrist ab Lieferung",
+      "Vollständige Rückerstattung für ungeöffnete Produkte",
+      "48-Stunden-Meldefrist für beschädigte/falsche Artikel",
+      "Kostenloser Rückversand bei unserem Fehler",
+      "Rückerstattungen innerhalb von 5-10 Werktagen",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Versand-",
@@ -1896,7 +1897,7 @@ const de = {
       {
         heading: "6. Rücksendungen und Erstattungen",
         content:
-          "Aufgrund der Beschaffenheit unserer Produkte werden Rücksendungen nur für beschädigte oder falsche Artikel innerhalb von 14 Tagen nach der Lieferung akzeptiert. Die Produkte müssen ungeöffnet und in der Originalverpackung sein.",
+          "Rücksendungen werden innerhalb von 30 Tagen nach Lieferung akzeptiert. Ungeöffnete Produkte in Originalverpackung haben Anspruch auf eine vollständige Rückerstattung. Beschädigte oder falsche Artikel müssen innerhalb von 48 Stunden nach Lieferung mit Fotonachweis gemeldet werden; wir organisieren einen kostenlosen Ersatz oder eine vollständige Rückerstattung. Rückerstattungen werden innerhalb von 5-10 Werktagen nach Erhalt des zurückgesendeten Artikels bearbeitet. Die Rücksendekosten trägt der Kunde, es sei denn, die Rücksendung erfolgt aufgrund unseres Fehlers.",
       },
       {
         heading: "7. Geistiges Eigentum",

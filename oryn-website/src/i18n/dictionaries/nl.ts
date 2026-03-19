@@ -1013,7 +1013,7 @@ const nl = {
     items: [
       { q: "Hoe lang duurt de levering?", a: "UK-bestellingen: 2-4 werkdagen. Europa: 3-7 werkdagen. Alle bestellingen worden verzonden in discrete, temperatuurgecontroleerde verpakking." },
       { q: "Kan ik mijn bestelling volgen?", a: "Ja! Na verzending ontvangt u een trackingnummer per e-mail. U kunt bestellingen ook volgen in uw accountdashboard." },
-      { q: "Wat is uw retourbeleid?", a: "Wij bieden een 30 dagen geld-terug-garantie op ongeopende producten. Neem contact met ons op via info@orynlabs.com om een retour te starten." },
+      { q: "Wat is uw retourbeleid?", a: "Wij accepteren retouren binnen 30 dagen na levering. Ongeopende producten in originele verpakking komen in aanmerking voor volledige terugbetaling. Voor beschadigde of onjuiste artikelen, meld dit binnen 48 uur met foto's — wij regelen een gratis vervanging of terugbetaling. Retourverzendkosten zijn voor uw rekening, tenzij de fout bij ons lag. Terugbetalingen worden verwerkt binnen 5-10 werkdagen. Neem contact op via info@orynlabs.com om een retour te starten." },
       { q: "Biedt u groothandelsprijzen?", a: "Ja, neem contact op via wholesale@orynlabs.com voor volumeprijzen. Wij bieden gestaffelde kortingen voor onderzoeksinstellingen en wederverkopers." },
     ],
   },
@@ -1844,12 +1844,13 @@ const nl = {
     ],
     returnsTitle: "Retourzendingen & Terugbetalingen",
     returnsDescription:
-      "Als uw bestelling beschadigd of onjuist aankomt, neem dan contact met ons op binnen 48 uur. We regelen vervanging of volledige terugbetaling zonder extra kosten.",
+      "Wij accepteren retouren binnen 30 dagen na levering. Ongeopende producten in originele verpakking komen in aanmerking voor volledige terugbetaling. Beschadigde of onjuiste artikelen moeten binnen 48 uur worden gemeld met foto's voor een gratis vervanging of terugbetaling.",
     returnsItems: [
-      "48 uur venster voor schademeldingen",
-      "Volledige vervanging of terugbetaling",
-      "Fotobewijs vereist",
-      "Gratis retourverzending bij fouten",
+      "Retourperiode van 30 dagen na levering",
+      "Volledige terugbetaling voor ongeopende producten",
+      "Melding binnen 48 uur voor beschadigde/onjuiste artikelen",
+      "Gratis retourverzending bij onze fouten",
+      "Terugbetalingen verwerkt binnen 5-10 werkdagen",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Verzending",
@@ -1896,7 +1897,7 @@ const nl = {
       {
         heading: "6. Retouren en Terugbetalingen",
         content:
-          "Vanwege de aard van onze producten worden retouren alleen geaccepteerd voor beschadigde of onjuiste artikelen binnen 14 dagen na levering. Producten moeten ongeopend en in originele verpakking zijn.",
+          "Retouren worden geaccepteerd binnen 30 dagen na levering. Ongeopende producten in originele verpakking komen in aanmerking voor volledige terugbetaling. Beschadigde of onjuiste artikelen moeten binnen 48 uur na levering worden gemeld met fotografisch bewijs; wij regelen een gratis vervanging of volledige terugbetaling. Terugbetalingen worden verwerkt binnen 5-10 werkdagen na ontvangst van het geretourneerde artikel. Retourverzendkosten zijn voor rekening van de klant, tenzij de retour te wijten is aan onze fout.",
       },
       {
         heading: "7. Intellectueel Eigendom",

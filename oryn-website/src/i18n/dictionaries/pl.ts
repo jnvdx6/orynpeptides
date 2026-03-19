@@ -1013,7 +1013,7 @@ const pl = {
     items: [
       { q: "Jak długo trwa dostawa?", a: "Zamówienia UK: 2-4 dni robocze. Europa: 3-7 dni roboczych. Wszystkie zamówienia wysyłane są w dyskretnym opakowaniu z kontrolą temperatury." },
       { q: "Czy mogę śledzić zamówienie?", a: "Tak! Po wysłaniu otrzymasz numer śledzenia na e-mail. Możesz też śledzić zamówienia w panelu swojego konta." },
-      { q: "Jaka jest polityka zwrotów?", a: "Oferujemy 30-dniową gwarancję zwrotu pieniędzy na nieotwarte produkty. Skontaktuj się z nami pod adresem info@orynlabs.com, aby rozpocząć zwrot." },
+      { q: "Jaka jest polityka zwrotów?", a: "Akceptujemy zwroty w ciągu 30 dni od dostawy. Nieotwarte produkty w oryginalnym opakowaniu kwalifikują się do pełnego zwrotu pieniędzy. W przypadku uszkodzonych lub błędnych towarów, zgłoś to w ciągu 48 godzin ze zdjęciami — zorganizujemy bezpłatną wymianę lub zwrot pieniędzy. Koszty przesyłki zwrotnej ponosi klient, chyba że błąd leżał po naszej stronie. Zwroty pieniędzy są przetwarzane w ciągu 5-10 dni roboczych. Skontaktuj się z info@orynlabs.com, aby rozpocząć zwrot." },
       { q: "Czy oferujecie ceny hurtowe?", a: "Tak, skontaktuj się z wholesale@orynlabs.com, aby uzyskać ceny hurtowe. Oferujemy progowe rabaty dla instytutów badawczych i dystrybutorów." },
     ],
   },
@@ -1844,12 +1844,13 @@ const pl = {
     ],
     returnsTitle: "Zwroty i Zwroty Pieniędzy",
     returnsDescription:
-      "Jeśli zamówienie dotrze uszkodzone lub nieprawidłowe, skontaktuj się z nami w ciągu 48 godzin. Zorganizujemy wymianę lub pełny zwrot bez dodatkowych kosztów.",
+      "Akceptujemy zwroty w ciągu 30 dni od dostawy. Nieotwarte produkty w oryginalnym opakowaniu kwalifikują się do pełnego zwrotu pieniędzy. Uszkodzone lub błędne towary muszą być zgłoszone w ciągu 48 godzin ze zdjęciami w celu bezpłatnej wymiany lub zwrotu pieniędzy.",
     returnsItems: [
-      "48-godzinne okno na zgłoszenie uszkodzeń",
-      "Pełna wymiana lub zwrot pieniędzy",
-      "Wymagana dokumentacja fotograficzna",
-      "Darmowa wysyłka zwrotna przy błędach",
+      "30-dniowy okres zwrotu od dostawy",
+      "Pełny zwrot pieniędzy za nieotwarte produkty",
+      "Zgłoszenie w 48 godzin dla uszkodzonych/błędnych towarów",
+      "Darmowa wysyłka zwrotna przy naszych błędach",
+      "Zwroty pieniędzy przetwarzane w 5-10 dni roboczych",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Często Zadawane Pytania",
@@ -1896,7 +1897,7 @@ const pl = {
       {
         heading: "6. Zwroty i Refundacje",
         content:
-          "Ze względu na charakter naszych produktów, zwroty są akceptowane wyłącznie w przypadku uszkodzonych lub błędnych towarów w ciągu 14 dni od dostawy. Produkty muszą być nieotwarte i w oryginalnym opakowaniu.",
+          "Zwroty są akceptowane w ciągu 30 dni od dostawy. Nieotwarte produkty w oryginalnym opakowaniu kwalifikują się do pełnego zwrotu pieniędzy. Uszkodzone lub błędne towary muszą być zgłoszone w ciągu 48 godzin od dostawy z dokumentacją fotograficzną; zorganizujemy bezpłatną wymianę lub pełny zwrot pieniędzy. Zwroty pieniędzy są przetwarzane w ciągu 5-10 dni roboczych po otrzymaniu zwróconego towaru. Koszty przesyłki zwrotnej ponosi klient, chyba że zwrot wynika z naszego błędu.",
       },
       {
         heading: "7. Własność Intelektualna",

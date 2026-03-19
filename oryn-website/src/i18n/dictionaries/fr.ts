@@ -1013,7 +1013,7 @@ const fr = {
     items: [
       { q: "Quels sont les délais de livraison ?", a: "Commandes France : 2-4 jours ouvrables. Europe : 3-7 jours ouvrables. Toutes les commandes sont expédiées dans un emballage discret à température contrôlée." },
       { q: "Puis-je suivre ma commande ?", a: "Oui ! Une fois expédiée, vous recevrez un numéro de suivi par email. Vous pouvez également suivre vos commandes depuis votre tableau de bord." },
-      { q: "Quelle est votre politique de retour ?", a: "Nous offrons une garantie satisfait ou remboursé de 30 jours sur les produits non ouverts. Contactez-nous à info@orynlabs.com pour initier un retour." },
+      { q: "Quelle est votre politique de retour ?", a: "Nous acceptons les retours dans les 30 jours suivant la livraison. Les produits non ouverts dans leur emballage d'origine sont éligibles à un remboursement intégral. Pour les articles endommagés ou incorrects, veuillez signaler dans les 48 heures avec photos — nous organiserons un remplacement gratuit ou un remboursement. Les frais de retour sont à votre charge, sauf si l'erreur vient de nous. Les remboursements sont traités sous 5 à 10 jours ouvrables. Contactez info@orynlabs.com pour initier un retour." },
       { q: "Proposez-vous des tarifs de gros ?", a: "Oui, contactez wholesale@orynlabs.com pour les tarifs de gros. Nous proposons des remises par paliers pour les institutions de recherche et les revendeurs." },
     ],
   },
@@ -1844,12 +1844,13 @@ const fr = {
     ],
     returnsTitle: "Retours & Remboursements",
     returnsDescription:
-      "Si votre commande arrive endommagée ou incorrecte, contactez-nous dans les 48 heures. Nous organiserons un remplacement ou un remboursement complet sans frais supplémentaires.",
+      "Nous acceptons les retours dans les 30 jours suivant la livraison. Les produits non ouverts dans leur emballage d'origine sont éligibles à un remboursement intégral. Les articles endommagés ou incorrects doivent être signalés dans les 48 heures avec photos pour un remplacement gratuit ou un remboursement.",
     returnsItems: [
-      "Fenêtre de 48 heures pour signaler les dommages",
-      "Remplacement complet ou remboursement",
-      "Preuve photo requise",
-      "Retour gratuit pour les erreurs",
+      "Délai de retour de 30 jours à compter de la livraison",
+      "Remboursement intégral pour les produits non ouverts",
+      "Signalement sous 48 heures pour les articles endommagés/incorrects",
+      "Retour gratuit en cas d'erreur de notre part",
+      "Remboursements traités sous 5 à 10 jours ouvrables",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Questions sur",
@@ -1896,7 +1897,7 @@ const fr = {
       {
         heading: "6. Retours et Remboursements",
         content:
-          "En raison de la nature de nos produits, les retours ne sont acceptés que pour les articles endommagés ou incorrects dans les 14 jours suivant la livraison. Les produits doivent être non ouverts et dans leur emballage d'origine.",
+          "Les retours sont acceptés dans les 30 jours suivant la livraison. Les produits non ouverts dans leur emballage d'origine sont éligibles à un remboursement intégral. Les articles endommagés ou incorrects doivent être signalés dans les 48 heures suivant la livraison avec preuve photographique ; nous organiserons un remplacement gratuit ou un remboursement intégral. Les remboursements sont traités dans un délai de 5 à 10 jours ouvrables après réception de l'article retourné. Les frais de retour sont à la charge du client, sauf si le retour est dû à notre erreur.",
       },
       {
         heading: "7. Propriété Intellectuelle",

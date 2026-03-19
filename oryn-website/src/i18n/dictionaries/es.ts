@@ -1013,7 +1013,7 @@ const es = {
     items: [
       { q: "¿Cuánto tarda la entrega?", a: "Pedidos en España: 2-4 días laborables. Europa: 3-7 días laborables. Todos los pedidos se envían en embalaje discreto y con temperatura controlada." },
       { q: "¿Puedo rastrear mi pedido?", a: "¡Sí! Una vez despachado, recibirás un número de seguimiento por email. También puedes rastrear pedidos en tu panel de cuenta." },
-      { q: "¿Cuál es su política de devolución?", a: "Ofrecemos garantía de devolución de 30 días en productos sin abrir. Contacta con info@orynlabs.com para iniciar una devolución." },
+      { q: "¿Cuál es su política de devolución?", a: "Aceptamos devoluciones dentro de los 30 días posteriores a la entrega. Los productos sin abrir en su embalaje original tienen derecho a un reembolso completo. Para artículos dañados o incorrectos, notifícalo en un plazo de 48 horas con fotos — organizaremos un reemplazo gratuito o reembolso. Los gastos de envío de devolución corren a tu cargo, salvo que el error sea nuestro. Los reembolsos se procesan en 5 a 10 días hábiles. Contacta con info@orynlabs.com para iniciar una devolución." },
       { q: "¿Ofrecen precios mayoristas?", a: "Sí, contacta con wholesale@orynlabs.com para precios por volumen. Ofrecemos descuentos escalonados para instituciones de investigación y revendedores." },
     ],
   },
@@ -1844,12 +1844,13 @@ const es = {
     ],
     returnsTitle: "Devoluciones y Reembolsos",
     returnsDescription:
-      "Si tu pedido llega dañado o es incorrecto, contáctanos en 48 horas. Organizaremos un reemplazo o reembolso completo sin coste adicional.",
+      "Aceptamos devoluciones dentro de los 30 días posteriores a la entrega. Los productos sin abrir en su embalaje original tienen derecho a un reembolso completo. Los artículos dañados o incorrectos deben notificarse en un plazo de 48 horas con fotos para un reemplazo gratuito o reembolso.",
     returnsItems: [
-      "Plazo de 48 horas para reportar daños",
-      "Reemplazo completo o reembolso",
-      "Se requiere evidencia fotográfica",
-      "Envío de devolución gratuito por errores",
+      "Plazo de devolución de 30 días desde la entrega",
+      "Reembolso completo para productos sin abrir",
+      "Notificación en 48 horas para artículos dañados/incorrectos",
+      "Envío de devolución gratuito por errores nuestros",
+      "Reembolsos procesados en 5-10 días hábiles",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Preguntas sobre",
@@ -1896,7 +1897,7 @@ const es = {
       {
         heading: "6. Devoluciones y Reembolsos",
         content:
-          "Debido a la naturaleza de nuestros productos, solo se aceptan devoluciones por artículos dañados o incorrectos dentro de los 14 días posteriores a la entrega. Los productos deben estar sin abrir y en su embalaje original.",
+          "Las devoluciones se aceptan dentro de los 30 días posteriores a la entrega. Los productos sin abrir en su embalaje original son elegibles para un reembolso completo. Los artículos dañados o incorrectos deben notificarse dentro de las 48 horas posteriores a la entrega con evidencia fotográfica; organizaremos un reemplazo gratuito o un reembolso completo. Los reembolsos se procesan en un plazo de 5 a 10 días hábiles después de recibir el artículo devuelto. Los costes de envío de devolución corren a cargo del cliente, salvo que la devolución se deba a un error nuestro.",
       },
       {
         heading: "7. Propiedad Intelectual",

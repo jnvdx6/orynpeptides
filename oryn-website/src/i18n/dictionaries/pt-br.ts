@@ -1014,7 +1014,7 @@ const ptBr = {
     items: [
       { q: "Quanto tempo demora a entrega?", a: "Pedidos no Brasil: 5-10 dias úteis. América Latina: 7-15 dias úteis. Todos os pedidos são enviados em embalagem discreta e com temperatura controlada." },
       { q: "Posso rastrear meu pedido?", a: "Sim! Assim que despachado, você receberá um número de rastreamento por email. Você também pode rastrear pedidos no painel da sua conta." },
-      { q: "Qual é a política de devoluções?", a: "Oferecemos garantia de devolução de 30 dias em produtos lacrados. Entre em contato com info@orynlabs.com para iniciar uma devolução." },
+      { q: "Qual é a política de devoluções?", a: "Aceitamos devoluções no prazo de 30 dias após a entrega. Produtos lacrados na embalagem original têm direito a um reembolso integral. Para itens danificados ou incorretos, reporte em até 48 horas com fotos — providenciaremos uma substituição gratuita ou reembolso. Os custos de envio de devolução ficam por sua conta, salvo se o erro for nosso. Os reembolsos são processados em 5 a 10 dias úteis. Entre em contato com info@orynlabs.com para iniciar uma devolução." },
       { q: "Vocês oferecem preços no atacado?", a: "Sim, entre em contato com wholesale@orynlabs.com para preços por volume. Oferecemos descontos escalonados para instituições de pesquisa e revendedores." },
     ],
   },
@@ -1845,12 +1845,13 @@ const ptBr = {
     ],
     returnsTitle: "Devoluções & Reembolsos",
     returnsDescription:
-      "Se o pedido chegar danificado ou incorreto, entre em contato em 48 horas. Providenciaremos a substituição ou reembolso completo sem custos adicionais.",
+      "Aceitamos devoluções no prazo de 30 dias após a entrega. Produtos lacrados na embalagem original têm direito a um reembolso integral. Itens danificados ou incorretos devem ser reportados em até 48 horas com fotos para uma substituição gratuita ou reembolso.",
     returnsItems: [
-      "Prazo de 48 horas para reportar danos",
-      "Substituição completa ou reembolso",
-      "Evidência fotográfica necessária",
-      "Devolução gratuita por erros",
+      "Prazo de devolução de 30 dias a partir da entrega",
+      "Reembolso integral para produtos lacrados",
+      "Reporte em 48 horas para itens danificados/incorretos",
+      "Devolução gratuita por erros nossos",
+      "Reembolsos processados em 5-10 dias úteis",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Perguntas sobre",
@@ -1897,7 +1898,7 @@ const ptBr = {
       {
         heading: "6. Devoluções e Reembolsos",
         content:
-          "Devido à natureza dos nossos produtos, as devoluções são aceitas apenas para itens danificados ou incorretos no prazo de 14 dias após a entrega. Os produtos devem estar lacrados e na embalagem original.",
+          "As devoluções são aceitas no prazo de 30 dias após a entrega. Produtos lacrados na embalagem original têm direito a um reembolso integral. Itens danificados ou incorretos devem ser reportados no prazo de 48 horas após a entrega com evidência fotográfica; providenciaremos uma substituição gratuita ou um reembolso integral. Os reembolsos são processados em 5 a 10 dias úteis após o recebimento do item devolvido. Os custos de envio de devolução são de responsabilidade do cliente, salvo se a devolução for por erro nosso.",
       },
       {
         heading: "7. Propriedade Intelectual",

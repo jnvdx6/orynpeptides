@@ -1013,7 +1013,7 @@ const it = {
     items: [
       { q: "Quanto tempo impiega la consegna?", a: "Ordini UK: 2-4 giorni lavorativi. Europa: 3-7 giorni lavorativi. Tutti gli ordini vengono spediti in imballaggi discreti a temperatura controllata." },
       { q: "Posso tracciare il mio ordine?", a: "Sì! Una volta spedito, riceverai un numero di tracciamento via email. Puoi anche monitorare gli ordini nella dashboard del tuo account." },
-      { q: "Qual è la vostra politica di reso?", a: "Offriamo una garanzia di rimborso di 30 giorni sui prodotti non aperti. Contattaci a info@orynlabs.com per avviare un reso." },
+      { q: "Qual è la vostra politica di reso?", a: "Accettiamo resi entro 30 giorni dalla consegna. I prodotti non aperti nella confezione originale hanno diritto a un rimborso completo. Per articoli danneggiati o errati, segnalali entro 48 ore con foto — organizzeremo una sostituzione gratuita o un rimborso. Le spese di spedizione per il reso sono a tuo carico, salvo che l'errore sia nostro. I rimborsi vengono elaborati entro 5-10 giorni lavorativi. Contattaci a info@orynlabs.com per avviare un reso." },
       { q: "Offrite prezzi all'ingrosso?", a: "Sì, contatta wholesale@orynlabs.com per prezzi all'ingrosso. Offriamo sconti graduali per istituti di ricerca e rivenditori." },
     ],
   },
@@ -1844,12 +1844,13 @@ const it = {
     ],
     returnsTitle: "Resi & Rimborsi",
     returnsDescription:
-      "Se l'ordine arriva danneggiato o errato, contattaci entro 48 ore. Organizzeremo una sostituzione o un rimborso completo senza costi aggiuntivi.",
+      "Accettiamo resi entro 30 giorni dalla consegna. I prodotti non aperti nella confezione originale hanno diritto a un rimborso completo. Gli articoli danneggiati o errati devono essere segnalati entro 48 ore con foto per una sostituzione gratuita o un rimborso.",
     returnsItems: [
-      "Finestra di 48 ore per segnalare danni",
-      "Sostituzione completa o rimborso",
-      "Documentazione fotografica richiesta",
-      "Reso gratuito per errori",
+      "Finestra di reso di 30 giorni dalla consegna",
+      "Rimborso completo per prodotti non aperti",
+      "Segnalazione entro 48 ore per articoli danneggiati/errati",
+      "Reso gratuito per errori nostri",
+      "Rimborsi elaborati in 5-10 giorni lavorativi",
     ],
     faqSectionLabel: "FAQ",
     faqSectionTitle1: "Domande sulla",
@@ -1896,7 +1897,7 @@ const it = {
       {
         heading: "6. Resi e Rimborsi",
         content:
-          "A causa della natura dei nostri prodotti, i resi sono accettati solo per articoli danneggiati o errati entro 14 giorni dalla consegna. I prodotti devono essere non aperti e nella confezione originale.",
+          "I resi sono accettati entro 30 giorni dalla consegna. I prodotti non aperti nella confezione originale hanno diritto a un rimborso completo. Gli articoli danneggiati o errati devono essere segnalati entro 48 ore dalla consegna con documentazione fotografica; organizzeremo una sostituzione gratuita o un rimborso completo. I rimborsi vengono elaborati entro 5-10 giorni lavorativi dopo la ricezione dell'articolo restituito. Le spese di spedizione per il reso sono a carico del cliente, salvo che il reso sia dovuto a un nostro errore.",
       },
       {
         heading: "7. Proprietà Intellettuale",
