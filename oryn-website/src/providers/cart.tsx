@@ -96,7 +96,7 @@ interface CartContextType {
   items: CartItem[];
   medusaConnected: boolean;
   cartLoaded: boolean;
-  addItem: (product: Product, variantId?: string) => Promise<void>;
+  addItem: (product: Product, variantId?: string, quantity?: number) => Promise<void>;
   removeItem: (productId: string) => Promise<void>;
   updateQuantity: (productId: string, quantity: number) => Promise<void>;
   clearCart: () => void;
@@ -247,10 +247,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [refreshCart]);
 
   const addItem = useCallback(
-    async (product: Product, variantId?: string) => {
+    async (product: Product, variantId?: string, qty: number = 1) => {
       // Enforce quantity limit
       const currentQty = items.find((i) => i.product.id === product.id)?.quantity || 0;
-      if (currentQty >= MAX_QUANTITY_PER_PRODUCT) return;
+      const addQty = Math.min(qty, MAX_QUANTITY_PER_PRODUCT - currentQty);
+      if (addQty <= 0) return;
 
       setLastAdded(product);
       setIsOpen(true);
@@ -282,7 +283,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
                 currentCart.id,
                 {
                   variant_id: resolvedVariantId,
-                  quantity: 1,
+                  quantity: addQty,
                 }
               );
               setCart(updatedCart as unknown as MedusaCart);
@@ -300,11 +301,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (existing) {
           return prev.map((item) =>
             item.product.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.quantity + addQty }
               : item
           );
         }
-        return [...prev, { product, quantity: 1 }];
+        return [...prev, { product, quantity: addQty }];
       });
     },
     [cart, medusaConnected, refreshCart, items]
