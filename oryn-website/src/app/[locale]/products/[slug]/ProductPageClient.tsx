@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { productImages } from "@/data/products";
 import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
@@ -28,19 +28,22 @@ import { ReviewForm } from "@/components/product/ReviewForm";
 import { ProductVideo } from "@/components/product/ProductVideo";
 import { trackProductView } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { ProductExpressCheckout } from "@/components/product/ProductExpressCheckout";
 
 export function ProductPageClient() {
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
   const { getProductBySlug, products } = useProducts();
   const product = getProductBySlug(slug);
   const { addItem } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
-  const { t, formatPrice } = useLocale();
+  const { t, formatPrice, localePath } = useLocale();
   const { addViewed } = useRecentlyViewed();
   const [quantity, setQuantity] = useState(1);
   const [showStickyBar, setShowStickyBar] = useState(false);
   const [addingToCart, setAddingToCart] = useState(false);
+  const [buyingNow, setBuyingNow] = useState(false);
   const [reviewRefreshKey, setReviewRefreshKey] = useState(0);
   usePageTracking("product_detail", product ? { product_slug: product.slug, product_name: product.name } : {});
 
@@ -290,7 +293,7 @@ export function ProductPageClient() {
                 <button
                   onClick={async () => {
                     setAddingToCart(true);
-                    for (let i = 0; i < quantity; i++) await addItem(product);
+                    await addItem(product, undefined, quantity);
                     setAddingToCart(false);
                   }}
                   disabled={addingToCart}
@@ -329,6 +332,44 @@ export function ProductPageClient() {
                   </svg>
                 </button>
               </div>
+
+              {/* Buy Now — skip cart, go straight to checkout */}
+              <button
+                onClick={async () => {
+                  setBuyingNow(true);
+                  await addItem(product, undefined, quantity);
+                  setBuyingNow(false);
+                  router.push(localePath("/checkout"));
+                }}
+                disabled={buyingNow || addingToCart}
+                className="w-full py-4 border-2 border-oryn-orange text-oryn-orange font-medium text-xs tracking-[0.15em] sm:tracking-[0.2em] hover:bg-oryn-orange hover:text-white transition-colors flex items-center justify-center gap-2 sm:gap-3 disabled:opacity-70"
+              >
+                {buyingNow ? (
+                  <>
+                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    {t.productDetail.adding || "ADDING..."}
+                  </>
+                ) : (
+                  <>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>{t.productDetail.buyNow} &mdash; {formatPrice(product.price * quantity)}</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Express checkout — Apple Pay, Google Pay, etc. */}
+            <div className="mb-3">
+              <ProductExpressCheckout
+                product={{ id: product.id, name: product.name, price: product.price, slug: product.slug }}
+                quantity={quantity}
+                dividerLabel={t.productDetail.orPayInstantly}
+              />
             </div>
 
             {/* Security reassurance */}
@@ -532,7 +573,7 @@ export function ProductPageClient() {
           <button
             onClick={async () => {
               setAddingToCart(true);
-              for (let i = 0; i < quantity; i++) await addItem(product);
+              await addItem(product, undefined, quantity);
               setAddingToCart(false);
             }}
             disabled={addingToCart}
@@ -708,7 +749,7 @@ export function ProductPageClient() {
           <button
             onClick={async () => {
               setAddingToCart(true);
-              for (let i = 0; i < quantity; i++) await addItem(product);
+              await addItem(product, undefined, quantity);
               setAddingToCart(false);
             }}
             disabled={addingToCart}
@@ -730,6 +771,77 @@ export function ProductPageClient() {
               </>
             )}
           </button>
+        </div>
+      </div>
+
+      {/* Sticky mobile bar — appears on scroll */}
+      <div className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden transition-all duration-300 ${
+        showStickyBar ? "translate-y-0" : "translate-y-full"
+      }`}>
+        <div className="bg-white/95 backdrop-blur-md border-t border-oryn-grey/20 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+          <div className="px-4 py-3 space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-bold text-oryn-orange">{formatPrice(product.price * quantity)}</span>
+                {quantity > 1 && <span className="text-[10px] text-oryn-black/40 font-mono">×{quantity}</span>}
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                <span className="text-[9px] font-mono text-green-600 tracking-[0.05em]">{t.productDetail.inStock}</span>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={async () => {
+                  setAddingToCart(true);
+                  await addItem(product, undefined, quantity);
+                  setAddingToCart(false);
+                }}
+                disabled={addingToCart}
+                className="flex-1 py-3 bg-oryn-orange text-white font-medium text-[11px] tracking-[0.12em] hover:bg-oryn-orange-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70 active:scale-[0.98]"
+              >
+                {addingToCart ? (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
+                      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                      <line x1="3" y1="6" x2="21" y2="6" />
+                      <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span>{t.productDetail.addToCart}</span>
+                  </>
+                )}
+              </button>
+              <button
+                onClick={async () => {
+                  setBuyingNow(true);
+                  await addItem(product, undefined, quantity);
+                  setBuyingNow(false);
+                  router.push(localePath("/checkout"));
+                }}
+                disabled={buyingNow || addingToCart}
+                className="flex-1 py-3 border-2 border-oryn-orange text-oryn-orange font-medium text-[11px] tracking-[0.12em] hover:bg-oryn-orange hover:text-white transition-colors flex items-center justify-center gap-2 disabled:opacity-70 active:scale-[0.98]"
+              >
+                {buyingNow ? (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    <span>{t.productDetail.buyNow}</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -779,7 +891,7 @@ export function ProductPageClient() {
               <button
                 onClick={async () => {
                   setAddingToCart(true);
-                  for (let i = 0; i < quantity; i++) await addItem(product);
+                  await addItem(product, undefined, quantity);
                   setAddingToCart(false);
                 }}
                 disabled={addingToCart}
@@ -798,6 +910,30 @@ export function ProductPageClient() {
                       <path d="M16 10a4 4 0 01-8 0" />
                     </svg>
                     {t.productDetail.addToCart} &mdash; {formatPrice(product.price * quantity)}
+                  </>
+                )}
+              </button>
+              <button
+                onClick={async () => {
+                  setBuyingNow(true);
+                  await addItem(product, undefined, quantity);
+                  setBuyingNow(false);
+                  router.push(localePath("/checkout"));
+                }}
+                disabled={buyingNow || addingToCart}
+                className="px-6 py-2.5 border-2 border-oryn-orange text-oryn-orange font-medium text-xs tracking-[0.15em] hover:bg-oryn-orange hover:text-white transition-colors flex items-center gap-2 disabled:opacity-70"
+              >
+                {buyingNow ? (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                    {t.productDetail.buyNow}
                   </>
                 )}
               </button>

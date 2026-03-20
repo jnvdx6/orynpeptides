@@ -32,6 +32,11 @@ export interface Dictionary {
     subtitle: string;
     description: string;
     explorePeptides: string;
+    shopFrom: string;
+    offerPill: string;
+    urgencyLine: string;
+    bestsellerBadge: string;
+    bestsellerLine: string;
     ourScience: string;
     purityLabel: string;
     dosingLabel: string;
@@ -254,6 +259,8 @@ export interface Dictionary {
     products: string;
     perUnit: string;
     addToCart: string;
+    buyNow: string;
+    orPayInstantly: string;
     adding: string;
     keyBenefits: string;
     specifications: string;

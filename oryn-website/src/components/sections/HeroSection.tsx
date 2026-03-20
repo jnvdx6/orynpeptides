@@ -42,14 +42,25 @@ export function HeroSection() {
  {t.hero.description}
  </p>
 
+ {/* Offer pill */}
+ <div className="inline-flex items-center gap-2 px-4 py-2 bg-oryn-orange/20 border border-oryn-orange/40 rounded-sm mb-6 animate-fade-in-up">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0">
+ <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+ <line x1="7" y1="7" x2="7.01" y2="7" />
+ </svg>
+ <span className="text-[10px] font-mono text-oryn-orange tracking-[0.1em]">
+ {t.hero.offerPill}
+ </span>
+ </div>
+
  {/* CTA buttons — primary + secondary */}
- <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-8">
+ <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-4 mb-4">
  <Link
  href="/products"
- onClick={() => trackCTAClick("hero_shop_peptides", "hero")}
+ onClick={() => trackCTAClick("hero_shop_from", "hero")}
  className="group/btn px-8 py-4 bg-white text-oryn-orange font-semibold text-xs tracking-[0.15em] hover:bg-oryn-black hover:text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-black/10"
  >
- {t.hero.explorePeptides}
+ {t.hero.shopFrom} {formatPrice(99)}
  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover/btn:translate-x-1 transition-transform">
  <path d="M5 12h14M12 5l7 7-7 7" />
  </svg>
@@ -62,6 +73,11 @@ export function HeroSection() {
  {t.hero.ourScience}
  </Link>
  </div>
+
+ {/* Urgency line */}
+ <p className="text-[11px] font-mono text-white/50 tracking-[0.05em] mb-8">
+ {t.hero.urgencyLine}
+ </p>
 
  {/* Trust badges — below CTAs, clickable links to policy pages */}
  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10">
@@ -105,6 +121,15 @@ export function HeroSection() {
  </div>
 
  <div className="relative w-full max-w-md lg:max-w-none mx-auto">
+ {/* Bestseller badge */}
+ <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 flex flex-col items-start gap-1">
+ <span className="inline-block px-3 py-1.5 bg-oryn-orange text-white text-[9px] font-mono font-bold tracking-[0.15em] shadow-lg">
+ {t.hero.bestsellerBadge}
+ </span>
+ <span className="text-[10px] font-plex text-white/70">
+ {t.hero.bestsellerLine}
+ </span>
+ </div>
  <Image
  src="/images/products/bpc157-hero.png"
  alt="ORYN Peptide Pen System"
