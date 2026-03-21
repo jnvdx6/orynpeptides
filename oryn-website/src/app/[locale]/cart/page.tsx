@@ -10,6 +10,8 @@ import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { ShippingEstimator } from "@/components/ui/ShippingEstimator";
+import { SHIPPING_REGIONS } from "@/lib/shipping";
 
 import { productImages } from "@/data/products";
 
@@ -21,15 +23,17 @@ export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems, volumeDiscount, finalPrice, cartLoaded } = useCart();
   const { t, formatPrice, currencyCode } = useLocale();
 
-  // Max shipping savings by currency (express shipping costs)
-  const shippingSavings: Record<string, string> = { gbp: "\u00a39.99", usd: "$14.99", eur: "\u20ac15.99" };
-  const savingsLabel = shippingSavings[currencyCode] || "\u20ac15.99";
+  // Max shipping savings by region (express shipping costs)
+  const region = SHIPPING_REGIONS.find((r) => r.currency === currencyCode.toUpperCase());
+  const savingsLabel = region ? formatPrice(region.express.amount) : formatPrice(15.99);
   const { products } = useProducts();
   const { addToWishlist, isInWishlist } = useWishlist();
   usePageTracking("cart");
 
-  const amountToFreeShipping = FREE_SHIPPING_THRESHOLD - totalPrice;
-  const shippingProgress = Math.min((totalPrice / FREE_SHIPPING_THRESHOLD) * 100, 100);
+  // Get region-aware free shipping threshold
+  const regionThreshold = SHIPPING_REGIONS.find((r) => r.currency === currencyCode.toUpperCase())?.freeThreshold || FREE_SHIPPING_THRESHOLD;
+  const amountToFreeShipping = regionThreshold - totalPrice;
+  const shippingProgress = Math.min((totalPrice / regionThreshold) * 100, 100);
 
   // Suggest products not in cart
   const cartIds = new Set(items.map((i) => i.product.id));
@@ -215,15 +219,8 @@ export default function CartPage() {
                     <span className="text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
                   </div>
                 )}
-                <div className="flex justify-between text-sm">
-                  <span className="text-oryn-black/50">{t.cart.shipping}</span>
-                  {amountToFreeShipping <= 0 ? (
-                    <span className="text-oryn-orange text-xs font-medium">{t.cart.free}</span>
-                  ) : (
-                    <span className="text-xs text-oryn-black/60">
-                      {t.cart.estimatedShippingFrom || "Est."} {formatPrice(currencyCode === "gbp" ? 3.99 : currencyCode === "usd" ? 7.99 : 4.99)}
-                    </span>
-                  )}
+                <div className="mb-4">
+                  <ShippingEstimator cartTotal={totalPrice} />
                 </div>
               </div>
               {/* Promo code input */}
