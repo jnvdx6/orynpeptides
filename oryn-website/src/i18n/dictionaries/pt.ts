@@ -333,8 +333,11 @@ const pt = {
   productsPage: {
     label: "CATÁLOGO",
     title: "Peptídeos de Investigação",
+    metaTitle: "Comprar Canetas de Peptídeos — 10 Peptídeos desde €99",
     description:
       "Explore a nossa gama completa de soluções peptídicas de precisão. Cada produto fabricado segundo padrões farmacêuticos com pureza >99%.",
+    metaDescription:
+      "10 canetas de peptídeos de grau investigação desde €99. BPC-157, Tirzepatida, NAD+, GHK-Cu e mais. Pré-misturados, dosagem precisa. >99% pureza, GMP. Entrega 3-7 dias.",
     all: "TODOS",
     results: "produtos",
     searchPlaceholder: "Pesquisar peptídeos...",

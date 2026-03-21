@@ -50,7 +50,7 @@ export const productDetails: Record<string, ProductDetail> = {
       sequence: "Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val",
       classification: "Pentadecapeptide (15 amino acids)",
       mechanism:
-        "BPC-157 modulates the nitric oxide (NO) system and upregulates growth factor expression including VEGF and EGF. It promotes angiogenesis, accelerates wound healing, and protects against oxidative stress through multiple signaling pathways.",
+        "Research suggests BPC-157 modulates the nitric oxide (NO) system and upregulates growth factor expression including VEGF and EGF. Studies indicate it may promote angiogenesis and modulate wound healing and oxidative stress pathways through multiple signaling mechanisms.",
       halfLife: "Stable in gastric juice for >24 hours",
       researchAreas: [
         "Gastrointestinal healing",
@@ -62,16 +62,16 @@ export const productDetails: Record<string, ProductDetail> = {
       ],
       keyStudies: [
         {
-          title: "Tendon Healing (2003)",
-          finding: "Significant acceleration of Achilles tendon healing in animal models with dose-dependent response.",
+          title: "Tendon Research (2003)",
+          finding: "Observed acceleration of Achilles tendon repair processes in animal models with dose-dependent response.",
         },
         {
-          title: "Gut Protection (2006)",
-          finding: "Demonstrated gastroprotective effects and acceleration of GI ulcer healing even when administered systemically.",
+          title: "Gastrointestinal Research (2006)",
+          finding: "Demonstrated gastroprotective effects and modulation of GI ulcer repair pathways when administered systemically in animal models.",
         },
         {
-          title: "Muscle Recovery (2010)",
-          finding: "Enhanced regeneration of crushed muscle tissue with improved functional recovery.",
+          title: "Muscle Tissue Research (2010)",
+          finding: "Observed enhanced regeneration markers in crushed muscle tissue with improved functional outcomes in preclinical models.",
         },
       ],
     },
@@ -175,8 +175,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "healing",
-        title: "Most-Studied Healing Peptide",
-        description: "Over 100 published studies on tissue repair and recovery mechanisms",
+        title: "Most-Studied Regeneration Peptide",
+        description: "Over 100 published studies investigating tissue repair and recovery mechanisms",
       },
       {
         icon: "precision",
@@ -202,7 +202,7 @@ export const productDetails: Record<string, ProductDetail> = {
       molecularWeight: "4,963.44 g/mol",
       classification: "43-amino acid peptide fragment of Thymosin Beta-4",
       mechanism:
-        "TB-500 promotes cell migration by upregulating actin, a cell-building protein. It facilitates new blood vessel formation (angiogenesis) and regulates wound healing at the cellular level through interaction with G-actin.",
+        "Research suggests TB-500 may promote cell migration by upregulating actin, a cell-building protein. Studies indicate it may facilitate angiogenesis and modulate wound repair pathways at the cellular level through interaction with G-actin.",
       halfLife: "Approximately 2 hours (but sustained tissue effects)",
       researchAreas: [
         "Wound healing acceleration",
@@ -214,16 +214,16 @@ export const productDetails: Record<string, ProductDetail> = {
       ],
       keyStudies: [
         {
-          title: "Cardiac Repair (2004)",
-          finding: "Demonstrated significant improvement in cardiac function following myocardial infarction in animal models.",
+          title: "Cardiac Tissue Research (2004)",
+          finding: "Observed improvement in cardiac function markers following myocardial infarction in animal models.",
         },
         {
-          title: "Wound Healing (2007)",
-          finding: "Accelerated dermal wound closure by 30-50% through enhanced keratinocyte migration.",
+          title: "Wound Research (2007)",
+          finding: "Observed accelerated dermal wound closure by 30-50% through enhanced keratinocyte migration in preclinical models.",
         },
         {
-          title: "Anti-Inflammatory (2012)",
-          finding: "Reduced inflammatory markers and promoted tissue regeneration in chronic injury models.",
+          title: "Inflammation Research (2012)",
+          finding: "Observed reduced inflammatory markers and enhanced tissue regeneration in chronic injury animal models.",
         },
       ],
     },
@@ -314,8 +314,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "repair",
-        title: "Systemic Repair Action",
-        description: "Works through actin upregulation for whole-body tissue repair signaling",
+        title: "Systemic Research Applications",
+        description: "Investigated for actin upregulation and whole-body tissue repair signalling pathways",
       },
       {
         icon: "concentration",
@@ -342,7 +342,7 @@ export const productDetails: Record<string, ProductDetail> = {
       sequence: "Modified GHRH(1-29) with Drug Affinity Complex",
       classification: "Growth Hormone Releasing Hormone analogue",
       mechanism:
-        "CJC-1295 binds to GHRH receptors on the pituitary gland, stimulating pulsatile GH release. The DAC (Drug Affinity Complex) modification extends half-life significantly by binding to serum albumin, providing sustained GH elevation.",
+        "Research indicates CJC-1295 binds to GHRH receptors on the pituitary gland, stimulating pulsatile GH release. The DAC (Drug Affinity Complex) modification extends half-life significantly by binding to serum albumin, providing sustained GH elevation in study models.",
       halfLife: "6-8 days (with DAC modification)",
       researchAreas: [
         "Growth hormone stimulation",
@@ -454,8 +454,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "gh",
-        title: "Sustained GH Elevation",
-        description: "6-8 day half-life means fewer administrations and more consistent levels",
+        title: "Sustained GH Research Profile",
+        description: "6-8 day half-life studied for fewer administrations and more consistent research levels",
       },
       {
         icon: "precision",
@@ -482,7 +482,7 @@ export const productDetails: Record<string, ProductDetail> = {
       sequence: "Aib-His-D-2-Nal-D-Phe-Lys-NH2",
       classification: "Selective Growth Hormone Secretagogue",
       mechanism:
-        "Ipamorelin selectively binds to the ghrelin/GHS receptor on pituitary somatotrophs, stimulating GH release without significantly affecting cortisol, prolactin, or aldosterone levels. This selectivity makes it the cleanest GH secretagogue available.",
+        "Studies indicate Ipamorelin selectively binds to the ghrelin/GHS receptor on pituitary somatotrophs, stimulating GH release without significantly affecting cortisol, prolactin, or aldosterone levels. This selectivity profile makes it one of the most studied selective GH secretagogues.",
       halfLife: "Approximately 2 hours",
       researchAreas: [
         "Selective GH stimulation",
@@ -594,8 +594,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "selective",
-        title: "Most Selective GH Secretagogue",
-        description: "Clean GH release without cortisol, prolactin, or aldosterone elevation",
+        title: "Most Selective GH Secretagogue Studied",
+        description: "Investigated for selective GH release without cortisol, prolactin, or aldosterone elevation",
       },
       {
         icon: "versatile",
@@ -604,8 +604,8 @@ export const productDetails: Record<string, ProductDetail> = {
       },
       {
         icon: "safe",
-        title: "Built-In Safety Plateau",
-        description: "GH response plateaus at higher doses - a natural safety mechanism",
+        title: "Dose-Response Plateau Observed",
+        description: "Studies indicate GH response plateaus at higher doses — a characteristic of its receptor selectivity",
       },
       {
         icon: "synergy",
@@ -620,7 +620,7 @@ export const productDetails: Record<string, ProductDetail> = {
       molecularWeight: "4,813.45 g/mol",
       classification: "Dual GIP/GLP-1 Receptor Agonist",
       mechanism:
-        "Tirzepatide is a novel dual incretin agonist that activates both GIP (glucose-dependent insulinotropic polypeptide) and GLP-1 (glucagon-like peptide-1) receptors. This dual action provides superior metabolic effects compared to GLP-1-only agonists like semaglutide.",
+        "Tirzepatide is a novel dual incretin agonist that activates both GIP (glucose-dependent insulinotropic polypeptide) and GLP-1 (glucagon-like peptide-1) receptors. Clinical trials suggest this dual action may provide enhanced metabolic research outcomes compared to GLP-1-only agonists.",
       halfLife: "Approximately 5 days",
       researchAreas: [
         "Metabolic syndrome research",
@@ -760,7 +760,7 @@ export const productDetails: Record<string, ProductDetail> = {
       sequence: "Gly-His-Lys:Cu(II)",
       classification: "Copper-binding tripeptide",
       mechanism:
-        "GHK-Cu binds copper ions and activates regenerative processes including collagen synthesis, glycosaminoglycan production, and stem cell attraction to injury sites. It modulates metalloproteinases and growth factors to promote tissue remodeling.",
+        "Research suggests GHK-Cu binds copper ions and may activate regenerative processes including collagen synthesis, glycosaminoglycan production, and stem cell attraction to injury sites. Studies indicate it modulates metalloproteinases and growth factors involved in tissue remodelling pathways.",
       halfLife: "Rapidly cleared but triggers sustained cellular responses",
       researchAreas: [
         "Skin regeneration",
@@ -773,15 +773,15 @@ export const productDetails: Record<string, ProductDetail> = {
       keyStudies: [
         {
           title: "Collagen Synthesis (2000)",
-          finding: "Increased collagen production by 70% in skin fibroblast cultures at research concentrations.",
+          finding: "Observed increased collagen production by 70% in skin fibroblast cultures at research concentrations.",
         },
         {
-          title: "Wound Healing (2008)",
-          finding: "Accelerated wound closure and improved scar quality in animal models through enhanced tissue remodeling.",
+          title: "Wound Research (2008)",
+          finding: "Observed accelerated wound closure and improved scar quality in animal models through enhanced tissue remodelling pathways.",
         },
         {
           title: "Gene Expression (2014)",
-          finding: "Modulated expression of 4,000+ genes, resetting cell patterns toward a healthier, younger phenotype.",
+          finding: "Identified modulation of 4,000+ genes, suggesting potential resetting of cell patterns toward younger phenotypes.",
         },
       ],
     },
@@ -872,8 +872,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "regeneration",
-        title: "4,000+ Genes Modulated",
-        description: "Research shows GHK-Cu resets cell patterns toward healthier phenotypes",
+        title: "4,000+ Genes Investigated",
+        description: "Studies suggest GHK-Cu may modulate cell gene expression patterns toward younger phenotypes",
       },
       {
         icon: "potency",
@@ -887,8 +887,8 @@ export const productDetails: Record<string, ProductDetail> = {
       },
       {
         icon: "collagen",
-        title: "70% Collagen Increase",
-        description: "Studies show dramatic collagen synthesis upregulation at research doses",
+        title: "Collagen Synthesis Research",
+        description: "Studies observed up to 70% collagen synthesis upregulation in fibroblast cultures",
       },
     ],
   },
@@ -900,7 +900,7 @@ export const productDetails: Record<string, ProductDetail> = {
       sequence: "L-Glutamate-L-Cysteine-Glycine (tripeptide)",
       classification: "Endogenous antioxidant tripeptide",
       mechanism:
-        "Glutathione is the body's master antioxidant, neutralizing reactive oxygen species (ROS) through its thiol group. It participates in Phase II detoxification, regenerates vitamins C and E, and maintains cellular redox balance essential for immune function.",
+        "Glutathione is recognised as a key endogenous antioxidant, investigated for its role in neutralising reactive oxygen species (ROS) through its thiol group. Research indicates it participates in Phase II detoxification pathways, may regenerate vitamins C and E, and plays a role in maintaining cellular redox balance.",
       halfLife: "1.6-2 hours (rapid recycling in cells)",
       researchAreas: [
         "Oxidative stress reduction",
@@ -913,15 +913,15 @@ export const productDetails: Record<string, ProductDetail> = {
       keyStudies: [
         {
           title: "Oxidative Stress (2009)",
-          finding: "Intravenous glutathione significantly reduced oxidative stress markers in clinical studies.",
+          finding: "Observed significant reduction in oxidative stress markers with intravenous glutathione administration in clinical studies.",
         },
         {
           title: "Immune Function (2013)",
-          finding: "Enhanced lymphocyte function and natural killer cell activity with elevated glutathione levels.",
+          finding: "Observed enhanced lymphocyte function and natural killer cell activity associated with elevated glutathione levels.",
         },
         {
           title: "Detoxification (2017)",
-          finding: "Improved hepatic detoxification capacity and reduced liver enzyme markers in research models.",
+          finding: "Observed improved hepatic detoxification capacity and reduced liver enzyme markers in research models.",
         },
       ],
     },
@@ -1012,8 +1012,8 @@ export const productDetails: Record<string, ProductDetail> = {
     sellingPoints: [
       {
         icon: "antioxidant",
-        title: "Master Antioxidant",
-        description: "The body's most important defense against oxidative stress and cellular damage",
+        title: "Key Endogenous Antioxidant",
+        description: "Widely studied for its role in oxidative stress and cellular redox balance research",
       },
       {
         icon: "dose",
@@ -1022,8 +1022,8 @@ export const productDetails: Record<string, ProductDetail> = {
       },
       {
         icon: "bioavailability",
-        title: "Superior to Oral/IV",
-        description: "Subcutaneous delivery bypasses gut degradation at a fraction of IV cost",
+        title: "Subcutaneous Research Delivery",
+        description: "Bypasses gut degradation for research-grade bioavailability at a fraction of IV protocol cost",
       },
       {
         icon: "preserved",
@@ -1039,7 +1039,7 @@ export const productDetails: Record<string, ProductDetail> = {
       molecularWeight: "663.43 g/mol",
       classification: "Dinucleotide coenzyme (Nicotinamide Adenine Dinucleotide)",
       mechanism:
-        "NAD+ is a critical coenzyme in cellular metabolism, serving as an electron carrier in mitochondrial energy production. It activates sirtuins (SIRT1-7) for DNA repair and longevity signaling, and serves as substrate for PARP enzymes in DNA damage response.",
+        "NAD+ is a critical coenzyme in cellular metabolism, serving as an electron carrier in mitochondrial energy production. Research suggests it activates sirtuins (SIRT1-7) involved in DNA repair and longevity signalling pathways, and serves as substrate for PARP enzymes in DNA damage response.",
       halfLife: "1-2 hours (but activates long-lasting cellular pathways)",
       researchAreas: [
         "Cellular energy metabolism",
@@ -1052,15 +1052,15 @@ export const productDetails: Record<string, ProductDetail> = {
       keyStudies: [
         {
           title: "Aging & NAD+ (2013)",
-          finding: "Demonstrated that NAD+ levels decline with age and supplementation can reverse age-associated metabolic dysfunction.",
+          finding: "Demonstrated that NAD+ levels decline with age; supplementation was associated with reversal of age-associated metabolic markers in animal models.",
         },
         {
           title: "Sirtuin Activation (2016)",
-          finding: "NAD+ supplementation activated SIRT1 and improved mitochondrial function in aging animal models.",
+          finding: "NAD+ supplementation was associated with SIRT1 activation and improved mitochondrial function markers in aging animal models.",
         },
         {
           title: "Neuroprotection (2019)",
-          finding: "Restored NAD+ levels protected against neurodegenerative pathology in preclinical Alzheimer's models.",
+          finding: "Restored NAD+ levels were associated with protection against neurodegenerative pathology in preclinical Alzheimer's models.",
         },
       ],
     },
@@ -1152,12 +1152,12 @@ export const productDetails: Record<string, ProductDetail> = {
       {
         icon: "energy",
         title: "Cellular Energy Coenzyme",
-        description: "Essential for mitochondrial energy production and 500+ enzymatic reactions",
+        description: "Investigated for its role in mitochondrial energy production and 500+ enzymatic reactions",
       },
       {
         icon: "longevity",
-        title: "Sirtuin Activator",
-        description: "Directly fuels the SIRT1-7 longevity pathways for DNA repair and aging research",
+        title: "Sirtuin Pathway Research",
+        description: "Studied for its role in SIRT1-7 longevity pathways and DNA repair research",
       },
       {
         icon: "cost",
@@ -1177,7 +1177,7 @@ export const productDetails: Record<string, ProductDetail> = {
       molecularWeight: "4,813.45 g/mol",
       classification: "Dual GIP/GLP-1 Receptor Agonist - Prefilled Format",
       mechanism:
-        "MediT Pen delivers Tirzepatide, a once-weekly dual incretin agonist. The 40mg prefilled format provides pharmaceutical-standard dosing for extended metabolic research protocols. Dual receptor activation provides superior glycemic and weight management effects.",
+        "MediT Pen delivers Tirzepatide, a once-weekly dual incretin agonist. The 40mg prefilled format provides pharmaceutical-standard dosing for extended metabolic research protocols. Dual receptor activation is studied for its role in glycemic and metabolic pathway modulation.",
       halfLife: "Approximately 5 days",
       researchAreas: [
         "Weight management research",
@@ -1203,7 +1203,7 @@ export const productDetails: Record<string, ProductDetail> = {
       ],
     },
     penAdvantage: {
-      headline: "The Most Advanced Weight Management Peptide",
+      headline: "The Most Advanced Metabolic Research Peptide",
       points: [
         {
           title: "Prefilled Precision",
@@ -1294,8 +1294,8 @@ export const productDetails: Record<string, ProductDetail> = {
       },
       {
         icon: "clinical",
-        title: "Record-Breaking Results",
-        description: "Up to 22.5% body weight reduction in landmark SURMOUNT clinical trials",
+        title: "Extensively Studied Compound",
+        description: "Up to 22.5% body weight reduction observed in landmark SURMOUNT clinical trials",
       },
       {
         icon: "weekly",
@@ -1316,7 +1316,7 @@ export const productDetails: Record<string, ProductDetail> = {
       molecularWeight: "663.43 g/mol",
       classification: "Cartridge-Delivered NAD+ System",
       mechanism:
-        "NovaDose delivers pharmaceutical-grade NAD+ through an innovative cartridge-based system designed for precise daily microdosing. The unique delivery mechanism provides near 100% bioavailability while maintaining NAD+ molecular stability through its sealed cartridge technology.",
+        "NovaDose delivers pharmaceutical-grade NAD+ through an innovative cartridge-based system designed for precise daily microdosing in research protocols. The unique delivery mechanism is engineered for enhanced bioavailability while maintaining NAD+ molecular stability through its sealed cartridge technology.",
       halfLife: "1-2 hours (sustained effect through daily micro-dosing)",
       researchAreas: [
         "Longevity and aging research",

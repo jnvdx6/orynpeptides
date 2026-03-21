@@ -333,8 +333,11 @@ const es = {
   productsPage: {
     label: "CATÁLOGO",
     title: "Péptidos de Investigación",
+    metaTitle: "Comprar Plumas de Péptidos — 10 Péptidos desde €99",
     description:
       "Explora nuestra gama completa de soluciones peptídicas de precisión. Cada producto fabricado con estándares farmacéuticos y pureza >99%.",
+    metaDescription:
+      "10 plumas de péptidos de grado investigación desde €99. BPC-157, Tirzepatida, NAD+, GHK-Cu y más. Premezclados, dosificación precisa. >99% pureza, GMP. Entrega en 3-7 días.",
     all: "TODOS",
     results: "productos",
     searchPlaceholder: "Buscar péptidos...",

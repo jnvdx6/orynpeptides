@@ -238,7 +238,9 @@ export interface Dictionary {
   productsPage: {
     label: string;
     title: string;
+    metaTitle?: string;
     description: string;
+    metaDescription?: string;
     all: string;
     disclaimer: string;
     results: string;

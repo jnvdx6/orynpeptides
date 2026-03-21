@@ -333,8 +333,11 @@ const pl = {
   productsPage: {
     label: "KATALOG",
     title: "Peptydy badawcze",
+    metaTitle: "Kup Peny Peptydowe — 10 Peptydów od €99",
     description:
       "Odkryj naszą pełną gamę precyzyjnie opracowanych rozwiązań peptydowych. Każdy produkt wytwarzany według standardów farmaceutycznych z czystością >99%.",
+    metaDescription:
+      "10 penów peptydowych klasy badawczej od €99. BPC-157, Tirzepatyd, NAD+, GHK-Cu i więcej. Wstępnie zmieszane, precyzyjne dawkowanie. >99% czystość, GMP. Dostawa 3-7 dni.",
     all: "WSZYSTKIE",
     results: "produktów",
     searchPlaceholder: "Szukaj peptydów...",

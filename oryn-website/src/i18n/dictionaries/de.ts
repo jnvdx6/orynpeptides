@@ -333,8 +333,11 @@ const de = {
   productsPage: {
     label: "KATALOG",
     title: "Forschungspeptide",
+    metaTitle: "Peptid-Pens Kaufen — 10 Forschungspeptide ab €99",
     description:
       "Entdecken Sie unser gesamtes Sortiment an präzisionsgefertigten Peptidlösungen. Jedes Produkt wird nach pharmazeutischen Standards mit >99% Reinheit hergestellt.",
+    metaDescription:
+      "10 forschungsgrade Peptid-Pens ab €99. BPC-157, Tirzepatid, NAD+, GHK-Cu und mehr. Vorgemischt, präzisionsdosiert. >99% Reinheit, GMP-zertifiziert. Lieferung in 3-5 Tagen.",
     all: "ALLE",
     results: "Produkte",
     searchPlaceholder: "Peptide suchen...",

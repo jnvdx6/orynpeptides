@@ -247,7 +247,7 @@ export default function OrderDetailPage() {
             for (const item of order.items || []) {
               const product = products.find((p) => p.name === item.name);
               if (product) {
-                for (let i = 0; i < item.quantity; i++) addItem(product);
+                addItem(product, undefined, item.quantity);
                 added++;
               }
             }

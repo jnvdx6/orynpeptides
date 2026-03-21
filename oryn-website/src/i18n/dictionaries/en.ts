@@ -332,8 +332,11 @@ const en: Dictionary = {
   productsPage: {
     label: "CATALOG",
     title: "Research Peptides",
+    metaTitle: "Buy Peptide Pens — 10 Research Peptides from £99",
     description:
       "Explore our complete range of precision-engineered peptide solutions. Every product manufactured to pharmaceutical standards with >99% purity.",
+    metaDescription:
+      "Browse 10 research-grade peptide pens from £99. BPC-157, Tirzepatide, NAD+, GHK-Cu & more. Pre-mixed, precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery.",
     all: "ALL",
     results: "products",
     searchPlaceholder: "Search peptides...",

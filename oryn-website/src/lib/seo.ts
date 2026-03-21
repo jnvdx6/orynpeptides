@@ -3,9 +3,21 @@ import type { UKCity } from "@/data/uk-cities";
 import type { PeptideEntry } from "@/data/peptide-encyclopedia";
 import { getReviewsByProduct, getAggregateRating } from "@/data/reviews";
 import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
-import { markets, regions, locales } from "@/i18n/config";
+import { markets, regions, locales, type Locale } from "@/i18n/config";
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://orynxpeptides.com").trim();
+
+// Maps locale to primary shipping country code for structured data
+const localeShippingCountry: Record<string, string> = {
+  en: "GB", de: "DE", fr: "FR", es: "ES", it: "IT",
+  pt: "PT", "pt-br": "BR", nl: "NL", pl: "PL",
+};
+
+// Maps locale to transit time range (min, max days)
+const localeTransitDays: Record<string, [number, number]> = {
+  en: [1, 3], de: [3, 5], fr: [3, 5], es: [3, 7], it: [3, 7],
+  pt: [3, 7], "pt-br": [7, 14], nl: [3, 5], pl: [3, 7],
+};
 
 // ─── Metadata Alternates Helper ─────────────────────────────────────
 
@@ -480,19 +492,8 @@ export function websiteSchema() {
   };
 }
 
-// Boost counts combine actual reviews with historical/external totals for schema markup
-const productReviewBoost: Record<string, number> = {
-  "bpc-157": 195,
-  "tb-500": 152,
-  "cjc-1295": 132,
-  "ipamorelin": 117,
-  "tirzepatide-pen": 184,
-  "ghk-cu": 140,
-  "glutathione": 96,
-  "nad-plus": 164,
-  "medit-tirzepatide": 87,
-  "novadose-nad": 72,
-};
+// Review counts now use actual data only — inflated counts removed to comply
+// with Google structured data guidelines and avoid manual action penalties.
 
 export function productSchema(product: Product, locale: string = "en") {
   const market = markets[locale as keyof typeof markets];
@@ -523,7 +524,7 @@ export function productSchema(product: Product, locale: string = "en") {
       },
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
-        applicableCountry: "GB",
+        applicableCountry: localeShippingCountry[locale] || "GB",
         returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
         merchantReturnDays: 30,
         returnMethod: "https://schema.org/ReturnByMail",
@@ -538,7 +539,7 @@ export function productSchema(product: Product, locale: string = "en") {
         },
         shippingDestination: {
           "@type": "DefinedRegion",
-          addressCountry: "GB",
+          addressCountry: localeShippingCountry[locale] || "GB",
         },
         deliveryTime: {
           "@type": "ShippingDeliveryTime",
@@ -550,8 +551,8 @@ export function productSchema(product: Product, locale: string = "en") {
           },
           transitTime: {
             "@type": "QuantitativeValue",
-            minValue: 1,
-            maxValue: 3,
+            minValue: (localeTransitDays[locale] || [1, 3])[0],
+            maxValue: (localeTransitDays[locale] || [1, 3])[1],
             unitCode: "DAY",
           },
         },
@@ -559,11 +560,10 @@ export function productSchema(product: Product, locale: string = "en") {
     },
     aggregateRating: (() => {
       const agg = getAggregateRating(product.slug);
-      const boost = productReviewBoost[product.slug] ?? 100;
       return {
         "@type": "AggregateRating",
         ratingValue: String(agg.average || "4.9"),
-        reviewCount: String(agg.count + boost),
+        reviewCount: String(agg.count),
         bestRating: "5",
         worstRating: "1",
       };

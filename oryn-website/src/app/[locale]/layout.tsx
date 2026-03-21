@@ -127,7 +127,7 @@ export default async function LocaleLayout({
             "@context": "https://schema.org",
             "@type": "MerchantReturnPolicy",
             "@id": `${SITE_URL}/#return-policy`,
-            applicableCountry: "GB",
+            applicableCountry: ["GB", "DE", "FR", "ES", "IT", "PT", "NL", "PL", "BR"],
             returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
             merchantReturnDays: 30,
             returnMethod: "https://schema.org/ReturnByMail",
@@ -146,7 +146,7 @@ export default async function LocaleLayout({
           },
           {
             "@context": "https://schema.org",
-            "@type": "OnlineBusiness",
+            "@type": "OnlineStore",
             name: "ORYN Peptide Labs",
             url: SITE_URL,
             logo: `${SITE_URL}/opengraph-image`,

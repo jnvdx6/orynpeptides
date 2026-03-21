@@ -19,8 +19,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
 
-  const title = `${dict.breadcrumbs.products} — ORYN Peptide Labs`;
-  const description = dict.meta.description;
+  const title = dict.productsPage?.metaTitle ?? `Buy Peptide Pens — 10 Products from £99`;
+  const description = dict.productsPage?.metaDescription ?? dict.productsPage?.description ?? dict.meta.description;
 
   return {
     title,

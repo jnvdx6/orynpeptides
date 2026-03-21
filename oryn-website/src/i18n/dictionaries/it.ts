@@ -333,8 +333,11 @@ const it = {
   productsPage: {
     label: "CATALOGO",
     title: "Peptidi da Ricerca",
+    metaTitle: "Acquista Penne Peptidiche — 10 Peptidi da €99",
     description:
       "Esplora la nostra gamma completa di soluzioni peptidiche ingegnerizzate con precisione. Ogni prodotto fabbricato secondo standard farmaceutici con purezza >99%.",
+    metaDescription:
+      "10 penne peptidiche di grado ricerca da €99. BPC-157, Tirzepatide, NAD+, GHK-Cu e altro. Pre-miscelati, dosaggio preciso. >99% purezza, GMP. Consegna 3-7 giorni.",
     all: "TUTTI",
     results: "prodotti",
     searchPlaceholder: "Cerca peptidi...",

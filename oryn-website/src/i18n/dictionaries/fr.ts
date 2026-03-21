@@ -333,8 +333,11 @@ const fr = {
   productsPage: {
     label: "CATALOGUE",
     title: "Peptides de Recherche",
+    metaTitle: "Acheter Stylos Peptidiques — 10 Peptides dès €99",
     description:
       "Explorez notre gamme complète de solutions peptidiques conçues avec précision. Chaque produit est fabriqué selon les normes pharmaceutiques avec une pureté >99%.",
+    metaDescription:
+      "10 stylos peptidiques de qualité recherche dès €99. BPC-157, Tirzepatide, NAD+, GHK-Cu et plus. Prêts à l'emploi, dosage précis. >99% pureté, GMP. Livraison 3-7 jours.",
     all: "TOUT",
     results: "produits",
     searchPlaceholder: "Rechercher des peptides...",

@@ -333,8 +333,11 @@ const ptBr = {
   productsPage: {
     label: "CATÁLOGO",
     title: "Peptídeos de Pesquisa",
+    metaTitle: "Comprar Canetas de Peptídeos — 10 Peptídeos a partir de R$499",
     description:
       "Explore nossa linha completa de soluções peptídicas de precisão. Cada produto fabricado segundo padrões farmacêuticos com pureza >99%.",
+    metaDescription:
+      "10 canetas de peptídeos de grau pesquisa a partir de R$499. BPC-157, Tirzepatida, NAD+, GHK-Cu e mais. Pré-misturados, dosagem precisa. >99% pureza, GMP. Entrega para o Brasil.",
     all: "TODOS",
     results: "produtos",
     searchPlaceholder: "Pesquisar peptídeos...",

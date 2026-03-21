@@ -333,8 +333,11 @@ const nl = {
   productsPage: {
     label: "CATALOGUS",
     title: "Onderzoekspeptiden",
+    metaTitle: "Peptide Pennen Kopen — 10 Peptiden vanaf €99",
     description:
       "Ontdek ons volledige aanbod van precisie-ontworpen peptide-oplossingen. Elk product geproduceerd volgens farmaceutische normen met >99% zuiverheid.",
+    metaDescription:
+      "10 onderzoeksgrade peptide pennen vanaf €99. BPC-157, Tirzepatide, NAD+, GHK-Cu en meer. Voorgemengd, nauwkeurige dosering. >99% zuiverheid, GMP. Levering 3-7 dagen.",
     all: "ALLE",
     results: "producten",
     searchPlaceholder: "Zoek peptiden...",

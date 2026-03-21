@@ -130,7 +130,7 @@ export function ProductPageClient() {
             >
               <Image
                 src={gallery[activeImage] || productImages.bySlug[product.slug] || "/images/products/bpc157-hero.png"}
-                alt={`ORYN ${product.name}`}
+                alt={`ORYN ${product.name} ${product.dosage} peptide pen system`}
                 width={400}
                 height={400}
                 className="zoom-img object-contain transition-all duration-300 group-hover:scale-150"
@@ -159,7 +159,7 @@ export function ProductPageClient() {
                   >
                     <Image
                       src={img}
-                      alt={`ORYN ${product.name} view ${i + 1}`}
+                      alt={`ORYN ${product.name} — ${["product pen", "detail view", "angled view", "close-up", "packaging", "kit"][i] || `view ${i + 1}`}`}
                       width={100}
                       height={100}
                       className="object-contain"

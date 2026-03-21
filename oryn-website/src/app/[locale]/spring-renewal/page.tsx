@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { locales } from "@/i18n/config";
-import { preSummerCampaign } from "@/data/campaigns";
+import { springCampaign } from "@/data/campaigns";
 import { SITE_URL, breadcrumbSchema } from "@/lib/seo";
 import { MultiJsonLd } from "@/components/seo/JsonLd";
 import { CampaignLandingPage } from "@/components/campaign/CampaignLandingPage";
@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const c = preSummerCampaign;
+  const c = springCampaign;
 
   return {
     title: c.seo.title,
@@ -51,7 +51,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function PeakPerformancePage({
+export default async function SpringRenewalPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -64,46 +64,40 @@ export default async function PeakPerformancePage({
         items={[
           breadcrumbSchema([
             { name: "Home", url: `/${locale}` },
-            {
-              name: preSummerCampaign.name,
-              url: `/${locale}/${preSummerCampaign.slug}`,
-            },
+            { name: springCampaign.name, url: `/${locale}/${springCampaign.slug}` },
           ]),
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": `${SITE_URL}/${locale}/${preSummerCampaign.slug}`,
-            name: preSummerCampaign.seo.title,
-            description: preSummerCampaign.seo.description,
-            url: `${SITE_URL}/${locale}/${preSummerCampaign.slug}`,
+            "@id": `${SITE_URL}/${locale}/${springCampaign.slug}`,
+            name: springCampaign.seo.title,
+            description: springCampaign.seo.description,
+            url: `${SITE_URL}/${locale}/${springCampaign.slug}`,
             isPartOf: { "@type": "WebSite", url: SITE_URL },
           },
           {
             "@context": "https://schema.org",
             "@type": "SaleEvent",
-            name: `ORYN ${preSummerCampaign.name} — ${preSummerCampaign.subtitle}`,
-            description: preSummerCampaign.description,
-            startDate: preSummerCampaign.startDate,
-            endDate: preSummerCampaign.endDate,
-            url: `${SITE_URL}/${locale}/${preSummerCampaign.slug}`,
+            name: `ORYN ${springCampaign.name} — ${springCampaign.subtitle}`,
+            description: springCampaign.description,
+            startDate: springCampaign.startDate,
+            endDate: springCampaign.endDate,
+            url: `${SITE_URL}/${locale}/${springCampaign.slug}`,
             organizer: {
               "@type": "Organization",
               name: "ORYN Peptide Labs",
               url: SITE_URL,
             },
-            offers: preSummerCampaign.promos.map((p) => ({
+            offers: springCampaign.promos.map((p) => ({
               "@type": "Offer",
               name: p.code,
               description: p.description,
-              discount:
-                p.discountType === "tiered"
-                  ? "10-15%"
-                  : `${p.discountValue}%`,
+              discount: `${p.discountValue}%`,
             })),
           },
         ]}
       />
-      <CampaignLandingPage campaign={preSummerCampaign} />
+      <CampaignLandingPage campaign={springCampaign} />
     </>
   );
 }

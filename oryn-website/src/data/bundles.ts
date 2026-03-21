@@ -13,22 +13,22 @@ export interface PeptideBundle {
 export const bundles: PeptideBundle[] = [
   {
     slug: "recovery-stack",
-    name: "Recovery & Repair Stack",
-    tagline: "The classic healing duo for accelerated tissue repair",
+    name: "Recovery & Repair Research Stack",
+    tagline: "The most studied peptide duo in tissue regeneration research",
     description:
-      "BPC-157 and TB-500 are the two most extensively researched peptides for tissue repair and regeneration. This stack combines BPC-157's gastric-derived healing properties with TB-500's cell migration and anti-inflammatory action, creating a comprehensive recovery protocol. Researchers worldwide pair these peptides for their complementary mechanisms — BPC-157 promotes angiogenesis and growth factor expression while TB-500 enhances actin regulation and reduces fibrosis. Together, they address both the structural and inflammatory components of tissue damage.",
+      "BPC-157 and TB-500 are two of the most extensively researched peptides in tissue regeneration studies. This stack combines BPC-157's investigated gastric-derived mechanisms with TB-500's studied role in cell migration and inflammatory pathway modulation, creating a comprehensive research protocol. Researchers worldwide pair these peptides for their complementary mechanisms — studies suggest BPC-157 may promote angiogenesis and growth factor expression while TB-500 may enhance actin regulation and modulate fibrosis pathways. Together, they are investigated for both structural and inflammatory components of tissue research.",
     productSlugs: ["bpc-157", "tb-500"],
     savingsPercent: 10,
     benefits: [
-      "Synergistic tissue repair through dual mechanisms",
-      "Accelerated wound healing and reduced recovery time",
-      "Anti-inflammatory action across joints, tendons, and muscles",
-      "Supports gut lining integrity and mucosal healing",
-      "Promotes angiogenesis for enhanced blood supply to damaged tissue",
-      "Reduces fibrosis and scar tissue formation",
+      "Investigated for synergistic tissue regeneration through dual mechanisms",
+      "Studied for wound closure and recovery pathway modulation",
+      "Research focus on inflammatory pathway modulation across joints, tendons, and muscles",
+      "Investigated for gut mucosal integrity and barrier function research",
+      "Studied for angiogenesis and blood supply pathway research",
+      "Research focus on fibrosis and scar tissue formation pathways",
     ],
     protocol:
-      "The BPC-157 + TB-500 recovery protocol is one of the most well-documented peptide stacks in research literature. Typical protocols involve concurrent administration over 4-8 weeks, with BPC-157 targeting local tissue repair via nitric oxide modulation and TB-500 providing systemic anti-inflammatory and cell-migration support. Both peptides are administered subcutaneously, with many researchers noting enhanced outcomes when injection sites are rotated near the area of interest.",
+      "The BPC-157 + TB-500 research protocol is one of the most well-documented peptide stacks in research literature. Typical protocols involve concurrent administration over 4-8 weeks, with BPC-157 investigated for local tissue repair via nitric oxide modulation and TB-500 studied for systemic inflammatory pathway modulation and cell-migration support. Both peptides are administered subcutaneously, with many researchers noting improved outcomes when injection sites are rotated near the area of interest.",
     faqs: [
       {
         question: "Why are BPC-157 and TB-500 considered the gold standard recovery stack?",
@@ -54,22 +54,22 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "anti-aging-stack",
-    name: "Anti-Aging & Longevity Stack",
-    tagline: "Triple-compound longevity protocol for cellular renewal",
+    name: "Longevity Research Stack",
+    tagline: "Triple-compound protocol for cellular aging research",
     description:
-      "This comprehensive anti-aging stack combines three powerhouse compounds targeting distinct aging pathways. GHK-Cu stimulates collagen synthesis and tissue remodelling, NAD+ fuels cellular energy production and DNA repair, and Glutathione provides master antioxidant defence against oxidative damage. Together, these three compounds address the structural, energetic, and protective dimensions of biological aging. Researchers studying longevity increasingly recognise that multi-pathway interventions yield superior outcomes compared to single-compound approaches.",
+      "This comprehensive research stack combines three extensively studied compounds targeting distinct aging-related pathways. Studies suggest GHK-Cu may stimulate collagen synthesis and tissue remodelling, NAD+ is investigated for cellular energy production and DNA repair, and Glutathione is studied for its antioxidant defence role against oxidative damage. Together, these three compounds are researched for the structural, energetic, and protective dimensions of biological aging. Longevity researchers increasingly recognise that multi-pathway interventions may yield enhanced outcomes compared to single-compound approaches.",
     productSlugs: ["ghk-cu", "nad-plus", "glutathione"],
     savingsPercent: 12,
     benefits: [
-      "Collagen synthesis and skin elasticity restoration via GHK-Cu",
-      "Cellular energy production and mitochondrial support via NAD+",
-      "Master antioxidant defence and detoxification via Glutathione",
-      "DNA repair pathway activation for genomic integrity",
-      "Skin brightening, rejuvenation, and anti-wrinkle properties",
-      "Neuroprotective and cognitive function support",
+      "Investigated for collagen synthesis and skin elasticity research via GHK-Cu",
+      "Studied for cellular energy production and mitochondrial function via NAD+",
+      "Research focus on antioxidant defence and detoxification pathways via Glutathione",
+      "Investigated for DNA repair pathway activation and genomic integrity",
+      "Studied for skin biology, depigmentation, and remodelling research",
+      "Research focus on neuroprotective mechanisms and cognitive function",
     ],
     protocol:
-      "The anti-aging triple stack targets three distinct hallmarks of aging simultaneously. GHK-Cu addresses extracellular matrix degradation by stimulating collagen and elastin production, while NAD+ replenishes the coenzyme critical for sirtuin activation, mitochondrial function, and DNA repair. Glutathione counters the cumulative oxidative stress that drives cellular senescence. Research protocols typically stagger administration — GHK-Cu in the morning, Glutathione midday, and NAD+ in the evening — to optimise each compound's pharmacokinetics.",
+      "The longevity research triple stack targets three distinct hallmarks of aging simultaneously. GHK-Cu is investigated for addressing extracellular matrix degradation through collagen and elastin production pathways, while NAD+ is studied for replenishing the coenzyme critical for sirtuin activation, mitochondrial function, and DNA repair. Glutathione is researched for countering cumulative oxidative stress associated with cellular senescence. Research protocols typically stagger administration — GHK-Cu in the morning, Glutathione midday, and NAD+ in the evening — to optimise each compound's pharmacokinetics.",
     faqs: [
       {
         question: "Why combine three compounds for anti-aging research?",
@@ -95,22 +95,22 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "gh-stack",
-    name: "Growth Hormone Stack",
-    tagline: "Dual-pathway GH optimisation for peak performance",
+    name: "Growth Hormone Research Stack",
+    tagline: "Dual-pathway GH secretagogue research protocol",
     description:
-      "The CJC-1295 and Ipamorelin combination is the most widely researched growth hormone secretagogue stack. CJC-1295 mimics GHRH to provide sustained GH elevation, while Ipamorelin triggers targeted GH pulses through the ghrelin receptor without affecting cortisol or prolactin. This dual-pathway approach amplifies natural growth hormone release far beyond what either peptide achieves alone. Researchers favour this combination for its clean hormonal profile and predictable, dose-dependent GH response.",
+      "The CJC-1295 and Ipamorelin combination is the most widely researched growth hormone secretagogue stack. Studies suggest CJC-1295 mimics GHRH to provide sustained GH elevation, while Ipamorelin is investigated for triggering targeted GH pulses through the ghrelin receptor without significantly affecting cortisol or prolactin. This dual-pathway approach is studied for amplifying natural growth hormone release beyond what either peptide may achieve alone. Researchers favour this combination for its investigated selective hormonal profile and predictable, dose-dependent GH response.",
     productSlugs: ["cjc-1295", "ipamorelin"],
     savingsPercent: 10,
     benefits: [
-      "Amplified natural growth hormone release through dual pathways",
-      "Promotes lean body composition and muscle preservation",
-      "Deep, restorative sleep enhancement via GH pulse optimisation",
-      "Accelerated recovery between training sessions",
-      "Supports bone density and joint health",
-      "Clean hormonal profile — no cortisol or prolactin elevation",
+      "Investigated for amplified growth hormone release through dual pathways",
+      "Studied for body composition and lean tissue research applications",
+      "Research focus on sleep architecture and GH pulse optimisation",
+      "Investigated for recovery pathway modulation between training sessions",
+      "Studied for bone density and joint tissue research",
+      "Investigated for selective hormonal profile — minimal cortisol or prolactin effect observed",
     ],
     protocol:
-      "The CJC-1295 + Ipamorelin protocol leverages two distinct GH-releasing pathways for synergistic elevation. CJC-1295 acts as a GHRH analogue, providing a sustained baseline elevation of growth hormone, while Ipamorelin triggers additional targeted GH pulses via the ghrelin receptor. Most research protocols administer both peptides together in the evening, 30-60 minutes before sleep, to synchronise with the body's natural nocturnal GH surge. This timing maximises the synergy between peptide-stimulated and sleep-related GH release.",
+      "The CJC-1295 + Ipamorelin protocol leverages two distinct GH-releasing pathways investigated for synergistic elevation. CJC-1295 acts as a GHRH analogue, studied for providing sustained baseline elevation of growth hormone, while Ipamorelin is investigated for triggering additional targeted GH pulses via the ghrelin receptor. Most research protocols administer both peptides together in the evening, 30-60 minutes before sleep, to synchronise with the body's natural nocturnal GH surge. This timing is studied for maximising the synergy between peptide-stimulated and sleep-related GH release.",
     faqs: [
       {
         question: "Why combine CJC-1295 with Ipamorelin instead of using one alone?",
@@ -131,19 +131,19 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "metabolic-stack",
-    name: "Metabolic Transformation Stack",
-    tagline: "Dual-format tirzepatide for comprehensive metabolic support",
+    name: "Metabolic Research Stack",
+    tagline: "Dual-format tirzepatide for comprehensive metabolic research",
     description:
-      "This stack pairs the ORYN Tirzepatide Pen (10mg, daily micro-dosing) with the MediT Pen (40mg, once-weekly), giving researchers maximum flexibility for metabolic studies. Tirzepatide is a dual GIP/GLP-1 receptor agonist — the most advanced class of metabolic peptide available. The daily pen system allows precise dose titration during the initiation phase, while the weekly MediT Pen provides the higher-dose convenience required for sustained protocols. This combination supports comprehensive research into appetite regulation, blood sugar management, and metabolic efficiency.",
+      "This stack pairs the ORYN Tirzepatide Pen (10mg, daily micro-dosing) with the MediT Pen (40mg, once-weekly), giving researchers maximum flexibility for metabolic studies. Tirzepatide is a dual GIP/GLP-1 receptor agonist — the most extensively studied class of dual incretin compound. The daily pen system allows precise dose titration during the initiation phase, while the weekly MediT Pen provides the higher-dose convenience required for sustained protocols. This combination supports comprehensive research into appetite signalling, glucose homeostasis, and metabolic pathways.",
     productSlugs: ["tirzepatide-pen", "medit-tirzepatide"],
     savingsPercent: 8,
     benefits: [
-      "Dual GIP/GLP-1 receptor agonism for enhanced metabolic action",
+      "Dual GIP/GLP-1 receptor agonism for metabolic pathway research",
       "Flexible dosing: daily micro-dosing pen + weekly injection pen",
-      "Appetite regulation and satiety signalling modulation",
-      "Blood sugar management and insulin sensitivity support",
-      "Clinically proven compound class with extensive trial data",
-      "Supports long-term metabolic research protocols",
+      "Investigated for appetite regulation and satiety signalling pathways",
+      "Studied for glucose homeostasis and insulin sensitivity research",
+      "Extensively studied compound class with robust clinical trial data",
+      "Designed for long-term metabolic research protocols",
     ],
     protocol:
       "The metabolic transformation protocol leverages two delivery formats of tirzepatide for optimal flexibility. Many researchers begin with the daily Tirzepatide Pen (10mg) for precise dose titration during the initiation phase, allowing gradual upward adjustment to assess tolerance. The MediT Pen (40mg weekly) is then used for the maintenance phase, providing the convenience of once-weekly administration at established doses. This stepped approach mirrors the dose-escalation strategy used in published clinical trials of GIP/GLP-1 agonists.",
@@ -167,22 +167,22 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "total-wellness",
-    name: "Total Wellness Stack",
-    tagline: "Foundation protocol for systemic health optimisation",
+    name: "Total Wellness Research Stack",
+    tagline: "Foundation protocol for systemic wellness research",
     description:
-      "The Total Wellness Stack combines three compounds that target the most fundamental aspects of health: tissue integrity, cellular energy, and antioxidant defence. BPC-157 supports gut health and systemic tissue repair, NAD+ fuels mitochondrial energy production and DNA repair mechanisms, and Glutathione provides the master antioxidant shield that protects every cell from oxidative damage. This foundational stack is designed for researchers studying whole-body wellness optimisation and preventive health protocols.",
+      "The Total Wellness Research Stack combines three compounds that target the most fundamental aspects of cellular research: tissue integrity, cellular energy, and antioxidant defence. BPC-157 is investigated for gut mucosal integrity and systemic tissue repair pathways, NAD+ is studied for mitochondrial energy production and DNA repair mechanisms, and Glutathione is researched for its role as a key antioxidant in cellular redox balance. This foundational stack is designed for researchers studying whole-body wellness pathways and preventive research protocols.",
     productSlugs: ["bpc-157", "nad-plus", "glutathione"],
     savingsPercent: 10,
     benefits: [
-      "Comprehensive gut health and tissue integrity via BPC-157",
-      "Mitochondrial energy production and metabolic support via NAD+",
-      "Systemic antioxidant defence and detoxification via Glutathione",
-      "Immune system modulation and inflammatory balance",
-      "Neuroprotective and cognitive function support",
-      "Foundation protocol compatible with additional peptide stacks",
+      "Investigated for gut mucosal integrity and tissue research via BPC-157",
+      "Studied for mitochondrial energy production and metabolic research via NAD+",
+      "Research focus on antioxidant defence and detoxification pathways via Glutathione",
+      "Investigated for immune system modulation and inflammatory pathway research",
+      "Studied for neuroprotective mechanisms and cognitive function research",
+      "Foundation protocol compatible with additional peptide research stacks",
     ],
     protocol:
-      "The Total Wellness protocol addresses three pillars of systemic health. BPC-157 targets the gut-body axis, supporting intestinal barrier integrity and modulating inflammatory pathways throughout the body. NAD+ replenishes the coenzyme that declines with age and stress, restoring mitochondrial function and activating sirtuin-mediated repair pathways. Glutathione provides the antioxidant backbone that protects cellular structures from oxidative stress. Many researchers use this as a foundation protocol, running it for 30-60 days before layering additional targeted peptide stacks.",
+      "The Total Wellness research protocol addresses three pillars of systemic research. BPC-157 is investigated for targeting the gut-body axis, studied for intestinal barrier integrity and inflammatory pathway modulation. NAD+ is researched for replenishing the coenzyme that declines with age and stress, studied for restoring mitochondrial function markers and activating sirtuin-mediated repair pathways. Glutathione is investigated for providing antioxidant protection of cellular structures from oxidative stress. Many researchers use this as a foundation protocol, running it for 30-60 days before layering additional targeted peptide stacks.",
     faqs: [
       {
         question: "Why are these three compounds considered a wellness foundation?",
@@ -208,22 +208,22 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "skin-renewal",
-    name: "Skin Renewal Stack",
-    tagline: "Advanced dermal rejuvenation through peptide science",
+    name: "Skin Research Stack",
+    tagline: "Advanced dermatological research through peptide science",
     description:
-      "The Skin Renewal Stack pairs two of the most potent compounds in dermatological peptide research. GHK-Cu (copper peptide) stimulates collagen and elastin synthesis, promotes tissue remodelling, and enhances the skin's structural proteins. Glutathione, the body's master antioxidant, provides powerful skin brightening, detoxification, and protection against UV-induced oxidative damage. Together, these compounds address both the structural degradation and oxidative stress components of skin aging — the two primary drivers of visible skin deterioration.",
+      "The Skin Research Stack pairs two of the most studied compounds in dermatological peptide research. Studies suggest GHK-Cu (copper peptide) may stimulate collagen and elastin synthesis, promote tissue remodelling, and modulate the skin's structural protein pathways. Glutathione, a key endogenous antioxidant, is investigated for skin depigmentation, detoxification pathways, and protection against UV-induced oxidative damage. Together, these compounds are researched for both the structural degradation and oxidative stress components of skin aging — the two primary areas of dermatological aging research.",
     productSlugs: ["ghk-cu", "glutathione"],
     savingsPercent: 10,
     benefits: [
-      "Stimulates collagen and elastin synthesis for structural renewal",
-      "Skin brightening and even tone via glutathione's melanin regulation",
-      "Antioxidant protection against UV and environmental damage",
-      "Promotes wound healing and scar reduction",
-      "Supports hyaluronic acid production for skin hydration",
-      "Anti-inflammatory action to reduce redness and irritation",
+      "Investigated for collagen and elastin synthesis pathway research",
+      "Studied for skin depigmentation and melanin regulation mechanisms",
+      "Research focus on antioxidant protection against UV and environmental damage",
+      "Investigated for wound closure and scar formation pathway research",
+      "Studied for hyaluronic acid production and skin hydration mechanisms",
+      "Research focus on inflammatory pathway modulation in dermal tissue",
     ],
     protocol:
-      "The Skin Renewal protocol targets complementary dermal pathways. GHK-Cu addresses the structural component of skin aging by stimulating fibroblasts to produce collagen, elastin, and glycosaminoglycans (including hyaluronic acid). Glutathione works on the oxidative and pigmentation side, neutralising free radicals, inhibiting tyrosinase (the enzyme responsible for melanin production), and supporting hepatic detoxification to reduce skin-dulling toxin accumulation. Research protocols typically run 8-12 weeks, as collagen remodelling is a gradual process with visible improvements accumulating over time.",
+      "The Skin Research protocol targets complementary dermal pathways. GHK-Cu is investigated for addressing the structural component of skin aging by stimulating fibroblasts to produce collagen, elastin, and glycosaminoglycans (including hyaluronic acid). Glutathione is studied for its role on the oxidative and pigmentation side — investigated for neutralising free radicals, modulating tyrosinase (the enzyme involved in melanin production), and supporting hepatic detoxification pathways. Research protocols typically run 8-12 weeks, as collagen remodelling is a gradual process with observable changes accumulating over time.",
     faqs: [
       {
         question: "How do GHK-Cu and Glutathione work together for skin?",
@@ -244,22 +244,22 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "athlete-recovery",
-    name: "Athlete Recovery Stack",
-    tagline: "Elite-level recovery with GH-enhanced tissue repair",
+    name: "Athlete Recovery Research Stack",
+    tagline: "Triple-compound protocol for athletic recovery research",
     description:
-      "The Athlete Recovery Stack builds on the classic BPC-157 + TB-500 healing duo by adding CJC-1295 for growth hormone optimisation. This three-compound protocol addresses every dimension of athletic recovery: BPC-157 promotes tissue repair and reduces inflammation, TB-500 enhances cell migration and reduces fibrosis, and CJC-1295 elevates natural growth hormone to support muscle recovery, sleep quality, and body composition. This is the most comprehensive recovery protocol available for researchers studying elite athletic performance and injury rehabilitation.",
+      "The Athlete Recovery Research Stack builds on the extensively studied BPC-157 + TB-500 research duo by adding CJC-1295 for growth hormone pathway investigation. This three-compound protocol is designed for researching multiple dimensions of athletic recovery: BPC-157 is investigated for tissue repair and inflammatory pathways, TB-500 is studied for cell migration and fibrosis modulation, and CJC-1295 is researched for natural growth hormone elevation in muscle recovery, sleep architecture, and body composition studies. This is the most comprehensive recovery research protocol available for studying elite athletic performance and injury rehabilitation.",
     productSlugs: ["bpc-157", "tb-500", "cjc-1295"],
     savingsPercent: 12,
     benefits: [
-      "Triple-compound approach to accelerated tissue repair",
-      "Growth hormone elevation for enhanced muscle recovery",
-      "Deep restorative sleep promotion for overnight regeneration",
-      "Reduced inflammation across joints, tendons, and muscles",
-      "Supports lean body composition during recovery periods",
-      "Minimised scar tissue and fibrosis from training injuries",
+      "Triple-compound approach investigated for tissue regeneration research",
+      "Studied for growth hormone pathway modulation and muscle recovery research",
+      "Research focus on sleep architecture and overnight regeneration pathways",
+      "Investigated for inflammatory pathway modulation across joints, tendons, and muscles",
+      "Studied for lean body composition research during recovery periods",
+      "Research focus on scar tissue and fibrosis formation pathways",
     ],
     protocol:
-      "The Athlete Recovery protocol combines two healing peptides with a growth hormone secretagogue for comprehensive recovery support. BPC-157 and TB-500 are typically administered together (often subcutaneously near the area of concern) to maximise local tissue repair, while CJC-1295 is administered in the evening to amplify the natural nocturnal GH surge that drives overnight recovery. This three-pronged approach addresses tissue repair (BPC-157 + TB-500), anti-inflammatory modulation (all three compounds), and systemic recovery hormones (CJC-1295). Protocols typically run 6-8 weeks for acute injuries and 8-12 weeks for chronic conditions.",
+      "The Athlete Recovery research protocol combines two regeneration-focused peptides with a growth hormone secretagogue for comprehensive recovery research. BPC-157 and TB-500 are typically administered together (often subcutaneously near the area of concern) to investigate local tissue repair pathways, while CJC-1295 is administered in the evening to investigate amplification of the natural nocturnal GH surge associated with overnight recovery. This three-pronged approach researches tissue repair (BPC-157 + TB-500), inflammatory pathway modulation (all three compounds), and systemic recovery hormone pathways (CJC-1295). Protocols typically run 6-8 weeks for acute studies and 8-12 weeks for chronic condition research.",
     faqs: [
       {
         question: "Why add CJC-1295 to the BPC-157 + TB-500 recovery stack?",
@@ -285,19 +285,19 @@ export const bundles: PeptideBundle[] = [
   },
   {
     slug: "nad-complete",
-    name: "NAD+ Complete Stack",
-    tagline: "Dual-delivery NAD+ for maximum cellular rejuvenation",
+    name: "NAD+ Complete Research Stack",
+    tagline: "Dual-delivery NAD+ for comprehensive cellular research",
     description:
-      "The NAD+ Complete Stack combines two delivery systems for comprehensive NAD+ replenishment. The ORYN NAD+ Pen (500mg, peptide pen system) provides a concentrated monthly dose through our precision pen platform, while the NovaDose NAD+ (500mg, cartridge system) enables daily micro-dosing for sustained NAD+ elevation throughout the day. This dual-delivery approach ensures both acute NAD+ supplementation and continuous baseline maintenance — the most thorough NAD+ protocol available outside of clinical IV therapy, at a fraction of the cost.",
+      "The NAD+ Complete Research Stack combines two delivery systems for comprehensive NAD+ research protocols. The ORYN NAD+ Pen (500mg, peptide pen system) provides a concentrated monthly dose through our precision pen platform, while the NovaDose NAD+ (500mg, cartridge system) enables daily micro-dosing for sustained NAD+ elevation throughout the day. This dual-delivery approach is designed for both acute and continuous NAD+ research — the most thorough NAD+ research protocol available outside of clinical IV settings, at a fraction of the cost.",
     productSlugs: ["nad-plus", "novadose-nad"],
     savingsPercent: 8,
     benefits: [
-      "Dual-delivery system for comprehensive NAD+ replenishment",
-      "Sustained cellular energy production and mitochondrial support",
-      "DNA repair pathway activation for genomic stability",
-      "Cognitive clarity and neuroprotective benefits",
-      "More affordable and convenient than IV NAD+ therapy",
-      "Supports sirtuin activation — the longevity gene pathway",
+      "Dual-delivery system for comprehensive NAD+ research protocols",
+      "Investigated for sustained cellular energy production and mitochondrial function",
+      "Studied for DNA repair pathway activation and genomic stability research",
+      "Research focus on cognitive performance and neuroprotective mechanisms",
+      "More affordable and convenient than IV-based NAD+ research protocols",
+      "Investigated for sirtuin activation — the longevity gene pathway research",
     ],
     protocol:
       "The NAD+ Complete protocol leverages two complementary delivery systems. The ORYN NAD+ Pen provides concentrated subcutaneous NAD+ administration, allowing for significant acute elevation of cellular NAD+ levels. The NovaDose system complements this with daily micro-doses that maintain elevated NAD+ throughout the day, preventing the troughs that occur between larger doses. This mirrors the strategy used in clinical NAD+ research, where sustained elevation produces superior outcomes compared to intermittent bolus dosing. The combined protocol provides near-continuous NAD+ support at a fraction of the cost of IV infusion therapy.",

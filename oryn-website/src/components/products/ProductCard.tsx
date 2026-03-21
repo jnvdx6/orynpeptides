@@ -46,7 +46,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="relative aspect-[4/3] bg-oryn-cream overflow-hidden flex items-center justify-center p-6 sm:p-8">
         <Image
           src={productImages.bySlug[product.slug] || productImages.categoryCard[product.category] || "/images/products/bpc157-hero.png"}
-          alt={`ORYN ${product.name}`}
+          alt={`ORYN ${product.name} ${product.dosage} peptide pen`}
           width={240}
           height={180}
           loading="lazy"

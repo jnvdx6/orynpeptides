@@ -13,8 +13,9 @@ import { TrustBanner } from "@/components/seo/TrustBanner";
 import { Link } from "@/components/ui/LocaleLink";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { useLocale } from "@/i18n/LocaleContext";
+import { BRAZILIAN_CITIES } from "@/data/brazilian-cities";
 
-const topCities = [
+const ukCities = [
   { slug: "london", name: "London" },
   { slug: "manchester", name: "Manchester" },
   { slug: "birmingham", name: "Birmingham" },
@@ -56,7 +57,11 @@ const topArticles = [
 
 export function HomeClient() {
   usePageTracking("home");
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const isBrazil = locale === "pt-br";
+  const topCities = isBrazil
+    ? BRAZILIAN_CITIES.slice(0, 10).map((c) => ({ slug: c.slug, name: c.name }))
+    : ukCities;
 
   return (
     <>
@@ -75,7 +80,7 @@ export function HomeClient() {
       <section className="py-16 bg-oryn-cream border-t border-oryn-orange/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* UK Delivery Cities */}
+            {/* Delivery Cities */}
             <div>
               <h2 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange mb-5">
                 {t.homeSeo.deliveryTitle}
@@ -84,7 +89,7 @@ export function HomeClient() {
                 {topCities.map((city) => (
                   <Link
                     key={city.slug}
-                    href={`/peptides/${city.slug}`}
+                    href={isBrazil ? `/peptides/brazil/${city.slug}` : `/peptides/${city.slug}`}
                     className="text-[11px] text-oryn-black/35 hover:text-oryn-orange transition-colors font-plex"
                   >
                     {city.name}
