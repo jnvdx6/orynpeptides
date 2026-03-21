@@ -465,7 +465,6 @@ export interface Dictionary {
     subtotal: string;
     cryptoDiscount: string;
     shipping: string;
-    shippingNote: string;
     referral: string;
     total: string;
     researchOnly: string;
@@ -511,7 +510,6 @@ export interface Dictionary {
     showOrderSummary: string;
     discount: string;
     volumeDiscountLabel: string;
-    calculatedNextStep: string;
     selectCountryForShipping: string;
     securePayment: string;
     discreetShipping: string;
