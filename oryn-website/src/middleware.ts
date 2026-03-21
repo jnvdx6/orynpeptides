@@ -60,22 +60,43 @@ export function middleware(request: NextRequest) {
     // 1. User's explicit preference (cookie)
     detectedLocale = cookieLocale;
   } else {
-    // 2. Vercel geo-detection: x-vercel-ip-country header
-    const country = request.headers.get("x-vercel-ip-country");
-    if (country && countryToLocale[country]) {
-      detectedLocale = countryToLocale[country];
-    } else {
-      // 3. Accept-Language header fallback
-      const acceptLang = request.headers.get("accept-language") || "";
-      const preferredLangs = acceptLang
-        .split(",")
-        .map((lang) => lang.split(";")[0].trim().substring(0, 2).toLowerCase());
+    // 2. Accept-Language header (browser preference — strongest automatic signal)
+    const acceptLang = request.headers.get("accept-language") || "";
+    const preferredLangs = acceptLang
+      .split(",")
+      .map((lang) => lang.split(";")[0].trim().toLowerCase());
 
-      for (const lang of preferredLangs) {
-        if (isValidLocale(lang)) {
-          detectedLocale = lang;
+    let foundFromAcceptLang = false;
+    for (const raw of preferredLangs) {
+      // Try exact match first (e.g. "pt-br")
+      if (isValidLocale(raw)) {
+        detectedLocale = raw;
+        foundFromAcceptLang = true;
+        break;
+      }
+      // Try base language match (e.g. "de" from "de-DE")
+      const base = raw.split("-")[0];
+      if (isValidLocale(base)) {
+        detectedLocale = base;
+        foundFromAcceptLang = true;
+        break;
+      }
+      // Try matching a regional locale whose base matches (e.g. "pt" → "pt-br")
+      for (const loc of locales) {
+        if (loc.startsWith(base + "-")) {
+          detectedLocale = loc;
+          foundFromAcceptLang = true;
           break;
         }
+      }
+      if (foundFromAcceptLang) break;
+    }
+
+    // 3. Vercel geo-detection fallback (IP-based, weaker signal)
+    if (!foundFromAcceptLang) {
+      const country = request.headers.get("x-vercel-ip-country");
+      if (country && countryToLocale[country]) {
+        detectedLocale = countryToLocale[country];
       }
     }
   }
