@@ -4,7 +4,6 @@ import {
   defaultLocale,
   isValidLocale,
   isValidRegion,
-  countryToLocale,
   countryToRegion,
   markets,
 } from "./i18n/config";
@@ -92,13 +91,10 @@ export function middleware(request: NextRequest) {
       if (foundFromAcceptLang) break;
     }
 
-    // 3. Vercel geo-detection fallback (IP-based, weaker signal)
-    if (!foundFromAcceptLang) {
-      const country = request.headers.get("x-vercel-ip-country");
-      if (country && countryToLocale[country]) {
-        detectedLocale = countryToLocale[country];
-      }
-    }
+    // 3. No geo-detection for locale — default to English.
+    // Geo-detection is only used for region (currency), not language.
+    // Reason: server IP in Spain caused all no-Accept-Language requests
+    // (bots, curl, some browsers) to default to Spanish.
   }
 
   // ── Detect region (for currency) ──────────────────────────────

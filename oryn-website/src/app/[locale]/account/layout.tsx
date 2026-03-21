@@ -53,7 +53,14 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
   }
 
   if (!isAuthenticated) {
-    return null;
+    return (
+      <div className="pt-28 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-6 h-6 border-2 border-oryn-orange border-t-transparent animate-spin mx-auto mb-3" />
+          <p className="text-xs text-oryn-black/40 font-plex">Redirecting to login…</p>
+        </div>
+      </div>
+    );
   }
 
   return (
