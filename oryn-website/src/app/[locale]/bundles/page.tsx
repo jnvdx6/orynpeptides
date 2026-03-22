@@ -45,7 +45,8 @@ export default async function BundlesIndexPage({
 }) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  const currency = "€";
+  const currencyMap: Record<string, string> = { en: "£", "pt-br": "R$" };
+  const currency = currencyMap[locale] || "€";
 
   return (
     <>

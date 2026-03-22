@@ -91,7 +91,8 @@ export default async function CityPage({
 
   const faqs = cityFaqs(city.name, city.deliveryDays);
   const otherCities = UK_CITIES.filter((c) => c.slug !== city.slug).slice(0, 8);
-  const currency = "€";
+  const currencyMap: Record<string, string> = { en: "£", "pt-br": "R$" };
+  const currency = currencyMap[locale] || "€";
 
   return (
     <>

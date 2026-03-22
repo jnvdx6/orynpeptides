@@ -47,7 +47,7 @@ export function QualitySection() {
  }));
 
  return (
- <section className="py-28 bg-oryn-cream">
+ <section className="relative py-28 bg-oryn-cream">
  <div className="absolute top-0 left-0 right-0 h-px bg-oryn-orange/20" />
 
  <div className="max-w-7xl mx-auto px-6">

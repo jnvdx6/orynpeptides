@@ -153,11 +153,17 @@ export default async function LocaleLayout({
             priceRange: "€99-€299",
             currenciesAccepted: "GBP, EUR, USD",
             paymentAccepted: "Credit Card, Debit Card, Cryptocurrency",
-            areaServed: {
-              "@type": "GeoCircle",
-              geoMidpoint: { "@type": "GeoCoordinates", latitude: 51.5074, longitude: -0.1278 },
-              geoRadius: "3000",
-            },
+            areaServed: [
+              { "@type": "Country", "name": "United Kingdom" },
+              { "@type": "Country", "name": "Germany" },
+              { "@type": "Country", "name": "France" },
+              { "@type": "Country", "name": "Spain" },
+              { "@type": "Country", "name": "Italy" },
+              { "@type": "Country", "name": "Netherlands" },
+              { "@type": "Country", "name": "Portugal" },
+              { "@type": "Country", "name": "Brazil" },
+              { "@type": "Country", "name": "United States" },
+            ],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "Peptide Pens",

@@ -72,7 +72,8 @@ export default async function CategoryPage({
 
   const categoryProducts = getProductsForCategory(category);
   const otherCategories = SEO_CATEGORIES.filter((c) => c.slug !== category.slug);
-  const currency = "€";
+  const currencyMap: Record<string, string> = { en: "£", "pt-br": "R$" };
+  const currency = currencyMap[locale] || "€";
 
   return (
     <>

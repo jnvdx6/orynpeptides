@@ -19,6 +19,17 @@ import { getAuthorForArticle, getReviewerForArticle } from "@/data/authors";
 import { PageTracker } from "@/components/analytics/PageTracker";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import type { ReactNode } from "react";
+
+function parseMarkdown(text: string): ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i} className="font-bold text-oryn-black">{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
 
 export async function generateStaticParams() {
   const params = [];
@@ -204,21 +215,11 @@ export default async function ArticlePage({
               <div key={i}>
                 <h2 className="text-xl md:text-2xl font-bold mb-4">{section.heading}</h2>
                 <div className="text-sm text-oryn-black/70 font-plex leading-relaxed whitespace-pre-line">
-                  {section.content.split("\n\n").map((paragraph, j) => {
-                    // Handle bold text with **
-                    const parts = paragraph.split(/\*\*(.*?)\*\*/g);
-                    return (
-                      <p key={j} className="mb-4">
-                        {parts.map((part, k) =>
-                          k % 2 === 1 ? (
-                            <strong key={k} className="font-bold text-oryn-black">{part}</strong>
-                          ) : (
-                            <span key={k}>{part}</span>
-                          )
-                        )}
-                      </p>
-                    );
-                  })}
+                  {section.content.split("\n\n").map((paragraph, j) => (
+                    <p key={j} className="mb-4">
+                      {parseMarkdown(paragraph)}
+                    </p>
+                  ))}
                 </div>
               </div>
             ))}
@@ -305,7 +306,7 @@ export default async function ArticlePage({
                     </svg>
                   </summary>
                   <div className="px-5 pb-5">
-                    <p className="text-xs text-oryn-black/60 font-plex leading-relaxed">{faq.answer}</p>
+                    <p className="text-xs text-oryn-black/60 font-plex leading-relaxed">{parseMarkdown(faq.answer)}</p>
                   </div>
                 </details>
               ))}

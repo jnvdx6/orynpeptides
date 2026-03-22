@@ -89,10 +89,12 @@ export function ProductPageClient() {
   const categoryLabel = productT?.categoryLabel || product.categoryLabel;
   const badge = productT?.badge || product.badge;
 
-  const related = useMemo(() =>
-    products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3),
-    [products, product.category, product.id]
-  );
+  const related = useMemo(() => {
+    const sameCategory = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
+    return sameCategory.length > 0
+      ? sameCategory
+      : products.filter((p) => p.id !== product.id).slice(0, 4);
+  }, [products, product.category, product.id]);
 
   const avgRating = useMemo(() =>
     detail?.reviews

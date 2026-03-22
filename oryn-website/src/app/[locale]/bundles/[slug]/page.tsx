@@ -10,6 +10,7 @@ import { getDictionary } from "@/i18n/getDictionary";
 import { bundles, BUNDLE_SLUGS, getBundleBySlug } from "@/data/bundles";
 import { getLocalizedBundle } from "@/data/bundles-i18n";
 import { RelatedContent } from "@/components/seo/RelatedContent";
+import { BundleAddToCart } from "@/components/bundles/BundleAddToCart";
 
 // ─── Static Params ──────────────────────────────────────────────────
 
@@ -96,7 +97,8 @@ export default async function BundlePage({
     .filter(Boolean)
     .map((p) => p!);
 
-  const currency = "€";
+  const currencyMap: Record<string, string> = { en: "£", "pt-br": "R$" };
+  const currency = currencyMap[locale] || "€";
   const { original, discounted, savings } = calculateBundlePrice(
     bundle.productSlugs,
     bundle.savingsPercent
@@ -197,6 +199,10 @@ export default async function BundlePage({
               <span>FREE UK DELIVERY</span>
               <span className="w-1 h-1 bg-oryn-orange rounded-full" />
               <span>&gt;99% PURITY</span>
+            </div>
+
+            <div className="mt-8">
+              <BundleAddToCart productSlugs={bundle.productSlugs} />
             </div>
           </div>
         </section>
@@ -488,17 +494,12 @@ export default async function BundlePage({
               </span>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <BundleAddToCart productSlugs={bundle.productSlugs} />
               <Link
                 href={`/${locale}/products`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-oryn-orange font-medium text-xs tracking-[0.2em] hover:bg-oryn-cream transition-colors"
-              >
-                VIEW ALL PRODUCTS
-              </Link>
-              <Link
-                href={`/${locale}/products/${bundleProducts[0]?.slug ?? ""}`}
                 className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-medium text-xs tracking-[0.2em] hover:bg-white/10 transition-colors"
               >
-                START WITH {bundleProducts[0]?.name.toUpperCase() ?? ""}
+                VIEW ALL PRODUCTS
               </Link>
             </div>
           </div>

@@ -522,7 +522,7 @@ export default async function PeptideCalculatorPage({
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-oryn-orange font-bold font-mono">
-                      From &pound;{product.price}
+                      From {locale === "en" ? "\u00A3" : locale === "pt-br" ? "R$" : "\u20AC"}{product.price}
                     </span>
                     <span className="text-[10px] font-mono text-white/20 tracking-[0.1em] group-hover:text-oryn-orange/60 transition-colors">
                       VIEW &rarr;
