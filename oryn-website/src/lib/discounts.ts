@@ -87,3 +87,4 @@ export const FIRST_VISIT_KEY = "oryn_first_visit";
 export const FIRST_PURCHASE_KEY = "oryn_has_purchased";
 export const REFERRAL_CODE_KEY = "oryn_ref_code";
 export const EXIT_INTENT_SHOWN_KEY = "oryn_exit_shown";
+export const CHECKOUT_EXIT_INTENT_SHOWN_KEY = "oryn_checkout_exit_shown";
