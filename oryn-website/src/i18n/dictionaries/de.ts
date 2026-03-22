@@ -621,7 +621,7 @@ const de = {
     emptyCart: "Ihr Warenkorb ist leer",
     emptyCartDescription: "Fügen Sie Produkte hinzu, bevor Sie zur Kasse gehen.",
     browseProducts: "Produkte durchsuchen",
-    steps: ["Informationen", "Versand", "Zahlung"],
+    steps: ["Informationen & Versand", "Zahlung"],
     shippingTitle: "Versandinformationen",
     firstName: "VORNAME",
     lastName: "NACHNAME",

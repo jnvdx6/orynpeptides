@@ -621,7 +621,7 @@ const es = {
     emptyCart: "Tu carrito est\u00e1 vac\u00edo",
     emptyCartDescription: "A\u00f1ade productos antes de proceder al pago.",
     browseProducts: "Ver Productos",
-    steps: ["Informaci\u00f3n", "Env\u00edo", "Pago"],
+    steps: ["Informaci\u00f3n & Env\u00edo", "Pago"],
     shippingTitle: "Informaci\u00f3n de Env\u00edo",
     firstName: "NOMBRE",
     lastName: "APELLIDO",

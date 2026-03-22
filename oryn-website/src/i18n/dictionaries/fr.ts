@@ -621,7 +621,7 @@ const fr = {
     emptyCart: "Votre panier est vide",
     emptyCartDescription: "Ajoutez des produits avant de procéder au paiement.",
     browseProducts: "Parcourir les Produits",
-    steps: ["Informations", "Livraison", "Paiement"],
+    steps: ["Informations & Livraison", "Paiement"],
     shippingTitle: "Informations de Livraison",
     firstName: "PRÉNOM",
     lastName: "NOM",

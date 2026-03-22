@@ -620,7 +620,7 @@ const en: Dictionary = {
     emptyCart: "Your cart is empty",
     emptyCartDescription: "Add products before proceeding to checkout.",
     browseProducts: "Browse Products",
-    steps: ["Information", "Shipping", "Payment"],
+    steps: ["Information & Shipping", "Payment"],
     shippingTitle: "Shipping Information",
     firstName: "FIRST NAME",
     lastName: "LAST NAME",

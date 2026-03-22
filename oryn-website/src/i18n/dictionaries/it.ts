@@ -621,7 +621,7 @@ const it = {
     emptyCart: "Il tuo carrello è vuoto",
     emptyCartDescription: "Aggiungi prodotti prima di procedere al checkout.",
     browseProducts: "Sfoglia Prodotti",
-    steps: ["Informazioni", "Spedizione", "Pagamento"],
+    steps: ["Informazioni & Spedizione", "Pagamento"],
     shippingTitle: "Informazioni di Spedizione",
     firstName: "NOME",
     lastName: "COGNOME",

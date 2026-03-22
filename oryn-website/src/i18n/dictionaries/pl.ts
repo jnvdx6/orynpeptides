@@ -621,7 +621,7 @@ const pl = {
     emptyCart: "Twój koszyk jest pusty",
     emptyCartDescription: "Dodaj produkty przed przejściem do kasy.",
     browseProducts: "Przeglądaj produkty",
-    steps: ["Informacje", "Wysyłka", "Płatność"],
+    steps: ["Informacje & Wysyłka", "Płatność"],
     shippingTitle: "Informacje o wysyłce",
     firstName: "IMIĘ",
     lastName: "NAZWISKO",

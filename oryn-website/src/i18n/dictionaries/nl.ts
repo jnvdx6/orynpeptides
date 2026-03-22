@@ -621,7 +621,7 @@ const nl = {
     emptyCart: "Uw winkelwagen is leeg",
     emptyCartDescription: "Voeg producten toe voordat u naar de kassa gaat.",
     browseProducts: "Producten Bekijken",
-    steps: ["Gegevens", "Verzending", "Betaling"],
+    steps: ["Gegevens & Verzending", "Betaling"],
     shippingTitle: "Verzendinformatie",
     firstName: "VOORNAAM",
     lastName: "ACHTERNAAM",

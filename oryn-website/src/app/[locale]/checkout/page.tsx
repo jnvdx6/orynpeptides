@@ -15,10 +15,10 @@ import AddressAutocomplete from "@/components/checkout/AddressAutocomplete";
 import { useAuth } from "@/providers/auth";
 import { sdk } from "@/lib/medusa";
 import { productImages } from "@/data/products";
-import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered } from "@/lib/analytics";
+import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered, trackCheckoutAbandoned } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
-type CheckoutStep = "information" | "shipping" | "payment";
+type CheckoutStep = "information" | "payment";
 
 interface ShippingOption {
   id: string;
@@ -194,7 +194,7 @@ export default function CheckoutPage() {
   // Step labels
   const stepLabels = t.checkoutPage.steps;
 
-  const stepKeys: CheckoutStep[] = ["information", "shipping", "payment"];
+  const stepKeys: CheckoutStep[] = ["information", "payment"];
 
   // Track checkout start
   useEffect(() => {
@@ -204,6 +204,17 @@ export default function CheckoutPage() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Track checkout abandonment on page leave
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (!orderComplete && items.length > 0) {
+        trackCheckoutAbandoned(activeStep, totalPrice);
+      }
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [activeStep, totalPrice, orderComplete, items.length]);
 
   // Validate information step
   const validateInformation = (): boolean => {
@@ -276,9 +287,17 @@ export default function CheckoutPage() {
     }
   }, [cart, medusaConnected, t.checkoutPage.freeStandardShipping]);
 
-  // Handle continue from Information step
-  const handleContinueToShipping = async () => {
+  // Auto-fetch shipping options when country is selected
+  useEffect(() => {
+    if (country) {
+      fetchShippingOptions();
+    }
+  }, [country, fetchShippingOptions]);
+
+  // Handle continue from Information + Shipping step — goes directly to payment
+  const handleContinueToPayment = async () => {
     if (!validateInformation()) return;
+    if (!selectedShipping) return;
     setIsSubmitting(true);
 
     try {
@@ -300,33 +319,17 @@ export default function CheckoutPage() {
         await refreshCart();
       }
 
-      setCompletedSteps((prev) => new Set([...prev, "information"]));
-      setActiveStep("shipping");
-      trackCheckoutStep("shipping", { item_count: totalItems, total: totalPrice });
-      await fetchShippingOptions();
-    } catch (err) {
-      void err;
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // Handle continue from Shipping step
-  const handleContinueToPayment = async () => {
-    if (!selectedShipping) return;
-    setIsSubmitting(true);
-
-    try {
+      // Add shipping method to cart
       if (medusaConnected && cart && selectedShipping !== "free_shipping") {
         await addShippingMethod(selectedShipping);
       }
 
-      // Initialize payment session (this already retrieves and updates cart state)
+      // Initialize payment session
       if (medusaConnected) {
         await initPaymentSession("pp_stripe_stripe");
       }
 
-      setCompletedSteps((prev) => new Set([...prev, "shipping"]));
+      setCompletedSteps((prev) => new Set([...prev, "information"]));
       setActiveStep("payment");
       trackCheckoutStep("payment", { item_count: totalItems, total: finalPrice, shipping_cost: shippingCost });
       trackPaymentInfoEntered("stripe");
@@ -577,56 +580,60 @@ export default function CheckoutPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        {/* Mobile order summary toggle */}
-        <button
-          onClick={() => setShowMobileSummary(!showMobileSummary)}
-          className="lg:hidden w-full flex items-center justify-between p-4 bg-oryn-grey-light mb-6 border border-oryn-grey/20 active:bg-oryn-grey-light/80"
-        >
-          <div className="flex items-center gap-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-            </svg>
-            <span className="text-sm font-medium">
-              {showMobileSummary
-                ? t.checkoutPage.hideOrderSummary
-                : t.checkoutPage.showOrderSummary}
-            </span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+        {/* Mobile order summary — always-visible compact bar + expandable details */}
+        <div className="lg:hidden mb-6">
+          {/* Always-visible compact summary bar */}
+          <div className="flex items-center justify-between p-3 bg-oryn-grey-light border border-oryn-grey/20 border-b-0">
+            <div className="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+              </svg>
+              <span className="text-sm font-medium">
+                {totalItems} {totalItems === 1 ? "item" : "items"}
+              </span>
+            </div>
+            <span className="text-base font-bold">{formatPrice(finalTotal)}</span>
+          </div>
+          {/* Expandable details toggle */}
+          <button
+            onClick={() => setShowMobileSummary(!showMobileSummary)}
+            className="w-full flex items-center justify-center gap-1.5 p-2 bg-oryn-grey-light/70 border border-oryn-grey/20 text-xs text-oryn-black/50 hover:text-oryn-orange transition-colors active:bg-oryn-grey-light/90"
+          >
+            <span>{showMobileSummary ? t.checkoutPage.hideOrderSummary : t.checkoutPage.showOrderSummary}</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
               className={`transition-transform ${showMobileSummary ? "rotate-180" : ""}`}>
               <polyline points="6 9 12 15 18 9" />
             </svg>
-          </div>
-          <span className="font-bold">{formatPrice(finalTotal)}</span>
-        </button>
-
-        {/* Mobile order summary */}
-        {showMobileSummary && (
-          <div className="lg:hidden mb-6">
-            <OrderSummary
-              items={items}
-              totalPrice={totalPrice}
-              discountedPrice={discountedPrice}
-              volumeDiscount={volumeDiscount}
-              shippingCost={shippingCost}
-              finalTotal={finalTotal}
-              appliedPromotion={appliedPromotion}
-              removePromotion={removePromotion}
-              promoCode={promoCode}
-              setPromoCode={setPromoCode}
-              promoError={promoError}
-              setPromoError={setPromoError}
-              promoLoading={promoLoading}
-              handleApplyPromo={handleApplyPromo}
-              referralCode={referralCode}
-              setReferralCode={setReferralCode}
-              formatPrice={formatPrice}
-              activeStep={activeStep}
-              totalItems={totalItems}
-              selectedCountry={country}
-            />
-          </div>
-        )}
+          </button>
+          {/* Expanded order summary */}
+          {showMobileSummary && (
+            <div className="mt-0">
+              <OrderSummary
+                items={items}
+                totalPrice={totalPrice}
+                discountedPrice={discountedPrice}
+                volumeDiscount={volumeDiscount}
+                shippingCost={shippingCost}
+                finalTotal={finalTotal}
+                appliedPromotion={appliedPromotion}
+                removePromotion={removePromotion}
+                promoCode={promoCode}
+                setPromoCode={setPromoCode}
+                promoError={promoError}
+                setPromoError={setPromoError}
+                promoLoading={promoLoading}
+                handleApplyPromo={handleApplyPromo}
+                referralCode={referralCode}
+                setReferralCode={setReferralCode}
+                formatPrice={formatPrice}
+                activeStep={activeStep}
+                totalItems={totalItems}
+                selectedCountry={country}
+              />
+            </div>
+          )}
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left: Checkout steps */}
@@ -831,190 +838,145 @@ export default function CheckoutPage() {
                         className="w-full px-4 py-3 bg-oryn-grey-light/50 border border-oryn-grey/30 text-sm focus:outline-none focus:border-oryn-orange transition-colors"
                         autoComplete="tel"
                       />
+                      <p className="text-[9px] text-oryn-black/30 font-plex mt-1">
+                        {"For delivery coordination only \u2014 never used for marketing"}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Inline shipping options — shown after country is selected */}
+                  {country && (
+                    <div className="pt-4 border-t border-oryn-grey/20">
+                      <p className="text-[10px] font-mono text-oryn-black/40 tracking-wider mb-3">
+                        {t.checkoutPage.shippingMethod}
+                      </p>
+
+                      {shippingLoading ? (
+                        <div className="flex items-center justify-center py-6 gap-3">
+                          <Spinner size={20} />
+                          <span className="text-sm text-oryn-black/50">{t.checkoutPage.loadingShipping}</span>
+                        </div>
+                      ) : (
+                        <>
+                          {/* Free shipping progress */}
+                          {!qualifiesForFreeShipping && (() => {
+                            const cheapestPaid = shippingOptions
+                              .filter((o) => o.amount > 0 && (!o.region_id || o.region_id === cart?.region_id))
+                              .sort((a, b) => a.amount - b.amount)[0];
+                            const savingsText = cheapestPaid
+                              ? ` to save ${formatPrice(cheapestPaid.amount)} on shipping`
+                              : ` for FREE shipping`;
+                            return (
+                              <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/20">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+                                    <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                  </svg>
+                                  <span className="text-xs font-mono text-oryn-orange tracking-wider">
+                                    {`Add ${formatPrice(amountUntilFreeShipping)} more${savingsText}`}
+                                  </span>
+                                </div>
+                                <div className="w-full bg-oryn-grey/20 h-1.5">
+                                  <div
+                                    className="bg-oryn-orange h-1.5 transition-all duration-500"
+                                    style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
+                                  />
+                                </div>
+                              </div>
+                            );
+                          })()}
+
+                          {qualifiesForFreeShipping && (() => {
+                            const selectedOpt = shippingOptions.find((o) => o.id === selectedShipping);
+                            const savingsAmount = selectedOpt && selectedOpt.amount > 0 ? selectedOpt.amount : 0;
+                            return (
+                              <div className="mb-4 p-3 bg-green-50 border border-green-200">
+                                <div className="flex items-center gap-2">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                  </svg>
+                                  <span className="text-xs font-mono text-green-700 tracking-wider">
+                                    {t.checkoutPage.freeShippingApplied}
+                                  </span>
+                                </div>
+                                {savingsAmount > 0 && (
+                                  <p className="text-xs text-green-600 mt-1.5 ml-[22px]">
+                                    {`You're saving ${formatPrice(savingsAmount)} on shipping!`}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })()}
+
+                          <div className="space-y-3">
+                            {shippingOptions.filter(
+                              (opt) => !opt.region_id || opt.region_id === cart?.region_id
+                            ).map((option) => {
+                              const displayAmount = qualifiesForFreeShipping ? 0 : option.amount;
+                              return (
+                                <label
+                                  key={option.id}
+                                  onClick={async () => {
+                                    if (option.id === selectedShipping) return;
+                                    setSelectedShipping(option.id);
+                                    if (medusaConnected && cart && option.id !== "free_shipping") {
+                                      try {
+                                        await addShippingMethod(option.id);
+                                      } catch (err) {
+                                        void err;
+                                      }
+                                    }
+                                  }}
+                                  className={`flex items-center justify-between p-4 border cursor-pointer transition-all ${
+                                    selectedShipping === option.id
+                                      ? "border-oryn-orange bg-oryn-orange/5"
+                                      : "border-oryn-grey/30 hover:border-oryn-orange/40"
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                                      selectedShipping === option.id ? "border-oryn-orange" : "border-oryn-grey"
+                                    }`}>
+                                      {selectedShipping === option.id && <div className="w-2 h-2 rounded-full bg-oryn-orange" />}
+                                    </div>
+                                    <div>
+                                      <p className="text-sm font-medium">{option.name}</p>
+                                      {(() => {
+                                        const est = getEstimatedDelivery(option.name);
+                                        return est ? (
+                                          <p className="text-[11px] text-oryn-black/45 mt-0.5">{est}</p>
+                                        ) : null;
+                                      })()}
+                                    </div>
+                                  </div>
+                                  <span className="text-sm font-bold">
+                                    {displayAmount === 0 ? (
+                                      <span className="text-oryn-orange">
+                                        {qualifiesForFreeShipping && option.amount > 0 ? (
+                                          <span className="flex items-center gap-1.5">
+                                            <span className="line-through text-oryn-black/30 text-xs">{formatPrice(option.amount)}</span>
+                                            <span>{t.checkoutPage.free}</span>
+                                          </span>
+                                        ) : (
+                                          t.checkoutPage.free
+                                        )}
+                                      </span>
+                                    ) : formatPrice(displayAmount)}
+                                  </span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  )}
 
                   {/* Continue button */}
                   <button
-                    onClick={handleContinueToShipping}
-                    disabled={isSubmitting}
-                    className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors disabled:opacity-50"
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {t.checkoutPage.processing}</span>
-                    ) : (
-                      t.checkoutPage.continueToShipping
-                    )}
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Step 2: Shipping */}
-            <div className="border border-t-0 border-oryn-grey/20">
-              <div
-                className={`px-6 py-4 flex items-center justify-between ${
-                  activeStep === "shipping" ? "bg-white" : "bg-oryn-grey-light/50"
-                } ${!completedSteps.has("information") && activeStep !== "shipping" ? "opacity-40" : ""}`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`w-6 h-6 flex items-center justify-center text-xs font-bold ${
-                    completedSteps.has("shipping") ? "bg-oryn-black text-white" : activeStep === "shipping" ? "bg-oryn-orange text-white" : "bg-oryn-grey-light text-oryn-black/30"
-                  }`}>
-                    {completedSteps.has("shipping") ? <CheckIcon /> : "2"}
-                  </div>
-                  <span className="font-medium text-sm">{t.checkoutPage.shippingMethod}</span>
-                </div>
-                {completedSteps.has("shipping") && activeStep !== "shipping" && (
-                  <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange font-medium hover:underline">
-                    {t.checkoutPage.change}
-                  </button>
-                )}
-              </div>
-
-              {/* Completed summary */}
-              {completedSteps.has("shipping") && activeStep !== "shipping" && (
-                <div className="px-6 pb-4 text-sm text-oryn-black/60 bg-oryn-grey-light/50">
-                  <p>{shippingOptions.find((o) => o.id === selectedShipping)?.name} — {
-                    shippingCost === 0 ? t.checkoutPage.free : formatPrice(shippingCost)
-                  }</p>
-                </div>
-              )}
-
-              {/* Active form */}
-              {activeStep === "shipping" && (
-                <div className="px-6 pb-6">
-                  {/* Address summary */}
-                  <div className="p-3 bg-oryn-grey-light/70 border border-oryn-grey/20 mb-4 text-sm text-oryn-black/60">
-                    <p className="font-medium text-oryn-black">{firstName} {lastName}</p>
-                    <p>{address}{apartment ? `, ${apartment}` : ""}, {city} {postalCode}</p>
-                    <p>{getCountryName(country, locale)}</p>
-                  </div>
-
-                  {shippingLoading ? (
-                    <div className="flex items-center justify-center py-8 gap-3">
-                      <Spinner size={20} />
-                      <span className="text-sm text-oryn-black/50">{t.checkoutPage.loadingShipping}</span>
-                    </div>
-                  ) : (
-                    <>
-                    {/* Free shipping progress */}
-                    {!qualifiesForFreeShipping && (() => {
-                      const cheapestPaid = shippingOptions
-                        .filter((o) => o.amount > 0 && (!o.region_id || o.region_id === cart?.region_id))
-                        .sort((a, b) => a.amount - b.amount)[0];
-                      const savingsText = cheapestPaid
-                        ? ` to save ${formatPrice(cheapestPaid.amount)} on shipping`
-                        : ` for FREE shipping`;
-                      return (
-                        <div className="mb-4 p-3 bg-oryn-orange/5 border border-oryn-orange/20">
-                          <div className="flex items-center gap-2 mb-2">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
-                              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                            </svg>
-                            <span className="text-xs font-mono text-oryn-orange tracking-wider">
-                              {`Add ${formatPrice(amountUntilFreeShipping)} more${savingsText}`}
-                            </span>
-                          </div>
-                          <div className="w-full bg-oryn-grey/20 h-1.5">
-                            <div
-                              className="bg-oryn-orange h-1.5 transition-all duration-500"
-                              style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })()}
-
-                    {qualifiesForFreeShipping && (() => {
-                      const selectedOpt = shippingOptions.find((o) => o.id === selectedShipping);
-                      const savingsAmount = selectedOpt && selectedOpt.amount > 0 ? selectedOpt.amount : 0;
-                      return (
-                        <div className="mb-4 p-3 bg-green-50 border border-green-200">
-                          <div className="flex items-center gap-2">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
-                              <polyline points="20 6 9 17 4 12" />
-                            </svg>
-                            <span className="text-xs font-mono text-green-700 tracking-wider">
-                              {t.checkoutPage.freeShippingApplied}
-                            </span>
-                          </div>
-                          {savingsAmount > 0 && (
-                            <p className="text-xs text-green-600 mt-1.5 ml-[22px]">
-                              {`You're saving ${formatPrice(savingsAmount)} on shipping!`}
-                            </p>
-                          )}
-                        </div>
-                      );
-                    })()}
-
-                    <div className="space-y-3 mb-6">
-                      {shippingOptions.filter(
-                        (opt) => !opt.region_id || opt.region_id === cart?.region_id
-                      ).map((option) => {
-                        const displayAmount = qualifiesForFreeShipping ? 0 : option.amount;
-                        return (
-                          <label
-                            key={option.id}
-                            onClick={async () => {
-                              if (option.id === selectedShipping) return;
-                              setSelectedShipping(option.id);
-                              // Update Medusa cart immediately
-                              if (medusaConnected && cart && option.id !== "free_shipping") {
-                                try {
-                                  await addShippingMethod(option.id);
-                                } catch (err) {
-                                  void err;
-                                }
-                              }
-                            }}
-                            className={`flex items-center justify-between p-4 border cursor-pointer transition-all ${
-                              selectedShipping === option.id
-                                ? "border-oryn-orange bg-oryn-orange/5"
-                                : "border-oryn-grey/30 hover:border-oryn-orange/40"
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                                selectedShipping === option.id ? "border-oryn-orange" : "border-oryn-grey"
-                              }`}>
-                                {selectedShipping === option.id && <div className="w-2 h-2 rounded-full bg-oryn-orange" />}
-                              </div>
-                              <div>
-                                <p className="text-sm font-medium">{option.name}</p>
-                                {(() => {
-                                  const est = getEstimatedDelivery(option.name);
-                                  return est ? (
-                                    <p className="text-[11px] text-oryn-black/45 mt-0.5">{est}</p>
-                                  ) : null;
-                                })()}
-                              </div>
-                            </div>
-                            <span className="text-sm font-bold">
-                              {displayAmount === 0 ? (
-                                <span className="text-oryn-orange">
-                                  {qualifiesForFreeShipping && option.amount > 0 ? (
-                                    <span className="flex items-center gap-1.5">
-                                      <span className="line-through text-oryn-black/30 text-xs">{formatPrice(option.amount)}</span>
-                                      <span>{t.checkoutPage.free}</span>
-                                    </span>
-                                  ) : (
-                                    t.checkoutPage.free
-                                  )}
-                                </span>
-                              ) : formatPrice(displayAmount)}
-                            </span>
-                          </label>
-                        );
-                      })}
-                    </div>
-                    </>
-                  )}
-
-                  <button
                     onClick={handleContinueToPayment}
                     disabled={isSubmitting || !selectedShipping || shippingLoading}
-                    className="w-full py-4 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors disabled:opacity-50"
+                    className="w-full py-4 mt-6 bg-oryn-orange text-white font-bold text-sm tracking-wide hover:bg-oryn-orange-dark transition-colors disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center gap-2"><Spinner size={16} /> {t.checkoutPage.processing}</span>
@@ -1022,36 +984,29 @@ export default function CheckoutPage() {
                       t.checkoutPage.continueToPayment
                     )}
                   </button>
-
-                  <button
-                    onClick={() => editStep("information")}
-                    className="w-full mt-2 py-2 text-xs text-oryn-black/40 hover:text-oryn-orange transition-colors"
-                  >
-                    {t.checkoutPage.returnToInformation}
-                  </button>
                 </div>
               )}
             </div>
 
-            {/* Order Bump — before payment */}
-            {activeStep === "shipping" && (
+            {/* Order Bump — shown in information step */}
+            {activeStep === "information" && (
               <div className="border border-t-0 border-oryn-grey/20 p-4">
                 <OrderBump />
               </div>
             )}
 
-            {/* Step 3: Payment */}
+            {/* Step 2: Payment */}
             <div className="border border-t-0 border-oryn-grey/20">
               <div
                 className={`px-6 py-4 flex items-center justify-between ${
                   activeStep === "payment" ? "bg-white" : "bg-oryn-grey-light/50"
-                } ${!completedSteps.has("shipping") && activeStep !== "payment" ? "opacity-40" : ""}`}
+                } ${!completedSteps.has("information") && activeStep !== "payment" ? "opacity-40" : ""}`}
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-6 h-6 flex items-center justify-center text-xs font-bold ${
                     activeStep === "payment" ? "bg-oryn-orange text-white" : "bg-oryn-grey-light text-oryn-black/30"
                   }`}>
-                    3
+                    2
                   </div>
                   <span className="font-medium text-sm">{t.checkoutPage.paymentTitle}</span>
                 </div>
@@ -1087,7 +1042,7 @@ export default function CheckoutPage() {
                             shippingCost === 0 ? t.checkoutPage.free : formatPrice(shippingCost)
                           }</p>
                         </div>
-                        <button onClick={() => editStep("shipping")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
+                        <button onClick={() => editStep("information")} className="text-xs text-oryn-orange hover:underline">{t.checkoutPage.change}</button>
                       </div>
                     </div>
                   </div>
@@ -1136,10 +1091,10 @@ export default function CheckoutPage() {
                   </div>
 
                   <button
-                    onClick={() => editStep("shipping")}
+                    onClick={() => editStep("information")}
                     className="w-full mt-2 py-2 text-xs text-oryn-black/40 hover:text-oryn-orange transition-colors"
                   >
-                    {t.checkoutPage.returnToShipping}
+                    {t.checkoutPage.returnToInformation}
                   </button>
                 </div>
               )}

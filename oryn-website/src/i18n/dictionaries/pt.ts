@@ -621,7 +621,7 @@ const pt = {
     emptyCart: "O seu carrinho está vazio",
     emptyCartDescription: "Adicione produtos antes de prosseguir para o pagamento.",
     browseProducts: "Ver Produtos",
-    steps: ["Informação", "Envio", "Pagamento"],
+    steps: ["Informação & Envio", "Pagamento"],
     shippingTitle: "Informação de Envio",
     firstName: "PRIMEIRO NOME",
     lastName: "APELIDO",
