@@ -518,6 +518,9 @@ export function ProductPageClient() {
       {/* Dosing guide */}
       {detail && <DosingGuide detail={detail} />}
 
+      {/* Frequently Bought Together — positioned high for visibility */}
+      <FrequentlyBoughtTogether currentProduct={product} />
+
       {/* Deep science section */}
       {detail && <ProductScience detail={detail} productName={product.name} />}
 
@@ -532,9 +535,6 @@ export function ProductPageClient() {
 
       {/* FAQ */}
       {detail && <ProductFAQ detail={detail} productName={product.name} />}
-
-      {/* Frequently Bought Together */}
-      <FrequentlyBoughtTogether currentProduct={product} />
 
       {/* Compare with similar products */}
       <ProductComparison currentProduct={product} />
