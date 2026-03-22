@@ -355,14 +355,14 @@ export function QualityClient({
                     </div>
                   </div>
 
-                  {/* View COA button */}
-                  <a
-                    href="#"
+                  {/* Request COA button */}
+                  <Link
+                    href="/contact"
                     className="flex items-center justify-center gap-2 w-full py-2.5 border border-[#FF6A1A]/30 text-[#FF6A1A] text-[10px] font-mono tracking-widest hover:bg-[#FF6A1A]/10 hover:border-[#FF6A1A]/50 transition-all"
                   >
                     <Certificate className="w-3.5 h-3.5" />
-                    {q.viewCoa}
-                  </a>
+                    {q.ctaRequestCoa}
+                  </Link>
                 </div>
               );
             })}

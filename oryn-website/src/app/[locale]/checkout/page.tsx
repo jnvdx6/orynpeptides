@@ -30,7 +30,7 @@ interface ShippingOption {
 const COUNTRY_CODES = [
   "es", "gb", "us", "de", "fr", "it", "pt", "nl", "be", "at",
   "ie", "se", "dk", "fi", "no", "pl", "cz", "gr", "ch", "ro",
-  "hu", "bg", "hr", "sk", "si", "lt", "lv", "ee", "cy", "lu", "mt",
+  "hu", "bg", "hr", "sk", "si", "lt", "lv", "ee", "cy", "lu", "mt", "br",
 ] as const;
 
 function getCountryName(code: string, locale: string): string {
@@ -357,9 +357,9 @@ export default function CheckoutPage() {
             promo_codes: [code],
           });
           // Refresh cart to get updated totals from Medusa
-          await refreshCart();
+          const refreshedCart = await refreshCart();
           // Check the refreshed cart for discount
-          const discountTotal = (cart.discount_total as number) || 0;
+          const discountTotal = (refreshedCart?.discount_total as number) || 0;
           if (discountTotal > 0) {
             applyPromotion({
               code,
@@ -427,26 +427,7 @@ export default function CheckoutPage() {
         quantity: i.quantity,
       })),
     });
-    // Record order with referral if applicable
-    if (referralCode) {
-      fetch("/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: items.map((i) => ({
-            productId: i.product.id,
-            productName: i.product.name,
-            quantity: i.quantity,
-            price: i.product.price,
-          })),
-          shipping: { firstName, lastName, email, phone, address, city, postalCode, country },
-          paymentMethod: "card",
-          referralCode,
-          promoCode: appliedPromotion?.code || undefined,
-          medusaOrderId: orderId,
-        }),
-      }).catch(() => {});
-    }
+    // Referral commissions are handled by the Medusa order-placed subscriber
     clearCart();
     setOrderComplete(true);
   };

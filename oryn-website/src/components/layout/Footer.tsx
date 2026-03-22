@@ -55,7 +55,7 @@ export function Footer() {
       { href: "/about", label: f.companyLinks.about },
       { href: "/science", label: f.companyLinks.science },
       { href: "/quality", label: f.companyLinks.quality },
-      { href: "/why-oryn", label: f.companyLinks.whyOryn },
+      { href: "/about", label: f.companyLinks.whyOryn },
       { href: "/learn", label: f.companyLinks.researchHub },
       { href: "/tools/peptide-calculator", label: f.companyLinks.calculator },
       { href: "/contact", label: f.companyLinks.contact },
@@ -518,7 +518,9 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4 mb-8">
               <a
-                href="#"
+                href="https://instagram.com/orynpeptides"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/30 hover:text-oryn-orange hover:border-oryn-orange/30 transition-colors"
                 aria-label={t.aria.instagram}
               >
@@ -529,7 +531,9 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/company/orynpeptides"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/30 hover:text-oryn-orange hover:border-oryn-orange/30 transition-colors"
                 aria-label={t.aria.linkedin}
               >
@@ -540,7 +544,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="mailto:info@orynxpeptides.com"
                 className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/30 hover:text-oryn-orange hover:border-oryn-orange/30 transition-colors"
                 aria-label={t.aria.email}
               >
@@ -715,7 +719,7 @@ export function Footer() {
                   { href: "/wholesale", label: "Wholesale Orders" },
                   { href: "/shipping", label: "Shipping Info" },
                   { href: "/quality", label: "Quality & Testing" },
-                  { href: "/why-oryn", label: "Why ORYN" },
+                  { href: "/about", label: "Why ORYN" },
                   { href: "/tools/peptide-calculator", label: "Peptide Calculator" },
                   { href: "/compare", label: "Compare Peptides" },
                   { href: "/peptides/glossary", label: "Peptide Glossary" },

@@ -100,7 +100,7 @@ const peptideScience = [
     category: "Antioxidant",
     references: [
       { authors: "Forman HJ et al.", year: 2009, journal: "Mol Aspects Med", title: "Glutathione: overview of its protective roles, measurement, and biosynthesis", doi: "10.1016/j.mam.2008.08.006" },
-      { authors: "Pizzorno J", year: 2014, journal: "Integr Med (Encinitas)", title: "Glutathione!", doi: "26770075" },
+      { authors: "Meister A", year: 1999, journal: "FASEB J", title: "Glutathione metabolism and its selective modification", doi: "10.1096/fasebj.13.9.1007" },
       { authors: "Weschawalit S et al.", year: 2017, journal: "Clin Cosmet Investig Dermatol", title: "Glutathione and its antiaging and antimelanogenic effects", doi: "10.2147/CCID.S128339" },
     ],
   },

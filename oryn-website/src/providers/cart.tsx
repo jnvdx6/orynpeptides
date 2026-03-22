@@ -506,7 +506,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removePromotion = useCallback(() => {
     setAppliedPromotion(null);
-  }, []);
+    if (cart && medusaConnected) {
+      sdk.store.cart
+        .update(cart.id, { promo_codes: [] })
+        .then(({ cart: updatedCart }) => {
+          setCart(updatedCart as unknown as MedusaCart);
+        })
+        .catch((err: unknown) => console.error("[ORYN Cart] Remove promo failed:", err instanceof Error ? err.message : err));
+    }
+  }, [cart, medusaConnected]);
 
   // Calculate totals
   const totalItems = medusaHasItems

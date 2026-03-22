@@ -43,7 +43,8 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
   const bundleFinal = Math.round((bundlePrice - bundleDiscount) * 100) / 100;
 
   const addBundle = () => {
-    // Add all paired products (current already in cart or being added separately)
+    // Add current product and all paired products
+    addItem(currentProduct);
     paired.forEach((p) => addItem(p));
   };
 

@@ -178,11 +178,11 @@ export const products: Product[] = [
     subtitle: "GH Secretagogue Research Peptide",
     category: "peptide-pen",
     categoryLabel: "Peptide Pen",
-    dosage: "20 mg",
+    dosage: "5 mg",
     volume: "3 mL",
     price: 109,
     description:
-      "A GHRH analogue (CJC-1295/Ipamorelin blend) investigated for growth hormone pathway modulation. Studies indicate CJC-1295 may stimulate pulsatile GH release via pituitary GHRH receptors. Delivered in ORYN's reusable pen system with 20mg/3ml for 30 days of precision dosing.",
+      "A GHRH analogue (CJC-1295) investigated for growth hormone pathway modulation. Studies indicate CJC-1295 may stimulate pulsatile GH release via pituitary GHRH receptors. Delivered in ORYN's reusable pen system with 5mg/3ml for 30 days of precision dosing.",
     benefits: [
       "Investigated for body composition and metabolic research",
       "Studied in muscle tissue and recovery models",
@@ -210,11 +210,11 @@ export const products: Product[] = [
     subtitle: "Selective GH Secretagogue",
     category: "peptide-pen",
     categoryLabel: "Peptide Pen",
-    dosage: "20 mg",
+    dosage: "6 mg",
     volume: "3 mL",
     price: 109,
     description:
-      "A selective growth hormone secretagogue investigated for its ability to stimulate pituitary GH release via the ghrelin receptor. Research suggests Ipamorelin may offer selective GH modulation without broader hormonal disruption. ORYN Ipamorelin delivers 20mg/3ml in a reusable pen system for 30 days of targeted dosing.",
+      "A selective growth hormone secretagogue investigated for its ability to stimulate pituitary GH release via the ghrelin receptor. Research suggests Ipamorelin may offer selective GH modulation without broader hormonal disruption. ORYN Ipamorelin delivers 6mg/3ml in a reusable pen system for 30 days of targeted dosing.",
     benefits: [
       "Investigated for selective, targeted GH release pathways",
       "Studied in body composition and lean tissue research",
@@ -307,7 +307,7 @@ export const products: Product[] = [
     subtitle: "Antioxidant Research Tripeptide",
     category: "peptide-pen",
     categoryLabel: "Peptide Pen",
-    dosage: "6 mg",
+    dosage: "6 g",
     volume: "3 mL",
     price: 99,
     description:
@@ -338,7 +338,7 @@ export const products: Product[] = [
     name: "NAD+",
     subtitle: "Cellular Coenzyme Research",
     category: "peptide-pen",
-    categoryLabel: "NovaNAD",
+    categoryLabel: "Peptide Pen",
     dosage: "500 mg/vial",
     volume: "10 Vials",
     price: 189,

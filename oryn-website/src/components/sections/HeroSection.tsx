@@ -133,8 +133,8 @@ export function HeroSection() {
  <Image
  src="/images/products/bpc157-hero.png"
  alt="ORYN Peptide Pen System"
- width={600}
- height={200}
+ width={500}
+ height={500}
  priority
  className="w-full h-auto drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)] rotate-[-15deg] scale-100 lg:scale-110"
  />

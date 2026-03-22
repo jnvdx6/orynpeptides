@@ -105,7 +105,7 @@ export default async function LocaleLayout({
             name: [
               "Products", "Bundles", "Protocols", "Compare", "Science",
               "Learn", "Encyclopedia", "Glossary", "FAQ",
-              "Quality", "Why ORYN", "About", "Contact",
+              "Quality", "About", "Contact",
             ],
             url: [
               `${SITE_URL}/${locale}/products`,
@@ -118,7 +118,6 @@ export default async function LocaleLayout({
               `${SITE_URL}/${locale}/peptides/glossary`,
               `${SITE_URL}/${locale}/faq`,
               `${SITE_URL}/${locale}/quality`,
-              `${SITE_URL}/${locale}/why-oryn`,
               `${SITE_URL}/${locale}/about`,
               `${SITE_URL}/${locale}/contact`,
             ],

@@ -120,7 +120,7 @@ export function Header() {
           title: pt ? "CANETAS DE PEPTÍDEOS" : "PEPTIDE PENS",
           links: [
             { href: "/products/bpc-157", label: "BPC-157 Pen" },
-            { href: "/products/tirzepatide", label: pt ? "Caneta Tirzepatida" : "Tirzepatide Pen" },
+            { href: "/products/tirzepatide-pen", label: pt ? "Caneta Tirzepatida" : "Tirzepatide Pen" },
             { href: "/products/ghk-cu", label: "GHK-Cu Pen" },
             { href: "/products/glutathione", label: pt ? "Caneta Glutationa" : "Glutathione Pen" },
             { href: "/products/nad-plus", label: "NAD+ Pen" },

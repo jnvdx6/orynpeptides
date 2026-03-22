@@ -155,7 +155,7 @@ function SuccessContent() {
               {orderTotal && (
                 <div className="text-center">
                   <p className="text-[9px] font-mono text-oryn-black/40 tracking-wider mb-0.5">{ch.total}</p>
-                  <p className="text-lg font-bold text-oryn-black">{"\u20AC"}{parseFloat(orderTotal).toFixed(2)}</p>
+                  <p className="text-lg font-bold text-oryn-black">{currency === "GBP" ? "\u00A3" : currency === "USD" ? "$" : "\u20AC"}{parseFloat(orderTotal).toFixed(2)}</p>
                 </div>
               )}
               {itemsCount && (
