@@ -1,14 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { localeToIntlTag } from "@/i18n/config";
 import { getFreeShippingThreshold } from "@/lib/discounts";
+import { SHIPPING_REGIONS, type ShippingRegion } from "@/lib/shipping";
 
 const CUTOFF_HOUR = 14; // 2pm cutoff
 const MIN_BUSINESS_DAYS_BEFORE = 2; // before cutoff
 const MIN_BUSINESS_DAYS_AFTER = 3; // after cutoff
 const EXTRA_BUSINESS_DAYS = 3; // added to min for max range
+
+/** Map locale region key to shipping region */
+function getShippingRegionFromLocale(regionKey: string): ShippingRegion {
+  const map: Record<string, string> = {
+    uk: "uk",
+    europe: "europe",
+    americas: "us",
+    brazil: "brazil",
+  };
+  const shippingId = map[regionKey] || "europe";
+  return SHIPPING_REGIONS.find((r) => r.id === shippingId) || SHIPPING_REGIONS[2];
+}
 
 /** Add N business days to a date (skips Sat/Sun) */
 function addBusinessDays(from: Date, days: number): Date {
@@ -36,12 +49,18 @@ const i18n = {
     forDeliveryBy: "for delivery by",
     estDelivery: "Est. delivery",
     freeShipping: (formattedAmount: string) => `Free shipping on orders over ${formattedAmount}`,
+    freeShippingLabel: "Free shipping",
+    estimatedShipping: (formattedCost: string) => `Estimated shipping: ${formattedCost}`,
+    freeShippingMore: (formattedAmount: string) => `Free shipping with ${formattedAmount} more`,
   },
   es: {
     orderWithin: "Pide en las próximas",
     forDeliveryBy: "para entrega el",
     estDelivery: "Entrega est.",
     freeShipping: (formattedAmount: string) => `Envío gratis en pedidos superiores a ${formattedAmount}`,
+    freeShippingLabel: "Envío gratis",
+    estimatedShipping: (formattedCost: string) => `Envío estimado: ${formattedCost}`,
+    freeShippingMore: (formattedAmount: string) => `Envío gratis con ${formattedAmount} más`,
   },
 } as const;
 
@@ -49,10 +68,37 @@ function getStrings(locale: string) {
   return locale === "es" ? i18n.es : i18n.en;
 }
 
-export function DeliveryEstimator() {
-  const { locale, currencyCode, formatPrice } = useLocale();
+interface DeliveryEstimatorProps {
+  /** Product price in major units — when provided, shows shipping cost estimate */
+  productPrice?: number;
+}
+
+export function DeliveryEstimator({ productPrice }: DeliveryEstimatorProps) {
+  const { locale, region, currencyCode, formatPrice } = useLocale();
   const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number } | null>(null);
   const [mounted, setMounted] = useState(false);
+
+  const shippingRegion = useMemo(() => getShippingRegionFromLocale(region), [region]);
+
+  // Determine shipping cost for this product
+  const threshold = getFreeShippingThreshold(currencyCode);
+  const qualifiesForFree = productPrice !== undefined && productPrice >= threshold;
+  const amountToFree = productPrice !== undefined ? Math.max(0, threshold - productPrice) : 0;
+
+  // Format price in shipping region's currency
+  const formatShippingPrice = (amount: number): string => {
+    try {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: shippingRegion.currency,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount);
+    } catch {
+      const symbols: Record<string, string> = { GBP: "£", USD: "$", EUR: "€", BRL: "R$" };
+      return `${symbols[shippingRegion.currency] || "€"}${amount.toFixed(2)}`;
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -88,7 +134,6 @@ export function DeliveryEstimator() {
   const maxFormatted = formatDeliveryDate(maxDate, dateLocale);
 
   const strings = getStrings(locale);
-  const threshold = getFreeShippingThreshold(currencyCode);
 
   // Before mount, render static range only (no countdown) to avoid hydration mismatch
   const showCountdown = mounted && timeLeft !== null;
@@ -125,9 +170,33 @@ export function DeliveryEstimator() {
           </span>
         </div>
       </div>
-      <span className="text-[9px] font-mono text-neutral-400 tracking-[0.04em] px-3">
-        {strings.freeShipping(formatPrice(threshold))}
-      </span>
+
+      {/* Shipping cost estimate */}
+      {productPrice !== undefined ? (
+        qualifiesForFree || shippingRegion.freeThreshold === 0 ? (
+          <div className="flex items-center gap-1.5 px-3">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" className="shrink-0">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span className="text-[10px] font-mono text-green-600 font-medium tracking-[0.04em]">
+              {strings.freeShippingLabel}
+            </span>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-1 px-3">
+            <span className="text-[10px] font-mono text-neutral-500 tracking-[0.04em]">
+              {strings.estimatedShipping(formatShippingPrice(shippingRegion.standard.amount))}
+            </span>
+            <span className="text-[9px] font-mono text-oryn-orange tracking-[0.04em]">
+              {strings.freeShippingMore(formatPrice(amountToFree))}
+            </span>
+          </div>
+        )
+      ) : (
+        <span className="text-[9px] font-mono text-neutral-400 tracking-[0.04em] px-3">
+          {strings.freeShipping(formatPrice(threshold))}
+        </span>
+      )}
     </div>
   );
 }
