@@ -237,6 +237,8 @@ const pl = {
     newsletterPlaceholder: "twoj@email.com",
     newsletterButton: "SUBSKRYBUJ",
     newsletterSuccess: "Dziękujemy! Zostałeś zapisany do newslettera.",
+    newsletterError: "Subskrypcja nie powiodła się",
+    newsletterErrorFallback: "Coś poszło nie tak",
     paymentMethods: "AKCEPTUJEMY",
     sections: {
       products: "Produkty",
@@ -615,6 +617,8 @@ const pl = {
     sendMessage: "WYŚLIJ WIADOMOŚĆ",
     messageSent: "Wiadomość wysłana",
     messageSentDescription: "Odpowiemy w ciągu 24 godzin.",
+    sendError: "Nie udało się wysłać wiadomości",
+    sendErrorFallback: "Coś poszło nie tak. Spróbuj ponownie.",
   },
 
   checkoutPage: {

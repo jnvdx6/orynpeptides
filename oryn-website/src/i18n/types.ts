@@ -147,6 +147,8 @@ export interface Dictionary {
     newsletterPlaceholder: string;
     newsletterButton: string;
     newsletterSuccess: string;
+    newsletterError: string;
+    newsletterErrorFallback: string;
     paymentMethods: string;
     sections: {
       products: string;
@@ -418,6 +420,8 @@ export interface Dictionary {
     sendMessage: string;
     messageSent: string;
     messageSentDescription: string;
+    sendError: string;
+    sendErrorFallback: string;
   };
 
   checkoutPage: {

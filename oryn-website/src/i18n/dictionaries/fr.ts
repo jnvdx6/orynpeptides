@@ -237,6 +237,8 @@ const fr = {
     newsletterPlaceholder: "votre@email.com",
     newsletterButton: "S'ABONNER",
     newsletterSuccess: "Merci ! Vous êtes maintenant abonné.",
+    newsletterError: "Échec de l'abonnement",
+    newsletterErrorFallback: "Une erreur est survenue",
     paymentMethods: "NOUS ACCEPTONS",
     sections: {
       products: "Produits",
@@ -615,6 +617,8 @@ const fr = {
     sendMessage: "ENVOYER LE MESSAGE",
     messageSent: "Message Envoyé",
     messageSentDescription: "Nous vous répondrons sous 24 heures.",
+    sendError: "Échec de l'envoi du message",
+    sendErrorFallback: "Une erreur est survenue. Veuillez réessayer.",
   },
 
   checkoutPage: {

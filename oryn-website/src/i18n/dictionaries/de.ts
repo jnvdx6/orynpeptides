@@ -237,6 +237,8 @@ const de = {
     newsletterPlaceholder: "ihre@email.com",
     newsletterButton: "ABONNIEREN",
     newsletterSuccess: "Vielen Dank! Sie sind jetzt angemeldet.",
+    newsletterError: "Anmeldung fehlgeschlagen",
+    newsletterErrorFallback: "Etwas ist schiefgelaufen",
     paymentMethods: "WIR AKZEPTIEREN",
     sections: {
       products: "Produkte",
@@ -615,6 +617,8 @@ const de = {
     sendMessage: "NACHRICHT SENDEN",
     messageSent: "Nachricht gesendet",
     messageSentDescription: "Wir antworten innerhalb von 24 Stunden.",
+    sendError: "Nachricht konnte nicht gesendet werden",
+    sendErrorFallback: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
   },
 
   checkoutPage: {

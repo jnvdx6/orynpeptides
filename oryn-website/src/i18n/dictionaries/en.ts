@@ -236,6 +236,8 @@ const en: Dictionary = {
     newsletterPlaceholder: "your@email.com",
     newsletterButton: "SUBSCRIBE",
     newsletterSuccess: "Thank you! You're now subscribed.",
+    newsletterError: "Subscription failed",
+    newsletterErrorFallback: "Something went wrong",
     paymentMethods: "WE ACCEPT",
     sections: {
       products: "Products",
@@ -614,6 +616,8 @@ const en: Dictionary = {
     sendMessage: "SEND MESSAGE",
     messageSent: "Message Sent",
     messageSentDescription: "We'll respond within 24 hours.",
+    sendError: "Failed to send message",
+    sendErrorFallback: "Something went wrong. Please try again.",
   },
 
   checkoutPage: {

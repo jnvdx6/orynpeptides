@@ -237,6 +237,8 @@ const ptBr = {
     newsletterPlaceholder: "seu@email.com",
     newsletterButton: "ASSINAR",
     newsletterSuccess: "Obrigado! Você agora está inscrito.",
+    newsletterError: "Falha na inscrição",
+    newsletterErrorFallback: "Algo deu errado",
     paymentMethods: "ACEITAMOS",
     sections: {
       products: "Produtos",
@@ -615,6 +617,8 @@ const ptBr = {
     sendMessage: "ENVIAR MENSAGEM",
     messageSent: "Mensagem Enviada",
     messageSentDescription: "Responderemos em 24 horas.",
+    sendError: "Falha ao enviar a mensagem",
+    sendErrorFallback: "Algo deu errado. Por favor, tente novamente.",
   },
 
   checkoutPage: {

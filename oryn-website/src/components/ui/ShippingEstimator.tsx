@@ -4,12 +4,24 @@ import { useState, useMemo } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { SHIPPING_REGIONS, getRegionFreeThreshold, type ShippingRegion } from "@/lib/shipping";
 
+const SHIPPING_LABELS: Record<string, { standard: string; express: string }> = {
+  en: { standard: "Standard", express: "Express" },
+  es: { standard: "Estándar", express: "Express" },
+  de: { standard: "Standard", express: "Express" },
+  fr: { standard: "Standard", express: "Express" },
+  it: { standard: "Standard", express: "Express" },
+  pt: { standard: "Padrão", express: "Express" },
+  nl: { standard: "Standaard", express: "Express" },
+  pl: { standard: "Standardowa", express: "Express" },
+};
+
 interface ShippingEstimatorProps {
   cartTotal: number;
 }
 
 export function ShippingEstimator({ cartTotal }: ShippingEstimatorProps) {
-  const { formatPrice, currencyCode, t } = useLocale();
+  const { formatPrice, currencyCode, t, locale } = useLocale();
+  const shippingLabels = SHIPPING_LABELS[locale] || SHIPPING_LABELS.en;
   const [selectedRegionId, setSelectedRegionId] = useState<string>("europe");
 
   const region = useMemo(
@@ -79,13 +91,13 @@ export function ShippingEstimator({ cartTotal }: ShippingEstimatorProps) {
         <div className="space-y-2.5">
           <div className="flex items-center justify-between text-sm">
             <span className="text-oryn-black/60 font-plex">
-              Standard · {region.standard.days}
+              {shippingLabels.standard} · {region.standard.days}
             </span>
             <span className="font-medium">{formatRegionPrice(region.standard.amount)}</span>
           </div>
           <div className="flex items-center justify-between text-sm">
             <span className="text-oryn-black/60 font-plex">
-              Express · {region.express.days}
+              {shippingLabels.express} · {region.express.days}
             </span>
             <span className="font-medium">{formatRegionPrice(region.express.amount)}</span>
           </div>

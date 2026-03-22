@@ -139,12 +139,12 @@ export function ContactClient() {
                       });
                       if (!res.ok) {
                         const data = await res.json().catch(() => ({}));
-                        throw new Error(data.message || "Failed to send message");
+                        throw new Error(data.message || c.sendError);
                       }
                       setSubmitted(true);
                       trackFormSubmitted("contact", { inquiry_type: inquiryType || "general" });
                     } catch (err) {
-                      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+                      setError(err instanceof Error ? err.message : c.sendErrorFallback);
                     } finally {
                       setSubmitting(false);
                     }

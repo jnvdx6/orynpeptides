@@ -237,6 +237,8 @@ const pt = {
     newsletterPlaceholder: "o.seu@email.com",
     newsletterButton: "SUBSCREVER",
     newsletterSuccess: "Obrigado! Está agora subscrito.",
+    newsletterError: "Falha na subscrição",
+    newsletterErrorFallback: "Algo correu mal",
     paymentMethods: "ACEITAMOS",
     sections: {
       products: "Produtos",
@@ -615,6 +617,8 @@ const pt = {
     sendMessage: "ENVIAR MENSAGEM",
     messageSent: "Mensagem Enviada",
     messageSentDescription: "Responderemos em 24 horas.",
+    sendError: "Falha ao enviar a mensagem",
+    sendErrorFallback: "Algo correu mal. Por favor, tente novamente.",
   },
 
   checkoutPage: {

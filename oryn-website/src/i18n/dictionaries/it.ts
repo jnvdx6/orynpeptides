@@ -237,6 +237,8 @@ const it = {
     newsletterPlaceholder: "tua@email.com",
     newsletterButton: "ISCRIVITI",
     newsletterSuccess: "Grazie! Sei ora iscritto.",
+    newsletterError: "Iscrizione non riuscita",
+    newsletterErrorFallback: "Qualcosa è andato storto",
     paymentMethods: "ACCETTIAMO",
     sections: {
       products: "Prodotti",
@@ -615,6 +617,8 @@ const it = {
     sendMessage: "INVIA MESSAGGIO",
     messageSent: "Messaggio Inviato",
     messageSentDescription: "Risponderemo entro 24 ore.",
+    sendError: "Invio del messaggio non riuscito",
+    sendErrorFallback: "Qualcosa è andato storto. Riprova.",
   },
 
   checkoutPage: {

@@ -237,6 +237,8 @@ const nl = {
     newsletterPlaceholder: "uw@email.com",
     newsletterButton: "ABONNEREN",
     newsletterSuccess: "Bedankt! U bent nu geabonneerd.",
+    newsletterError: "Abonnement mislukt",
+    newsletterErrorFallback: "Er is iets misgegaan",
     paymentMethods: "WIJ ACCEPTEREN",
     sections: {
       products: "Producten",
@@ -615,6 +617,8 @@ const nl = {
     sendMessage: "BERICHT VERSTUREN",
     messageSent: "Bericht Verstuurd",
     messageSentDescription: "Wij reageren binnen 24 uur.",
+    sendError: "Bericht verzenden mislukt",
+    sendErrorFallback: "Er is iets misgegaan. Probeer het opnieuw.",
   },
 
   checkoutPage: {
