@@ -199,11 +199,11 @@ export function ProductPageClient() {
               </span>
             </div>
 
-            <p className="text-sm text-oryn-black/40 font-plex mb-6">
+            <p className="text-sm text-oryn-black/40 font-plex mb-4">
               {subtitle}
             </p>
 
-            <div className="flex items-baseline gap-3 mb-3">
+            <div className="flex items-baseline gap-3 mb-2">
               <span className="text-4xl font-bold text-oryn-orange">
                 {formatPrice(product.price)}
               </span>
@@ -218,56 +218,28 @@ export function ProductPageClient() {
             </div>
 
             {/* Delivery estimator */}
-            <div className="mb-6">
+            <div className="mb-4">
               <DeliveryEstimator />
             </div>
 
-            {/* Trust signals */}
-            <div className="flex flex-wrap gap-3 mb-8">
+            {/* Inline trust row — compact, visible above fold on mobile */}
+            <div className="flex flex-wrap gap-x-3 gap-y-1 mb-4">
               {[
+                { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: "GMP" },
+                { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: ">99%" },
+                { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2", label: "Tested" },
                 { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", label: t.productDetail.trustShipping },
-                { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", label: t.productDetail.trustPurity },
-                { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", label: t.productDetail.trustCOA },
               ].map((trust) => (
-                <div key={trust.label} className="flex items-center gap-1.5 px-3 py-1.5 bg-oryn-orange/5 border border-oryn-orange/10">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+                <div key={trust.label} className="flex items-center gap-1">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2" className="shrink-0">
                     <path d={trust.icon} />
                   </svg>
-                  <span className="text-[9px] font-mono text-oryn-black/50 tracking-[0.05em]">{trust.label}</span>
+                  <span className="text-[8px] font-mono text-oryn-black/50 tracking-[0.05em]">{trust.label}</span>
                 </div>
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 mb-8">
-              {[product.dosage, product.volume, t.productCard.purity, t.productCard.pharmaGrade].map((spec) => (
-                <span key={spec} className="px-3 py-1.5 bg-oryn-orange/5 text-[9px] font-mono text-oryn-orange tracking-[0.1em] border border-oryn-orange/10">
-                  {spec}
-                </span>
-              ))}
-            </div>
-
-            {/* Quick selling points */}
-            {detail?.sellingPoints && (
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {detail.sellingPoints.map((sp) => (
-                  <div key={sp.title} className="flex items-start gap-2 p-3 bg-oryn-orange/5 border border-oryn-orange/10">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0 mt-0.5">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                      <p className="text-[10px] font-bold tracking-wide">{sp.title}</p>
-                      <p className="text-[9px] text-oryn-black/40 font-plex">{sp.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <p className="text-xs text-oryn-black/50 font-plex leading-relaxed mb-8">
-              {description}
-            </p>
-
-            {/* Quantity + Add to cart */}
+            {/* Quantity + Add to cart — positioned early for mobile above-fold */}
             <div className="space-y-3 mb-3">
               <div className="flex gap-3">
                 <div className="flex items-center border border-oryn-grey/30">
@@ -447,6 +419,77 @@ export function ProductPageClient() {
                 <span className="text-[8px] text-oryn-black/30 font-plex">SSL encrypted &middot; PCI DSS compliant &middot; 256-bit security</span>
               </div>
             </div>
+
+            {/* Trust signals — full detail grid (below CTA) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
+              {[
+                { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", check: "M9 12l2 2 4-4", label: "GMP Certified" },
+                { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", check: "", label: ">99% Purity" },
+                { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2", check: "M9 14l2 2 4-4", label: "3rd Party Tested" },
+                { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 7h1m4 0h1M9 11h1m4 0h1M9 15h1m4 0h1", check: "", label: "ISO 7 Cleanroom" },
+                { icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", check: "", label: t.productDetail.trustShipping },
+                { icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9", check: "", label: "Made in South Korea" },
+              ].map((trust) => (
+                <div key={trust.label} className="flex items-center gap-2 px-3 py-2 bg-oryn-orange/5 border border-oryn-orange/10">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
+                    <path d={trust.icon} />
+                    {trust.check && <path d={trust.check} />}
+                  </svg>
+                  <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] leading-tight">{trust.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* COA Download */}
+            <a
+              href={`/coa/${product.slug}-coa.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 px-4 py-2.5 mb-6 border border-oryn-orange/20 bg-oryn-orange/5 hover:bg-oryn-orange/10 transition-colors group"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <polyline points="9 15 12 18 15 15" />
+              </svg>
+              <div>
+                <span className="text-[10px] font-mono text-oryn-orange tracking-[0.1em] group-hover:underline">
+                  {t.productDetail.trustCOA} — DOWNLOAD PDF
+                </span>
+                <span className="block text-[8px] text-oryn-black/30 font-plex">Certificate of Analysis &middot; Batch verified</span>
+              </div>
+            </a>
+
+            {/* Spec tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {[product.dosage, product.volume, t.productCard.purity, t.productCard.pharmaGrade].map((spec) => (
+                <span key={spec} className="px-3 py-1.5 bg-oryn-orange/5 text-[9px] font-mono text-oryn-orange tracking-[0.1em] border border-oryn-orange/10">
+                  {spec}
+                </span>
+              ))}
+            </div>
+
+            {/* Quick selling points */}
+            {detail?.sellingPoints && (
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {detail.sellingPoints.map((sp) => (
+                  <div key={sp.title} className="flex items-start gap-2 p-3 bg-oryn-orange/5 border border-oryn-orange/10">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="1.5" className="shrink-0 mt-0.5">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p className="text-[10px] font-bold tracking-wide">{sp.title}</p>
+                      <p className="text-[9px] text-oryn-black/40 font-plex">{sp.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <p className="text-xs text-oryn-black/50 font-plex leading-relaxed mb-6">
+              {description}
+            </p>
 
             {/* Share buttons */}
             <div className="mb-8">
