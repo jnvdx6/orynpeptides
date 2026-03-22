@@ -1,28 +1,6 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-namespace */
-declare global {
-  interface Window {
-    google?: typeof google;
-  }
-  namespace google.maps {
-    interface GeocoderAddressComponent {
-      long_name: string;
-      short_name: string;
-      types: string[];
-    }
-    namespace event {
-      function clearInstanceListeners(instance: unknown): void;
-    }
-    namespace places {
-      class Autocomplete {
-        constructor(input: HTMLInputElement, opts?: Record<string, unknown>);
-        addListener(event: string, handler: () => void): void;
-        getPlace(): { address_components?: GeocoderAddressComponent[]; formatted_address?: string };
-      }
-    }
-  }
-}
+/// <reference types="google.maps" />
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
