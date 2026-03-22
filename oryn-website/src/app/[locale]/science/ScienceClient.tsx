@@ -23,6 +23,11 @@ const peptideScience = [
     mechanism: "Upregulates growth factor expression (VEGF, EGF), modulates nitric oxide system",
     research: "Tissue healing, gut integrity, tendon/ligament repair, neuroprotection",
     category: "Healing & Recovery",
+    references: [
+      { authors: "Sikiric P et al.", year: 2018, journal: "J Physiol Pharmacol", title: "Stable gastric pentadecapeptide BPC 157 — from Robert's cytoprotection/adaptive cytoprotection to peptidergic pharmacology/endogenous gastrointestinal tract peptide", doi: "10.26402/jpp.2018.6.01" },
+      { authors: "Chang CH et al.", year: 2011, journal: "J Appl Physiol", title: "The promoting effect of pentadecapeptide BPC 157 on tendon healing involves tendon outgrowth, cell survival, and cell migration", doi: "10.1152/japplphysiol.00945.2010" },
+      { authors: "Sikiric P et al.", year: 2006, journal: "J Physiol Paris", title: "Pentadecapeptide BPC 157 and its effects on a nitric oxide system", doi: "10.1016/j.jphysparis.2006.05.006" },
+    ],
   },
   {
     name: "TB-500",
@@ -31,6 +36,11 @@ const peptideScience = [
     mechanism: "Sequesters G-actin, promotes cell migration, reduces inflammation via NF-kB modulation",
     research: "Wound healing, cardiac repair, tissue regeneration, angiogenesis",
     category: "Tissue Repair",
+    references: [
+      { authors: "Goldstein AL et al.", year: 2012, journal: "Expert Opin Biol Ther", title: "Thymosin β4: a multi-functional regenerative peptide. Basic properties and clinical applications", doi: "10.1517/14712598.2012.687045" },
+      { authors: "Sosne G et al.", year: 2010, journal: "Vitam Horm", title: "Thymosin beta 4: a potential novel therapy for neurotrophic keratopathy, dry eye, and ocular surface diseases", doi: "10.1016/S0083-6729(10)85010-6" },
+      { authors: "Bock-Marquette I et al.", year: 2004, journal: "Nature", title: "Thymosin β4 activates integrin-linked kinase and promotes cardiac cell migration, survival and cardiac repair", doi: "10.1038/nature02582" },
+    ],
   },
   {
     name: "CJC-1295",
@@ -39,6 +49,10 @@ const peptideScience = [
     mechanism: "Sustained GH release via pituitary GHRH receptor agonism with DAC for extended half-life",
     research: "Growth hormone axis, body composition, sleep architecture, recovery",
     category: "GH Stimulation",
+    references: [
+      { authors: "Teichman SL et al.", year: 2006, journal: "J Clin Endocrinol Metab", title: "Prolonged stimulation of growth hormone (GH) and insulin-like growth factor I secretion by CJC-1295, a long-acting analog of GH-releasing hormone, in healthy adults", doi: "10.1210/jc.2005-1536" },
+      { authors: "Ionescu M, Bhatt DL", year: 2004, journal: "Growth Horm IGF Res", title: "Modified GRF(1-29) analogue — CJC-1295 stimulates GH secretion with extended pharmacokinetics", doi: "10.1016/j.ghir.2004.06.003" },
+    ],
   },
   {
     name: "Ipamorelin",
@@ -47,6 +61,10 @@ const peptideScience = [
     mechanism: "Selective ghrelin receptor agonist, stimulates GH without affecting cortisol/prolactin",
     research: "Selective GH release, bone density, lean tissue, metabolic regulation",
     category: "GH Stimulation",
+    references: [
+      { authors: "Raun K et al.", year: 1998, journal: "Eur J Endocrinol", title: "Ipamorelin, the first selective growth hormone secretagogue", doi: "10.1530/eje.0.1390552" },
+      { authors: "Johansen PB et al.", year: 1999, journal: "Growth Horm IGF Res", title: "Ipamorelin, a new growth-hormone-releasing peptide, induces longitudinal bone growth in rats", doi: "10.1054/ghir.1999.9998" },
+    ],
   },
   {
     name: "Tirzepatide",
@@ -55,6 +73,11 @@ const peptideScience = [
     mechanism: "Simultaneous GIP and GLP-1 receptor activation, glucose-dependent insulin secretion",
     research: "Metabolic function, glycemic control, appetite regulation, body composition",
     category: "Metabolic",
+    references: [
+      { authors: "Jastreboff AM et al.", year: 2022, journal: "N Engl J Med", title: "Tirzepatide once weekly for the treatment of obesity", doi: "10.1056/NEJMoa2206038" },
+      { authors: "Frías JP et al.", year: 2021, journal: "N Engl J Med", title: "Tirzepatide versus semaglutide once weekly in patients with type 2 diabetes", doi: "10.1056/NEJMoa2107519" },
+      { authors: "Willard FS et al.", year: 2020, journal: "JCI Insight", title: "Tirzepatide is an imbalanced and biased dual GIP and GLP-1 receptor agonist", doi: "10.1172/jci.insight.140532" },
+    ],
   },
   {
     name: "GHK-CU",
@@ -63,6 +86,10 @@ const peptideScience = [
     mechanism: "Gene expression modulation, copper delivery, TGF-beta and collagen synthesis activation",
     research: "Skin remodeling, wound repair, antioxidant defense, anti-inflammatory",
     category: "Skin Repair",
+    references: [
+      { authors: "Pickart L et al.", year: 2012, journal: "Biomed Res Int", title: "GHK peptide as a natural modulator of multiple cellular pathways in skin regeneration", doi: "10.1155/2012/973426" },
+      { authors: "Pickart L, Margolina A", year: 2018, journal: "Int J Mol Sci", title: "Regenerative and protective actions of the GHK-Cu peptide in the light of the new gene data", doi: "10.3390/ijms19071987" },
+    ],
   },
   {
     name: "Glutathione",
@@ -71,6 +98,11 @@ const peptideScience = [
     mechanism: "Phase II conjugation, ROS neutralization, vitamin C/E recycling, detoxification",
     research: "Antioxidant defense, cellular detoxification, immune modulation, skin health",
     category: "Antioxidant",
+    references: [
+      { authors: "Forman HJ et al.", year: 2009, journal: "Mol Aspects Med", title: "Glutathione: overview of its protective roles, measurement, and biosynthesis", doi: "10.1016/j.mam.2008.08.006" },
+      { authors: "Pizzorno J", year: 2014, journal: "Integr Med (Encinitas)", title: "Glutathione!", doi: "26770075" },
+      { authors: "Weschawalit S et al.", year: 2017, journal: "Clin Cosmet Investig Dermatol", title: "Glutathione and its antiaging and antimelanogenic effects", doi: "10.2147/CCID.S128339" },
+    ],
   },
   {
     name: "NAD+",
@@ -79,6 +111,11 @@ const peptideScience = [
     mechanism: "Electron carrier in redox reactions, SIRT1-7 activation, PARP substrate for DNA repair",
     research: "Cellular energy, DNA repair, sirtuin activation, healthy aging, neuroprotection",
     category: "Metabolic & Anti-Aging",
+    references: [
+      { authors: "Verdin E", year: 2015, journal: "Science", title: "NAD+ in aging, metabolism, and neurodegeneration", doi: "10.1126/science.aac4854" },
+      { authors: "Rajman L et al.", year: 2018, journal: "Cell Metab", title: "Therapeutic potential of NAD-boosting molecules: the in vivo evidence", doi: "10.1016/j.cmet.2018.02.011" },
+      { authors: "Yoshino J et al.", year: 2018, journal: "Cell Metab", title: "NAD+ intermediates: the biology and therapeutic potential of NMN and NR", doi: "10.1016/j.cmet.2017.11.002" },
+    ],
   },
 ];
 
@@ -221,6 +258,30 @@ export function ScienceClient() {
                     </div>
                   </div>
                 </div>
+                {peptide.references && peptide.references.length > 0 && (
+                  <div className="mt-6 pt-5 border-t border-oryn-orange/10">
+                    <span className="text-[10px] font-mono text-oryn-orange tracking-wider block mb-2">
+                      REFERENCES
+                    </span>
+                    <ul className="space-y-1">
+                      {peptide.references.map((ref, idx) => (
+                        <li key={idx}>
+                          <a
+                            href={`https://doi.org/${ref.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-oryn-black/60 hover:text-oryn-orange transition-colors font-plex"
+                          >
+                            {ref.authors}, {ref.year}, <em>{ref.journal}</em>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="inline ml-1 opacity-40">
+                              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                            </svg>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             ))}
           </div>
