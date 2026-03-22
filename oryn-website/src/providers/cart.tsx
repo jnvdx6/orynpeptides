@@ -271,8 +271,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
               if (medusaProducts?.[0]?.variants?.[0]?.id) {
                 resolvedVariantId = medusaProducts[0].variants[0].id;
               }
-            } catch {
-              // Variant resolution failed, will use local fallback
+            } catch (err) {
+              console.error("[ORYN Cart] Variant resolution failed:", err instanceof Error ? err.message : err);
             }
           }
 
@@ -290,7 +290,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
               return; // Success — Medusa is source of truth
             }
           }
-        } catch {
+        } catch (err) {
+          console.error("[ORYN Cart] Medusa add-to-cart failed:", err instanceof Error ? err.message : err);
           // Falls through to local state fallback
         }
       }
@@ -333,8 +334,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
             );
             setCart(updatedCart as unknown as MedusaCart);
             return;
-          } catch {
-            // Falls through to local state fallback
+          } catch (err) {
+            console.error("[ORYN Cart] Remove item failed:", err instanceof Error ? err.message : err);
           }
         }
       }
@@ -368,8 +369,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
             );
             setCart(updatedCart as unknown as MedusaCart);
             return;
-          } catch {
-            // Falls through to local state fallback
+          } catch (err) {
+            console.error("[ORYN Cart] Update quantity failed:", err instanceof Error ? err.message : err);
           }
         }
       }
@@ -398,8 +399,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       try {
         const { cart: updatedCart } = await sdk.store.cart.update(cart.id, { email });
         setCart(updatedCart as unknown as MedusaCart);
-      } catch {
-        // Silent fail — email will be set on next attempt
+      } catch (err) {
+        console.error("[ORYN Cart] Set email failed:", err instanceof Error ? err.message : err);
       }
     },
     [cart, medusaConnected]
@@ -415,7 +416,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           address_1: address.address,
           city: address.city,
           postal_code: address.postalCode,
-          country_code: address.country?.toLowerCase() || "es",
+          country_code: address.country?.toLowerCase() || "gb",
           phone: address.phone,
         };
         const { cart: updatedCart } = await sdk.store.cart.update(cart.id, {
@@ -426,8 +427,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         // Update PostHog with real shipping country for geo segmentation
         const countryCode = address.country?.toUpperCase();
         if (countryCode) updateGeoFromShipping(countryCode);
-      } catch {
-        // Silent fail — address will be set on next attempt
+      } catch (err) {
+        console.error("[ORYN Cart] Set address failed:", err instanceof Error ? err.message : err);
       }
     },
     [cart, medusaConnected]
@@ -442,8 +443,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
           { option_id: optionId }
         );
         setCart(updatedCart as unknown as MedusaCart);
-      } catch {
-        // Silent fail — shipping method selection won't persist
+      } catch (err) {
+        console.error("[ORYN Cart] Add shipping method failed:", err instanceof Error ? err.message : err);
       }
     },
     [cart, medusaConnected]
@@ -460,8 +461,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         });
         const { cart: updatedCart } = await sdk.store.cart.retrieve(cart.id);
         setCart(updatedCart as unknown as MedusaCart);
-      } catch {
-        // Payment session init failed
+      } catch (err) {
+        console.error("[ORYN Cart] Payment session init failed:", err instanceof Error ? err.message : err);
       } finally {
         setLoading(false);
       }
@@ -480,7 +481,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         clearCart();
       }
       return result as { type: string; order?: unknown; cart?: unknown };
-    } catch {
+    } catch (err) {
+      console.error("[ORYN Cart] Complete cart failed:", err instanceof Error ? err.message : err);
       return { type: "error" };
     } finally {
       setLoading(false);
@@ -496,7 +498,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
           .then(({ cart: updatedCart }) => {
             setCart(updatedCart as unknown as MedusaCart);
           })
-          .catch(() => {});
+          .catch((err: unknown) => console.error("[ORYN Cart] Apply promo failed:", err instanceof Error ? err.message : err));
       }
     },
     [cart, medusaConnected]
