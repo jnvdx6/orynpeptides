@@ -7,6 +7,7 @@ import { useWishlist } from "@/providers/wishlist";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { BNPLMessage } from "@/components/ui/BNPLMessage";
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { usePageTracking } from "@/hooks/usePageTracking";
@@ -227,10 +228,13 @@ export default function CartPage() {
               <div className="mb-4">
                 <PromoCodeInput />
               </div>
-              <div className="border-t border-oryn-grey/30 pt-4 mb-6">
+              <div className="border-t border-oryn-grey/30 pt-4 mb-4">
                 <div className="flex justify-between text-lg font-bold">
                   <span>{t.cart.total}</span>
                   <span>{formatPrice(finalPrice)}</span>
+                </div>
+                <div className="mt-2">
+                  <BNPLMessage price={finalPrice} />
                 </div>
               </div>
               <Link

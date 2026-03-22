@@ -12,6 +12,7 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { getProductDetail } from "@/data/product-details";
 import { SellingPoints } from "@/components/product/SellingPoints";
+import { BNPLMessage } from "@/components/ui/BNPLMessage";
 import { PenAdvantage } from "@/components/product/PenAdvantage";
 import { DosingGuide } from "@/components/product/DosingGuide";
 import { ProductScience } from "@/components/product/ProductScience";
@@ -203,11 +204,14 @@ export function ProductPageClient() {
               {subtitle}
             </p>
 
-            <div className="flex items-baseline gap-3 mb-3">
+            <div className="flex items-baseline gap-3 mb-1">
               <span className="text-4xl font-bold text-oryn-orange">
                 {formatPrice(product.price)}
               </span>
               <span className="text-xs text-oryn-black/30 font-plex font-normal">{t.productDetail.perUnit}</span>
+            </div>
+            <div className="mb-3">
+              <BNPLMessage price={product.price} />
             </div>
 
             {/* Stock indicator */}
@@ -721,10 +725,7 @@ export function ProductPageClient() {
         <div className="flex items-center gap-2.5">
           <div className="shrink-0">
             <span className="text-lg font-bold text-oryn-orange leading-none">{formatPrice(product.price)}</span>
-            <div className="flex items-center gap-1 mt-0.5">
-              <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-              <span className="text-[8px] text-green-600 font-mono">{t.productDetail.inStock}</span>
-            </div>
+            <BNPLMessage price={product.price} compact />
           </div>
           <div className="flex items-center border border-oryn-grey/30 shrink-0">
             <button

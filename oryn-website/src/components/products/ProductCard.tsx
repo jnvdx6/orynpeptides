@@ -9,6 +9,7 @@ import { useWishlist } from "@/providers/wishlist";
 import { useCompare } from "@/providers/compare";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
+import { BNPLMessage } from "@/components/ui/BNPLMessage";
 
 // Product.image is now populated by ProductsProvider (Medusa thumbnail or static fallback)
 
@@ -168,7 +169,10 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-oryn-orange/10">
-          <span className="text-lg sm:text-xl font-bold text-oryn-orange">{formatPrice(product.price)}</span>
+          <div>
+            <span className="text-lg sm:text-xl font-bold text-oryn-orange">{formatPrice(product.price)}</span>
+            <BNPLMessage price={product.price} compact />
+          </div>
           <button
             onClick={(e) => {
               e.preventDefault();

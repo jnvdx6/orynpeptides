@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import StripeCheckout from "@/components/checkout/StripeCheckout";
 import { OrderBump } from "@/components/checkout/OrderBump";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
+import { BNPLMessage } from "@/components/ui/BNPLMessage";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
 import AddressAutocomplete from "@/components/checkout/AddressAutocomplete";
@@ -1332,6 +1333,9 @@ function OrderSummary({
         <div className="flex justify-between text-base font-bold pt-3 border-t border-oryn-grey/20">
           <span>Total</span>
           <span>{formatPrice(finalTotal)}</span>
+        </div>
+        <div className="mt-2">
+          <BNPLMessage price={finalTotal} />
         </div>
       </div>
 
