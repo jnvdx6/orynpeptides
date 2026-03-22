@@ -1,11 +1,11 @@
 "use client";
 
 import { useCart } from "@/lib/cart-context";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import StripeCheckout from "@/components/checkout/StripeCheckout";
 import { OrderBump } from "@/components/checkout/OrderBump";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
@@ -16,6 +16,7 @@ import { sdk } from "@/lib/medusa";
 import { productImages } from "@/data/products";
 import { trackCheckoutStep, trackCheckoutStarted, trackPurchase, trackPromoApplied, trackPaymentInfoEntered } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { getCapturedPromoCode, clearCapturedPromoCode } from "@/hooks/usePromoCapture";
 
 type CheckoutStep = "information" | "shipping" | "payment";
 
@@ -155,6 +156,78 @@ export default function CheckoutPage() {
     }
     return "";
   });
+
+  // Auto-apply promo code from URL params (?promo=CODE)
+  const searchParams = useSearchParams();
+  const [autoPromoMessage, setAutoPromoMessage] = useState("");
+  const autoPromoAttempted = useRef(false);
+
+  useEffect(() => {
+    if (autoPromoAttempted.current) return;
+    if (!cartLoaded || items.length === 0) return;
+    if (appliedPromotion) return; // Already has a promo applied
+
+    // Check URL param first, then localStorage
+    const promoParam = searchParams.get("promo") || getCapturedPromoCode();
+    if (!promoParam) return;
+
+    autoPromoAttempted.current = true;
+    const code = promoParam.trim().toUpperCase();
+    clearCapturedPromoCode();
+
+    handleApplyPromoFromUrl(code);
+  }, [searchParams, cartLoaded, items.length, appliedPromotion]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleApplyPromoFromUrl = async (code: string) => {
+    setPromoLoading(true);
+    setPromoError("");
+
+    try {
+      if (medusaConnected && cart) {
+        try {
+          await sdk.store.cart.update(cart.id, { promo_codes: [code] });
+          await refreshCart();
+          const discountTotal = (cart.discount_total as number) || 0;
+          if (discountTotal > 0) {
+            applyPromotion({
+              code,
+              label: code,
+              discountAmount: discountTotal,
+              discountType: "fixed",
+              discountValue: discountTotal,
+            });
+            trackPromoApplied(code, "fixed", discountTotal);
+            setAutoPromoMessage(code);
+            setPromoLoading(false);
+            return;
+          }
+        } catch {
+          // Fall through to local validation
+        }
+      }
+
+      const res = await fetch("/api/promotions/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code, subtotal: totalPrice, productIds: items.map((i) => i.product.id) }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        applyPromotion({
+          code: data.promotion.code,
+          label: data.promotion.label,
+          discountAmount: data.discountAmount,
+          discountType: data.promotion.discountType,
+          discountValue: data.promotion.discountValue,
+        });
+        trackPromoApplied(code, data.promotion.discountType, data.discountAmount);
+        setAutoPromoMessage(code);
+      }
+    } catch {
+      // Silent fail for auto-apply
+    }
+    setPromoLoading(false);
+  };
 
   // Pre-fill email for logged-in users
   useEffect(() => {
@@ -551,6 +624,30 @@ export default function CheckoutPage() {
           </div>
         </div>
       </div>
+
+      {/* Auto-applied promo banner */}
+      {autoPromoMessage && (
+        <div className="bg-emerald-50 border-b border-emerald-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span className="text-sm font-medium text-emerald-700">
+                Promo code <span className="font-mono font-bold">{autoPromoMessage}</span> applied!
+              </span>
+            </div>
+            <button
+              onClick={() => setAutoPromoMessage("")}
+              className="text-emerald-400 hover:text-emerald-600 transition-colors"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Step indicator */}
       <div className="border-b border-oryn-grey/10">
