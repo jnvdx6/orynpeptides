@@ -65,7 +65,7 @@ export function SocialProofToast() {
   if (!show || !data) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 z-30 animate-slide-in-left hidden lg:block pointer-events-none">
+    <div className="fixed bottom-24 left-4 lg:bottom-4 z-30 animate-slide-in-left block pointer-events-none">
       <div className="bg-white/95 backdrop-blur-sm border border-oryn-grey/20 shadow-lg p-3 flex items-center gap-3 max-w-[260px] pointer-events-auto">
         <div className="w-10 h-10 bg-oryn-cream flex items-center justify-center shrink-0">
           <Image

@@ -12,11 +12,11 @@ export function HeroSection() {
  <section className="relative min-h-screen flex items-center overflow-hidden bg-oryn-gradient-radial">
  <div className="absolute inset-0 bg-molecular-grid-orange" />
 
- <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-28 sm:pt-32 pb-16 sm:pb-20 w-full">
+ <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 w-full">
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
  {/* --- LEFT: Copy & CTA --- */}
- <div className="order-2 lg:order-1">
+ <div className="order-1">
  <div className="inline-flex items-center gap-3 mb-5 sm:mb-6">
  <div className="w-8 h-px bg-white/40" />
  <span className="text-[10px] font-mono text-white/70 tracking-[0.2em]">
@@ -90,7 +90,7 @@ export function HeroSection() {
  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/70 shrink-0">
  <path d={trust.icon} />
  </svg>
- <span className="text-[9px] font-mono text-white/70 tracking-[0.1em] whitespace-nowrap">{trust.label}</span>
+ <span className="text-[10px] sm:text-[9px] font-mono text-white/70 tracking-[0.1em] whitespace-nowrap">{trust.label}</span>
  </Link>
  ))}
  </div>
@@ -114,7 +114,7 @@ export function HeroSection() {
  </div>
 
  {/* --- RIGHT: Product image --- */}
- <div className="relative order-1 lg:order-2 flex items-center justify-center py-8 lg:py-0">
+ <div className="relative order-2 flex items-center justify-center py-8 lg:py-0">
  {/* Decorative glow behind product */}
  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
  <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-white/5 blur-3xl" />

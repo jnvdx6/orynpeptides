@@ -173,7 +173,7 @@ export default function CheckoutPage() {
   const [orderComplete, setOrderComplete] = useState(false);
 
   // Mobile summary toggle
-  const [showMobileSummary, setShowMobileSummary] = useState(false);
+  const [showMobileSummary, setShowMobileSummary] = useState(true);
 
   // Currency-aware free shipping threshold
   const freeShippingThreshold = getFreeShippingThreshold(currencyCode);
@@ -304,6 +304,7 @@ export default function CheckoutPage() {
 
       setCompletedSteps((prev) => new Set([...prev, "information"]));
       setActiveStep("shipping");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       trackCheckoutStep("shipping", { item_count: totalItems, total: totalPrice });
       await fetchShippingOptions();
     } catch (err) {
@@ -330,6 +331,7 @@ export default function CheckoutPage() {
 
       setCompletedSteps((prev) => new Set([...prev, "shipping"]));
       setActiveStep("payment");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       trackCheckoutStep("payment", { item_count: totalItems, total: finalPrice, shipping_cost: shippingCost });
       trackPaymentInfoEntered("stripe");
     } catch (err) {

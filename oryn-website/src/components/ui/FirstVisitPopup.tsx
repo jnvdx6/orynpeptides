@@ -21,7 +21,7 @@ export function FirstVisitPopup() {
       setShow(true);
       localStorage.setItem(FIRST_VISIT_KEY, "1");
       trackPopupShown("first_visit");
-    }, 8000); // Show after 8 seconds of browsing
+    }, 30000);
 
     return () => clearTimeout(timer);
   }, []);

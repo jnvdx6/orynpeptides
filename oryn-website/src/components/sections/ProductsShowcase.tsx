@@ -12,7 +12,7 @@ export function ProductsShowcase() {
  const featured = products.filter((p) => p.badge);
 
  return (
- <section className="py-28 bg-oryn-cream">
+ <section className="py-12 md:py-20 lg:py-28 bg-oryn-cream">
  <div className="max-w-7xl mx-auto px-6">
  <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16">
  <div>

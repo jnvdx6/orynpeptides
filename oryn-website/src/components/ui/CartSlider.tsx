@@ -201,7 +201,7 @@ export function CartSlider() {
                             trackQuantityChanged({ name: item.product.name, slug: item.product.slug, price: item.product.price, oldQuantity: item.quantity, newQuantity: item.quantity - 1 });
                             updateQuantity(item.product.id, item.quantity - 1);
                           }}
-                          className="w-9 h-9 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95"
+                          className="w-11 h-11 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95"
                           aria-label={t.productDetail.decreaseQuantity}
                         >
                           -
@@ -215,7 +215,7 @@ export function CartSlider() {
                             updateQuantity(item.product.id, item.quantity + 1);
                           }}
                           disabled={item.quantity >= 10}
-                          className="w-9 h-9 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95 disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
+                          className="w-11 h-11 bg-oryn-grey/40 flex items-center justify-center text-sm hover:bg-oryn-orange hover:text-white transition-colors active:scale-95 disabled:opacity-30 disabled:hover:bg-oryn-grey/40 disabled:hover:text-current"
                           aria-label={t.productDetail.increaseQuantity}
                         >
                           +
@@ -293,7 +293,7 @@ export function CartSlider() {
 
         {/* Footer */}
         {items.length > 0 && (
-          <div className="px-6 py-5 border-t border-oryn-grey/30 space-y-4">
+          <div className="px-6 py-5 border-t border-oryn-grey/30 space-y-4 pb-[env(safe-area-inset-bottom)]">
             <div className="flex items-center justify-between">
               <span className="text-sm text-oryn-black/60">{t.cart.subtotal}</span>
               <span className={`text-lg font-bold ${(appliedPromotion || volumeDiscount) ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
@@ -359,19 +359,19 @@ export function CartSlider() {
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="1.5">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
-                <span className="text-[8px] text-oryn-black/30 font-mono">{t.cart.trustSecure}</span>
+                <span className="text-[10px] text-oryn-black/30 font-mono">{t.cart.trustSecure}</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="1.5">
                   <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
-                <span className="text-[8px] text-oryn-black/30 font-mono">{t.cart.trustDiscreet}</span>
+                <span className="text-[10px] text-oryn-black/30 font-mono">{t.cart.trustDiscreet}</span>
               </div>
               <div className="flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="1.5">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-[8px] text-oryn-black/30 font-mono">{t.cart.trustCOA}</span>
+                <span className="text-[10px] text-oryn-black/30 font-mono">{t.cart.trustCOA}</span>
               </div>
             </div>
             <p className="text-[10px] text-oryn-black/30 text-center font-mono">

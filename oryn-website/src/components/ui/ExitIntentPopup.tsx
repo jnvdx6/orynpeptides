@@ -33,14 +33,35 @@ export function ExitIntentPopup() {
       }
     };
 
+    // Mobile: detect scroll-up reversal after scrolling 60%+ of page
+    const isMobile = window.innerWidth < 1024;
+    let lastScrollY = window.scrollY;
+    let hasScrolledDeep = false;
+
+    const handleMobileScrollExit = () => {
+      const scrollDepth = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      if (scrollDepth > 0.6) hasScrolledDeep = true;
+      if (hasScrolledDeep && window.scrollY < lastScrollY - 100 && window.scrollY < document.body.scrollHeight * 0.3) {
+        setShow(true);
+        trackExitIntentShown();
+        window.removeEventListener("scroll", handleMobileScrollExit);
+      }
+      lastScrollY = window.scrollY;
+    };
+
     // Delay adding listener to avoid triggering immediately
     const timer = setTimeout(() => {
-      document.addEventListener("mouseleave", handleMouseLeave);
-    }, 5000);
+      if (isMobile) {
+        window.addEventListener("scroll", handleMobileScrollExit, { passive: true });
+      } else {
+        document.addEventListener("mouseleave", handleMouseLeave);
+      }
+    }, 10000);
 
     return () => {
       clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", handleMobileScrollExit);
     };
   }, [show]);
 
