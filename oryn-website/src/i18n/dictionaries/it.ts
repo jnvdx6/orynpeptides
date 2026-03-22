@@ -1372,6 +1372,9 @@ const it = {
     off: "{percent}% DI SCONTO",
     active: "ATTIVO",
     unlockMore: "Aggiungi {count} altro articolo per sbloccare il {percent}% di sconto!",
+    maxTierReached: "Livello massimo di sconto quantità raggiunto!",
+    eligible: "IDONEO",
+    comingSoon: "Gli sconti quantità arriveranno presto. Aggiungi più articoli per essere pronto!",
   },
 
   frequentlyBought: {

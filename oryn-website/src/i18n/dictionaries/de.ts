@@ -1372,6 +1372,9 @@ const de = {
     off: "{percent}% RABATT",
     active: "AKTIV",
     unlockMore: "Noch {count} Artikel hinzufügen, um {percent}% Rabatt freizuschalten!",
+    maxTierReached: "Maximale Mengenrabattstufe erreicht!",
+    eligible: "BERECHTIGT",
+    comingSoon: "Mengenrabatte kommen bald. Fügen Sie weitere Artikel hinzu!",
   },
 
   frequentlyBought: {

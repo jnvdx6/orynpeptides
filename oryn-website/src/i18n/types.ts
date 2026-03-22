@@ -729,6 +729,9 @@ export interface Dictionary {
     off: string;
     active: string;
     unlockMore: string;
+    maxTierReached: string;
+    eligible: string;
+    comingSoon: string;
   };
 
   frequentlyBought: {

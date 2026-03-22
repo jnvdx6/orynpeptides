@@ -1372,6 +1372,9 @@ const pl = {
     off: "{percent}% ZNIŻKI",
     active: "AKTYWNY",
     unlockMore: "Dodaj jeszcze {count} produkt, aby odblokować {percent}% zniżki!",
+    maxTierReached: "Osiągnięto maksymalny poziom rabatu ilościowego!",
+    eligible: "KWALIFIKUJE SIĘ",
+    comingSoon: "Rabaty ilościowe już wkrótce. Dodaj więcej produktów!",
   },
 
   frequentlyBought: {

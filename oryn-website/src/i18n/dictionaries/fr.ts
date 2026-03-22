@@ -1372,6 +1372,9 @@ const fr = {
     off: "{percent}% DE REMISE",
     active: "ACTIF",
     unlockMore: "Ajoutez {count} article(s) de plus pour débloquer {percent}% de remise !",
+    maxTierReached: "Niveau maximum de remise volume atteint !",
+    eligible: "ÉLIGIBLE",
+    comingSoon: "Les remises volume arrivent bientôt. Ajoutez plus d'articles pour être prêt !",
   },
 
   frequentlyBought: {

@@ -99,7 +99,6 @@ export default function CheckoutPage() {
     applyPromotion,
     removePromotion,
     discountedPrice,
-    volumeDiscount,
     finalPrice,
     cart,
     medusaConnected,
@@ -592,7 +591,6 @@ export default function CheckoutPage() {
               items={items}
               totalPrice={totalPrice}
               discountedPrice={discountedPrice}
-              volumeDiscount={volumeDiscount}
               shippingCost={shippingCost}
               finalTotal={finalTotal}
               appliedPromotion={appliedPromotion}
@@ -1133,7 +1131,6 @@ export default function CheckoutPage() {
                 items={items}
                 totalPrice={totalPrice}
                 discountedPrice={discountedPrice}
-                volumeDiscount={volumeDiscount}
                 shippingCost={shippingCost}
                 finalTotal={finalTotal}
                 appliedPromotion={appliedPromotion}
@@ -1164,7 +1161,6 @@ function OrderSummary({
   items,
   totalPrice,
   discountedPrice,
-  volumeDiscount,
   shippingCost,
   finalTotal,
   appliedPromotion,
@@ -1185,7 +1181,6 @@ function OrderSummary({
   items: Array<{ product: { id: string; name: string; slug: string; category: string; image: string; price: number }; quantity: number }>;
   totalPrice: number;
   discountedPrice: number;
-  volumeDiscount: { discount: number; tier: { percentage: number; label: string; minItems: number } } | null;
   shippingCost: number;
   finalTotal: number;
   appliedPromotion: { code: string; label: string; discountAmount: number } | null;
@@ -1323,15 +1318,7 @@ function OrderSummary({
             <span className="text-oryn-orange">-{formatPrice(appliedPromotion.discountAmount)}</span>
           </div>
         )}
-        {volumeDiscount && (
-          <div className="flex justify-between text-sm">
-            <div className="flex items-center gap-1.5">
-              <span className="text-green-600">{t.checkoutPage.volumeDiscountLabel}</span>
-              <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
-            </div>
-            <span className="text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
-          </div>
-        )}
+        {/* Volume discount is informational only — not applied to total */}
         <div className="flex justify-between text-sm">
           <span className="text-oryn-black/50">{t.checkoutPage.shipping}</span>
           <span>

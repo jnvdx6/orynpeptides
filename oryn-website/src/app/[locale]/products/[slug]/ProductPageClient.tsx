@@ -28,7 +28,6 @@ import { ReviewForm } from "@/components/product/ReviewForm";
 import { ProductVideo } from "@/components/product/ProductVideo";
 import { trackProductView } from "@/lib/analytics";
 import { usePageTracking } from "@/hooks/usePageTracking";
-import { ProductExpressCheckout } from "@/components/product/ProductExpressCheckout";
 
 export function ProductPageClient() {
   const params = useParams();
@@ -363,15 +362,6 @@ export function ProductPageClient() {
                   </>
                 )}
               </button>
-            </div>
-
-            {/* Express checkout — Apple Pay, Google Pay, etc. */}
-            <div className="mb-3">
-              <ProductExpressCheckout
-                product={{ id: product.id, name: product.name, price: product.price, slug: product.slug }}
-                quantity={quantity}
-                dividerLabel={t.productDetail.orPayInstantly}
-              />
             </div>
 
             {/* Security reassurance */}

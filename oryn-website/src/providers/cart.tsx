@@ -206,9 +206,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (storedCartId) {
         try {
           const { cart: existingCart } = await sdk.store.cart.retrieve(storedCartId);
-          setCart(existingCart as unknown as MedusaCart);
+          const typedCart = existingCart as unknown as MedusaCart;
+          setCart(typedCart);
           setMedusaConnected(true);
-          return existingCart as unknown as MedusaCart;
+          // Restore promo state if Medusa cart has an active discount
+          if (typedCart.discount_total && typedCart.discount_total > 0) {
+            setAppliedPromotion((prev) => prev ?? {
+              code: "APPLIED",
+              label: "Discount applied",
+              discountAmount: typedCart.discount_total!,
+              discountType: "fixed",
+              discountValue: typedCart.discount_total!,
+            });
+          }
+          return typedCart;
         } catch {
           localStorage.removeItem(CART_ID_KEY);
         }
@@ -533,9 +544,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const volumeDiscount = calculateVolumeDiscount(discountedPrice, totalItems);
 
   // Final price after all discounts
-  const finalPrice = volumeDiscount
-    ? Math.max(0, Math.round((discountedPrice - volumeDiscount.discount) * 100) / 100)
-    : discountedPrice;
+  // CRITICAL: When Medusa is connected, always use the real Medusa cart total
+  // to ensure the displayed price matches what Stripe actually charges.
+  // Volume discount is client-side only and NOT reflected in Medusa's total.
+  const finalPrice = medusaHasItems && cart?.total != null
+    ? cart.total
+    : volumeDiscount
+      ? Math.max(0, Math.round((discountedPrice - volumeDiscount.discount) * 100) / 100)
+      : discountedPrice;
 
   const validateAndApplyPromoCode = useCallback(
     async (code: string): Promise<{ success: boolean; error?: string }> => {

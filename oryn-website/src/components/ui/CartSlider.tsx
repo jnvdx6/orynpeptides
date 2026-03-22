@@ -18,7 +18,7 @@ function getProductImage(slug: string, category: string): string {
 }
 
 export function CartSlider() {
-  const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, discountedPrice, volumeDiscount, finalPrice } =
+  const { items, removeItem, updateQuantity, totalPrice, totalItems, isOpen, setIsOpen, addItem, appliedPromotion, removePromotion, finalPrice } =
     useCart();
   const { t, formatPrice, currencyCode, locale } = useLocale();
   const pt = locale === "pt-br";
@@ -296,7 +296,7 @@ export function CartSlider() {
           <div className="px-6 py-5 border-t border-oryn-grey/30 space-y-4 pb-[env(safe-area-inset-bottom)]">
             <div className="flex items-center justify-between">
               <span className="text-sm text-oryn-black/60">{t.cart.subtotal}</span>
-              <span className={`text-lg font-bold ${(appliedPromotion || volumeDiscount) ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
+              <span className={`text-lg font-bold ${appliedPromotion ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(totalPrice)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-xs text-oryn-black/40 font-plex">{pt ? "Envio estimado" : "Estimated shipping"}</span>
@@ -319,26 +319,10 @@ export function CartSlider() {
                 <span className="text-sm font-bold text-oryn-orange">-{formatPrice(appliedPromotion.discountAmount)}</span>
               </div>
             )}
-            {appliedPromotion && (
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-oryn-black/60">{t.cart.total}</span>
-                <span className={`text-lg font-bold ${volumeDiscount ? 'text-oryn-black/40 line-through text-base' : ''}`}>{formatPrice(discountedPrice)}</span>
-              </div>
-            )}
-            {volumeDiscount && (
-              <>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
-                  </div>
-                  <span className="text-sm font-bold text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-oryn-black/60">{t.cart.total}</span>
-                  <span className="text-lg font-bold">{formatPrice(finalPrice)}</span>
-                </div>
-              </>
-            )}
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-bold text-oryn-black/60">{t.cart.total}</span>
+              <span className="text-lg font-bold">{formatPrice(finalPrice)}</span>
+            </div>
             {/* Promo code input */}
             <div className="border-t border-oryn-grey/20 pt-3">
               <PromoCodeInput compact />

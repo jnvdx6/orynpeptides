@@ -6,6 +6,7 @@ import { useLocale } from "@/i18n/LocaleContext";
 import { Link } from "@/components/ui/LocaleLink";
 import { useCart } from "@/lib/cart-context";
 import { trackPurchase } from "@/lib/analytics";
+import { sdk } from "@/lib/medusa";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
@@ -40,6 +41,23 @@ function SuccessContent() {
       setStatus("error");
     }
   }, [redirectStatus, paymentIntentId, clearCart]);
+
+  // Complete the Medusa cart to create the order after 3DS redirect
+  useEffect(() => {
+    const cartId = localStorage.getItem("oryn_medusa_cart_id");
+    if (cartId && redirectStatus === "succeeded") {
+      sdk.store.cart.complete(cartId)
+        .then((result: { type: string }) => {
+          if (result.type === "order") {
+            localStorage.removeItem("oryn_medusa_cart_id");
+          }
+        })
+        .catch(() => {
+          // Cart might already be completed by webhook — that's OK
+          localStorage.removeItem("oryn_medusa_cart_id");
+        });
+    }
+  }, [redirectStatus]);
 
   // Track purchase event (once) on successful payment
   useEffect(() => {

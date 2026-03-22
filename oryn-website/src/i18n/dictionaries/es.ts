@@ -1372,6 +1372,9 @@ const es = {
     off: "{percent}% DTO",
     active: "ACTIVO",
     unlockMore: "¡Añade {count} más para desbloquear {percent}% de descuento!",
+    maxTierReached: "¡Nivel máximo de ahorro por volumen alcanzado!",
+    eligible: "ELEGIBLE",
+    comingSoon: "Los descuentos por volumen estarán disponibles pronto. ¡Añade más artículos para estar listo!",
   },
 
   frequentlyBought: {

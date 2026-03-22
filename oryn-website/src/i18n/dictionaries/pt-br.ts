@@ -1373,6 +1373,9 @@ const ptBr = {
     off: "{percent}% DESC",
     active: "ATIVO",
     unlockMore: "Adicione mais {count} para desbloquear {percent}% de desconto!",
+    maxTierReached: "Nível máximo de desconto por volume atingido!",
+    eligible: "ELEGÍVEL",
+    comingSoon: "Os descontos por volume estão chegando em breve. Adicione mais itens!",
   },
 
   frequentlyBought: {

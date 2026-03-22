@@ -1372,6 +1372,9 @@ const nl = {
     off: "{percent}% KORTING",
     active: "ACTIEF",
     unlockMore: "Voeg nog {count} artikel toe om {percent}% korting te ontgrendelen!",
+    maxTierReached: "Maximale volumekortingsniveau bereikt!",
+    eligible: "IN AANMERKING",
+    comingSoon: "Volumekortingen komen binnenkort. Voeg meer artikelen toe!",
   },
 
   frequentlyBought: {

@@ -15,15 +15,29 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
   const v = t.volumeDiscount;
 
   if (compact) {
-    // Inline version for cart slider
+    // Inline version for cart slider — show as informational incentive, not applied discount
+    if (currentTier && nextTier) {
+      // User qualifies for one tier but can still reach a higher tier
+      return (
+        <div className="flex items-center gap-2 px-3 py-2 bg-oryn-orange/5 border border-oryn-orange/10">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6A1A" strokeWidth="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          <span className="text-[10px] font-plex text-oryn-black/50">
+            {v.addMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage)).replace("{itemWord}", nextTier.itemsNeeded === 1 ? "item" : "items")}
+          </span>
+        </div>
+      );
+    }
     if (currentTier) {
+      // User is at the highest tier — show that they have max savings available
       return (
         <div className="flex items-center gap-2 px-3 py-2 bg-green-50 border border-green-200">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <span className="text-[10px] font-plex text-green-700">
-            {v.applied} <span className="font-bold">{v.off.replace("{percent}", String(currentTier.percentage))}</span>
+            {v.maxTierReached || "Maximum volume savings tier reached!"}
           </span>
         </div>
       );
@@ -43,7 +57,7 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
     return null;
   }
 
-  // Full version for cart page / checkout
+  // Full version for cart page / checkout — show tiers as upcoming savings incentives
   return (
     <div className="bg-oryn-orange/5 border border-oryn-orange/10 p-4">
       <div className="flex items-center gap-2 mb-3">
@@ -58,16 +72,13 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
 
       <div className="space-y-2">
         {[...VOLUME_TIERS].sort((a, b) => a.minItems - b.minItems).map((tier) => {
-          const isActive = currentTier?.minItems === tier.minItems;
           const isReached = totalItems >= tier.minItems;
 
           return (
             <div
               key={tier.minItems}
               className={`flex items-center justify-between px-3 py-2 text-xs transition-colors ${
-                isActive
-                  ? "bg-oryn-orange text-white"
-                  : isReached
+                isReached
                   ? "bg-green-50 text-green-700"
                   : "bg-white text-oryn-black/40"
               }`}
@@ -78,9 +89,9 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
               <span className="font-bold font-mono">
                 {v.off.replace("{percent}", String(tier.percentage))}
               </span>
-              {isActive && (
-                <span className="text-[9px] font-mono bg-white/20 px-2 py-0.5">
-                  {v.active}
+              {isReached && (
+                <span className="text-[9px] font-mono bg-green-600/10 text-green-700 px-2 py-0.5">
+                  {v.eligible || "ELIGIBLE"}
                 </span>
               )}
             </div>
@@ -93,6 +104,9 @@ export function VolumeDiscountBanner({ totalItems, compact = false }: Props) {
           {v.unlockMore.replace("{count}", String(nextTier.itemsNeeded)).replace("{percent}", String(nextTier.tier.percentage)).replace("{itemWord}", nextTier.itemsNeeded === 1 ? "item" : "items")}
         </p>
       )}
+      <p className="text-[9px] text-oryn-black/30 font-plex mt-2 italic">
+        {v.comingSoon || "Volume discounts are coming soon. Add more items to be ready!"}
+      </p>
     </div>
   );
 }

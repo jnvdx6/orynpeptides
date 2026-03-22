@@ -20,7 +20,7 @@ function getProductImage(slug: string, category: string): string {
 }
 
 export default function CartPage() {
-  const { items, removeItem, updateQuantity, totalPrice, totalItems, volumeDiscount, finalPrice, cartLoaded } = useCart();
+  const { items, removeItem, updateQuantity, totalPrice, totalItems, finalPrice, cartLoaded } = useCart();
   const { t, formatPrice, currencyCode } = useLocale();
 
   // Max shipping savings by region (express shipping costs)
@@ -210,15 +210,6 @@ export default function CartPage() {
                   <span className="text-oryn-black/50">{t.cart.subtotal}</span>
                   <span>{formatPrice(totalPrice)}</span>
                 </div>
-                {volumeDiscount && (
-                  <div className="flex justify-between text-sm">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-green-600">{t.cart.volumeDiscount || "Volume discount"}</span>
-                      <span className="text-[9px] font-mono bg-green-100 text-green-700 px-1.5 py-0.5">{volumeDiscount.tier.label}</span>
-                    </div>
-                    <span className="text-green-600">-{formatPrice(volumeDiscount.discount)}</span>
-                  </div>
-                )}
                 <div className="mb-4">
                   <ShippingEstimator cartTotal={totalPrice} />
                 </div>

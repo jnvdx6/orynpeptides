@@ -1371,6 +1371,9 @@ const en: Dictionary = {
     off: "{percent}% OFF",
     active: "ACTIVE",
     unlockMore: "Add {count} more {itemWord} to unlock {percent}% off!",
+    maxTierReached: "Maximum volume savings tier reached!",
+    eligible: "ELIGIBLE",
+    comingSoon: "Volume discounts are coming soon. Add more items to be ready!",
   },
 
   frequentlyBought: {
