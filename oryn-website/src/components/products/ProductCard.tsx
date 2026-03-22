@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { Product } from "@/data/products";
 import { productImages } from "@/data/products";
+import { REVIEW_STATS } from "@/data/reviews";
 import { useCart } from "@/lib/cart-context";
 import { useWishlist } from "@/providers/wishlist";
 import { useCompare } from "@/providers/compare";
@@ -33,6 +34,7 @@ export function ProductCard({ product }: { product: Product }) {
   const subtitle = productT?.subtitle || product.subtitle;
   const categoryLabel = productT?.categoryLabel || product.categoryLabel;
   const badge = productT?.badge || product.badge;
+  const reviewStats = REVIEW_STATS[product.slug];
 
   return (
     <Link
@@ -125,16 +127,42 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4 mb-4 sm:mb-5">
-          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em]">
+        {/* Star rating + review count */}
+        {reviewStats && reviewStats.count > 0 && (
+          <div className="flex items-center gap-1.5 mb-2">
+            <div className="flex items-center" aria-label={`${reviewStats.average} out of 5 stars`}>
+              {[1, 2, 3, 4, 5].map((star) => (
+                <svg
+                  key={star}
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill={star <= Math.round(reviewStats.average) ? "#FF6A1A" : "none"}
+                  stroke="#FF6A1A"
+                  strokeWidth="1.5"
+                  className="shrink-0"
+                >
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-[10px] font-mono text-oryn-black/50 tracking-[0.05em]">
+              ({reviewStats.count})
+            </span>
+          </div>
+        )}
+
+        <div className="flex items-center flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3 mb-4 sm:mb-5">
+          <span className="inline-flex items-center gap-1 text-[9px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 tracking-[0.05em] sm:tracking-[0.1em]">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
             {t.productCard.purity}
           </span>
-          <span className="w-px h-3 bg-oryn-grey" />
-          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em]">
+          <span className="text-[9px] font-mono text-oryn-black/50 bg-oryn-black/5 px-1.5 py-0.5 tracking-[0.05em] sm:tracking-[0.1em]">
             {product.volume}
           </span>
-          <span className="w-px h-3 bg-oryn-grey hidden sm:block" />
-          <span className="text-[9px] font-mono text-oryn-black/60 tracking-[0.05em] sm:tracking-[0.1em] hidden sm:inline">
+          <span className="text-[9px] font-mono text-oryn-black/50 bg-oryn-black/5 px-1.5 py-0.5 tracking-[0.05em] sm:tracking-[0.1em] hidden sm:inline-flex">
             {t.productCard.pharmaGrade}
           </span>
         </div>
