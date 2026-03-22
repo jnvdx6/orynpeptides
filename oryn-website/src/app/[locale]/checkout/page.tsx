@@ -11,6 +11,7 @@ import { OrderBump } from "@/components/checkout/OrderBump";
 import { VolumeDiscountBanner } from "@/components/ui/VolumeDiscountBanner";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/discounts";
 import { useSavedAddresses } from "@/components/account/SavedAddresses";
+import AddressAutocomplete from "@/components/checkout/AddressAutocomplete";
 import { useAuth } from "@/providers/auth";
 import { sdk } from "@/lib/medusa";
 import { productImages } from "@/data/products";
@@ -764,17 +765,22 @@ export default function CheckoutPage() {
                       </div>
                     </div>
 
-                    {/* Address */}
+                    {/* Address with Google Places Autocomplete */}
                     <div className="mb-3">
-                      <input
-                        type="text"
+                      <AddressAutocomplete
                         value={address}
-                        onChange={(e) => { setAddress(e.target.value); setErrors((p) => ({ ...p, address: "" })); }}
+                        onChange={(val) => { setAddress(val); setErrors((p) => ({ ...p, address: "" })); }}
+                        onPlaceSelect={(place) => {
+                          if (place.address) setAddress(place.address);
+                          if (place.city) { setCity(place.city); setErrors((p) => ({ ...p, city: "" })); }
+                          if (place.postalCode) { setPostalCode(place.postalCode); setErrors((p) => ({ ...p, postalCode: "" })); }
+                          if (place.country) { setCountry(place.country); setErrors((p) => ({ ...p, country: "" })); }
+                        }}
                         placeholder={t.checkoutPage.addressPlaceholder}
                         className={`w-full px-4 py-3 bg-oryn-grey-light/50 border text-sm focus:outline-none focus:border-oryn-orange transition-colors ${errors.address ? "border-red-300" : "border-oryn-grey/30"}`}
-                        autoComplete="address-line1"
+                        error={errors.address}
+                        locale={locale}
                       />
-                      {errors.address && <p className="text-[10px] text-red-500 mt-1">{errors.address}</p>}
                     </div>
 
                     {/* Apartment */}
