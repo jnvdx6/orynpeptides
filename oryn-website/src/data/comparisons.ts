@@ -26,7 +26,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "bpc-157-vs-tb-500",
     title: "BPC-157 vs TB-500: Which Recovery Peptide Is Better?",
-    metaTitle: "BPC-157 vs TB-500: Complete Comparison | ORYN UK",
+    metaTitle: "BPC-157 vs TB-500: Complete Comparison",
     metaDescription: "Compare BPC-157 and TB-500 for recovery research. Mechanisms, benefits, dosing, and when to use each peptide. Buy both as pre-mixed pens UK.",
     productA: "bpc-157",
     productB: "tb-500",
@@ -71,7 +71,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tirzepatide-vs-semaglutide",
     title: "Tirzepatide vs Semaglutide: Which Weight Loss Peptide Is Superior?",
-    metaTitle: "Tirzepatide vs Semaglutide Comparison | ORYN UK",
+    metaTitle: "Tirzepatide vs Semaglutide Comparison",
     metaDescription: "Compare tirzepatide and semaglutide for metabolic research. Dual vs single receptor, efficacy data, side effects, and pricing. Buy tirzepatide pens UK.",
     productA: "tirzepatide-pen",
     productB: "medit-tirzepatide",
@@ -113,7 +113,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "cjc-1295-vs-ipamorelin",
     title: "CJC-1295 vs Ipamorelin: Growth Hormone Peptides Compared",
-    metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Guide | ORYN UK",
+    metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Guide",
     metaDescription: "Compare CJC-1295 and Ipamorelin for growth hormone research. Mechanisms, synergy, dosing protocols, and how to stack them. Buy GH peptide pens UK.",
     productA: "cjc-1295",
     productB: "ipamorelin",
@@ -151,7 +151,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "ghk-cu-vs-glutathione",
     title: "GHK-Cu vs Glutathione: Anti-Aging & Skin Peptides Compared",
-    metaTitle: "GHK-Cu vs Glutathione: Skin Peptide Guide | ORYN UK",
+    metaTitle: "GHK-Cu vs Glutathione: Skin Peptide Guide",
     metaDescription: "Compare GHK-Cu copper peptide and Glutathione for skin and anti-aging research. Mechanisms, benefits, and how to combine them. Buy peptide pens UK.",
     productA: "ghk-cu",
     productB: "glutathione",
@@ -189,7 +189,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "peptide-pen-vs-injection-vial",
     title: "Peptide Pen vs Injection Vial: Which Delivery Method Is Better?",
-    metaTitle: "Peptide Pen vs Injection Vial Comparison | ORYN UK",
+    metaTitle: "Peptide Pen vs Injection Vial Comparison",
     metaDescription: "Compare peptide pen delivery systems vs traditional vial and syringe injection. Convenience, accuracy, contamination risk, and cost compared. Buy peptide pens UK.",
     productA: "bpc-157",
     productB: "tb-500",
@@ -233,7 +233,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "bpc-157-vs-ghk-cu",
     title: "BPC-157 vs GHK-Cu: Recovery Peptide vs Skin Repair Compared",
-    metaTitle: "BPC-157 vs GHK-Cu: Complete Comparison | ORYN UK",
+    metaTitle: "BPC-157 vs GHK-Cu: Complete Comparison",
     metaDescription: "Compare BPC-157 for recovery and GHK-Cu copper peptide for skin repair. Mechanisms, benefits, research applications, and pricing. Buy peptide pens UK.",
     productA: "bpc-157",
     productB: "ghk-cu",
@@ -274,7 +274,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tirzepatide-10mg-vs-40mg",
     title: "Tirzepatide 10mg Pen vs 40mg MediT: Which Format Is Right?",
-    metaTitle: "Tirzepatide 10mg vs 40mg MediT Pen Comparison | ORYN UK",
+    metaTitle: "Tirzepatide 10mg vs 40mg MediT Pen Comparison",
     metaDescription: "Compare ORYN Tirzepatide Pen (10mg daily) vs MediT Pen (40mg weekly). Dosing flexibility, convenience, cost, and which format suits your research. Buy UK.",
     productA: "tirzepatide-pen",
     productB: "medit-tirzepatide",
@@ -314,7 +314,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "nad-pen-vs-nad-novadose",
     title: "NAD+ Pen vs NovaDose NAD+: Which Delivery System Is Best?",
-    metaTitle: "NAD+ Pen vs NovaDose NAD+ Comparison | ORYN UK",
+    metaTitle: "NAD+ Pen vs NovaDose NAD+ Comparison",
     metaDescription: "Compare ORYN NAD+ Pen vs NovaDose cartridge system. Dosing precision, bioavailability, cost, and which NAD+ delivery suits your research. Buy NAD+ UK.",
     productA: "nad-plus",
     productB: "novadose-nad",
@@ -354,7 +354,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "glutathione-injection-vs-oral",
     title: "Glutathione Injection vs Oral Supplements: Bioavailability Compared",
-    metaTitle: "Glutathione Injection vs Oral Supplements | ORYN UK",
+    metaTitle: "Glutathione Injection vs Oral Supplements",
     metaDescription: "Compare injectable Glutathione pen vs oral supplements. Bioavailability, effectiveness, cost per effective dose, and why injection wins. Buy Glutathione pen UK.",
     productA: "glutathione",
     productB: "ghk-cu",
@@ -398,7 +398,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "nad-plus-pen-vs-iv-therapy",
     title: "NAD+ Pen vs IV Therapy: Which Delivery Method Is Better?",
-    metaTitle: "NAD+ Pen vs IV Therapy Comparison | ORYN UK",
+    metaTitle: "NAD+ Pen vs IV Therapy Comparison",
     metaDescription: "Compare NAD+ pen delivery vs IV infusion therapy. Cost, convenience, bioavailability, and results compared. Buy NAD+ peptide pen and NovaDose system UK.",
     productA: "nad-plus",
     productB: "novadose-nad",
@@ -436,7 +436,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tb-500-vs-ipamorelin",
     title: "TB-500 vs Ipamorelin: Recovery Peptide vs Growth Hormone Secretagogue",
-    metaTitle: "TB-500 vs Ipamorelin: Recovery vs GH Compared | ORYN UK",
+    metaTitle: "TB-500 vs Ipamorelin: Recovery vs GH Compared",
     metaDescription: "Compare TB-500 for tissue recovery and Ipamorelin for growth hormone release. Mechanisms, research applications, dosing, and which peptide suits your protocol. Buy UK.",
     productA: "tb-500",
     productB: "ipamorelin",
@@ -476,7 +476,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tb-500-vs-cjc-1295",
     title: "TB-500 vs CJC-1295: Wound Healing vs Growth Hormone Releasing",
-    metaTitle: "TB-500 vs CJC-1295: Healing vs GH Compared | ORYN UK",
+    metaTitle: "TB-500 vs CJC-1295: Healing vs GH Compared",
     metaDescription: "Compare TB-500 for wound healing and CJC-1295 for sustained GH release. Mechanisms, research benefits, and which peptide pen to choose. Buy peptide pens UK.",
     productA: "tb-500",
     productB: "cjc-1295",
@@ -516,7 +516,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "ghk-cu-vs-bpc-157",
     title: "GHK-Cu vs BPC-157: Skin Repair vs Tissue Recovery Compared",
-    metaTitle: "GHK-Cu vs BPC-157: Skin vs Tissue Repair | ORYN UK",
+    metaTitle: "GHK-Cu vs BPC-157: Skin vs Tissue Repair",
     metaDescription: "Compare GHK-Cu copper peptide for skin repair with BPC-157 for internal tissue recovery. Mechanisms, research use, and pricing. Buy peptide pens UK.",
     productA: "ghk-cu",
     productB: "bpc-157",
@@ -556,7 +556,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "nad-vs-glutathione",
     title: "NAD+ vs Glutathione: Cellular Energy vs Antioxidant Defence",
-    metaTitle: "NAD+ vs Glutathione: Energy vs Antioxidant | ORYN UK",
+    metaTitle: "NAD+ vs Glutathione: Energy vs Antioxidant",
     metaDescription: "Compare NAD+ for cellular energy and DNA repair with Glutathione for antioxidant defence. Mechanisms, anti-ageing research, and pricing. Buy peptide pens UK.",
     productA: "nad-plus",
     productB: "glutathione",
@@ -596,7 +596,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "ipamorelin-vs-tirzepatide",
     title: "Ipamorelin vs Tirzepatide: Growth Hormone vs Metabolic Peptide",
-    metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolic | ORYN UK",
+    metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolic",
     metaDescription: "Compare Ipamorelin for GH release with Tirzepatide for metabolic and weight management research. Mechanisms, uses, and which peptide pen to choose. Buy UK.",
     productA: "ipamorelin",
     productB: "tirzepatide-pen",
@@ -637,7 +637,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "cjc-1295-vs-semaglutide",
     title: "CJC-1295 vs Semaglutide: Growth Hormone vs Weight Loss Peptide",
-    metaTitle: "CJC-1295 vs Semaglutide: GH vs Weight Loss | ORYN UK",
+    metaTitle: "CJC-1295 vs Semaglutide: GH vs Weight Loss",
     metaDescription: "Compare CJC-1295 for sustained GH release with Semaglutide for weight management. Different mechanisms, research applications, and how they compare. Buy GH pens UK.",
     productA: "cjc-1295",
     productB: "tirzepatide-pen",
@@ -677,7 +677,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "peptide-pen-vs-medit-pen",
     title: "Peptide Pen vs MediT Pen: Multi-Dose Daily vs Prefilled Weekly",
-    metaTitle: "Peptide Pen vs MediT Pen: Daily vs Weekly Dosing | ORYN UK",
+    metaTitle: "Peptide Pen vs MediT Pen: Daily vs Weekly Dosing",
     metaDescription: "Compare ORYN Peptide Pen (multi-dose, daily) vs MediT Pen (prefilled, weekly). Dosing flexibility, convenience, formats, and which system suits your research. Buy UK.",
     productA: "tirzepatide-pen",
     productB: "medit-tirzepatide",
@@ -717,7 +717,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "medit-pen-vs-novadose",
     title: "MediT Pen vs NovaDose: Weekly Injection vs Daily Cartridge System",
-    metaTitle: "MediT Pen vs NovaDose: Delivery Systems Compared | ORYN UK",
+    metaTitle: "MediT Pen vs NovaDose: Delivery Systems Compared",
     metaDescription: "Compare ORYN MediT Pen (weekly prefilled) vs NovaDose (daily cartridge). Delivery technology, compounds, dosing philosophy, and which system to choose. Buy UK.",
     productA: "medit-tirzepatide",
     productB: "novadose-nad",
@@ -757,7 +757,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "bpc-157-vs-cjc-1295",
     title: "BPC-157 vs CJC-1295: Recovery Peptide vs Growth Hormone Peptide",
-    metaTitle: "BPC-157 vs CJC-1295: Recovery vs GH Compared | ORYN UK",
+    metaTitle: "BPC-157 vs CJC-1295: Recovery vs GH Compared",
     metaDescription: "Compare BPC-157 for tissue recovery with CJC-1295 for growth hormone release. Different mechanisms, research applications, and stacking potential. Buy peptide pens UK.",
     productA: "bpc-157",
     productB: "cjc-1295",
@@ -798,7 +798,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "glutathione-vs-ghk-cu-skin",
     title: "Glutathione vs GHK-Cu for Skin: Antioxidant vs Copper Peptide",
-    metaTitle: "Glutathione vs GHK-Cu for Skin Research | ORYN UK",
+    metaTitle: "Glutathione vs GHK-Cu for Skin Research",
     metaDescription: "Compare Glutathione for skin brightening and antioxidant defence with GHK-Cu for collagen synthesis and skin repair. Which is better for skin research? Buy UK.",
     productA: "glutathione",
     productB: "ghk-cu",
@@ -838,7 +838,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tirzepatide-vs-cjc-1295-weight",
     title: "Tirzepatide vs CJC-1295 for Weight Management: Which Approach Works?",
-    metaTitle: "Tirzepatide vs CJC-1295 for Weight Management | ORYN UK",
+    metaTitle: "Tirzepatide vs CJC-1295 for Weight Management",
     metaDescription: "Compare Tirzepatide's dual incretin action vs CJC-1295's GH release for weight management research. Mechanisms, clinical data, and which to choose. Buy UK.",
     productA: "tirzepatide-pen",
     productB: "cjc-1295",
@@ -877,7 +877,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "bpc-157-vs-nad-recovery",
     title: "BPC-157 vs NAD+ for Recovery: Tissue Repair vs Cellular Energy",
-    metaTitle: "BPC-157 vs NAD+ for Recovery Research | ORYN UK",
+    metaTitle: "BPC-157 vs NAD+ for Recovery Research",
     metaDescription: "Compare BPC-157 for tissue repair recovery with NAD+ for cellular energy and DNA repair. Mechanisms, research applications, and recovery protocols. Buy UK.",
     productA: "bpc-157",
     productB: "nad-plus",
@@ -917,7 +917,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "ipamorelin-vs-cjc-1295",
     title: "Ipamorelin vs CJC-1295: Two GH Peptides, Different Mechanisms",
-    metaTitle: "Ipamorelin vs CJC-1295: GH Peptide Guide | ORYN UK",
+    metaTitle: "Ipamorelin vs CJC-1295: GH Peptide Guide",
     metaDescription: "Compare Ipamorelin (ghrelin agonist) vs CJC-1295 (GHRH analogue) for growth hormone research. Different pathways, synergy, and why researchers stack both. Buy UK.",
     productA: "ipamorelin",
     productB: "cjc-1295",
@@ -957,7 +957,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "tb-500-vs-ghk-cu-healing",
     title: "TB-500 vs GHK-Cu for Wound Healing: Which Heals Better?",
-    metaTitle: "TB-500 vs GHK-Cu for Wound Healing | ORYN UK",
+    metaTitle: "TB-500 vs GHK-Cu for Wound Healing",
     metaDescription: "Compare TB-500 and GHK-Cu for wound healing research. Cell migration vs collagen synthesis, mechanisms, and which peptide suits your healing protocol. Buy UK.",
     productA: "tb-500",
     productB: "ghk-cu",
@@ -997,7 +997,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "peptide-pens-vs-injections",
     title: "Pre-mixed Peptide Pens vs Traditional Injections: Complete Comparison",
-    metaTitle: "Peptide Pens vs Traditional Injections | ORYN UK",
+    metaTitle: "Peptide Pens vs Traditional Injections",
     metaDescription: "Compare ORYN pre-mixed peptide pen systems vs traditional vial and syringe injections. Dosing accuracy, contamination, convenience, and cost analysis. Buy UK.",
     productA: "bpc-157",
     productB: "tb-500",
@@ -1042,7 +1042,7 @@ export const COMPARISONS: PeptideComparison[] = [
   {
     slug: "ghk-cu-vs-nad-plus",
     title: "GHK-Cu vs NAD+: Which Anti-Ageing Peptide Is Right for You?",
-    metaTitle: "GHK-Cu vs NAD+: Anti-Ageing Peptide Comparison | ORYN UK",
+    metaTitle: "GHK-Cu vs NAD+: Anti-Ageing Peptide Comparison",
     metaDescription: "Compare GHK-Cu for skin repair and collagen synthesis with NAD+ for cellular energy and DNA repair. Mechanisms, anti-ageing benefits, and pricing. Buy UK.",
     productA: "ghk-cu",
     productB: "nad-plus",

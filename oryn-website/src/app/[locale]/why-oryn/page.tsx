@@ -31,7 +31,7 @@ export async function generateMetadata({
 
   return {
     title: "Why ORYN | Best Peptide Company UK 2026",
-    description: description || "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Free UK shipping over €150.",
+    description: description || "Discover why ORYN is the most trusted peptide supplier in the UK. Pre-dosed peptide pens, >99% HPLC-verified purity, ISO 7 GMP manufacturing. Free UK shipping over €175.",
     keywords: [
       "best peptide company UK",
       "best peptides UK",
@@ -91,7 +91,7 @@ const faqs = [
   {
     question: "How does ORYN compare to other UK peptide suppliers?",
     answer:
-      "ORYN differentiates from other UK peptide suppliers in several key areas: (1) We offer pre-mixed peptide pens rather than loose vials, (2) Our purity exceeds 98% verified by both HPLC and mass spectrometry, (3) All products are manufactured in ISO 7 cleanrooms under GMP conditions, (4) Every order includes a full COA, and (5) We offer free next-day UK shipping on orders over €150. Most competitors sell unverified vials requiring reconstitution.",
+      "ORYN differentiates from other UK peptide suppliers in several key areas: (1) We offer pre-mixed peptide pens rather than loose vials, (2) Our purity exceeds 98% verified by both HPLC and mass spectrometry, (3) All products are manufactured in ISO 7 cleanrooms under GMP conditions, (4) Every order includes a full COA, and (5) We offer free next-day UK shipping on orders over €175. Most competitors sell unverified vials requiring reconstitution.",
   },
   {
     question: "What purity standards do ORYN peptides meet?",
@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Does ORYN offer free shipping in the UK?",
     answer:
-      "Yes, ORYN provides free next-day delivery on all UK orders over €150. All shipments use temperature-controlled packaging to maintain peptide integrity during transit. We deliver to over 15 major UK cities with same-day dispatch available for London orders. Orders under €150 ship for a flat rate with the same quality packaging.",
+      "Yes, ORYN provides free next-day delivery on all UK orders over €175. All shipments use temperature-controlled packaging to maintain peptide integrity during transit. We deliver to over 15 major UK cities with same-day dispatch available for London orders. Orders under €175 ship for a flat rate with the same quality packaging.",
   },
   {
     question: "Where are ORYN peptides manufactured?",

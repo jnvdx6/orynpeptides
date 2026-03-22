@@ -21,7 +21,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "are-peptides-legal-in-the-uk",
     title: "Are Peptides Legal in the UK? Complete 2026 Guide",
-    metaTitle: "Are Peptides Legal in the UK? 2026 Guide | ORYN",
+    metaTitle: "Are Peptides Legal in the UK? 2026 Guide",
     metaDescription: "Complete guide to peptide legality in the UK for 2026. Learn about regulations, purchasing research peptides, and what you need to know before buying.",
     category: "Legal & Compliance",
     readTime: "8 min read",
@@ -66,7 +66,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-pen-vs-vial",
     title: "Peptide Pen vs Vial: Which Is Better for Research?",
-    metaTitle: "Peptide Pen vs Vial: Complete Comparison Guide | ORYN",
+    metaTitle: "Peptide Pen vs Vial: Complete Comparison Guide",
     metaDescription: "Compare peptide pens and vials for research use. Learn the advantages of pre-mixed peptide pens over traditional vials — dosing accuracy, convenience, and contamination risk.",
     category: "Guides",
     readTime: "6 min read",
@@ -115,7 +115,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "bpc-157-complete-guide",
     title: "BPC-157: Complete Research Guide 2026",
-    metaTitle: "BPC-157 Guide: Benefits, Dosage & Research | ORYN UK",
+    metaTitle: "BPC-157 Guide: Benefits, Dosage & Research",
     metaDescription: "Comprehensive BPC-157 research guide. Learn about benefits, mechanism of action, dosing protocols, and the latest scientific studies. Buy BPC-157 pens UK.",
     category: "Peptide Research",
     readTime: "10 min read",
@@ -160,7 +160,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "tirzepatide-vs-semaglutide",
     title: "Tirzepatide vs Semaglutide: Comparing Weight Loss Peptides",
-    metaTitle: "Tirzepatide vs Semaglutide: Which Is Better? | ORYN UK",
+    metaTitle: "Tirzepatide vs Semaglutide: Which Is Better?",
     metaDescription: "Compare tirzepatide and semaglutide for metabolic research. Dual vs single receptor action, efficacy data, and how to choose. Buy tirzepatide pens UK.",
     category: "Peptide Research",
     readTime: "7 min read",
@@ -204,7 +204,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "how-to-use-peptide-pen",
     title: "How to Use a Peptide Pen: Step-by-Step Guide",
-    metaTitle: "How to Use a Peptide Pen: Step-by-Step Guide | ORYN",
+    metaTitle: "How to Use a Peptide Pen: Step-by-Step Guide",
     metaDescription: "Complete guide on how to use a peptide pen for research. Step-by-step instructions for ORYN peptide pens — priming, dosing, needle attachment, and storage.",
     category: "Guides",
     readTime: "5 min read",
@@ -253,7 +253,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "best-peptides-for-recovery-uk",
     title: "Best Peptides for Recovery in the UK (2026)",
-    metaTitle: "Best Peptides for Recovery UK 2026 | BPC-157 & TB-500 | ORYN",
+    metaTitle: "Best Peptides for Recovery UK 2026 | BPC-157 & TB-500",
     metaDescription: "Discover the best research peptides for recovery in the UK. Compare BPC-157, TB-500 and combination protocols for tissue healing and repair research.",
     category: "Peptide Research",
     readTime: "7 min read",
@@ -298,7 +298,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "ghk-cu-skin-peptide-guide",
     title: "GHK-Cu: The Copper Peptide Revolution for Skin Research",
-    metaTitle: "GHK-Cu Copper Peptide Guide: Skin & Anti-Ageing | ORYN",
+    metaTitle: "GHK-Cu Copper Peptide Guide: Skin & Anti-Ageing",
     metaDescription: "Comprehensive GHK-Cu copper peptide guide. Explore collagen synthesis, skin remodelling, anti-ageing research & wound healing. Buy GHK-Cu pens UK.",
     category: "Peptide Research",
     readTime: "9 min read",
@@ -343,7 +343,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "nad-plus-complete-guide",
     title: "NAD+ Complete Guide: Cellular Energy & Anti-Aging Research",
-    metaTitle: "NAD+ Complete Guide: Energy & Anti-Ageing | ORYN UK",
+    metaTitle: "NAD+ Complete Guide: Energy & Anti-Ageing",
     metaDescription: "Everything you need to know about NAD+ research. Cellular energy, sirtuin activation, anti-ageing mechanisms, and delivery methods compared. Buy NAD+ UK.",
     category: "Peptide Research",
     readTime: "10 min read",
@@ -388,7 +388,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "best-peptides-weight-loss-uk",
     title: "Best Peptides for Weight Loss in the UK (2026)",
-    metaTitle: "Best Peptides for Weight Loss UK 2026 | ORYN",
+    metaTitle: "Best Peptides for Weight Loss UK 2026",
     metaDescription: "Discover the best research peptides for weight loss in the UK. Compare tirzepatide vs semaglutide, dosing protocols, and MediT pen systems. Buy UK.",
     category: "Peptide Research",
     readTime: "9 min read",
@@ -433,7 +433,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-storage-guide",
     title: "Peptide Storage Guide: Temperature, Shelf Life & Best Practices",
-    metaTitle: "Peptide Storage Guide: Temp & Shelf Life | ORYN UK",
+    metaTitle: "Peptide Storage Guide: Temp & Shelf Life",
     metaDescription: "How to store peptides correctly. Temperature requirements, shelf life, reconstituted vs pre-mixed storage, travel tips, and common mistakes to avoid.",
     category: "Guides",
     readTime: "7 min read",
@@ -478,7 +478,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "bpc-157-vs-tb-500",
     title: "BPC-157 vs TB-500: Which Recovery Peptide Is Right for You?",
-    metaTitle: "BPC-157 vs TB-500: Recovery Peptide Comparison | ORYN",
+    metaTitle: "BPC-157 vs TB-500: Recovery Peptide Comparison",
     metaDescription: "BPC-157 vs TB-500 head-to-head comparison. Mechanisms, research evidence, when to use each, and combination protocols. Buy recovery peptides UK.",
     category: "Peptide Research",
     readTime: "9 min read",
@@ -523,7 +523,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "ipamorelin-vs-cjc-1295",
     title: "Ipamorelin vs CJC-1295: Growth Hormone Peptide Comparison",
-    metaTitle: "Ipamorelin vs CJC-1295: GH Peptide Guide | ORYN UK",
+    metaTitle: "Ipamorelin vs CJC-1295: GH Peptide Guide",
     metaDescription: "Compare ipamorelin and CJC-1295 for growth hormone research. Mechanisms, synergy, protocols, and why researchers combine them. Buy GH peptides UK.",
     category: "Peptide Research",
     readTime: "9 min read",
@@ -568,7 +568,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "best-peptide-pens-uk-2026",
     title: "Best Peptide Pens UK 2026: Complete Buyer's Guide",
-    metaTitle: "Best Peptide Pens UK 2026 — Top Brands Compared | ORYN",
+    metaTitle: "Best Peptide Pens UK 2026 — Top Brands Compared",
     metaDescription: "Compare the best peptide pens available in the UK for 2026. ORYN vs competitors, pricing, purity, delivery formats, and which pen system is right for your research.",
     category: "Buying Guides",
     readTime: "12 min read",
@@ -588,7 +588,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "ORYN Peptide Pens: Why Researchers Choose Us",
-        content: "ORYN leads the UK peptide pen market with the most comprehensive range available:\n\n- **10 peptide products** across 3 pen systems (Peptide Pen, MediT, NovaDose)\n- **>99% purity** verified by independent HPLC and mass spectrometry\n- **GMP-certified manufacturing** in ISO 7 cleanroom facilities\n- **Pre-mixed and ready to use** — zero reconstitution required\n- **30-day precision dosing** from each pen\n- **Free UK shipping** on orders over €150\n- **Certificate of Analysis** included with every batch\n\nThe ORYN range includes BPC-157, TB-500, CJC-1295, Ipamorelin, Tirzepatide, GHK-Cu, Glutathione, NAD+, the MediT Tirzepatide weekly pen, and the innovative NovaDose NAD+ cartridge system.\n\nPrices range from €99 (Glutathione) to €299 (NovaDose NAD+), positioning ORYN competitively for the quality delivered.",
+        content: "ORYN leads the UK peptide pen market with the most comprehensive range available:\n\n- **10 peptide products** across 3 pen systems (Peptide Pen, MediT, NovaDose)\n- **>99% purity** verified by independent HPLC and mass spectrometry\n- **GMP-certified manufacturing** in ISO 7 cleanroom facilities\n- **Pre-mixed and ready to use** — zero reconstitution required\n- **30-day precision dosing** from each pen\n- **Free UK shipping** on orders over €175\n- **Certificate of Analysis** included with every batch\n\nThe ORYN range includes BPC-157, TB-500, CJC-1295, Ipamorelin, Tirzepatide, GHK-Cu, Glutathione, NAD+, the MediT Tirzepatide weekly pen, and the innovative NovaDose NAD+ cartridge system.\n\nPrices range from €99 (Glutathione) to €299 (NovaDose NAD+), positioning ORYN competitively for the quality delivered.",
       },
       {
         heading: "How UK Peptide Pen Suppliers Compare",
@@ -601,7 +601,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     faqs: [
       { question: "What is the best peptide pen in the UK?", answer: "ORYN leads the UK peptide pen market with 10 products across 3 pen systems, all manufactured at >99% purity in GMP-certified ISO 7 cleanroom facilities. The BPC-157 pen (€119) is the best-selling individual product, while the Tirzepatide MediT Pen (€249) is the most popular metabolic research pen." },
-      { question: "How much do peptide pens cost in the UK?", answer: "Quality peptide pens in the UK typically range from €99 to €299. ORYN's range starts at €99 for Glutathione and goes up to €299 for the innovative NovaDose NAD+ system. Free UK shipping is available on orders over €150." },
+      { question: "How much do peptide pens cost in the UK?", answer: "Quality peptide pens in the UK typically range from €99 to €299. ORYN's range starts at €99 for Glutathione and goes up to €299 for the innovative NovaDose NAD+ system. Free UK shipping is available on orders over €175." },
       { question: "Are peptide pens better than vials?", answer: "Yes, for most research applications. Peptide pens eliminate reconstitution errors, reduce contamination risk, provide precise dosing, and are more convenient than traditional vials. ORYN's pre-mixed pens are ready to use straight from the box." },
       { question: "Do ORYN peptide pens come with a Certificate of Analysis?", answer: "Yes, every batch of every ORYN product includes a Certificate of Analysis (COA) from an independent ISO 17025-accredited laboratory, confirming purity (>98%, typically >99%), identity, sterility, and endotoxin levels." },
     ],
@@ -609,7 +609,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-pens-for-beginners-uk",
     title: "Peptide Pens for Beginners: Everything You Need to Know (UK Guide)",
-    metaTitle: "Peptide Pens for Beginners UK — Starter Guide 2026 | ORYN",
+    metaTitle: "Peptide Pens for Beginners UK — Starter Guide 2026",
     metaDescription: "New to peptide research? Complete beginner's guide to peptide pens in the UK. Learn what peptide pens are, how they work, storage, safety, and which to start with.",
     category: "Education",
     readTime: "10 min read",
@@ -650,7 +650,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "buy-peptides-online-uk-guide",
     title: "How to Buy Peptides Online in the UK: 2026 Definitive Guide",
-    metaTitle: "Buy Peptides Online UK — Safe Buying Guide 2026 | ORYN",
+    metaTitle: "Buy Peptides Online UK — Safe Buying Guide 2026",
     metaDescription: "How to safely buy research peptides online in the UK. Verify purity, check COAs, identify reputable suppliers, avoid scams. Free UK delivery available.",
     category: "Buying Guides",
     readTime: "9 min read",
@@ -674,7 +674,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Step-by-Step: Buying from ORYN",
-        content: "Purchasing research peptides from ORYN is straightforward:\n\n**Step 1**: Browse our product range at orynpeptides.com/products. We offer 10 peptide products across 3 pen systems.\n\n**Step 2**: Select your products and add to cart. Volume discounts apply automatically for 3+ units.\n\n**Step 3**: Proceed to checkout. We accept card payments (Visa, Mastercard, Amex) and cryptocurrency (Bitcoin, Ethereum, USDT, USDC) with a 10% crypto discount.\n\n**Step 4**: Enter your UK shipping address. Orders over €150 qualify for free shipping.\n\n**Step 5**: Your order is dispatched same-day (if ordered before 2pm) in temperature-controlled, discreet packaging.\n\n**Step 6**: Receive your order with COA documentation in 2-4 business days (UK), 3-7 business days (EU).\n\nEvery product arrives pre-mixed, ready to use, with full documentation.",
+        content: "Purchasing research peptides from ORYN is straightforward:\n\n**Step 1**: Browse our product range at orynpeptides.com/products. We offer 10 peptide products across 3 pen systems.\n\n**Step 2**: Select your products and add to cart. Volume discounts apply automatically for 3+ units.\n\n**Step 3**: Proceed to checkout. We accept card payments (Visa, Mastercard, Amex) and cryptocurrency (Bitcoin, Ethereum, USDT, USDC) with a 10% crypto discount.\n\n**Step 4**: Enter your UK shipping address. Orders over €175 qualify for free shipping.\n\n**Step 5**: Your order is dispatched same-day (if ordered before 2pm) in temperature-controlled, discreet packaging.\n\n**Step 6**: Receive your order with COA documentation in 2-4 business days (UK), 3-7 business days (EU).\n\nEvery product arrives pre-mixed, ready to use, with full documentation.",
       },
       {
         heading: "Payment Options for UK Peptide Purchases",
@@ -682,7 +682,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Where can I buy peptides online in the UK?", answer: "ORYN Peptide Labs (orynpeptides.com) is a leading UK peptide supplier offering 10 research-grade peptide products in pre-mixed pen format. All products are GMP-manufactured at >99% purity with independent COA verification. Free UK shipping on orders over €150." },
+      { question: "Where can I buy peptides online in the UK?", answer: "ORYN Peptide Labs (orynpeptides.com) is a leading UK peptide supplier offering 10 research-grade peptide products in pre-mixed pen format. All products are GMP-manufactured at >99% purity with independent COA verification. Free UK shipping on orders over €175." },
       { question: "Is it safe to buy peptides online?", answer: "Yes, provided you purchase from a verified supplier that offers independent third-party purity testing (COA), GMP manufacturing, and clear research-use labelling. Always verify the supplier's credentials before purchasing." },
       { question: "How much do peptides cost in the UK?", answer: "Quality research peptide pens in the UK range from €99 to €299 depending on the compound and dosage. ORYN's range starts at €99 for Glutathione and includes volume discounts for multi-unit purchases." },
       { question: "Do UK peptide suppliers ship internationally?", answer: "Many UK suppliers, including ORYN, ship to both the UK and Europe. UK delivery takes 2-4 business days, European delivery 3-7 business days. All ORYN orders are shipped in temperature-controlled, discreet packaging." },
@@ -691,7 +691,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-for-athletes-uk",
     title: "Peptides for Athletes & Sports Recovery UK: Research Guide 2026",
-    metaTitle: "Peptides for Athletes UK — Sports Recovery Research Guide | ORYN",
+    metaTitle: "Peptides for Athletes UK — Sports Recovery Research Guide",
     metaDescription: "Comprehensive guide to peptide research for athletic recovery in the UK. BPC-157, TB-500, and growth hormone peptides for sports science research.",
     category: "Research Guides",
     readTime: "11 min read",
@@ -732,7 +732,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "tirzepatide-pen-uk-guide",
     title: "Tirzepatide Pen UK: Complete Research Guide 2026",
-    metaTitle: "Tirzepatide Pen UK — Buy Research Tirzepatide Pens | ORYN",
+    metaTitle: "Tirzepatide Pen UK — Buy Research Tirzepatide Pens",
     metaDescription: "Complete UK guide to tirzepatide peptide pens. Dual GIP/GLP-1 mechanism, dosage options (10mg & 40mg), pricing, and how tirzepatide compares to semaglutide.",
     category: "Product Guides",
     readTime: "10 min read",
@@ -764,7 +764,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     faqs: [
-      { question: "Where can I buy tirzepatide pens in the UK?", answer: "ORYN Peptide Labs offers two tirzepatide pen formats for UK researchers: the Tirzepatide Pen (10mg, €169) for daily dosing research and the MediT Pen (40mg, €249) for weekly dosing protocols. Both are manufactured at >99% purity with independent COA verification. Free UK shipping on orders over €150." },
+      { question: "Where can I buy tirzepatide pens in the UK?", answer: "ORYN Peptide Labs offers two tirzepatide pen formats for UK researchers: the Tirzepatide Pen (10mg, €169) for daily dosing research and the MediT Pen (40mg, €249) for weekly dosing protocols. Both are manufactured at >99% purity with independent COA verification. Free UK shipping on orders over €175." },
       { question: "What is the difference between the Tirzepatide Pen and MediT Pen?", answer: "The ORYN Tirzepatide Pen (€169) contains 10mg in a multi-dose 3mL pen designed for 30-day daily precision dosing. The MediT Pen (€249) is a prefilled, single-use injection pen containing 40mg for once-weekly administration, mirroring the clinical trial dosing format." },
       { question: "Is tirzepatide better than semaglutide?", answer: "Head-to-head clinical trials (SURPASS-2) showed tirzepatide produced greater weight loss and glycaemic improvements compared to semaglutide. Tirzepatide's dual GIP/GLP-1 mechanism activates two metabolic pathways versus semaglutide's single GLP-1 pathway." },
       { question: "Is tirzepatide legal in the UK?", answer: "Research-grade tirzepatide is legal to purchase for research purposes in the UK. Prescribed tirzepatide (Mounjaro) is available via the NHS for type 2 diabetes. ORYN's tirzepatide products are sold strictly for research use only." },
@@ -773,8 +773,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-delivery-uk-next-day",
     title: "Peptide Delivery UK: Next-Day & Same-Day Shipping Guide",
-    metaTitle: "Peptide Delivery UK — Next-Day Shipping, Free Over €150 | ORYN",
-    metaDescription: "Fast UK peptide delivery. Same-day dispatch, 2-4 day delivery, temperature-controlled packaging. Free shipping on orders over €150. Track your order.",
+    metaTitle: "Peptide Delivery UK — Next-Day Shipping, Free Over €175",
+    metaDescription: "Fast UK peptide delivery. Same-day dispatch, 2-4 day delivery, temperature-controlled packaging. Free shipping on orders over €175. Track your order.",
     category: "Shipping & Delivery",
     readTime: "5 min read",
     datePublished: "2026-01-25",
@@ -785,7 +785,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     sections: [
       {
         heading: "UK Peptide Delivery Times",
-        content: "ORYN delivers research peptides across the entire United Kingdom with fast, reliable shipping:\n\n**Standard UK Delivery**: 2-4 business days\n- Available to all UK postcodes\n- Royal Mail tracked service\n- Temperature-controlled packaging included\n- **FREE on orders over €150**\n\n**Express UK Delivery**: 1-2 business days\n- Priority handling and dispatch\n- Next-day delivery available for orders placed before 2pm\n- Full tracking with SMS notifications\n\n**Same-Day Dispatch**: Orders placed before 2pm Monday-Friday are dispatched the same day.\n\nAll UK deliveries include temperature-controlled packaging, discreet labelling, and a full tracking number sent via email.",
+        content: "ORYN delivers research peptides across the entire United Kingdom with fast, reliable shipping:\n\n**Standard UK Delivery**: 2-4 business days\n- Available to all UK postcodes\n- Royal Mail tracked service\n- Temperature-controlled packaging included\n- **FREE on orders over €175**\n\n**Express UK Delivery**: 1-2 business days\n- Priority handling and dispatch\n- Next-day delivery available for orders placed before 2pm\n- Full tracking with SMS notifications\n\n**Same-Day Dispatch**: Orders placed before 2pm Monday-Friday are dispatched the same day.\n\nAll UK deliveries include temperature-controlled packaging, discreet labelling, and a full tracking number sent via email.",
       },
       {
         heading: "Temperature-Controlled Peptide Shipping",
@@ -801,12 +801,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Free Shipping & Order Tracking",
-        content: "**Free UK shipping**: All UK orders over €150 qualify for free standard delivery. This threshold is easily reached with any 1-2 product combination from the ORYN range (products start at €99).\n\n**Order tracking**: Every order receives a tracking number sent via email as soon as the order is dispatched. You can track your delivery in real-time through the carrier's website.\n\n**Discreet packaging**: All ORYN orders arrive in plain, unbranded packaging. No product names or descriptions are visible on the outside. Your research remains private.\n\n**Signature required**: For security, UK orders over €250 require a signature on delivery.\n\n**Re-delivery**: If you miss a delivery, the carrier will attempt re-delivery or hold the package at a local collection point for 7 days.",
+        content: "**Free UK shipping**: All UK orders over €175 qualify for free standard delivery. This threshold is easily reached with any 1-2 product combination from the ORYN range (products start at €99).\n\n**Order tracking**: Every order receives a tracking number sent via email as soon as the order is dispatched. You can track your delivery in real-time through the carrier's website.\n\n**Discreet packaging**: All ORYN orders arrive in plain, unbranded packaging. No product names or descriptions are visible on the outside. Your research remains private.\n\n**Signature required**: For security, UK orders over €250 require a signature on delivery.\n\n**Re-delivery**: If you miss a delivery, the carrier will attempt re-delivery or hold the package at a local collection point for 7 days.",
       },
     ],
     faqs: [
       { question: "How fast is UK peptide delivery?", answer: "ORYN offers 2-4 business day standard UK delivery and 1-2 business day express delivery. Orders placed before 2pm are dispatched same-day. All deliveries include temperature-controlled packaging and full tracking." },
-      { question: "Is peptide delivery free in the UK?", answer: "Yes, UK standard delivery is free on all orders over €150. Since ORYN products start at €99, most single-product orders qualify for free shipping." },
+      { question: "Is peptide delivery free in the UK?", answer: "Yes, UK standard delivery is free on all orders over €175. Since ORYN products start at €99, most single-product orders qualify for free shipping." },
       { question: "How are peptides shipped to maintain quality?", answer: "ORYN ships all peptide orders in thermally insulated packaging with pre-frozen gel ice packs to maintain 2-8°C during transit. Additional cold packs are added during summer months." },
       { question: "Do you deliver peptides to London?", answer: "Yes, ORYN delivers to all London postcodes with 1-2 business day express delivery available. We cover all 40+ London boroughs and areas including Westminster, Camden, Hackney, Greenwich, Brixton, Shoreditch, and more." },
     ],
@@ -814,7 +814,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "copper-peptide-ghk-cu-hair-skin",
     title: "GHK-Cu Copper Peptide: Hair Growth & Skin Rejuvenation Research UK",
-    metaTitle: "GHK-Cu Copper Peptide UK — Hair & Skin Research Guide | ORYN",
+    metaTitle: "GHK-Cu Copper Peptide UK — Hair & Skin Research Guide",
     metaDescription: "Complete UK guide to GHK-Cu copper peptide research. Hair growth stimulation, skin rejuvenation, collagen synthesis. 60mg pen, >99% purity, next-day delivery.",
     category: "Product Guides",
     readTime: "9 min read",
@@ -855,7 +855,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "nad-iv-therapy-vs-injection-pen",
     title: "NAD+ IV Therapy vs Injection Pen: Which Is Better for Research?",
-    metaTitle: "NAD+ IV Therapy vs Injection Pen — Cost, Efficacy, Convenience | ORYN",
+    metaTitle: "NAD+ IV Therapy vs Injection Pen — Cost, Efficacy, Convenience",
     metaDescription: "Compare NAD+ IV therapy vs subcutaneous injection pens. Cost analysis, bioavailability, convenience, and why researchers are switching to pen delivery systems.",
     category: "Research Guides",
     readTime: "8 min read",
@@ -896,7 +896,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-stacking-guide-uk",
     title: "Peptide Stacking Guide UK: Best Combinations for Research 2026",
-    metaTitle: "Peptide Stacking Guide UK — Best Peptide Combinations 2026 | ORYN",
+    metaTitle: "Peptide Stacking Guide UK — Best Peptide Combinations 2026",
     metaDescription: "Complete guide to peptide stacking for UK researchers. Best combinations: BPC-157 + TB-500, CJC-1295 + Ipamorelin, GHK-Cu + Glutathione. Evidence-based protocols.",
     category: "Research Guides",
     readTime: "11 min read",
@@ -941,7 +941,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-safety-side-effects-guide",
     title: "Peptide Safety & Side Effects: Comprehensive UK Research Guide",
-    metaTitle: "Peptide Safety & Side Effects UK — Research Safety Guide | ORYN",
+    metaTitle: "Peptide Safety & Side Effects UK — Research Safety Guide",
     metaDescription: "Complete guide to peptide safety and potential side effects. BPC-157, TB-500, Tirzepatide, GHK-Cu safety profiles. UK research guidelines and best practices.",
     category: "Education",
     readTime: "10 min read",
@@ -982,7 +982,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "what-is-a-peptide-pen",
     title: "What Is a Peptide Pen? Complete Explanation for UK Researchers",
-    metaTitle: "What Is a Peptide Pen? How It Works & Why It's Better | ORYN UK",
+    metaTitle: "What Is a Peptide Pen? How It Works & Why It's Better",
     metaDescription: "Learn what a peptide pen is, how it works, and why it's superior to vials. Pre-mixed, precise dosing, no reconstitution. Complete UK guide with ORYN examples.",
     category: "Education",
     readTime: "6 min read",
@@ -1010,20 +1010,20 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Are Peptide Pens Available in the UK?",
-        content: "Yes. ORYN is a leading UK peptide pen supplier, offering next-day delivery to all UK postcodes. Here's what UK researchers get:\n\n- **Free shipping** on orders over €150 (most single pens qualify)\n- **Same-day dispatch** for orders before 2pm\n- **Temperature-controlled packaging** with gel ice packs\n- **Discreet delivery** — plain, unbranded packaging\n- **Certificate of Analysis** included with every order\n- **2-4 day standard delivery** across the UK\n\nWe deliver to all major UK cities including London (40+ boroughs covered), Manchester, Birmingham, Edinburgh, Glasgow, Leeds, Bristol, Liverpool, Cambridge, Oxford, and 25+ more cities.\n\nAll ORYN products are sold for research purposes only, in compliance with UK regulations.",
+        content: "Yes. ORYN is a leading UK peptide pen supplier, offering next-day delivery to all UK postcodes. Here's what UK researchers get:\n\n- **Free shipping** on orders over €175 (most single pens qualify)\n- **Same-day dispatch** for orders before 2pm\n- **Temperature-controlled packaging** with gel ice packs\n- **Discreet delivery** — plain, unbranded packaging\n- **Certificate of Analysis** included with every order\n- **2-4 day standard delivery** across the UK\n\nWe deliver to all major UK cities including London (40+ boroughs covered), Manchester, Birmingham, Edinburgh, Glasgow, Leeds, Bristol, Liverpool, Cambridge, Oxford, and 25+ more cities.\n\nAll ORYN products are sold for research purposes only, in compliance with UK regulations.",
       },
     ],
     faqs: [
       { question: "What is a peptide pen?", answer: "A peptide pen is a precision delivery device containing pre-mixed, ready-to-use peptide solution. Like an insulin pen, you dial your dose, attach a needle, and inject subcutaneously. No reconstitution, mixing, or calculation is required. ORYN offers 10 peptide products across 3 pen systems." },
       { question: "How do you use a peptide pen?", answer: "Using a peptide pen takes about 90 seconds: remove from fridge 15 minutes before use, attach a sterile needle, dial your dose on the selector, swab the injection site with alcohol, inject subcutaneously, hold for 10 seconds, then withdraw. Full instructions are included with every ORYN pen." },
       { question: "Are peptide pens better than vials?", answer: "Yes, for most research applications. Peptide pens eliminate reconstitution errors, reduce contamination risk, provide precise dial-a-dose accuracy, and save significant time (90 seconds vs 10-15 minutes per dose). They are the modern standard for peptide research." },
-      { question: "Where can I buy peptide pens in the UK?", answer: "ORYN Peptide Labs offers 10 research-grade peptide pens with next-day UK delivery. All products are pre-mixed, >99% purity, GMP manufactured, and include a Certificate of Analysis. Free shipping on orders over €150." },
+      { question: "Where can I buy peptide pens in the UK?", answer: "ORYN Peptide Labs offers 10 research-grade peptide pens with next-day UK delivery. All products are pre-mixed, >99% purity, GMP manufactured, and include a Certificate of Analysis. Free shipping on orders over €175." },
     ],
   },
   {
     slug: "cheapest-peptides-uk-2026",
     title: "Best Value Peptides UK 2026: Price Comparison Guide",
-    metaTitle: "Cheapest Peptides UK 2026 — Price Comparison Guide | ORYN",
+    metaTitle: "Cheapest Peptides UK 2026 — Price Comparison Guide",
     metaDescription: "Compare peptide prices across UK suppliers in 2026. Find the best value research peptides — BPC-157, TB-500, CJC-1295, NAD+ and more. Cost-per-dose analysis included.",
     category: "Buying Guides",
     readTime: "9 min read",
@@ -1047,24 +1047,24 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Where ORYN Offers Genuine Value",
-        content: "ORYN isn't the cheapest option if you're comparing raw sticker prices — and we don't try to be. Here's where ORYN delivers genuine value:\n\n**Free shipping over €150**: Most single pens qualify, saving €5-€10 per order\n\n**Volume discounts**:\n- 3-5 units: 5% off\n- 6-9 units: 10% off\n- 10+ units: 15% off\n\n**No hidden costs**: Everything is included — pre-mixed solution, precision pen, 30 days of dosing. The only additional purchase is disposable pen needles.\n\n**Purity guarantee**: >99% HPLC-verified purity with batch-specific COA. You're paying for peptide, not impurities.\n\n**Time savings**: 90 seconds per dose vs 10-15 minutes for vial reconstitution and manual drawing. Over 30 days, that's 45 minutes vs 7.5 hours.\n\n**Consistency**: Every dose is identical, delivering reproducible research results that justify the investment.\n\nFor researchers running multi-peptide stacking protocols, ORYN's volume discounts make premium pen systems increasingly competitive with mid-range vial suppliers.",
+        content: "ORYN isn't the cheapest option if you're comparing raw sticker prices — and we don't try to be. Here's where ORYN delivers genuine value:\n\n**Free shipping over €175**: Most single pens qualify, saving €5-€10 per order\n\n**Volume discounts**:\n- 3-5 units: 5% off\n- 6-9 units: 10% off\n- 10+ units: 15% off\n\n**No hidden costs**: Everything is included — pre-mixed solution, precision pen, 30 days of dosing. The only additional purchase is disposable pen needles.\n\n**Purity guarantee**: >99% HPLC-verified purity with batch-specific COA. You're paying for peptide, not impurities.\n\n**Time savings**: 90 seconds per dose vs 10-15 minutes for vial reconstitution and manual drawing. Over 30 days, that's 45 minutes vs 7.5 hours.\n\n**Consistency**: Every dose is identical, delivering reproducible research results that justify the investment.\n\nFor researchers running multi-peptide stacking protocols, ORYN's volume discounts make premium pen systems increasingly competitive with mid-range vial suppliers.",
       },
       {
         heading: "Tips for Getting the Best Peptide Value in the UK",
-        content: "Regardless of which supplier you choose, these strategies help maximise your research budget:\n\n1. **Calculate cost per dose, not cost per product** — A €35 vial requiring €35 in accessories costs the same per dose as a €70 all-inclusive product\n2. **Factor in purity** — 95% pure peptide at €40 delivers less active compound than 99% pure at €50\n3. **Buy in bulk when possible** — Most suppliers, including ORYN, offer volume discounts of 5-15%\n4. **Check for free shipping thresholds** — ORYN offers free delivery over €150\n5. **Verify COA authenticity** — Request batch-specific Certificates of Analysis and check they include HPLC, MS, endotoxin, and sterility data\n6. **Consider stability** — Reconstituted vials last 2-4 weeks; ORYN pens last 24 months sealed\n7. **Account for wastage** — Vial transfers always lose some product; pen systems deliver virtually 100%\n8. **Compare like for like** — Ensure you're comparing equivalent doses and durations\n\nThe best value peptide is the one that delivers consistent, verifiable results for your specific research requirements — whether that's a budget vial or a premium pen system.",
+        content: "Regardless of which supplier you choose, these strategies help maximise your research budget:\n\n1. **Calculate cost per dose, not cost per product** — A €35 vial requiring €35 in accessories costs the same per dose as a €70 all-inclusive product\n2. **Factor in purity** — 95% pure peptide at €40 delivers less active compound than 99% pure at €50\n3. **Buy in bulk when possible** — Most suppliers, including ORYN, offer volume discounts of 5-15%\n4. **Check for free shipping thresholds** — ORYN offers free delivery over €175\n5. **Verify COA authenticity** — Request batch-specific Certificates of Analysis and check they include HPLC, MS, endotoxin, and sterility data\n6. **Consider stability** — Reconstituted vials last 2-4 weeks; ORYN pens last 24 months sealed\n7. **Account for wastage** — Vial transfers always lose some product; pen systems deliver virtually 100%\n8. **Compare like for like** — Ensure you're comparing equivalent doses and durations\n\nThe best value peptide is the one that delivers consistent, verifiable results for your specific research requirements — whether that's a budget vial or a premium pen system.",
       },
     ],
     faqs: [
       { question: "What are the cheapest peptides available in the UK?", answer: "The cheapest peptide vials in the UK start from around €25-€40 for 5mg of common compounds like BPC-157 or TB-500. However, these require additional accessories (bacteriostatic water, syringes, swabs) costing €30-€50 extra. Pre-mixed pen systems like ORYN start at €99 all-inclusive." },
       { question: "Is it worth paying more for peptide pens over vials?", answer: "It depends on your research priorities. Pens offer superior dosing accuracy (<2% variance), zero preparation time, sealed contamination-free delivery, and guaranteed >99% purity. For research requiring precision and reproducibility, the premium often represents better value per reliable data point." },
       { question: "How much do ORYN peptide pens cost?", answer: "ORYN peptide pens range from €99 (Glutathione) to €299 (NovaDose NAD+). Each pen provides a complete 30-day supply with pre-mixed solution, precision dosing, and >99% purity. Volume discounts of 5-15% are available for multi-unit orders." },
-      { question: "Does ORYN offer free shipping in the UK?", answer: "Yes, ORYN offers free shipping on all UK orders over €150. Most individual peptide pens qualify for free delivery. Orders are dispatched same-day for purchases made before 2pm, with next-day delivery available across the UK." },
+      { question: "Does ORYN offer free shipping in the UK?", answer: "Yes, ORYN offers free shipping on all UK orders over €175. Most individual peptide pens qualify for free delivery. Orders are dispatched same-day for purchases made before 2pm, with next-day delivery available across the UK." },
     ],
   },
   {
     slug: "peptides-vs-hrt-comparison",
     title: "Peptides vs HRT: Key Differences for Researchers",
-    metaTitle: "Peptides vs HRT: Research Comparison Guide 2026 | ORYN",
+    metaTitle: "Peptides vs HRT: Research Comparison Guide 2026",
     metaDescription: "Compare peptides and hormone replacement therapy (HRT) for research. Key differences in mechanism, safety, regulation, and applications. Evidence-based UK guide.",
     category: "Education",
     readTime: "10 min read",
@@ -1105,7 +1105,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-vs-supplements-recovery",
     title: "Peptides vs Supplements for Recovery Research",
-    metaTitle: "Peptides vs Supplements for Recovery — Research Comparison | ORYN",
+    metaTitle: "Peptides vs Supplements for Recovery — Research Comparison",
     metaDescription: "Compare peptides and supplements for recovery research. BPC-157, TB-500 vs collagen, creatine, BCAAs. Mechanism, bioavailability, and evidence comparison.",
     category: "Research Guides",
     readTime: "8 min read",
@@ -1146,7 +1146,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-for-post-surgery-recovery",
     title: "Peptides for Post-Surgery Recovery: BPC-157 & TB-500 Research",
-    metaTitle: "Peptides for Post-Surgery Recovery — BPC-157 & TB-500 Research | ORYN",
+    metaTitle: "Peptides for Post-Surgery Recovery — BPC-157 & TB-500 Research",
     metaDescription: "Research on BPC-157 and TB-500 for post-surgery recovery. Published studies on wound healing, tissue repair, and inflammation. UK research guide.",
     category: "Research Guides",
     readTime: "11 min read",
@@ -1191,7 +1191,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-before-after-research-results",
     title: "Peptide Research Results: What Studies Show in 2026",
-    metaTitle: "Peptide Research Results 2026 — What Before/After Studies Show | ORYN",
+    metaTitle: "Peptide Research Results 2026 — What Before/After Studies Show",
     metaDescription: "Review peptide research results and before/after study data for 2026. BPC-157, TB-500, GHK-Cu, Tirzepatide findings. Evidence-based UK research summary.",
     category: "Research Guides",
     readTime: "10 min read",
@@ -1236,7 +1236,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "fastest-healing-peptides-uk",
     title: "Fastest Healing Peptides: BPC-157, TB-500 & GHK-Cu Compared",
-    metaTitle: "Fastest Healing Peptides UK — BPC-157, TB-500 & GHK-Cu Compared | ORYN",
+    metaTitle: "Fastest Healing Peptides UK — BPC-157, TB-500 & GHK-Cu Compared",
     metaDescription: "Compare the fastest-acting healing peptides: BPC-157, TB-500, and GHK-Cu. Research timelines, mechanisms, and which peptide targets which tissue type. UK guide.",
     category: "Research Guides",
     readTime: "9 min read",
@@ -1281,7 +1281,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-for-joint-pain-research",
     title: "Peptides for Joint Pain: BPC-157 Research Overview",
-    metaTitle: "Peptides for Joint Pain Research — BPC-157 & More | ORYN UK",
+    metaTitle: "Peptides for Joint Pain Research — BPC-157 & More",
     metaDescription: "Research overview of peptides for joint pain. BPC-157, TB-500 studies on cartilage, tendons, and inflammation. Published evidence and UK research guide.",
     category: "Research Guides",
     readTime: "8 min read",
@@ -1322,7 +1322,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "anti-aging-peptides-that-work",
     title: "Anti-Ageing Peptides That Show Promise: NAD+, GHK-Cu & More",
-    metaTitle: "Anti-Ageing Peptides That Work — NAD+, GHK-Cu Research | ORYN UK",
+    metaTitle: "Anti-Ageing Peptides That Work — NAD+, GHK-Cu Research",
     metaDescription: "Discover anti-ageing peptides with published research evidence. NAD+, GHK-Cu, Glutathione, CJC-1295 — what the science shows. UK research guide 2026.",
     category: "Education",
     readTime: "11 min read",
@@ -1367,7 +1367,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-for-women-uk-guide",
     title: "Peptides for Women: GHK-Cu, Glutathione & NAD+ Research Guide",
-    metaTitle: "Peptides for Women UK — GHK-Cu, Glutathione & NAD+ Guide | ORYN",
+    metaTitle: "Peptides for Women UK — GHK-Cu, Glutathione & NAD+ Guide",
     metaDescription: "Research guide to peptides for women in the UK. GHK-Cu for skin, Glutathione for antioxidant defence, NAD+ for cellular energy. Evidence-based guide 2026.",
     category: "Education",
     readTime: "9 min read",
@@ -1408,7 +1408,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-for-men-over-40",
     title: "Peptides for Men Over 40: CJC-1295, Ipamorelin & NAD+ Research",
-    metaTitle: "Peptides for Men Over 40 — CJC-1295, Ipamorelin & NAD+ | ORYN UK",
+    metaTitle: "Peptides for Men Over 40 — CJC-1295, Ipamorelin & NAD+",
     metaDescription: "Research guide to peptides for men over 40 in the UK. CJC-1295, Ipamorelin for GH optimisation, NAD+ for cellular energy. Evidence-based protocols.",
     category: "Education",
     readTime: "10 min read",
@@ -1436,7 +1436,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Building a Comprehensive Men's Research Protocol",
-        content: "Based on published research, a multi-target protocol for men over 40 might include:\n\n**Tier 1 — Foundational (pick one):**\n- NAD+ for cellular energy and DNA repair (€189-€299)\n- CJC-1295 + Ipamorelin for GH optimisation (€218)\n\n**Tier 2 — Recovery (if active/injured):**\n- BPC-157 + TB-500 for tissue repair (€238)\n- BPC-157 alone for general recovery (€119)\n\n**Tier 3 — Advanced (comprehensive protocol):**\n- Add GHK-Cu (€139) for skin, hair, and collagen research\n- Add Glutathione (€99) for antioxidant defence\n\n**Popular combinations by budget:**\n- Budget: CJC-1295 + Ipamorelin = €218/month (GH optimisation)\n- Mid-range: NAD+ + BPC-157 = €308-€408/month (cellular energy + recovery)\n- Comprehensive: CJC + Ipamorelin + BPC-157 + NAD+ = €526-€636/month\n\n**Volume discounts**: ORYN offers 5% off for 3-5 units, 10% off for 6-9 units, and 15% off for 10+ units — making comprehensive protocols more affordable.\n\nAll ORYN peptide pens provide 30-day supplies, making protocol coordination straightforward. Free UK shipping applies to orders over €150.",
+        content: "Based on published research, a multi-target protocol for men over 40 might include:\n\n**Tier 1 — Foundational (pick one):**\n- NAD+ for cellular energy and DNA repair (€189-€299)\n- CJC-1295 + Ipamorelin for GH optimisation (€218)\n\n**Tier 2 — Recovery (if active/injured):**\n- BPC-157 + TB-500 for tissue repair (€238)\n- BPC-157 alone for general recovery (€119)\n\n**Tier 3 — Advanced (comprehensive protocol):**\n- Add GHK-Cu (€139) for skin, hair, and collagen research\n- Add Glutathione (€99) for antioxidant defence\n\n**Popular combinations by budget:**\n- Budget: CJC-1295 + Ipamorelin = €218/month (GH optimisation)\n- Mid-range: NAD+ + BPC-157 = €308-€408/month (cellular energy + recovery)\n- Comprehensive: CJC + Ipamorelin + BPC-157 + NAD+ = €526-€636/month\n\n**Volume discounts**: ORYN offers 5% off for 3-5 units, 10% off for 6-9 units, and 15% off for 10+ units — making comprehensive protocols more affordable.\n\nAll ORYN peptide pens provide 30-day supplies, making protocol coordination straightforward. Free UK shipping applies to orders over €175.",
       },
     ],
     faqs: [
@@ -1449,7 +1449,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "do-peptides-really-work",
     title: "Do Peptides Work? What the Research Says in 2026",
-    metaTitle: "Do Peptides Really Work? Evidence-Based Answer 2026 | ORYN UK",
+    metaTitle: "Do Peptides Really Work? Evidence-Based Answer 2026",
     metaDescription: "Do peptides actually work? We review published clinical trials, animal studies, and in vitro research for BPC-157, Tirzepatide, GHK-Cu, NAD+ and more. Honest 2026 assessment.",
     category: "Education",
     readTime: "10 min read",
@@ -1494,7 +1494,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-market-uk-2026-trends",
     title: "UK Peptide Market 2026: Trends, Regulations & Growth",
-    metaTitle: "UK Peptide Market 2026 — Trends, Regulations & Growth | ORYN",
+    metaTitle: "UK Peptide Market 2026 — Trends, Regulations & Growth",
     metaDescription: "Analysis of the UK peptide market in 2026. Market size, growth trends, regulatory changes, consumer demographics, and emerging peptide categories. Industry report.",
     category: "Industry",
     readTime: "7 min read",
@@ -1539,8 +1539,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "same-day-peptide-delivery-london",
     title: "Same-Day Peptide Delivery London: How ORYN Ships Fast",
-    metaTitle: "Same-Day Peptide Delivery London — Next-Day UK Shipping | ORYN",
-    metaDescription: "ORYN offers same-day dispatch and next-day peptide delivery to London and across the UK. Temperature-controlled shipping, discreet packaging, free over €150.",
+    metaTitle: "Same-Day Peptide Delivery London — Next-Day UK Shipping",
+    metaDescription: "ORYN offers same-day dispatch and next-day peptide delivery to London and across the UK. Temperature-controlled shipping, discreet packaging, free over €175.",
     category: "Buying Guides",
     readTime: "5 min read",
     datePublished: "2026-02-28",
@@ -1567,20 +1567,20 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Free Shipping and Delivery Options",
-        content: "**Free standard shipping on all UK orders over €150.**\n\nMost individual ORYN peptide pens qualify for free delivery:\n- Glutathione (€99) — free shipping\n- CJC-1295 (€109) — free shipping\n- Ipamorelin (€109) — free shipping\n- BPC-157 (€119) — free shipping\n- TB-500 (€119) — free shipping\n- GHK-Cu (€139) — free shipping\n- Tirzepatide Pen (€139) — free shipping\n- NAD+ Pen (€189) — free shipping\n- MediT Tirzepatide (€249) — free shipping\n- NovaDose NAD+ (€299) — free shipping\n\nAll 10 ORYN peptide products qualify for free UK shipping individually.\n\n**London-specific notes:**\nLondon postcodes consistently receive next-business-day delivery for orders placed before 2pm. We deliver to all London boroughs including Westminster, Camden, Islington, Hackney, Tower Hamlets, Southwark, Lambeth, Wandsworth, Kensington & Chelsea, Hammersmith & Fulham, and all outer London boroughs.\n\n**Tracking**: Every order includes a tracking number sent via email immediately upon dispatch. Track your delivery in real-time through the courier's website or app.",
+        content: "**Free standard shipping on all UK orders over €175.**\n\nMost individual ORYN peptide pens qualify for free delivery:\n- Glutathione (€99) — free shipping\n- CJC-1295 (€109) — free shipping\n- Ipamorelin (€109) — free shipping\n- BPC-157 (€119) — free shipping\n- TB-500 (€119) — free shipping\n- GHK-Cu (€139) — free shipping\n- Tirzepatide Pen (€139) — free shipping\n- NAD+ Pen (€189) — free shipping\n- MediT Tirzepatide (€249) — free shipping\n- NovaDose NAD+ (€299) — free shipping\n\nAll 10 ORYN peptide products qualify for free UK shipping individually.\n\n**London-specific notes:**\nLondon postcodes consistently receive next-business-day delivery for orders placed before 2pm. We deliver to all London boroughs including Westminster, Camden, Islington, Hackney, Tower Hamlets, Southwark, Lambeth, Wandsworth, Kensington & Chelsea, Hammersmith & Fulham, and all outer London boroughs.\n\n**Tracking**: Every order includes a tracking number sent via email immediately upon dispatch. Track your delivery in real-time through the courier's website or app.",
       },
     ],
     faqs: [
       { question: "Does ORYN offer same-day delivery in London?", answer: "ORYN offers same-day dispatch (for orders before 2pm) with next-business-day delivery across all London postcodes. While we do not currently offer same-day delivery itself, the combination of same-day dispatch and premium courier services means most London orders arrive the next business day." },
       { question: "Is ORYN peptide shipping temperature-controlled?", answer: "Yes. All ORYN orders are packed with insulated packaging and gel ice packs to maintain the 2-8°C cold chain during transit. Internal temperature indicators verify that products arrive within the correct temperature range." },
       { question: "Is peptide delivery discreet?", answer: "Yes. ORYN ships in plain, unbranded packaging with no company name, product descriptions, or peptide references visible on the exterior. Packages are indistinguishable from standard online deliveries." },
-      { question: "How much does ORYN shipping cost?", answer: "Shipping is free on all UK orders over €150. Since all 10 ORYN peptide products are priced at €99 or above, every single-pen order qualifies for free delivery." },
+      { question: "How much does ORYN shipping cost?", answer: "Shipping is free on all UK orders over €175. Since all 10 ORYN peptide products are priced at €99 or above, every single-pen order qualifies for free delivery." },
     ],
   },
   {
     slug: "peptide-pen-troubleshooting-guide",
     title: "Peptide Pen Troubleshooting: Complete Guide",
-    metaTitle: "Peptide Pen Troubleshooting — Fix Common Issues | ORYN UK",
+    metaTitle: "Peptide Pen Troubleshooting — Fix Common Issues",
     metaDescription: "Complete troubleshooting guide for peptide pens. Fix air bubbles, dose dial issues, needle problems, and storage concerns. ORYN peptide pen support guide.",
     category: "Guides",
     readTime: "7 min read",
@@ -1626,7 +1626,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-shelf-life-storage-guide",
     title: "Peptide Shelf Life & Storage: Complete Temperature Guide",
-    metaTitle: "Peptide Shelf Life & Storage Guide — Temperature Requirements | ORYN UK",
+    metaTitle: "Peptide Shelf Life & Storage Guide — Temperature Requirements",
     metaDescription: "Complete guide to peptide storage and shelf life. Temperature requirements, refrigeration, travel tips, and how to maximise peptide pen longevity. UK research guide.",
     category: "Guides",
     readTime: "6 min read",
@@ -1671,7 +1671,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-vs-stem-cells-healing",
     title: "Peptides vs Stem Cells for Healing: Research Comparison",
-    metaTitle: "Peptides vs Stem Cells for Healing — Research Comparison | ORYN UK",
+    metaTitle: "Peptides vs Stem Cells for Healing — Research Comparison",
     metaDescription: "Compare peptides and stem cell therapy for healing research. Cost, accessibility, evidence, mechanisms. BPC-157, TB-500 vs PRP and stem cell treatments.",
     category: "Education",
     readTime: "9 min read",
@@ -1712,7 +1712,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "semaglutide-vs-tirzepatide-2026",
     title: "Semaglutide vs Tirzepatide 2026: Complete Research Comparison",
-    metaTitle: "Semaglutide vs Tirzepatide 2026 — Complete Comparison | ORYN UK",
+    metaTitle: "Semaglutide vs Tirzepatide 2026 — Complete Comparison",
     metaDescription: "Semaglutide vs Tirzepatide 2026 comparison. Head-to-head clinical trial data, mechanisms, efficacy, side effects. Which GLP-1 agonist shows better research results?",
     category: "Research Guides",
     readTime: "11 min read",
@@ -1752,13 +1752,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       { question: "What is the difference between semaglutide and tirzepatide?", answer: "The key difference is mechanism: semaglutide is a GLP-1 receptor agonist (single target), while tirzepatide is a dual GIP/GLP-1 receptor agonist (two targets). This dual mechanism is believed to explain tirzepatide's greater efficacy in clinical trials." },
       { question: "Does ORYN sell semaglutide?", answer: "ORYN currently offers Tirzepatide in two formats — Peptide Pen (10mg, €139) and MediT Pen (40mg, €249) — but does not currently stock semaglutide. Tirzepatide was selected for the ORYN range based on its superior clinical trial data." },
       { question: "What are the side effects of tirzepatide vs semaglutide?", answer: "Both share GI side effects (nausea, diarrhoea, vomiting). Clinical data suggests tirzepatide may have somewhat lower GI side effect rates than semaglutide at maximally effective doses. Both are generally well-tolerated with gradual dose titration. Discontinuation rates are similar (~6-7%)." },
-      { question: "How much does tirzepatide cost in the UK?", answer: "ORYN offers research-grade tirzepatide at €139 (Peptide Pen, 10mg) and €249 (MediT Pen, 40mg prefilled). NHS prescriptions for Mounjaro are available through specific pathways. Private prescriptions typically cost €150-€300 per month depending on dose." },
+      { question: "How much does tirzepatide cost in the UK?", answer: "ORYN offers research-grade tirzepatide at €139 (Peptide Pen, 10mg) and €249 (MediT Pen, 40mg prefilled). NHS prescriptions for Mounjaro are available through specific pathways. Private prescriptions typically cost €175-€300 per month depending on dose." },
     ],
   },
   {
     slug: "peptide-regulations-uk-2026",
     title: "UK Peptide Regulations 2026: What Researchers Need to Know",
-    metaTitle: "UK Peptide Regulations 2026 — Legal Guide for Researchers | ORYN",
+    metaTitle: "UK Peptide Regulations 2026 — Legal Guide for Researchers",
     metaDescription: "Complete guide to UK peptide regulations in 2026. Legal status, MHRA rules, purchasing guidelines, import laws. Everything researchers need to know.",
     category: "Legal & Compliance",
     readTime: "8 min read",
@@ -1803,7 +1803,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "best-peptides-for-skin-uk",
     title: "Best Peptides for Skin Research: GHK-Cu & Glutathione Guide",
-    metaTitle: "Best Peptides for Skin UK — GHK-Cu & Glutathione Research | ORYN",
+    metaTitle: "Best Peptides for Skin UK — GHK-Cu & Glutathione Research",
     metaDescription: "Discover the best peptides for skin research in the UK. GHK-Cu for collagen, Glutathione for brightening, and more. Published evidence and research protocols.",
     category: "Research Guides",
     readTime: "8 min read",
@@ -1844,7 +1844,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-dosing-guide-beginners",
     title: "Peptide Dosing Guide for Beginners: Research Protocols",
-    metaTitle: "Peptide Dosing Guide for Beginners — Research Protocols 2026 | ORYN UK",
+    metaTitle: "Peptide Dosing Guide for Beginners — Research Protocols 2026",
     metaDescription: "Beginner's guide to peptide dosing for research. Standard protocols for BPC-157, TB-500, CJC-1295, Ipamorelin, GHK-Cu, and more. ORYN pen dosing explained.",
     category: "Guides",
     readTime: "9 min read",
@@ -1890,7 +1890,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-sciences-alternative-2026",
     title: "Best Peptide Sciences Alternative in 2026: Why Researchers Are Switching to ORYN",
-    metaTitle: "Peptide Sciences Alternative 2026 — Best Replacement for Researchers | ORYN",
+    metaTitle: "Peptide Sciences Alternative 2026 — Best Replacement for Researchers",
     metaDescription: "Looking for a Peptide Sciences alternative after their 2026 shutdown? ORYN offers premium peptide pens with >99% purity, GMP manufacturing, and next-day UK/EU delivery.",
     category: "Industry News",
     readTime: "10 min read",
@@ -1948,7 +1948,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "are-peptides-legal-in-germany",
     title: "Are Peptides Legal in Germany? 2026 Guide to Buying Research Peptides",
-    metaTitle: "Are Peptides Legal in Germany? 2026 Buying Guide | ORYN",
+    metaTitle: "Are Peptides Legal in Germany? 2026 Buying Guide",
     metaDescription: "Complete guide to peptide legality in Germany 2026. Learn about German AMG regulations, buying research peptides, and ORYN's 3-5 day delivery to Berlin, Munich, Hamburg.",
     category: "Legal & Compliance",
     readTime: "7 min read",
@@ -1976,7 +1976,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Why German Researchers Choose ORYN",
-        content: "Germany is home to world-class research institutions — from the Max Planck Institutes to leading university medical centres. German researchers demand the highest quality compounds, rigorous documentation, and reliable supply chains. ORYN meets these standards in every respect.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research results. Full Certificates of Analysis are provided with every order.\n\n**Pre-filled pen format**: ORYN's innovative pen delivery system eliminates the reconstitution, calculation, and contamination risks associated with traditional lyophilised vial formats. Each pen contains pre-measured, ready-to-use peptide solution with a precision dial-a-dose mechanism — ideal for researchers who need consistent, accurate dosing across experimental protocols.\n\n**No customs delays**: As an EU-based supplier, ORYN shipments to Germany face zero customs procedures, zero import duties, and zero risk of border seizure. This is a critical advantage over US-based suppliers, whose shipments to Germany regularly face customs inspection and potential confiscation by the Zoll.\n\n**EU regulatory compliance**: ORYN operates within the EU regulatory framework, ensuring all products, labelling, and shipping practices comply with European standards. This matters for German institutional researchers who must demonstrate regulatory compliance in their procurement processes.\n\n**Competitive pricing in EUR**: All ORYN prices are displayed in euros with no hidden conversion fees. Free shipping is available on orders over €150, and the straightforward pricing structure means no surprise customs charges or international shipping surcharges.\n\n**Dedicated customer support**: ORYN provides responsive customer support in English for German researchers, with typical response times under 24 hours. Whether you need batch documentation, bulk pricing for institutional orders, or technical product information, the ORYN team is available to assist.",
+        content: "Germany is home to world-class research institutions — from the Max Planck Institutes to leading university medical centres. German researchers demand the highest quality compounds, rigorous documentation, and reliable supply chains. ORYN meets these standards in every respect.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research results. Full Certificates of Analysis are provided with every order.\n\n**Pre-filled pen format**: ORYN's innovative pen delivery system eliminates the reconstitution, calculation, and contamination risks associated with traditional lyophilised vial formats. Each pen contains pre-measured, ready-to-use peptide solution with a precision dial-a-dose mechanism — ideal for researchers who need consistent, accurate dosing across experimental protocols.\n\n**No customs delays**: As an EU-based supplier, ORYN shipments to Germany face zero customs procedures, zero import duties, and zero risk of border seizure. This is a critical advantage over US-based suppliers, whose shipments to Germany regularly face customs inspection and potential confiscation by the Zoll.\n\n**EU regulatory compliance**: ORYN operates within the EU regulatory framework, ensuring all products, labelling, and shipping practices comply with European standards. This matters for German institutional researchers who must demonstrate regulatory compliance in their procurement processes.\n\n**Competitive pricing in EUR**: All ORYN prices are displayed in euros with no hidden conversion fees. Free shipping is available on orders over €175, and the straightforward pricing structure means no surprise customs charges or international shipping surcharges.\n\n**Dedicated customer support**: ORYN provides responsive customer support in English for German researchers, with typical response times under 24 hours. Whether you need batch documentation, bulk pricing for institutional orders, or technical product information, the ORYN team is available to assist.",
       },
     ],
     faqs: [
@@ -1990,7 +1990,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-spain-guide",
     title: "Buy Peptides in Spain: Legal Guide & Delivery Information 2026",
-    metaTitle: "Buy Peptides in Spain — Legal Guide & Fast Delivery 2026 | ORYN",
+    metaTitle: "Buy Peptides in Spain — Legal Guide & Fast Delivery 2026",
     metaDescription: "How to buy research peptides in Spain legally in 2026. AEMPS regulations, EU shipping with no customs, and 3-5 day delivery to Madrid, Barcelona, Valencia.",
     category: "Legal & Compliance",
     readTime: "6 min read",
@@ -2014,17 +2014,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times Across Spain",
-        content: "ORYN delivers to all Spanish addresses — from major metropolitan areas to smaller towns and rural regions. Delivery is handled by established EU courier networks with full tracking capability.\n\nEstimated delivery times to major Spanish cities:\n\n- **Madrid** — 3-4 business days\n- **Barcelona** — 3-4 business days\n- **Valencia** — 3-5 business days\n- **Seville (Sevilla)** — 4-5 business days\n- **Bilbao** — 3-4 business days\n- **Zaragoza** — 3-4 business days\n- **Málaga** — 4-5 business days\n- **Palma de Mallorca** — 4-5 business days\n\nAll orders are dispatched within one business day of order confirmation. Tracking information is sent via email as soon as the shipment is handed to the courier, allowing researchers to monitor delivery progress in real time.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, and corporate R&D facilities. For deliveries to Spanish research institutions that require reception at specific departments, researchers can include special delivery instructions during checkout.\n\nShipments to the Canary Islands, Ceuta, and Melilla may take slightly longer (5-7 business days) due to their special tax status within the EU, but are still handled without the customs complications associated with non-EU shipments.\n\nFree shipping is available on all orders over €150 — a threshold easily reached with a single ORYN peptide pen purchase.",
+        content: "ORYN delivers to all Spanish addresses — from major metropolitan areas to smaller towns and rural regions. Delivery is handled by established EU courier networks with full tracking capability.\n\nEstimated delivery times to major Spanish cities:\n\n- **Madrid** — 3-4 business days\n- **Barcelona** — 3-4 business days\n- **Valencia** — 3-5 business days\n- **Seville (Sevilla)** — 4-5 business days\n- **Bilbao** — 3-4 business days\n- **Zaragoza** — 3-4 business days\n- **Málaga** — 4-5 business days\n- **Palma de Mallorca** — 4-5 business days\n\nAll orders are dispatched within one business day of order confirmation. Tracking information is sent via email as soon as the shipment is handed to the courier, allowing researchers to monitor delivery progress in real time.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, and corporate R&D facilities. For deliveries to Spanish research institutions that require reception at specific departments, researchers can include special delivery instructions during checkout.\n\nShipments to the Canary Islands, Ceuta, and Melilla may take slightly longer (5-7 business days) due to their special tax status within the EU, but are still handled without the customs complications associated with non-EU shipments.\n\nFree shipping is available on all orders over €175 — a threshold easily reached with a single ORYN peptide pen purchase.",
       },
       {
         heading: "Why ORYN Is the Best Peptide Supplier for Spain",
-        content: "Spanish researchers face a common challenge: finding a peptide supplier that combines pharmaceutical-grade quality with reliable EU-based delivery. Many peptide suppliers operate from the US or Asia, subjecting Spanish customers to lengthy shipping times, customs risks, and inconsistent product quality. ORYN solves these problems.\n\n**>99% purity, independently verified**: Every ORYN peptide batch undergoes rigorous quality control, including HPLC analysis and mass spectrometry verification. Purity consistently exceeds 99%, and full Certificates of Analysis are provided with every order. This level of quality assurance is essential for producing reliable, reproducible research data.\n\n**GMP-certified manufacturing**: ORYN peptides are produced in EU-based, GMP-certified manufacturing facilities. Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines.\n\n**Ready-to-use pen format**: ORYN's pre-filled peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers exact, factory-calibrated amounts with every use — reducing variability and improving experimental consistency.\n\n**No customs, no delays**: EU-based shipping means zero customs risk, zero import duties, and delivery in 3-5 business days. Compare this to 2-4 weeks (or never, if seized) from US or Asian suppliers.\n\n**EUR pricing with free shipping**: All prices are in euros with no currency conversion fees. Free shipping on orders over €150 means most single-pen orders ship at no additional cost.\n\n**Customer support**: ORYN offers responsive English-language customer support with typical response times under 24 hours, ready to assist with product questions, bulk orders, or institutional procurement requirements.",
+        content: "Spanish researchers face a common challenge: finding a peptide supplier that combines pharmaceutical-grade quality with reliable EU-based delivery. Many peptide suppliers operate from the US or Asia, subjecting Spanish customers to lengthy shipping times, customs risks, and inconsistent product quality. ORYN solves these problems.\n\n**>99% purity, independently verified**: Every ORYN peptide batch undergoes rigorous quality control, including HPLC analysis and mass spectrometry verification. Purity consistently exceeds 99%, and full Certificates of Analysis are provided with every order. This level of quality assurance is essential for producing reliable, reproducible research data.\n\n**GMP-certified manufacturing**: ORYN peptides are produced in EU-based, GMP-certified manufacturing facilities. Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines.\n\n**Ready-to-use pen format**: ORYN's pre-filled peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers exact, factory-calibrated amounts with every use — reducing variability and improving experimental consistency.\n\n**No customs, no delays**: EU-based shipping means zero customs risk, zero import duties, and delivery in 3-5 business days. Compare this to 2-4 weeks (or never, if seized) from US or Asian suppliers.\n\n**EUR pricing with free shipping**: All prices are in euros with no currency conversion fees. Free shipping on orders over €175 means most single-pen orders ship at no additional cost.\n\n**Customer support**: ORYN offers responsive English-language customer support with typical response times under 24 hours, ready to assist with product questions, bulk orders, or institutional procurement requirements.",
       },
     ],
     faqs: [
       { question: "Is it legal to buy peptides in Spain?", answer: "Yes. Research peptides are legal to purchase in Spain for scientific and laboratory use. They are not classified as controlled substances under Spanish law when sold for research purposes. ORYN supplies all peptides with clear research-use-only labelling in compliance with AEMPS and EU regulations." },
       { question: "Will Spanish customs stop my peptide order?", answer: "Not when ordering from ORYN. As an EU-based supplier, ORYN shipments to Spain are intra-community transfers within the single market — no customs inspection, no import duties, no seizure risk. Only orders from non-EU countries face scrutiny from the Agencia Tributaria." },
-      { question: "How long does delivery to Spain take?", answer: "ORYN delivers to major Spanish cities (Madrid, Barcelona, Valencia, Bilbao) in 3-5 business days. All orders include tracking and temperature-protective packaging. Orders over €150 qualify for free shipping." },
+      { question: "How long does delivery to Spain take?", answer: "ORYN delivers to major Spanish cities (Madrid, Barcelona, Valencia, Bilbao) in 3-5 business days. All orders include tracking and temperature-protective packaging. Orders over €175 qualify for free shipping." },
       { question: "Can I order peptides to a Spanish university or lab?", answer: "Yes. ORYN delivers to institutional addresses including universities, research laboratories, and corporate R&D facilities across Spain. Include your department and any specific delivery instructions during checkout. Full documentation (Certificates of Analysis, batch records) is provided for institutional procurement compliance." },
     ],
   },
@@ -2032,7 +2032,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-france-guide",
     title: "Peptides in France: Legal Status & How to Buy Research Peptides 2026",
-    metaTitle: "Buy Research Peptides in France — Legal Guide 2026 | ORYN",
+    metaTitle: "Buy Research Peptides in France — Legal Guide 2026",
     metaDescription: "Guide to buying research peptides in France 2026. ANSM regulations, EU shipping benefits, and 3-5 day delivery to Paris, Lyon, Marseille, and across France.",
     category: "Legal & Compliance",
     readTime: "7 min read",
@@ -2056,17 +2056,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to French Cities",
-        content: "ORYN delivers research peptides to all addresses across metropolitan France, including residential addresses, university campuses, research institutes, and corporate R&D facilities.\n\nEstimated delivery times to major French cities:\n\n- **Paris** — 3-4 business days\n- **Lyon** — 3-4 business days\n- **Marseille** — 3-5 business days\n- **Toulouse** — 3-5 business days\n- **Nice** — 3-5 business days\n- **Nantes** — 3-4 business days\n- **Strasbourg** — 3-4 business days\n- **Bordeaux** — 3-5 business days\n- **Lille** — 3-4 business days\n- **Montpellier** — 3-5 business days\n\nOrders are processed and dispatched within one business day of confirmation. Full tracking is provided via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nDeliveries to French overseas departments and territories (DOM-TOM) such as Martinique, Guadeloupe, Réunion, and French Guiana may require additional transit time (7-10 business days) and may be subject to different customs arrangements depending on the specific territory's status within the EU.\n\nORYN offers free shipping on orders exceeding €150 — a threshold reached with most single peptide pen purchases. This makes ORYN one of the most cost-effective options for French researchers, particularly when factoring in the zero customs charges and zero import duties that come with intra-EU delivery.",
+        content: "ORYN delivers research peptides to all addresses across metropolitan France, including residential addresses, university campuses, research institutes, and corporate R&D facilities.\n\nEstimated delivery times to major French cities:\n\n- **Paris** — 3-4 business days\n- **Lyon** — 3-4 business days\n- **Marseille** — 3-5 business days\n- **Toulouse** — 3-5 business days\n- **Nice** — 3-5 business days\n- **Nantes** — 3-4 business days\n- **Strasbourg** — 3-4 business days\n- **Bordeaux** — 3-5 business days\n- **Lille** — 3-4 business days\n- **Montpellier** — 3-5 business days\n\nOrders are processed and dispatched within one business day of confirmation. Full tracking is provided via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nDeliveries to French overseas departments and territories (DOM-TOM) such as Martinique, Guadeloupe, Réunion, and French Guiana may require additional transit time (7-10 business days) and may be subject to different customs arrangements depending on the specific territory's status within the EU.\n\nORYN offers free shipping on orders exceeding €175 — a threshold reached with most single peptide pen purchases. This makes ORYN one of the most cost-effective options for French researchers, particularly when factoring in the zero customs charges and zero import duties that come with intra-EU delivery.",
       },
       {
         heading: "Why French Researchers Trust ORYN",
-        content: "France has a distinguished tradition of biomedical research, from the Pasteur Institute to modern INSERM laboratories. French researchers require peptide suppliers who match their high standards for purity, documentation, and reliability. ORYN delivers on all counts.\n\n**>99% purity with full COAs**: ORYN peptides are manufactured in GMP-certified facilities and undergo independent quality testing. Each batch is verified via HPLC analysis and mass spectrometry, with results documented in a Certificate of Analysis included with every order. This level of quality assurance supports reproducible research outcomes and satisfies institutional quality requirements.\n\n**GMP manufacturing standards**: Good Manufacturing Practice certification ensures that every batch of ORYN peptides meets consistent standards for purity, sterility, and potency. GMP compliance is particularly important for French researchers whose work may inform clinical or preclinical studies.\n\n**Innovative pen delivery format**: ORYN's pre-filled peptide pens are a significant advancement over traditional lyophilised vial formats. The pens arrive ready to use — no reconstitution with bacteriostatic water, no concentration calculations, no syringe preparation. The precision dial-a-dose mechanism ensures consistent dosing with less than 2% variance between administrations.\n\n**EU-based, customs-free shipping**: French researchers receive their orders in 3-5 business days with zero customs interference. This is faster, cheaper, and more reliable than ordering from US-based peptide suppliers, which can take 2-4 weeks and risk customs seizure at French borders.\n\n**Transparent EUR pricing**: No currency conversion, no hidden fees. ORYN displays all prices in euros, and free shipping is included on orders over €150.\n\n**Responsive support team**: ORYN provides English-language customer support with fast response times. Whether you need technical product information, bulk pricing for laboratory orders, or assistance with institutional procurement, the ORYN team is available to help.",
+        content: "France has a distinguished tradition of biomedical research, from the Pasteur Institute to modern INSERM laboratories. French researchers require peptide suppliers who match their high standards for purity, documentation, and reliability. ORYN delivers on all counts.\n\n**>99% purity with full COAs**: ORYN peptides are manufactured in GMP-certified facilities and undergo independent quality testing. Each batch is verified via HPLC analysis and mass spectrometry, with results documented in a Certificate of Analysis included with every order. This level of quality assurance supports reproducible research outcomes and satisfies institutional quality requirements.\n\n**GMP manufacturing standards**: Good Manufacturing Practice certification ensures that every batch of ORYN peptides meets consistent standards for purity, sterility, and potency. GMP compliance is particularly important for French researchers whose work may inform clinical or preclinical studies.\n\n**Innovative pen delivery format**: ORYN's pre-filled peptide pens are a significant advancement over traditional lyophilised vial formats. The pens arrive ready to use — no reconstitution with bacteriostatic water, no concentration calculations, no syringe preparation. The precision dial-a-dose mechanism ensures consistent dosing with less than 2% variance between administrations.\n\n**EU-based, customs-free shipping**: French researchers receive their orders in 3-5 business days with zero customs interference. This is faster, cheaper, and more reliable than ordering from US-based peptide suppliers, which can take 2-4 weeks and risk customs seizure at French borders.\n\n**Transparent EUR pricing**: No currency conversion, no hidden fees. ORYN displays all prices in euros, and free shipping is included on orders over €175.\n\n**Responsive support team**: ORYN provides English-language customer support with fast response times. Whether you need technical product information, bulk pricing for laboratory orders, or assistance with institutional procurement, the ORYN team is available to help.",
       },
     ],
     faqs: [
       { question: "Can I legally buy research peptides in France?", answer: "Yes. Research peptides are legal to purchase in France for scientific and laboratory use. They are not classified as stupéfiants (controlled substances) under French law when sold for research purposes. ORYN supplies all peptides with research-use-only labelling in compliance with ANSM regulations." },
       { question: "Does ORYN ship to France without customs issues?", answer: "Yes. ORYN ships from within the EU, so deliveries to France are intra-community transfers — no customs (douanes) inspection, no import duties, no seizure risk. This is a key advantage over US or post-Brexit UK suppliers." },
-      { question: "How fast is peptide delivery to Paris and other French cities?", answer: "ORYN delivers to Paris, Lyon, Marseille, and other major French cities in 3-5 business days. All shipments include tracking and temperature-protective packaging. Free shipping is available on orders over €150." },
+      { question: "How fast is peptide delivery to Paris and other French cities?", answer: "ORYN delivers to Paris, Lyon, Marseille, and other major French cities in 3-5 business days. All shipments include tracking and temperature-protective packaging. Free shipping is available on orders over €175." },
       { question: "Do French researchers need a prescription to buy peptides?", answer: "No. Research peptides purchased for laboratory and scientific use do not require a medical prescription in France. They are classified differently from prescription medicines (médicaments sur ordonnance) when sold for research purposes only." },
     ],
   },
@@ -2074,7 +2074,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-netherlands-guide",
     title: "Buy Peptides in the Netherlands: Legal Guide & Fast EU Delivery 2026",
-    metaTitle: "Buy Peptides Netherlands — Legal Guide & Delivery 2026 | ORYN",
+    metaTitle: "Buy Peptides Netherlands — Legal Guide & Delivery 2026",
     metaDescription: "How to legally buy research peptides in the Netherlands 2026. Dutch regulations, EU free movement, and 2-3 day delivery to Amsterdam, Rotterdam, The Hague.",
     category: "Legal & Compliance",
     readTime: "6 min read",
@@ -2098,11 +2098,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to Dutch Cities",
-        content: "Thanks to the Netherlands' compact geography and excellent logistics infrastructure, ORYN achieves some of the fastest delivery times in Europe to Dutch addresses.\n\nEstimated delivery times:\n\n- **Amsterdam** — 2-3 business days\n- **Rotterdam** — 2-3 business days\n- **The Hague (Den Haag)** — 2-3 business days\n- **Utrecht** — 2-3 business days\n- **Eindhoven** — 2-3 business days\n- **Groningen** — 2-3 business days\n- **Leiden** — 2-3 business days\n- **Maastricht** — 2-3 business days\n- **Delft** — 2-3 business days\n- **Nijmegen** — 2-3 business days\n\nThe Netherlands' small geographic size means there is virtually no difference in delivery time between cities. Whether you are at the University of Amsterdam, TU Delft, Erasmus MC in Rotterdam, or the University of Groningen, your order will arrive within the same 2-3 business day window.\n\nAll orders are dispatched within one business day and include full tracking via email. ORYN delivers to residential addresses, university campuses, research institutes, hospital pharmacies, and corporate laboratories.\n\nFree shipping is available on orders over €150 — easily reached with a single ORYN peptide pen. For Dutch researchers, this means pharmaceutical-grade peptides delivered to your door in 2-3 days, with no customs delays, no import duties, and no shipping charges.",
+        content: "Thanks to the Netherlands' compact geography and excellent logistics infrastructure, ORYN achieves some of the fastest delivery times in Europe to Dutch addresses.\n\nEstimated delivery times:\n\n- **Amsterdam** — 2-3 business days\n- **Rotterdam** — 2-3 business days\n- **The Hague (Den Haag)** — 2-3 business days\n- **Utrecht** — 2-3 business days\n- **Eindhoven** — 2-3 business days\n- **Groningen** — 2-3 business days\n- **Leiden** — 2-3 business days\n- **Maastricht** — 2-3 business days\n- **Delft** — 2-3 business days\n- **Nijmegen** — 2-3 business days\n\nThe Netherlands' small geographic size means there is virtually no difference in delivery time between cities. Whether you are at the University of Amsterdam, TU Delft, Erasmus MC in Rotterdam, or the University of Groningen, your order will arrive within the same 2-3 business day window.\n\nAll orders are dispatched within one business day and include full tracking via email. ORYN delivers to residential addresses, university campuses, research institutes, hospital pharmacies, and corporate laboratories.\n\nFree shipping is available on orders over €175 — easily reached with a single ORYN peptide pen. For Dutch researchers, this means pharmaceutical-grade peptides delivered to your door in 2-3 days, with no customs delays, no import duties, and no shipping charges.",
       },
       {
         heading: "Why Dutch Researchers Choose ORYN",
-        content: "The Netherlands is home to some of Europe's most innovative research institutions. From the academic medical centres (UMCs) to university science departments and private biotech companies, Dutch researchers demand suppliers who meet the highest standards of quality, reliability, and compliance. ORYN is built to meet these expectations.\n\n**>99% purity, every batch**: ORYN peptides are manufactured in GMP-certified facilities and verified via independent HPLC analysis and mass spectrometry. Purity consistently exceeds 99%, with full Certificates of Analysis provided for every order. This matters for Dutch researchers who need reliable, reproducible compounds for their experimental protocols.\n\n**GMP-certified production**: Good Manufacturing Practice certification ensures consistent manufacturing standards across every batch. For researchers whose work feeds into clinical or preclinical pipelines — common in the Netherlands' strong translational research ecosystem — GMP compliance provides the quality foundation needed for regulatory acceptance.\n\n**Pre-filled pen innovation**: ORYN's peptide pens eliminate the error-prone steps of traditional vial-based peptide preparation. No reconstitution, no calculations, no syringe drawing. The precision dial-a-dose mechanism ensures <2% dosing variance — ideal for researchers who need consistent administration across experimental groups.\n\n**Fastest EU delivery**: The Netherlands' central location and logistics infrastructure mean ORYN orders arrive in just 2-3 business days — the fastest delivery window in our European network. Combined with zero customs delays and free shipping over €150, this makes ORYN the most convenient peptide supplier available to Dutch researchers.\n\n**EU regulatory alignment**: ORYN operates within the same EU regulatory framework as Dutch institutions, ensuring compliance, proper documentation, and consistent standards.\n\n**Responsive customer support**: ORYN provides English-language support (and the Dutch are famously proficient in English) with response times typically under 24 hours.",
+        content: "The Netherlands is home to some of Europe's most innovative research institutions. From the academic medical centres (UMCs) to university science departments and private biotech companies, Dutch researchers demand suppliers who meet the highest standards of quality, reliability, and compliance. ORYN is built to meet these expectations.\n\n**>99% purity, every batch**: ORYN peptides are manufactured in GMP-certified facilities and verified via independent HPLC analysis and mass spectrometry. Purity consistently exceeds 99%, with full Certificates of Analysis provided for every order. This matters for Dutch researchers who need reliable, reproducible compounds for their experimental protocols.\n\n**GMP-certified production**: Good Manufacturing Practice certification ensures consistent manufacturing standards across every batch. For researchers whose work feeds into clinical or preclinical pipelines — common in the Netherlands' strong translational research ecosystem — GMP compliance provides the quality foundation needed for regulatory acceptance.\n\n**Pre-filled pen innovation**: ORYN's peptide pens eliminate the error-prone steps of traditional vial-based peptide preparation. No reconstitution, no calculations, no syringe drawing. The precision dial-a-dose mechanism ensures <2% dosing variance — ideal for researchers who need consistent administration across experimental groups.\n\n**Fastest EU delivery**: The Netherlands' central location and logistics infrastructure mean ORYN orders arrive in just 2-3 business days — the fastest delivery window in our European network. Combined with zero customs delays and free shipping over €175, this makes ORYN the most convenient peptide supplier available to Dutch researchers.\n\n**EU regulatory alignment**: ORYN operates within the same EU regulatory framework as Dutch institutions, ensuring compliance, proper documentation, and consistent standards.\n\n**Responsive customer support**: ORYN provides English-language support (and the Dutch are famously proficient in English) with response times typically under 24 hours.",
       },
     ],
     faqs: [
@@ -2116,7 +2116,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-italy-guide",
     title: "Buy Peptides in Italy: Legal Guide & EU Delivery 2026",
-    metaTitle: "Buy Peptides Italy — Legal Guide & Fast EU Delivery 2026 | ORYN",
+    metaTitle: "Buy Peptides Italy — Legal Guide & Fast EU Delivery 2026",
     metaDescription: "Guide to purchasing research peptides in Italy 2026. AIFA regulations, EU internal market benefits, and delivery to Rome, Milan, Naples, and across Italy.",
     category: "Legal & Compliance",
     readTime: "6 min read",
@@ -2140,11 +2140,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to Italian Cities",
-        content: "ORYN delivers to all Italian addresses — from the industrial north to the Mediterranean south, including the islands of Sicily and Sardinia.\n\nEstimated delivery times to major Italian cities:\n\n- **Rome (Roma)** — 3-4 business days\n- **Milan (Milano)** — 3-4 business days\n- **Naples (Napoli)** — 4-5 business days\n- **Turin (Torino)** — 3-4 business days\n- **Florence (Firenze)** — 3-4 business days\n- **Bologna** — 3-4 business days\n- **Padova** — 3-4 business days\n- **Genoa (Genova)** — 3-4 business days\n- **Palermo** — 4-5 business days\n- **Cagliari (Sardinia)** — 4-5 business days\n\nNorthern Italian cities (Milan, Turin, Bologna, Padova) typically receive orders at the faster end of the delivery window thanks to their proximity to central European logistics hubs. Southern cities and the islands may take an additional day.\n\nAll orders are dispatched within one business day of confirmation with full tracking provided via email. ORYN ships to residential addresses, university campuses (including all major Italian atenei), research hospitals, and corporate R&D laboratories.\n\nFree shipping is available on orders exceeding €150. Combined with zero customs charges and zero import duties, this makes ORYN one of the most cost-effective peptide suppliers available to Italian researchers.\n\nFor deliveries to Italian research institutions that require reception at specific dipartimenti or portinerie, researchers can include special delivery instructions during checkout.",
+        content: "ORYN delivers to all Italian addresses — from the industrial north to the Mediterranean south, including the islands of Sicily and Sardinia.\n\nEstimated delivery times to major Italian cities:\n\n- **Rome (Roma)** — 3-4 business days\n- **Milan (Milano)** — 3-4 business days\n- **Naples (Napoli)** — 4-5 business days\n- **Turin (Torino)** — 3-4 business days\n- **Florence (Firenze)** — 3-4 business days\n- **Bologna** — 3-4 business days\n- **Padova** — 3-4 business days\n- **Genoa (Genova)** — 3-4 business days\n- **Palermo** — 4-5 business days\n- **Cagliari (Sardinia)** — 4-5 business days\n\nNorthern Italian cities (Milan, Turin, Bologna, Padova) typically receive orders at the faster end of the delivery window thanks to their proximity to central European logistics hubs. Southern cities and the islands may take an additional day.\n\nAll orders are dispatched within one business day of confirmation with full tracking provided via email. ORYN ships to residential addresses, university campuses (including all major Italian atenei), research hospitals, and corporate R&D laboratories.\n\nFree shipping is available on orders exceeding €175. Combined with zero customs charges and zero import duties, this makes ORYN one of the most cost-effective peptide suppliers available to Italian researchers.\n\nFor deliveries to Italian research institutions that require reception at specific dipartimenti or portinerie, researchers can include special delivery instructions during checkout.",
       },
       {
         heading: "Why Italian Researchers Choose ORYN",
-        content: "Italy has a storied tradition in pharmaceutical science and biomedical research — from historic institutions like the University of Bologna (the oldest university in the Western world) to modern centres of excellence in Milan, Rome, and Naples. Italian researchers require peptide suppliers that match their exacting standards for quality, documentation, and reliability.\n\n**>99% purity, independently verified**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, with full Certificates of Analysis provided with every order. This level of quality assurance is essential for Italian researchers producing data for publication in peer-reviewed journals.\n\n**GMP-certified manufacturing**: ORYN's GMP-certified production in South Korea ensures consistent quality, sterility, and potency across every batch. GMP compliance is particularly valued by Italian researchers involved in preclinical studies that may progress toward clinical translation.\n\n**Ready-to-use pen format**: ORYN's pre-filled peptide pens eliminate the reconstitution, calculations, and contamination risks inherent in traditional vial-based formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with <2% variance — ideal for experimental protocols requiring consistent dosing.\n\n**No customs delays or import complications**: EU-based shipping means zero interaction with Italian customs (Agenzia delle Dogane), zero import duties, and reliable 3-5 day delivery. This is dramatically faster and more reliable than the 2-4 weeks (with seizure risk) associated with non-EU suppliers.\n\n**EUR pricing, no hidden costs**: All ORYN prices are displayed in euros with no conversion fees. Free shipping on orders over €150 means most single-pen orders ship at no additional cost to Italian addresses.\n\n**Customer support**: ORYN provides responsive English-language customer support with typical response times under 24 hours. The team can assist with product inquiries, bulk order pricing for institutional procurement, and technical documentation requests.",
+        content: "Italy has a storied tradition in pharmaceutical science and biomedical research — from historic institutions like the University of Bologna (the oldest university in the Western world) to modern centres of excellence in Milan, Rome, and Naples. Italian researchers require peptide suppliers that match their exacting standards for quality, documentation, and reliability.\n\n**>99% purity, independently verified**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, with full Certificates of Analysis provided with every order. This level of quality assurance is essential for Italian researchers producing data for publication in peer-reviewed journals.\n\n**GMP-certified manufacturing**: ORYN's GMP-certified production in South Korea ensures consistent quality, sterility, and potency across every batch. GMP compliance is particularly valued by Italian researchers involved in preclinical studies that may progress toward clinical translation.\n\n**Ready-to-use pen format**: ORYN's pre-filled peptide pens eliminate the reconstitution, calculations, and contamination risks inherent in traditional vial-based formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with <2% variance — ideal for experimental protocols requiring consistent dosing.\n\n**No customs delays or import complications**: EU-based shipping means zero interaction with Italian customs (Agenzia delle Dogane), zero import duties, and reliable 3-5 day delivery. This is dramatically faster and more reliable than the 2-4 weeks (with seizure risk) associated with non-EU suppliers.\n\n**EUR pricing, no hidden costs**: All ORYN prices are displayed in euros with no conversion fees. Free shipping on orders over €175 means most single-pen orders ship at no additional cost to Italian addresses.\n\n**Customer support**: ORYN provides responsive English-language customer support with typical response times under 24 hours. The team can assist with product inquiries, bulk order pricing for institutional procurement, and technical documentation requests.",
       },
     ],
     faqs: [
@@ -2157,7 +2157,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "semaglutide-alternatives-2026",
     title: "Semaglutide Alternatives 2026: Research Peptides Beyond GLP-1",
-    metaTitle: "Semaglutide Alternatives 2026: Top Research Peptides | ORYN",
+    metaTitle: "Semaglutide Alternatives 2026: Top Research Peptides",
     metaDescription: "Explore the best semaglutide alternatives for research in 2026. Compare tirzepatide, retatrutide, and other metabolic peptides. Buy research peptides UK.",
     category: "Peptide Research",
     readTime: "12 min read",
@@ -2212,7 +2212,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "bpc-157-dosage-guide",
     title: "BPC-157 Dosage Guide for Researchers: Protocols & Evidence",
-    metaTitle: "BPC-157 Dosage Guide: Research Protocols & Evidence | ORYN",
+    metaTitle: "BPC-157 Dosage Guide: Research Protocols & Evidence",
     metaDescription: "Complete BPC-157 dosage guide for researchers. Published dosing protocols, route of administration comparison, pen vs vial accuracy, and storage guidelines.",
     category: "Research Guides",
     readTime: "9 min read",
@@ -2268,7 +2268,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-finland-guide",
     title: "Buy Peptides in Finland: Legal Guide & Nordic Delivery 2026",
-    metaTitle: "Buy Peptides in Finland — Legal Guide & Delivery 2026 | ORYN",
+    metaTitle: "Buy Peptides in Finland — Legal Guide & Delivery 2026",
     metaDescription: "How to buy research peptides in Finland legally in 2026. FIMEA regulations, EU shipping with no customs, and 3-5 day delivery to Helsinki, Espoo, Tampere, Turku.",
     category: "Legal & Compliance",
     readTime: "7 min read",
@@ -2292,11 +2292,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to Finnish Cities",
-        content: "ORYN delivers to all Finnish addresses — from the Helsinki metropolitan area to cities in Lapland. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Finnish cities:\n\n- **Helsinki** — 3-4 business days\n- **Espoo** — 3-4 business days\n- **Tampere** — 3-5 business days\n- **Turku** — 3-4 business days\n- **Oulu** — 4-5 business days\n- **Jyväskylä** — 4-5 business days\n- **Lahti** — 3-4 business days\n- **Kuopio** — 4-5 business days\n- **Rovaniemi** — 5-6 business days\n- **Vaasa** — 4-5 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, VTT Technical Research Centre facilities, and corporate R&D sites. For deliveries to Finnish institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €150 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Finnish researchers, particularly when factoring in zero customs charges and zero import duties.",
+        content: "ORYN delivers to all Finnish addresses — from the Helsinki metropolitan area to cities in Lapland. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Finnish cities:\n\n- **Helsinki** — 3-4 business days\n- **Espoo** — 3-4 business days\n- **Tampere** — 3-5 business days\n- **Turku** — 3-4 business days\n- **Oulu** — 4-5 business days\n- **Jyväskylä** — 4-5 business days\n- **Lahti** — 3-4 business days\n- **Kuopio** — 4-5 business days\n- **Rovaniemi** — 5-6 business days\n- **Vaasa** — 4-5 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, VTT Technical Research Centre facilities, and corporate R&D sites. For deliveries to Finnish institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €175 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Finnish researchers, particularly when factoring in zero customs charges and zero import duties.",
       },
       {
         heading: "Why Finnish Researchers Choose ORYN",
-        content: "Finland's research community is known for its rigour, innovation, and high standards. Finnish researchers expect peptide suppliers who match their commitment to quality and reliability. ORYN delivers on every count.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Finnish universities and institutes.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Finnish researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 3-5 business days. This is significantly faster and more reliable than ordering from US suppliers, where Finnish customs (Tulli) may hold shipments for weeks.\n\n**EUR pricing with free shipping**: All prices are in euros — Finland's currency since 2002 — with no conversion fees. Free shipping on orders over €150 means most single-pen purchases ship at no additional cost.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Finnish researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
+        content: "Finland's research community is known for its rigour, innovation, and high standards. Finnish researchers expect peptide suppliers who match their commitment to quality and reliability. ORYN delivers on every count.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Finnish universities and institutes.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Finnish researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 3-5 business days. This is significantly faster and more reliable than ordering from US suppliers, where Finnish customs (Tulli) may hold shipments for weeks.\n\n**EUR pricing with free shipping**: All prices are in euros — Finland's currency since 2002 — with no conversion fees. Free shipping on orders over €175 means most single-pen purchases ship at no additional cost.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Finnish researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
       },
     ],
     faqs: [
@@ -2309,7 +2309,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-ireland-guide",
     title: "Buy Peptides in Ireland: Legal Guide & EU Delivery 2026",
-    metaTitle: "Buy Peptides in Ireland — Legal Guide & Delivery 2026 | ORYN",
+    metaTitle: "Buy Peptides in Ireland — Legal Guide & Delivery 2026",
     metaDescription: "How to buy research peptides in Ireland legally in 2026. HPRA regulations, EU customs-free shipping, and 2-4 day delivery to Dublin, Cork, Galway, Limerick.",
     category: "Legal & Compliance",
     readTime: "7 min read",
@@ -2333,11 +2333,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to Irish Cities",
-        content: "ORYN delivers to all Irish addresses — from Dublin city centre to research facilities in the west of Ireland. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Irish cities:\n\n- **Dublin** — 2-3 business days\n- **Cork** — 2-4 business days\n- **Galway** — 3-4 business days\n- **Limerick** — 3-4 business days\n- **Waterford** — 3-4 business days\n- **Kilkenny** — 3-4 business days\n- **Drogheda** — 2-3 business days\n- **Dundalk** — 2-3 business days\n- **Athlone** — 3-4 business days\n- **Sligo** — 3-4 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research hospitals, IDA Ireland business parks, and corporate R&D sites. For deliveries to Irish institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €150 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Irish researchers, particularly when factoring in zero customs charges and zero import duties.",
+        content: "ORYN delivers to all Irish addresses — from Dublin city centre to research facilities in the west of Ireland. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Irish cities:\n\n- **Dublin** — 2-3 business days\n- **Cork** — 2-4 business days\n- **Galway** — 3-4 business days\n- **Limerick** — 3-4 business days\n- **Waterford** — 3-4 business days\n- **Kilkenny** — 3-4 business days\n- **Drogheda** — 2-3 business days\n- **Dundalk** — 2-3 business days\n- **Athlone** — 3-4 business days\n- **Sligo** — 3-4 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research hospitals, IDA Ireland business parks, and corporate R&D sites. For deliveries to Irish institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €175 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Irish researchers, particularly when factoring in zero customs charges and zero import duties.",
       },
       {
         heading: "Why Irish Researchers Choose ORYN",
-        content: "Ireland's research community combines academic excellence with a thriving pharmaceutical industry. Irish researchers expect peptide suppliers who match their commitment to quality and regulatory compliance. ORYN delivers on every count.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Irish universities, hospitals, and pharmaceutical companies.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Irish researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 2-4 business days. This is significantly faster and more reliable than ordering from UK suppliers (post-Brexit customs) or US suppliers.\n\n**EUR pricing with free shipping**: All prices are in euros — Ireland's currency since 2002 — with no conversion fees. Free shipping on orders over €150 means most single-pen purchases ship at no additional cost.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Irish researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
+        content: "Ireland's research community combines academic excellence with a thriving pharmaceutical industry. Irish researchers expect peptide suppliers who match their commitment to quality and regulatory compliance. ORYN delivers on every count.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Irish universities, hospitals, and pharmaceutical companies.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Irish researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 2-4 business days. This is significantly faster and more reliable than ordering from UK suppliers (post-Brexit customs) or US suppliers.\n\n**EUR pricing with free shipping**: All prices are in euros — Ireland's currency since 2002 — with no conversion fees. Free shipping on orders over €175 means most single-pen purchases ship at no additional cost.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Irish researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
       },
     ],
     faqs: [
@@ -2350,7 +2350,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "research-peptides-romania-guide",
     title: "Buy Research Peptides in Romania: Legal Guide & EU Delivery 2026",
-    metaTitle: "Buy Research Peptides Romania — Legal Guide & Delivery 2026 | ORYN",
+    metaTitle: "Buy Research Peptides Romania — Legal Guide & Delivery 2026",
     metaDescription: "How to buy research peptides in Romania legally in 2026. ANMDMR regulations, EU customs-free shipping, and 3-5 day delivery to Bucharest, Cluj-Napoca, Timișoara, Iași.",
     category: "Legal & Compliance",
     readTime: "7 min read",
@@ -2374,11 +2374,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to Romanian Cities",
-        content: "ORYN delivers to all Romanian addresses — from central Bucharest to university cities across Transylvania and Moldova. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Romanian cities:\n\n- **Bucharest (București)** — 3-4 business days\n- **Cluj-Napoca** — 3-5 business days\n- **Timișoara** — 3-4 business days\n- **Iași** — 4-5 business days\n- **Constanța** — 3-5 business days\n- **Brașov** — 3-5 business days\n- **Craiova** — 4-5 business days\n- **Sibiu** — 3-5 business days\n- **Oradea** — 3-5 business days\n- **Târgu Mureș** — 4-5 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, and corporate R&D sites. For deliveries to Romanian institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €150 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Romanian researchers, particularly when factoring in zero customs charges and zero import duties.",
+        content: "ORYN delivers to all Romanian addresses — from central Bucharest to university cities across Transylvania and Moldova. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major Romanian cities:\n\n- **Bucharest (București)** — 3-4 business days\n- **Cluj-Napoca** — 3-5 business days\n- **Timișoara** — 3-4 business days\n- **Iași** — 4-5 business days\n- **Constanța** — 3-5 business days\n- **Brașov** — 3-5 business days\n- **Craiova** — 4-5 business days\n- **Sibiu** — 3-5 business days\n- **Oradea** — 3-5 business days\n- **Târgu Mureș** — 4-5 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both residential addresses and institutional addresses, including university campuses, research laboratories, and corporate R&D sites. For deliveries to Romanian institutions requiring reception at specific departments, researchers can include special delivery instructions during checkout.\n\nFree shipping is available on all orders over €175 — a threshold easily reached with a single ORYN peptide pen purchase. This makes ORYN one of the most cost-effective peptide suppliers for Romanian researchers, particularly when factoring in zero customs charges and zero import duties.",
       },
       {
         heading: "Why Romanian Researchers Choose ORYN",
-        content: "Romania's research community is rapidly expanding, with increasing investment in biomedical sciences, pharmaceutical development, and molecular biology. Romanian researchers expect peptide suppliers who deliver quality, reliability, and competitive pricing. ORYN meets these requirements.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Romanian universities and institutes.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Romanian researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 3-5 business days. This is significantly faster and more reliable than ordering from US or Asian suppliers, where Romanian customs may hold shipments for extended periods.\n\n**Competitive EUR pricing with free shipping**: ORYN offers some of the most competitive peptide pen prices in Europe, starting from €99. Free shipping on orders over €150 means most single-pen purchases ship at no additional cost. For Romanian researchers managing tight grant budgets, this represents significant savings.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Romanian researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
+        content: "Romania's research community is rapidly expanding, with increasing investment in biomedical sciences, pharmaceutical development, and molecular biology. Romanian researchers expect peptide suppliers who deliver quality, reliability, and competitive pricing. ORYN meets these requirements.\n\n**Pharmaceutical-grade purity (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at Romanian universities and institutes.\n\n**GMP-certified manufacturing**: Good Manufacturing Practice certification ensures consistent quality, sterility, and potency across every batch — the same standard applied to pharmaceutical-grade medicines. This is essential for Romanian researchers whose work may inform clinical or preclinical studies.\n\n**Pre-filled pen format**: ORYN's innovative peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies and protocol replication.\n\n**No customs delays**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 3-5 business days. This is significantly faster and more reliable than ordering from US or Asian suppliers, where Romanian customs may hold shipments for extended periods.\n\n**Competitive EUR pricing with free shipping**: ORYN offers some of the most competitive peptide pen prices in Europe, starting from €99. Free shipping on orders over €175 means most single-pen purchases ship at no additional cost. For Romanian researchers managing tight grant budgets, this represents significant savings.\n\n**Responsive customer support**: ORYN provides English-language customer support with typical response times under 24 hours. Romanian researchers can get assistance with product specifications, bulk pricing for institutional orders, or technical documentation requirements.",
       },
     ],
     faqs: [
@@ -2391,7 +2391,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "bpc-157-kaufen-deutschland-guide",
     title: "BPC-157 Kaufen in Deutschland: Rechtlicher Leitfaden & EU-Lieferung 2026",
-    metaTitle: "BPC-157 Kaufen Deutschland — Rechtslage & Lieferung 2026 | ORYN",
+    metaTitle: "BPC-157 Kaufen Deutschland — Rechtslage & Lieferung 2026",
     metaDescription: "BPC-157 Injektion in Deutschland kaufen: Rechtslage (AMG), BfArM-Regulierung, EU-zollfreier Versand und Lieferung in 2-4 Tagen nach Berlin, München, Hamburg, Frankfurt.",
     category: "Legal & Compliance",
     readTime: "8 min read",
@@ -2415,11 +2415,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Delivery Times to German Cities",
-        content: "ORYN delivers to all German addresses — from central Berlin to university cities across Bayern, Nordrhein-Westfalen, Baden-Württemberg, and all 16 Bundesländer. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major German cities:\n\n- **Berlin** — 2-3 business days\n- **München (Munich)** — 2-3 business days\n- **Hamburg** — 2-3 business days\n- **Frankfurt am Main** — 2-3 business days\n- **Köln (Cologne)** — 2-3 business days\n- **Düsseldorf** — 2-3 business days\n- **Stuttgart** — 2-3 business days\n- **Heidelberg** — 2-3 business days\n- **Tübingen** — 2-4 business days\n- **Göttingen** — 2-4 business days\n- **Freiburg** — 2-4 business days\n- **Dresden** — 2-4 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information (Sendungsverfolgung) is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both private addresses (Privatadresse) and institutional addresses (Institutsadresse), including university campuses (Universitätsklinik, Forschungsinstitut), Max-Planck and Fraunhofer institutes, Helmholtz centres, and corporate R&D laboratories. For deliveries requiring reception at specific departments, researchers can include delivery instructions (Lieferhinweise) during checkout.\n\nFree shipping (Kostenloser Versand) is available on all orders over €150 — a threshold easily reached with a single ORYN peptide pen purchase.",
+        content: "ORYN delivers to all German addresses — from central Berlin to university cities across Bayern, Nordrhein-Westfalen, Baden-Württemberg, and all 16 Bundesländer. Deliveries are handled by established EU logistics networks with full tracking capability.\n\nEstimated delivery times to major German cities:\n\n- **Berlin** — 2-3 business days\n- **München (Munich)** — 2-3 business days\n- **Hamburg** — 2-3 business days\n- **Frankfurt am Main** — 2-3 business days\n- **Köln (Cologne)** — 2-3 business days\n- **Düsseldorf** — 2-3 business days\n- **Stuttgart** — 2-3 business days\n- **Heidelberg** — 2-3 business days\n- **Tübingen** — 2-4 business days\n- **Göttingen** — 2-4 business days\n- **Freiburg** — 2-4 business days\n- **Dresden** — 2-4 business days\n\nAll orders are processed and dispatched within one business day of confirmation. Full tracking information (Sendungsverfolgung) is sent via email, allowing researchers to monitor shipment progress from dispatch to delivery.\n\nORYN ships to both private addresses (Privatadresse) and institutional addresses (Institutsadresse), including university campuses (Universitätsklinik, Forschungsinstitut), Max-Planck and Fraunhofer institutes, Helmholtz centres, and corporate R&D laboratories. For deliveries requiring reception at specific departments, researchers can include delivery instructions (Lieferhinweise) during checkout.\n\nFree shipping (Kostenloser Versand) is available on all orders over €175 — a threshold easily reached with a single ORYN peptide pen purchase.",
       },
       {
         heading: "Why German Researchers Choose ORYN",
-        content: "Germany's research community demands the highest quality standards in Europe. German researchers expect peptide suppliers who meet pharmaceutical-grade specifications, provide complete documentation, and deliver reliably. ORYN meets these requirements.\n\n**Pharmazeutische Reinheit (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at German universities, Max-Planck-Institutes, and Fraunhofer centres.\n\n**GMP-zertifizierte Herstellung**: Good Manufacturing Practice certification (GMP-Zertifizierung) ensures consistent quality, sterility, and potency across every batch. This is essential for German researchers whose work informs clinical or preclinical studies and must meet the documentation requirements of BfArM and ethics committees (Ethikkommissionen).\n\n**Innovatives Pen-Format**: ORYN's pre-filled peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies (Dosis-Wirkungs-Studien) and protocol replication in German research settings.\n\n**Keine Zollverzögerungen**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 2-4 business days. This is significantly faster and more reliable than ordering from US or Asian suppliers, where German customs may hold shipments for extended periods at the Zollamt.\n\n**Wettbewerbsfähige EUR-Preise**: ORYN offers some of the most competitive peptide pen prices in Europe, starting from €99. Free shipping on orders over €150 means most single-pen purchases ship at no additional cost. For German researchers managing DFG grant budgets (Sachmittel), BMBF project funding, or institutional procurement accounts, this represents significant savings.\n\n**Responsive Support**: ORYN provides English-language customer support with typical response times under 24 hours. German researchers can get assistance with product specifications, bulk pricing for institutional orders (Sammelbestellungen), or technical documentation requirements.",
+        content: "Germany's research community demands the highest quality standards in Europe. German researchers expect peptide suppliers who meet pharmaceutical-grade specifications, provide complete documentation, and deliver reliably. ORYN meets these requirements.\n\n**Pharmazeutische Reinheit (>99%)**: Every ORYN peptide batch is manufactured in GMP-certified facilities and independently tested via HPLC and mass spectrometry. Purity consistently exceeds 99%, meeting the analytical standards required for reproducible research at German universities, Max-Planck-Institutes, and Fraunhofer centres.\n\n**GMP-zertifizierte Herstellung**: Good Manufacturing Practice certification (GMP-Zertifizierung) ensures consistent quality, sterility, and potency across every batch. This is essential for German researchers whose work informs clinical or preclinical studies and must meet the documentation requirements of BfArM and ethics committees (Ethikkommissionen).\n\n**Innovatives Pen-Format**: ORYN's pre-filled peptide pens eliminate the reconstitution, sterile water mixing, and syringe calculations required with traditional vial formats. The precision dial-a-dose mechanism delivers factory-calibrated amounts with less than 2% variance — ideal for dose-response studies (Dosis-Wirkungs-Studien) and protocol replication in German research settings.\n\n**Keine Zollverzögerungen**: EU-based shipping means zero customs risk, zero import duties, and reliable delivery in 2-4 business days. This is significantly faster and more reliable than ordering from US or Asian suppliers, where German customs may hold shipments for extended periods at the Zollamt.\n\n**Wettbewerbsfähige EUR-Preise**: ORYN offers some of the most competitive peptide pen prices in Europe, starting from €99. Free shipping on orders over €175 means most single-pen purchases ship at no additional cost. For German researchers managing DFG grant budgets (Sachmittel), BMBF project funding, or institutional procurement accounts, this represents significant savings.\n\n**Responsive Support**: ORYN provides English-language customer support with typical response times under 24 hours. German researchers can get assistance with product specifications, bulk pricing for institutional orders (Sammelbestellungen), or technical documentation requirements.",
       },
     ],
     faqs: [
@@ -2432,7 +2432,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "shipping-peptides-to-brazil-guide",
     title: "Shipping Peptides to Brazil: Delivery Guide, Customs & FAQ 2026",
-    metaTitle: "Shipping Peptides to Brazil — Delivery, Customs & FAQ 2026 | ORYN",
+    metaTitle: "Shipping Peptides to Brazil — Delivery, Customs & FAQ 2026",
     metaDescription: "How to order research peptides shipped to Brazil in 2026. Delivery times to São Paulo, Rio de Janeiro, Brasília. ANVISA regulations, customs process, and payment in BRL (R$).",
     category: "Shipping & Delivery",
     readTime: "7 min read",
@@ -2460,12 +2460,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         heading: "Pricing in BRL and Payment Methods",
-        content: "ORYN now offers pricing in Brazilian Real (R$), providing price transparency and eliminating exchange rate surprises for Brazilian researchers.\n\n**BRL pricing**: All ORYN products display prices in R$ on the Brazilian locale of the website. Researchers see the exact amount they will be charged — no hidden currency conversion fees, no exchange rate uncertainty. Peptide pens start from approximately R$ 550 (equivalent to €99).\n\n**Accepted payment methods**: ORYN accepts international credit and debit cards (Visa, Mastercard, American Express) from Brazilian banks. Major Brazilian banks including Itaú, Bradesco, Banco do Brasil, Santander Brasil, and Nubank cards are all accepted.\n\n**PIX considerations**: While ORYN's payment system primarily processes international card payments, Brazilian researchers using digital banks (Nubank, Inter, C6 Bank) can use their international debit cards for purchases. ORYN is evaluating direct PIX integration for future convenience.\n\n**Institutional procurement**: Brazilian research institutions can contact ORYN for bulk pricing, institutional invoicing, and formal quotations (cotação) suitable for procurement processes (licitação or compra direta). ORYN provides proforma invoices and documentation compatible with Brazilian institutional purchasing requirements.\n\n**Free shipping threshold**: Free shipping is available on orders over €150 (approximately R$ 830). Given that a single ORYN peptide pen starts at R$ 550, most two-pen orders qualify for free international shipping to Brazil.\n\n**Currency and value**: ORYN's South Korean manufacturing base and competitive EUR pricing translate to strong value in Brazilian Real. Compared to domestic Brazilian peptide suppliers or US-based alternatives, ORYN offers pharmaceutical-grade quality (>99% purity, GMP-certified) at competitive international pricing, with the added advantage of pre-filled pen delivery format that eliminates reconstitution requirements.",
+        content: "ORYN now offers pricing in Brazilian Real (R$), providing price transparency and eliminating exchange rate surprises for Brazilian researchers.\n\n**BRL pricing**: All ORYN products display prices in R$ on the Brazilian locale of the website. Researchers see the exact amount they will be charged — no hidden currency conversion fees, no exchange rate uncertainty. Peptide pens start from approximately R$ 550 (equivalent to €99).\n\n**Accepted payment methods**: ORYN accepts international credit and debit cards (Visa, Mastercard, American Express) from Brazilian banks. Major Brazilian banks including Itaú, Bradesco, Banco do Brasil, Santander Brasil, and Nubank cards are all accepted.\n\n**PIX considerations**: While ORYN's payment system primarily processes international card payments, Brazilian researchers using digital banks (Nubank, Inter, C6 Bank) can use their international debit cards for purchases. ORYN is evaluating direct PIX integration for future convenience.\n\n**Institutional procurement**: Brazilian research institutions can contact ORYN for bulk pricing, institutional invoicing, and formal quotations (cotação) suitable for procurement processes (licitação or compra direta). ORYN provides proforma invoices and documentation compatible with Brazilian institutional purchasing requirements.\n\n**Free shipping threshold**: Free shipping is available on orders over €175 (approximately R$ 830). Given that a single ORYN peptide pen starts at R$ 550, most two-pen orders qualify for free international shipping to Brazil.\n\n**Currency and value**: ORYN's South Korean manufacturing base and competitive EUR pricing translate to strong value in Brazilian Real. Compared to domestic Brazilian peptide suppliers or US-based alternatives, ORYN offers pharmaceutical-grade quality (>99% purity, GMP-certified) at competitive international pricing, with the added advantage of pre-filled pen delivery format that eliminates reconstitution requirements.",
       },
     ],
     faqs: [
       { question: "Can I buy peptides and have them shipped to Brazil?", answer: "Yes. ORYN ships research peptides to all Brazilian addresses — São Paulo, Rio de Janeiro, Brasília, and all other cities. Deliveries typically arrive in 7-12 business days and pass through standard Receita Federal customs processing. All shipments include complete documentation for customs clearance." },
-      { question: "How much does it cost to order peptides to Brazil?", answer: "ORYN peptide pens start from approximately R$ 550 (€99). Free international shipping is available on orders over €150 (approximately R$ 830). Import duties and ICMS taxes may apply depending on your state and institutional status — research institutions may qualify for tax exemptions." },
+      { question: "How much does it cost to order peptides to Brazil?", answer: "ORYN peptide pens start from approximately R$ 550 (€99). Free international shipping is available on orders over €175 (approximately R$ 830). Import duties and ICMS taxes may apply depending on your state and institutional status — research institutions may qualify for tax exemptions." },
       { question: "What documents does ORYN provide for Brazilian customs?", answer: "Every ORYN shipment to Brazil includes a detailed commercial invoice (fatura comercial), packing list, product descriptions with CAS numbers, Certificates of Analysis with HPLC and mass spectrometry results, and research-use-only declarations. This documentation is designed to support smooth customs clearance (desembaraço aduaneiro)." },
       { question: "Can Brazilian universities order peptides from ORYN?", answer: "Yes. ORYN delivers to all Brazilian institutional addresses including USP, UNICAMP, UFRJ, Fiocruz, Instituto Butantan, and all other research institutions. Institutional buyers can request bulk pricing, formal quotations (cotação), and documentation compatible with Brazilian procurement processes. Contact ORYN for institutional orders." },
     ],
@@ -2473,7 +2473,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "tb-500-vs-tb4-frag",
     title: "TB-500 vs TB4 FRAG: Differences, Benefits & Research Guide 2026",
-    metaTitle: "TB-500 vs TB4 FRAG 500 — Differences & Research Comparison | ORYN",
+    metaTitle: "TB-500 vs TB4 FRAG 500 — Differences & Research Comparison",
     metaDescription: "Compare TB-500 and TB4 FRAG 500 peptides. Molecular differences, research applications, dosing protocols, and which is right for your study. Complete 2026 guide.",
     category: "Product Education",
     readTime: "10 min read",
@@ -2523,7 +2523,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-molecular-weight-calculator",
     title: "Peptide Molecular Weight Calculator — Complete Reference Table 2026",
-    metaTitle: "Peptide Molecular Weight Calculator & Reference Table | ORYN",
+    metaTitle: "Peptide Molecular Weight Calculator & Reference Table",
     metaDescription: "Complete peptide molecular weight reference table with amino acid sequences, molecular formulas, and properties for 50+ research peptides. Essential lab reference guide.",
     category: "Research Tools",
     readTime: "6 min read",
@@ -2569,7 +2569,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptides-legal-brazil-regulatory-guide",
     title: "Are Peptides Legal in Brazil? ANVISA Regulations & Research Guide 2026",
-    metaTitle: "Peptides Legal in Brazil? ANVISA Regulatory Guide 2026 | ORYN",
+    metaTitle: "Peptides Legal in Brazil? ANVISA Regulatory Guide 2026",
     metaDescription: "Complete guide to peptide regulations in Brazil for 2026. ANVISA rules, import requirements, research peptide legality, and how to buy peptides in Brazil legally.",
     category: "Legal & Compliance",
     readTime: "10 min read",
@@ -2617,7 +2617,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "tirzepatide-research-2026-mechanisms-dosing-outcomes",
     title: "Tirzepatide Research 2026: Mechanisms, Dosing, and Outcomes",
-    metaTitle: "Tirzepatide Research 2026: Mechanisms & Dosing | ORYN",
+    metaTitle: "Tirzepatide Research 2026: Mechanisms & Dosing",
     metaDescription: "Comprehensive tirzepatide research guide for 2026. Explore dual GIP/GLP-1 mechanisms, dosing protocols, clinical outcomes, and how to buy tirzepatide pen in Europe.",
     category: "Peptide Research",
     readTime: "12 min read",
@@ -2662,7 +2662,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "nad-plus-cellular-energy-complete-research-guide",
     title: "NAD+ and Cellular Energy: The Complete Research Guide",
-    metaTitle: "NAD+ & Cellular Energy: Complete Research Guide | ORYN",
+    metaTitle: "NAD+ & Cellular Energy: Complete Research Guide",
     metaDescription: "Explore how NAD+ drives cellular energy production, DNA repair, and longevity pathways. Research guide covering sirtuins, PARPs, and NAD+ supplementation for 2026.",
     category: "Peptide Research",
     readTime: "11 min read",
@@ -2707,7 +2707,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "gh-secretagogues-cjc-1295-ipamorelin-explained",
     title: "GH Secretagogues Explained: CJC-1295 and Ipamorelin",
-    metaTitle: "CJC-1295 & Ipamorelin Stack Guide 2026 | ORYN",
+    metaTitle: "CJC-1295 & Ipamorelin Stack Guide 2026",
     metaDescription: "Complete guide to GH secretagogues CJC-1295 and ipamorelin. Learn mechanisms, stacking protocols, and research outcomes. Buy CJC-1295 ipamorelin stack Europe.",
     category: "Peptide Research",
     readTime: "10 min read",
@@ -2752,7 +2752,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "comparing-weight-management-peptides-tirzepatide-vs-semaglutide-2026",
     title: "Comparing Weight Management Peptides: Tirzepatide vs Semaglutide",
-    metaTitle: "Tirzepatide vs Semaglutide 2026: Full Comparison | ORYN",
+    metaTitle: "Tirzepatide vs Semaglutide 2026: Full Comparison",
     metaDescription: "Tirzepatide vs semaglutide head-to-head comparison for 2026. Mechanisms, clinical data, weight loss outcomes, and which is best for metabolic research.",
     category: "Comparisons",
     readTime: "10 min read",
@@ -2797,7 +2797,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "novadose-system-daily-microdosing-precision-research",
     title: "The NovaDose System: Daily Microdosing for Precision Research",
-    metaTitle: "NovaDose NAD+ Microdosing System Guide | ORYN",
+    metaTitle: "NovaDose NAD+ Microdosing System Guide",
     metaDescription: "Discover the NovaDose daily microdosing system for NAD+ research. Adjustable dosing, cartridge-based design, and precision delivery for advanced research protocols.",
     category: "Product Guides",
     readTime: "9 min read",
@@ -2842,7 +2842,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "nad-plus-delivery-methods-iv-subcutaneous-oral",
     title: "NAD+ Delivery Methods: IV vs Subcutaneous vs Oral",
-    metaTitle: "NAD+ Delivery: IV vs Subcutaneous vs Oral 2026 | ORYN",
+    metaTitle: "NAD+ Delivery: IV vs Subcutaneous vs Oral 2026",
     metaDescription: "Compare NAD+ delivery methods — IV infusion, subcutaneous injection, and oral supplementation. Bioavailability, cost, and practicality for research in 2026.",
     category: "Guides",
     readTime: "9 min read",
@@ -2887,7 +2887,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "metabolic-peptide-research-summer-2026-outlook",
     title: "Metabolic Peptide Research: Summer 2026 Outlook",
-    metaTitle: "Metabolic Peptide Research Summer 2026 | ORYN",
+    metaTitle: "Metabolic Peptide Research Summer 2026",
     metaDescription: "Summer 2026 outlook for metabolic peptide research. Key trends in tirzepatide, NAD+, GH secretagogues, and emerging compounds shaping metabolic science.",
     category: "Industry Insights",
     readTime: "8 min read",
@@ -2932,7 +2932,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "peptide-pen-vs-vial-why-delivery-systems-matter",
     title: "Peptide Pen vs Vial: Why Delivery Systems Matter",
-    metaTitle: "Peptide Pen vs Vial: Why Delivery Matters | ORYN",
+    metaTitle: "Peptide Pen vs Vial: Why Delivery Matters",
     metaDescription: "Why peptide delivery systems matter for research outcomes. Compare pen vs vial across accuracy, contamination, stability, and cost for 2026 research protocols.",
     category: "Guides",
     readTime: "8 min read",
@@ -2977,7 +2977,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "body-composition-research-peptides-comprehensive-overview",
     title: "Body Composition Research Peptides: A Comprehensive Overview",
-    metaTitle: "Body Composition Peptides: Research Overview 2026 | ORYN",
+    metaTitle: "Body Composition Peptides: Research Overview 2026",
     metaDescription: "Comprehensive overview of peptides for body composition research. Tirzepatide, GH secretagogues, NAD+, and BPC-157 for fat loss and lean mass research.",
     category: "Peptide Research",
     readTime: "11 min read",
@@ -3022,7 +3022,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "pre-summer-research-planning-peptides-metabolic-studies",
     title: "Pre-Summer Research Planning: Peptides for Metabolic Studies",
-    metaTitle: "Pre-Summer Peptide Research Planning 2026 | ORYN",
+    metaTitle: "Pre-Summer Peptide Research Planning 2026",
     metaDescription: "Plan your summer 2026 metabolic peptide research. Protocol design, compound selection, timeline planning, and sourcing guide for tirzepatide, NAD+, and GH peptides.",
     category: "Guides",
     readTime: "9 min read",

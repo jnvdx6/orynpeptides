@@ -70,7 +70,7 @@ function areaFaqs(area: { name: string; postcode: string; borough: string }) {
     },
     {
       question: `Is there free shipping to ${area.name}?`,
-      answer: `Orders over €150 qualify for free shipping to ${area.name} and all London postcodes. Standard tracked delivery is available on all orders.`,
+      answer: `Orders over €175 qualify for free shipping to ${area.name} and all London postcodes. Standard tracked delivery is available on all orders.`,
     },
     {
       question: `Are peptides legal to buy in ${area.name}?`,

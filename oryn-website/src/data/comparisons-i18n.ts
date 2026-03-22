@@ -30,7 +30,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "bpc-157-vs-tb-500": {
     en: {
       title: "BPC-157 vs TB-500: Which Recovery Peptide Is Better?",
-      metaTitle: "BPC-157 vs TB-500: Complete Comparison | ORYN UK",
+      metaTitle: "BPC-157 vs TB-500: Complete Comparison",
       metaDescription: "Compare BPC-157 and TB-500 for recovery research. Mechanisms, benefits, dosing, and when to use each peptide. Buy both as pre-mixed pens UK.",
       introduction: "BPC-157 and TB-500 are the two most popular recovery peptides in the research community. While they share a common goal — accelerating tissue repair — they achieve this through fundamentally different biological mechanisms. Understanding these differences is crucial for designing effective research protocols.",
       verdict: "Both peptides excel at different aspects of recovery. BPC-157 is stronger for gut healing, tendon repair, and neuroprotection. TB-500 is superior for wound healing, cardiac repair, and inflammation. Many researchers use both together for comprehensive recovery protocols.",
@@ -72,7 +72,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "BPC-157 vs TB-500: ¿Qué Péptido de Recuperación Es Mejor?",
-      metaTitle: "BPC-157 vs TB-500: Comparación Completa | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Comparación Completa",
       metaDescription: "Compara BPC-157 y TB-500 para investigación de recuperación. Mecanismos, beneficios, dosificación y cuándo usar cada péptido. Compra ambos como plumas premezcladas.",
       introduction: "BPC-157 y TB-500 son los dos péptidos de recuperación más populares en la comunidad investigadora. Aunque comparten un objetivo común — acelerar la reparación tisular — lo logran mediante mecanismos biológicos fundamentalmente diferentes. Comprender estas diferencias es crucial para diseñar protocolos de investigación efectivos.",
       verdict: "Ambos péptidos destacan en diferentes aspectos de la recuperación. BPC-157 es más potente para la curación intestinal, reparación de tendones y neuroprotección. TB-500 es superior para la cicatrización de heridas, reparación cardíaca e inflamación. Muchos investigadores utilizan ambos juntos para protocolos de recuperación integral.",
@@ -114,7 +114,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "BPC-157 vs TB-500 : Quel Peptide de Récupération Est le Meilleur ?",
-      metaTitle: "BPC-157 vs TB-500 : Comparaison Complète | ORYN",
+      metaTitle: "BPC-157 vs TB-500 : Comparaison Complète",
       metaDescription: "Comparez BPC-157 et TB-500 pour la recherche sur la récupération. Mécanismes, bénéfices, dosage et quand utiliser chaque peptide. Achetez les deux en stylos prémélangés.",
       introduction: "BPC-157 et TB-500 sont les deux peptides de récupération les plus populaires dans la communauté de recherche. Bien qu'ils partagent un objectif commun — accélérer la réparation tissulaire — ils y parviennent par des mécanismes biologiques fondamentalement différents.",
       verdict: "Les deux peptides excellent dans différents aspects de la récupération. BPC-157 est plus puissant pour la guérison intestinale, la réparation des tendons et la neuroprotection. TB-500 est supérieur pour la cicatrisation, la réparation cardiaque et l'inflammation.",
@@ -156,7 +156,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "BPC-157 vs TB-500: Welches Erholungspeptid Ist Besser?",
-      metaTitle: "BPC-157 vs TB-500: Vollständiger Vergleich | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Vollständiger Vergleich",
       metaDescription: "Vergleichen Sie BPC-157 und TB-500 für die Erholungsforschung. Mechanismen, Vorteile, Dosierung und wann Sie jedes Peptid verwenden sollten. Kaufen Sie beide als vorgemischte Stifte.",
       introduction: "BPC-157 und TB-500 sind die beiden beliebtesten Erholungspeptide in der Forschungsgemeinschaft. Obwohl sie ein gemeinsames Ziel teilen — die Gewebereparatur zu beschleunigen — erreichen sie dies durch fundamental unterschiedliche biologische Mechanismen.",
       verdict: "Beide Peptide zeichnen sich in verschiedenen Aspekten der Erholung aus. BPC-157 ist stärker für die Darmausheilung, Sehnenreparatur und Neuroprotection. TB-500 ist überlegen bei der Wundheilung, Herzreparatur und Entzündung.",
@@ -198,7 +198,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "BPC-157 vs TB-500: Quale Peptide di Recupero È Migliore?",
-      metaTitle: "BPC-157 vs TB-500: Confronto Completo | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Confronto Completo",
       metaDescription: "Confronta BPC-157 e TB-500 per la ricerca sul recupero. Meccanismi, benefici, dosaggio e quando usare ogni peptide. Acquista entrambi come penne premiscelate.",
       introduction: "BPC-157 e TB-500 sono i due peptidi di recupero più popolari nella comunità di ricerca. Pur condividendo un obiettivo comune — accelerare la riparazione tissutale — lo raggiungono attraverso meccanismi biologici fondamentalmente diversi.",
       verdict: "Entrambi i peptidi eccellono in diversi aspetti del recupero. BPC-157 è più potente per la guarigione intestinale, la riparazione dei tendini e la neuroprotection. TB-500 è superiore per la cicatrizzazione delle ferite, la riparazione cardiaca e l'infiammazione.",
@@ -240,7 +240,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "BPC-157 vs TB-500: Qual Peptídeo de Recuperação É Melhor?",
-      metaTitle: "BPC-157 vs TB-500: Comparação Completa | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Comparação Completa",
       metaDescription: "Compare BPC-157 e TB-500 para pesquisa de recuperação. Mecanismos, benefícios, dosagem e quando usar cada peptídeo. Compre ambos como canetas pré-misturadas.",
       introduction: "BPC-157 e TB-500 são os dois peptídeos de recuperação mais populares na comunidade de pesquisa. Embora compartilhem um objetivo comum — acelerar a reparação tecidual — eles o alcançam por mecanismos biológicos fundamentalmente diferentes.",
       verdict: "Ambos os peptídeos se destacam em diferentes aspectos da recuperação. BPC-157 é mais potente para a cura intestinal, reparo de tendões e neuroproteção. TB-500 é superior para cicatrização de feridas, reparo cardíaco e inflamação.",
@@ -282,7 +282,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "BPC-157 vs TB-500: Welk Herstelpeptide Is Beter?",
-      metaTitle: "BPC-157 vs TB-500: Volledige Vergelijking | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Volledige Vergelijking",
       metaDescription: "Vergelijk BPC-157 en TB-500 voor herstelonderzoek. Mechanismen, voordelen, dosering en wanneer elk peptide te gebruiken. Koop beide als voorgemengde pennen.",
       introduction: "BPC-157 en TB-500 zijn de twee populairste herstelpeptiden in de onderzoeksgemeenschap. Hoewel ze een gemeenschappelijk doel delen — weefselreparatie versnellen — bereiken ze dit via fundamenteel verschillende biologische mechanismen.",
       verdict: "Beide peptiden blinken uit in verschillende aspecten van herstel. BPC-157 is sterker voor darmgenezing, peesreparatie en neuroprotectie. TB-500 is superieur voor wondgenezing, hartreparatie en ontsteking.",
@@ -324,7 +324,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "BPC-157 vs TB-500: Który Peptyd Regeneracyjny Jest Lepszy?",
-      metaTitle: "BPC-157 vs TB-500: Pełne Porównanie | ORYN",
+      metaTitle: "BPC-157 vs TB-500: Pełne Porównanie",
       metaDescription: "Porównaj BPC-157 i TB-500 w badaniach regeneracyjnych. Mechanizmy, korzyści, dawkowanie i kiedy używać każdego peptydu. Kup oba jako wstępnie zmieszane peny.",
       introduction: "BPC-157 i TB-500 są dwoma najpopularniejszymi peptydami regeneracyjnymi w społeczności badawczej. Choć mają wspólny cel — przyspieszenie naprawy tkanek — osiągają go przez fundamentalnie różne mechanizmy biologiczne.",
       verdict: "Oba peptydy doskonale sprawdzają się w różnych aspektach regeneracji. BPC-157 jest silniejszy w leczeniu jelit, naprawie ścięgien i neuroprotekcji. TB-500 przewyższa w gojeniu ran, naprawie serca i stanie zapalnym.",
@@ -372,7 +372,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "tirzepatide-vs-semaglutide": {
     en: {
       title: "Tirzepatide vs Semaglutide: Which Weight Loss Peptide Is Superior?",
-      metaTitle: "Tirzepatide vs Semaglutide Comparison | ORYN UK",
+      metaTitle: "Tirzepatide vs Semaglutide Comparison",
       metaDescription: "Compare tirzepatide and semaglutide for metabolic research. Dual vs single receptor, efficacy data, side effects, and pricing. Buy tirzepatide pens UK.",
       introduction: "The metabolic peptide landscape has been revolutionised by two compounds: semaglutide (Ozempic/Wegovy) and tirzepatide (Mounjaro). Both target the incretin system but through different mechanisms. This comparison examines the scientific evidence to help researchers understand the key differences.",
       verdict: "Clinical data consistently shows tirzepatide's dual GIP/GLP-1 mechanism produces greater weight reduction than semaglutide's GLP-1-only approach. ORYN offers tirzepatide in two formats: the standard pen (10mg, €169) and the MediT prefilled pen (40mg, €249).",
@@ -411,7 +411,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "Tirzepatida vs Semaglutida: ¿Cuál Péptido de Pérdida de Peso Es Superior?",
-      metaTitle: "Comparación Tirzepatida vs Semaglutida | ORYN",
+      metaTitle: "Comparación Tirzepatida vs Semaglutida",
       metaDescription: "Compara tirzepatida y semaglutida para investigación metabólica. Receptor dual vs simple, datos de eficacia, efectos secundarios y precios. Compra plumas de tirzepatida.",
       introduction: "El panorama de los péptidos metabólicos ha sido revolucionado por dos compuestos: semaglutida (Ozempic/Wegovy) y tirzepatida (Mounjaro). Ambos tienen como objetivo el sistema de incretinas pero a través de mecanismos diferentes.",
       verdict: "Los datos clínicos muestran consistentemente que el mecanismo dual GIP/GLP-1 de tirzepatida produce mayor reducción de peso que el enfoque GLP-1 único de semaglutida. ORYN ofrece tirzepatida en dos formatos: pluma estándar (10mg, €169) y pluma MediT precargada (40mg, €249).",
@@ -450,7 +450,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "Tirzépatide vs Sémaglutide : Quel Peptide de Perte de Poids Est Supérieur ?",
-      metaTitle: "Comparaison Tirzépatide vs Sémaglutide | ORYN",
+      metaTitle: "Comparaison Tirzépatide vs Sémaglutide",
       metaDescription: "Comparez tirzépatide et sémaglutide pour la recherche métabolique. Double vs simple récepteur, données d'efficacité, effets secondaires et tarifs. Achetez des stylos tirzépatide.",
       introduction: "Le paysage des peptides métaboliques a été révolutionné par deux composés : le sémaglutide (Ozempic/Wegovy) et le tirzépatide (Mounjaro). Les deux ciblent le système incrétine mais par des mécanismes différents.",
       verdict: "Les données cliniques montrent constamment que le mécanisme dual GIP/GLP-1 du tirzépatide produit une plus grande réduction de poids que l'approche GLP-1 uniquement du sémaglutide. ORYN propose le tirzépatide en deux formats : le stylo standard (10mg, €169) et le stylo MediT prérempli (40mg, €249).",
@@ -489,7 +489,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "Tirzepatid vs Semaglutid: Welches Gewichtsverlust-Peptid Ist Überlegen?",
-      metaTitle: "Tirzepatid vs Semaglutid Vergleich | ORYN",
+      metaTitle: "Tirzepatid vs Semaglutid Vergleich",
       metaDescription: "Vergleichen Sie Tirzepatid und Semaglutid für die metabolische Forschung. Dual- vs. Einzelrezeptor, Wirksamkeitsdaten, Nebenwirkungen und Preise. Tirzepatid-Stifte kaufen.",
       introduction: "Die metabolische Peptidlandschaft wurde durch zwei Verbindungen revolutioniert: Semaglutid (Ozempic/Wegovy) und Tirzepatid (Mounjaro). Beide zielen auf das Inkretinsystem ab, jedoch durch unterschiedliche Mechanismen.",
       verdict: "Klinische Daten zeigen konsistent, dass Tirzepatids dualer GIP/GLP-1-Mechanismus eine größere Gewichtsreduktion erzeugt als Semaglutids Nur-GLP-1-Ansatz. ORYN bietet Tirzepatid in zwei Formaten an: dem Standardstift (10mg, €169) und dem vorgefüllten MediT-Stift (40mg, €249).",
@@ -528,7 +528,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "Tirzepatide vs Semaglutide: Quale Peptide per la Perdita di Peso È Superiore?",
-      metaTitle: "Confronto Tirzepatide vs Semaglutide | ORYN",
+      metaTitle: "Confronto Tirzepatide vs Semaglutide",
       metaDescription: "Confronta tirzepatide e semaglutide per la ricerca metabolica. Recettore doppio vs singolo, dati di efficacia, effetti collaterali e prezzi. Acquista penne tirzepatide.",
       introduction: "Il panorama dei peptidi metabolici è stato rivoluzionato da due composti: semaglutide (Ozempic/Wegovy) e tirzepatide (Mounjaro). Entrambi mirano al sistema incretinico ma attraverso meccanismi diversi.",
       verdict: "I dati clinici mostrano costantemente che il meccanismo duale GIP/GLP-1 del tirzepatide produce una maggiore riduzione del peso rispetto all'approccio solo GLP-1 del semaglutide. ORYN offre tirzepatide in due formati: la penna standard (10mg, €169) e la penna MediT prefill (40mg, €249).",
@@ -567,7 +567,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "Tirzepatida vs Semaglutida: Qual Peptídeo para Perda de Peso É Superior?",
-      metaTitle: "Comparação Tirzepatida vs Semaglutida | ORYN",
+      metaTitle: "Comparação Tirzepatida vs Semaglutida",
       metaDescription: "Compare tirzepatida e semaglutida para pesquisa metabólica. Receptor duplo vs simples, dados de eficácia, efeitos colaterais e preços. Compre canetas tirzepatida.",
       introduction: "O panorama dos peptídeos metabólicos foi revolucionado por dois compostos: semaglutida (Ozempic/Wegovy) e tirzepatida (Mounjaro). Ambos têm como alvo o sistema de incretinas mas através de mecanismos diferentes.",
       verdict: "Os dados clínicos mostram consistentemente que o mecanismo dual GIP/GLP-1 da tirzepatida produz maior redução de peso do que a abordagem GLP-1 exclusivo da semaglutida. A ORYN oferece tirzepatida em dois formatos: a caneta padrão (10mg, €169) e a caneta MediT pré-preenchida (40mg, €249).",
@@ -606,7 +606,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "Tirzepatide vs Semaglutide: Welk Gewichtsverlies-Peptide Is Superieur?",
-      metaTitle: "Tirzepatide vs Semaglutide Vergelijking | ORYN",
+      metaTitle: "Tirzepatide vs Semaglutide Vergelijking",
       metaDescription: "Vergelijk tirzepatide en semaglutide voor metabolisch onderzoek. Dubbel vs enkel receptor, werkzaamheidsgegevens, bijwerkingen en prijzen. Koop tirzepatide pennen.",
       introduction: "Het metabolische peptidelandschap is gerevolutioneerd door twee verbindingen: semaglutide (Ozempic/Wegovy) en tirzepatide (Mounjaro). Beide richten zich op het incretinesysteem maar via verschillende mechanismen.",
       verdict: "Klinische gegevens tonen consistent aan dat het duale GIP/GLP-1 mechanisme van tirzepatide een grotere gewichtsvermindering produceert dan de GLP-1-enkel aanpak van semaglutide. ORYN biedt tirzepatide in twee formaten: de standaardpen (10mg, €169) en de voorgevulde MediT-pen (40mg, €249).",
@@ -645,7 +645,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "Tirzepatyd vs Semaglutyd: Który Peptyd do Utraty Wagi Jest Lepszy?",
-      metaTitle: "Porównanie Tirzepatyd vs Semaglutyd | ORYN",
+      metaTitle: "Porównanie Tirzepatyd vs Semaglutyd",
       metaDescription: "Porównaj tirzepatyd i semaglutyd w badaniach metabolicznych. Podwójny vs pojedynczy receptor, dane skuteczności, działania niepożądane i ceny. Kup peny tirzepatydu.",
       introduction: "Krajobraz peptydów metabolicznych został zrewolucjonizowany przez dwa związki: semaglutyd (Ozempic/Wegovy) i tirzepatyd (Mounjaro). Oba celują w układ inkretynowy, ale przez różne mechanizmy.",
       verdict: "Dane kliniczne konsekwentnie pokazują, że podwójny mechanizm GIP/GLP-1 tirzepatydu powoduje większą redukcję masy ciała niż podejście tylko GLP-1 semaglautydu. ORYN oferuje tirzepatyd w dwóch formatach: standardowy pen (10mg, €169) i prefillowany pen MediT (40mg, €249).",
@@ -690,7 +690,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "cjc-1295-vs-ipamorelin": {
     en: {
       title: "CJC-1295 vs Ipamorelin: Growth Hormone Peptides Compared",
-      metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Guide | ORYN UK",
+      metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Guide",
       metaDescription: "Compare CJC-1295 and Ipamorelin for growth hormone research. Mechanisms, synergy, dosing protocols, and how to stack them. Buy GH peptide pens UK.",
       introduction: "CJC-1295 and Ipamorelin are the two leading growth hormone secretagogue peptides. While both stimulate natural GH release, they do so through entirely different receptor pathways — making them ideal candidates for combination research protocols.",
       verdict: "CJC-1295 and Ipamorelin work through different GH pathways and are most commonly studied together for synergistic effects. CJC-1295 extends GH release duration, while Ipamorelin triggers clean GH pulses. The combination is one of the most popular GH research stacks.",
@@ -725,7 +725,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "CJC-1295 vs Ipamorelin: Péptidos de Hormona de Crecimiento Comparados",
-      metaTitle: "CJC-1295 vs Ipamorelin: Guía de Péptidos GH | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: Guía de Péptidos GH",
       metaDescription: "Compara CJC-1295 e Ipamorelin para investigación de hormona de crecimiento. Mecanismos, sinergia, protocolos y cómo combinarlos. Compra plumas de péptidos GH.",
       introduction: "CJC-1295 e Ipamorelin son los dos principales péptidos secretagogos de hormona de crecimiento. Aunque ambos estimulan la liberación natural de GH, lo hacen a través de vías receptoras completamente diferentes, lo que los convierte en candidatos ideales para protocolos de investigación combinados.",
       verdict: "CJC-1295 e Ipamorelin trabajan a través de diferentes vías de GH y se estudian más comúnmente juntos por sus efectos sinérgicos. CJC-1295 extiende la duración de la liberación de GH, mientras que Ipamorelin desencadena pulsos de GH limpios. La combinación es uno de los stacks de investigación de GH más populares.",
@@ -760,7 +760,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "CJC-1295 vs Ipamorelin : Peptides d'Hormone de Croissance Comparés",
-      metaTitle: "CJC-1295 vs Ipamorelin : Guide Peptide GH | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin : Guide Peptide GH",
       metaDescription: "Comparez CJC-1295 et Ipamorelin pour la recherche sur l'hormone de croissance. Mécanismes, synergie, protocoles et comment les combiner. Achetez des stylos peptides GH.",
       introduction: "CJC-1295 et Ipamorelin sont les deux principaux peptides sécréteurs d'hormone de croissance. Bien qu'ils stimulent tous deux la libération naturelle de GH, ils le font par des voies récepteurs entièrement différentes.",
       verdict: "CJC-1295 et Ipamorelin fonctionnent par différentes voies GH et sont le plus souvent étudiés ensemble pour des effets synergiques. CJC-1295 prolonge la durée de libération de GH, tandis qu'Ipamorelin déclenche des pulses de GH propres.",
@@ -795,7 +795,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "CJC-1295 vs Ipamorelin: Wachstumshormon-Peptide Verglichen",
-      metaTitle: "CJC-1295 vs Ipamorelin: GH-Peptid-Leitfaden | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: GH-Peptid-Leitfaden",
       metaDescription: "Vergleichen Sie CJC-1295 und Ipamorelin für die Wachstumshormonforschung. Mechanismen, Synergie, Dosierungsprotokolle und wie man sie kombiniert. GH-Peptidstifte kaufen.",
       introduction: "CJC-1295 und Ipamorelin sind die beiden führenden wachstumshormonsekretagogen Peptide. Obwohl beide die natürliche GH-Freisetzung stimulieren, tun sie dies durch völlig unterschiedliche Rezeptorwege.",
       verdict: "CJC-1295 und Ipamorelin arbeiten durch unterschiedliche GH-Wege und werden am häufigsten zusammen für synergistische Effekte untersucht. CJC-1295 verlängert die GH-Freisetzungsdauer, während Ipamorelin saubere GH-Pulse auslöst.",
@@ -830,7 +830,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "CJC-1295 vs Ipamorelin: Peptidi dell'Ormone della Crescita a Confronto",
-      metaTitle: "CJC-1295 vs Ipamorelin: Guida ai Peptidi GH | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: Guida ai Peptidi GH",
       metaDescription: "Confronta CJC-1295 e Ipamorelin per la ricerca sull'ormone della crescita. Meccanismi, sinergia, protocolli di dosaggio e come combinarli. Acquista penne peptidi GH.",
       introduction: "CJC-1295 e Ipamorelin sono i due principali peptidi secretagoghi dell'ormone della crescita. Entrambi stimolano il rilascio naturale di GH, ma attraverso vie recettoriali completamente diverse.",
       verdict: "CJC-1295 e Ipamorelin funzionano attraverso diverse vie GH e sono più comunemente studiati insieme per effetti sinergici. CJC-1295 prolunga la durata del rilascio di GH, mentre Ipamorelin innesca pulses di GH puliti.",
@@ -865,7 +865,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "CJC-1295 vs Ipamorelin: Peptídeos do Hormônio de Crescimento Comparados",
-      metaTitle: "CJC-1295 vs Ipamorelin: Guia de Peptídeos GH | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: Guia de Peptídeos GH",
       metaDescription: "Compare CJC-1295 e Ipamorelin para pesquisa de hormônio de crescimento. Mecanismos, sinergia, protocolos e como combiná-los. Compre canetas de peptídeos GH.",
       introduction: "CJC-1295 e Ipamorelin são os dois principais peptídeos secretagogos do hormônio de crescimento. Embora ambos estimulem a liberação natural de GH, fazem isso através de vias receptoras completamente diferentes.",
       verdict: "CJC-1295 e Ipamorelin funcionam através de diferentes vias de GH e são mais comumente estudados juntos por efeitos sinérgicos. CJC-1295 estende a duração da liberação de GH, enquanto Ipamorelin desencadeia pulsos limpos de GH.",
@@ -900,7 +900,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "CJC-1295 vs Ipamorelin: Groeihormoon-Peptiden Vergeleken",
-      metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Gids | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: GH Peptide Gids",
       metaDescription: "Vergelijk CJC-1295 en Ipamorelin voor groeihormoononderzoek. Mechanismen, synergie, doseringsprotocollen en hoe ze te combineren. Koop GH-peptidepennen.",
       introduction: "CJC-1295 en Ipamorelin zijn de twee toonaangevende groeihormoon secretagoge peptiden. Hoewel beiden de natuurlijke GH-vrijgave stimuleren, doen ze dit via geheel verschillende receptorpaden.",
       verdict: "CJC-1295 en Ipamorelin werken via verschillende GH-paden en worden het meest bestudeerd in combinatie voor synergistische effecten. CJC-1295 verlengt de GH-vrijgaveduur, terwijl Ipamorelin schone GH-pulsen triggert.",
@@ -935,7 +935,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "CJC-1295 vs Ipamorelin: Peptydy Hormonu Wzrostu Porównane",
-      metaTitle: "CJC-1295 vs Ipamorelin: Przewodnik po Peptydach GH | ORYN",
+      metaTitle: "CJC-1295 vs Ipamorelin: Przewodnik po Peptydach GH",
       metaDescription: "Porównaj CJC-1295 i Ipamorelin w badaniach hormonu wzrostu. Mechanizmy, synergia, protokoły dawkowania i jak je łączyć. Kup peny peptydów GH.",
       introduction: "CJC-1295 i Ipamorelin to dwa wiodące peptydy sekretogenne hormonu wzrostu. Choć oba stymulują naturalne wydzielanie GH, robią to przez zupełnie różne szlaki receptorowe.",
       verdict: "CJC-1295 i Ipamorelin działają przez różne szlaki GH i najczęściej są badane razem dla efektów synergistycznych. CJC-1295 wydłuża czas wydzielania GH, podczas gdy Ipamorelin wywołuje czyste pulsy GH.",
@@ -976,7 +976,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "ghk-cu-vs-glutathione": {
     en: {
       title: "GHK-Cu vs Glutathione: Anti-Aging & Skin Peptides Compared",
-      metaTitle: "GHK-Cu vs Glutathione: Skin Peptide Guide | ORYN UK",
+      metaTitle: "GHK-Cu vs Glutathione: Skin Peptide Guide",
       metaDescription: "Compare GHK-Cu copper peptide and Glutathione for skin and anti-aging research. Mechanisms, benefits, and how to combine them. Buy peptide pens UK.",
       introduction: "GHK-Cu and Glutathione represent two distinct approaches to anti-aging and skin science. While GHK-Cu works to rebuild structural proteins, Glutathione protects against oxidative damage. Understanding their complementary roles is key to designing effective research protocols.",
       verdict: "GHK-Cu and Glutathione target different anti-aging pathways and are highly complementary. GHK-Cu excels at structural repair (collagen, elastin), while Glutathione provides master antioxidant defence and skin brightening. Together, they form a comprehensive anti-aging research protocol.",
@@ -1000,7 +1000,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Is injectable Glutathione better than oral?", answer: "Yes. Oral Glutathione is largely degraded during digestion. ORYN's pen-delivered Glutathione bypasses the digestive system, providing near-complete bioavailability of 6g per pen." },
       ],
     },
-    es: { title: "GHK-Cu vs Glutatión: Péptidos Antienvejecimiento y de Piel Comparados", metaTitle: "GHK-Cu vs Glutatión: Guía de Péptidos de Piel | ORYN", metaDescription: "Compara el péptido de cobre GHK-Cu y el Glutatión para investigación de piel y antienvejecimiento. Mecanismos, beneficios y cómo combinarlos.", introduction: "GHK-Cu y Glutatión representan dos enfoques distintos para la ciencia antienvejecimiento y de la piel. Mientras que GHK-Cu trabaja para reconstruir proteínas estructurales, el Glutatión protege contra el daño oxidativo.", verdict: "GHK-Cu y Glutatión tienen como objetivo diferentes vías antienvejecimiento y son altamente complementarios. GHK-Cu destaca en reparación estructural (colágeno, elastina), mientras que el Glutatión proporciona defensa antioxidante maestra y aclarado de piel.",
+    es: { title: "GHK-Cu vs Glutatión: Péptidos Antienvejecimiento y de Piel Comparados", metaTitle: "GHK-Cu vs Glutatión: Guía de Péptidos de Piel", metaDescription: "Compara el péptido de cobre GHK-Cu y el Glutatión para investigación de piel y antienvejecimiento. Mecanismos, beneficios y cómo combinarlos.", introduction: "GHK-Cu y Glutatión representan dos enfoques distintos para la ciencia antienvejecimiento y de la piel. Mientras que GHK-Cu trabaja para reconstruir proteínas estructurales, el Glutatión protege contra el daño oxidativo.", verdict: "GHK-Cu y Glutatión tienen como objetivo diferentes vías antienvejecimiento y son altamente complementarios. GHK-Cu destaca en reparación estructural (colágeno, elastina), mientras que el Glutatión proporciona defensa antioxidante maestra y aclarado de piel.",
       categories: [
         { name: "Mecanismo Principal", productA: "Síntesis de colágeno, remodelación tisular, suministro de cobre", productB: "Antioxidante maestro, desintoxicación celular, regulación de melanina", winner: "tie" },
         { name: "Producción de Colágeno", productA: "Fuerte — estimula directamente la síntesis de colágeno y elastina", productB: "Indirecto — protege el colágeno existente del daño oxidativo", winner: "A" },
@@ -1021,7 +1021,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿El Glutatión inyectable es mejor que el oral?", answer: "Sí. El Glutatión oral se degrada en gran medida durante la digestión. La pluma ORYN proporciona casi biodisponibilidad completa de 6g." },
       ],
     },
-    fr: { title: "GHK-Cu vs Glutathion : Peptides Anti-Âge et de Peau Comparés", metaTitle: "GHK-Cu vs Glutathion : Guide Peptide Peau | ORYN", metaDescription: "Comparez le peptide de cuivre GHK-Cu et le Glutathion pour la recherche sur la peau et l'anti-âge. Mécanismes, bénéfices et comment les combiner.", introduction: "GHK-Cu et Glutathion représentent deux approches distinctes de la science anti-âge et cutanée. GHK-Cu reconstruit les protéines structurelles, tandis que le Glutathion protège contre les dommages oxydatifs.", verdict: "GHK-Cu et Glutathion ciblent différentes voies anti-âge et sont hautement complémentaires. GHK-Cu excelle dans la réparation structurelle, tandis que le Glutathion fournit une défense antioxydante et un éclaircissement cutané.",
+    fr: { title: "GHK-Cu vs Glutathion : Peptides Anti-Âge et de Peau Comparés", metaTitle: "GHK-Cu vs Glutathion : Guide Peptide Peau", metaDescription: "Comparez le peptide de cuivre GHK-Cu et le Glutathion pour la recherche sur la peau et l'anti-âge. Mécanismes, bénéfices et comment les combiner.", introduction: "GHK-Cu et Glutathion représentent deux approches distinctes de la science anti-âge et cutanée. GHK-Cu reconstruit les protéines structurelles, tandis que le Glutathion protège contre les dommages oxydatifs.", verdict: "GHK-Cu et Glutathion ciblent différentes voies anti-âge et sont hautement complémentaires. GHK-Cu excelle dans la réparation structurelle, tandis que le Glutathion fournit une défense antioxydante et un éclaircissement cutané.",
       categories: [
         { name: "Mécanisme Principal", productA: "Synthèse de collagène, remodelage tissulaire, apport de cuivre", productB: "Antioxydant maître, détoxification cellulaire, régulation de la mélanine", winner: "tie" },
         { name: "Production de Collagène", productA: "Fort — stimule directement la synthèse du collagène et de l'élastine", productB: "Indirect — protège le collagène existant des dommages oxydatifs", winner: "A" },
@@ -1042,7 +1042,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Le Glutathion injectable est-il meilleur qu'oral ?", answer: "Oui. Le Glutathion oral est largement dégradé lors de la digestion. Le stylo ORYN fournit une biodisponibilité quasi-complète de 6g." },
       ],
     },
-    de: { title: "GHK-Cu vs Glutathion: Anti-Aging- und Haut-Peptide Verglichen", metaTitle: "GHK-Cu vs Glutathion: Haut-Peptid-Leitfaden | ORYN", metaDescription: "Vergleichen Sie GHK-Cu Kupferpeptid und Glutathion für Haut- und Anti-Aging-Forschung. Mechanismen, Vorteile und wie man sie kombiniert.", introduction: "GHK-Cu und Glutathion repräsentieren zwei verschiedene Ansätze zur Anti-Aging- und Hautwissenschaft. GHK-Cu baut Strukturproteine wieder auf, während Glutathion vor oxidativen Schäden schützt.", verdict: "GHK-Cu und Glutathion zielen auf unterschiedliche Anti-Aging-Wege ab und sind hochgradig komplementär. GHK-Cu zeichnet sich bei der strukturellen Reparatur aus, während Glutathion Antioxidationsschutz und Hautaufhellung bietet.",
+    de: { title: "GHK-Cu vs Glutathion: Anti-Aging- und Haut-Peptide Verglichen", metaTitle: "GHK-Cu vs Glutathion: Haut-Peptid-Leitfaden", metaDescription: "Vergleichen Sie GHK-Cu Kupferpeptid und Glutathion für Haut- und Anti-Aging-Forschung. Mechanismen, Vorteile und wie man sie kombiniert.", introduction: "GHK-Cu und Glutathion repräsentieren zwei verschiedene Ansätze zur Anti-Aging- und Hautwissenschaft. GHK-Cu baut Strukturproteine wieder auf, während Glutathion vor oxidativen Schäden schützt.", verdict: "GHK-Cu und Glutathion zielen auf unterschiedliche Anti-Aging-Wege ab und sind hochgradig komplementär. GHK-Cu zeichnet sich bei der strukturellen Reparatur aus, während Glutathion Antioxidationsschutz und Hautaufhellung bietet.",
       categories: [
         { name: "Primärer Mechanismus", productA: "Kollagensynthese, Geweberemodellierung, Kupferversorgung", productB: "Master-Antioxidans, zelluläre Entgiftung, Melaninregulation", winner: "tie" },
         { name: "Kollagenproduktion", productA: "Stark — stimuliert direkt Kollagen- und Elastinsynthese", productB: "Indirekt — schützt vorhandenes Kollagen vor oxidativen Schäden", winner: "A" },
@@ -1063,7 +1063,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Ist injizierbares Glutathion besser als orales?", answer: "Ja. Orales Glutathion wird während der Verdauung weitgehend abgebaut. ORYN-Stift liefert nahezu vollständige Bioverfügbarkeit von 6g." },
       ],
     },
-    it: { title: "GHK-Cu vs Glutatione: Peptidi Anti-Invecchiamento e per la Pelle Confrontati", metaTitle: "GHK-Cu vs Glutatione: Guida ai Peptidi per la Pelle | ORYN", metaDescription: "Confronta il peptide di rame GHK-Cu e il Glutatione per la ricerca sulla pelle e l'anti-invecchiamento. Meccanismi, benefici e come combinarli.", introduction: "GHK-Cu e Glutatione rappresentano due approcci distinti alla scienza anti-invecchiamento e cutanea. GHK-Cu lavora per ricostruire le proteine strutturali, mentre il Glutatione protegge dai danni ossidativi.", verdict: "GHK-Cu e Glutatione mirano a diverse vie anti-invecchiamento e sono altamente complementari. GHK-Cu eccelle nella riparazione strutturale, mentre il Glutatione fornisce difesa antiossidante principale e schiarimento cutaneo.",
+    it: { title: "GHK-Cu vs Glutatione: Peptidi Anti-Invecchiamento e per la Pelle Confrontati", metaTitle: "GHK-Cu vs Glutatione: Guida ai Peptidi per la Pelle", metaDescription: "Confronta il peptide di rame GHK-Cu e il Glutatione per la ricerca sulla pelle e l'anti-invecchiamento. Meccanismi, benefici e come combinarli.", introduction: "GHK-Cu e Glutatione rappresentano due approcci distinti alla scienza anti-invecchiamento e cutanea. GHK-Cu lavora per ricostruire le proteine strutturali, mentre il Glutatione protegge dai danni ossidativi.", verdict: "GHK-Cu e Glutatione mirano a diverse vie anti-invecchiamento e sono altamente complementari. GHK-Cu eccelle nella riparazione strutturale, mentre il Glutatione fornisce difesa antiossidante principale e schiarimento cutaneo.",
       categories: [
         { name: "Meccanismo Principale", productA: "Sintesi del collagene, rimodellamento tissutale, apporto di rame", productB: "Antiossidante principale, disintossicazione cellulare, regolazione della melanina", winner: "tie" },
         { name: "Produzione di Collagene", productA: "Forte — stimola direttamente la sintesi di collagene ed elastina", productB: "Indiretto — protegge il collagene esistente dai danni ossidativi", winner: "A" },
@@ -1084,7 +1084,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Il Glutatione iniettabile è migliore di quello orale?", answer: "Sì. Il Glutatione orale viene in gran parte degradato durante la digestione. La penna ORYN fornisce una biodisponibilità quasi completa di 6g." },
       ],
     },
-    pt: { title: "GHK-Cu vs Glutationa: Peptídeos Antienvelhecimento e de Pele Comparados", metaTitle: "GHK-Cu vs Glutationa: Guia de Peptídeos para Pele | ORYN", metaDescription: "Compare o peptídeo de cobre GHK-Cu e a Glutationa para pesquisa de pele e antienvelhecimento. Mecanismos, benefícios e como combiná-los.", introduction: "GHK-Cu e Glutationa representam duas abordagens distintas para a ciência antienvelhecimento e da pele. GHK-Cu trabalha para reconstruir proteínas estruturais, enquanto a Glutationa protege contra danos oxidativos.", verdict: "GHK-Cu e Glutationa visam diferentes vias antienvelhecimento e são altamente complementares. GHK-Cu se destaca na reparação estrutural, enquanto a Glutationa fornece defesa antioxidante principal e clareamento da pele.",
+    pt: { title: "GHK-Cu vs Glutationa: Peptídeos Antienvelhecimento e de Pele Comparados", metaTitle: "GHK-Cu vs Glutationa: Guia de Peptídeos para Pele", metaDescription: "Compare o peptídeo de cobre GHK-Cu e a Glutationa para pesquisa de pele e antienvelhecimento. Mecanismos, benefícios e como combiná-los.", introduction: "GHK-Cu e Glutationa representam duas abordagens distintas para a ciência antienvelhecimento e da pele. GHK-Cu trabalha para reconstruir proteínas estruturais, enquanto a Glutationa protege contra danos oxidativos.", verdict: "GHK-Cu e Glutationa visam diferentes vias antienvelhecimento e são altamente complementares. GHK-Cu se destaca na reparação estrutural, enquanto a Glutationa fornece defesa antioxidante principal e clareamento da pele.",
       categories: [
         { name: "Mecanismo Principal", productA: "Síntese de colágeno, remodelação tecidual, fornecimento de cobre", productB: "Antioxidante principal, desintoxicação celular, regulação de melanina", winner: "tie" },
         { name: "Produção de Colágeno", productA: "Forte — estimula diretamente a síntese de colágeno e elastina", productB: "Indireto — protege o colágeno existente de danos oxidativos", winner: "A" },
@@ -1105,7 +1105,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "A Glutationa injetável é melhor que a oral?", answer: "Sim. A Glutationa oral é amplamente degradada durante a digestão. A caneta ORYN fornece biodisponibilidade quase completa de 6g." },
       ],
     },
-    nl: { title: "GHK-Cu vs Glutathion: Anti-Verouderings- en Huidpeptiden Vergeleken", metaTitle: "GHK-Cu vs Glutathion: Huidpeptide Gids | ORYN", metaDescription: "Vergelijk GHK-Cu koper peptide en Glutathion voor huid- en anti-verouderingsonderzoek. Mechanismen, voordelen en hoe ze te combineren.", introduction: "GHK-Cu en Glutathion vertegenwoordigen twee verschillende benaderingen van anti-veroudering en huidwetenschap. GHK-Cu herbouwt structurele eiwitten, terwijl Glutathion beschermt tegen oxidatieve schade.", verdict: "GHK-Cu en Glutathion richten zich op verschillende anti-verouderingspaden en zijn sterk complementair. GHK-Cu excelleert in structurele reparatie, terwijl Glutathion meester-antioxidantbescherming en huidverlichting biedt.",
+    nl: { title: "GHK-Cu vs Glutathion: Anti-Verouderings- en Huidpeptiden Vergeleken", metaTitle: "GHK-Cu vs Glutathion: Huidpeptide Gids", metaDescription: "Vergelijk GHK-Cu koper peptide en Glutathion voor huid- en anti-verouderingsonderzoek. Mechanismen, voordelen en hoe ze te combineren.", introduction: "GHK-Cu en Glutathion vertegenwoordigen twee verschillende benaderingen van anti-veroudering en huidwetenschap. GHK-Cu herbouwt structurele eiwitten, terwijl Glutathion beschermt tegen oxidatieve schade.", verdict: "GHK-Cu en Glutathion richten zich op verschillende anti-verouderingspaden en zijn sterk complementair. GHK-Cu excelleert in structurele reparatie, terwijl Glutathion meester-antioxidantbescherming en huidverlichting biedt.",
       categories: [
         { name: "Primair Mechanisme", productA: "Collageensynthese, weefsalremodellering, koperafgifte", productB: "Master-antioxidant, cellulaire ontgifting, melanineregulatie", winner: "tie" },
         { name: "Collageen Productie", productA: "Sterk — stimuleert direct collageen- en elastinesynthese", productB: "Indirect — beschermt bestaand collageen tegen oxidatieve schade", winner: "A" },
@@ -1126,7 +1126,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Is injecteerbaar Glutathion beter dan oraal?", answer: "Ja. Oraal Glutathion wordt grotendeels afgebroken tijdens de spijsvertering. ORYN-pen biedt bijna volledige biologische beschikbaarheid van 6g." },
       ],
     },
-    pl: { title: "GHK-Cu vs Glutation: Peptydy Przeciwstarzeniowe i do Pielęgnacji Skóry Porównane", metaTitle: "GHK-Cu vs Glutation: Przewodnik po Peptydach do Pielęgnacji Skóry | ORYN", metaDescription: "Porównaj peptyd miedzi GHK-Cu i Glutation w badaniach skóry i przeciwstarzeniowych. Mechanizmy, korzyści i jak je łączyć.", introduction: "GHK-Cu i Glutation reprezentują dwa odmienne podejścia do nauki przeciwstarzeniowej i skóry. GHK-Cu odbudowuje białka strukturalne, podczas gdy Glutation chroni przed uszkodzeniami oksydacyjnymi.", verdict: "GHK-Cu i Glutation celują w różne szlaki przeciwstarzeniowe i są wysoce komplementarne. GHK-Cu doskonali się w naprawie strukturalnej, podczas gdy Glutation zapewnia główną obronę antyoksydacyjną i rozjaśnianie skóry.",
+    pl: { title: "GHK-Cu vs Glutation: Peptydy Przeciwstarzeniowe i do Pielęgnacji Skóry Porównane", metaTitle: "GHK-Cu vs Glutation: Przewodnik po Peptydach do Pielęgnacji Skóry", metaDescription: "Porównaj peptyd miedzi GHK-Cu i Glutation w badaniach skóry i przeciwstarzeniowych. Mechanizmy, korzyści i jak je łączyć.", introduction: "GHK-Cu i Glutation reprezentują dwa odmienne podejścia do nauki przeciwstarzeniowej i skóry. GHK-Cu odbudowuje białka strukturalne, podczas gdy Glutation chroni przed uszkodzeniami oksydacyjnymi.", verdict: "GHK-Cu i Glutation celują w różne szlaki przeciwstarzeniowe i są wysoce komplementarne. GHK-Cu doskonali się w naprawie strukturalnej, podczas gdy Glutation zapewnia główną obronę antyoksydacyjną i rozjaśnianie skóry.",
       categories: [
         { name: "Główny Mechanizm", productA: "Synteza kolagenu, przebudowa tkanek, dostarczanie miedzi", productB: "Główny przeciwutleniacz, detoksykacja komórkowa, regulacja melaniny", winner: "tie" },
         { name: "Produkcja Kolagenu", productA: "Silna — bezpośrednio stymuluje syntezę kolagenu i elastyny", productB: "Pośrednia — chroni istniejący kolagen przed uszkodzeniami oksydacyjnymi", winner: "A" },
@@ -1156,7 +1156,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "peptide-pen-vs-injection-vial": {
     en: {
       title: "Peptide Pen vs Injection Vial: Which Delivery Method Is Better?",
-      metaTitle: "Peptide Pen vs Injection Vial Comparison | ORYN UK",
+      metaTitle: "Peptide Pen vs Injection Vial Comparison",
       metaDescription: "Compare peptide pen delivery systems vs traditional vial and syringe injection. Convenience, accuracy, contamination risk, and cost compared. Buy peptide pens UK.",
       introduction: "For decades, peptide researchers relied on lyophilised powder in vials, requiring manual reconstitution with bacteriostatic water and drawing doses with insulin syringes. Modern peptide pen systems have transformed this process. This comparison examines the practical differences between these two delivery methods.",
       verdict: "Pre-mixed peptide pen systems are superior to traditional vial + syringe in virtually every category that matters for research quality: dosing precision, contamination risk, convenience, and consistency. The only advantage of vials is lower upfront cost — but this comes at the expense of accuracy, sterility, and usability.",
@@ -1183,7 +1183,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Is there a contamination risk with peptide pens?", answer: "Peptide pens have significantly lower contamination risk than vials. The sealed cartridge system and self-sealing septum maintain sterility, unlike vials which require 30+ needle punctures." },
       ],
     },
-    es: { title: "Pluma de Péptidos vs Vial de Inyección: ¿Qué Método de Entrega Es Mejor?", metaTitle: "Comparación Pluma de Péptidos vs Vial de Inyección | ORYN", metaDescription: "Compara sistemas de pluma de péptidos vs inyección tradicional con vial y jeringa. Comodidad, precisión, riesgo de contaminación y costo comparados.", introduction: "Durante décadas, los investigadores de péptidos dependieron de polvo liofilizado en viales, requiriendo reconstitución manual. Los modernos sistemas de pluma de péptidos han transformado este proceso.", verdict: "Los sistemas de pluma de péptidos premezclados son superiores al método tradicional vial+jeringa en prácticamente todas las categorías importantes para la calidad de la investigación.", categories: [
+    es: { title: "Pluma de Péptidos vs Vial de Inyección: ¿Qué Método de Entrega Es Mejor?", metaTitle: "Comparación Pluma de Péptidos vs Vial de Inyección", metaDescription: "Compara sistemas de pluma de péptidos vs inyección tradicional con vial y jeringa. Comodidad, precisión, riesgo de contaminación y costo comparados.", introduction: "Durante décadas, los investigadores de péptidos dependieron de polvo liofilizado en viales, requiriendo reconstitución manual. Los modernos sistemas de pluma de péptidos han transformado este proceso.", verdict: "Los sistemas de pluma de péptidos premezclados son superiores al método tradicional vial+jeringa en prácticamente todas las categorías importantes para la calidad de la investigación.", categories: [
       { name: "Precisión de Dosificación", productA: "Mecanismo de dial precalibrado, dosis exacta cada vez", productB: "Extracción manual con jeringa, dosis varía con la técnica", winner: "A" },
       { name: "Riesgo de Contaminación", productA: "Cartucho sellado, sin necesidad de reconstitución", productB: "Múltiples punciones de aguja en el tapón de goma del vial", winner: "A" },
       { name: "Comodidad", productA: "Listo para usar, sin mezcla", productB: "Requiere reconstitución, jeringa, agujas, agua BAC", winner: "A" },
@@ -1203,7 +1203,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "¿Cuántas dosis proporciona una pluma ORYN?", answer: "Cada pluma proporciona un suministro de 30 días con dosificación diaria." },
       { question: "¿Hay riesgo de contaminación con las plumas?", answer: "Las plumas tienen un riesgo de contaminación significativamente menor que los viales." },
     ] },
-    fr: { title: "Stylo Peptide vs Flacon d'Injection : Quelle Méthode de Livraison Est Meilleure ?", metaTitle: "Comparaison Stylo Peptide vs Flacon d'Injection | ORYN", metaDescription: "Comparez les systèmes de stylo peptide vs l'injection traditionnelle au flacon et à la seringue. Commodité, précision, risque de contamination et coût comparés.", introduction: "Pendant des décennies, les chercheurs en peptides dépendaient de poudre lyophilisée en flacons. Les systèmes modernes de stylo peptide ont transformé ce processus.", verdict: "Les systèmes de stylo peptide prémélangés sont supérieurs à la méthode traditionnelle flacon+seringue dans pratiquement toutes les catégories importantes pour la qualité de la recherche.", categories: [
+    fr: { title: "Stylo Peptide vs Flacon d'Injection : Quelle Méthode de Livraison Est Meilleure ?", metaTitle: "Comparaison Stylo Peptide vs Flacon d'Injection", metaDescription: "Comparez les systèmes de stylo peptide vs l'injection traditionnelle au flacon et à la seringue. Commodité, précision, risque de contamination et coût comparés.", introduction: "Pendant des décennies, les chercheurs en peptides dépendaient de poudre lyophilisée en flacons. Les systèmes modernes de stylo peptide ont transformé ce processus.", verdict: "Les systèmes de stylo peptide prémélangés sont supérieurs à la méthode traditionnelle flacon+seringue dans pratiquement toutes les catégories importantes pour la qualité de la recherche.", categories: [
       { name: "Précision de Dosage", productA: "Mécanisme à cadran pré-calibré, dose exacte à chaque fois", productB: "Tirage manuel à la seringue, dose varie selon la technique", winner: "A" },
       { name: "Risque de Contamination", productA: "Cartouche scellée, pas de reconstitution nécessaire", productB: "Multiples ponctions d'aiguille dans le bouchon du flacon", winner: "A" },
       { name: "Commodité", productA: "Prêt à l'emploi, pas de mélange", productB: "Nécessite reconstitution, seringue, aiguilles, eau BAC", winner: "A" },
@@ -1223,7 +1223,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Combien de doses fournit un stylo ORYN ?", answer: "Chaque stylo fournit un approvisionnement de 30 jours avec dosage quotidien." },
       { question: "Y a-t-il un risque de contamination avec les stylos ?", answer: "Les stylos ont un risque de contamination significativement plus faible que les flacons." },
     ] },
-    de: { title: "Peptid-Stift vs Injektionsfläschchen: Welche Liefermethode Ist Besser?", metaTitle: "Peptid-Stift vs Injektionsfläschchen Vergleich | ORYN", metaDescription: "Vergleichen Sie Peptid-Stiftsysteme vs traditionelle Fläschcheninjektionen. Bequemlichkeit, Genauigkeit, Kontaminationsrisiko und Kosten verglichen.", introduction: "Jahrzehntelang verließen sich Peptid-Forscher auf lyophilisiertes Pulver in Fläschchen. Moderne Peptid-Stiftsysteme haben diesen Prozess transformiert.", verdict: "Vorgemischte Peptid-Stiftsysteme sind der traditionellen Fläschchen+Spritze-Methode in praktisch jeder Kategorie überlegen, die für die Forschungsqualität wichtig ist.", categories: [
+    de: { title: "Peptid-Stift vs Injektionsfläschchen: Welche Liefermethode Ist Besser?", metaTitle: "Peptid-Stift vs Injektionsfläschchen Vergleich", metaDescription: "Vergleichen Sie Peptid-Stiftsysteme vs traditionelle Fläschcheninjektionen. Bequemlichkeit, Genauigkeit, Kontaminationsrisiko und Kosten verglichen.", introduction: "Jahrzehntelang verließen sich Peptid-Forscher auf lyophilisiertes Pulver in Fläschchen. Moderne Peptid-Stiftsysteme haben diesen Prozess transformiert.", verdict: "Vorgemischte Peptid-Stiftsysteme sind der traditionellen Fläschchen+Spritze-Methode in praktisch jeder Kategorie überlegen, die für die Forschungsqualität wichtig ist.", categories: [
       { name: "Dosiergenauigkeit", productA: "Vorkalibrierter Drehmechanismus, exakte Dosis jedes Mal", productB: "Manuelles Aufziehen mit Spritze, Dosis variiert mit Technik", winner: "A" },
       { name: "Kontaminationsrisiko", productA: "Versiegelter Behälter, keine Rekonstituierung erforderlich", productB: "Mehrfache Nadelstiche durch Fläschchengummistopfen", winner: "A" },
       { name: "Bequemlichkeit", productA: "Einsatzbereit aus der Box, kein Mischen", productB: "Erfordert Rekonstituierung, Spritze, Nadeln, BAC-Wasser", winner: "A" },
@@ -1243,7 +1243,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Wie viele Dosen liefert ein ORYN-Stift?", answer: "Jeder Stift liefert einen 30-Tage-Vorrat mit täglicher Dosierung." },
       { question: "Gibt es ein Kontaminationsrisiko bei Stiften?", answer: "Stifte haben ein deutlich geringeres Kontaminationsrisiko als Fläschchen." },
     ] },
-    it: { title: "Penna per Peptidi vs Flaconcino di Iniezione: Quale Metodo di Consegna È Migliore?", metaTitle: "Confronto Penna Peptide vs Flaconcino | ORYN", metaDescription: "Confronta i sistemi di penna per peptidi vs l'iniezione tradizionale con flaconcino e siringa. Comodità, precisione, rischio di contaminazione e costo a confronto.", introduction: "Per decenni, i ricercatori di peptidi si sono affidati a polvere liofilizzata in flaconcini. I moderni sistemi di penna per peptidi hanno trasformato questo processo.", verdict: "I sistemi di penna per peptidi premiscelati sono superiori al metodo tradizionale flaconcino+siringa in praticamente ogni categoria rilevante per la qualità della ricerca.", categories: [
+    it: { title: "Penna per Peptidi vs Flaconcino di Iniezione: Quale Metodo di Consegna È Migliore?", metaTitle: "Confronto Penna Peptide vs Flaconcino", metaDescription: "Confronta i sistemi di penna per peptidi vs l'iniezione tradizionale con flaconcino e siringa. Comodità, precisione, rischio di contaminazione e costo a confronto.", introduction: "Per decenni, i ricercatori di peptidi si sono affidati a polvere liofilizzata in flaconcini. I moderni sistemi di penna per peptidi hanno trasformato questo processo.", verdict: "I sistemi di penna per peptidi premiscelati sono superiori al metodo tradizionale flaconcino+siringa in praticamente ogni categoria rilevante per la qualità della ricerca.", categories: [
       { name: "Precisione di Dosaggio", productA: "Meccanismo a quadrante precalibrato, dose esatta ogni volta", productB: "Estrazione manuale con siringa, dose varia con la tecnica", winner: "A" },
       { name: "Rischio di Contaminazione", productA: "Cartuccia sigillata, nessuna ricostituzione necessaria", productB: "Multiple perforazioni dell'ago nel tappo di gomma del flaconcino", winner: "A" },
       { name: "Comodità", productA: "Pronto all'uso, nessuna miscelazione", productB: "Richiede ricostituzione, siringa, aghi, acqua BAC", winner: "A" },
@@ -1263,7 +1263,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Quante dosi fornisce una penna ORYN?", answer: "Ogni penna fornisce una fornitura di 30 giorni con dosaggio giornaliero." },
       { question: "C'è un rischio di contaminazione con le penne?", answer: "Le penne hanno un rischio di contaminazione significativamente inferiore ai flaconcini." },
     ] },
-    pt: { title: "Caneta de Peptídeo vs Frasco de Injeção: Qual Método de Entrega É Melhor?", metaTitle: "Comparação Caneta de Peptídeo vs Frasco | ORYN", metaDescription: "Compare sistemas de caneta de peptídeo vs injeção tradicional com frasco e seringa. Comodidade, precisão, risco de contaminação e custo comparados.", introduction: "Por décadas, pesquisadores de peptídeos dependeram de pó liofilizado em frascos. Os modernos sistemas de caneta de peptídeo transformaram este processo.", verdict: "Sistemas de caneta de peptídeo pré-misturados são superiores ao método tradicional frasco+seringa em praticamente todas as categorias importantes para a qualidade da pesquisa.", categories: [
+    pt: { title: "Caneta de Peptídeo vs Frasco de Injeção: Qual Método de Entrega É Melhor?", metaTitle: "Comparação Caneta de Peptídeo vs Frasco", metaDescription: "Compare sistemas de caneta de peptídeo vs injeção tradicional com frasco e seringa. Comodidade, precisão, risco de contaminação e custo comparados.", introduction: "Por décadas, pesquisadores de peptídeos dependeram de pó liofilizado em frascos. Os modernos sistemas de caneta de peptídeo transformaram este processo.", verdict: "Sistemas de caneta de peptídeo pré-misturados são superiores ao método tradicional frasco+seringa em praticamente todas as categorias importantes para a qualidade da pesquisa.", categories: [
       { name: "Precisão de Dosagem", productA: "Mecanismo de dial pré-calibrado, dose exata a cada vez", productB: "Extração manual com seringa, dose varia com a técnica", winner: "A" },
       { name: "Risco de Contaminação", productA: "Cartucho selado, sem necessidade de reconstituição", productB: "Múltiplas perfurações de agulha no batoque de borracha do frasco", winner: "A" },
       { name: "Comodidade", productA: "Pronto para uso, sem mistura", productB: "Requer reconstituição, seringa, agulhas, água BAC", winner: "A" },
@@ -1283,7 +1283,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Quantas doses uma caneta ORYN fornece?", answer: "Cada caneta fornece um suprimento de 30 dias com dosagem diária." },
       { question: "Há risco de contaminação com canetas?", answer: "As canetas têm risco de contaminação significativamente menor que os frascos." },
     ] },
-    nl: { title: "Peptide Pen vs Injectieflesje: Welke Toedieningsmethod Is Beter?", metaTitle: "Peptide Pen vs Injectieflesje Vergelijking | ORYN", metaDescription: "Vergelijk peptidepennen vs traditionele injectie met flesje en spuit. Gemak, nauwkeurigheid, besmettingsrisico en kosten vergeleken.", introduction: "Jarenlang vertrouwden peptideonderzoekers op gelyofiliseerd poeder in flesjes. Moderne peptidepensystemen hebben dit proces getransformeerd.", verdict: "Voorgemengde peptidepensystemen zijn superieur aan de traditionele flesje+spuit methode in vrijwel elke categorie die belangrijk is voor onderzoekskwaliteit.", categories: [
+    nl: { title: "Peptide Pen vs Injectieflesje: Welke Toedieningsmethod Is Beter?", metaTitle: "Peptide Pen vs Injectieflesje Vergelijking", metaDescription: "Vergelijk peptidepennen vs traditionele injectie met flesje en spuit. Gemak, nauwkeurigheid, besmettingsrisico en kosten vergeleken.", introduction: "Jarenlang vertrouwden peptideonderzoekers op gelyofiliseerd poeder in flesjes. Moderne peptidepensystemen hebben dit proces getransformeerd.", verdict: "Voorgemengde peptidepensystemen zijn superieur aan de traditionele flesje+spuit methode in vrijwel elke categorie die belangrijk is voor onderzoekskwaliteit.", categories: [
       { name: "Doseerprecisie", productA: "Voorgekalibreerd draaimekanisme, exacte dosis elke keer", productB: "Handmatig optrekken met spuit, dosis varieert met techniek", winner: "A" },
       { name: "Besmettingsrisico", productA: "Verzegeld patroon, geen reconstitutie nodig", productB: "Meerdere naaldprikken door rubberstopper flesje", winner: "A" },
       { name: "Gemak", productA: "Gebruiksklaar, geen mengen", productB: "Vereist reconstitutie, spuit, naalden, BAC-water", winner: "A" },
@@ -1303,7 +1303,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Hoeveel doses levert een ORYN-pen?", answer: "Elke pen levert een 30-daagse voorraad met dagelijkse dosering." },
       { question: "Is er een besmettingsrisico bij pennen?", answer: "Pennen hebben een aanzienlijk lager besmettingsrisico dan flesjes." },
     ] },
-    pl: { title: "Pen Peptydowy vs Fiolka do Wstrzyknięć: Która Metoda Podawania Jest Lepsza?", metaTitle: "Porównanie Pen Peptydowy vs Fiolka | ORYN", metaDescription: "Porównaj systemy penów peptydowych vs tradycyjne wstrzyknięcia z fiolki i strzykawki. Wygoda, dokładność, ryzyko zanieczyszczenia i koszty w porównaniu.", introduction: "Przez dziesięciolecia badacze peptydów polegali na liofilizowanym proszku w fiolkach. Nowoczesne systemy penów peptydowych zrewolucjonizowały ten proces.", verdict: "Wstępnie zmieszane systemy penów peptydowych są lepsze od tradycyjnej metody fiolka+strzykawka praktycznie w każdej kategorii ważnej dla jakości badań.", categories: [
+    pl: { title: "Pen Peptydowy vs Fiolka do Wstrzyknięć: Która Metoda Podawania Jest Lepsza?", metaTitle: "Porównanie Pen Peptydowy vs Fiolka", metaDescription: "Porównaj systemy penów peptydowych vs tradycyjne wstrzyknięcia z fiolki i strzykawki. Wygoda, dokładność, ryzyko zanieczyszczenia i koszty w porównaniu.", introduction: "Przez dziesięciolecia badacze peptydów polegali na liofilizowanym proszku w fiolkach. Nowoczesne systemy penów peptydowych zrewolucjonizowały ten proces.", verdict: "Wstępnie zmieszane systemy penów peptydowych są lepsze od tradycyjnej metody fiolka+strzykawka praktycznie w każdej kategorii ważnej dla jakości badań.", categories: [
       { name: "Precyzja Dawkowania", productA: "Wstępnie skalibrowany mechanizm pokrętła, dokładna dawka za każdym razem", productB: "Ręczne pobieranie strzykawką, dawka zmienia się z techniką", winner: "A" },
       { name: "Ryzyko Zanieczyszczenia", productA: "Zapieczętowany wkład, bez potrzeby rekonstytucji", productB: "Wielokrotne nakłucia igłą korka gumowego fiolki", winner: "A" },
       { name: "Wygoda", productA: "Gotowy do użycia, bez mieszania", productB: "Wymaga rekonstytucji, strzykawki, igieł, wody BAC", winner: "A" },
@@ -1331,7 +1331,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "bpc-157-vs-ghk-cu": {
     en: {
       title: "BPC-157 vs GHK-Cu: Recovery Peptide vs Skin Repair Compared",
-      metaTitle: "BPC-157 vs GHK-Cu: Complete Comparison | ORYN UK",
+      metaTitle: "BPC-157 vs GHK-Cu: Complete Comparison",
       metaDescription: "Compare BPC-157 for recovery and GHK-Cu copper peptide for skin repair. Mechanisms, benefits, research applications, and pricing. Buy peptide pens UK.",
       introduction: "BPC-157 and GHK-Cu are both tissue repair peptides, but they target different biological systems. BPC-157 is derived from gastric juice proteins and excels at internal healing, while GHK-Cu is a copper-binding tripeptide that primarily supports skin and extracellular matrix repair.",
       verdict: "BPC-157 and GHK-Cu serve fundamentally different primary purposes. BPC-157 is the gold standard for internal tissue recovery — gut healing, tendon repair, and neuroprotection. GHK-Cu excels at skin and structural protein repair — collagen synthesis, wound healing, and anti-aging. Choose based on your primary research focus, or consider both for comprehensive tissue repair protocols.",
@@ -1360,7 +1360,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "BPC-157 vs GHK-Cu: Péptido de Recuperación vs Reparación de Piel Comparados",
-      metaTitle: "BPC-157 vs GHK-Cu: Comparación Completa | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Comparación Completa",
       metaDescription: "Compara BPC-157 para recuperación y GHK-Cu para reparación de piel. Mecanismos, beneficios, aplicaciones de investigación y precios. Compra bolígrafos de péptidos.",
       introduction: "BPC-157 y GHK-Cu son péptidos de reparación tisular, pero se dirigen a sistemas biológicos diferentes. BPC-157 se deriva de proteínas del jugo gástrico y destaca en la curación interna, mientras que GHK-Cu es un tripéptido que une cobre y apoya principalmente la reparación de la piel.",
       verdict: "BPC-157 y GHK-Cu sirven propósitos primarios fundamentalmente diferentes. BPC-157 es el estándar de oro para la recuperación interna de tejidos — curación intestinal, reparación de tendones y neuroprotección. GHK-Cu destaca en la reparación de la piel y proteínas estructurales. Elige según tu enfoque de investigación principal, o considera ambos para protocolos de reparación tisular integral.",
@@ -1389,7 +1389,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "BPC-157 vs GHK-Cu : Peptide de Récupération vs Réparation Cutanée",
-      metaTitle: "BPC-157 vs GHK-Cu : Comparaison Complète | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu : Comparaison Complète",
       metaDescription: "Comparez BPC-157 pour la récupération et GHK-Cu pour la réparation cutanée. Mécanismes, bénéfices et applications de recherche. Achetez en France.",
       introduction: "BPC-157 et GHK-Cu sont tous deux des peptides de réparation tissulaire, mais ils ciblent des systèmes biologiques différents. BPC-157 excelle dans la guérison interne, tandis que GHK-Cu soutient principalement la réparation de la peau.",
       verdict: "BPC-157 est la référence pour la récupération interne — guérison intestinale, réparation des tendons et neuroprotection. GHK-Cu excelle dans la réparation cutanée et la synthèse des protéines structurelles. Choisissez selon votre axe de recherche principal.",
@@ -1418,7 +1418,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "BPC-157 vs GHK-Cu: Erholungspeptid vs Hautreparatur im Vergleich",
-      metaTitle: "BPC-157 vs GHK-Cu: Vollständiger Vergleich | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Vollständiger Vergleich",
       metaDescription: "Vergleiche BPC-157 für Gewebsregeneration und GHK-Cu für Hautreparatur. Mechanismen, Forschungsanwendungen und Preise. Peptidstifte kaufen.",
       introduction: "BPC-157 und GHK-Cu sind beides Gewebsreparaturpeptide, aber sie zielen auf unterschiedliche biologische Systeme ab. BPC-157 ist aus Magensaftproteinen abgeleitet und zeichnet sich durch innere Heilung aus, während GHK-Cu ein kupferbindendes Tripeptid ist.",
       verdict: "BPC-157 ist der Goldstandard für die innere Gewebserholung — Darmsanierung, Sehnenreparatur und Neuroprotection. GHK-Cu zeichnet sich bei der Haut- und Strukturproteinreparatur aus. Wählen Sie basierend auf Ihrem primären Forschungsschwerpunkt.",
@@ -1447,7 +1447,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "BPC-157 vs GHK-Cu: Peptide di Recupero vs Riparazione Cutanea",
-      metaTitle: "BPC-157 vs GHK-Cu: Confronto Completo | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Confronto Completo",
       metaDescription: "Confronta BPC-157 per il recupero e GHK-Cu per la riparazione cutanea. Meccanismi, benefici e applicazioni di ricerca. Acquista penne peptidiche.",
       introduction: "BPC-157 e GHK-Cu sono entrambi peptidi riparatori, ma si rivolgono a sistemi biologici diversi. BPC-157 eccelle nella guarigione interna, mentre GHK-Cu supporta principalmente la riparazione cutanea.",
       verdict: "BPC-157 è lo standard d'oro per il recupero interno dei tessuti. GHK-Cu eccelle nella riparazione cutanea e nella sintesi proteica strutturale. Scegli in base al tuo obiettivo di ricerca principale.",
@@ -1476,7 +1476,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "BPC-157 vs GHK-Cu: Peptídeo de Recuperação vs Reparação Cutânea",
-      metaTitle: "BPC-157 vs GHK-Cu: Comparação Completa | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Comparação Completa",
       metaDescription: "Compare BPC-157 para recuperação e GHK-Cu para reparação cutânea. Mecanismos, benefícios e aplicações de pesquisa. Compre canetas de peptídeos.",
       introduction: "BPC-157 e GHK-Cu são peptídeos de reparação tecidual, mas visam sistemas biológicos diferentes. BPC-157 se destaca na cura interna, enquanto GHK-Cu apoia principalmente a reparação da pele.",
       verdict: "BPC-157 é o padrão ouro para recuperação interna de tecidos. GHK-Cu se destaca na reparação cutânea e síntese de proteínas estruturais. Escolha com base no seu foco de pesquisa principal.",
@@ -1505,7 +1505,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "BPC-157 vs GHK-Cu: Herstelpeptide vs Huidreparatie Vergeleken",
-      metaTitle: "BPC-157 vs GHK-Cu: Complete Vergelijking | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Complete Vergelijking",
       metaDescription: "Vergelijk BPC-157 voor herstel en GHK-Cu voor huidreparatie. Mechanismen, voordelen en onderzoekstoepassingen. Koop peptidepennen.",
       introduction: "BPC-157 en GHK-Cu zijn beide weefselherstelpeptiden, maar richten zich op verschillende biologische systemen. BPC-157 blinkt uit in intern herstel, terwijl GHK-Cu voornamelijk huid- en structuurherstel ondersteunt.",
       verdict: "BPC-157 is de gouden standaard voor intern weefselhersel. GHK-Cu blinkt uit in huid- en structuureiwitreparatie. Kies op basis van uw primaire onderzoeksfocus.",
@@ -1534,7 +1534,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "BPC-157 vs GHK-Cu: Peptyd Regeneracyjny vs Naprawa Skóry",
-      metaTitle: "BPC-157 vs GHK-Cu: Pełne Porównanie | ORYN",
+      metaTitle: "BPC-157 vs GHK-Cu: Pełne Porównanie",
       metaDescription: "Porównaj BPC-157 dla regeneracji i GHK-Cu dla naprawy skóry. Mechanizmy, korzyści i zastosowania badawcze. Kup peny peptydowe.",
       introduction: "BPC-157 i GHK-Cu to peptydowe środki naprawy tkanek, ale działają na różne układy biologiczne. BPC-157 celuje w wewnętrzne leczenie, natomiast GHK-Cu wspiera głównie naprawę skóry.",
       verdict: "BPC-157 jest złotym standardem wewnętrznej regeneracji tkanek. GHK-Cu celuje w naprawę skóry i syntezę białek strukturalnych. Wybór zależy od głównego celu badań.",
@@ -1569,7 +1569,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "tirzepatide-10mg-vs-40mg": {
     en: {
       title: "Tirzepatide 10mg Pen vs 40mg MediT: Which Format Is Right?",
-      metaTitle: "Tirzepatide 10mg vs 40mg MediT Pen Comparison | ORYN UK",
+      metaTitle: "Tirzepatide 10mg vs 40mg MediT Pen Comparison",
       metaDescription: "Compare ORYN Tirzepatide Pen (10mg daily) vs MediT Pen (40mg weekly). Dosing flexibility, convenience, cost, and which format suits your research. Buy UK.",
       introduction: "ORYN offers tirzepatide in two distinct delivery formats: the standard Peptide Pen (10mg, multi-dose, daily) and the MediT Pen (40mg, prefilled, weekly). Both contain the same dual GIP/GLP-1 receptor agonist compound, but the delivery systems serve different research needs.",
       verdict: "Both formats deliver the same pharmaceutical-grade tirzepatide with >99% purity. The Tirzepatide Pen (10mg, €169) offers maximum dosing flexibility for titration and dose-finding research. The MediT Pen (40mg, €249) offers maximum convenience with once-weekly fixed-dose administration.",
@@ -1595,7 +1595,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "How should I store both tirzepatide formats?", answer: "Both should be stored refrigerated at 2-8°C. Once in use, the multi-dose pen can be kept at room temperature for the 30-day protocol. The MediT Pen should remain refrigerated until use." },
       ],
     },
-    es: { title: "Tirzepatida 10mg Pen vs 40mg MediT: ¿Qué Formato Es el Adecuado?", metaTitle: "Tirzepatida 10mg vs 40mg MediT: Comparación | ORYN", metaDescription: "Compara ORYN Tirzepatida Pen (10mg diario) vs MediT Pen (40mg semanal). Flexibilidad de dosis, comodidad y precio.", introduction: "ORYN ofrece tirzepatida en dos formatos distintos: el Peptide Pen estándar (10mg, multi-dosis, diario) y el MediT Pen (40mg, precargado, semanal).", verdict: "Ambos formatos ofrecen la misma tirzepatida farmacéutica con >99% de pureza. El Peptide Pen (10mg, €169) ofrece máxima flexibilidad de dosificación. El MediT Pen (40mg, €249) ofrece máxima comodidad con administración semanal fija.",
+    es: { title: "Tirzepatida 10mg Pen vs 40mg MediT: ¿Qué Formato Es el Adecuado?", metaTitle: "Tirzepatida 10mg vs 40mg MediT: Comparación", metaDescription: "Compara ORYN Tirzepatida Pen (10mg diario) vs MediT Pen (40mg semanal). Flexibilidad de dosis, comodidad y precio.", introduction: "ORYN ofrece tirzepatida en dos formatos distintos: el Peptide Pen estándar (10mg, multi-dosis, diario) y el MediT Pen (40mg, precargado, semanal).", verdict: "Ambos formatos ofrecen la misma tirzepatida farmacéutica con >99% de pureza. El Peptide Pen (10mg, €169) ofrece máxima flexibilidad de dosificación. El MediT Pen (40mg, €249) ofrece máxima comodidad con administración semanal fija.",
       categories: [
         { name: "Dosis Total", productA: "10 mg por bolígrafo", productB: "40 mg por bolígrafo", winner: "B" },
         { name: "Frecuencia de Dosificación", productA: "Dosificación diaria de precisión", productB: "Una vez por semana", winner: "tie" },
@@ -1618,7 +1618,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cómo debo almacenar ambos formatos de tirzepatida?", answer: "Ambos deben almacenarse refrigerados a 2-8°C." },
       ],
     },
-    fr: { title: "Tirzépatide 10mg Pen vs 40mg MediT : Quel Format Choisir ?", metaTitle: "Tirzépatide 10mg vs 40mg MediT : Comparaison | ORYN", metaDescription: "Comparez ORYN Tirzépatide Pen (10mg quotidien) vs MediT Pen (40mg hebdomadaire). Flexibilité dosage, commodité et prix.", introduction: "ORYN propose la tirzépatide en deux formats distincts : le Peptide Pen standard (10mg, multi-dose, quotidien) et le MediT Pen (40mg, préchargé, hebdomadaire).", verdict: "Les deux formats livrent la même tirzépatide pharmaceutique >99% pureté. Le Pen (10mg, €169) offre une flexibilité de dosage maximale. Le MediT Pen (40mg, €249) offre une commodité maximale avec administration hebdomadaire fixe.",
+    fr: { title: "Tirzépatide 10mg Pen vs 40mg MediT : Quel Format Choisir ?", metaTitle: "Tirzépatide 10mg vs 40mg MediT : Comparaison", metaDescription: "Comparez ORYN Tirzépatide Pen (10mg quotidien) vs MediT Pen (40mg hebdomadaire). Flexibilité dosage, commodité et prix.", introduction: "ORYN propose la tirzépatide en deux formats distincts : le Peptide Pen standard (10mg, multi-dose, quotidien) et le MediT Pen (40mg, préchargé, hebdomadaire).", verdict: "Les deux formats livrent la même tirzépatide pharmaceutique >99% pureté. Le Pen (10mg, €169) offre une flexibilité de dosage maximale. Le MediT Pen (40mg, €249) offre une commodité maximale avec administration hebdomadaire fixe.",
       categories: [
         { name: "Dose Totale", productA: "10 mg par stylo", productB: "40 mg par stylo", winner: "B" },
         { name: "Fréquence Dosage", productA: "Administration quotidienne de précision", productB: "Une fois par semaine", winner: "tie" },
@@ -1641,7 +1641,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Comment stocker les deux formats ?", answer: "Les deux doivent être conservés réfrigérés à 2-8°C." },
       ],
     },
-    de: { title: "Tirzepatid 10mg Stift vs 40mg MediT: Welches Format ist Richtig?", metaTitle: "Tirzepatid 10mg vs 40mg MediT: Vergleich | ORYN", metaDescription: "Vergleiche ORYN Tirzepatid Pen (10mg täglich) vs MediT Pen (40mg wöchentlich). Dosierungsflexibilität, Komfort und Preis.", introduction: "ORYN bietet Tirzepatid in zwei verschiedenen Formaten an: dem Standard-Peptidstift (10mg, täglich) und dem MediT Pen (40mg, vorgefüllt, wöchentlich).", verdict: "Beide Formate liefern das gleiche pharmazeutische Tirzepatid mit >99% Reinheit. Der Tirzepatid-Stift (10mg, €169) bietet maximale Dosierungsflexibilität. Der MediT Pen (40mg, €249) bietet maximalen Komfort.",
+    de: { title: "Tirzepatid 10mg Stift vs 40mg MediT: Welches Format ist Richtig?", metaTitle: "Tirzepatid 10mg vs 40mg MediT: Vergleich", metaDescription: "Vergleiche ORYN Tirzepatid Pen (10mg täglich) vs MediT Pen (40mg wöchentlich). Dosierungsflexibilität, Komfort und Preis.", introduction: "ORYN bietet Tirzepatid in zwei verschiedenen Formaten an: dem Standard-Peptidstift (10mg, täglich) und dem MediT Pen (40mg, vorgefüllt, wöchentlich).", verdict: "Beide Formate liefern das gleiche pharmazeutische Tirzepatid mit >99% Reinheit. Der Tirzepatid-Stift (10mg, €169) bietet maximale Dosierungsflexibilität. Der MediT Pen (40mg, €249) bietet maximalen Komfort.",
       categories: [
         { name: "Gesamtdosis", productA: "10 mg pro Stift", productB: "40 mg pro Stift", winner: "B" },
         { name: "Dosierungshäufigkeit", productA: "Tägliche Präzisionsdosierung", productB: "Einmal wöchentlich", winner: "tie" },
@@ -1664,7 +1664,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Wie soll ich beide Tirzepatid-Formate lagern?", answer: "Beide sollten kühl bei 2-8°C gelagert werden." },
       ],
     },
-    it: { title: "Tirzepatide 10mg Pen vs 40mg MediT: Quale Formato è Quello Giusto?", metaTitle: "Tirzepatide 10mg vs 40mg MediT: Confronto | ORYN", metaDescription: "Confronta ORYN Tirzepatide Pen (10mg giornaliero) vs MediT Pen (40mg settimanale). Flessibilità dosaggio, convenienza e prezzo.", introduction: "ORYN offre tirzepatide in due formati distinti: il Peptide Pen standard (10mg, multi-dose, giornaliero) e il MediT Pen (40mg, precaricato, settimanale).", verdict: "Entrambi i formati contengono la stessa tirzepatide farmaceutica >99% di purezza. Il Pen (10mg, €169) offre massima flessibilità di dosaggio. Il MediT Pen (40mg, €249) offre massima praticità con somministrazione settimanale fissa.",
+    it: { title: "Tirzepatide 10mg Pen vs 40mg MediT: Quale Formato è Quello Giusto?", metaTitle: "Tirzepatide 10mg vs 40mg MediT: Confronto", metaDescription: "Confronta ORYN Tirzepatide Pen (10mg giornaliero) vs MediT Pen (40mg settimanale). Flessibilità dosaggio, convenienza e prezzo.", introduction: "ORYN offre tirzepatide in due formati distinti: il Peptide Pen standard (10mg, multi-dose, giornaliero) e il MediT Pen (40mg, precaricato, settimanale).", verdict: "Entrambi i formati contengono la stessa tirzepatide farmaceutica >99% di purezza. Il Pen (10mg, €169) offre massima flessibilità di dosaggio. Il MediT Pen (40mg, €249) offre massima praticità con somministrazione settimanale fissa.",
       categories: [
         { name: "Dose Totale", productA: "10 mg per penna", productB: "40 mg per penna", winner: "B" },
         { name: "Frequenza Dosaggio", productA: "Dosaggio giornaliero di precisione", productB: "Una volta a settimana", winner: "tie" },
@@ -1687,7 +1687,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Come devono essere conservati entrambi i formati?", answer: "Entrambi devono essere conservati in frigorifero a 2-8°C." },
       ],
     },
-    pt: { title: "Tirzepatida 10mg Pen vs 40mg MediT: Qual Formato é o Certo?", metaTitle: "Tirzepatida 10mg vs 40mg MediT: Comparação | ORYN", metaDescription: "Compare ORYN Tirzepatida Pen (10mg diário) vs MediT Pen (40mg semanal). Flexibilidade de dose, conveniência e preço.", introduction: "A ORYN oferece tirzepatida em dois formatos distintos: o Peptide Pen padrão (10mg, multi-dose, diário) e o MediT Pen (40mg, pré-carregado, semanal).", verdict: "Ambos os formatos fornecem a mesma tirzepatida farmacêutica com >99% de pureza. O Pen (10mg, €169) oferece máxima flexibilidade de dosagem. O MediT Pen (40mg, €249) oferece máxima conveniência.",
+    pt: { title: "Tirzepatida 10mg Pen vs 40mg MediT: Qual Formato é o Certo?", metaTitle: "Tirzepatida 10mg vs 40mg MediT: Comparação", metaDescription: "Compare ORYN Tirzepatida Pen (10mg diário) vs MediT Pen (40mg semanal). Flexibilidade de dose, conveniência e preço.", introduction: "A ORYN oferece tirzepatida em dois formatos distintos: o Peptide Pen padrão (10mg, multi-dose, diário) e o MediT Pen (40mg, pré-carregado, semanal).", verdict: "Ambos os formatos fornecem a mesma tirzepatida farmacêutica com >99% de pureza. O Pen (10mg, €169) oferece máxima flexibilidade de dosagem. O MediT Pen (40mg, €249) oferece máxima conveniência.",
       categories: [
         { name: "Dose Total", productA: "10 mg por caneta", productB: "40 mg por caneta", winner: "B" },
         { name: "Frequência de Dosagem", productA: "Dosagem diária de precisão", productB: "Uma vez por semana", winner: "tie" },
@@ -1710,7 +1710,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Como devo armazenar ambos os formatos?", answer: "Ambos devem ser armazenados refrigerados a 2-8°C." },
       ],
     },
-    nl: { title: "Tirzepatide 10mg Pen vs 40mg MediT: Welk Formaat is het Juiste?", metaTitle: "Tirzepatide 10mg vs 40mg MediT: Vergelijking | ORYN", metaDescription: "Vergelijk ORYN Tirzepatide Pen (10mg dagelijks) vs MediT Pen (40mg wekelijks). Doseringflexibiliteit, gemak en prijs.", introduction: "ORYN biedt tirzepatide in twee afzonderlijke formaten: de standaard Peptide Pen (10mg, multi-dose, dagelijks) en de MediT Pen (40mg, voorgevuld, wekelijks).", verdict: "Beide formaten leveren dezelfde farmaceutische tirzepatide met >99% zuiverheid. De Pen (10mg, €169) biedt maximale doseringflexibiliteit. De MediT Pen (40mg, €249) biedt maximaal gemak.",
+    nl: { title: "Tirzepatide 10mg Pen vs 40mg MediT: Welk Formaat is het Juiste?", metaTitle: "Tirzepatide 10mg vs 40mg MediT: Vergelijking", metaDescription: "Vergelijk ORYN Tirzepatide Pen (10mg dagelijks) vs MediT Pen (40mg wekelijks). Doseringflexibiliteit, gemak en prijs.", introduction: "ORYN biedt tirzepatide in twee afzonderlijke formaten: de standaard Peptide Pen (10mg, multi-dose, dagelijks) en de MediT Pen (40mg, voorgevuld, wekelijks).", verdict: "Beide formaten leveren dezelfde farmaceutische tirzepatide met >99% zuiverheid. De Pen (10mg, €169) biedt maximale doseringflexibiliteit. De MediT Pen (40mg, €249) biedt maximaal gemak.",
       categories: [
         { name: "Totale Dosering", productA: "10 mg per pen", productB: "40 mg per pen", winner: "B" },
         { name: "Doseringfrequentie", productA: "Dagelijkse precisiedosering", productB: "Eén keer per week", winner: "tie" },
@@ -1733,7 +1733,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Hoe bewaar ik beide formaten?", answer: "Beide moeten gekoeld worden bewaard bij 2-8°C." },
       ],
     },
-    pl: { title: "Tirzepatyd 10mg Pen vs 40mg MediT: Który Format Jest Odpowiedni?", metaTitle: "Tirzepatyd 10mg vs 40mg MediT: Porównanie | ORYN", metaDescription: "Porównaj ORYN Tirzepatyd Pen (10mg codziennie) vs MediT Pen (40mg co tydzień). Elastyczność dawkowania, wygoda i cena.", introduction: "ORYN oferuje tirzepatyd w dwóch różnych formatach: standardowy Peptide Pen (10mg, multi-dawka, codziennie) i MediT Pen (40mg, napełniony, co tydzień).", verdict: "Oba formaty zawierają ten sam farmaceutyczny tirzepatyd >99% czystości. Pen (10mg, €169) oferuje maksymalną elastyczność dawkowania. MediT Pen (40mg, €249) oferuje maksymalną wygodę.",
+    pl: { title: "Tirzepatyd 10mg Pen vs 40mg MediT: Który Format Jest Odpowiedni?", metaTitle: "Tirzepatyd 10mg vs 40mg MediT: Porównanie", metaDescription: "Porównaj ORYN Tirzepatyd Pen (10mg codziennie) vs MediT Pen (40mg co tydzień). Elastyczność dawkowania, wygoda i cena.", introduction: "ORYN oferuje tirzepatyd w dwóch różnych formatach: standardowy Peptide Pen (10mg, multi-dawka, codziennie) i MediT Pen (40mg, napełniony, co tydzień).", verdict: "Oba formaty zawierają ten sam farmaceutyczny tirzepatyd >99% czystości. Pen (10mg, €169) oferuje maksymalną elastyczność dawkowania. MediT Pen (40mg, €249) oferuje maksymalną wygodę.",
       categories: [
         { name: "Całkowita Dawka", productA: "10 mg na pen", productB: "40 mg na pen", winner: "B" },
         { name: "Częstotliwość Dawkowania", productA: "Codzienne precyzyjne dawkowanie", productB: "Raz w tygodniu", winner: "tie" },
@@ -1764,7 +1764,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "nad-pen-vs-nad-novadose": {
     en: {
       title: "NAD+ Pen vs NovaDose NAD+: Which Delivery System Is Best?",
-      metaTitle: "NAD+ Pen vs NovaDose NAD+ Comparison | ORYN UK",
+      metaTitle: "NAD+ Pen vs NovaDose NAD+ Comparison",
       metaDescription: "Compare ORYN NAD+ Pen vs NovaDose cartridge system. Dosing precision, bioavailability, cost, and which NAD+ delivery suits your research. Buy NAD+ UK.",
       introduction: "ORYN offers two distinct systems for NAD+ research: the standard NAD+ Peptide Pen and the innovative NovaDose cartridge-based system. Both contain the same 500mg of pharmaceutical-grade NAD+ but use fundamentally different delivery technologies.",
       verdict: "Both systems deliver 500mg of pharmaceutical-grade NAD+ and are vastly superior to IV therapy in cost and convenience. The NAD+ Pen (€189) offers adjustable dosing and a lower price point. The NovaDose (€299) offers the most advanced delivery with daily microdosing precision and near-100% bioavailability.",
@@ -1790,7 +1790,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "How do both compare to NAD+ IV therapy?", answer: "Both ORYN NAD+ systems provide comparable or superior bioavailability to IV therapy at a fraction of the cost (€189-299 vs €500-1,500+ per IV session)." },
       ],
     },
-    es: { title: "NAD+ Pen vs NovaDose NAD+: ¿Qué Sistema de Entrega Es el Mejor?", metaTitle: "NAD+ Pen vs NovaDose: Comparación | ORYN", metaDescription: "Compara ORYN NAD+ Pen vs sistema de cartucho NovaDose. Precisión de dosis, biodisponibilidad y coste.", introduction: "ORYN ofrece dos sistemas distintos para investigación con NAD+: el NAD+ Peptide Pen estándar y el innovador NovaDose basado en cartucho.", verdict: "El NAD+ Pen (€189) ofrece dosificación ajustable. El NovaDose (€299) ofrece la entrega más avanzada con precisión de microdosis diaria y biodisponibilidad cercana al 100%.",
+    es: { title: "NAD+ Pen vs NovaDose NAD+: ¿Qué Sistema de Entrega Es el Mejor?", metaTitle: "NAD+ Pen vs NovaDose: Comparación", metaDescription: "Compara ORYN NAD+ Pen vs sistema de cartucho NovaDose. Precisión de dosis, biodisponibilidad y coste.", introduction: "ORYN ofrece dos sistemas distintos para investigación con NAD+: el NAD+ Peptide Pen estándar y el innovador NovaDose basado en cartucho.", verdict: "El NAD+ Pen (€189) ofrece dosificación ajustable. El NovaDose (€299) ofrece la entrega más avanzada con precisión de microdosis diaria y biodisponibilidad cercana al 100%.",
       categories: [
         { name: "Tecnología de Entrega", productA: "Bolígrafo peptídico premezclado estándar", productB: "Sistema avanzado de bolígrafo basado en cartucho", winner: "B" },
         { name: "Biodisponibilidad", productA: "Alta absorción subcutánea", productB: "Cercana al 100% — tecnología micro-aguja", winner: "B" },
@@ -1813,7 +1813,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cómo se comparan con la terapia IV de NAD+?", answer: "Ambos sistemas ofrecen biodisponibilidad comparable o superior a la IV a una fracción del coste." },
       ],
     },
-    fr: { title: "NAD+ Pen vs NovaDose NAD+ : Quel Système de Livraison Est le Meilleur ?", metaTitle: "NAD+ Pen vs NovaDose: Comparaison | ORYN", metaDescription: "Comparez ORYN NAD+ Pen vs système cartouche NovaDose. Précision dosage, biodisponibilité et coût.", introduction: "ORYN propose deux systèmes distincts pour la recherche NAD+ : le NAD+ Peptide Pen standard et l'innovant NovaDose à base de cartouche.", verdict: "Le NAD+ Pen (€189) offre un dosage ajustable. Le NovaDose (€299) offre la livraison la plus avancée avec microdosage quotidien de précision.",
+    fr: { title: "NAD+ Pen vs NovaDose NAD+ : Quel Système de Livraison Est le Meilleur ?", metaTitle: "NAD+ Pen vs NovaDose: Comparaison", metaDescription: "Comparez ORYN NAD+ Pen vs système cartouche NovaDose. Précision dosage, biodisponibilité et coût.", introduction: "ORYN propose deux systèmes distincts pour la recherche NAD+ : le NAD+ Peptide Pen standard et l'innovant NovaDose à base de cartouche.", verdict: "Le NAD+ Pen (€189) offre un dosage ajustable. Le NovaDose (€299) offre la livraison la plus avancée avec microdosage quotidien de précision.",
       categories: [
         { name: "Technologie de Livraison", productA: "Stylo peptidique pré-mélangé standard", productB: "Système stylo avancé à base de cartouche", winner: "B" },
         { name: "Biodisponibilité", productA: "Haute absorption sous-cutanée", productB: "Proche 100% — technologie micro-aiguille", winner: "B" },
@@ -1836,7 +1836,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Comment se comparent-ils à la thérapie IV NAD+ ?", answer: "Les deux systèmes offrent une biodisponibilité comparable ou supérieure à l'IV à une fraction du coût." },
       ],
     },
-    de: { title: "NAD+ Pen vs NovaDose NAD+: Welches Liefersystem Ist das Beste?", metaTitle: "NAD+ Pen vs NovaDose: Vergleich | ORYN", metaDescription: "Vergleiche ORYN NAD+ Pen vs NovaDose Kartuschenystem. Dosiergenauigkeit, Bioverfügbarkeit und Kosten.", introduction: "ORYN bietet zwei unterschiedliche Systeme für die NAD+-Forschung an: den Standard NAD+ Peptidstift und das innovative kartuschenbasisierte NovaDose-System.", verdict: "Der NAD+ Pen (€189) bietet einstellbare Dosierung. Das NovaDose (€299) bietet die fortschrittlichste Lieferung mit täglich präziser Mikrodosierung.",
+    de: { title: "NAD+ Pen vs NovaDose NAD+: Welches Liefersystem Ist das Beste?", metaTitle: "NAD+ Pen vs NovaDose: Vergleich", metaDescription: "Vergleiche ORYN NAD+ Pen vs NovaDose Kartuschenystem. Dosiergenauigkeit, Bioverfügbarkeit und Kosten.", introduction: "ORYN bietet zwei unterschiedliche Systeme für die NAD+-Forschung an: den Standard NAD+ Peptidstift und das innovative kartuschenbasisierte NovaDose-System.", verdict: "Der NAD+ Pen (€189) bietet einstellbare Dosierung. Das NovaDose (€299) bietet die fortschrittlichste Lieferung mit täglich präziser Mikrodosierung.",
       categories: [
         { name: "Liefertechnologie", productA: "Standard vorgmischter Peptidstift", productB: "Fortgeschrittenes kartuschbasiertes Stiftsystem", winner: "B" },
         { name: "Bioverfügbarkeit", productA: "Hohe subkutane Absorption", productB: "Nahezu 100% — Mikronadel-Kartuschtechnologie", winner: "B" },
@@ -1859,7 +1859,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Wie vergleichen sie sich mit der NAD+ IV-Therapie?", answer: "Beide Systeme bieten vergleichbare oder bessere Bioverfügbarkeit als IV-Therapie bei einem Bruchteil der Kosten." },
       ],
     },
-    it: { title: "NAD+ Pen vs NovaDose NAD+: Quale Sistema di Consegna È il Migliore?", metaTitle: "NAD+ Pen vs NovaDose: Confronto | ORYN", metaDescription: "Confronta ORYN NAD+ Pen vs sistema a cartuccia NovaDose. Precisione dosaggio, biodisponibilità e costo.", introduction: "ORYN offre due sistemi distinti per la ricerca NAD+: il NAD+ Peptide Pen standard e l'innovativo NovaDose a base di cartuccia.", verdict: "Il NAD+ Pen (€189) offre dosaggio regolabile. Il NovaDose (€299) offre la consegna più avanzata con microdosaggio quotidiano di precisione.",
+    it: { title: "NAD+ Pen vs NovaDose NAD+: Quale Sistema di Consegna È il Migliore?", metaTitle: "NAD+ Pen vs NovaDose: Confronto", metaDescription: "Confronta ORYN NAD+ Pen vs sistema a cartuccia NovaDose. Precisione dosaggio, biodisponibilità e costo.", introduction: "ORYN offre due sistemi distinti per la ricerca NAD+: il NAD+ Peptide Pen standard e l'innovativo NovaDose a base di cartuccia.", verdict: "Il NAD+ Pen (€189) offre dosaggio regolabile. Il NovaDose (€299) offre la consegna più avanzata con microdosaggio quotidiano di precisione.",
       categories: [
         { name: "Tecnologia di Consegna", productA: "Penna peptidica pre-mescolata standard", productB: "Sistema penna avanzato a base di cartuccia", winner: "B" },
         { name: "Biodisponibilità", productA: "Alta assorbimento sottocutaneo", productB: "Vicino al 100% — tecnologia micro-ago", winner: "B" },
@@ -1882,7 +1882,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Come si confrontano con la terapia IV di NAD+?", answer: "Entrambi i sistemi offrono biodisponibilità paragonabile o superiore alla IV a una frazione del costo." },
       ],
     },
-    pt: { title: "NAD+ Pen vs NovaDose NAD+: Qual Sistema de Entrega É o Melhor?", metaTitle: "NAD+ Pen vs NovaDose: Comparação | ORYN", metaDescription: "Compare ORYN NAD+ Pen vs sistema de cartucho NovaDose. Precisão de dose, biodisponibilidade e custo.", introduction: "A ORYN oferece dois sistemas distintos para pesquisa de NAD+: o NAD+ Peptide Pen padrão e o inovador NovaDose baseado em cartucho.", verdict: "O NAD+ Pen (€189) oferece dosagem ajustável. O NovaDose (€299) oferece a entrega mais avançada com microdosagem diária de precisão.",
+    pt: { title: "NAD+ Pen vs NovaDose NAD+: Qual Sistema de Entrega É o Melhor?", metaTitle: "NAD+ Pen vs NovaDose: Comparação", metaDescription: "Compare ORYN NAD+ Pen vs sistema de cartucho NovaDose. Precisão de dose, biodisponibilidade e custo.", introduction: "A ORYN oferece dois sistemas distintos para pesquisa de NAD+: o NAD+ Peptide Pen padrão e o inovador NovaDose baseado em cartucho.", verdict: "O NAD+ Pen (€189) oferece dosagem ajustável. O NovaDose (€299) oferece a entrega mais avançada com microdosagem diária de precisão.",
       categories: [
         { name: "Tecnologia de Entrega", productA: "Caneta peptídica pré-misturada padrão", productB: "Sistema de caneta avançado baseado em cartucho", winner: "B" },
         { name: "Biodisponibilidade", productA: "Alta absorção subcutânea", productB: "Próxima de 100% — tecnologia micro-agulha", winner: "B" },
@@ -1905,7 +1905,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Como se comparam com a terapia IV de NAD+?", answer: "Ambos os sistemas oferecem biodisponibilidade comparável ou superior à IV a uma fração do custo." },
       ],
     },
-    nl: { title: "NAD+ Pen vs NovaDose NAD+: Welk Leveringssysteem Is het Beste?", metaTitle: "NAD+ Pen vs NovaDose: Vergelijking | ORYN", metaDescription: "Vergelijk ORYN NAD+ Pen vs NovaDose kartouchesysteem. Doseerprecisie, biologische beschikbaarheid en kosten.", introduction: "ORYN biedt twee afzonderlijke systemen voor NAD+-onderzoek: de standaard NAD+ Peptide Pen en het innovatieve NovaDose op kartouchebasis.", verdict: "De NAD+ Pen (€189) biedt instelbare dosering. De NovaDose (€299) biedt de meest geavanceerde levering met dagelijkse microdoseerprecisie.",
+    nl: { title: "NAD+ Pen vs NovaDose NAD+: Welk Leveringssysteem Is het Beste?", metaTitle: "NAD+ Pen vs NovaDose: Vergelijking", metaDescription: "Vergelijk ORYN NAD+ Pen vs NovaDose kartouchesysteem. Doseerprecisie, biologische beschikbaarheid en kosten.", introduction: "ORYN biedt twee afzonderlijke systemen voor NAD+-onderzoek: de standaard NAD+ Peptide Pen en het innovatieve NovaDose op kartouchebasis.", verdict: "De NAD+ Pen (€189) biedt instelbare dosering. De NovaDose (€299) biedt de meest geavanceerde levering met dagelijkse microdoseerprecisie.",
       categories: [
         { name: "Leveringstechnologie", productA: "Standaard voorgemengde peptidepen", productB: "Geavanceerd kartouchegebaseerd pensysteem", winner: "B" },
         { name: "Biologische Beschikbaarheid", productA: "Hoge subkutane absorptie", productB: "Bijna 100% — micro-naald kartouchetechnologie", winner: "B" },
@@ -1928,7 +1928,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Hoe vergelijken ze met NAD+ IV-therapie?", answer: "Beide systemen bieden vergelijkbare of betere biologische beschikbaarheid dan IV-therapie tegen een fractie van de kosten." },
       ],
     },
-    pl: { title: "NAD+ Pen vs NovaDose NAD+: Który System Dostarczania Jest Najlepszy?", metaTitle: "NAD+ Pen vs NovaDose: Porównanie | ORYN", metaDescription: "Porównaj ORYN NAD+ Pen vs system wkładów NovaDose. Precyzja dawkowania, biodostępność i koszty.", introduction: "ORYN oferuje dwa różne systemy do badań NAD+: standardowy NAD+ Peptide Pen i innowacyjny NovaDose oparty na wkładach.", verdict: "NAD+ Pen (€189) oferuje regulowane dawkowanie. NovaDose (€299) oferuje najbardziej zaawansowane dostarczanie z codzienną precyzją mikrodawkowania.",
+    pl: { title: "NAD+ Pen vs NovaDose NAD+: Który System Dostarczania Jest Najlepszy?", metaTitle: "NAD+ Pen vs NovaDose: Porównanie", metaDescription: "Porównaj ORYN NAD+ Pen vs system wkładów NovaDose. Precyzja dawkowania, biodostępność i koszty.", introduction: "ORYN oferuje dwa różne systemy do badań NAD+: standardowy NAD+ Peptide Pen i innowacyjny NovaDose oparty na wkładach.", verdict: "NAD+ Pen (€189) oferuje regulowane dawkowanie. NovaDose (€299) oferuje najbardziej zaawansowane dostarczanie z codzienną precyzją mikrodawkowania.",
       categories: [
         { name: "Technologia Dostarczania", productA: "Standardowy wstępnie zmieszany pióro peptydowe", productB: "Zaawansowany system pióra oparty na wkładach", winner: "B" },
         { name: "Biodostępność", productA: "Wysoka absorpcja podskórna", productB: "Blisko 100% — technologia mikroigły", winner: "B" },
@@ -1959,7 +1959,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "glutathione-injection-vs-oral": {
     en: {
       title: "Glutathione Injection vs Oral Supplements: Bioavailability Compared",
-      metaTitle: "Glutathione Injection vs Oral Supplements | ORYN UK",
+      metaTitle: "Glutathione Injection vs Oral Supplements",
       metaDescription: "Compare injectable Glutathione pen vs oral supplements. Bioavailability, effectiveness, cost per effective dose, and why injection wins. Buy Glutathione pen UK.",
       introduction: "Glutathione is the body's master antioxidant, essential for cellular detoxification, immune function, and skin health. While oral Glutathione supplements are widely available, their effectiveness is severely limited by digestive degradation. This comparison examines injectable pen delivery versus oral supplements for Glutathione research.",
       verdict: "Injectable Glutathione via ORYN's pen system is vastly superior to oral Glutathione supplements in the metric that matters most: bioavailability. Oral Glutathione is largely destroyed during digestion, with estimates of only 5-15% reaching systemic circulation. ORYN's pen delivery bypasses the digestive system entirely, providing near-complete absorption of the full 6g dose.",
@@ -1986,7 +1986,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Is ORYN Glutathione pen safe to use?", answer: "ORYN Glutathione is manufactured to >99% purity in GMP-certified facilities. Glutathione is naturally produced in every human cell and is one of the most extensively studied antioxidant compounds." },
       ],
     },
-    es: { title: "Inyección de Glutatión vs Suplementos Orales: Biodisponibilidad Comparada", metaTitle: "Glutatión Inyectable vs Oral: Biodisponibilidad | ORYN", metaDescription: "Compara el bolígrafo de glutatión inyectable vs suplementos orales. Biodisponibilidad, efectividad y por qué gana la inyección.", introduction: "El glutatión es el antioxidante maestro del cuerpo. Los suplementos orales de glutatión tienen biodisponibilidad muy limitada (5-15%), mientras que la entrega inyectable ofrece absorción casi completa.", verdict: "El glutatión inyectable es vastamente superior a los suplementos orales en biodisponibilidad. El bolígrafo ORYN ofrece absorción casi completa de la dosis completa de 6g, mientras que los suplementos orales llegan principalmente al tracto GI.",
+    es: { title: "Inyección de Glutatión vs Suplementos Orales: Biodisponibilidad Comparada", metaTitle: "Glutatión Inyectable vs Oral: Biodisponibilidad", metaDescription: "Compara el bolígrafo de glutatión inyectable vs suplementos orales. Biodisponibilidad, efectividad y por qué gana la inyección.", introduction: "El glutatión es el antioxidante maestro del cuerpo. Los suplementos orales de glutatión tienen biodisponibilidad muy limitada (5-15%), mientras que la entrega inyectable ofrece absorción casi completa.", verdict: "El glutatión inyectable es vastamente superior a los suplementos orales en biodisponibilidad. El bolígrafo ORYN ofrece absorción casi completa de la dosis completa de 6g, mientras que los suplementos orales llegan principalmente al tracto GI.",
       categories: [
         { name: "Biodisponibilidad", productA: "Cercana al 100% — evita el sistema digestivo", productB: "Los suplementos orales logran solo 5-15%", winner: "A" },
         { name: "Dosis Entregada", productA: "6 g total, casi todo absorbido", productB: "La mayoría de la dosis oral se destruye", winner: "A" },
@@ -2010,7 +2010,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Es seguro el bolígrafo de glutatión ORYN?", answer: "El glutatión ORYN tiene >99% de pureza en instalaciones GMP. El glutatión es natural en todas las células humanas." },
       ],
     },
-    fr: { title: "Glutathion Injectable vs Suppléments Oraux : Biodisponibilité Comparée", metaTitle: "Glutathion Injectable vs Oral | ORYN", metaDescription: "Comparez le stylo glutathion injectable vs suppléments oraux. Biodisponibilité, efficacité et pourquoi l'injection gagne.", introduction: "Le glutathion est le maître antioxydant du corps. Les suppléments oraux ont une biodisponibilité très limitée (5-15%), tandis que la livraison injectable offre une absorption quasi complète.", verdict: "Le glutathion injectable est vastement supérieur aux suppléments oraux en biodisponibilité. Le stylo ORYN offre une absorption quasi complète de la dose complète de 6g.",
+    fr: { title: "Glutathion Injectable vs Suppléments Oraux : Biodisponibilité Comparée", metaTitle: "Glutathion Injectable vs Oral", metaDescription: "Comparez le stylo glutathion injectable vs suppléments oraux. Biodisponibilité, efficacité et pourquoi l'injection gagne.", introduction: "Le glutathion est le maître antioxydant du corps. Les suppléments oraux ont une biodisponibilité très limitée (5-15%), tandis que la livraison injectable offre une absorption quasi complète.", verdict: "Le glutathion injectable est vastement supérieur aux suppléments oraux en biodisponibilité. Le stylo ORYN offre une absorption quasi complète de la dose complète de 6g.",
       categories: [
         { name: "Biodisponibilité", productA: "Proche 100% — contourne système digestif", productB: "Suppléments oraux atteignent seulement 5-15%", winner: "A" },
         { name: "Dose Délivrée", productA: "6 g total, presque tout absorbé", productB: "La plupart de la dose orale détruite", winner: "A" },
@@ -2034,7 +2034,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Le stylo glutathion ORYN est-il sûr ?", answer: "Le glutathion ORYN a >99% de pureté dans des installations GMP certifiées." },
       ],
     },
-    de: { title: "Glutathion-Injektion vs Orale Nahrungsergänzungsmittel: Bioverfügbarkeit Verglichen", metaTitle: "Glutathion Injektion vs Oral | ORYN", metaDescription: "Vergleiche den injizierbaren Glutathion-Stift vs orale Nahrungsergänzungsmittel. Bioverfügbarkeit und warum die Injektion gewinnt.", introduction: "Glutathion ist das Meister-Antioxidans des Körpers. Orale Glutathion-Nahrungsergänzungsmittel haben eine sehr begrenzte Bioverfügbarkeit (5-15%), während die injizierbare Abgabe fast vollständige Absorption bietet.", verdict: "Injizierbares Glutathion ist orale Nahrungsergänzungsmitteln bei der Bioverfügbarkeit weit überlegen. ORYN's Stiftsystem bietet fast vollständige Absorption der vollständigen 6g-Dosis.",
+    de: { title: "Glutathion-Injektion vs Orale Nahrungsergänzungsmittel: Bioverfügbarkeit Verglichen", metaTitle: "Glutathion Injektion vs Oral", metaDescription: "Vergleiche den injizierbaren Glutathion-Stift vs orale Nahrungsergänzungsmittel. Bioverfügbarkeit und warum die Injektion gewinnt.", introduction: "Glutathion ist das Meister-Antioxidans des Körpers. Orale Glutathion-Nahrungsergänzungsmittel haben eine sehr begrenzte Bioverfügbarkeit (5-15%), während die injizierbare Abgabe fast vollständige Absorption bietet.", verdict: "Injizierbares Glutathion ist orale Nahrungsergänzungsmitteln bei der Bioverfügbarkeit weit überlegen. ORYN's Stiftsystem bietet fast vollständige Absorption der vollständigen 6g-Dosis.",
       categories: [
         { name: "Bioverfügbarkeit", productA: "Nahezu 100% — umgeht Verdauungssystem", productB: "Orale Nahrungsergänzungsmittel erreichen nur 5-15%", winner: "A" },
         { name: "Gelieferte Dosis", productA: "6 g gesamt, fast alles absorbiert", productB: "Meiste orale Dosis wird verdaut", winner: "A" },
@@ -2058,7 +2058,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Ist der ORYN Glutathion-Stift sicher?", answer: "ORYN Glutathion hat >99% Reinheit in GMP-zertifizierten Einrichtungen." },
       ],
     },
-    it: { title: "Iniezione di Glutatione vs Integratori Orali: Biodisponibilità Confrontata", metaTitle: "Glutatione Iniettabile vs Orale | ORYN", metaDescription: "Confronta la penna glutatione iniettabile vs integratori orali. Biodisponibilità e perché l'iniezione vince.", introduction: "Il glutatione è il master antiossidante del corpo. Gli integratori orali hanno biodisponibilità molto limitata (5-15%), mentre la somministrazione iniettabile offre assorbimento quasi completo.", verdict: "Il glutatione iniettabile è nettamente superiore agli integratori orali in biodisponibilità. La penna ORYN offre assorbimento quasi completo della dose completa di 6g.",
+    it: { title: "Iniezione di Glutatione vs Integratori Orali: Biodisponibilità Confrontata", metaTitle: "Glutatione Iniettabile vs Orale", metaDescription: "Confronta la penna glutatione iniettabile vs integratori orali. Biodisponibilità e perché l'iniezione vince.", introduction: "Il glutatione è il master antiossidante del corpo. Gli integratori orali hanno biodisponibilità molto limitata (5-15%), mentre la somministrazione iniettabile offre assorbimento quasi completo.", verdict: "Il glutatione iniettabile è nettamente superiore agli integratori orali in biodisponibilità. La penna ORYN offre assorbimento quasi completo della dose completa di 6g.",
       categories: [
         { name: "Biodisponibilità", productA: "Vicina al 100% — bypassa sistema digestivo", productB: "Integratori orali raggiungono solo 5-15%", winner: "A" },
         { name: "Dose Consegnata", productA: "6 g totale, quasi tutto assorbito", productB: "La maggior parte della dose orale viene distrutta", winner: "A" },
@@ -2082,7 +2082,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "La penna glutatione ORYN è sicura?", answer: "Il glutatione ORYN ha >99% di purezza in strutture certificate GMP." },
       ],
     },
-    pt: { title: "Injeção de Glutatião vs Suplementos Orais: Biodisponibilidade Comparada", metaTitle: "Glutatião Injetável vs Oral | ORYN", metaDescription: "Compare a caneta de glutatião injetável vs suplementos orais. Biodisponibilidade e por que a injeção vence.", introduction: "O glutatião é o antioxidante mestre do corpo. Os suplementos orais têm biodisponibilidade muito limitada (5-15%), enquanto a entrega injetável oferece absorção quase completa.", verdict: "O glutatião injetável é vastamente superior aos suplementos orais em biodisponibilidade. A caneta ORYN oferece absorção quase completa da dose completa de 6g.",
+    pt: { title: "Injeção de Glutatião vs Suplementos Orais: Biodisponibilidade Comparada", metaTitle: "Glutatião Injetável vs Oral", metaDescription: "Compare a caneta de glutatião injetável vs suplementos orais. Biodisponibilidade e por que a injeção vence.", introduction: "O glutatião é o antioxidante mestre do corpo. Os suplementos orais têm biodisponibilidade muito limitada (5-15%), enquanto a entrega injetável oferece absorção quase completa.", verdict: "O glutatião injetável é vastamente superior aos suplementos orais em biodisponibilidade. A caneta ORYN oferece absorção quase completa da dose completa de 6g.",
       categories: [
         { name: "Biodisponibilidade", productA: "Próxima de 100% — contorna o sistema digestivo", productB: "Suplementos orais atingem apenas 5-15%", winner: "A" },
         { name: "Dose Entregue", productA: "6 g total, quase tudo absorvido", productB: "A maior parte da dose oral é destruída", winner: "A" },
@@ -2106,7 +2106,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "A caneta de glutatião ORYN é segura?", answer: "O glutatião ORYN tem >99% de pureza em instalações certificadas GMP." },
       ],
     },
-    nl: { title: "Glutathion Injectie vs Orale Supplementen: Biologische Beschikbaarheid Vergeleken", metaTitle: "Glutathion Injectie vs Oraal | ORYN", metaDescription: "Vergelijk injecteerbare glutathion pen vs orale supplementen. Biologische beschikbaarheid en waarom injectie wint.", introduction: "Glutathion is het meester-antioxidant van het lichaam. Orale supplementen hebben zeer beperkte biologische beschikbaarheid (5-15%), terwijl injecteerbare levering bijna volledige absorptie biedt.", verdict: "Injecteerbaar glutathion is orale supplementen verreweg superieur in biologische beschikbaarheid. De ORYN-pen biedt bijna volledige absorptie van de volledige 6g-dosis.",
+    nl: { title: "Glutathion Injectie vs Orale Supplementen: Biologische Beschikbaarheid Vergeleken", metaTitle: "Glutathion Injectie vs Oraal", metaDescription: "Vergelijk injecteerbare glutathion pen vs orale supplementen. Biologische beschikbaarheid en waarom injectie wint.", introduction: "Glutathion is het meester-antioxidant van het lichaam. Orale supplementen hebben zeer beperkte biologische beschikbaarheid (5-15%), terwijl injecteerbare levering bijna volledige absorptie biedt.", verdict: "Injecteerbaar glutathion is orale supplementen verreweg superieur in biologische beschikbaarheid. De ORYN-pen biedt bijna volledige absorptie van de volledige 6g-dosis.",
       categories: [
         { name: "Biologische Beschikbaarheid", productA: "Bijna 100% — omzeilt spijsverteringssysteem", productB: "Orale supplementen bereiken slechts 5-15%", winner: "A" },
         { name: "Geleverde Dosis", productA: "6 g totaal, bijna alles geabsorbeerd", productB: "Het meeste van de orale dosis wordt vernietigd", winner: "A" },
@@ -2130,7 +2130,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Is de ORYN glutathion pen veilig te gebruiken?", answer: "ORYN glutathion heeft >99% zuiverheid in GMP-gecertificeerde faciliteiten." },
       ],
     },
-    pl: { title: "Iniekcja Glutationu vs Suplementy Doustne: Biodostępność Porównana", metaTitle: "Glutation Iniekcja vs Doustny | ORYN", metaDescription: "Porównaj pen glutationu do wstrzyknięć vs suplementy doustne. Biodostępność i dlaczego iniekcja wygrywa.", introduction: "Glutation jest głównym antyoksydantem organizmu. Doustne suplementy mają bardzo ograniczoną biodostępność (5-15%), podczas gdy dostarczanie iniekcyjne oferuje niemal pełne wchłanianie.", verdict: "Glutation iniekcyjny jest zdecydowanie lepszy od suplementów doustnych pod względem biodostępności. Pióro ORYN oferuje niemal pełne wchłanianie pełnej dawki 6g.",
+    pl: { title: "Iniekcja Glutationu vs Suplementy Doustne: Biodostępność Porównana", metaTitle: "Glutation Iniekcja vs Doustny", metaDescription: "Porównaj pen glutationu do wstrzyknięć vs suplementy doustne. Biodostępność i dlaczego iniekcja wygrywa.", introduction: "Glutation jest głównym antyoksydantem organizmu. Doustne suplementy mają bardzo ograniczoną biodostępność (5-15%), podczas gdy dostarczanie iniekcyjne oferuje niemal pełne wchłanianie.", verdict: "Glutation iniekcyjny jest zdecydowanie lepszy od suplementów doustnych pod względem biodostępności. Pióro ORYN oferuje niemal pełne wchłanianie pełnej dawki 6g.",
       categories: [
         { name: "Biodostępność", productA: "Blisko 100% — omija układ trawienny", productB: "Suplementy doustne osiągają tylko 5-15%", winner: "A" },
         { name: "Dostarczona Dawka", productA: "6 g łącznie, niemal wszystko wchłonięte", productB: "Większość doustnej dawki jest niszczona", winner: "A" },
@@ -2162,7 +2162,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "nad-plus-pen-vs-iv-therapy": {
     en: {
       title: "NAD+ Pen vs IV Therapy: Which Delivery Method Is Better?",
-      metaTitle: "NAD+ Pen vs IV Therapy Comparison | ORYN UK",
+      metaTitle: "NAD+ Pen vs IV Therapy Comparison",
       metaDescription: "Compare NAD+ pen delivery vs IV infusion therapy. Cost, convenience, bioavailability, and results compared. Buy NAD+ peptide pen and NovaDose system UK.",
       introduction: "NAD+ therapy has gained significant attention for its role in cellular energy, DNA repair, and healthy aging research. Traditionally delivered via expensive IV infusions, NAD+ is now available in convenient pen systems. This comparison examines both delivery methods.",
       verdict: "NAD+ pen systems offer comparable bioavailability to IV therapy at a fraction of the cost and without clinic visits. ORYN's standard NAD+ pen (€189) and NovaDose system (€299) both deliver pharmaceutical-grade NAD+ with the convenience of at-home administration.",
@@ -2186,7 +2186,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "What is the difference between the NAD+ Pen and NovaDose?", answer: "The NAD+ Pen (€189) is a standard pre-mixed pen with adjustable dosing. The NovaDose (€299) is an advanced cartridge-based system designed specifically for daily microdosing with near-100% bioavailability." },
       ],
     },
-    es: { title: "Bolígrafo NAD+ vs Terapia IV: ¿Qué Método de Entrega Es Mejor?", metaTitle: "NAD+ Pen vs Terapia IV | ORYN", metaDescription: "Compara la entrega de NAD+ con bolígrafo vs terapia de infusión IV. Coste, conveniencia y biodisponibilidad.", introduction: "Los sistemas de bolígrafo NAD+ ofrecen biodisponibilidad comparable a la terapia IV a una fracción del coste y sin visitas a clínicas.", verdict: "El bolígrafo NAD+ ORYN (€189) y el sistema NovaDose (€299) ofrecen NAD+ farmacéutico con la conveniencia de administración en casa.",
+    es: { title: "Bolígrafo NAD+ vs Terapia IV: ¿Qué Método de Entrega Es Mejor?", metaTitle: "NAD+ Pen vs Terapia IV", metaDescription: "Compara la entrega de NAD+ con bolígrafo vs terapia de infusión IV. Coste, conveniencia y biodisponibilidad.", introduction: "Los sistemas de bolígrafo NAD+ ofrecen biodisponibilidad comparable a la terapia IV a una fracción del coste y sin visitas a clínicas.", verdict: "El bolígrafo NAD+ ORYN (€189) y el sistema NovaDose (€299) ofrecen NAD+ farmacéutico con la conveniencia de administración en casa.",
       categories: [
         { name: "Biodisponibilidad", productA: "Alta — entrega subcutánea, absorción casi completa", productB: "Cercana al 100% — sistema cartucho NovaDose", winner: "B" },
         { name: "Comodidad", productA: "Uso en casa, suministro 30 días, sin clínica", productB: "Microdosis diaria en casa", winner: "tie" },
@@ -2207,7 +2207,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cuál es la diferencia entre el Bolígrafo NAD+ y NovaDose?", answer: "El Bolígrafo NAD+ (€189) tiene dosificación ajustable. El NovaDose (€299) es avanzado para microdosis diarias con biodisponibilidad cercana al 100%." },
       ],
     },
-    fr: { title: "Stylo NAD+ vs Thérapie IV : Quelle Méthode de Livraison Est Meilleure ?", metaTitle: "NAD+ Pen vs Thérapie IV | ORYN", metaDescription: "Comparez la livraison NAD+ par stylo vs thérapie par perfusion IV. Coût, commodité et biodisponibilité.", introduction: "Les systèmes de stylo NAD+ offrent une biodisponibilité comparable à la thérapie IV à une fraction du coût et sans visites en clinique.", verdict: "Le stylo NAD+ ORYN (€189) et le système NovaDose (€299) livrent du NAD+ pharmaceutique avec la commodité de l'administration à domicile.",
+    fr: { title: "Stylo NAD+ vs Thérapie IV : Quelle Méthode de Livraison Est Meilleure ?", metaTitle: "NAD+ Pen vs Thérapie IV", metaDescription: "Comparez la livraison NAD+ par stylo vs thérapie par perfusion IV. Coût, commodité et biodisponibilité.", introduction: "Les systèmes de stylo NAD+ offrent une biodisponibilité comparable à la thérapie IV à une fraction du coût et sans visites en clinique.", verdict: "Le stylo NAD+ ORYN (€189) et le système NovaDose (€299) livrent du NAD+ pharmaceutique avec la commodité de l'administration à domicile.",
       categories: [
         { name: "Biodisponibilité", productA: "Haute — livraison sous-cutanée, absorption quasi complète", productB: "Proche 100% — système cartouche NovaDose", winner: "B" },
         { name: "Commodité", productA: "Usage à domicile, 30 jours, pas de clinique", productB: "Microdosage quotidien à domicile", winner: "tie" },
@@ -2228,7 +2228,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Quelle est la différence entre le Stylo NAD+ et NovaDose ?", answer: "Le Stylo NAD+ (€189) a un dosage ajustable. Le NovaDose (€299) est conçu pour le microdosage quotidien avec une biodisponibilité proche de 100%." },
       ],
     },
-    de: { title: "NAD+-Stift vs IV-Therapie: Welche Liefermethode Ist Besser?", metaTitle: "NAD+ Pen vs IV-Therapie | ORYN", metaDescription: "Vergleiche NAD+-Stiftlieferung vs IV-Infusionstherapie. Kosten, Komfort und Bioverfügbarkeit.", introduction: "NAD+-Stiftsysteme bieten vergleichbare Bioverfügbarkeit wie IV-Therapie zu einem Bruchteil der Kosten und ohne Klinikbesuche.", verdict: "Der ORYN NAD+-Stift (€189) und das NovaDose-System (€299) liefern pharmazeutisches NAD+ mit dem Komfort der Heimanwendung.",
+    de: { title: "NAD+-Stift vs IV-Therapie: Welche Liefermethode Ist Besser?", metaTitle: "NAD+ Pen vs IV-Therapie", metaDescription: "Vergleiche NAD+-Stiftlieferung vs IV-Infusionstherapie. Kosten, Komfort und Bioverfügbarkeit.", introduction: "NAD+-Stiftsysteme bieten vergleichbare Bioverfügbarkeit wie IV-Therapie zu einem Bruchteil der Kosten und ohne Klinikbesuche.", verdict: "Der ORYN NAD+-Stift (€189) und das NovaDose-System (€299) liefern pharmazeutisches NAD+ mit dem Komfort der Heimanwendung.",
       categories: [
         { name: "Bioverfügbarkeit", productA: "Hoch — subkutane Abgabe, fast vollständige Absorption", productB: "Nahezu 100% — NovaDose-Kartuschsystem", winner: "B" },
         { name: "Komfort", productA: "Heimgebrauch, 30 Tage, keine Klinik nötig", productB: "Tägliche Mikrodosierung zu Hause", winner: "tie" },
@@ -2249,7 +2249,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Was ist der Unterschied zwischen dem NAD+-Stift und NovaDose?", answer: "Der NAD+-Stift (€189) hat einstellbare Dosierung. Das NovaDose (€299) ist für tägliche Mikrodosierung mit fast 100% Bioverfügbarkeit konzipiert." },
       ],
     },
-    it: { title: "Penna NAD+ vs Terapia IV: Quale Metodo di Consegna È Migliore?", metaTitle: "NAD+ Pen vs Terapia IV | ORYN", metaDescription: "Confronta la consegna di NAD+ con penna vs terapia di infusione IV. Costo, praticità e biodisponibilità.", introduction: "I sistemi di penna NAD+ offrono biodisponibilità paragonabile alla terapia IV a una frazione del costo e senza visite cliniche.", verdict: "La penna NAD+ ORYN (€189) e il sistema NovaDose (€299) consegnano NAD+ farmaceutico con la praticità della somministrazione a domicilio.",
+    it: { title: "Penna NAD+ vs Terapia IV: Quale Metodo di Consegna È Migliore?", metaTitle: "NAD+ Pen vs Terapia IV", metaDescription: "Confronta la consegna di NAD+ con penna vs terapia di infusione IV. Costo, praticità e biodisponibilità.", introduction: "I sistemi di penna NAD+ offrono biodisponibilità paragonabile alla terapia IV a una frazione del costo e senza visite cliniche.", verdict: "La penna NAD+ ORYN (€189) e il sistema NovaDose (€299) consegnano NAD+ farmaceutico con la praticità della somministrazione a domicilio.",
       categories: [
         { name: "Biodisponibilità", productA: "Alta — consegna sottocutanea, assorbimento quasi completo", productB: "Vicina al 100% — sistema a cartuccia NovaDose", winner: "B" },
         { name: "Praticità", productA: "Uso domestico, 30 giorni, nessuna clinica", productB: "Microdosaggio quotidiano a casa", winner: "tie" },
@@ -2270,7 +2270,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Qual è la differenza tra la Penna NAD+ e NovaDose?", answer: "La Penna NAD+ (€189) ha dosaggio regolabile. Il NovaDose (€299) è progettato per il microdosaggio quotidiano con biodisponibilità vicina al 100%." },
       ],
     },
-    pt: { title: "Caneta NAD+ vs Terapia IV: Qual Método de Entrega É Melhor?", metaTitle: "NAD+ Pen vs Terapia IV | ORYN", metaDescription: "Compare a entrega de NAD+ com caneta vs terapia de infusão IV. Custo, conveniência e biodisponibilidade.", introduction: "Os sistemas de caneta NAD+ oferecem biodisponibilidade comparável à terapia IV a uma fração do custo e sem visitas a clínicas.", verdict: "A caneta NAD+ ORYN (€189) e o sistema NovaDose (€299) fornecem NAD+ farmacêutico com a conveniência da administração em casa.",
+    pt: { title: "Caneta NAD+ vs Terapia IV: Qual Método de Entrega É Melhor?", metaTitle: "NAD+ Pen vs Terapia IV", metaDescription: "Compare a entrega de NAD+ com caneta vs terapia de infusão IV. Custo, conveniência e biodisponibilidade.", introduction: "Os sistemas de caneta NAD+ oferecem biodisponibilidade comparável à terapia IV a uma fração do custo e sem visitas a clínicas.", verdict: "A caneta NAD+ ORYN (€189) e o sistema NovaDose (€299) fornecem NAD+ farmacêutico com a conveniência da administração em casa.",
       categories: [
         { name: "Biodisponibilidade", productA: "Alta — entrega subcutânea, absorção quase completa", productB: "Próxima de 100% — sistema de cartucho NovaDose", winner: "B" },
         { name: "Conveniência", productA: "Uso em casa, 30 dias, sem clínica", productB: "Microdosagem diária em casa", winner: "tie" },
@@ -2291,7 +2291,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Qual é a diferença entre a Caneta NAD+ e NovaDose?", answer: "A Caneta NAD+ (€189) tem dosagem ajustável. O NovaDose (€299) é projetado para microdosagem diária com biodisponibilidade próxima de 100%." },
       ],
     },
-    nl: { title: "NAD+ Pen vs IV-Therapie: Welke Leveringsmethode Is Beter?", metaTitle: "NAD+ Pen vs IV-Therapie | ORYN", metaDescription: "Vergelijk NAD+ penlevering vs IV-infusietherapie. Kosten, gemak en biologische beschikbaarheid.", introduction: "NAD+-pensystemen bieden vergelijkbare biologische beschikbaarheid als IV-therapie tegen een fractie van de kosten en zonder kliniekbezoeken.", verdict: "De ORYN NAD+-pen (€189) en het NovaDose-systeem (€299) leveren farmaceutisch NAD+ met het gemak van thuisgebruik.",
+    nl: { title: "NAD+ Pen vs IV-Therapie: Welke Leveringsmethode Is Beter?", metaTitle: "NAD+ Pen vs IV-Therapie", metaDescription: "Vergelijk NAD+ penlevering vs IV-infusietherapie. Kosten, gemak en biologische beschikbaarheid.", introduction: "NAD+-pensystemen bieden vergelijkbare biologische beschikbaarheid als IV-therapie tegen een fractie van de kosten en zonder kliniekbezoeken.", verdict: "De ORYN NAD+-pen (€189) en het NovaDose-systeem (€299) leveren farmaceutisch NAD+ met het gemak van thuisgebruik.",
       categories: [
         { name: "Biologische Beschikbaarheid", productA: "Hoog — subcutane levering, bijna volledige absorptie", productB: "Bijna 100% — NovaDose kartouchesysteem", winner: "B" },
         { name: "Gemak", productA: "Thuisgebruik, 30 dagen, geen kliniek nodig", productB: "Dagelijkse microdosering thuis", winner: "tie" },
@@ -2312,7 +2312,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Wat is het verschil tussen de NAD+ Pen en NovaDose?", answer: "De NAD+ Pen (€189) heeft instelbare dosering. De NovaDose (€299) is ontworpen voor dagelijkse microdosering met bijna 100% biologische beschikbaarheid." },
       ],
     },
-    pl: { title: "Pióro NAD+ vs Terapia IV: Która Metoda Dostarczania Jest Lepsza?", metaTitle: "NAD+ Pen vs Terapia IV | ORYN", metaDescription: "Porównaj dostarczanie NAD+ piórem vs terapia infuzyjna IV. Koszt, wygoda i biodostępność.", introduction: "Systemy piórowe NAD+ oferują porównywalną biodostępność do terapii IV za ułamek kosztów i bez wizyt w klinikach.", verdict: "Pióro NAD+ ORYN (€189) i system NovaDose (€299) dostarczają farmaceutyczny NAD+ z wygodą podawania w domu.",
+    pl: { title: "Pióro NAD+ vs Terapia IV: Która Metoda Dostarczania Jest Lepsza?", metaTitle: "NAD+ Pen vs Terapia IV", metaDescription: "Porównaj dostarczanie NAD+ piórem vs terapia infuzyjna IV. Koszt, wygoda i biodostępność.", introduction: "Systemy piórowe NAD+ oferują porównywalną biodostępność do terapii IV za ułamek kosztów i bez wizyt w klinikach.", verdict: "Pióro NAD+ ORYN (€189) i system NovaDose (€299) dostarczają farmaceutyczny NAD+ z wygodą podawania w domu.",
       categories: [
         { name: "Biodostępność", productA: "Wysoka — podskórne dostarczanie, niemal pełne wchłanianie", productB: "Blisko 100% — system wkładów NovaDose", winner: "B" },
         { name: "Wygoda", productA: "Użytkowanie w domu, 30 dni, bez kliniki", productB: "Codzienne mikrodawkowanie w domu", winner: "tie" },
@@ -2341,7 +2341,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "tb-500-vs-ipamorelin": {
     en: {
       title: "TB-500 vs Ipamorelin: Recovery Peptide vs Growth Hormone Secretagogue",
-      metaTitle: "TB-500 vs Ipamorelin: Recovery vs GH Compared | ORYN UK",
+      metaTitle: "TB-500 vs Ipamorelin: Recovery vs GH Compared",
       metaDescription: "Compare TB-500 for tissue recovery and Ipamorelin for growth hormone release. Mechanisms, research applications, and which peptide pen to choose. Buy UK.",
       introduction: "TB-500 and Ipamorelin occupy different corners of the peptide research landscape. TB-500 directly drives tissue repair through cell migration and angiogenesis. Ipamorelin works upstream, stimulating the pituitary gland to release growth hormone in clean, selective pulses.",
       verdict: "TB-500 and Ipamorelin serve fundamentally different purposes. TB-500 is a direct tissue repair peptide that promotes cell migration and wound healing. Ipamorelin is a selective growth hormone secretagogue that triggers natural GH pulses. Researchers focused on acute recovery choose TB-500; those studying GH-mediated effects choose Ipamorelin. They can also be combined for comprehensive recovery-plus-growth protocols.",
@@ -2367,7 +2367,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Which peptide has fewer side effects?", answer: "Both are well-tolerated. Ipamorelin is notable for its exceptional selectivity — it triggers GH release without significantly affecting cortisol, prolactin, or appetite. TB-500 has a similarly clean profile." },
       ],
     },
-    es: { title: "TB-500 vs Ipamorelina: Péptido de Recuperación vs Secretagogo de Hormona de Crecimiento", metaTitle: "TB-500 vs Ipamorelina: Recuperación vs HC | ORYN", metaDescription: "Compara TB-500 para recuperación tisular e Ipamorelina para liberación de hormona de crecimiento. Mecanismos y cuál elegir.", introduction: "TB-500 e Ipamorelina ocupan diferentes ámbitos de la investigación de péptidos. TB-500 impulsa directamente la reparación tisular; Ipamorelina estimula la liberación de hormona de crecimiento.", verdict: "TB-500 es un péptido de reparación tisular directa. Ipamorelina es un secretagogo selectivo de GH. Pueden combinarse para protocolos integrales de recuperación y crecimiento.", categories: [
+    es: { title: "TB-500 vs Ipamorelina: Péptido de Recuperación vs Secretagogo de Hormona de Crecimiento", metaTitle: "TB-500 vs Ipamorelina: Recuperación vs HC", metaDescription: "Compara TB-500 para recuperación tisular e Ipamorelina para liberación de hormona de crecimiento. Mecanismos y cuál elegir.", introduction: "TB-500 e Ipamorelina ocupan diferentes ámbitos de la investigación de péptidos. TB-500 impulsa directamente la reparación tisular; Ipamorelina estimula la liberación de hormona de crecimiento.", verdict: "TB-500 es un péptido de reparación tisular directa. Ipamorelina es un secretagogo selectivo de GH. Pueden combinarse para protocolos integrales de recuperación y crecimiento.", categories: [
         { name: "Función Principal", productA: "Reparación tisular directa", productB: "Liberación selectiva de hormona de crecimiento", winner: "tie" },
         { name: "Mecanismo", productA: "Regulación de actina, migración celular, angiogénesis", productB: "Agonista receptor ghrelina — induce pulsos de GH", winner: "tie" },
         { name: "Curación de Heridas", productA: "Fortaleza principal — migración celular a sitios de lesión", productB: "Indirecto — GH apoya reparación tisular", winner: "A" },
@@ -2387,7 +2387,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cuál peptido tiene menos efectos secundarios?", answer: "Ambos son bien tolerados. Ipamorelina es notable por su selectividad excepcional sin afectar significativamente cortisol o apetito." },
       ]
     },
-    fr: { title: "TB-500 vs Ipamoréline: Peptide de Récupération vs Sécrétagogue d'Hormone de Croissance", metaTitle: "TB-500 vs Ipamoréline: Récupération vs HC | ORYN", metaDescription: "Comparez TB-500 pour la récupération et Ipamoréline pour la libération d'hormone de croissance.", introduction: "TB-500 et Ipamoréline occupent différents domaines de recherche. TB-500 stimule directement la réparation tissulaire ; Ipamoréline stimule la libération d'HC.", verdict: "TB-500 est un peptide de réparation tissulaire directe. Ipamoréline est un sécrétagogue sélectif d'HC. Ils peuvent être combinés pour des protocoles complets.", categories: [
+    fr: { title: "TB-500 vs Ipamoréline: Peptide de Récupération vs Sécrétagogue d'Hormone de Croissance", metaTitle: "TB-500 vs Ipamoréline: Récupération vs HC", metaDescription: "Comparez TB-500 pour la récupération et Ipamoréline pour la libération d'hormone de croissance.", introduction: "TB-500 et Ipamoréline occupent différents domaines de recherche. TB-500 stimule directement la réparation tissulaire ; Ipamoréline stimule la libération d'HC.", verdict: "TB-500 est un peptide de réparation tissulaire directe. Ipamoréline est un sécrétagogue sélectif d'HC. Ils peuvent être combinés pour des protocoles complets.", categories: [
         { name: "Fonction Principale", productA: "Réparation tissulaire directe", productB: "Libération sélective d'hormone de croissance", winner: "tie" },
         { name: "Mécanisme", productA: "Régulation actine, migration cellulaire, angiogenèse", productB: "Agoniste récepteur ghréline — déclenche pulses HC", winner: "tie" },
         { name: "Cicatrisation", productA: "Force principale — migration cellulaire vers sites lésion", productB: "Indirect — HC soutient réparation tissulaire", winner: "A" },
@@ -2407,7 +2407,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Lequel a moins d'effets secondaires ?", answer: "Les deux sont bien tolérés. Ipamoréline est notable pour sa sélectivité exceptionnelle sans affecter significativement cortisol ou appétit." },
       ]
     },
-    de: { title: "TB-500 vs Ipamorelin: Erholungspeptid vs Wachstumshormon-Sekretagogum", metaTitle: "TB-500 vs Ipamorelin: Erholung vs WH | ORYN", metaDescription: "Vergleiche TB-500 für Gewebserholung und Ipamorelin für Wachstumshormonfreisetzung.", introduction: "TB-500 und Ipamorelin belegen verschiedene Bereiche der Peptidforschung. TB-500 treibt direkt die Gewebsreparatur an; Ipamorelin stimuliert die WH-Freisetzung.", verdict: "TB-500 ist ein direktes Gewebsreparaturpeptid. Ipamorelin ist ein selektives WH-Sekretagogum. Können für umfassende Erholungs-plus-Wachstumsprotokolle kombiniert werden.", categories: [
+    de: { title: "TB-500 vs Ipamorelin: Erholungspeptid vs Wachstumshormon-Sekretagogum", metaTitle: "TB-500 vs Ipamorelin: Erholung vs WH", metaDescription: "Vergleiche TB-500 für Gewebserholung und Ipamorelin für Wachstumshormonfreisetzung.", introduction: "TB-500 und Ipamorelin belegen verschiedene Bereiche der Peptidforschung. TB-500 treibt direkt die Gewebsreparatur an; Ipamorelin stimuliert die WH-Freisetzung.", verdict: "TB-500 ist ein direktes Gewebsreparaturpeptid. Ipamorelin ist ein selektives WH-Sekretagogum. Können für umfassende Erholungs-plus-Wachstumsprotokolle kombiniert werden.", categories: [
         { name: "Primäre Funktion", productA: "Direkte Gewebsreparatur", productB: "Selektive Wachstumshormonfreisetzung", winner: "tie" },
         { name: "Mechanismus", productA: "Aktinregulation, Zellmigration, Angiogenese", productB: "Ghrelinrezeptor-Agonist — löst WH-Pulse aus", winner: "tie" },
         { name: "Wundheilung", productA: "Hauptstärke — Zellmigration zu Verletzungsstellen", productB: "Indirekt — WH unterstützt Gewebsreparatur", winner: "A" },
@@ -2427,7 +2427,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Welches Peptid hat weniger Nebenwirkungen?", answer: "Beide sind gut verträglich. Ipamorelin ist bekannt für seine außergewöhnliche Selektivität ohne signifikante Auswirkungen auf Cortisol oder Appetit." },
       ]
     },
-    it: { title: "TB-500 vs Ipamorelina: Peptide di Recupero vs Secretagogo dell'Ormone della Crescita", metaTitle: "TB-500 vs Ipamorelina: Recupero vs GH | ORYN", metaDescription: "Confronta TB-500 per il recupero e Ipamorelina per la liberazione dell'ormone della crescita.", introduction: "TB-500 e Ipamorelina occupano ambiti diversi nella ricerca peptidica. TB-500 stimola direttamente la riparazione tissutale; Ipamorelina stimola il rilascio di GH.", verdict: "TB-500 è un peptide di riparazione tissutale diretta. Ipamorelina è un secretagogo selettivo del GH. Possono essere combinati per protocolli completi.", categories: [
+    it: { title: "TB-500 vs Ipamorelina: Peptide di Recupero vs Secretagogo dell'Ormone della Crescita", metaTitle: "TB-500 vs Ipamorelina: Recupero vs GH", metaDescription: "Confronta TB-500 per il recupero e Ipamorelina per la liberazione dell'ormone della crescita.", introduction: "TB-500 e Ipamorelina occupano ambiti diversi nella ricerca peptidica. TB-500 stimola direttamente la riparazione tissutale; Ipamorelina stimola il rilascio di GH.", verdict: "TB-500 è un peptide di riparazione tissutale diretta. Ipamorelina è un secretagogo selettivo del GH. Possono essere combinati per protocolli completi.", categories: [
         { name: "Funzione Principale", productA: "Riparazione tissutale diretta", productB: "Rilascio selettivo di ormone della crescita", winner: "tie" },
         { name: "Meccanismo", productA: "Regolazione actina, migrazione cellulare, angiogenesi", productB: "Agonista recettore ghrelina — induce impulsi GH", winner: "tie" },
         { name: "Cicatrizzazione", productA: "Punto di forza principale — migrazione cellulare", productB: "Indiretto — GH supporta riparazione tissutale", winner: "A" },
@@ -2447,7 +2447,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Quale peptide ha meno effetti collaterali?", answer: "Entrambi sono ben tollerati. Ipamorelina è notevole per la sua eccezionale selettività senza influenzare significativamente cortisolo o appetito." },
       ]
     },
-    pt: { title: "TB-500 vs Ipamorelina: Peptídeo de Recuperação vs Secretagogo de Hormona de Crescimento", metaTitle: "TB-500 vs Ipamorelina: Recuperação vs HC | ORYN", metaDescription: "Compare TB-500 para recuperação tissular e Ipamorelina para libertação de hormona de crescimento.", introduction: "TB-500 e Ipamorelina ocupam áreas diferentes da investigação de peptídeos. TB-500 impulsiona diretamente a reparação tissular; Ipamorelina estimula a libertação de HC.", verdict: "TB-500 é um peptídeo de reparação tissular direta. Ipamorelina é um secretagogo seletivo de HC. Podem ser combinados para protocolos abrangentes.", categories: [
+    pt: { title: "TB-500 vs Ipamorelina: Peptídeo de Recuperação vs Secretagogo de Hormona de Crescimento", metaTitle: "TB-500 vs Ipamorelina: Recuperação vs HC", metaDescription: "Compare TB-500 para recuperação tissular e Ipamorelina para libertação de hormona de crescimento.", introduction: "TB-500 e Ipamorelina ocupam áreas diferentes da investigação de peptídeos. TB-500 impulsiona diretamente a reparação tissular; Ipamorelina estimula a libertação de HC.", verdict: "TB-500 é um peptídeo de reparação tissular direta. Ipamorelina é um secretagogo seletivo de HC. Podem ser combinados para protocolos abrangentes.", categories: [
         { name: "Função Principal", productA: "Reparação tissular direta", productB: "Libertação seletiva de hormona de crescimento", winner: "tie" },
         { name: "Mecanismo", productA: "Regulação actina, migração celular, angiogénese", productB: "Agonista receptor ghrelina — induz pulsos de HC", winner: "tie" },
         { name: "Cicatrização", productA: "Ponto forte principal — migração celular para locais de lesão", productB: "Indireto — HC apoia reparação tissular", winner: "A" },
@@ -2467,7 +2467,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Qual peptídeo tem menos efeitos secundários?", answer: "Ambos são bem tolerados. Ipamorelina é notável pela sua seletividade excecional sem afetar significativamente cortisol ou apetite." },
       ]
     },
-    nl: { title: "TB-500 vs Ipamoreline: Herstelpeptide vs Groeihormoon Sekretagogum", metaTitle: "TB-500 vs Ipamoreline: Herstel vs GH | ORYN", metaDescription: "Vergelijk TB-500 voor weefselhersel en Ipamoreline voor groeihormoonvrijgave.", introduction: "TB-500 en Ipamoreline bezetten verschillende hoeken van het peptideonderzoek. TB-500 drijft direct weefselreparatie aan; Ipamoreline stimuleert GH-vrijgave.", verdict: "TB-500 is een direct weefselreparatiepeptide. Ipamoreline is een selectief GH-sekretagogum. Ze kunnen worden gecombineerd voor uitgebreide herstel-plus-groeiprotocollen.", categories: [
+    nl: { title: "TB-500 vs Ipamoreline: Herstelpeptide vs Groeihormoon Sekretagogum", metaTitle: "TB-500 vs Ipamoreline: Herstel vs GH", metaDescription: "Vergelijk TB-500 voor weefselhersel en Ipamoreline voor groeihormoonvrijgave.", introduction: "TB-500 en Ipamoreline bezetten verschillende hoeken van het peptideonderzoek. TB-500 drijft direct weefselreparatie aan; Ipamoreline stimuleert GH-vrijgave.", verdict: "TB-500 is een direct weefselreparatiepeptide. Ipamoreline is een selectief GH-sekretagogum. Ze kunnen worden gecombineerd voor uitgebreide herstel-plus-groeiprotocollen.", categories: [
         { name: "Primaire Functie", productA: "Directe weefselreparatie", productB: "Selectieve groeihormoonvrijgave", winner: "tie" },
         { name: "Mechanisme", productA: "Actineregulatie, celmigatie, angiogenese", productB: "Ghrelinereceptoragonist — veroorzaakt GH-pulsen", winner: "tie" },
         { name: "Wondgenezing", productA: "Primaire kracht — celmigatie naar letstelplaatsen", productB: "Indirect — GH ondersteunt weefselreparatie", winner: "A" },
@@ -2487,7 +2487,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Welk peptide heeft minder bijwerkingen?", answer: "Beide zijn goed verdraagbaar. Ipamoreline is opmerkelijk vanwege zijn uitzonderlijke selectiviteit zonder significante invloed op cortisol of eetlust." },
       ]
     },
-    pl: { title: "TB-500 vs Ipamorelin: Peptyd Regeneracyjny vs Sekretogog Hormonu Wzrostu", metaTitle: "TB-500 vs Ipamorelin: Regeneracja vs HW | ORYN", metaDescription: "Porównaj TB-500 dla regeneracji tkanek i Ipamorelin dla uwalniania hormonu wzrostu.", introduction: "TB-500 i Ipamorelin zajmują różne obszary badań peptydowych. TB-500 bezpośrednio napędza naprawę tkanek; Ipamorelin stymuluje uwalnianie HW.", verdict: "TB-500 jest bezpośrednim peptydem naprawy tkanek. Ipamorelin jest selektywnym sekretogogiem HW. Można je łączyć w kompleksowych protokołach regeneracji i wzrostu.", categories: [
+    pl: { title: "TB-500 vs Ipamorelin: Peptyd Regeneracyjny vs Sekretogog Hormonu Wzrostu", metaTitle: "TB-500 vs Ipamorelin: Regeneracja vs HW", metaDescription: "Porównaj TB-500 dla regeneracji tkanek i Ipamorelin dla uwalniania hormonu wzrostu.", introduction: "TB-500 i Ipamorelin zajmują różne obszary badań peptydowych. TB-500 bezpośrednio napędza naprawę tkanek; Ipamorelin stymuluje uwalnianie HW.", verdict: "TB-500 jest bezpośrednim peptydem naprawy tkanek. Ipamorelin jest selektywnym sekretogogiem HW. Można je łączyć w kompleksowych protokołach regeneracji i wzrostu.", categories: [
         { name: "Główna Funkcja", productA: "Bezpośrednia naprawa tkanek", productB: "Selektywne uwalnianie hormonu wzrostu", winner: "tie" },
         { name: "Mechanizm", productA: "Regulacja aktyny, migracja komórek, angiogeneza", productB: "Agonista receptora greliny — wywołuje pulsy HW", winner: "tie" },
         { name: "Gojenie Ran", productA: "Główna siła — migracja komórek do miejsc urazu", productB: "Pośrednio — HW wspiera naprawę tkanek", winner: "A" },
@@ -2516,7 +2516,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "tb-500-vs-cjc-1295": {
     en: {
       title: "TB-500 vs CJC-1295: Wound Healing vs Growth Hormone Releasing",
-      metaTitle: "TB-500 vs CJC-1295: Healing vs GH Compared | ORYN UK",
+      metaTitle: "TB-500 vs CJC-1295: Healing vs GH Compared",
       metaDescription: "Compare TB-500 for wound healing and CJC-1295 for sustained GH release. Mechanisms, research benefits, and which peptide pen to choose. Buy peptide pens UK.",
       introduction: "TB-500 and CJC-1295 represent two distinct approaches to recovery and regeneration. TB-500 directly promotes cell migration and new blood vessel formation at injury sites. CJC-1295, a GHRH analogue, works upstream by extending the duration of natural growth hormone release.",
       verdict: "TB-500 excels at direct tissue repair — wound healing, angiogenesis, and reducing inflammation at injury sites. CJC-1295 stimulates sustained growth hormone release for body composition, recovery, and anti-ageing research. They are frequently combined in advanced protocols.",
@@ -2542,7 +2542,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "How long should I run TB-500 vs CJC-1295?", answer: "TB-500 protocols typically run 4-6 weeks for acute recovery. CJC-1295 protocols commonly run 8-12 weeks for sustained GH optimisation." },
       ],
     },
-    es: { title: "TB-500 vs CJC-1295: Curación de Heridas vs Liberación de Hormona de Crecimiento", metaTitle: "TB-500 vs CJC-1295: Curación vs HC | ORYN", metaDescription: "Compara TB-500 para curación de heridas y CJC-1295 para liberación sostenida de HC.", introduction: "TB-500 promueve directamente la migración celular y la formación de nuevos vasos sanguíneos. CJC-1295 extiende la duración de la liberación natural de hormona de crecimiento.", verdict: "TB-500 destaca en reparación tisular directa. CJC-1295 estimula la liberación sostenida de HC. Se combinan frecuentemente en protocolos avanzados.", categories: [
+    es: { title: "TB-500 vs CJC-1295: Curación de Heridas vs Liberación de Hormona de Crecimiento", metaTitle: "TB-500 vs CJC-1295: Curación vs HC", metaDescription: "Compara TB-500 para curación de heridas y CJC-1295 para liberación sostenida de HC.", introduction: "TB-500 promueve directamente la migración celular y la formación de nuevos vasos sanguíneos. CJC-1295 extiende la duración de la liberación natural de hormona de crecimiento.", verdict: "TB-500 destaca en reparación tisular directa. CJC-1295 estimula la liberación sostenida de HC. Se combinan frecuentemente en protocolos avanzados.", categories: [
         { name: "Función Principal", productA: "Curación directa de heridas y reparación tisular", productB: "Liberación sostenida de hormona de crecimiento", winner: "tie" },
         { name: "Mecanismo", productA: "Regulación actina, migración celular, angiogénesis", productB: "Agonista receptor GHRH — extiende duración liberación HC", winner: "tie" },
         { name: "Curación Heridas", productA: "Aplicación principal — evidencia directa sólida", productB: "Apoyo indirecto via HC e IGF-1", winner: "A" },
@@ -2562,7 +2562,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cuánto tiempo debo usar cada uno?", answer: "TB-500: 4-6 semanas para recuperación aguda. CJC-1295: 8-12 semanas para optimización de HC." },
       ]
     },
-    fr: { title: "TB-500 vs CJC-1295 : Cicatrisation vs Libération d'Hormone de Croissance", metaTitle: "TB-500 vs CJC-1295: Guérison vs HC | ORYN", metaDescription: "Comparez TB-500 pour la cicatrisation et CJC-1295 pour la libération prolongée d'HC.", introduction: "TB-500 favorise directement la migration cellulaire et la formation de nouveaux vaisseaux. CJC-1295 prolonge la durée de libération naturelle d'hormone de croissance.", verdict: "TB-500 excelle dans la réparation tissulaire directe. CJC-1295 stimule une libération prolongée d'HC. Souvent combinés dans des protocoles avancés.", categories: [
+    fr: { title: "TB-500 vs CJC-1295 : Cicatrisation vs Libération d'Hormone de Croissance", metaTitle: "TB-500 vs CJC-1295: Guérison vs HC", metaDescription: "Comparez TB-500 pour la cicatrisation et CJC-1295 pour la libération prolongée d'HC.", introduction: "TB-500 favorise directement la migration cellulaire et la formation de nouveaux vaisseaux. CJC-1295 prolonge la durée de libération naturelle d'hormone de croissance.", verdict: "TB-500 excelle dans la réparation tissulaire directe. CJC-1295 stimule une libération prolongée d'HC. Souvent combinés dans des protocoles avancés.", categories: [
         { name: "Fonction Principale", productA: "Cicatrisation directe et réparation tissulaire", productB: "Libération prolongée d'hormone de croissance", winner: "tie" },
         { name: "Mécanisme", productA: "Régulation actine, migration cellulaire, angiogenèse", productB: "Agoniste récepteur GHRH — prolonge libération HC", winner: "tie" },
         { name: "Cicatrisation", productA: "Application principale — preuves directes solides", productB: "Soutien indirect via HC et IGF-1", winner: "A" },
@@ -2582,7 +2582,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Combien de temps devrais-je prendre chaque peptide ?", answer: "TB-500 : 4-6 semaines pour la récupération aiguë. CJC-1295 : 8-12 semaines pour l'optimisation HC." },
       ]
     },
-    de: { title: "TB-500 vs CJC-1295: Wundheilung vs Wachstumshormonfreisetzung", metaTitle: "TB-500 vs CJC-1295: Heilung vs WH | ORYN", metaDescription: "Vergleiche TB-500 für Wundheilung und CJC-1295 für anhaltende WH-Freisetzung.", introduction: "TB-500 fördert direkt Zellmigration und neue Blutgefäßbildung. CJC-1295 verlängert die Dauer der natürlichen Wachstumshormonfreisetzung.", verdict: "TB-500 zeichnet sich bei direkter Gewebsreparatur aus. CJC-1295 stimuliert anhaltende WH-Freisetzung. Werden häufig in fortgeschrittenen Protokollen kombiniert.", categories: [
+    de: { title: "TB-500 vs CJC-1295: Wundheilung vs Wachstumshormonfreisetzung", metaTitle: "TB-500 vs CJC-1295: Heilung vs WH", metaDescription: "Vergleiche TB-500 für Wundheilung und CJC-1295 für anhaltende WH-Freisetzung.", introduction: "TB-500 fördert direkt Zellmigration und neue Blutgefäßbildung. CJC-1295 verlängert die Dauer der natürlichen Wachstumshormonfreisetzung.", verdict: "TB-500 zeichnet sich bei direkter Gewebsreparatur aus. CJC-1295 stimuliert anhaltende WH-Freisetzung. Werden häufig in fortgeschrittenen Protokollen kombiniert.", categories: [
         { name: "Primäre Funktion", productA: "Direkte Wundheilung und Gewebsreparatur", productB: "Anhaltende Wachstumshormonfreisetzung (GHRH-Analogon)", winner: "tie" },
         { name: "Mechanismus", productA: "Aktinregulation, Zellmigration, Angiogenese", productB: "GHRH-Rezeptor-Agonist — verlängert WH-Freisetzungsdauer", winner: "tie" },
         { name: "Wundheilung", productA: "Hauptanwendung — starke direkte Evidenz", productB: "Indirekte Unterstützung via WH und IGF-1", winner: "A" },
@@ -2602,7 +2602,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Wie lange sollte ich jedes Peptid anwenden?", answer: "TB-500: 4-6 Wochen für akute Erholung. CJC-1295: 8-12 Wochen für anhaltende WH-Optimierung." },
       ]
     },
-    it: { title: "TB-500 vs CJC-1295: Cicatrizzazione vs Rilascio di Ormone della Crescita", metaTitle: "TB-500 vs CJC-1295: Guarigione vs GH | ORYN", metaDescription: "Confronta TB-500 per la cicatrizzazione e CJC-1295 per il rilascio prolungato di GH.", introduction: "TB-500 favorisce direttamente la migrazione cellulare e la formazione di nuovi vasi. CJC-1295 prolunga la durata del rilascio naturale di GH.", verdict: "TB-500 eccelle nella riparazione tissutale diretta. CJC-1295 stimola il rilascio prolungato di GH. Spesso combinati in protocolli avanzati.", categories: [
+    it: { title: "TB-500 vs CJC-1295: Cicatrizzazione vs Rilascio di Ormone della Crescita", metaTitle: "TB-500 vs CJC-1295: Guarigione vs GH", metaDescription: "Confronta TB-500 per la cicatrizzazione e CJC-1295 per il rilascio prolungato di GH.", introduction: "TB-500 favorisce direttamente la migrazione cellulare e la formazione di nuovi vasi. CJC-1295 prolunga la durata del rilascio naturale di GH.", verdict: "TB-500 eccelle nella riparazione tissutale diretta. CJC-1295 stimola il rilascio prolungato di GH. Spesso combinati in protocolli avanzati.", categories: [
         { name: "Funzione Principale", productA: "Cicatrizzazione diretta e riparazione tissutale", productB: "Rilascio prolungato di ormone della crescita", winner: "tie" },
         { name: "Meccanismo", productA: "Regolazione actina, migrazione cellulare, angiogenesi", productB: "Agonista recettore GHRH — prolunga rilascio GH", winner: "tie" },
         { name: "Cicatrizzazione", productA: "Applicazione principale — prove dirette solide", productB: "Supporto indiretto tramite GH e IGF-1", winner: "A" },
@@ -2622,7 +2622,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Per quanto tempo dovrei usare ciascuno?", answer: "TB-500: 4-6 settimane per il recupero acuto. CJC-1295: 8-12 settimane per l'ottimizzazione del GH." },
       ]
     },
-    pt: { title: "TB-500 vs CJC-1295: Cicatrização vs Libertação de Hormona de Crescimento", metaTitle: "TB-500 vs CJC-1295: Cicatrização vs HC | ORYN", metaDescription: "Compare TB-500 para cicatrização e CJC-1295 para libertação sustentada de HC.", introduction: "TB-500 promove diretamente a migração celular e a formação de novos vasos. CJC-1295 prolonga a duração da libertação natural de HC.", verdict: "TB-500 destaca-se na reparação tissular direta. CJC-1295 estimula a libertação sustentada de HC. Frequentemente combinados em protocolos avançados.", categories: [
+    pt: { title: "TB-500 vs CJC-1295: Cicatrização vs Libertação de Hormona de Crescimento", metaTitle: "TB-500 vs CJC-1295: Cicatrização vs HC", metaDescription: "Compare TB-500 para cicatrização e CJC-1295 para libertação sustentada de HC.", introduction: "TB-500 promove diretamente a migração celular e a formação de novos vasos. CJC-1295 prolonga a duração da libertação natural de HC.", verdict: "TB-500 destaca-se na reparação tissular direta. CJC-1295 estimula a libertação sustentada de HC. Frequentemente combinados em protocolos avançados.", categories: [
         { name: "Função Principal", productA: "Cicatrização direta e reparação tissular", productB: "Libertação sustentada de hormona de crescimento", winner: "tie" },
         { name: "Mecanismo", productA: "Regulação actina, migração celular, angiogénese", productB: "Agonista receptor GHRH — prolonga duração libertação HC", winner: "tie" },
         { name: "Cicatrização", productA: "Aplicação principal — evidência direta sólida", productB: "Suporte indireto via HC e IGF-1", winner: "A" },
@@ -2642,7 +2642,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Por quanto tempo devo usar cada um?", answer: "TB-500: 4-6 semanas para recuperação aguda. CJC-1295: 8-12 semanas para otimização de HC." },
       ]
     },
-    nl: { title: "TB-500 vs CJC-1295: Wondgenezing vs Groeihormoonvrijgave", metaTitle: "TB-500 vs CJC-1295: Genezing vs GH | ORYN", metaDescription: "Vergelijk TB-500 voor wondgenezing en CJC-1295 voor aanhoudende GH-vrijgave.", introduction: "TB-500 bevordert direct celmigatie en nieuwe bloedvatvorming. CJC-1295 verlengt de duur van de natuurlijke groeihormoonvrijgave.", verdict: "TB-500 blinkt uit in directe weefselreparatie. CJC-1295 stimuleert aanhoudende GH-vrijgave. Worden vaak gecombineerd in geavanceerde protocollen.", categories: [
+    nl: { title: "TB-500 vs CJC-1295: Wondgenezing vs Groeihormoonvrijgave", metaTitle: "TB-500 vs CJC-1295: Genezing vs GH", metaDescription: "Vergelijk TB-500 voor wondgenezing en CJC-1295 voor aanhoudende GH-vrijgave.", introduction: "TB-500 bevordert direct celmigatie en nieuwe bloedvatvorming. CJC-1295 verlengt de duur van de natuurlijke groeihormoonvrijgave.", verdict: "TB-500 blinkt uit in directe weefselreparatie. CJC-1295 stimuleert aanhoudende GH-vrijgave. Worden vaak gecombineerd in geavanceerde protocollen.", categories: [
         { name: "Primaire Functie", productA: "Directe wondgenezing en weefselreparatie", productB: "Aanhoudende groeihormoonvrijgave (GHRH-analogon)", winner: "tie" },
         { name: "Mechanisme", productA: "Actineregulatie, celmigatie, angiogenese", productB: "GHRH-receptoragonist — verlengt GH-vrijgaveduur", winner: "tie" },
         { name: "Wondgenezing", productA: "Primaire toepassing — sterke directe bewijzen", productB: "Indirect ondersteuning via GH en IGF-1", winner: "A" },
@@ -2662,7 +2662,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Hoe lang moet ik elk peptide gebruiken?", answer: "TB-500: 4-6 weken voor acuut herstel. CJC-1295: 8-12 weken voor aanhoudende GH-optimalisatie." },
       ]
     },
-    pl: { title: "TB-500 vs CJC-1295: Gojenie Ran vs Uwalnianie Hormonu Wzrostu", metaTitle: "TB-500 vs CJC-1295: Gojenie vs HW | ORYN", metaDescription: "Porównaj TB-500 dla gojenia ran i CJC-1295 dla trwałego uwalniania HW.", introduction: "TB-500 bezpośrednio promuje migrację komórek i tworzenie nowych naczyń krwionośnych. CJC-1295 przedłuża czas trwania naturalnego uwalniania hormonu wzrostu.", verdict: "TB-500 celuje w bezpośrednią naprawę tkanek. CJC-1295 stymuluje trwałe uwalnianie HW. Często łączone w zaawansowanych protokołach.", categories: [
+    pl: { title: "TB-500 vs CJC-1295: Gojenie Ran vs Uwalnianie Hormonu Wzrostu", metaTitle: "TB-500 vs CJC-1295: Gojenie vs HW", metaDescription: "Porównaj TB-500 dla gojenia ran i CJC-1295 dla trwałego uwalniania HW.", introduction: "TB-500 bezpośrednio promuje migrację komórek i tworzenie nowych naczyń krwionośnych. CJC-1295 przedłuża czas trwania naturalnego uwalniania hormonu wzrostu.", verdict: "TB-500 celuje w bezpośrednią naprawę tkanek. CJC-1295 stymuluje trwałe uwalnianie HW. Często łączone w zaawansowanych protokołach.", categories: [
         { name: "Główna Funkcja", productA: "Bezpośrednie gojenie ran i naprawa tkanek", productB: "Trwałe uwalnianie hormonu wzrostu (analog GHRH)", winner: "tie" },
         { name: "Mechanizm", productA: "Regulacja aktyny, migracja komórek, angiogeneza", productB: "Agonista receptora GHRH — przedłuża czas uwalniania HW", winner: "tie" },
         { name: "Gojenie Ran", productA: "Główne zastosowanie — silne bezpośrednie dowody", productB: "Pośrednie wsparcie przez HW i IGF-1", winner: "A" },
@@ -2687,7 +2687,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "ghk-cu-vs-bpc-157": {
     en: {
       title: "GHK-Cu vs BPC-157: Skin Repair vs Tissue Recovery Compared",
-      metaTitle: "GHK-Cu vs BPC-157: Skin vs Tissue Repair | ORYN UK",
+      metaTitle: "GHK-Cu vs BPC-157: Skin vs Tissue Repair",
       metaDescription: "Compare GHK-Cu copper peptide for skin repair with BPC-157 for internal tissue recovery. Mechanisms, research use, and pricing. Buy peptide pens UK.",
       introduction: "GHK-Cu and BPC-157 are both tissue repair peptides with extensive research backgrounds, but they specialise in different biological domains. GHK-Cu excels at structural protein synthesis and skin remodelling. BPC-157 is the gold standard for internal tissue healing.",
       verdict: "GHK-Cu is the superior choice for skin repair, collagen synthesis, and anti-ageing research. BPC-157 is the stronger option for internal tissue recovery — gut healing, tendon repair, and neuroprotection. They target different tissue systems with minimal overlap, making combination protocols highly logical.",
@@ -2713,7 +2713,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Which has more published research?", answer: "BPC-157 has a larger body of published research with 100+ studies, compared to GHK-Cu's 70+ studies focused on skin biology." },
       ],
     },
-    es: { title: "GHK-Cu vs BPC-157: Reparación Cutánea vs Recuperación Tisular Comparadas", metaTitle: "GHK-Cu vs BPC-157: Piel vs Tejido | ORYN", metaDescription: "Compara GHK-Cu para reparación cutánea y BPC-157 para recuperación interna.", introduction: "GHK-Cu y BPC-157 son péptidos de reparación con amplia investigación pero especializados en diferentes dominios biológicos.", verdict: "GHK-Cu es superior para reparación cutánea y síntesis de colágeno. BPC-157 es más fuerte para recuperación interna. Sus protocolos de combinación son lógicamente complementarios.", categories: [
+    es: { title: "GHK-Cu vs BPC-157: Reparación Cutánea vs Recuperación Tisular Comparadas", metaTitle: "GHK-Cu vs BPC-157: Piel vs Tejido", metaDescription: "Compara GHK-Cu para reparación cutánea y BPC-157 para recuperación interna.", introduction: "GHK-Cu y BPC-157 son péptidos de reparación con amplia investigación pero especializados en diferentes dominios biológicos.", verdict: "GHK-Cu es superior para reparación cutánea y síntesis de colágeno. BPC-157 es más fuerte para recuperación interna. Sus protocolos de combinación son lógicamente complementarios.", categories: [
         { name: "Enfoque Principal", productA: "Reparación cutánea, síntesis colágeno, antienvejecimiento", productB: "Recuperación interna — intestino, tendón, nervio", winner: "tie" },
         { name: "Mecanismo", productA: "Entrega cobre, modulación expresión génica (4000+ genes)", productB: "Modulación factores crecimiento, sistema NO, FAK-paxillin", winner: "tie" },
         { name: "Producción Colágeno", productA: "Estimula directamente colágeno I, III y síntesis elastina", productB: "Apoya reparación tisular pero no estimulador primario colágeno", winner: "A" },
@@ -2733,7 +2733,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "¿Cuál tiene más investigación publicada?", answer: "BPC-157 tiene más estudios publicados (100+) vs GHK-Cu (70+ en biología cutánea)." },
       ]
     },
-    fr: { title: "GHK-Cu vs BPC-157 : Réparation Cutanée vs Récupération Tissulaire Comparées", metaTitle: "GHK-Cu vs BPC-157: Peau vs Tissu | ORYN", metaDescription: "Comparez GHK-Cu pour la réparation cutanée et BPC-157 pour la récupération interne.", introduction: "GHK-Cu et BPC-157 sont des peptides de réparation spécialisés dans différents domaines biologiques.", verdict: "GHK-Cu est supérieur pour la réparation cutanée. BPC-157 est plus fort pour la récupération interne. Les protocoles combinés sont logiquement complémentaires.", categories: [
+    fr: { title: "GHK-Cu vs BPC-157 : Réparation Cutanée vs Récupération Tissulaire Comparées", metaTitle: "GHK-Cu vs BPC-157: Peau vs Tissu", metaDescription: "Comparez GHK-Cu pour la réparation cutanée et BPC-157 pour la récupération interne.", introduction: "GHK-Cu et BPC-157 sont des peptides de réparation spécialisés dans différents domaines biologiques.", verdict: "GHK-Cu est supérieur pour la réparation cutanée. BPC-157 est plus fort pour la récupération interne. Les protocoles combinés sont logiquement complémentaires.", categories: [
         { name: "Focus Principal", productA: "Réparation cutanée, synthèse collagène, anti-âge", productB: "Récupération interne — intestin, tendon, nerf", winner: "tie" },
         { name: "Mécanisme", productA: "Livraison cuivre, modulation expression génique (4000+ gènes)", productB: "Modulation facteurs croissance, système NO", winner: "tie" },
         { name: "Production Collagène", productA: "Stimule directement collagène I, III et élastine", productB: "Soutient la réparation mais pas stimulateur principal collagène", winner: "A" },
@@ -2753,7 +2753,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Lequel a plus de recherches publiées ?", answer: "BPC-157 a plus d'études publiées (100+) vs GHK-Cu (70+ en biologie cutanée)." },
       ]
     },
-    de: { title: "GHK-Cu vs BPC-157: Hautreparatur vs Gewebserholung Verglichen", metaTitle: "GHK-Cu vs BPC-157: Haut vs Gewebe | ORYN", metaDescription: "Vergleiche GHK-Cu für Hautreparatur und BPC-157 für innere Gewebserholung.", introduction: "GHK-Cu und BPC-157 sind Gewebsreparaturpeptide, die sich auf unterschiedliche biologische Bereiche spezialisiert haben.", verdict: "GHK-Cu ist überlegen für Hautreparatur und Kollagensynthese. BPC-157 ist stärker für innere Gewebserholung. Kombinations-Protokolle sind logisch komplementär.", categories: [
+    de: { title: "GHK-Cu vs BPC-157: Hautreparatur vs Gewebserholung Verglichen", metaTitle: "GHK-Cu vs BPC-157: Haut vs Gewebe", metaDescription: "Vergleiche GHK-Cu für Hautreparatur und BPC-157 für innere Gewebserholung.", introduction: "GHK-Cu und BPC-157 sind Gewebsreparaturpeptide, die sich auf unterschiedliche biologische Bereiche spezialisiert haben.", verdict: "GHK-Cu ist überlegen für Hautreparatur und Kollagensynthese. BPC-157 ist stärker für innere Gewebserholung. Kombinations-Protokolle sind logisch komplementär.", categories: [
         { name: "Primärer Fokus", productA: "Hautreparatur, Kollagensynthese, Anti-Aging", productB: "Innere Gewebserholung — Darm, Sehne, Nerv", winner: "tie" },
         { name: "Mechanismus", productA: "Kupferlieferung, Genexpressionsmodulation (4000+ Gene)", productB: "Wachstumsfaktormodulation, NO-System", winner: "tie" },
         { name: "Kollagenproduktion", productA: "Stimuliert direkt Kollagen I, III und Elastin-Synthese", productB: "Unterstützt Gewebsreparatur, aber kein primärer Kollagen-Stimulator", winner: "A" },
@@ -2773,7 +2773,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Welches hat mehr veröffentlichte Forschung?", answer: "BPC-157 hat mehr veröffentlichte Studien (100+) vs GHK-Cu (70+ zur Hautbiologie)." },
       ]
     },
-    it: { title: "GHK-Cu vs BPC-157: Riparazione Cutanea vs Recupero Tissutale Confrontati", metaTitle: "GHK-Cu vs BPC-157: Pelle vs Tessuto | ORYN", metaDescription: "Confronta GHK-Cu per la riparazione cutanea e BPC-157 per il recupero interno.", introduction: "GHK-Cu e BPC-157 sono peptidi di riparazione specializzati in domini biologici diversi.", verdict: "GHK-Cu è superiore per la riparazione cutanea. BPC-157 è più forte per il recupero interno. I protocolli combinati sono logicamente complementari.", categories: [
+    it: { title: "GHK-Cu vs BPC-157: Riparazione Cutanea vs Recupero Tissutale Confrontati", metaTitle: "GHK-Cu vs BPC-157: Pelle vs Tessuto", metaDescription: "Confronta GHK-Cu per la riparazione cutanea e BPC-157 per il recupero interno.", introduction: "GHK-Cu e BPC-157 sono peptidi di riparazione specializzati in domini biologici diversi.", verdict: "GHK-Cu è superiore per la riparazione cutanea. BPC-157 è più forte per il recupero interno. I protocolli combinati sono logicamente complementari.", categories: [
         { name: "Focus Principale", productA: "Riparazione cutanea, sintesi collagene, anti-invecchiamento", productB: "Recupero interno — intestino, tendine, nervo", winner: "tie" },
         { name: "Meccanismo", productA: "Consegna rame, modulazione espressione genica (4000+ geni)", productB: "Modulazione fattori crescita, sistema NO", winner: "tie" },
         { name: "Produzione Collagene", productA: "Stimola direttamente collagene I, III ed elastina", productB: "Supporta la riparazione ma non è stimolatore primario del collagene", winner: "A" },
@@ -2793,7 +2793,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Quale ha più ricerche pubblicate?", answer: "BPC-157 ha più studi pubblicati (100+) vs GHK-Cu (70+ in biologia cutanea)." },
       ]
     },
-    pt: { title: "GHK-Cu vs BPC-157: Reparação Cutânea vs Recuperação Tissular Comparadas", metaTitle: "GHK-Cu vs BPC-157: Pele vs Tecido | ORYN", metaDescription: "Compare GHK-Cu para reparação cutânea e BPC-157 para recuperação interna.", introduction: "GHK-Cu e BPC-157 são peptídeos de reparação especializados em diferentes domínios biológicos.", verdict: "GHK-Cu é superior para reparação cutânea. BPC-157 é mais forte para recuperação interna. Protocolos combinados são logicamente complementares.", categories: [
+    pt: { title: "GHK-Cu vs BPC-157: Reparação Cutânea vs Recuperação Tissular Comparadas", metaTitle: "GHK-Cu vs BPC-157: Pele vs Tecido", metaDescription: "Compare GHK-Cu para reparação cutânea e BPC-157 para recuperação interna.", introduction: "GHK-Cu e BPC-157 são peptídeos de reparação especializados em diferentes domínios biológicos.", verdict: "GHK-Cu é superior para reparação cutânea. BPC-157 é mais forte para recuperação interna. Protocolos combinados são logicamente complementares.", categories: [
         { name: "Foco Principal", productA: "Reparação cutânea, síntese colágeno, antienvelhecimento", productB: "Recuperação interna — intestino, tendão, nervo", winner: "tie" },
         { name: "Mecanismo", productA: "Entrega cobre, modulação expressão génica (4000+ genes)", productB: "Modulação fatores crescimento, sistema NO", winner: "tie" },
         { name: "Produção Colágeno", productA: "Estimula diretamente colágeno I, III e elastina", productB: "Apoia reparação mas não é estimulador primário colágeno", winner: "A" },
@@ -2813,7 +2813,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Qual tem mais investigação publicada?", answer: "BPC-157 tem mais estudos publicados (100+) vs GHK-Cu (70+ em biologia cutânea)." },
       ]
     },
-    nl: { title: "GHK-Cu vs BPC-157: Huidreparatie vs Weefselhersel Vergeleken", metaTitle: "GHK-Cu vs BPC-157: Huid vs Weefsel | ORYN", metaDescription: "Vergelijk GHK-Cu voor huidreparatie en BPC-157 voor intern weefselhersel.", introduction: "GHK-Cu en BPC-157 zijn reparatiepeptiden die gespecialiseerd zijn in verschillende biologische domeinen.", verdict: "GHK-Cu is superieur voor huidreparatie. BPC-157 is sterker voor intern herstel. Combinatieprotocollen zijn logisch complementair.", categories: [
+    nl: { title: "GHK-Cu vs BPC-157: Huidreparatie vs Weefselhersel Vergeleken", metaTitle: "GHK-Cu vs BPC-157: Huid vs Weefsel", metaDescription: "Vergelijk GHK-Cu voor huidreparatie en BPC-157 voor intern weefselhersel.", introduction: "GHK-Cu en BPC-157 zijn reparatiepeptiden die gespecialiseerd zijn in verschillende biologische domeinen.", verdict: "GHK-Cu is superieur voor huidreparatie. BPC-157 is sterker voor intern herstel. Combinatieprotocollen zijn logisch complementair.", categories: [
         { name: "Primaire Focus", productA: "Huidreparatie, collageensynthese, anti-veroudering", productB: "Intern weefselhersel — darm, pees, zenuw", winner: "tie" },
         { name: "Mechanisme", productA: "Koperlevering, genexpressiemodulatie (4000+ genen)", productB: "Groeifactormodulatie, NO-systeem", winner: "tie" },
         { name: "Collageen Productie", productA: "Stimuleert direct collageen I, III en elastine", productB: "Ondersteunt reparatie maar geen primaire collageenstimulator", winner: "A" },
@@ -2833,7 +2833,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Welke heeft meer gepubliceerd onderzoek?", answer: "BPC-157 heeft meer gepubliceerde studies (100+) vs GHK-Cu (70+ in huidbiologie)." },
       ]
     },
-    pl: { title: "GHK-Cu vs BPC-157: Naprawa Skóry vs Regeneracja Tkanek Porównane", metaTitle: "GHK-Cu vs BPC-157: Skóra vs Tkanka | ORYN", metaDescription: "Porównaj GHK-Cu dla naprawy skóry i BPC-157 dla wewnętrznej regeneracji tkanek.", introduction: "GHK-Cu i BPC-157 to peptydowe środki naprawy specjalizujące się w różnych domenach biologicznych.", verdict: "GHK-Cu jest lepszy dla naprawy skóry i syntezy kolagenu. BPC-157 jest silniejszy dla wewnętrznej regeneracji. Protokoły kombinacyjne są logicznie komplementarne.", categories: [
+    pl: { title: "GHK-Cu vs BPC-157: Naprawa Skóry vs Regeneracja Tkanek Porównane", metaTitle: "GHK-Cu vs BPC-157: Skóra vs Tkanka", metaDescription: "Porównaj GHK-Cu dla naprawy skóry i BPC-157 dla wewnętrznej regeneracji tkanek.", introduction: "GHK-Cu i BPC-157 to peptydowe środki naprawy specjalizujące się w różnych domenach biologicznych.", verdict: "GHK-Cu jest lepszy dla naprawy skóry i syntezy kolagenu. BPC-157 jest silniejszy dla wewnętrznej regeneracji. Protokoły kombinacyjne są logicznie komplementarne.", categories: [
         { name: "Główny Fokus", productA: "Naprawa skóry, synteza kolagenu, anty-starzenie", productB: "Wewnętrzna regeneracja — jelita, ścięgna, nerwy", winner: "tie" },
         { name: "Mechanizm", productA: "Dostarczanie miedzi, modulacja ekspresji genów (4000+ genów)", productB: "Modulacja czynników wzrostu, system NO", winner: "tie" },
         { name: "Produkcja Kolagenu", productA: "Bezpośrednio stymuluje kolagen I, III i syntezę elastyny", productB: "Wspiera naprawę tkanek, ale nie jest głównym stymulatorem kolagenu", winner: "A" },
@@ -2861,7 +2861,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "nad-vs-glutathione": {
     en: {
       title: "NAD+ vs Glutathione: Cellular Energy vs Antioxidant Defence",
-      metaTitle: "NAD+ vs Glutathione: Energy vs Antioxidant | ORYN UK",
+      metaTitle: "NAD+ vs Glutathione: Energy vs Antioxidant",
       metaDescription: "Compare NAD+ for cellular energy and DNA repair with Glutathione for antioxidant defence. Mechanisms, anti-ageing research, and pricing. Buy peptide pens UK.",
       introduction: "NAD+ (Nicotinamide Adenine Dinucleotide) and Glutathione are two of the most fundamental molecules in human biochemistry. NAD+ powers cellular energy production and DNA repair. Glutathione provides the primary antioxidant defence system. Both decline significantly with age, and restoring their levels is a major focus of longevity research. This comparison examines their distinct roles and why researchers often study them together.",
       verdict: "NAD+ and Glutathione address two different pillars of cellular health. NAD+ is essential for energy production, DNA repair, and sirtuin activation — the metabolic side of ageing. Glutathione is the body's master antioxidant, defending against oxidative damage, supporting detoxification, and regulating melanin. Both decline with age, making their combination one of the most comprehensive anti-ageing research protocols available.",
@@ -2889,7 +2889,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "NAD+ vs Glutatión: Energía Celular vs Defensa Antioxidante",
-      metaTitle: "NAD+ vs Glutatión: Energía vs Antioxidante | ORYN",
+      metaTitle: "NAD+ vs Glutatión: Energía vs Antioxidante",
       metaDescription: "Compara NAD+ para energía celular con Glutatión para defensa antioxidante. Mecanismos, investigación antienvejecimiento y precios.",
       introduction: "NAD+ y Glutatión son dos de las moléculas más fundamentales de la bioquímica humana. NAD+ impulsa la producción de energía celular y la reparación del ADN. El Glutatión proporciona el sistema primario de defensa antioxidante. Ambos disminuyen con la edad.",
       verdict: "NAD+ y Glutatión abordan dos pilares diferentes de la salud celular. NAD+ es esencial para la producción de energía, reparación del ADN y activación de sirtuinas. El Glutatión es el antioxidante maestro del cuerpo. Su combinación es uno de los protocolos antienvejecimiento más completos.",
@@ -2916,7 +2916,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "NAD+ vs Glutathion : Énergie Cellulaire vs Défense Antioxydante",
-      metaTitle: "NAD+ vs Glutathion : Énergie vs Antioxydant | ORYN",
+      metaTitle: "NAD+ vs Glutathion : Énergie vs Antioxydant",
       metaDescription: "Comparez NAD+ pour l'énergie cellulaire avec le Glutathion pour la défense antioxydante. Mécanismes, recherche anti-âge et tarifs.",
       introduction: "Le NAD+ et le Glutathion sont deux des molécules les plus fondamentales de la biochimie humaine. Le NAD+ alimente la production d'énergie cellulaire et la réparation de l'ADN. Le Glutathion fournit le système primaire de défense antioxydante. Les deux diminuent avec l'âge.",
       verdict: "Le NAD+ et le Glutathion ciblent deux piliers différents de la santé cellulaire. Leur combinaison représente l'un des protocoles anti-âge les plus complets disponibles.",
@@ -2943,7 +2943,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "NAD+ vs Glutathion: Zelluläre Energie vs Antioxidativer Schutz",
-      metaTitle: "NAD+ vs Glutathion: Energie vs Antioxidans | ORYN",
+      metaTitle: "NAD+ vs Glutathion: Energie vs Antioxidans",
       metaDescription: "Vergleichen Sie NAD+ für zelluläre Energie mit Glutathion für antioxidativen Schutz. Mechanismen, Anti-Aging-Forschung und Preise.",
       introduction: "NAD+ und Glutathion sind zwei der grundlegendsten Moleküle in der menschlichen Biochemie. NAD+ treibt die zelluläre Energieproduktion und DNA-Reparatur an. Glutathion bietet das primäre antioxidative Abwehrsystem. Beide nehmen mit dem Alter ab.",
       verdict: "NAD+ und Glutathion adressieren zwei verschiedene Säulen der Zellgesundheit. Ihre Kombination ist eines der umfassendsten Anti-Aging-Forschungsprotokolle.",
@@ -2970,7 +2970,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "NAD+ vs Glutatione: Energia Cellulare vs Difesa Antiossidante",
-      metaTitle: "NAD+ vs Glutatione: Energia vs Antiossidante | ORYN",
+      metaTitle: "NAD+ vs Glutatione: Energia vs Antiossidante",
       metaDescription: "Confronta NAD+ per l'energia cellulare con il Glutatione per la difesa antiossidante. Meccanismi, ricerca anti-aging e prezzi.",
       introduction: "NAD+ e Glutatione sono due delle molecole più fondamentali della biochimica umana. NAD+ alimenta la produzione di energia cellulare e la riparazione del DNA. Il Glutatione fornisce il sistema primario di difesa antiossidante. Entrambi diminuiscono con l'età.",
       verdict: "NAD+ e Glutatione affrontano due diversi pilastri della salute cellulare. La loro combinazione è uno dei protocolli anti-aging più completi disponibili.",
@@ -2997,7 +2997,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "NAD+ vs Glutatião: Energia Celular vs Defesa Antioxidante",
-      metaTitle: "NAD+ vs Glutatião: Energia vs Antioxidante | ORYN",
+      metaTitle: "NAD+ vs Glutatião: Energia vs Antioxidante",
       metaDescription: "Compare NAD+ para energia celular com Glutatião para defesa antioxidante. Mecanismos, investigação anti-envelhecimento e preços.",
       introduction: "NAD+ e Glutatião são duas das moléculas mais fundamentais da bioquímica humana. NAD+ alimenta a produção de energia celular e a reparação do ADN. O Glutatião fornece o sistema primário de defesa antioxidante. Ambos diminuem com a idade.",
       verdict: "NAD+ e Glutatião abordam dois pilares diferentes da saúde celular. A sua combinação é um dos protocolos anti-envelhecimento mais abrangentes disponíveis.",
@@ -3024,7 +3024,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "NAD+ vs Glutathion: Cellulaire Energie vs Antioxidante Verdediging",
-      metaTitle: "NAD+ vs Glutathion: Energie vs Antioxidant | ORYN",
+      metaTitle: "NAD+ vs Glutathion: Energie vs Antioxidant",
       metaDescription: "Vergelijk NAD+ voor cellulaire energie met Glutathion voor antioxidante verdediging. Mechanismen, anti-aging onderzoek en prijzen.",
       introduction: "NAD+ en Glutathion zijn twee van de meest fundamentele moleculen in de menselijke biochemie. NAD+ voedt cellulaire energieproductie en DNA-reparatie. Glutathion biedt het primaire antioxidante verdedigingssysteem. Beide nemen af met de leeftijd.",
       verdict: "NAD+ en Glutathion richten zich op twee verschillende pijlers van cellulaire gezondheid. Hun combinatie is een van de meest uitgebreide anti-aging onderzoeksprotocollen.",
@@ -3051,7 +3051,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "NAD+ vs Glutation: Energia Komórkowa vs Obrona Antyoksydacyjna",
-      metaTitle: "NAD+ vs Glutation: Energia vs Antyoksydant | ORYN",
+      metaTitle: "NAD+ vs Glutation: Energia vs Antyoksydant",
       metaDescription: "Porównaj NAD+ dla energii komórkowej z Glutationem dla obrony antyoksydacyjnej. Mechanizmy, badania anti-aging i ceny.",
       introduction: "NAD+ i Glutation są dwiema z najważniejszych cząsteczek w biochemii człowieka. NAD+ napędza produkcję energii komórkowej i naprawę DNA. Glutation zapewnia podstawowy system obrony antyoksydacyjnej. Oba zmniejszają się wraz z wiekiem.",
       verdict: "NAD+ i Glutation odpowiadają na dwa różne filary zdrowia komórkowego. Ich kombinacja jest jednym z najbardziej kompleksowych protokołów badań anti-aging.",
@@ -3084,7 +3084,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "ipamorelin-vs-tirzepatide": {
     en: {
       title: "Ipamorelin vs Tirzepatide: Growth Hormone vs Metabolic Peptide",
-      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolic | ORYN UK",
+      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolic",
       metaDescription: "Compare Ipamorelin for GH release with Tirzepatide for metabolic and weight management research. Mechanisms, uses, and which peptide pen to choose. Buy UK.",
       introduction: "Ipamorelin and Tirzepatide represent two of the most important peptide classes in modern research: growth hormone secretagogues and incretin mimetics. Despite both being injectable peptides available in ORYN pen systems, they target completely different biological pathways and serve different research purposes. This comparison clarifies their distinct roles.",
       verdict: "Ipamorelin and Tirzepatide are entirely different classes of peptide. Ipamorelin is a selective growth hormone secretagogue — ideal for research into GH-mediated effects like body composition, sleep, and recovery. Tirzepatide is a dual GIP/GLP-1 receptor agonist — the leading compound for metabolic and weight management research. The choice depends entirely on your research focus: growth hormone biology or metabolic science.",
@@ -3113,7 +3113,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     es: {
       title: "Ipamorelin vs Tirzepatide: Hormona de Crecimiento vs Péptido Metabólico",
-      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabólico | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabólico",
       metaDescription: "Compara Ipamorelin para liberación de GH con Tirzepatide para investigación metabólica. Mecanismos y cuál elegir.",
       introduction: "Ipamorelin y Tirzepatide representan dos de las clases de péptidos más importantes: secretagogos de hormona de crecimiento y miméticos de incretina. Ambos están disponibles en sistemas de bolígrafo ORYN pero tienen objetivos completamente diferentes.",
       verdict: "Ipamorelin y Tirzepatide son clases de péptidos completamente diferentes. Ipamorelin es ideal para investigación de efectos mediados por GH. Tirzepatide es el compuesto líder para investigación metabólica y de gestión del peso.",
@@ -3141,7 +3141,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     fr: {
       title: "Ipamorelin vs Tirzepatide : Hormone de Croissance vs Peptide Métabolique",
-      metaTitle: "Ipamorelin vs Tirzepatide : GH vs Métabolique | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatide : GH vs Métabolique",
       metaDescription: "Comparez Ipamorelin pour la libération de GH avec Tirzepatide pour la recherche métabolique. Mécanismes et lequel choisir.",
       introduction: "Ipamorelin et Tirzepatide représentent deux des classes de peptides les plus importantes : les sécrétagogues de l'hormone de croissance et les mimétiques incrétines. Disponibles tous deux en systèmes stylo ORYN, ils ciblent des voies biologiques complètement différentes.",
       verdict: "Ipamorelin et Tirzepatide sont des classes de peptides entièrement différentes. Ipamorelin est idéal pour la recherche sur les effets médiés par GH. Tirzepatide est le composé de référence pour la recherche métabolique.",
@@ -3169,7 +3169,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     de: {
       title: "Ipamorelin vs Tirzepatid: Wachstumshormon vs Metabolisches Peptid",
-      metaTitle: "Ipamorelin vs Tirzepatid: GH vs Metabolisch | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatid: GH vs Metabolisch",
       metaDescription: "Vergleichen Sie Ipamorelin für GH-Freisetzung mit Tirzepatid für metabolische Forschung. Mechanismen und welches zu wählen ist.",
       introduction: "Ipamorelin und Tirzepatid sind zwei der wichtigsten Peptidklassen: Wachstumshormon-Sekretionsstimulatoren und Inkretin-Mimetika. Beide sind in ORYN-Pen-Systemen verfügbar, zielen aber auf völlig unterschiedliche biologische Wege ab.",
       verdict: "Ipamorelin und Tirzepatid sind völlig unterschiedliche Peptidklassen. Ipamorelin ist ideal für die Erforschung von GH-vermittelten Effekten. Tirzepatid ist das führende Compound für metabolische Forschung.",
@@ -3197,7 +3197,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     it: {
       title: "Ipamorelin vs Tirzepatide: Ormone della Crescita vs Peptide Metabolico",
-      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolico | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolico",
       metaDescription: "Confronta Ipamorelin per il rilascio di GH con Tirzepatide per la ricerca metabolica. Meccanismi e quale scegliere.",
       introduction: "Ipamorelin e Tirzepatide rappresentano due delle classi di peptidi più importanti. Entrambi sono disponibili nei sistemi pen ORYN ma hanno percorsi biologici completamente diversi.",
       verdict: "Ipamorelin e Tirzepatide sono classi di peptidi completamente diverse. Ipamorelin è ideale per la ricerca sugli effetti mediati da GH. Tirzepatide è il composto leader per la ricerca metabolica.",
@@ -3225,7 +3225,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pt: {
       title: "Ipamorelin vs Tirzepatide: Hormona de Crescimento vs Péptido Metabólico",
-      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabólico | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabólico",
       metaDescription: "Compare Ipamorelin para libertação de GH com Tirzepatide para investigação metabólica. Mecanismos e qual escolher.",
       introduction: "Ipamorelin e Tirzepatide representam duas das classes de péptidos mais importantes. Ambos estão disponíveis em sistemas pen ORYN mas têm alvos biológicos completamente diferentes.",
       verdict: "Ipamorelin e Tirzepatide são classes de péptidos completamente diferentes. Ipamorelin é ideal para investigação de efeitos mediados por GH. Tirzepatide é o composto líder para investigação metabólica.",
@@ -3253,7 +3253,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     nl: {
       title: "Ipamorelin vs Tirzepatide: Groeihormoon vs Metabolisch Peptide",
-      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolisch | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatide: GH vs Metabolisch",
       metaDescription: "Vergelijk Ipamorelin voor GH-afgifte met Tirzepatide voor metabolisch onderzoek. Mechanismen en welke te kiezen.",
       introduction: "Ipamorelin en Tirzepatide vertegenwoordigen twee van de belangrijkste peptideklassen. Beide zijn beschikbaar in ORYN-pensystemen maar richten zich op volledig verschillende biologische paden.",
       verdict: "Ipamorelin en Tirzepatide zijn volledig verschillende peptideklassen. Ipamorelin is ideaal voor onderzoek naar GH-gemedieerde effecten. Tirzepatide is de toonaangevende verbinding voor metabolisch onderzoek.",
@@ -3281,7 +3281,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
     },
     pl: {
       title: "Ipamorelin vs Tirzepatyd: Hormon Wzrostu vs Peptyd Metaboliczny",
-      metaTitle: "Ipamorelin vs Tirzepatyd: GH vs Metaboliczny | ORYN",
+      metaTitle: "Ipamorelin vs Tirzepatyd: GH vs Metaboliczny",
       metaDescription: "Porównaj Ipamorelin dla uwalniania GH z Tyrzepatydem dla badań metabolicznych. Mechanizmy i który wybrać.",
       introduction: "Ipamorelin i Tirzepatyd reprezentują dwie z najważniejszych klas peptydów. Oba są dostępne w systemach długopisów ORYN, ale mają zupełnie inne cele biologiczne.",
       verdict: "Ipamorelin i Tirzepatyd są zupełnie różnymi klasami peptydów. Ipamorelin jest idealny do badań efektów mediowanych przez GH. Tirzepatyd jest wiodącym związkiem do badań metabolicznych.",
@@ -3315,7 +3315,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "cjc-1295-vs-semaglutide": {
     en: {
       title: "CJC-1295 vs Semaglutide: Growth Hormone vs Weight Loss Peptide",
-      metaTitle: "CJC-1295 vs Semaglutide: GH vs Weight Loss | ORYN UK",
+      metaTitle: "CJC-1295 vs Semaglutide: GH vs Weight Loss",
       metaDescription: "Compare CJC-1295 for sustained GH release with Semaglutide for weight management. Different mechanisms, research applications, and how they compare. Buy GH pens UK.",
       introduction: "CJC-1295 and Semaglutide are both injectable peptides frequently discussed in body composition research, but they work through completely different mechanisms. CJC-1295 extends natural growth hormone release. Semaglutide mimics the incretin hormone GLP-1 to suppress appetite and improve metabolic function. This comparison clarifies their distinct roles — and explains why ORYN offers Tirzepatide as a superior alternative to Semaglutide.",
       verdict: "CJC-1295 and Semaglutide (compared here alongside Tirzepatide) serve entirely different purposes. CJC-1295 is a GHRH analogue for sustained growth hormone research — body composition, recovery, sleep, and anti-ageing. Semaglutide and Tirzepatide are incretin-based compounds for metabolic and weight management research. ORYN offers CJC-1295 for GH protocols and Tirzepatide (which surpasses Semaglutide in clinical data) for metabolic protocols.",
@@ -3341,7 +3341,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Which is more affordable — CJC-1295 or Tirzepatide?", answer: "CJC-1295 is more affordable at €109 per pen compared to Tirzepatide at €169. The choice should be driven by research objectives rather than price alone." },
       ],
     },
-    es: { title: "CJC-1295 vs Semaglutida: Hormona de Crecimiento vs Péptido de Pérdida de Peso", metaTitle: "CJC-1295 vs Semaglutida: GH vs Pérdida de Peso | ORYN", metaDescription: "Compara CJC-1295 para liberación sostenida de GH con Semaglutida para gestión del peso. Mecanismos y aplicaciones.", introduction: "CJC-1295 y Semaglutida actúan a través de mecanismos completamente diferentes. CJC-1295 extiende la liberación natural de hormona de crecimiento. ORYN ofrece Tirzepatide como alternativa superior a la Semaglutida.", verdict: "CJC-1295 es un análogo GHRH para investigación de GH sostenida. Tirzepatide (superior a Semaglutida) es el compuesto de referencia para investigación metabólica y gestión del peso.", categories: [
+    es: { title: "CJC-1295 vs Semaglutida: Hormona de Crecimiento vs Péptido de Pérdida de Peso", metaTitle: "CJC-1295 vs Semaglutida: GH vs Pérdida de Peso", metaDescription: "Compara CJC-1295 para liberación sostenida de GH con Semaglutida para gestión del peso. Mecanismos y aplicaciones.", introduction: "CJC-1295 y Semaglutida actúan a través de mecanismos completamente diferentes. CJC-1295 extiende la liberación natural de hormona de crecimiento. ORYN ofrece Tirzepatide como alternativa superior a la Semaglutida.", verdict: "CJC-1295 es un análogo GHRH para investigación de GH sostenida. Tirzepatide (superior a Semaglutida) es el compuesto de referencia para investigación metabólica y gestión del peso.", categories: [
       { name: "Clase", productA: "Análogo GHRH — liberación de hormona de crecimiento", productB: "Agonista dual GIP/GLP-1 (Tirzepatide)", winner: "tie" },
       { name: "Objetivo Principal", productA: "Pituitaria — liberación sostenida de GH", productB: "Páncreas, cerebro, intestino — regulación metabólica", winner: "tie" },
       { name: "Gestión del Peso", productA: "Indirecto — GH apoya masa magra y metabolismo de grasa", productB: "Aplicación principal — 15-21% reducción de peso en ensayos", winner: "B" },
@@ -3359,7 +3359,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "¿Por qué ORYN vende Tirzepatide en lugar de Semaglutida?", answer: "Los datos clínicos muestran consistentemente que Tirzepatide produce mayor reducción de peso." },
       { question: "¿Se puede usar CJC-1295 junto con Tirzepatide?", answer: "Los mecanismos no se superponen, haciendo posible la investigación combinada." },
     ] },
-    fr: { title: "CJC-1295 vs Sémaglutide : Hormone de Croissance vs Perte de Poids", metaTitle: "CJC-1295 vs Sémaglutide : GH vs Perte de Poids | ORYN", metaDescription: "Comparez CJC-1295 pour la libération soutenue de GH avec le Sémaglutide pour la gestion du poids.", introduction: "CJC-1295 et Sémaglutide fonctionnent par mécanismes complètement différents. ORYN propose Tirzepatide comme alternative supérieure au Sémaglutide.", verdict: "CJC-1295 est un analogue GHRH pour la recherche GH soutenue. Tirzepatide (supérieur au Sémaglutide) est le composé de référence pour la recherche métabolique.", categories: [
+    fr: { title: "CJC-1295 vs Sémaglutide : Hormone de Croissance vs Perte de Poids", metaTitle: "CJC-1295 vs Sémaglutide : GH vs Perte de Poids", metaDescription: "Comparez CJC-1295 pour la libération soutenue de GH avec le Sémaglutide pour la gestion du poids.", introduction: "CJC-1295 et Sémaglutide fonctionnent par mécanismes complètement différents. ORYN propose Tirzepatide comme alternative supérieure au Sémaglutide.", verdict: "CJC-1295 est un analogue GHRH pour la recherche GH soutenue. Tirzepatide (supérieur au Sémaglutide) est le composé de référence pour la recherche métabolique.", categories: [
       { name: "Classe", productA: "Analogue GHRH — libération d'hormone de croissance", productB: "Agoniste dual GIP/GLP-1 (Tirzepatide)", winner: "tie" },
       { name: "Cible Principale", productA: "Hypophyse — libération soutenue de GH", productB: "Pancréas, cerveau, intestin — régulation métabolique", winner: "tie" },
       { name: "Gestion du Poids", productA: "Indirect — GH soutient la masse maigre et le métabolisme des graisses", productB: "Application principale — 15-21% réduction de poids dans les essais", winner: "B" },
@@ -3377,7 +3377,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Pourquoi ORYN vend Tirzepatide au lieu de Sémaglutide ?", answer: "Les données cliniques montrent constamment que Tirzepatide produit une réduction de poids plus importante." },
       { question: "CJC-1295 peut-il être utilisé avec Tirzepatide ?", answer: "Les mécanismes ne se chevauchent pas, permettant une recherche combinée possible." },
     ] },
-    de: { title: "CJC-1295 vs Semaglutid: Wachstumshormon vs Gewichtsverlust-Peptid", metaTitle: "CJC-1295 vs Semaglutid: GH vs Gewichtsverlust | ORYN", metaDescription: "Vergleichen Sie CJC-1295 für anhaltende GH-Freisetzung mit Semaglutid für das Gewichtsmanagement.", introduction: "CJC-1295 und Semaglutid wirken durch völlig unterschiedliche Mechanismen. ORYN bietet Tirzepatid als überlegene Alternative zu Semaglutid an.", verdict: "CJC-1295 ist ein GHRH-Analogon für anhaltende GH-Forschung. Tirzepatid (überlegen gegenüber Semaglutid) ist die führende Verbindung für metabolische Forschung.", categories: [
+    de: { title: "CJC-1295 vs Semaglutid: Wachstumshormon vs Gewichtsverlust-Peptid", metaTitle: "CJC-1295 vs Semaglutid: GH vs Gewichtsverlust", metaDescription: "Vergleichen Sie CJC-1295 für anhaltende GH-Freisetzung mit Semaglutid für das Gewichtsmanagement.", introduction: "CJC-1295 und Semaglutid wirken durch völlig unterschiedliche Mechanismen. ORYN bietet Tirzepatid als überlegene Alternative zu Semaglutid an.", verdict: "CJC-1295 ist ein GHRH-Analogon für anhaltende GH-Forschung. Tirzepatid (überlegen gegenüber Semaglutid) ist die führende Verbindung für metabolische Forschung.", categories: [
       { name: "Klasse", productA: "GHRH-Analogon — Wachstumshormon-Freisetzung", productB: "Dualer GIP/GLP-1-Agonist (Tirzepatid)", winner: "tie" },
       { name: "Primäres Ziel", productA: "Hypophyse — anhaltende GH-Freisetzung", productB: "Pankreas, Gehirn, Darm — metabolische Regulation", winner: "tie" },
       { name: "Gewichtsmanagement", productA: "Indirekt — GH unterstützt Magergewebe und Fettstoffwechsel", productB: "Hauptanwendung — 15-21% Gewichtsreduktion in Studien", winner: "B" },
@@ -3395,7 +3395,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Warum verkauft ORYN Tirzepatid statt Semaglutid?", answer: "Klinische Daten zeigen konsistent, dass Tirzepatid eine größere Gewichtsreduktion erzeugt." },
       { question: "Kann CJC-1295 zusammen mit Tirzepatid verwendet werden?", answer: "Die Mechanismen überlappen sich nicht, was kombinierte Forschung möglich macht." },
     ] },
-    it: { title: "CJC-1295 vs Semaglutide: Ormone della Crescita vs Peptide per la Perdita di Peso", metaTitle: "CJC-1295 vs Semaglutide: GH vs Perdita di Peso | ORYN", metaDescription: "Confronta CJC-1295 per il rilascio sostenuto di GH con Semaglutide per la gestione del peso.", introduction: "CJC-1295 e Semaglutide agiscono attraverso meccanismi completamente diversi. ORYN offre Tirzepatide come alternativa superiore al Semaglutide.", verdict: "CJC-1295 è un analogo GHRH per ricerca GH sostenuta. Tirzepatide (superiore al Semaglutide) è il composto di riferimento per la ricerca metabolica.", categories: [
+    it: { title: "CJC-1295 vs Semaglutide: Ormone della Crescita vs Peptide per la Perdita di Peso", metaTitle: "CJC-1295 vs Semaglutide: GH vs Perdita di Peso", metaDescription: "Confronta CJC-1295 per il rilascio sostenuto di GH con Semaglutide per la gestione del peso.", introduction: "CJC-1295 e Semaglutide agiscono attraverso meccanismi completamente diversi. ORYN offre Tirzepatide come alternativa superiore al Semaglutide.", verdict: "CJC-1295 è un analogo GHRH per ricerca GH sostenuta. Tirzepatide (superiore al Semaglutide) è il composto di riferimento per la ricerca metabolica.", categories: [
       { name: "Classe", productA: "Analogo GHRH — rilascio dell'ormone della crescita", productB: "Agonista duale GIP/GLP-1 (Tirzepatide)", winner: "tie" },
       { name: "Bersaglio Principale", productA: "Pituitaria — rilascio sostenuto di GH", productB: "Pancreas, cervello, intestino — regolazione metabolica", winner: "tie" },
       { name: "Gestione del Peso", productA: "Indiretto — GH supporta massa magra e metabolismo dei grassi", productB: "Applicazione principale — 15-21% riduzione peso nei trial", winner: "B" },
@@ -3413,7 +3413,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Perché ORYN vende Tirzepatide invece di Semaglutide?", answer: "I dati clinici mostrano costantemente che Tirzepatide produce una maggiore riduzione del peso." },
       { question: "CJC-1295 può essere usato insieme a Tirzepatide?", answer: "I meccanismi non si sovrappongono, rendendo possibile la ricerca combinata." },
     ] },
-    pt: { title: "CJC-1295 vs Semaglutido: Hormona de Crescimento vs Péptido de Perda de Peso", metaTitle: "CJC-1295 vs Semaglutido: GH vs Perda de Peso | ORYN", metaDescription: "Compare CJC-1295 para libertação sustentada de GH com Semaglutido para gestão do peso.", introduction: "CJC-1295 e Semaglutido atuam através de mecanismos completamente diferentes. ORYN oferece Tirzepatide como alternativa superior ao Semaglutido.", verdict: "CJC-1295 é um análogo GHRH para investigação de GH sustentado. Tirzepatide (superior ao Semaglutido) é o composto líder para investigação metabólica.", categories: [
+    pt: { title: "CJC-1295 vs Semaglutido: Hormona de Crescimento vs Péptido de Perda de Peso", metaTitle: "CJC-1295 vs Semaglutido: GH vs Perda de Peso", metaDescription: "Compare CJC-1295 para libertação sustentada de GH com Semaglutido para gestão do peso.", introduction: "CJC-1295 e Semaglutido atuam através de mecanismos completamente diferentes. ORYN oferece Tirzepatide como alternativa superior ao Semaglutido.", verdict: "CJC-1295 é um análogo GHRH para investigação de GH sustentado. Tirzepatide (superior ao Semaglutido) é o composto líder para investigação metabólica.", categories: [
       { name: "Classe", productA: "Análogo GHRH — libertação de hormona de crescimento", productB: "Agonista dual GIP/GLP-1 (Tirzepatide)", winner: "tie" },
       { name: "Alvo Principal", productA: "Pituitária — libertação sustentada de GH", productB: "Pâncreas, cérebro, intestino — regulação metabólica", winner: "tie" },
       { name: "Gestão do Peso", productA: "Indireto — GH apoia massa magra e metabolismo de gordura", productB: "Aplicação principal — 15-21% redução de peso em ensaios", winner: "B" },
@@ -3431,7 +3431,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Por que a ORYN vende Tirzepatide em vez de Semaglutido?", answer: "Os dados clínicos mostram consistentemente que Tirzepatide produz maior redução de peso." },
       { question: "CJC-1295 pode ser usado junto com Tirzepatide?", answer: "Os mecanismos não se sobrepõem, tornando a investigação combinada possível." },
     ] },
-    nl: { title: "CJC-1295 vs Semaglutide: Groeihormoon vs Gewichtsverlies Peptide", metaTitle: "CJC-1295 vs Semaglutide: GH vs Gewichtsverlies | ORYN", metaDescription: "Vergelijk CJC-1295 voor aanhoudende GH-afgifte met Semaglutide voor gewichtsbeheer.", introduction: "CJC-1295 en Semaglutide werken door volledig verschillende mechanismen. ORYN biedt Tirzepatide als superieur alternatief voor Semaglutide.", verdict: "CJC-1295 is een GHRH-analogon voor aanhoudend GH-onderzoek. Tirzepatide (superieur aan Semaglutide) is de toonaangevende verbinding voor metabolisch onderzoek.", categories: [
+    nl: { title: "CJC-1295 vs Semaglutide: Groeihormoon vs Gewichtsverlies Peptide", metaTitle: "CJC-1295 vs Semaglutide: GH vs Gewichtsverlies", metaDescription: "Vergelijk CJC-1295 voor aanhoudende GH-afgifte met Semaglutide voor gewichtsbeheer.", introduction: "CJC-1295 en Semaglutide werken door volledig verschillende mechanismen. ORYN biedt Tirzepatide als superieur alternatief voor Semaglutide.", verdict: "CJC-1295 is een GHRH-analogon voor aanhoudend GH-onderzoek. Tirzepatide (superieur aan Semaglutide) is de toonaangevende verbinding voor metabolisch onderzoek.", categories: [
       { name: "Klasse", productA: "GHRH-analogon — groeihormoonvrijgave", productB: "Duaal GIP/GLP-1-agonist (Tirzepatide)", winner: "tie" },
       { name: "Primair Doel", productA: "Hypofyse — aanhoudende GH-afgifte", productB: "Alvleesklier, hersenen, darm — metabolische regulatie", winner: "tie" },
       { name: "Gewichtsbeheer", productA: "Indirect — GH ondersteunt mager weefsel en vetmetabolisme", productB: "Primaire toepassing — 15-21% gewichtsreductie in studies", winner: "B" },
@@ -3449,7 +3449,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Waarom verkoopt ORYN Tirzepatide in plaats van Semaglutide?", answer: "Klinische gegevens tonen consistent dat Tirzepatide grotere gewichtsreductie produceert." },
       { question: "Kan CJC-1295 samen worden gebruikt met Tirzepatide?", answer: "De mechanismen overlappen niet, waardoor gecombineerd onderzoek mogelijk is." },
     ] },
-    pl: { title: "CJC-1295 vs Semaglutyd: Hormon Wzrostu vs Peptyd do Odchudzania", metaTitle: "CJC-1295 vs Semaglutyd: GH vs Utrata Wagi | ORYN", metaDescription: "Porównaj CJC-1295 dla trwałego uwalniania GH z Semaglutydem do zarządzania wagą.", introduction: "CJC-1295 i Semaglutyd działają przez zupełnie różne mechanizmy. ORYN oferuje Tirzepatyd jako lepszą alternatywę dla Semaglutydu.", verdict: "CJC-1295 jest analogiem GHRH do badań trwałego GH. Tirzepatyd (lepszy od Semaglutydu) jest wiodącym związkiem do badań metabolicznych.", categories: [
+    pl: { title: "CJC-1295 vs Semaglutyd: Hormon Wzrostu vs Peptyd do Odchudzania", metaTitle: "CJC-1295 vs Semaglutyd: GH vs Utrata Wagi", metaDescription: "Porównaj CJC-1295 dla trwałego uwalniania GH z Semaglutydem do zarządzania wagą.", introduction: "CJC-1295 i Semaglutyd działają przez zupełnie różne mechanizmy. ORYN oferuje Tirzepatyd jako lepszą alternatywę dla Semaglutydu.", verdict: "CJC-1295 jest analogiem GHRH do badań trwałego GH. Tirzepatyd (lepszy od Semaglutydu) jest wiodącym związkiem do badań metabolicznych.", categories: [
       { name: "Klasa", productA: "Analog GHRH — uwalnianie hormonu wzrostu", productB: "Podwójny agonista GIP/GLP-1 (Tirzepatyd)", winner: "tie" },
       { name: "Główny Cel", productA: "Przysadka — trwałe uwalnianie GH", productB: "Trzustka, mózg, jelita — regulacja metaboliczna", winner: "tie" },
       { name: "Zarządzanie Wagą", productA: "Pośrednie — GH wspiera tkankę chudą i metabolizm tłuszczu", productB: "Główne zastosowanie — 15-21% redukcja wagi w badaniach", winner: "B" },
@@ -3475,7 +3475,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "peptide-pen-vs-medit-pen": {
     en: {
       title: "Peptide Pen vs MediT Pen: Multi-Dose Daily vs Prefilled Weekly",
-      metaTitle: "Peptide Pen vs MediT Pen: Daily vs Weekly Dosing | ORYN UK",
+      metaTitle: "Peptide Pen vs MediT Pen: Daily vs Weekly Dosing",
       metaDescription: "Compare ORYN Peptide Pen (multi-dose, daily) vs MediT Pen (prefilled, weekly). Dosing flexibility, convenience, formats, and which system suits your research. Buy UK.",
       introduction: "ORYN offers two pen system categories: the Peptide Pen range (multi-dose pens for daily administration) and the MediT Pen (prefilled, single-use weekly injection pens). Understanding the differences between these delivery formats is essential for selecting the right tool for your research protocol.",
       verdict: "The Peptide Pen and MediT Pen represent two distinct delivery philosophies. The Peptide Pen system offers maximum dosing flexibility with daily precision control across 8 peptide compounds. The MediT Pen offers maximum convenience with prefilled, once-weekly dosing. Both use pharmaceutical-grade compounds with >99% purity — the choice comes down to whether your protocol benefits more from flexibility or simplicity.",
@@ -3500,7 +3500,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Which system is better for beginners?", answer: "The MediT Pen is simpler to use — it's prefilled with a fixed dose, requiring no adjustment. The Peptide Pen offers more flexibility but requires the researcher to set doses via the dial mechanism." },
       ],
     },
-    es: { title: "Bolígrafo de Péptidos vs MediT Pen: Dosis Diaria vs Semanal", metaTitle: "Bolígrafo de Péptidos vs MediT Pen | ORYN", metaDescription: "Compara el Bolígrafo de Péptidos ORYN (dosis diaria) con MediT Pen (semanal prefilled). Flexibilidad, conveniencia y cuál elegir.", introduction: "ORYN ofrece dos categorías de sistemas de bolígrafo: el rango de Bolígrafos de Péptidos para administración diaria y el MediT Pen prefilled para inyección semanal.", verdict: "El sistema de Bolígrafo de Péptidos ofrece máxima flexibilidad de dosis con control de precisión diario. El MediT Pen ofrece máxima conveniencia con dosificación semanal prefilled.", categories: [
+    es: { title: "Bolígrafo de Péptidos vs MediT Pen: Dosis Diaria vs Semanal", metaTitle: "Bolígrafo de Péptidos vs MediT Pen", metaDescription: "Compara el Bolígrafo de Péptidos ORYN (dosis diaria) con MediT Pen (semanal prefilled). Flexibilidad, conveniencia y cuál elegir.", introduction: "ORYN ofrece dos categorías de sistemas de bolígrafo: el rango de Bolígrafos de Péptidos para administración diaria y el MediT Pen prefilled para inyección semanal.", verdict: "El sistema de Bolígrafo de Péptidos ofrece máxima flexibilidad de dosis con control de precisión diario. El MediT Pen ofrece máxima conveniencia con dosificación semanal prefilled.", categories: [
       { name: "Frecuencia de Dosis", productA: "Diaria — dosis de precisión cada día", productB: "Una vez por semana — dosis fija por bolígrafo", winner: "tie" },
       { name: "Flexibilidad de Dosis", productA: "Totalmente ajustable mediante mecanismo de dial", productB: "Dosis fija y predeterminada por bolígrafo", winner: "A" },
       { name: "Conveniencia", productA: "Administración diaria requerida", productB: "Una vez por semana — mínima carga de protocolo", winner: "B" },
@@ -3518,7 +3518,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "¿Por qué el MediT Pen es más caro?", answer: "El MediT Pen contiene 40mg de Tirzepatide — 4 veces la cantidad del bolígrafo estándar. Por miligramo, el MediT Pen es más rentable." },
       { question: "¿Qué sistema es mejor para principiantes?", answer: "El MediT Pen es más simple — pre-llenado con dosis fija. El Bolígrafo de Péptidos ofrece más flexibilidad pero requiere ajuste de dosis." },
     ] },
-    fr: { title: "Stylo Peptide vs MediT Pen : Dosage Quotidien vs Hebdomadaire", metaTitle: "Stylo Peptide vs MediT Pen | ORYN", metaDescription: "Comparez le Stylo Peptide ORYN (quotidien) avec le MediT Pen (hebdomadaire préchargé). Flexibilité et lequel choisir.", introduction: "ORYN propose deux catégories de systèmes stylo : la gamme Stylos Peptide pour administration quotidienne et le MediT Pen préchargé pour injection hebdomadaire.", verdict: "Le système Stylo Peptide offre une flexibilité maximale de dosage. Le MediT Pen offre une commodité maximale avec un dosage hebdomadaire préchargé.", categories: [
+    fr: { title: "Stylo Peptide vs MediT Pen : Dosage Quotidien vs Hebdomadaire", metaTitle: "Stylo Peptide vs MediT Pen", metaDescription: "Comparez le Stylo Peptide ORYN (quotidien) avec le MediT Pen (hebdomadaire préchargé). Flexibilité et lequel choisir.", introduction: "ORYN propose deux catégories de systèmes stylo : la gamme Stylos Peptide pour administration quotidienne et le MediT Pen préchargé pour injection hebdomadaire.", verdict: "Le système Stylo Peptide offre une flexibilité maximale de dosage. Le MediT Pen offre une commodité maximale avec un dosage hebdomadaire préchargé.", categories: [
       { name: "Fréquence de Dosage", productA: "Quotidien — dosage de précision chaque jour", productB: "Une fois par semaine — dose fixe par stylo", winner: "tie" },
       { name: "Flexibilité de Dosage", productA: "Entièrement réglable via mécanisme à cadran", productB: "Dose fixe et prédéterminée par stylo", winner: "A" },
       { name: "Commodité", productA: "Administration quotidienne requise", productB: "Une fois par semaine — charge minimale de protocole", winner: "B" },
@@ -3536,7 +3536,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Pourquoi le MediT Pen est-il plus cher ?", answer: "Le MediT Pen contient 40mg de Tirzepatide — 4 fois la quantité du stylo standard. Par milligramme, il est en fait plus rentable." },
       { question: "Quel système est meilleur pour les débutants ?", answer: "Le MediT Pen est plus simple — préchargé avec une dose fixe. Le Stylo Peptide offre plus de flexibilité mais nécessite un réglage de dose." },
     ] },
-    de: { title: "Peptide Pen vs MediT Pen: Tägliche vs Wöchentliche Dosierung", metaTitle: "Peptide Pen vs MediT Pen | ORYN", metaDescription: "Vergleichen Sie ORYN Peptide Pen (täglich) mit MediT Pen (wöchentlich vorgefüllt). Flexibilität und welches zu wählen ist.", introduction: "ORYN bietet zwei Pen-Systemkategorien: die Peptide Pen-Reihe für tägliche Verabreichung und den vorgefüllten MediT Pen für wöchentliche Injektion.", verdict: "Das Peptide Pen-System bietet maximale Dosierungsflexibilität. Der MediT Pen bietet maximale Bequemlichkeit mit wöchentlicher vorgefüllter Dosierung.", categories: [
+    de: { title: "Peptide Pen vs MediT Pen: Tägliche vs Wöchentliche Dosierung", metaTitle: "Peptide Pen vs MediT Pen", metaDescription: "Vergleichen Sie ORYN Peptide Pen (täglich) mit MediT Pen (wöchentlich vorgefüllt). Flexibilität und welches zu wählen ist.", introduction: "ORYN bietet zwei Pen-Systemkategorien: die Peptide Pen-Reihe für tägliche Verabreichung und den vorgefüllten MediT Pen für wöchentliche Injektion.", verdict: "Das Peptide Pen-System bietet maximale Dosierungsflexibilität. Der MediT Pen bietet maximale Bequemlichkeit mit wöchentlicher vorgefüllter Dosierung.", categories: [
       { name: "Dosierungsfrequenz", productA: "Täglich — Präzisionsdosierung jeden Tag", productB: "Einmal wöchentlich — feste Dosis pro Pen", winner: "tie" },
       { name: "Dosierungsflexibilität", productA: "Vollständig einstellbar über Drehmechanismus", productB: "Feste, vorherbestimmte Dosis pro Pen", winner: "A" },
       { name: "Bequemlichkeit", productA: "Tägliche Verabreichung erforderlich", productB: "Einmal wöchentlich — minimale Protokollbelastung", winner: "B" },
@@ -3554,7 +3554,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Warum ist der MediT Pen teurer?", answer: "Der MediT Pen enthält 40mg Tirzepatid — 4x die Menge des Standard-Pens. Pro Milligramm ist er tatsächlich kosteneffizienter." },
       { question: "Welches System ist besser für Einsteiger?", answer: "Der MediT Pen ist einfacher — vorgefüllt mit fester Dosis. Der Peptide Pen bietet mehr Flexibilität, erfordert aber die Einstellung der Dosis." },
     ] },
-    it: { title: "Penna Peptide vs MediT Pen: Dosaggio Giornaliero vs Settimanale", metaTitle: "Penna Peptide vs MediT Pen | ORYN", metaDescription: "Confronta la Penna Peptide ORYN (giornaliera) con MediT Pen (settimanale precaricata). Flessibilità e quale scegliere.", introduction: "ORYN offre due categorie di sistemi pen: la gamma Penne Peptide per somministrazione giornaliera e il MediT Pen precaricato per iniezione settimanale.", verdict: "Il sistema Penna Peptide offre massima flessibilità di dosaggio. Il MediT Pen offre massima comodità con dosaggio settimanale precaricato.", categories: [
+    it: { title: "Penna Peptide vs MediT Pen: Dosaggio Giornaliero vs Settimanale", metaTitle: "Penna Peptide vs MediT Pen", metaDescription: "Confronta la Penna Peptide ORYN (giornaliera) con MediT Pen (settimanale precaricata). Flessibilità e quale scegliere.", introduction: "ORYN offre due categorie di sistemi pen: la gamma Penne Peptide per somministrazione giornaliera e il MediT Pen precaricato per iniezione settimanale.", verdict: "Il sistema Penna Peptide offre massima flessibilità di dosaggio. Il MediT Pen offre massima comodità con dosaggio settimanale precaricato.", categories: [
       { name: "Frequenza di Dosaggio", productA: "Giornaliero — dosaggio di precisione ogni giorno", productB: "Una volta alla settimana — dose fissa per penna", winner: "tie" },
       { name: "Flessibilità di Dosaggio", productA: "Completamente regolabile tramite meccanismo a quadrante", productB: "Dose fissa e predeterminata per penna", winner: "A" },
       { name: "Comodità", productA: "Somministrazione giornaliera richiesta", productB: "Una volta alla settimana — minimo onere del protocollo", winner: "B" },
@@ -3572,7 +3572,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Perché il MediT Pen è più costoso?", answer: "Il MediT Pen contiene 40mg di Tirzepatide — 4 volte la quantità della penna standard. Per milligrammo, è in realtà più conveniente." },
       { question: "Quale sistema è migliore per i principianti?", answer: "Il MediT Pen è più semplice — precaricato con dose fissa. La Penna Peptide offre più flessibilità ma richiede l'impostazione della dose." },
     ] },
-    pt: { title: "Pen de Péptidos vs MediT Pen: Dosagem Diária vs Semanal", metaTitle: "Pen de Péptidos vs MediT Pen | ORYN", metaDescription: "Compare o Pen de Péptidos ORYN (diário) com MediT Pen (semanal pré-carregado). Flexibilidade e qual escolher.", introduction: "ORYN oferece duas categorias de sistemas pen: a gama de Pens de Péptidos para administração diária e o MediT Pen pré-carregado para injeção semanal.", verdict: "O sistema Pen de Péptidos oferece máxima flexibilidade de dosagem. O MediT Pen oferece máxima conveniência com dosagem semanal pré-carregada.", categories: [
+    pt: { title: "Pen de Péptidos vs MediT Pen: Dosagem Diária vs Semanal", metaTitle: "Pen de Péptidos vs MediT Pen", metaDescription: "Compare o Pen de Péptidos ORYN (diário) com MediT Pen (semanal pré-carregado). Flexibilidade e qual escolher.", introduction: "ORYN oferece duas categorias de sistemas pen: a gama de Pens de Péptidos para administração diária e o MediT Pen pré-carregado para injeção semanal.", verdict: "O sistema Pen de Péptidos oferece máxima flexibilidade de dosagem. O MediT Pen oferece máxima conveniência com dosagem semanal pré-carregada.", categories: [
       { name: "Frequência de Dosagem", productA: "Diária — dosagem de precisão a cada dia", productB: "Uma vez por semana — dose fixa por pen", winner: "tie" },
       { name: "Flexibilidade de Dosagem", productA: "Totalmente ajustável via mecanismo de dial", productB: "Dose fixa e predeterminada por pen", winner: "A" },
       { name: "Conveniência", productA: "Administração diária necessária", productB: "Uma vez por semana — carga mínima de protocolo", winner: "B" },
@@ -3590,7 +3590,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Por que o MediT Pen é mais caro?", answer: "O MediT Pen contém 40mg de Tirzepatide — 4x a quantidade do pen padrão. Por miligrama, é na verdade mais rentável." },
       { question: "Qual sistema é melhor para iniciantes?", answer: "O MediT Pen é mais simples — pré-carregado com dose fixa. O Pen de Péptidos oferece mais flexibilidade mas requer ajuste de dose." },
     ] },
-    nl: { title: "Peptide Pen vs MediT Pen: Dagelijkse vs Wekelijkse Dosering", metaTitle: "Peptide Pen vs MediT Pen | ORYN", metaDescription: "Vergelijk ORYN Peptide Pen (dagelijks) met MediT Pen (wekelijks voorgevuld). Flexibiliteit en welke te kiezen.", introduction: "ORYN biedt twee pen-systeemcategorieën: de Peptide Pen-reeks voor dagelijkse toediening en de voorgevulde MediT Pen voor wekelijkse injectie.", verdict: "Het Peptide Pen-systeem biedt maximale doseflexibiliteit. De MediT Pen biedt maximale gemak met wekelijkse voorgevulde dosering.", categories: [
+    nl: { title: "Peptide Pen vs MediT Pen: Dagelijkse vs Wekelijkse Dosering", metaTitle: "Peptide Pen vs MediT Pen", metaDescription: "Vergelijk ORYN Peptide Pen (dagelijks) met MediT Pen (wekelijks voorgevuld). Flexibiliteit en welke te kiezen.", introduction: "ORYN biedt twee pen-systeemcategorieën: de Peptide Pen-reeks voor dagelijkse toediening en de voorgevulde MediT Pen voor wekelijkse injectie.", verdict: "Het Peptide Pen-systeem biedt maximale doseflexibiliteit. De MediT Pen biedt maximale gemak met wekelijkse voorgevulde dosering.", categories: [
       { name: "Doseringsfrequentie", productA: "Dagelijks — precisieDosering elke dag", productB: "Eenmaal per week — vaste dosis per pen", winner: "tie" },
       { name: "Doseflexibiliteit", productA: "Volledig aanpasbaar via draaimechanisme", productB: "Vaste, vooraf bepaalde dosis per pen", winner: "A" },
       { name: "Gemak", productA: "Dagelijkse toediening vereist", productB: "Eenmaal per week — minimale protocolbelasting", winner: "B" },
@@ -3608,7 +3608,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Waarom is de MediT Pen duurder?", answer: "De MediT Pen bevat 40mg Tirzepatide — 4x de hoeveelheid van de standaard pen. Per milligram is het eigenlijk kosteneffectiever." },
       { question: "Welk systeem is beter voor beginners?", answer: "De MediT Pen is eenvoudiger — voorgevuld met vaste dosis. De Peptide Pen biedt meer flexibiliteit maar vereist het instellen van doses." },
     ] },
-    pl: { title: "Długopis Peptydowy vs MediT Pen: Dawkowanie Dzienne vs Tygodniowe", metaTitle: "Długopis Peptydowy vs MediT Pen | ORYN", metaDescription: "Porównaj Długopis Peptydowy ORYN (dzienny) z MediT Pen (tygodniowy prefilled). Elastyczność i który wybrać.", introduction: "ORYN oferuje dwie kategorie systemów długopisów: gamę Długopisów Peptydowych do codziennego podawania i prefillowany MediT Pen do tygodniowego podawania.", verdict: "System Długopisu Peptydowego oferuje maksymalną elastyczność dawkowania. MediT Pen oferuje maksymalną wygodę z tygodniowym dawkowaniem prefillowanym.", categories: [
+    pl: { title: "Długopis Peptydowy vs MediT Pen: Dawkowanie Dzienne vs Tygodniowe", metaTitle: "Długopis Peptydowy vs MediT Pen", metaDescription: "Porównaj Długopis Peptydowy ORYN (dzienny) z MediT Pen (tygodniowy prefilled). Elastyczność i który wybrać.", introduction: "ORYN oferuje dwie kategorie systemów długopisów: gamę Długopisów Peptydowych do codziennego podawania i prefillowany MediT Pen do tygodniowego podawania.", verdict: "System Długopisu Peptydowego oferuje maksymalną elastyczność dawkowania. MediT Pen oferuje maksymalną wygodę z tygodniowym dawkowaniem prefillowanym.", categories: [
       { name: "Częstotliwość Dawkowania", productA: "Codziennie — precyzyjne dawkowanie każdego dnia", productB: "Raz w tygodniu — stała dawka na długopis", winner: "tie" },
       { name: "Elastyczność Dawkowania", productA: "W pełni regulowana przez mechanizm tarczy", productB: "Stała, z góry określona dawka na długopis", winner: "A" },
       { name: "Wygoda", productA: "Wymagane codzienne podawanie", productB: "Raz w tygodniu — minimalne obciążenie protokołu", winner: "B" },
@@ -3634,7 +3634,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "medit-pen-vs-novadose": {
     en: {
       title: "MediT Pen vs NovaDose: Weekly Injection vs Daily Cartridge System",
-      metaTitle: "MediT Pen vs NovaDose: Delivery Systems Compared | ORYN UK",
+      metaTitle: "MediT Pen vs NovaDose: Delivery Systems Compared",
       metaDescription: "Compare ORYN MediT Pen (weekly prefilled) vs NovaDose (daily cartridge). Delivery technology, compounds, dosing philosophy, and which system to choose. Buy UK.",
       introduction: "Beyond the standard Peptide Pen range, ORYN offers two specialised delivery platforms: the MediT Pen and the NovaDose system. Each represents a different approach to peptide delivery — optimised for different compounds, dosing frequencies, and research applications.",
       verdict: "The MediT Pen and NovaDose represent ORYN's two advanced delivery platforms, each optimised for different compounds and dosing philosophies. The MediT Pen delivers Tirzepatide in a prefilled weekly format — maximum convenience for metabolic research. The NovaDose delivers NAD+ via an advanced cartridge system for daily microdosing — maximum precision for cellular energy research. They are complementary systems serving different research needs.",
@@ -3659,7 +3659,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Are MediT Pen and NovaDose better than standard Peptide Pens?", answer: "They serve different purposes. Standard Peptide Pens offer the widest compound range with adjustable daily dosing. MediT offers prefilled weekly convenience. NovaDose offers advanced cartridge microdosing." },
       ],
     },
-    es: { title: "MediT Pen vs NovaDose: Inyección Semanal vs Sistema de Cartucho Diario", metaTitle: "MediT Pen vs NovaDose: Sistemas de Entrega | ORYN", metaDescription: "Compara MediT Pen (semanal prefilled) de ORYN vs NovaDose (cartucho diario). Tecnología de entrega y cuál elegir.", introduction: "ORYN ofrece dos plataformas de entrega especializadas: el MediT Pen y el sistema NovaDose. Cada uno representa un enfoque diferente optimizado para diferentes compuestos y frecuencias de dosificación.", verdict: "El MediT Pen entrega Tirzepatide en formato semanal prefilled — máxima conveniencia para investigación metabólica. El NovaDose entrega NAD+ vía sistema de cartucho avanzado — máxima precisión para investigación de energía celular.", categories: [
+    es: { title: "MediT Pen vs NovaDose: Inyección Semanal vs Sistema de Cartucho Diario", metaTitle: "MediT Pen vs NovaDose: Sistemas de Entrega", metaDescription: "Compara MediT Pen (semanal prefilled) de ORYN vs NovaDose (cartucho diario). Tecnología de entrega y cuál elegir.", introduction: "ORYN ofrece dos plataformas de entrega especializadas: el MediT Pen y el sistema NovaDose. Cada uno representa un enfoque diferente optimizado para diferentes compuestos y frecuencias de dosificación.", verdict: "El MediT Pen entrega Tirzepatide en formato semanal prefilled — máxima conveniencia para investigación metabólica. El NovaDose entrega NAD+ vía sistema de cartucho avanzado — máxima precisión para investigación de energía celular.", categories: [
       { name: "Compuesto", productA: "Tirzepatide 40mg (agonista dual GIP/GLP-1)", productB: "NAD+ 500mg (coenzima de energía celular)", winner: "tie" },
       { name: "Frecuencia de Dosis", productA: "Una vez por semana", productB: "Microdosificación diaria", winner: "tie" },
       { name: "Diseño del Bolígrafo", productA: "Bolígrafo de inyección de un solo uso prefilled", productB: "Bolígrafo de aluminio reutilizable con cartuchos reemplazables", winner: "tie" },
@@ -3677,7 +3677,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "¿Qué sistema tiene mejor tecnología?", answer: "NovaDose tiene tecnología más avanzada con sistema de microagujas para biodisponibilidad casi 100%. MediT Pen usa tecnología prefilled probada." },
       { question: "¿Son mejores que los Bolígrafos de Péptidos estándar?", answer: "Sirven propósitos diferentes. Los Bolígrafos estándar ofrecen la gama más amplia con dosificación diaria ajustable." },
     ] },
-    fr: { title: "MediT Pen vs NovaDose : Injection Hebdomadaire vs Système de Cartouche Quotidien", metaTitle: "MediT Pen vs NovaDose : Systèmes de Livraison | ORYN", metaDescription: "Comparez MediT Pen (hebdomadaire préchargé) vs NovaDose (cartouche quotidienne). Technologie et lequel choisir.", introduction: "ORYN propose deux plateformes de livraison spécialisées : le MediT Pen et le système NovaDose. Chacune représente une approche différente optimisée pour des composés et des fréquences de dosage différents.", verdict: "Le MediT Pen délivre Tirzepatide en format hebdomadaire préchargé — commodité maximale pour la recherche métabolique. Le NovaDose délivre NAD+ via un système de cartouche avancé — précision maximale pour la recherche sur l'énergie cellulaire.", categories: [
+    fr: { title: "MediT Pen vs NovaDose : Injection Hebdomadaire vs Système de Cartouche Quotidien", metaTitle: "MediT Pen vs NovaDose : Systèmes de Livraison", metaDescription: "Comparez MediT Pen (hebdomadaire préchargé) vs NovaDose (cartouche quotidienne). Technologie et lequel choisir.", introduction: "ORYN propose deux plateformes de livraison spécialisées : le MediT Pen et le système NovaDose. Chacune représente une approche différente optimisée pour des composés et des fréquences de dosage différents.", verdict: "Le MediT Pen délivre Tirzepatide en format hebdomadaire préchargé — commodité maximale pour la recherche métabolique. Le NovaDose délivre NAD+ via un système de cartouche avancé — précision maximale pour la recherche sur l'énergie cellulaire.", categories: [
       { name: "Composé", productA: "Tirzepatide 40mg (agoniste dual GIP/GLP-1)", productB: "NAD+ 500mg (coenzyme d'énergie cellulaire)", winner: "tie" },
       { name: "Fréquence de Dosage", productA: "Une fois par semaine", productB: "Microdosage quotidien", winner: "tie" },
       { name: "Conception du Stylo", productA: "Stylo d'injection préchargé à usage unique", productB: "Stylo en aluminium réutilisable avec cartouches remplaçables", winner: "tie" },
@@ -3695,7 +3695,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Quel système a la meilleure technologie ?", answer: "Le NovaDose dispose d'une technologie plus avancée avec un système de micro-aiguilles pour une biodisponibilité proche de 100%." },
       { question: "Sont-ils meilleurs que les Stylos Peptide standard ?", answer: "Ils servent des buts différents. Les Stylos standard offrent la plus large gamme de composés avec dosage quotidien réglable." },
     ] },
-    de: { title: "MediT Pen vs NovaDose: Wöchentliche Injektion vs Tägliches Kartuschen-System", metaTitle: "MediT Pen vs NovaDose: Liefersysteme im Vergleich | ORYN", metaDescription: "Vergleichen Sie MediT Pen (wöchentlich vorgefüllt) vs NovaDose (tägliche Kartusche). Technologie und welches zu wählen ist.", introduction: "ORYN bietet zwei spezialisierte Lieferplattformen: den MediT Pen und das NovaDose-System. Jede repräsentiert einen anderen Ansatz optimiert für verschiedene Verbindungen und Dosierungsfrequenzen.", verdict: "Der MediT Pen liefert Tirzepatid im wöchentlichen Vorausfüllformat — maximale Bequemlichkeit für metabolische Forschung. Das NovaDose liefert NAD+ über ein fortschrittliches Kartuschensy stem — maximale Präzision für zelluläre Energieforschung.", categories: [
+    de: { title: "MediT Pen vs NovaDose: Wöchentliche Injektion vs Tägliches Kartuschen-System", metaTitle: "MediT Pen vs NovaDose: Liefersysteme im Vergleich", metaDescription: "Vergleichen Sie MediT Pen (wöchentlich vorgefüllt) vs NovaDose (tägliche Kartusche). Technologie und welches zu wählen ist.", introduction: "ORYN bietet zwei spezialisierte Lieferplattformen: den MediT Pen und das NovaDose-System. Jede repräsentiert einen anderen Ansatz optimiert für verschiedene Verbindungen und Dosierungsfrequenzen.", verdict: "Der MediT Pen liefert Tirzepatid im wöchentlichen Vorausfüllformat — maximale Bequemlichkeit für metabolische Forschung. Das NovaDose liefert NAD+ über ein fortschrittliches Kartuschensy stem — maximale Präzision für zelluläre Energieforschung.", categories: [
       { name: "Verbindung", productA: "Tirzepatid 40mg (dualer GIP/GLP-1-Agonist)", productB: "NAD+ 500mg (zelluläres Energie-Coenzym)", winner: "tie" },
       { name: "Dosierungsfrequenz", productA: "Einmal wöchentlich", productB: "Tägliche Mikrodosierung", winner: "tie" },
       { name: "Pen-Design", productA: "Vorgefüllter Einweg-Injektionspen", productB: "Wiederverwendbarer Aluminium-Pen mit austauschbaren Kartuschen", winner: "tie" },
@@ -3713,7 +3713,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Welches System hat bessere Technologie?", answer: "Das NovaDose verfügt über fortschrittlichere Technologie mit Mikronadelsy stem für nahezu 100% Bioverfügbarkeit." },
       { question: "Sind sie besser als Standard-Peptide-Pens?", answer: "Sie dienen unterschiedlichen Zwecken. Standard-Pens bieten die breiteste Verbindungspalette mit einstellbarer täglicher Dosierung." },
     ] },
-    it: { title: "MediT Pen vs NovaDose: Iniezione Settimanale vs Sistema a Cartuccia Quotidiano", metaTitle: "MediT Pen vs NovaDose: Sistemi di Consegna | ORYN", metaDescription: "Confronta MediT Pen (settimanale precaricato) vs NovaDose (cartuccia quotidiana). Tecnologia e quale scegliere.", introduction: "ORYN offre due piattaforme di consegna specializzate: il MediT Pen e il sistema NovaDose. Ognuna rappresenta un approccio diverso ottimizzato per diversi composti e frequenze di dosaggio.", verdict: "Il MediT Pen consegna Tirzepatide in formato settimanale precaricato — massima comodità per la ricerca metabolica. Il NovaDose consegna NAD+ tramite sistema a cartuccia avanzato — massima precisione per la ricerca sull'energia cellulare.", categories: [
+    it: { title: "MediT Pen vs NovaDose: Iniezione Settimanale vs Sistema a Cartuccia Quotidiano", metaTitle: "MediT Pen vs NovaDose: Sistemi di Consegna", metaDescription: "Confronta MediT Pen (settimanale precaricato) vs NovaDose (cartuccia quotidiana). Tecnologia e quale scegliere.", introduction: "ORYN offre due piattaforme di consegna specializzate: il MediT Pen e il sistema NovaDose. Ognuna rappresenta un approccio diverso ottimizzato per diversi composti e frequenze di dosaggio.", verdict: "Il MediT Pen consegna Tirzepatide in formato settimanale precaricato — massima comodità per la ricerca metabolica. Il NovaDose consegna NAD+ tramite sistema a cartuccia avanzato — massima precisione per la ricerca sull'energia cellulare.", categories: [
       { name: "Composto", productA: "Tirzepatide 40mg (agonista duale GIP/GLP-1)", productB: "NAD+ 500mg (coenzima dell'energia cellulare)", winner: "tie" },
       { name: "Frequenza di Dosaggio", productA: "Una volta alla settimana", productB: "Micro-dosaggio quotidiano", winner: "tie" },
       { name: "Design della Penna", productA: "Penna da iniezione preriempita monouso", productB: "Penna in alluminio riutilizzabile con cartucce sostituibili", winner: "tie" },
@@ -3731,7 +3731,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Quale sistema ha la tecnologia migliore?", answer: "Il NovaDose ha tecnologia più avanzata con sistema a micro-aghi per una biodisponibilità quasi del 100%." },
       { question: "Sono migliori delle Penne Peptide standard?", answer: "Servono scopi diversi. Le Penne standard offrono la gamma più ampia di composti con dosaggio giornaliero regolabile." },
     ] },
-    pt: { title: "MediT Pen vs NovaDose: Injeção Semanal vs Sistema de Cartucho Diário", metaTitle: "MediT Pen vs NovaDose: Sistemas de Entrega | ORYN", metaDescription: "Compare MediT Pen (semanal pré-carregado) vs NovaDose (cartucho diário). Tecnologia e qual escolher.", introduction: "ORYN oferece duas plataformas de entrega especializadas: o MediT Pen e o sistema NovaDose. Cada uma representa uma abordagem diferente otimizada para diferentes compostos e frequências de dosagem.", verdict: "O MediT Pen entrega Tirzepatide em formato semanal pré-carregado — máxima conveniência para investigação metabólica. O NovaDose entrega NAD+ via sistema de cartucho avançado — máxima precisão para investigação de energia celular.", categories: [
+    pt: { title: "MediT Pen vs NovaDose: Injeção Semanal vs Sistema de Cartucho Diário", metaTitle: "MediT Pen vs NovaDose: Sistemas de Entrega", metaDescription: "Compare MediT Pen (semanal pré-carregado) vs NovaDose (cartucho diário). Tecnologia e qual escolher.", introduction: "ORYN oferece duas plataformas de entrega especializadas: o MediT Pen e o sistema NovaDose. Cada uma representa uma abordagem diferente otimizada para diferentes compostos e frequências de dosagem.", verdict: "O MediT Pen entrega Tirzepatide em formato semanal pré-carregado — máxima conveniência para investigação metabólica. O NovaDose entrega NAD+ via sistema de cartucho avançado — máxima precisão para investigação de energia celular.", categories: [
       { name: "Composto", productA: "Tirzepatide 40mg (agonista dual GIP/GLP-1)", productB: "NAD+ 500mg (coenzima de energia celular)", winner: "tie" },
       { name: "Frequência de Dosagem", productA: "Uma vez por semana", productB: "Microdosagem diária", winner: "tie" },
       { name: "Design do Pen", productA: "Pen de injeção pré-carregado de uso único", productB: "Pen de alumínio reutilizável com cartuchos substituíveis", winner: "tie" },
@@ -3749,7 +3749,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Qual sistema tem melhor tecnologia?", answer: "O NovaDose tem tecnologia mais avançada com sistema de microagulhas para biodisponibilidade quase 100%." },
       { question: "São melhores do que os Pens de Péptidos padrão?", answer: "Servem propósitos diferentes. Os Pens padrão oferecem a gama mais ampla de compostos com dosagem diária ajustável." },
     ] },
-    nl: { title: "MediT Pen vs NovaDose: Wekelijkse Injectie vs Dagelijks Cartridgesysteem", metaTitle: "MediT Pen vs NovaDose: Leveringssystemen Vergeleken | ORYN", metaDescription: "Vergelijk MediT Pen (wekelijks voorgevuld) vs NovaDose (dagelijkse cartridge). Technologie en welke te kiezen.", introduction: "ORYN biedt twee gespecialiseerde leveringsplatforms: de MediT Pen en het NovaDose-systeem. Elk vertegenwoordigt een andere aanpak geoptimaliseerd voor verschillende verbindingen en doseringsfrequenties.", verdict: "De MediT Pen levert Tirzepatide in wekelijks voorgevuld formaat — maximale gemak voor metabolisch onderzoek. De NovaDose levert NAD+ via geavanceerd cartridgesysteem — maximale precisie voor cellulaire energieonderzoek.", categories: [
+    nl: { title: "MediT Pen vs NovaDose: Wekelijkse Injectie vs Dagelijks Cartridgesysteem", metaTitle: "MediT Pen vs NovaDose: Leveringssystemen Vergeleken", metaDescription: "Vergelijk MediT Pen (wekelijks voorgevuld) vs NovaDose (dagelijkse cartridge). Technologie en welke te kiezen.", introduction: "ORYN biedt twee gespecialiseerde leveringsplatforms: de MediT Pen en het NovaDose-systeem. Elk vertegenwoordigt een andere aanpak geoptimaliseerd voor verschillende verbindingen en doseringsfrequenties.", verdict: "De MediT Pen levert Tirzepatide in wekelijks voorgevuld formaat — maximale gemak voor metabolisch onderzoek. De NovaDose levert NAD+ via geavanceerd cartridgesysteem — maximale precisie voor cellulaire energieonderzoek.", categories: [
       { name: "Verbinding", productA: "Tirzepatide 40mg (duaal GIP/GLP-1-agonist)", productB: "NAD+ 500mg (cellulair energie-coenzym)", winner: "tie" },
       { name: "Doseringsfrequentie", productA: "Eenmaal per week", productB: "Dagelijkse microdosering", winner: "tie" },
       { name: "Pen-ontwerp", productA: "Voorgevulde wegwerp-injectiepen", productB: "Herbruikbare aluminium pen met vervangbare cartridges", winner: "tie" },
@@ -3767,7 +3767,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Welk systeem heeft betere technologie?", answer: "De NovaDose heeft geavanceerdere technologie met micronaaldsysteem voor bijna 100% biologische beschikbaarheid." },
       { question: "Zijn ze beter dan standaard Peptide Pens?", answer: "Ze dienen verschillende doeleinden. Standaard pens bieden het breedste verbindingssortiment met aanpasbare dagelijkse dosering." },
     ] },
-    pl: { title: "MediT Pen vs NovaDose: Tygodniowa Iniekcja vs Dzienny System Wkładu", metaTitle: "MediT Pen vs NovaDose: Porównanie Systemów Dostarczania | ORYN", metaDescription: "Porównaj MediT Pen (tygodniowy prefilled) vs NovaDose (dzienny wkład). Technologia i który wybrać.", introduction: "ORYN oferuje dwie wyspecjalizowane platformy dostarczania: MediT Pen i system NovaDose. Każda reprezentuje inne podejście zoptymalizowane dla różnych związków i częstotliwości dawkowania.", verdict: "MediT Pen dostarcza Tirzepatyd w tygodniowym formacie prefillowanym — maksymalna wygoda do badań metabolicznych. NovaDose dostarcza NAD+ przez zaawansowany system wkładów — maksymalna precyzja do badań energii komórkowej.", categories: [
+    pl: { title: "MediT Pen vs NovaDose: Tygodniowa Iniekcja vs Dzienny System Wkładu", metaTitle: "MediT Pen vs NovaDose: Porównanie Systemów Dostarczania", metaDescription: "Porównaj MediT Pen (tygodniowy prefilled) vs NovaDose (dzienny wkład). Technologia i który wybrać.", introduction: "ORYN oferuje dwie wyspecjalizowane platformy dostarczania: MediT Pen i system NovaDose. Każda reprezentuje inne podejście zoptymalizowane dla różnych związków i częstotliwości dawkowania.", verdict: "MediT Pen dostarcza Tirzepatyd w tygodniowym formacie prefillowanym — maksymalna wygoda do badań metabolicznych. NovaDose dostarcza NAD+ przez zaawansowany system wkładów — maksymalna precyzja do badań energii komórkowej.", categories: [
       { name: "Związek", productA: "Tirzepatyd 40mg (podwójny agonista GIP/GLP-1)", productB: "NAD+ 500mg (koenzym energii komórkowej)", winner: "tie" },
       { name: "Częstotliwość Dawkowania", productA: "Raz w tygodniu", productB: "Codzienne mikrodawkowanie", winner: "tie" },
       { name: "Projekt Długopisu", productA: "Prefillowany jednorazowy długopis do iniekcji", productB: "Wielokrotnego użytku aluminiowy długopis z wymiennymi wkładami", winner: "tie" },
@@ -3793,7 +3793,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
   "bpc-157-vs-cjc-1295": {
     en: {
       title: "BPC-157 vs CJC-1295: Recovery Peptide vs Growth Hormone Peptide",
-      metaTitle: "BPC-157 vs CJC-1295: Recovery vs GH Compared | ORYN UK",
+      metaTitle: "BPC-157 vs CJC-1295: Recovery vs GH Compared",
       metaDescription: "Compare BPC-157 for tissue recovery with CJC-1295 for growth hormone release. Different mechanisms, research applications, and stacking potential. Buy peptide pens UK.",
       introduction: "BPC-157 and CJC-1295 are two of the most widely researched peptides, but they serve different biological functions. BPC-157 is a direct tissue repair compound derived from gastric juice proteins. CJC-1295 is a GHRH analogue that extends natural growth hormone release. This comparison examines their distinct mechanisms to help researchers choose — or stack — appropriately.",
       verdict: "BPC-157 is the stronger choice for direct tissue recovery — gut healing, tendon repair, and neuroprotection through growth factor modulation. CJC-1295 is the better option for growth hormone optimisation — body composition, sleep, and systemic recovery via sustained GH release. They work through entirely different pathways and are commonly stacked for comprehensive recovery protocols.",
@@ -3820,7 +3820,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
         { question: "Which is more affordable — BPC-157 or CJC-1295?", answer: "CJC-1295 is slightly more affordable at €109 vs BPC-157 at €119. Together, the stack costs €228 per month." },
       ],
     },
-    es: { title: "BPC-157 vs CJC-1295: Péptido de Recuperación vs Péptido de Hormona de Crecimiento", metaTitle: "BPC-157 vs CJC-1295: Recuperación vs GH | ORYN", metaDescription: "Compara BPC-157 para recuperación tisular con CJC-1295 para liberación de hormona de crecimiento. Mecanismos y potencial de combinación.", introduction: "BPC-157 y CJC-1295 son dos de los péptidos más investigados pero sirven diferentes funciones biológicas. BPC-157 es un compuesto directo de reparación tisular. CJC-1295 extiende la liberación natural de GH.", verdict: "BPC-157 es la mejor opción para recuperación tisular directa. CJC-1295 es mejor para optimización de GH. Se combinan frecuentemente para protocolos de recuperación completos.", categories: [
+    es: { title: "BPC-157 vs CJC-1295: Péptido de Recuperación vs Péptido de Hormona de Crecimiento", metaTitle: "BPC-157 vs CJC-1295: Recuperación vs GH", metaDescription: "Compara BPC-157 para recuperación tisular con CJC-1295 para liberación de hormona de crecimiento. Mecanismos y potencial de combinación.", introduction: "BPC-157 y CJC-1295 son dos de los péptidos más investigados pero sirven diferentes funciones biológicas. BPC-157 es un compuesto directo de reparación tisular. CJC-1295 extiende la liberación natural de GH.", verdict: "BPC-157 es la mejor opción para recuperación tisular directa. CJC-1295 es mejor para optimización de GH. Se combinan frecuentemente para protocolos de recuperación completos.", categories: [
       { name: "Función Principal", productA: "Reparación tisular directa — intestino, tendón, nervio", productB: "Liberación sostenida de GH vía vía GHRH", winner: "tie" },
       { name: "Mecanismo", productA: "Modulación de factores de crecimiento (VEGF, EGF, FGF), sistema NO", productB: "Análogo GHRH — extiende liberación de GH de la pituitaria", winner: "tie" },
       { name: "Salud Intestinal", productA: "Aplicación principal — mayor evidencia de curación intestinal", productB: "Indirecto — GH apoya mantenimiento tisular general", winner: "A" },
@@ -3839,7 +3839,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "¿Cuál es mejor para recuperación de lesiones?", answer: "BPC-157 tiene mayor base de evidencia para recuperación directa de lesiones. CJC-1295 es mejor para composición corporal a largo plazo." },
       { question: "¿Ayuda CJC-1295 con la salud intestinal?", answer: "Para salud intestinal, BPC-157 es la primera opción clara. CJC-1295 no tiene investigación específica de curación intestinal." },
     ] },
-    fr: { title: "BPC-157 vs CJC-1295 : Peptide de Récupération vs Peptide d'Hormone de Croissance", metaTitle: "BPC-157 vs CJC-1295 : Récupération vs GH | ORYN", metaDescription: "Comparez BPC-157 pour la récupération tissulaire avec CJC-1295 pour la libération de GH. Mécanismes et potentiel de combinaison.", introduction: "BPC-157 et CJC-1295 sont deux des peptides les plus étudiés mais servent des fonctions biologiques différentes. BPC-157 est un composé direct de réparation tissulaire. CJC-1295 étend la libération naturelle de GH.", verdict: "BPC-157 est le meilleur choix pour la récupération tissulaire directe. CJC-1295 est meilleur pour l'optimisation de GH. Ils sont fréquemment combinés pour des protocoles de récupération complets.", categories: [
+    fr: { title: "BPC-157 vs CJC-1295 : Peptide de Récupération vs Peptide d'Hormone de Croissance", metaTitle: "BPC-157 vs CJC-1295 : Récupération vs GH", metaDescription: "Comparez BPC-157 pour la récupération tissulaire avec CJC-1295 pour la libération de GH. Mécanismes et potentiel de combinaison.", introduction: "BPC-157 et CJC-1295 sont deux des peptides les plus étudiés mais servent des fonctions biologiques différentes. BPC-157 est un composé direct de réparation tissulaire. CJC-1295 étend la libération naturelle de GH.", verdict: "BPC-157 est le meilleur choix pour la récupération tissulaire directe. CJC-1295 est meilleur pour l'optimisation de GH. Ils sont fréquemment combinés pour des protocoles de récupération complets.", categories: [
       { name: "Fonction Principale", productA: "Réparation tissulaire directe — intestin, tendon, nerf", productB: "Libération soutenue de GH via voie GHRH", winner: "tie" },
       { name: "Mécanisme", productA: "Modulation de facteurs de croissance (VEGF, EGF, FGF), système NO", productB: "Analogue GHRH — étend la libération de GH de l'hypophyse", winner: "tie" },
       { name: "Santé Intestinale", productA: "Application principale — base de preuves la plus forte", productB: "Indirect — GH soutient la maintenance tissulaire générale", winner: "A" },
@@ -3858,7 +3858,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Lequel est meilleur pour la récupération des blessures ?", answer: "BPC-157 a la base de preuves la plus solide pour la récupération directe des blessures. CJC-1295 est mieux adapté à la composition corporelle à long terme." },
       { question: "CJC-1295 aide-t-il avec la santé intestinale ?", answer: "Pour la santé intestinale, BPC-157 est le premier choix évident. CJC-1295 n'a pas de recherche spécifique sur la guérison intestinale." },
     ] },
-    de: { title: "BPC-157 vs CJC-1295: Erholungspeptid vs Wachstumshormone-Peptid", metaTitle: "BPC-157 vs CJC-1295: Erholung vs GH | ORYN", metaDescription: "Vergleichen Sie BPC-157 für die Gewebeerholung mit CJC-1295 für die GH-Freisetzung. Mechanismen und Stapelpotenzial.", introduction: "BPC-157 und CJC-1295 gehören zu den meistforschten Peptiden, dienen aber unterschiedlichen biologischen Funktionen. BPC-157 ist ein direktes Gewebereparatur-Compound. CJC-1295 verlängert die natürliche GH-Freisetzung.", verdict: "BPC-157 ist die stärkere Wahl für direkte Gewebeerholung. CJC-1295 ist besser für GH-Optimierung. Sie werden häufig für umfassende Erholungsprotokolle kombiniert.", categories: [
+    de: { title: "BPC-157 vs CJC-1295: Erholungspeptid vs Wachstumshormone-Peptid", metaTitle: "BPC-157 vs CJC-1295: Erholung vs GH", metaDescription: "Vergleichen Sie BPC-157 für die Gewebeerholung mit CJC-1295 für die GH-Freisetzung. Mechanismen und Stapelpotenzial.", introduction: "BPC-157 und CJC-1295 gehören zu den meistforschten Peptiden, dienen aber unterschiedlichen biologischen Funktionen. BPC-157 ist ein direktes Gewebereparatur-Compound. CJC-1295 verlängert die natürliche GH-Freisetzung.", verdict: "BPC-157 ist die stärkere Wahl für direkte Gewebeerholung. CJC-1295 ist besser für GH-Optimierung. Sie werden häufig für umfassende Erholungsprotokolle kombiniert.", categories: [
       { name: "Hauptfunktion", productA: "Direkte Gewebereparatur — Darm, Sehne, Nerv", productB: "Anhaltende GH-Freisetzung über GHRH-Weg", winner: "tie" },
       { name: "Mechanismus", productA: "Wachstumsfaktor-Modulation (VEGF, EGF, FGF), NO-System", productB: "GHRH-Analogon — verlängert GH-Freisetzung aus Hypophyse", winner: "tie" },
       { name: "Darmgesundheit", productA: "Hauptanwendung — stärkste Heilungsbelege", productB: "Indirekt — GH unterstützt allgemeine Gewebewartung", winner: "A" },
@@ -3877,7 +3877,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Was ist besser für die Verletzungserholung?", answer: "BPC-157 hat die stärkere Beweisbasis für direkte Verletzungserholung. CJC-1295 ist besser für langfristige Körperzusammensetzung geeignet." },
       { question: "Hilft CJC-1295 bei der Darmgesundheit?", answer: "Für Darmgesundheit ist BPC-157 die klare erste Wahl. CJC-1295 hat keine spezifische Darmheilungsforschung." },
     ] },
-    it: { title: "BPC-157 vs CJC-1295: Peptide di Recupero vs Peptide dell'Ormone della Crescita", metaTitle: "BPC-157 vs CJC-1295: Recupero vs GH | ORYN", metaDescription: "Confronta BPC-157 per il recupero tissutale con CJC-1295 per il rilascio di GH. Meccanismi e potenziale di combinazione.", introduction: "BPC-157 e CJC-1295 sono due dei peptidi più ricercati ma servono diverse funzioni biologiche. BPC-157 è un composto diretto di riparazione tissutale. CJC-1295 estende il rilascio naturale di GH.", verdict: "BPC-157 è la scelta più forte per il recupero tissutale diretto. CJC-1295 è meglio per l'ottimizzazione di GH. Sono frequentemente combinati per protocolli di recupero completi.", categories: [
+    it: { title: "BPC-157 vs CJC-1295: Peptide di Recupero vs Peptide dell'Ormone della Crescita", metaTitle: "BPC-157 vs CJC-1295: Recupero vs GH", metaDescription: "Confronta BPC-157 per il recupero tissutale con CJC-1295 per il rilascio di GH. Meccanismi e potenziale di combinazione.", introduction: "BPC-157 e CJC-1295 sono due dei peptidi più ricercati ma servono diverse funzioni biologiche. BPC-157 è un composto diretto di riparazione tissutale. CJC-1295 estende il rilascio naturale di GH.", verdict: "BPC-157 è la scelta più forte per il recupero tissutale diretto. CJC-1295 è meglio per l'ottimizzazione di GH. Sono frequentemente combinati per protocolli di recupero completi.", categories: [
       { name: "Funzione Principale", productA: "Riparazione tissutale diretta — intestino, tendine, nervo", productB: "Rilascio sostenuto di GH via via GHRH", winner: "tie" },
       { name: "Meccanismo", productA: "Modulazione di fattori di crescita (VEGF, EGF, FGF), sistema NO", productB: "Analogo GHRH — estende il rilascio di GH dalla pituitaria", winner: "tie" },
       { name: "Salute Intestinale", productA: "Applicazione principale — base di prove più forte", productB: "Indiretto — GH supporta la manutenzione tissutale generale", winner: "A" },
@@ -3896,7 +3896,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Quale è migliore per il recupero da infortuni?", answer: "BPC-157 ha la base di prove più solida per il recupero diretto da infortuni. CJC-1295 è meglio adatto alla composizione corporea a lungo termine." },
       { question: "CJC-1295 aiuta con la salute intestinale?", answer: "Per la salute intestinale, BPC-157 è la prima scelta chiara. CJC-1295 non ha ricerche specifiche sulla guarigione intestinale." },
     ] },
-    pt: { title: "BPC-157 vs CJC-1295: Péptido de Recuperação vs Péptido de Hormona de Crescimento", metaTitle: "BPC-157 vs CJC-1295: Recuperação vs GH | ORYN", metaDescription: "Compare BPC-157 para recuperação de tecidos com CJC-1295 para libertação de GH. Mecanismos e potencial de combinação.", introduction: "BPC-157 e CJC-1295 são dois dos péptidos mais investigados mas servem funções biológicas diferentes. BPC-157 é um composto direto de reparação de tecidos. CJC-1295 estende a libertação natural de GH.", verdict: "BPC-157 é a melhor escolha para recuperação direta de tecidos. CJC-1295 é melhor para otimização de GH. São frequentemente combinados para protocolos de recuperação abrangentes.", categories: [
+    pt: { title: "BPC-157 vs CJC-1295: Péptido de Recuperação vs Péptido de Hormona de Crescimento", metaTitle: "BPC-157 vs CJC-1295: Recuperação vs GH", metaDescription: "Compare BPC-157 para recuperação de tecidos com CJC-1295 para libertação de GH. Mecanismos e potencial de combinação.", introduction: "BPC-157 e CJC-1295 são dois dos péptidos mais investigados mas servem funções biológicas diferentes. BPC-157 é um composto direto de reparação de tecidos. CJC-1295 estende a libertação natural de GH.", verdict: "BPC-157 é a melhor escolha para recuperação direta de tecidos. CJC-1295 é melhor para otimização de GH. São frequentemente combinados para protocolos de recuperação abrangentes.", categories: [
       { name: "Função Principal", productA: "Reparação direta de tecidos — intestino, tendão, nervo", productB: "Libertação sustentada de GH via via GHRH", winner: "tie" },
       { name: "Mecanismo", productA: "Modulação de fatores de crescimento (VEGF, EGF, FGF), sistema NO", productB: "Análogo GHRH — estende libertação de GH da pituitária", winner: "tie" },
       { name: "Saúde Intestinal", productA: "Aplicação principal — base de evidências mais forte", productB: "Indireto — GH apoia manutenção geral de tecidos", winner: "A" },
@@ -3915,7 +3915,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Qual é melhor para recuperação de lesões?", answer: "BPC-157 tem a base de evidências mais sólida para recuperação direta de lesões. CJC-1295 é mais adequado para composição corporal a longo prazo." },
       { question: "CJC-1295 ajuda com a saúde intestinal?", answer: "Para saúde intestinal, BPC-157 é a primeira escolha clara. CJC-1295 não tem investigação específica de cura intestinal." },
     ] },
-    nl: { title: "BPC-157 vs CJC-1295: Herstelpeptide vs Groeihormoon Peptide", metaTitle: "BPC-157 vs CJC-1295: Herstel vs GH | ORYN", metaDescription: "Vergelijk BPC-157 voor weefselherstel met CJC-1295 voor GH-afgifte. Mechanismen en stapelpotentieel.", introduction: "BPC-157 en CJC-1295 zijn twee van de meest onderzochte peptiden maar dienen verschillende biologische functies. BPC-157 is een direct weefselherstelcompound. CJC-1295 verlengt de natuurlijke GH-afgifte.", verdict: "BPC-157 is de sterkere keuze voor direct weefselherstel. CJC-1295 is beter voor GH-optimalisatie. Ze worden vaak gecombineerd voor uitgebreide herstelprotocollen.", categories: [
+    nl: { title: "BPC-157 vs CJC-1295: Herstelpeptide vs Groeihormoon Peptide", metaTitle: "BPC-157 vs CJC-1295: Herstel vs GH", metaDescription: "Vergelijk BPC-157 voor weefselherstel met CJC-1295 voor GH-afgifte. Mechanismen en stapelpotentieel.", introduction: "BPC-157 en CJC-1295 zijn twee van de meest onderzochte peptiden maar dienen verschillende biologische functies. BPC-157 is een direct weefselherstelcompound. CJC-1295 verlengt de natuurlijke GH-afgifte.", verdict: "BPC-157 is de sterkere keuze voor direct weefselherstel. CJC-1295 is beter voor GH-optimalisatie. Ze worden vaak gecombineerd voor uitgebreide herstelprotocollen.", categories: [
       { name: "Primaire Functie", productA: "Direct weefselherstel — darm, pees, zenuw", productB: "Aanhoudende GH-afgifte via GHRH-pad", winner: "tie" },
       { name: "Mechanisme", productA: "Groeifactor-modulatie (VEGF, EGF, FGF), NO-systeem", productB: "GHRH-analogon — verlengt GH-afgifte uit hypofyse", winner: "tie" },
       { name: "Darmgezondheid", productA: "Primaire toepassing — sterkste geneziingsbewijzen", productB: "Indirect — GH ondersteunt algemeen weefselonderhoud", winner: "A" },
@@ -3934,7 +3934,7 @@ const comparisonTranslations: Record<string, Partial<Record<Locale, ComparisonTr
       { question: "Welke is beter voor blessureherstel?", answer: "BPC-157 heeft de sterkere bewijsbasis voor direct blessureherstel. CJC-1295 is beter geschikt voor lichaamssamenstelling op lange termijn." },
       { question: "Helpt CJC-1295 bij darmgezondheid?", answer: "Voor darmgezondheid is BPC-157 de duidelijke eerste keuze. CJC-1295 heeft geen specifiek darmgenezing onderzoek." },
     ] },
-    pl: { title: "BPC-157 vs CJC-1295: Peptyd Regeneracyjny vs Peptyd Hormonu Wzrostu", metaTitle: "BPC-157 vs CJC-1295: Regeneracja vs GH | ORYN", metaDescription: "Porównaj BPC-157 do regeneracji tkanek z CJC-1295 do uwalniania GH. Mechanizmy i potencjał łączenia.", introduction: "BPC-157 i CJC-1295 są dwoma z najszerzej badanych peptydów, ale służą różnym funkcjom biologicznym. BPC-157 jest bezpośrednim związkiem naprawy tkanek. CJC-1295 przedłuża naturalne uwalnianie GH.", verdict: "BPC-157 jest lepszym wyborem do bezpośredniej regeneracji tkanek. CJC-1295 jest lepszy do optymalizacji GH. Są często łączone w kompleksowych protokołach regeneracyjnych.", categories: [
+    pl: { title: "BPC-157 vs CJC-1295: Peptyd Regeneracyjny vs Peptyd Hormonu Wzrostu", metaTitle: "BPC-157 vs CJC-1295: Regeneracja vs GH", metaDescription: "Porównaj BPC-157 do regeneracji tkanek z CJC-1295 do uwalniania GH. Mechanizmy i potencjał łączenia.", introduction: "BPC-157 i CJC-1295 są dwoma z najszerzej badanych peptydów, ale służą różnym funkcjom biologicznym. BPC-157 jest bezpośrednim związkiem naprawy tkanek. CJC-1295 przedłuża naturalne uwalnianie GH.", verdict: "BPC-157 jest lepszym wyborem do bezpośredniej regeneracji tkanek. CJC-1295 jest lepszy do optymalizacji GH. Są często łączone w kompleksowych protokołach regeneracyjnych.", categories: [
       { name: "Główna Funkcja", productA: "Bezpośrednia naprawa tkanek — jelito, ścięgno, nerw", productB: "Trwałe uwalnianie GH przez szlak GHRH", winner: "tie" },
       { name: "Mechanizm", productA: "Modulacja czynników wzrostu (VEGF, EGF, FGF), system NO", productB: "Analog GHRH — przedłuża uwalnianie GH z przysadki", winner: "tie" },
       { name: "Zdrowie Jelit", productA: "Główne zastosowanie — najsilniejsza baza dowodów gojenia", productB: "Pośrednie — GH wspiera ogólne utrzymanie tkanek", winner: "A" },

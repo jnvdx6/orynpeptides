@@ -79,7 +79,7 @@ export default async function ProductCityPage({
     },
     {
       question: `How much does ${product.name} cost in the UK?`,
-      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, which contains a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free UK delivery on orders over €150.`,
+      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, which contains a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free UK delivery on orders over €175.`,
     },
     {
       question: `Is ${product.name} legal in ${city.name}?`,

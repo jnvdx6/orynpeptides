@@ -23,7 +23,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "bpc-157-faq",
     title: "BPC-157 Frequently Asked Questions",
-    metaTitle: "BPC-157 FAQ | Research Questions Answered | ORYN Peptides",
+    metaTitle: "BPC-157 FAQ | Research Questions Answered",
     metaDescription:
       "Answers to frequently asked questions about BPC-157 peptide research. Learn about purity, storage, administration, and research applications of ORYN BPC-157 pens.",
     type: "product",
@@ -89,7 +89,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "tb-500-faq",
     title: "TB-500 Frequently Asked Questions",
-    metaTitle: "TB-500 FAQ | Thymosin Beta-4 Research Questions | ORYN Peptides",
+    metaTitle: "TB-500 FAQ | Thymosin Beta-4 Research Questions",
     metaDescription:
       "Answers to common TB-500 research questions. Learn about Thymosin Beta-4, tissue repair mechanisms, storage, purity, and ORYN's pen delivery system.",
     type: "product",
@@ -155,7 +155,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "cjc-1295-faq",
     title: "CJC-1295 Frequently Asked Questions",
-    metaTitle: "CJC-1295 FAQ | Growth Hormone Research Questions | ORYN Peptides",
+    metaTitle: "CJC-1295 FAQ | Growth Hormone Research Questions",
     metaDescription:
       "Common CJC-1295 research questions answered. Learn about GHRH analogue mechanisms, GH stimulation, purity, dosing, and ORYN's pen delivery system.",
     type: "product",
@@ -221,7 +221,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "ipamorelin-faq",
     title: "Ipamorelin Frequently Asked Questions",
-    metaTitle: "Ipamorelin FAQ | GH Secretagogue Research Questions | ORYN Peptides",
+    metaTitle: "Ipamorelin FAQ | GH Secretagogue Research Questions",
     metaDescription:
       "Ipamorelin research FAQ. Learn about this selective growth hormone secretagogue, its mechanisms, research applications, purity, and ORYN's pen system.",
     type: "product",
@@ -287,7 +287,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "tirzepatide-faq",
     title: "Tirzepatide Frequently Asked Questions",
-    metaTitle: "Tirzepatide FAQ | Dual GIP/GLP-1 Research Questions | ORYN Peptides",
+    metaTitle: "Tirzepatide FAQ | Dual GIP/GLP-1 Research Questions",
     metaDescription:
       "Tirzepatide research FAQ. Learn about dual GIP/GLP-1 agonist mechanisms, metabolic research, purity, dosing, and ORYN's peptide pen system.",
     type: "product",
@@ -354,7 +354,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "ghk-cu-faq",
     title: "GHK-Cu Frequently Asked Questions",
-    metaTitle: "GHK-Cu FAQ | Copper Peptide Research Questions | ORYN Peptides",
+    metaTitle: "GHK-Cu FAQ | Copper Peptide Research Questions",
     metaDescription:
       "GHK-Cu copper peptide FAQ. Learn about collagen synthesis, skin repair mechanisms, anti-aging research, purity, and ORYN's pen delivery system.",
     type: "product",
@@ -420,7 +420,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "glutathione-faq",
     title: "Glutathione Frequently Asked Questions",
-    metaTitle: "Glutathione FAQ | Master Antioxidant Research Questions | ORYN Peptides",
+    metaTitle: "Glutathione FAQ | Master Antioxidant Research Questions",
     metaDescription:
       "Glutathione research FAQ. Learn about this master antioxidant, detoxification mechanisms, immune support research, purity, and ORYN's pen system.",
     type: "product",
@@ -487,7 +487,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "nad-plus-faq",
     title: "NAD+ Frequently Asked Questions",
-    metaTitle: "NAD+ FAQ | Cellular Energy & Anti-Aging Research | ORYN Peptides",
+    metaTitle: "NAD+ FAQ | Cellular Energy & Anti-Aging Research",
     metaDescription:
       "NAD+ research FAQ. Learn about this essential coenzyme, cellular energy, DNA repair, anti-aging research, and ORYN's precision pen delivery system.",
     type: "product",
@@ -553,7 +553,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "medit-pen-faq",
     title: "MediT Pen Frequently Asked Questions",
-    metaTitle: "MediT Pen FAQ | Prefilled Tirzepatide 40mg Questions | ORYN Peptides",
+    metaTitle: "MediT Pen FAQ | Prefilled Tirzepatide 40mg Questions",
     metaDescription:
       "MediT Pen FAQ. Learn about ORYN's prefilled weekly Tirzepatide 40mg injection pen, dosing protocols, storage, and metabolic research applications.",
     type: "product",
@@ -619,7 +619,7 @@ const productFAQHubs: FAQHub[] = [
   {
     slug: "novadose-nad-faq",
     title: "NovaDose NAD+ Frequently Asked Questions",
-    metaTitle: "NovaDose NAD+ FAQ | Cartridge System Research Questions | ORYN Peptides",
+    metaTitle: "NovaDose NAD+ FAQ | Cartridge System Research Questions",
     metaDescription:
       "NovaDose NAD+ FAQ. Learn about ORYN's innovative cartridge-based NAD+ delivery system, microdosing, bioavailability, and anti-aging research applications.",
     type: "product",
@@ -689,7 +689,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "peptide-pens-faq",
     title: "Peptide Pens: Frequently Asked Questions",
-    metaTitle: "Peptide Pens FAQ | How Pen Systems Work | ORYN Peptides",
+    metaTitle: "Peptide Pens FAQ | How Pen Systems Work",
     metaDescription:
       "Everything you need to know about peptide pen systems. Learn how pre-mixed peptide pens work, their advantages over vials, dosing mechanisms, and more.",
     type: "topic",
@@ -753,7 +753,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "ordering-delivery-faq",
     title: "Ordering & Delivery: Frequently Asked Questions",
-    metaTitle: "Ordering & Delivery FAQ | Shipping & Payment | ORYN Peptides",
+    metaTitle: "Ordering & Delivery FAQ | Shipping & Payment",
     metaDescription:
       "ORYN ordering and delivery FAQ. Learn about shipping times, delivery options, payment methods, free shipping thresholds, and order tracking.",
     type: "topic",
@@ -817,7 +817,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "storage-handling-faq",
     title: "Storage & Handling: Frequently Asked Questions",
-    metaTitle: "Peptide Storage & Handling FAQ | Cold Chain Guide | ORYN Peptides",
+    metaTitle: "Peptide Storage & Handling FAQ | Cold Chain Guide",
     metaDescription:
       "How to properly store and handle research peptide pens. Learn about cold chain requirements, shelf life, reconstitution, and best practices for peptide stability.",
     type: "topic",
@@ -881,7 +881,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "purity-testing-faq",
     title: "Purity & Testing: Frequently Asked Questions",
-    metaTitle: "Peptide Purity & Testing FAQ | Quality Assurance | ORYN Peptides",
+    metaTitle: "Peptide Purity & Testing FAQ | Quality Assurance",
     metaDescription:
       "Learn about ORYN's peptide purity standards, HPLC testing, GMP manufacturing, ISO 7 cleanroom facilities, and Certificates of Analysis.",
     type: "topic",
@@ -945,7 +945,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "peptide-research-faq",
     title: "Peptide Research: Frequently Asked Questions",
-    metaTitle: "Peptide Research FAQ | What Are Research Peptides? | ORYN Peptides",
+    metaTitle: "Peptide Research FAQ | What Are Research Peptides?",
     metaDescription:
       "General peptide research FAQ. Learn what research peptides are, how they work, common research applications, and why peptides are important in modern science.",
     type: "topic",
@@ -1009,7 +1009,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "dosing-protocols-faq",
     title: "Dosing & Protocols: Frequently Asked Questions",
-    metaTitle: "Peptide Dosing FAQ | Research Protocols & Administration | ORYN Peptides",
+    metaTitle: "Peptide Dosing FAQ | Research Protocols & Administration",
     metaDescription:
       "Peptide dosing and protocol FAQ. Learn about subcutaneous injection technique, dosing schedules, protocol design, and best practices for peptide research.",
     type: "topic",
@@ -1073,7 +1073,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "peptide-safety-faq",
     title: "Peptide Safety: Frequently Asked Questions",
-    metaTitle: "Peptide Safety FAQ | Side Effects & Research Safety | ORYN Peptides",
+    metaTitle: "Peptide Safety FAQ | Side Effects & Research Safety",
     metaDescription:
       "Peptide safety research FAQ. Learn about peptide safety profiles, common observations in research, injection safety, and ORYN's quality standards.",
     type: "topic",
@@ -1137,7 +1137,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "peptide-stacking-faq",
     title: "Peptide Stacking: Frequently Asked Questions",
-    metaTitle: "Peptide Stacking FAQ | Combining Peptides in Research | ORYN Peptides",
+    metaTitle: "Peptide Stacking FAQ | Combining Peptides in Research",
     metaDescription:
       "Peptide stacking FAQ. Learn about combining peptides for research, popular research stacks, synergistic mechanisms, and protocol design for multi-peptide studies.",
     type: "topic",
@@ -1201,7 +1201,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "peptide-legality-faq",
     title: "Peptide Legality: Frequently Asked Questions",
-    metaTitle: "Peptide Legality FAQ | UK & EU Legal Status | ORYN Peptides",
+    metaTitle: "Peptide Legality FAQ | UK & EU Legal Status",
     metaDescription:
       "Peptide legality FAQ for the UK and EU. Learn about the legal status of research peptides, regulations, import rules, and responsible purchasing.",
     type: "topic",
@@ -1265,7 +1265,7 @@ const topicFAQHubs: FAQHub[] = [
   {
     slug: "first-time-buyers-faq",
     title: "First-Time Buyers: Frequently Asked Questions",
-    metaTitle: "First-Time Buyers FAQ | Getting Started with Peptides | ORYN Peptides",
+    metaTitle: "First-Time Buyers FAQ | Getting Started with Peptides",
     metaDescription:
       "New to research peptides? This first-time buyer FAQ covers how to choose peptides, what to expect, how to get started, and tips for your first ORYN order.",
     type: "topic",

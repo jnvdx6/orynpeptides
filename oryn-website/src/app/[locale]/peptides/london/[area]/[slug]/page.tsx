@@ -555,7 +555,7 @@ function ProductInAreaPage({
     },
     {
       question: `How much does ${product.name} cost?`,
-      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, containing a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free delivery on orders over €150.`,
+      answer: `ORYN ${product.name} is priced at ${currency}${product.price} per pen, containing a 30-day supply of ${product.dosage} in a pre-mixed, ready-to-use pen system. Free delivery on orders over €175.`,
     },
     {
       question: `How fast is delivery to ${area.name}?`,

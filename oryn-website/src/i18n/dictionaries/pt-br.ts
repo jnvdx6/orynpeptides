@@ -1841,7 +1841,7 @@ const ptBr = {
     freeShippingDescription:
       "Pedidos acima de R${threshold} têm envio standard grátis para o Brasil. Acompanhe o progresso no carrinho.",
     freeShippingExampleLabel: "EXEMPLO: PEDIDO DE R$600",
-    freeShippingExampleAway: "R$150 para envio grátis",
+    freeShippingExampleAway: "R$175 para envio grátis",
     discreetTitle: "Embalagem Discreta",
     discreetDescription:
       "Todos os pedidos ORYN são enviados em caixas neutras e sem identificação. Nenhum nome de produto, marca ou descrição é visível no exterior.",

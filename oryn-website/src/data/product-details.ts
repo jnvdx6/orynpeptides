@@ -145,6 +145,41 @@ export const productDetails: Record<string, ProductDetail> = {
         answer:
           "Yes. All ORYN products are intended exclusively for laboratory and research purposes. Not approved for human consumption. Buyers must be qualified researchers or institutions.",
       },
+      {
+        question: "How long does the pen last after first use?",
+        answer:
+          "Once opened, the ORYN BPC-157 Pen maintains stability for 30 days when stored at 2-8°C. The pharma-grade formulation and sealed cartridge design prevent degradation throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Can BPC-157 be used alongside other peptides in research?",
+        answer:
+          "Research suggests BPC-157 pairs well with TB-500 due to complementary mechanisms — BPC-157 modulates the nitric oxide system while TB-500 upregulates actin for cell migration. Many protocols investigate this combination for synergistic tissue repair research.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "What is the total peptide content in the BPC-157 pen?",
+        answer:
+          "The ORYN BPC-157 Pen contains a precisely formulated supply designed for 30 days of daily dosing at 250-500 mcg per day. The pre-mixed formulation eliminates the reconstitution losses typical with vial-based products.",
+      },
     ],
     reviews: [
       {
@@ -283,6 +318,41 @@ export const productDetails: Record<string, ProductDetail> = {
       {
         question: "How does the pen maintain sterility?",
         answer: "Gamma ray sterilization and 0.22um filtration during manufacturing. The pen's sealed cartridge prevents contamination between uses, unlike multi-puncture vial stoppers.",
+      },
+      {
+        question: "How long does the TB-500 pen last after first use?",
+        answer:
+          "Once opened, the ORYN TB-500 Pen maintains stability for 30 days when stored at 2-8°C. The pharma-grade formulation and sealed cartridge design prevent degradation throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "What is the total peptide content in the TB-500 pen?",
+        answer:
+          "The ORYN TB-500 Pen contains 15mg of TB-500 in a 3mL cartridge — a 3x more concentrated formulation than typical reconstituted vials. This provides a full 30-day supply for twice-weekly dosing protocols.",
+      },
+      {
+        question: "Is TB-500 suitable for long-term research protocols?",
+        answer:
+          "Research suggests TB-500 is commonly studied in 30-day cycles with loading and maintenance phases. Extended protocols may involve repeated cycles with rest periods. All ORYN products are for research use only.",
       },
     ],
     reviews: [
@@ -424,6 +494,41 @@ export const productDetails: Record<string, ProductDetail> = {
         question: "What makes the pen format better for CJC-1295 specifically?",
         answer: "CJC-1295's DAC modification is sensitive to improper handling during reconstitution. The pre-mixed pen format preserves this critical molecular structure throughout the 30-day cycle.",
       },
+      {
+        question: "How long does the pen last after first use?",
+        answer:
+          "Once opened, the ORYN CJC-1295 Pen maintains stability for 30 days when stored at 2-8°C. The pharma-grade formulation preserves the critical DAC modification and sealed cartridge design prevents degradation throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Can CJC-1295 be combined with other peptides in research?",
+        answer:
+          "CJC-1295 is most commonly studied alongside Ipamorelin due to their complementary GH-release mechanisms — CJC-1295 via GHRH receptors and Ipamorelin via ghrelin receptors. ORYN offers both as precision pen formats for streamlined multi-peptide research protocols.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "What is the total peptide content in the CJC-1295 pen?",
+        answer:
+          "The ORYN CJC-1295 Pen contains 5mg of CJC-1295 with DAC, providing a complete 30-day research cycle at 100-300 mcg per administration, dosed 1-2 times weekly. Zero waste compared to vial reconstitution.",
+      },
     ],
     reviews: [
       {
@@ -564,6 +669,41 @@ export const productDetails: Record<string, ProductDetail> = {
         question: "How does the pen handle multiple daily doses?",
         answer: "The pen's click mechanism resets after each dose. You can easily dial, inject, and repeat 2-3 times daily. One pen provides a full 30-day supply even at 3x daily protocols.",
       },
+      {
+        question: "How long does the Ipamorelin pen last after first use?",
+        answer:
+          "Once opened, the ORYN Ipamorelin Pen maintains stability for 30 days when stored at 2-8°C. The pharma-grade formulation and sealed cartridge design prevent degradation throughout the full usage cycle, even with multiple daily uses.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips — enough for 2-3 daily administrations over 30 days.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Can Ipamorelin be combined with other peptides in research?",
+        answer:
+          "Ipamorelin is most commonly studied alongside CJC-1295 for synergistic GH release — Ipamorelin via the ghrelin receptor and CJC-1295 via GHRH receptors. Research suggests this combination may produce more robust and sustained GH elevation than either peptide alone.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "Why is Ipamorelin considered the safest GH secretagogue for research?",
+        answer:
+          "Research suggests Ipamorelin has a built-in dose-response plateau — GH release does not continue increasing beyond a certain dose. Combined with its selectivity (no cortisol or prolactin elevation), it offers one of the cleanest GH stimulation profiles studied.",
+      },
     ],
     reviews: [
       {
@@ -701,6 +841,41 @@ export const productDetails: Record<string, ProductDetail> = {
       {
         question: "Is this the same molecule used in clinical trials?",
         answer: "Yes. ORYN Tirzepatide is the same molecular entity studied in SURPASS and SURMOUNT trials, synthesized to >99% purity under GMP conditions.",
+      },
+      {
+        question: "How long does the Tirzepatide pen last after first use?",
+        answer:
+          "Once opened, the ORYN Tirzepatide Pen maintains stability for 30 days when stored at 2-8°C. The pharma-grade formulation preserves the dual-agonist molecular structure, and the sealed cartridge design prevents degradation throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the dosing cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Can Tirzepatide be used alongside other compounds in research?",
+        answer:
+          "Tirzepatide's dual GIP/GLP-1 mechanism is typically studied as a standalone compound due to its comprehensive metabolic action. Research protocols generally do not combine it with other incretin agonists, though it may be studied alongside non-overlapping peptides in broader metabolic research.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "What is the total peptide content in the Tirzepatide pen?",
+        answer:
+          "The ORYN Tirzepatide Pen contains 10mg, providing a complete dose titration protocol: starting at 2.5mg weekly and escalating to target dose over 4 weeks, as used in the landmark SURPASS clinical trials.",
       },
     ],
     reviews: [
@@ -842,6 +1017,41 @@ export const productDetails: Record<string, ProductDetail> = {
         question: "Can GHK-Cu be combined with other ORYN peptides?",
         answer: "GHK-Cu works through unique copper-mediated mechanisms that don't interfere with other peptide pathways. It's frequently studied alongside BPC-157 for synergistic regenerative research.",
       },
+      {
+        question: "How long does the GHK-Cu pen last after first use?",
+        answer:
+          "Once opened, the ORYN GHK-Cu Pen maintains stability for 30 days when stored at 2-8°C. The pH-optimized formulation (6.8-7.4) preserves the copper-peptide complex, and the sealed cartridge design prevents copper oxidation throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Peptide Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal and prevents copper oxidation — always replace it after each use.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "What is the total peptide content in the GHK-Cu pen?",
+        answer:
+          "The ORYN GHK-Cu Pen contains 60mg — the highest concentration GHK-Cu available in pen format. This provides a generous 30-day supply at 1-2mg per day, with extra capacity for dose-ranging studies.",
+      },
+      {
+        question: "Is GHK-Cu suitable for cosmetic research applications?",
+        answer:
+          "Research suggests GHK-Cu may modulate collagen synthesis, glycosaminoglycan production, and gene expression patterns associated with skin aging. It is widely studied in dermatological and cosmetic science contexts. All ORYN products are for research use only.",
+      },
     ],
     reviews: [
       {
@@ -982,6 +1192,41 @@ export const productDetails: Record<string, ProductDetail> = {
         question: "Is this comparable to IV glutathione?",
         answer: "Subcutaneous delivery provides similar bioavailability to IV at a fraction of the cost. No clinic visits, no IV setup, and self-administration convenience.",
       },
+      {
+        question: "How long does the Glutathione pen last after first use?",
+        answer:
+          "Once opened, the ORYN Glutathione Medit Pen maintains stability for 30 days when stored at 2-8°C. The sealed cartridge design prevents air exposure that would oxidize the active reduced form (GSH) to inactive GSSG.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Medit Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses. Do not freeze. Keep away from direct light and excessive heat — the reduced glutathione form is temperature-sensitive. Always replace the pen cap after each use.",
+      },
+      {
+        question: "Can Glutathione be combined with other compounds in research?",
+        answer:
+          "Research suggests glutathione pairs well with vitamin C in antioxidant research protocols, as they may regenerate each other's active forms. Glutathione's antioxidant mechanism does not interfere with other ORYN peptide pathways.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity and preserve the reduced glutathione form. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "How can I tell if the glutathione is still in its active reduced form?",
+        answer:
+          "The solution should be clear to slightly yellow. Any significant discoloration indicates oxidation to the inactive GSSG form. The sealed ORYN pen cartridge maintains >95% reduced form (GSH) throughout the full 30-day cycle when stored correctly.",
+      },
     ],
     reviews: [
       {
@@ -1121,6 +1366,41 @@ export const productDetails: Record<string, ProductDetail> = {
         question: "Is 500mg enough for a 30-day cycle?",
         answer: "Yes. At 15-20mg daily, 500mg provides a generous 25-33 day supply. Daily micro-dosing maintains more stable NAD+ levels than the large boluses used in IV therapy.",
       },
+      {
+        question: "How long does the NAD+ pen last after first use?",
+        answer:
+          "Once opened, the ORYN NAD+ Medit Pen maintains stability for 30 days when stored at 2-8°C. NAD+ is notoriously unstable in solution, but the sealed cartridge design and pharma-grade formulation maintain molecular integrity throughout the full usage cycle.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN Medit Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the 30-day cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between uses — NAD+ is particularly temperature-sensitive. Do not freeze. Keep away from direct light. Always replace the pen cap immediately after each use.",
+      },
+      {
+        question: "Can NAD+ be combined with other compounds in research?",
+        answer:
+          "NAD+ operates through unique coenzyme and sirtuin-activation pathways that do not overlap with peptide mechanisms. Research protocols commonly study NAD+ alongside other ORYN products without interference. NAD+ is also studied in conjunction with resveratrol for sirtuin activation research.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging, which is especially critical for temperature-sensitive NAD+. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "Is the mild warmth at the injection site normal?",
+        answer:
+          "Yes. NAD+ may cause a mild warming sensation at the injection site, which is a well-documented and temporary response. This typically subsides within a few minutes and is not a cause for concern in research settings.",
+      },
     ],
     reviews: [
       {
@@ -1258,6 +1538,41 @@ export const productDetails: Record<string, ProductDetail> = {
       {
         question: "How should I titrate the dose?",
         answer: "Standard protocol starts at 2.5mg weekly for 4 weeks, then 5mg for 4 weeks, with optional escalation to 10-15mg. The pen's dial allows exact titration at each stage.",
+      },
+      {
+        question: "How long does the MediT pen last after first use?",
+        answer:
+          "Once opened, the ORYN MediT Tirzepatide Pen maintains stability for 8-16 weeks when stored at 2-8°C, depending on your dose titration schedule. The 40mg prefilled format and sealed cartridge design preserve the dual-agonist molecular structure throughout the entire protocol.",
+      },
+      {
+        question: "What needle gauge does the pen use?",
+        answer:
+          "The ORYN MediT Pen uses ultra-thin 31-gauge (31G) needles, which are 40% thinner than standard syringe needles. Each pen ships with a full supply of sterile needle tips for the entire dose-escalation cycle.",
+      },
+      {
+        question: "How should I store the pen after opening?",
+        answer:
+          "Store upright in the refrigerator at 2-8°C between weekly uses. Do not freeze. Keep away from direct light. The pen cap protects the cartridge seal — always replace it after each use.",
+      },
+      {
+        question: "Can MediT Tirzepatide be combined with other compounds in research?",
+        answer:
+          "Tirzepatide's dual GIP/GLP-1 mechanism is typically studied as a standalone compound due to its comprehensive metabolic action. The MediT format is designed for clinical-style weekly protocols and is generally investigated independently in research settings.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging to maintain peptide integrity. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every ORYN pen includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories.",
+      },
+      {
+        question: "How does the 40mg MediT compare to clinical Tirzepatide pens?",
+        answer:
+          "Clinical pens contain a single weekly dose (2.5-15mg) and are discarded after one use. The ORYN MediT contains 40mg in a reusable format, providing a complete dose-escalation protocol — from 2.5mg up to 15mg weekly — in a single device for research convenience.",
       },
     ],
     reviews: [
@@ -1397,6 +1712,41 @@ export const productDetails: Record<string, ProductDetail> = {
       {
         question: "How does cartridge stability compare?",
         answer: "Sealed cartridges maintain >97% NAD+ integrity for 60+ days - significantly better than reconstituted vials (15% loss by day 10) or even standard pen format (3% loss by day 30).",
+      },
+      {
+        question: "How long does a NovaDose cartridge last after opening?",
+        answer:
+          "The sealed NovaDose cartridge maintains >97% NAD+ integrity for 60+ days — double the stability of standard pen formats. Once installed in the pen body, the cartridge remains sealed between uses, preserving molecular integrity throughout your entire research protocol.",
+      },
+      {
+        question: "What needle gauge does the NovaDose use?",
+        answer:
+          "NovaDose uses ultra-thin 32-gauge (32G) micro-needles, even thinner than the 31G needles on standard ORYN pens. These micro-needles are specifically designed for comfortable daily use and are virtually painless. A full supply is included with every kit.",
+      },
+      {
+        question: "How should I store the NovaDose system?",
+        answer:
+          "Store the pen with cartridge installed upright in the refrigerator at 2-8°C. Unused cartridges should remain sealed and refrigerated until ready to install. The aluminum pen body is designed to withstand refrigerator temperatures. Do not freeze.",
+      },
+      {
+        question: "Can NAD+ from NovaDose be used alongside other research compounds?",
+        answer:
+          "NAD+ operates through unique coenzyme and sirtuin-activation pathways that do not interfere with peptide mechanisms. The NovaDose system is commonly used alongside other ORYN peptide pens in comprehensive research protocols covering both metabolic and regenerative pathways.",
+      },
+      {
+        question: "Do you ship internationally?",
+        answer:
+          "Yes, ORYN ships to the UK, EU, DACH region, Spain, France, Italy, Netherlands, US, and Brazil. All shipments include cold-chain packaging, which is especially critical for temperature-sensitive NAD+. Delivery typically takes 3-7 business days depending on destination.",
+      },
+      {
+        question: "What documentation comes with each order?",
+        answer:
+          "Every NovaDose kit includes a Certificate of Analysis (COA) with HPLC purity data, mass spectrometry results, and endotoxin testing. Third-party validation by POSTECH, UNIST, and SGS laboratories. Device documentation and usage instructions are also included.",
+      },
+      {
+        question: "Are refill cartridges available separately?",
+        answer:
+          "Yes. After your initial NovaDose kit purchase, refill cartridges containing 500mg NAD+ are available separately at a lower cost. The reusable aluminum pen body is designed for years of daily use — only cartridges and micro-needle tips are consumable.",
       },
     ],
     reviews: [

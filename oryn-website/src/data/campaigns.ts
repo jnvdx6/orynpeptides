@@ -114,7 +114,7 @@ export const springCampaign: Campaign = {
   offers: [
     {
       label: "Free Standard Shipping",
-      description: "On all orders over €150",
+      description: "On all orders over €175",
       icon: "shipping",
     },
     {
@@ -144,7 +144,7 @@ export const springCampaign: Campaign = {
     title:
       "Spring Cellular Renewal — Regeneration & Repair Peptides | ORYN Peptide Labs",
     description:
-      "Explore ORYN's Spring 2026 Cellular Renewal collection. BPC-157, GHK-Cu, Glutathione, and TB-500 research-grade peptide pens with 15% bundle savings and free shipping over €150.",
+      "Explore ORYN's Spring 2026 Cellular Renewal collection. BPC-157, GHK-Cu, Glutathione, and TB-500 research-grade peptide pens with 15% bundle savings and free shipping over €175.",
   },
 };
 

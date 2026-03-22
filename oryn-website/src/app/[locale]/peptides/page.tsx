@@ -68,7 +68,7 @@ const ukDeliveryFaqs = [
   },
   {
     question: "Is shipping free?",
-    answer: "ORYN offers free shipping on all orders over €150. Standard shipping is available on smaller orders. All orders include full tracking and temperature-controlled packaging.",
+    answer: "ORYN offers free shipping on all orders over €175. Standard shipping is available on smaller orders. All orders include full tracking and temperature-controlled packaging.",
   },
 ];
 
@@ -153,7 +153,7 @@ export default async function PeptidesUKPage({
                 "NEXT-DAY DELIVERY",
                 ">99% PURITY",
                 "GMP MANUFACTURED",
-                "FREE SHIPPING OVER €150",
+                "FREE SHIPPING OVER €175",
               ].map((badge) => (
                 <div key={badge} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/10">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -305,7 +305,7 @@ export default async function PeptidesUKPage({
               Order Today, <span className="opacity-60">Delivered Tomorrow</span>
             </h2>
             <p className="text-white/60 font-plex mb-8 max-w-lg mx-auto">
-              Research-grade peptide pens with next-day UK delivery. Free shipping on orders over €150.
+              Research-grade peptide pens with next-day UK delivery. Free shipping on orders over €175.
             </p>
             <Link
               href={`/${locale}/products`}
