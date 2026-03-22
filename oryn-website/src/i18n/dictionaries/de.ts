@@ -40,7 +40,7 @@ const de = {
     explorePeptides: "PEPTIDE ENTDECKEN",
     shopFrom: "KAUFEN AB",
     offerPill: "ERSTBESTELLUNG: 10% RABATT — Code WELCOME10",
-    urgencyLine: "Kostenloser Versand bei Bestellungen über 150€",
+    urgencyLine: "Kostenloser Versand bei Bestellungen über 175€",
     bestsellerBadge: "BESTSELLER",
     bestsellerLine: "BPC-157 — Unser #1 Forschungspeptid",
     ourScience: "UNSERE WISSENSCHAFT",
@@ -158,7 +158,7 @@ const de = {
       },
       {
         title: "Sicher bestellen",
-        description: "Schneller Checkout mit Stripe. Kostenloser Versand bei Bestellungen über 150€.",
+        description: "Schneller Checkout mit Stripe. Kostenloser Versand bei Bestellungen über 175€.",
       },
       {
         title: "Diskret erhalten",
@@ -420,7 +420,7 @@ const de = {
     closePopup: "Schließen",
     purityBadge: ">99% REINHEIT",
     gmpBadge: "GMP-ZERTIFIZIERT",
-    freeShippingBadge: "KOSTENLOSER VERSAND AB 150+",
+    freeShippingBadge: "KOSTENLOSER VERSAND AB €175+",
     whyChoosePen: "WARUM DEN PEN WÄHLEN",
     traditionalVials: "HERKÖMMLICHE FLÄSCHCHEN",
     orynPenSystem: "ORYN PEN SYSTEM",
@@ -1032,7 +1032,7 @@ const de = {
       { q: "Was sind ORYN Peptide Pens?", a: "ORYN Peptide Pens sind vorgemischte, sofort einsatzbereite Forschungspeptid-Verabreichungssysteme. Jeder Pen enthält Peptide in pharmazeutischer Qualität mit >99% Reinheit, hergestellt in unserer ISO-7-Reinraumanlage. Das Pen-Format macht die Rekonstitution überflüssig und gewährleistet eine konsistente Dosierung für Forschungsanwendungen." },
       { q: "Sind Peptide in Deutschland und Europa legal?", a: "Ja, Forschungspeptide können in Deutschland und in ganz Europa für Forschungszwecke legal erworben werden. ORYN Peptide werden ausschließlich für die In-vitro-Forschung und den Laborgebrauch verkauft. Sie sind nicht zum menschlichen Verzehr bestimmt." },
       { q: "Wie werden Ihre Peptide hergestellt?", a: "Alle ORYN-Peptide werden in unserem GMP-zertifizierten ISO-7-Reinraumlabor in Südkorea synthetisiert. Jede Charge wird mittels HPLC und Massenspektrometrie auf >99% Reinheit geprüft. Ein Analysezertifikat (COA) ist bei jeder Bestellung enthalten." },
-      { q: "Wie lange dauert die Lieferung?", a: "UK-Bestellungen kommen in der Regel innerhalb von 2-4 Werktagen an. Europäische Bestellungen dauern je nach Zielort 3-7 Werktage. Alle Bestellungen werden in diskreter, temperaturkontrollierter Verpackung versendet. Bestellungen über 150€ qualifizieren sich für kostenlosen Versand." },
+      { q: "Wie lange dauert die Lieferung?", a: "UK-Bestellungen kommen in der Regel innerhalb von 2-4 Werktagen an. Europäische Bestellungen dauern je nach Zielort 3-7 Werktage. Alle Bestellungen werden in diskreter, temperaturkontrollierter Verpackung versendet. Bestellungen über 175€ qualifizieren sich für kostenlosen Versand." },
       { q: "Was ist das ORYN-Empfehlungsprogramm?", a: "Unser mehrstufiges Empfehlungsprogramm ermöglicht es Ihnen, 10% Provision auf Einkäufe zu verdienen, die von empfohlenen Kollegen getätigt werden. Sie verdienen außerdem Provisionen bis zu 5 Ebenen tief, wenn Ihr Netzwerk wächst. Melden Sie sich für ein kostenloses Konto an, um Ihren einzigartigen Empfehlungscode zu erhalten." },
       { q: "Bieten Sie Mengen- oder Großhandelspreise an?", a: "Ja, wir bieten Mengenrabatte ab 3+ Einheiten an. Je mehr Sie bestellen, desto größer der Rabatt — bis zu 15% auf große Forschungsbestellungen. Kontaktieren Sie uns für individuelle Großhandelspreise bei Sammelbestellungen." },
     ],
@@ -1042,7 +1042,7 @@ const de = {
     items: [
       { q: "Wie lange dauert die Lieferung von Peptiden in Deutschland?", a: "Die Lieferzeiten in Deutschland hängen von Ihrem Standort ab. Berlin, München und Hamburg erhalten Bestellungen in 1-2 Werktagen, andere Großstädte in 2-3 Werktagen und ländliche Gebiete in 3-4 Werktagen. Alle Bestellungen, die vor 14 Uhr aufgegeben werden, werden noch am selben Tag versandt." },
       { q: "Wird die Peptid-Lieferung temperaturkontrolliert?", a: "Ja. Alle ORYN-Peptidsendungen werden in isolierten Kartons mit Gel-Kühlelementen verpackt, um während des Transports eine Temperatur von 2-8 Grad Celsius aufrechtzuerhalten. In den Sommermonaten (Juni-September) fügen wir zusätzlichen Kühlkettenschutz hinzu, einschließlich extra Kühlelemente und isolierende Einlagen, um die Produktintegrität zu gewährleisten." },
-      { q: "Wie qualifiziere ich mich für kostenlosen Versand?", a: "Kostenloser Standardversand ist für alle Bestellungen über 150 Euro verfügbar. Dieser Schwellenwert gilt für den Bestellwert vor der Anwendung von Rabattcodes. Internationale Bestellungen nach Europa unterliegen einer pauschalen Versandgebühr unabhängig vom Bestellwert. Ihr Warenkorb zeigt einen Fortschrittsbalken an, der angibt, wie nah Sie am Schwellenwert für kostenlosen Versand sind." },
+      { q: "Wie qualifiziere ich mich für kostenlosen Versand?", a: "Kostenloser Standardversand ist für alle Bestellungen über 175 Euro verfügbar. Dieser Schwellenwert gilt für den Bestellwert vor der Anwendung von Rabattcodes. Internationale Bestellungen nach Europa unterliegen einer pauschalen Versandgebühr unabhängig vom Bestellwert. Ihr Warenkorb zeigt einen Fortschrittsbalken an, der angibt, wie nah Sie am Schwellenwert für kostenlosen Versand sind." },
       { q: "Versenden Sie Peptide international nach Europa?", a: "Ja, ORYN liefert in die meisten Länder der Europäischen Union. Die europäische Lieferung dauert je nach Bestimmungsland in der Regel 3-7 Werktage. Alle internationalen Sendungen enthalten temperaturkontrollierte Verpackungen und vollständige Sendungsverfolgung. Zollgebühren und Einfuhrsteuern gehen zu Lasten des Kunden." },
       { q: "Wie wird meine Peptidbestellung verpackt?", a: "Alle ORYN-Bestellungen werden in schlichten, unmarkierten Kartons ohne Produktbeschreibungen oder Markierungen außen versandt. Im Inneren sind die Peptid-Pens in maßgefertigten Schaumstoffeinlagen innerhalb eines isolierten Behälters mit Gel-Kühlelementen gesichert. Ein Lieferschein und das Analysezertifikat sind in der Kartonage enthalten." },
       { q: "Kann ich meine Peptidbestellung verfolgen?", a: "Ja. Alle Bestellungen erhalten innerhalb von 2 Stunden nach dem Versand eine Sendungsverfolgungsnummer per E-Mail. Sie können Ihre Sendung in Echtzeit über das Portal unseres Kurierpartners verfolgen. Für Großbestellungen von 10+ Einheiten bieten wir erweiterte Sendungsverfolgung mit geschätzten Lieferfenstern und Lieferbestätigung mit Unterschrift an." },
@@ -1323,7 +1323,7 @@ const de = {
       description:
         "Biotech-Labor mit >99% Reinheit Forschungspeptiden in Präzisions-Pen-Systemen. Verwenden Sie den Code WELCOME10 bei Ihrer ersten Bestellung.",
       benefits: [
-        "Kostenloser Versand ab 150€",
+        "Kostenloser Versand ab 175€",
         "GMP-zertifizierte Herstellung",
         "Analysezertifikat inklusive",
       ],
@@ -1455,7 +1455,7 @@ const de = {
       { title: "Vordosierte Peptid-Pens", description: "Im Gegensatz zu Wettbewerbern, die lose Ampullen mit erforderlicher Rekonstitution verkaufen, liefert ORYN vorgemischte, präzisionsdosierte Peptid-Pens, die sofort einsatzbereit sind. Kein Mischen, keine Berechnungen, kein Kontaminationsrisiko.", highlight: "Einzigartig auf dem UK-Markt" },
       { title: "HPLC-verifizierte Reinheit von 98%+", description: "Jede ORYN-Charge überschreitet 98% Reinheit, unabhängig verifiziert durch Hochleistungsflüssigkeitschromatographie und Massenspektrometrie. Die meisten UK-Wettbewerber bieten nur 95% oder ungeprüfte Behauptungen.", highlight: "Über Industriestandard" },
       { title: "GMP-Herstellung im UK", description: "Alle ORYN-Peptide werden in GMP-zertifizierten Einrichtungen gemäß pharmazeutischen Produktionsstandards hergestellt. Vollständige Chargenrückverfolgbarkeit vom Rohmaterial bis zum fertigen Produkt.", highlight: "Pharmazeutische Qualität" },
-      { title: "Kostenloser UK-Versand ab €150", description: "Genießen Sie kostenlosen Express-Versand für alle UK-Bestellungen über €150. Temperaturkontrollierte Verpackung gewährleistet die Integrität der Peptide von unserer Einrichtung bis zu Ihrem Forschungslabor.", highlight: "Express-Lieferung" },
+      { title: "Kostenloser UK-Versand ab €175", description: "Genießen Sie kostenlosen Express-Versand für alle UK-Bestellungen über €175. Temperaturkontrollierte Verpackung gewährleistet die Integrität der Peptide von unserer Einrichtung bis zu Ihrem Forschungslabor.", highlight: "Express-Lieferung" },
       { title: "Vollständiges COA mit jeder Bestellung", description: "Jede ORYN-Bestellung wird mit einem vollständigen Analysezertifikat geliefert, das Reinheit, Identität, Endotoxinspiegel und Sterilität bestätigt. Kein Warten, kein Anfragen — es ist standardmäßig enthalten.", highlight: "Transparenz garantiert" },
       { title: "ISO 7 Reinraumproduktion", description: "ORYN-Peptide werden in ISO 7 klassifizierten Reinräumen mit kontinuierlicher Umgebungsüberwachung abgefüllt und versiegelt. Dies übertrifft die Standards der meisten UK-Peptidlieferanten.", highlight: "Krankenhausqualität" },
     ],
@@ -1463,7 +1463,7 @@ const de = {
       { feature: "Lieferformat", oryn: "Vordosiertes Pen-System", competitor: "Lose Ampullen (Rekonstitution erforderlich)" },
       { feature: "Reinheitsstandard", oryn: "98%+ HPLC & MS verifiziert", competitor: "95%+ (oft ungeprüft)" },
       { feature: "Testprotokoll", oryn: "HPLC + Massenspektrometrie + Endotoxin", competitor: "Nur Basis-HPLC" },
-      { feature: "UK-Versand", oryn: "Kostenlos ab €150 (Express)", competitor: "Variiert (€5–€15)" },
+      { feature: "UK-Versand", oryn: "Kostenlos ab €175 (Express)", competitor: "Variiert (€5–€15)" },
       { feature: "COA enthalten", oryn: "Jede Charge, jede Bestellung", competitor: "Auf Anfrage (falls verfügbar)" },
       { feature: "Produktionsanlage", oryn: "ISO 7 Reinraum, GMP-zertifiziert", competitor: "Variiert (oft nicht angegeben)" },
       { feature: "Sterilität", oryn: "0,22 μm Filter + Gammastrahlung", competitor: "Nur Filtration" },
@@ -1839,7 +1839,7 @@ const de = {
     freeShippingTitle2: "\u20ac{threshold}",
     freeShippingDescription:
       "Bestellungen über \u20ac{threshold} erhalten kostenlosen Standardversand ins Vereinigte Königreich. Verfolgen Sie Ihren Fortschritt im Warenkorb.",
-    freeShippingExampleLabel: "BEISPIEL: BESTELLUNG VON \u20ac120",
+    freeShippingExampleLabel: "BEISPIEL: BESTELLUNG VON \u20ac145",
     freeShippingExampleAway: "\u20ac30 bis zum kostenlosen Versand",
     discreetTitle: "Diskrete Verpackung",
     discreetDescription:

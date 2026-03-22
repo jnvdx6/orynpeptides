@@ -40,7 +40,7 @@ const es = {
     explorePeptides: "EXPLORAR P\u00c9PTIDOS",
     shopFrom: "COMPRAR DESDE",
     offerPill: "PRIMER PEDIDO: 10% DTO. — Usa el código WELCOME10",
-    urgencyLine: "Envío gratuito en pedidos superiores a 150€",
+    urgencyLine: "Envío gratuito en pedidos superiores a 175€",
     bestsellerBadge: "MÁS VENDIDO",
     bestsellerLine: "BPC-157 — Nuestro Péptido de Investigación #1",
     ourScience: "NUESTRA CIENCIA",
@@ -158,7 +158,7 @@ const es = {
       },
       {
         title: "Compra con Seguridad",
-        description: "Pago r\u00e1pido con Stripe. Env\u00edo gratuito en pedidos superiores a \u20ac150.",
+        description: "Pago r\u00e1pido con Stripe. Env\u00edo gratuito en pedidos superiores a \u20ac175.",
       },
       {
         title: "Recibe Discretamente",
@@ -420,7 +420,7 @@ const es = {
     closePopup: "Cerrar",
     purityBadge: ">99% PUREZA",
     gmpBadge: "GMP CERTIFICADO",
-    freeShippingBadge: "ENVÍO GRATIS 150+",
+    freeShippingBadge: "ENVÍO GRATIS €175+",
     whyChoosePen: "POR QUÉ ELEGIR LA PLUMA",
     traditionalVials: "VIALES TRADICIONALES",
     orynPenSystem: "SISTEMA DE PLUMA ORYN",
@@ -1032,7 +1032,7 @@ const es = {
       { q: "¿Qué son los ORYN Peptide Pens?", a: "Los ORYN Peptide Pens son sistemas de administración de péptidos de investigación premezclados y listos para usar. Cada pluma contiene péptidos de grado farmacéutico con >99% de pureza, fabricados en nuestra instalación de sala limpia ISO 7. El formato de pluma elimina la necesidad de reconstitución, asegurando una dosificación consistente para aplicaciones de investigación." },
       { q: "¿Son legales los péptidos en España y Europa?", a: "Sí, los péptidos de investigación son legales para comprar en España y en toda Europa con fines de investigación. Los péptidos ORYN se venden estrictamente para investigación in-vitro y uso de laboratorio. No están destinados al consumo humano." },
       { q: "¿Cómo se fabrican sus péptidos?", a: "Todos los péptidos ORYN se sintetizan en nuestro laboratorio de sala limpia ISO 7 certificado GMP en Corea del Sur. Cada lote se somete a rigurosas pruebas de HPLC y espectrometría de masas para verificar >99% de pureza. Se incluye un Certificado de Análisis (COA) con cada pedido." },
-      { q: "¿Cuánto tarda la entrega?", a: "Los pedidos en España suelen llegar en 2-4 días laborables. Los pedidos europeos tardan 3-7 días laborables según el destino. Todos los pedidos se envían en embalaje discreto y con temperatura controlada. Pedidos superiores a 150\u20ac tienen envío gratis." },
+      { q: "¿Cuánto tarda la entrega?", a: "Los pedidos en España suelen llegar en 2-4 días laborables. Los pedidos europeos tardan 3-7 días laborables según el destino. Todos los pedidos se envían en embalaje discreto y con temperatura controlada. Pedidos superiores a 175\u20ac tienen envío gratis." },
       { q: "¿Qué es el Programa de Referidos ORYN?", a: "Nuestro programa de referidos multinivel te permite ganar un 10% de comisión en las compras realizadas por colegas que refieras. También ganas comisiones hasta 5 niveles de profundidad a medida que crece tu red. Regístrate gratis para obtener tu código de referido único." },
       { q: "¿Ofrecen precios por volumen o al por mayor?", a: "Sí, ofrecemos descuentos por volumen a partir de 3+ unidades. Cuanto más pidas, mayor será el descuento — hasta un 15% de descuento para pedidos de investigación grandes. Contáctanos para precios mayoristas personalizados." },
     ],
@@ -1042,7 +1042,7 @@ const es = {
     items: [
       { q: "¿Cuánto tarda la entrega de péptidos en España?", a: "Los tiempos de entrega en España dependen de tu ubicación. Madrid y Barcelona reciben pedidos en 1-2 días laborables, otras ciudades principales en 2-3 días laborables, y zonas rurales o islas en 3-5 días laborables. Todos los pedidos realizados antes de las 14:00 se despachan el mismo día." },
       { q: "¿El envío de péptidos está controlado por temperatura?", a: "Sí. Todos los envíos de péptidos ORYN se embalan en cajas aisladas con acumuladores de frío en gel para mantener una temperatura de 2-8 grados Celsius durante el tránsito. En los meses de verano (junio-septiembre), añadimos protección adicional de cadena de frío con acumuladores extra y forros aislantes para garantizar la integridad del producto." },
-      { q: "¿Cómo puedo obtener envío gratuito?", a: "El envío estándar gratuito está disponible en todos los pedidos superiores a 150 euros. Este umbral se aplica al subtotal del pedido antes de cualquier código de descuento. Los pedidos internacionales a Europa están sujetos a una tarifa plana de envío independientemente del valor del pedido. Tu carrito mostrará una barra de progreso indicando cuánto te falta para el umbral de envío gratuito." },
+      { q: "¿Cómo puedo obtener envío gratuito?", a: "El envío estándar gratuito está disponible en todos los pedidos superiores a 175 euros. Este umbral se aplica al subtotal del pedido antes de cualquier código de descuento. Los pedidos internacionales a Europa están sujetos a una tarifa plana de envío independientemente del valor del pedido. Tu carrito mostrará una barra de progreso indicando cuánto te falta para el umbral de envío gratuito." },
       { q: "¿Realizáis envíos internacionales de péptidos a Europa?", a: "Sí, ORYN realiza envíos a la mayoría de los países de la Unión Europea. La entrega europea suele tardar 3-7 días laborables según el país de destino. Todos los envíos internacionales incluyen embalaje con temperatura controlada y seguimiento completo. Los aranceles aduaneros e impuestos de importación son responsabilidad del cliente." },
       { q: "¿Cómo se empaqueta mi pedido de péptidos?", a: "Todos los pedidos ORYN se envían en cajas sin marcas externas ni descripciones de productos ni logotipos visibles en el exterior. En el interior, los bolígrafos de péptidos están asegurados en insertos de espuma personalizados dentro de un contenedor aislado con acumuladores de gel. Se incluye un albarán y el Certificado de Análisis dentro de la caja." },
       { q: "¿Puedo rastrear mi pedido de péptidos?", a: "Sí. Todos los pedidos reciben un número de seguimiento por email dentro de las 2 horas siguientes al despacho. Puedes rastrear tu envío en tiempo real a través del portal de nuestro socio de mensajería. Para pedidos mayoristas de 10+ unidades, ofrecemos seguimiento mejorado con ventanas de entrega estimadas y confirmación de entrega con firma." },
@@ -1323,7 +1323,7 @@ const es = {
       description:
         "Laboratorio de biotecnología con péptidos de investigación de >99% de pureza en sistemas de pluma de precisión. Usa el código WELCOME10 en tu primer pedido.",
       benefits: [
-        "Envío gratis a partir de 150€",
+        "Envío gratis a partir de 175€",
         "Fabricación certificada GMP",
         "Certificado de Análisis incluido",
       ],
@@ -1455,7 +1455,7 @@ const es = {
       { title: "Plumas de Péptidos Pre-Dosificadas", description: "A diferencia de los competidores que venden viales sueltos que requieren reconstitución, ORYN ofrece plumas de péptidos pre-mezcladas y dosificadas con precisión, listas para uso inmediato en investigación. Sin mezclas, sin cálculos, sin riesgo de contaminación.", highlight: "Único en el mercado del Reino Unido" },
       { title: "Pureza Verificada por HPLC al 98%+", description: "Cada lote de ORYN supera el 98% de pureza, verificado de forma independiente mediante Cromatografía Líquida de Alta Eficiencia y Espectrometría de Masas. La mayoría de los competidores del Reino Unido ofrecen solo el 95% o afirmaciones no verificadas.", highlight: "Por encima del estándar de la industria" },
       { title: "Fabricación GMP en el Reino Unido", description: "Todos los péptidos ORYN se fabrican en instalaciones certificadas GMP que cumplen con los estándares de producción farmacéutica. Trazabilidad completa del lote desde la materia prima hasta el producto terminado.", highlight: "Grado farmacéutico" },
-      { title: "Envío Gratuito al Reino Unido en Pedidos Superiores a €150", description: "Disfrute de entrega al día siguiente sin coste en todos los pedidos del Reino Unido superiores a €150. El embalaje con control de temperatura garantiza la integridad del péptido desde nuestras instalaciones hasta su laboratorio de investigación.", highlight: "Entrega al día siguiente" },
+      { title: "Envío Gratuito al Reino Unido en Pedidos Superiores a €175", description: "Disfrute de entrega al día siguiente sin coste en todos los pedidos del Reino Unido superiores a €175. El embalaje con control de temperatura garantiza la integridad del péptido desde nuestras instalaciones hasta su laboratorio de investigación.", highlight: "Entrega al día siguiente" },
       { title: "COA Completo con Cada Pedido", description: "Cada pedido de ORYN se envía con un Certificado de Análisis completo que confirma pureza, identidad, niveles de endotoxinas y esterilidad. Sin esperas, sin solicitudes — se incluye como estándar.", highlight: "Transparencia garantizada" },
       { title: "Producción en Sala Limpia ISO 7", description: "Los péptidos ORYN se envasan y sellan en salas limpias clasificadas ISO 7 con monitoreo ambiental continuo. Esto supera los estándares de la mayoría de los proveedores de péptidos del Reino Unido.", highlight: "Entorno de grado hospitalario" },
     ],
@@ -1463,7 +1463,7 @@ const es = {
       { feature: "Formato de Entrega", oryn: "Sistema de Pluma Pre-dosificada", competitor: "Viales Sueltos (requiere reconstitución)" },
       { feature: "Estándar de Pureza", oryn: "98%+ Verificado por HPLC y MS", competitor: "95%+ (frecuentemente sin verificar)" },
       { feature: "Protocolo de Pruebas", oryn: "HPLC + Espectrometría de Masas + Endotoxinas", competitor: "Solo HPLC básico" },
-      { feature: "Envío al Reino Unido", oryn: "Gratis sobre €150 (al día siguiente)", competitor: "Variable (€5–€15)" },
+      { feature: "Envío al Reino Unido", oryn: "Gratis sobre €175 (al día siguiente)", competitor: "Variable (€5–€15)" },
       { feature: "COA Incluido", oryn: "Cada lote, cada pedido", competitor: "Bajo petición (si disponible)" },
       { feature: "Instalación de Producción", oryn: "Sala Limpia ISO 7, Certificada GMP", competitor: "Variable (frecuentemente no revelado)" },
       { feature: "Esterilidad", oryn: "Filtro 0,22μm + Rayos Gamma", competitor: "Solo filtración" },
@@ -1839,7 +1839,7 @@ const es = {
     freeShippingTitle2: "\u20ac{threshold}",
     freeShippingDescription:
       "Los pedidos superiores a \u20ac{threshold} tienen envío estándar gratis al Reino Unido. Sigue tu progreso en tu carrito.",
-    freeShippingExampleLabel: "EJEMPLO: PEDIDO DE \u20ac120",
+    freeShippingExampleLabel: "EJEMPLO: PEDIDO DE \u20ac145",
     freeShippingExampleAway: "\u20ac30 para conseguir envío gratis",
     discreetTitle: "Embalaje Discreto",
     discreetDescription:
