@@ -217,9 +217,9 @@ export function ProductPageClient() {
               <span className="text-[10px] text-oryn-black/30 font-plex">— {t.productDetail.readyToShip}</span>
             </div>
 
-            {/* Delivery estimator */}
+            {/* Delivery estimator with shipping cost */}
             <div className="mb-6">
-              <DeliveryEstimator />
+              <DeliveryEstimator productPrice={product.price} />
             </div>
 
             {/* Trust signals */}

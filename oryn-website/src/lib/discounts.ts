@@ -1,18 +1,18 @@
 // Free shipping thresholds by currency (in major currency units)
 const FREE_SHIPPING_BY_CURRENCY: Record<string, number> = {
   GBP: 130,
-  USD: 150,
-  EUR: 150,
+  USD: 175,
+  EUR: 175,
   BRL: 750,
 };
 
 /** Get free shipping threshold for a given currency */
 export function getFreeShippingThreshold(currency?: string): number {
-  return FREE_SHIPPING_BY_CURRENCY[(currency || "EUR").toUpperCase()] ?? 150;
+  return FREE_SHIPPING_BY_CURRENCY[(currency || "EUR").toUpperCase()] ?? 175;
 }
 
 // Default threshold (EUR) for backward compatibility
-export const FREE_SHIPPING_THRESHOLD = 150;
+export const FREE_SHIPPING_THRESHOLD = 175;
 
 // Volume discount tiers
 export interface VolumeDiscount {

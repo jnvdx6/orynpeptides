@@ -40,7 +40,7 @@ const pl = {
     explorePeptides: "ODKRYJ PEPTYDY",
     shopFrom: "KUP OD",
     offerPill: "PIERWSZE ZAMÓWIENIE: 10% ZNIŻKI — Kod WELCOME10",
-    urgencyLine: "Darmowa wysyłka przy zamówieniach powyżej 150€",
+    urgencyLine: "Darmowa wysyłka przy zamówieniach powyżej 175€",
     bestsellerBadge: "BESTSELLER",
     bestsellerLine: "BPC-157 — Nasz Peptyd Badawczy #1",
     ourScience: "NASZA NAUKA",
@@ -158,7 +158,7 @@ const pl = {
       },
       {
         title: "Zamów bezpiecznie",
-        description: "Szybka realizacja zamówienia przez Stripe. Darmowa dostawa przy zamówieniach powyżej €150.",
+        description: "Szybka realizacja zamówienia przez Stripe. Darmowa dostawa przy zamówieniach powyżej €175.",
       },
       {
         title: "Odbierz dyskretnie",
@@ -420,7 +420,7 @@ const pl = {
     closePopup: "Zamknij",
     purityBadge: "CZYSTOŚĆ >99%",
     gmpBadge: "CERTYFIKAT GMP",
-    freeShippingBadge: "DARMOWA WYSYŁKA 150+",
+    freeShippingBadge: "DARMOWA WYSYŁKA €175+",
     whyChoosePen: "DLACZEGO PEN",
     traditionalVials: "TRADYCYJNE FIOLKI",
     orynPenSystem: "SYSTEM PENÓW ORYN",
@@ -1032,7 +1032,7 @@ const pl = {
       { q: "Czym są ORYN Peptide Pens?", a: "ORYN Peptide Pens to wstępnie przygotowane, gotowe do użycia systemy dostarczania peptydów badawczych. Każdy pen zawiera peptydy klasy farmaceutycznej o czystości >99%, wytwarzane w naszym obiekcie z cleanroomem klasy ISO 7. Format pena eliminuje konieczność rekonstitucji, zapewniając spójne dawkowanie w zastosowaniach badawczych." },
       { q: "Czy peptydy są legalne w UK i Europie?", a: "Tak, peptydy badawcze można legalnie kupić w UK i w całej Europie do celów badawczych. Peptydy ORYN sprzedawane są wyłącznie do badań in-vitro i użytku laboratoryjnego. Nie są przeznaczone do spożycia przez ludzi." },
       { q: "Jak wytwarzane są wasze peptydy?", a: "Wszystkie peptydy ORYN są syntetyzowane w naszym laboratorium z certyfikatem GMP i cleanroomem klasy ISO 7 w Korei Południowej. Każda partia przechodzi rygorystyczne testy HPLC i spektrometrii masowej, potwierdzające czystość >99%. Certyfikat Analizy (COA) jest dołączany do każdego zamówienia." },
-      { q: "Jak długo trwa dostawa?", a: "Zamówienia UK zazwyczaj docierają w ciągu 2-4 dni roboczych. Zamówienia europejskie w ciągu 3-7 dni roboczych, w zależności od destynacji. Wszystkie zamówienia wysyłane są w dyskretnym opakowaniu z kontrolą temperatury. Zamówienia powyżej €150 kwalifikują się do darmowej wysyłki." },
+      { q: "Jak długo trwa dostawa?", a: "Zamówienia UK zazwyczaj docierają w ciągu 2-4 dni roboczych. Zamówienia europejskie w ciągu 3-7 dni roboczych, w zależności od destynacji. Wszystkie zamówienia wysyłane są w dyskretnym opakowaniu z kontrolą temperatury. Zamówienia powyżej €175 kwalifikują się do darmowej wysyłki." },
       { q: "Czym jest Program Poleceń ORYN?", a: "Nasz wielopoziomowy program poleceń pozwala zarabiać 10% prowizji od zakupów dokonanych przez poleconych współpracowników. Zarabiasz prowizje do 5 poziomów w głąb, w miarę rozrastania się Twojej sieci. Załóż darmowe konto, aby otrzymać swój unikatowy kod polecenia." },
       { q: "Czy oferujecie rabaty ilościowe lub hurtowe?", a: "Tak, oferujemy rabaty ilościowe zaczynając od 3+ jednostek. Im więcej zamawiasz, tym większy rabat — nawet do 15% zniżki na duże zamówienia badawcze. Skontaktuj się z nami w sprawie indywidualnych cen hurtowych." },
     ],
@@ -1042,7 +1042,7 @@ const pl = {
     items: [
       { q: "Jak długo trwa dostawa peptydów w Polsce?", a: "Czasy dostawy w Polsce zależą od lokalizacji. Warszawa, Kraków i Wrocław otrzymują zamówienia w 1-2 dni robocze, inne duże miasta w 2-3 dni robocze, a obszary wiejskie w 3-4 dni robocze. Wszystkie zamówienia złożone przed godziną 14:00 są wysyłane tego samego dnia." },
       { q: "Czy wysyłka peptydów odbywa się w kontrolowanej temperaturze?", a: "Tak. Wszystkie przesyłki peptydów ORYN są pakowane w izolowane pudełka z żelowymi wkładami chłodzącymi, aby utrzymać temperaturę 2-8 stopni Celsjusza podczas transportu. W miesiącach letnich (czerwiec-wrzesień) dodajemy dodatkową ochronę łańcucha chłodniczego, w tym dodatkowe wkłady chłodzące i izolacyjne wykładziny, aby zapewnić integralność produktu." },
-      { q: "Jak skorzystać z darmowej wysyłki?", a: "Bezpłatna standardowa wysyłka jest dostępna dla wszystkich zamówień powyżej 150 euro. Ten próg dotyczy sumy zamówienia przed zastosowaniem kodów rabatowych. Zamówienia międzynarodowe do Europy podlegają stałej opłacie za wysyłkę niezależnie od wartości zamówienia. Twój koszyk pokaże pasek postępu wskazujący, jak blisko jesteś do progu darmowej wysyłki." },
+      { q: "Jak skorzystać z darmowej wysyłki?", a: "Bezpłatna standardowa wysyłka jest dostępna dla wszystkich zamówień powyżej 175 euro. Ten próg dotyczy sumy zamówienia przed zastosowaniem kodów rabatowych. Zamówienia międzynarodowe do Europy podlegają stałej opłacie za wysyłkę niezależnie od wartości zamówienia. Twój koszyk pokaże pasek postępu wskazujący, jak blisko jesteś do progu darmowej wysyłki." },
       { q: "Czy wysyłacie peptydy za granicę do Europy?", a: "Tak, ORYN wysyła do większości krajów Unii Europejskiej. Dostawa europejska trwa zazwyczaj 3-7 dni roboczych w zależności od kraju docelowego. Wszystkie przesyłki międzynarodowe obejmują opakowanie z kontrolą temperatury i pełne śledzenie. Należności celne i podatki importowe są odpowiedzialnością klienta." },
       { q: "Jak pakowane jest moje zamówienie peptydów?", a: "Wszystkie zamówienia ORYN są wysyłane w zwykłych, nieoznakowanych pudełkach bez opisów produktów ani oznaczeń widocznych na zewnątrz. W środku peny peptydowe są zabezpieczone w niestandardowych wkładkach piankowych wewnątrz izolowanego pojemnika z żelowymi wkładami chłodzącymi. W pudełku znajduje się list przewozowy i Certyfikat Analizy." },
       { q: "Czy mogę śledzić moje zamówienie peptydów?", a: "Tak. Wszystkie zamówienia otrzymują numer śledzenia przez e-mail w ciągu 2 godzin od wysyłki. Możesz śledzić swoją przesyłkę w czasie rzeczywistym przez portal naszego partnera kurierskiego. W przypadku zamówień hurtowych 10+ jednostek zapewniamy ulepszone śledzenie z szacowanymi oknami dostawy i potwierdzeniem dostawy z podpisem." },
@@ -1323,7 +1323,7 @@ const pl = {
       description:
         "Laboratorium biotechnologiczne dostarczające peptydy badawcze o czystości >99% w precyzyjnych systemach penów. Użyj kodu WELCOME10 przy pierwszym zamówieniu.",
       benefits: [
-        "Darmowa wysyłka powyżej €150",
+        "Darmowa wysyłka powyżej €175",
         "Produkcja z certyfikatem GMP",
         "Certyfikat Analizy w zestawie",
       ],
@@ -1455,7 +1455,7 @@ const pl = {
       { title: "Wstępnie Dawkowane Peny Peptydowe", description: "W przeciwieństwie do konkurentów sprzedających luźne fiolki wymagające rekonstytucji, ORYN dostarcza wstępnie zmieszane, precyzyjnie dawkowane peny peptydowe gotowe do natychmiastowego użytku badawczego. Bez mieszania, bez obliczeń, bez ryzyka skażenia.", highlight: "Unikalne na rynku UK" },
       { title: "Czystość ≥98% Zweryfikowana przez HPLC", description: "Każda partia ORYN przekracza 98% czystości, niezależnie zweryfikowana metodą Wysokosprawnej Chromatografii Cieczowej i Spektrometrii Masowej. Większość konkurentów z UK oferuje jedynie 95% lub niezweryfikowane twierdzenia.", highlight: "Powyżej standardu branżowego" },
       { title: "Produkcja GMP w Wielkiej Brytanii", description: "Wszystkie peptydy ORYN są produkowane w obiektach z certyfikatem GMP, zgodnie z farmaceutycznymi standardami produkcji. Pełna identyfikowalność partii od surowca do gotowego produktu.", highlight: "Klasa farmaceutyczna" },
-      { title: "Bezpłatna Dostawa w UK powyżej €150", description: "Ciesz się bezpłatną dostawą następnego dnia na wszystkie zamówienia w UK powyżej €150. Opakowanie z kontrolą temperatury zapewnia integralność peptydów od naszego obiektu do Twojego laboratorium badawczego.", highlight: "Dostawa następnego dnia" },
+      { title: "Bezpłatna Dostawa w UK powyżej €175", description: "Ciesz się bezpłatną dostawą następnego dnia na wszystkie zamówienia w UK powyżej €175. Opakowanie z kontrolą temperatury zapewnia integralność peptydów od naszego obiektu do Twojego laboratorium badawczego.", highlight: "Dostawa następnego dnia" },
       { title: "Pełne COA z Każdym Zamówieniem", description: "Każde zamówienie ORYN jest wysyłane z pełnym Certyfikatem Analizy potwierdzającym czystość, tożsamość, poziomy endotoksyn i sterylność. Bez oczekiwania, bez składania wniosków — dołączane standardowo.", highlight: "Przejrzystość gwarantowana" },
       { title: "Produkcja w Pomieszczeniu Czystym ISO 7", description: "Peptydy ORYN są napełniane i uszczelniane w pomieszczeniach czystych sklasyfikowanych jako ISO 7 z ciągłym monitorowaniem środowiska. Przekracza to standardy większości dostawców peptydów z UK.", highlight: "Środowisko klasy szpitalnej" },
     ],
@@ -1463,7 +1463,7 @@ const pl = {
       { feature: "Format Dostawy", oryn: "Wstępnie Dawkowany System Pena", competitor: "Luźne Fiolki (wymagana rekonstitucja)" },
       { feature: "Standard Czystości", oryn: "≥98% Zweryfikowane przez HPLC i MS", competitor: "≥95% (często niezweryfikowane)" },
       { feature: "Protokół Testowania", oryn: "HPLC + Spektrometria Masowa + Endotoksyny", competitor: "Tylko podstawowe HPLC" },
-      { feature: "Dostawa w UK", oryn: "Bezpłatna powyżej €150 (następny dzień)", competitor: "Zmienna (€5-€15)" },
+      { feature: "Dostawa w UK", oryn: "Bezpłatna powyżej €175 (następny dzień)", competitor: "Zmienna (€5-€15)" },
       { feature: "COA w zestawie", oryn: "Każda partia, każde zamówienie", competitor: "Na żądanie (jeśli dostępne)" },
       { feature: "Obiekt Produkcyjny", oryn: "Pomieszczenie Czyste ISO 7, Certyfikat GMP", competitor: "Zmienny (często nieujawniony)" },
       { feature: "Sterylność", oryn: "Filtr 0,22μm + Promieniowanie Gamma", competitor: "Tylko filtracja" },
@@ -1839,7 +1839,7 @@ const pl = {
     freeShippingTitle2: "\u20ac{threshold}",
     freeShippingDescription:
       "Zamówienia powyżej \u20ac{threshold} kwalifikują się do darmowej standardowej dostawy do Wielkiej Brytanii. Śledź postęp w koszyku.",
-    freeShippingExampleLabel: "PRZYKŁAD: ZAMÓWIENIE NA \u20ac120",
+    freeShippingExampleLabel: "PRZYKŁAD: ZAMÓWIENIE NA \u20ac145",
     freeShippingExampleAway: "\u20ac30 do darmowej wysyłki",
     discreetTitle: "Dyskretne Opakowanie",
     discreetDescription:

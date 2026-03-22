@@ -40,7 +40,7 @@ const nl = {
     explorePeptides: "ONTDEK PEPTIDEN",
     shopFrom: "KOOP VANAF",
     offerPill: "EERSTE BESTELLING: 10% KORTING — Code WELCOME10",
-    urgencyLine: "Gratis verzending bij bestellingen boven €150",
+    urgencyLine: "Gratis verzending bij bestellingen boven €175",
     bestsellerBadge: "BESTSELLER",
     bestsellerLine: "BPC-157 — Ons #1 Onderzoekspeptide",
     ourScience: "ONZE WETENSCHAP",
@@ -158,7 +158,7 @@ const nl = {
       },
       {
         title: "Bestel Veilig",
-        description: "Snelle checkout met Stripe. Gratis verzending bij bestellingen boven €150.",
+        description: "Snelle checkout met Stripe. Gratis verzending bij bestellingen boven €175.",
       },
       {
         title: "Ontvang Discreet",
@@ -420,7 +420,7 @@ const nl = {
     closePopup: "Sluiten",
     purityBadge: ">99% ZUIVERHEID",
     gmpBadge: "GMP GECERTIFICEERD",
-    freeShippingBadge: "GRATIS VERZENDING 150+",
+    freeShippingBadge: "GRATIS VERZENDING €175+",
     whyChoosePen: "WAAROM DE PEN KIEZEN",
     traditionalVials: "TRADITIONELE FLACONS",
     orynPenSystem: "ORYN PEN SYSTEEM",
@@ -1032,7 +1032,7 @@ const nl = {
       { q: "Wat zijn ORYN Peptide Pennen?", a: "ORYN Peptide Pennen zijn voorgemengde, gebruiksklare peptide-afgiftesystemen voor onderzoek. Elke pen bevat farmaceutische peptiden met >99% zuiverheid, geproduceerd in onze ISO 7 cleanroom faciliteit. Het penformaat elimineert de noodzaak voor reconstitutie en zorgt voor consistente dosering bij onderzoekstoepassingen." },
       { q: "Zijn peptiden legaal in Nederland en Europa?", a: "Ja, onderzoekspeptiden zijn legaal te kopen in Nederland en heel Europa voor onderzoeksdoeleinden. ORYN Peptiden worden uitsluitend verkocht voor in-vitro onderzoek en laboratoriumgebruik. Ze zijn niet bedoeld voor menselijke consumptie." },
       { q: "Hoe worden uw peptiden geproduceerd?", a: "Alle ORYN peptiden worden gesynthetiseerd in ons GMP-gecertificeerd, ISO 7 cleanroom laboratorium in Zuid-Korea. Elke batch ondergaat strenge HPLC- en massaspectrometrie-testen om >99% zuiverheid te verifiëren. Een Analysecertificaat (COA) wordt bij elke bestelling meegeleverd." },
-      { q: "Hoe lang duurt de levering?", a: "UK-bestellingen komen doorgaans binnen 2-4 werkdagen aan. Europese bestellingen duren 3-7 werkdagen afhankelijk van de bestemming. Alle bestellingen worden verzonden in discrete, temperatuurgecontroleerde verpakking. Bestellingen boven €150 komen in aanmerking voor gratis verzending." },
+      { q: "Hoe lang duurt de levering?", a: "UK-bestellingen komen doorgaans binnen 2-4 werkdagen aan. Europese bestellingen duren 3-7 werkdagen afhankelijk van de bestemming. Alle bestellingen worden verzonden in discrete, temperatuurgecontroleerde verpakking. Bestellingen boven €175 komen in aanmerking voor gratis verzending." },
       { q: "Wat is het ORYN Verwijzingsprogramma?", a: "Ons meerlagen-verwijzingsprogramma laat u 10% commissie verdienen op aankopen van collega's die u doorverwijst. U verdient ook commissies tot 5 niveaus diep naarmate uw netwerk groeit. Maak een gratis account aan om uw unieke verwijzingscode te ontvangen." },
       { q: "Biedt u volume- of groothandelsprijzen?", a: "Ja, wij bieden volumekortingen vanaf 3+ stuks. Hoe meer u bestelt, hoe groter de korting — tot 15% voor grote onderzoeksbestellingen. Neem contact met ons op voor maatwerk groothandelsprijzen bij bulkbestellingen." },
     ],
@@ -1042,7 +1042,7 @@ const nl = {
     items: [
       { q: "Hoe lang duurt de levering van peptiden in Nederland?", a: "De levertijden in Nederland zijn afhankelijk van uw locatie. Amsterdam, Rotterdam en Den Haag ontvangen bestellingen in 1-2 werkdagen, andere grote steden in 2-3 werkdagen en rurale gebieden in 3-4 werkdagen. Alle bestellingen geplaatst voor 14:00 uur worden dezelfde dag verzonden." },
       { q: "Is de peptidenverzending temperatuurgecontroleerd?", a: "Ja. Alle ORYN peptidenzendingen worden verpakt in geïsoleerde dozen met gelkoelpacks om een temperatuurbereik van 2-8 graden Celsius te handhaven tijdens het transport. Tijdens de zomermaanden (juni-september) voegen wij extra koelkettenbescherming toe met extra koelpacks en isolerende voering om de productintegriteit te waarborgen." },
-      { q: "Hoe kom ik in aanmerking voor gratis verzending?", a: "Gratis standaardverzending is beschikbaar voor alle bestellingen boven 150 euro. Deze drempel geldt voor het subtotaal van de bestelling vóór eventuele kortingscodes. Internationale bestellingen naar Europa zijn onderhevig aan een vaste verzendkosten ongeacht de bestelwaarde. Uw winkelwagen toont een voortgangsbalk die aangeeft hoe dicht u bij de gratis verzenddrempel bent." },
+      { q: "Hoe kom ik in aanmerking voor gratis verzending?", a: "Gratis standaardverzending is beschikbaar voor alle bestellingen boven 175 euro. Deze drempel geldt voor het subtotaal van de bestelling vóór eventuele kortingscodes. Internationale bestellingen naar Europa zijn onderhevig aan een vaste verzendkosten ongeacht de bestelwaarde. Uw winkelwagen toont een voortgangsbalk die aangeeft hoe dicht u bij de gratis verzenddrempel bent." },
       { q: "Verzendt u peptiden internationaal naar Europa?", a: "Ja, ORYN verzendt naar de meeste landen van de Europese Unie. Europese levering duurt doorgaans 3-7 werkdagen afhankelijk van het bestemmingsland. Alle internationale zendingen bevatten temperatuurgecontroleerde verpakkingen en volledige tracking. Douanerechten en invoerbelastingen zijn de verantwoordelijkheid van de klant." },
       { q: "Hoe wordt mijn peptidbestelling verpakt?", a: "Alle ORYN-bestellingen worden verzonden in onopvallende, ongemarkeerde dozen zonder productbeschrijvingen of merken zichtbaar aan de buitenkant. Binnenin zijn de peptidepennen vastgezet in op maat gemaakte schuimstofinserts in een geïsoleerde container met gelkoelpacks. Een pakbon en Analysecertificaat zijn inbegrepen in de doos." },
       { q: "Kan ik mijn peptidbestelling volgen?", a: "Ja. Alle bestellingen ontvangen binnen 2 uur na verzending een trackingnummer per e-mail. U kunt uw zending in real-time volgen via het portaal van onze koerierpartner. Voor groothandelsbestellingen van 10+ eenheden bieden wij uitgebreide tracking met geschatte levervensters en leverbevestiging met handtekening." },
@@ -1323,7 +1323,7 @@ const nl = {
       description:
         "Biotech lab dat >99% zuivere onderzoekspeptiden levert in precisie-pensystemen. Gebruik code WELCOME10 bij uw eerste bestelling.",
       benefits: [
-        "Gratis verzending boven €150",
+        "Gratis verzending boven €175",
         "GMP-gecertificeerde productie",
         "Analysecertificaat inbegrepen",
       ],
@@ -1455,7 +1455,7 @@ const nl = {
       { title: "Voorgedoseerde Peptide-pennen", description: "In tegenstelling tot concurrenten die losse flesjes verkopen die reconstitutie vereisen, levert ORYN voorgemengde, precies gedoseerde peptide-pennen die direct klaar zijn voor onderzoeksgebruik. Geen mengen, geen berekeningen, geen besmettingsrisico.", highlight: "Uniek op de Britse markt" },
       { title: "≥98% HPLC-geverifieerde Zuiverheid", description: "Elke ORYN-batch overschrijdt 98% zuiverheid, onafhankelijk geverifieerd via hogedrukvloeistofchromatografie en massaspectrometrie. De meeste Britse concurrenten bieden slechts 95% of niet-geverifieerde claims.", highlight: "Boven industriestandaard" },
       { title: "GMP-productie in het VK", description: "Alle ORYN-peptiden worden geproduceerd in GMP-gecertificeerde faciliteiten die voldoen aan farmaceutische productienormen. Volledige batchtraceerbaarheid van grondstof tot eindproduct.", highlight: "Farmaceutische kwaliteit" },
-      { title: "Gratis UK-verzending boven €150", description: "Geniet van gratis volgende-dag levering op alle Britse bestellingen boven €150. Temperatuurgecontroleerde verpakking garandeert de integriteit van peptiden van onze faciliteit naar uw onderzoekslab.", highlight: "Levering volgende dag" },
+      { title: "Gratis UK-verzending boven €175", description: "Geniet van gratis volgende-dag levering op alle Britse bestellingen boven €175. Temperatuurgecontroleerde verpakking garandeert de integriteit van peptiden van onze faciliteit naar uw onderzoekslab.", highlight: "Levering volgende dag" },
       { title: "Volledig COA bij elke bestelling", description: "Elke ORYN-bestelling wordt geleverd met een volledig analysecertificaat dat zuiverheid, identiteit, endotoxineniveaus en steriliteit bevestigt. Geen wachten, geen aanvragen — standaard inbegrepen.", highlight: "Transparantie gegarandeerd" },
       { title: "ISO 7 Reinruimteproductie", description: "ORYN-peptiden worden gevuld en verzegeld in ISO 7-geclassificeerde reinruimten met continue omgevingsmonitoring. Dit overtreft de normen van de meeste Britse peptide-leveranciers.", highlight: "Omgeving op ziekenhuisniveau" },
     ],
@@ -1463,7 +1463,7 @@ const nl = {
       { feature: "Leveringsformaat", oryn: "Voorgedoseerd Pensysteem", competitor: "Losse Flesjes (reconstitutie vereist)" },
       { feature: "Zuiverheidsstandaard", oryn: "≥98% HPLC & MS geverifieerd", competitor: "≥95% (vaak niet geverifieerd)" },
       { feature: "Testprotocol", oryn: "HPLC + Massaspectrometrie + Endotoxine", competitor: "Alleen basis HPLC" },
-      { feature: "UK-verzending", oryn: "Gratis boven €150 (volgende dag)", competitor: "Variabel (€5-€15)" },
+      { feature: "UK-verzending", oryn: "Gratis boven €175 (volgende dag)", competitor: "Variabel (€5-€15)" },
       { feature: "COA inbegrepen", oryn: "Elke batch, elke bestelling", competitor: "Op aanvraag (indien beschikbaar)" },
       { feature: "Productiefaciliteit", oryn: "ISO 7 Reinruimte, GMP-gecertificeerd", competitor: "Variabel (vaak niet bekendgemaakt)" },
       { feature: "Steriliteit", oryn: "0,22μm Filter + Gammastraling", competitor: "Alleen filtratie" },
@@ -1839,7 +1839,7 @@ const nl = {
     freeShippingTitle2: "\u20ac{threshold}",
     freeShippingDescription:
       "Bestellingen boven \u20ac{threshold} komen in aanmerking voor gratis standaardverzending naar het Verenigd Koninkrijk. Volg uw voortgang in uw winkelwagen.",
-    freeShippingExampleLabel: "VOORBEELD: BESTELLING VAN \u20ac120",
+    freeShippingExampleLabel: "VOORBEELD: BESTELLING VAN \u20ac145",
     freeShippingExampleAway: "\u20ac30 verwijderd van gratis verzending",
     discreetTitle: "Discrete Verpakking",
     discreetDescription:

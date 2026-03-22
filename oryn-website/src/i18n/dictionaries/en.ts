@@ -5,7 +5,7 @@ const en: Dictionary = {
     title: "Buy Peptides UK | Peptide Pen Systems from £99 | ORYN Peptide Labs",
     titleTemplate: "%s | ORYN Peptide Labs",
     description:
-      "UK's leading peptide pen supplier. Buy BPC-157, NAD+, Tirzepatide, GHK-Cu & more in precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery from £99. Free shipping over £150.",
+      "UK's leading peptide pen supplier. Buy BPC-157, NAD+, Tirzepatide, GHK-Cu & more in precision-dosed pen systems. >99% purity, GMP certified. Next-day UK delivery from £99. Free shipping over £130.",
     ogDescription:
       "Buy research-grade peptide pens in the UK. 10 peptides from £99. Pre-mixed reusable pen systems. GMP certified, >99% purity. Next-day UK delivery. Free shipping across Europe.",
   },
@@ -39,7 +39,7 @@ const en: Dictionary = {
     explorePeptides: "EXPLORE PEPTIDES",
     shopFrom: "SHOP FROM",
     offerPill: "FIRST ORDER: 10% OFF — Use code WELCOME10",
-    urgencyLine: "Free next-day UK delivery on orders over £150",
+    urgencyLine: "Free next-day UK delivery on orders over £130",
     bestsellerBadge: "BESTSELLER",
     bestsellerLine: "BPC-157 — Our #1 Research Peptide",
     ourScience: "OUR SCIENCE",
@@ -157,7 +157,7 @@ const en: Dictionary = {
       },
       {
         title: "Order Securely",
-        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over £150.",
+        description: "Fast checkout with Stripe. Free next-day UK delivery on orders over £130.",
       },
       {
         title: "Receive Discreetly",
@@ -419,7 +419,7 @@ const en: Dictionary = {
     closePopup: "Close",
     purityBadge: ">99% PURITY",
     gmpBadge: "GMP CERTIFIED",
-    freeShippingBadge: "FREE SHIPPING 150+",
+    freeShippingBadge: "FREE SHIPPING £130+",
     whyChoosePen: "WHY CHOOSE THE PEN",
     traditionalVials: "TRADITIONAL VIALS",
     orynPenSystem: "ORYN PEN SYSTEM",
@@ -1031,7 +1031,7 @@ const en: Dictionary = {
       { q: "What are ORYN Peptide Pens?", a: "ORYN Peptide Pens are pre-mixed, ready-to-use research peptide delivery systems. Each pen contains pharmaceutical-grade peptides at >99% purity, manufactured in our ISO 7 cleanroom facility. The pen format eliminates the need for reconstitution, ensuring consistent dosing for research applications." },
       { q: "Are peptides legal in the UK and Europe?", a: "Yes, research peptides are legal to purchase in the UK and across Europe for research purposes. ORYN Peptides are sold strictly for in-vitro research and laboratory use. They are not intended for human consumption." },
       { q: "How are your peptides manufactured?", a: "All ORYN peptides are synthesised in our GMP-certified, ISO 7 cleanroom laboratory in South Korea. Every batch undergoes rigorous HPLC and mass spectrometry testing to verify >99% purity. A Certificate of Analysis (COA) is included with every order." },
-      { q: "How long does delivery take?", a: "UK orders typically arrive within 2-4 business days. European orders take 3-7 business days depending on destination. All orders are shipped in discreet, temperature-controlled packaging. Orders over \u20ac150 qualify for free shipping." },
+      { q: "How long does delivery take?", a: "UK orders typically arrive within 2-4 business days. European orders take 3-7 business days depending on destination. All orders are shipped in discreet, temperature-controlled packaging. Orders over \u20ac175 qualify for free shipping." },
       { q: "What is the ORYN Referral Programme?", a: "Our multi-level referral programme lets you earn 10% commission on purchases made by colleagues you refer. You also earn commissions up to 5 levels deep as your network grows. Sign up for a free account to get your unique referral code." },
       { q: "Do you offer bulk or wholesale pricing?", a: "Yes, we offer volume discounts starting from 3+ units. The more you order, the bigger the discount \u2014 up to 15% off for large research orders. Contact us for custom wholesale pricing on bulk orders." },
     ],
@@ -1041,7 +1041,7 @@ const en: Dictionary = {
     items: [
       { q: "How long does UK peptide delivery take?", a: "UK delivery times depend on your location. London and the South East receive orders in 1-2 business days, the Midlands, East, North England, and Wales in 2-3 business days, Scotland in 3-4 business days, and the Highlands and Islands in 4-5 business days. All orders placed before 2pm are dispatched the same day." },
       { q: "Is peptide shipping temperature-controlled?", a: "Yes. All ORYN peptide shipments are packed in insulated boxes with gel ice packs to maintain a temperature range of 2-8 degrees Celsius during transit. During summer months (June-September), we add additional cold chain protection including extra ice packs and insulated liners to ensure product integrity." },
-      { q: "How do I qualify for free shipping?", a: "Free standard UK shipping is available on all orders over 150 pounds. This threshold applies to the order subtotal before any discount codes. International orders to Europe are subject to a flat shipping fee regardless of order value. Your cart will show a progress bar indicating how close you are to the free shipping threshold." },
+      { q: "How do I qualify for free shipping?", a: "Free standard UK shipping is available on all orders over 130 pounds. This threshold applies to the order subtotal before any discount codes. International orders to Europe are subject to a flat shipping fee regardless of order value. Your cart will show a progress bar indicating how close you are to the free shipping threshold." },
       { q: "Do you ship peptides internationally to Europe?", a: "Yes, ORYN ships to most European Union countries. European delivery typically takes 3-7 business days depending on the destination country. All international shipments include temperature-controlled packaging and full tracking. Customs duties and import taxes are the responsibility of the customer." },
       { q: "How is my peptide order packaged?", a: "All ORYN orders are shipped in plain, unmarked boxes with no product descriptions or branding visible on the outside. Inside, peptide pens are secured in custom foam inserts within an insulated container with gel ice packs. A packing slip and Certificate of Analysis are included inside the box." },
       { q: "Can I track my peptide order?", a: "Yes. All orders receive a tracking number via email within 2 hours of dispatch. You can track your shipment in real time through our courier partner portal. For wholesale orders of 10+ units, we provide enhanced tracking with estimated delivery windows and delivery confirmation signatures." },
@@ -1322,7 +1322,7 @@ const en: Dictionary = {
       description:
         "Biotech lab delivering >99% purity research peptides in precision pen systems. Manufactured in South Korea. Use code WELCOME10 on your first order.",
       benefits: [
-        "Free shipping over £150",
+        "Free shipping over £130",
         "GMP certified manufacturing",
         "Certificate of Analysis included",
       ],
@@ -1454,7 +1454,7 @@ const en: Dictionary = {
       { title: "Pre-Dosed Peptide Pens", description: "Unlike competitors selling loose vials requiring reconstitution, ORYN delivers pre-mixed, precision-dosed peptide pens ready for immediate research use. No mixing, no math, no contamination risk.", highlight: "Unique in the UK market" },
       { title: "98%+ HPLC Verified Purity", description: "Every ORYN batch exceeds 98% purity, independently verified via High-Performance Liquid Chromatography and Mass Spectrometry. Most UK competitors offer only 95% or unverified claims.", highlight: "Above industry standard" },
       { title: "GMP Manufacturing in South Korea", description: "All ORYN peptides are manufactured in GMP-certified facilities in South Korea adhering to pharmaceutical production standards. Full batch traceability from raw material to finished product.", highlight: "Pharmaceutical grade" },
-      { title: "Free UK Shipping Over \u20ac150", description: "Enjoy complimentary next-day delivery on all UK orders over \u20ac150. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.", highlight: "Next-day delivery" },
+      { title: "Free UK Shipping Over \u00a3130", description: "Enjoy complimentary next-day delivery on all UK orders over \u00a3130. Temperature-controlled packaging ensures peptide integrity from our facility to your research lab.", highlight: "Next-day delivery" },
       { title: "Comprehensive COA with Every Order", description: "Every ORYN order ships with a full Certificate of Analysis confirming purity, identity, endotoxin levels, and sterility. No waiting, no requesting \u2014 it is included as standard.", highlight: "Transparency guaranteed" },
       { title: "ISO 7 Cleanroom Production", description: "ORYN peptides are filled and sealed in ISO 7 classified cleanrooms with continuous environmental monitoring. This exceeds the standards of most UK peptide suppliers.", highlight: "Hospital-grade environment" },
     ],
@@ -1462,7 +1462,7 @@ const en: Dictionary = {
       { feature: "Delivery Format", oryn: "Pre-dosed Pen System", competitor: "Loose Vials (reconstitution required)" },
       { feature: "Purity Standard", oryn: "98%+ HPLC & MS Verified", competitor: "95%+ (often unverified)" },
       { feature: "Testing Protocol", oryn: "HPLC + Mass Spectrometry + Endotoxin", competitor: "Basic HPLC only" },
-      { feature: "UK Shipping", oryn: "Free over \u20ac150 (next-day)", competitor: "Varies (\u20ac5-\u20ac15)" },
+      { feature: "UK Shipping", oryn: "Free over \u00a3130 (next-day)", competitor: "Varies (\u00a35-\u00a315)" },
       { feature: "COA Included", oryn: "Every batch, every order", competitor: "On request (if available)" },
       { feature: "Production Facility", oryn: "ISO 7 Cleanroom, GMP Certified", competitor: "Varies (often undisclosed)" },
       { feature: "Sterility", oryn: "0.22\u03bcm Filter + Gamma Ray", competitor: "Filtration only" },
@@ -1856,11 +1856,11 @@ const en: Dictionary = {
     // Free Shipping section
     freeShippingSectionLabel: "FREE SHIPPING",
     freeShippingTitle1: "Free UK Shipping Over",
-    freeShippingTitle2: "\u20ac{threshold}",
+    freeShippingTitle2: "\u00a3{threshold}",
     freeShippingDescription:
-      "Orders over \u20ac{threshold} qualify for free standard UK delivery. Track your progress in your cart.",
-    freeShippingExampleLabel: "EXAMPLE: \u20ac120 ORDER",
-    freeShippingExampleAway: "\u20ac30 away from free shipping",
+      "Orders over \u00a3{threshold} qualify for free standard UK delivery. Track your progress in your cart.",
+    freeShippingExampleLabel: "EXAMPLE: \u00a3100 ORDER",
+    freeShippingExampleAway: "\u00a330 away from free shipping",
     // Discreet / Tracking / Returns cards
     discreetTitle: "Discreet Packaging",
     discreetDescription:
