@@ -15,7 +15,8 @@ function CollapsibleSection({ title, children, defaultOpen = false }: { title: s
     <div>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full md:pointer-events-none"
+        className="flex items-center justify-between w-full md:cursor-default"
+        aria-expanded={open}
       >
         <h4 className="text-[10px] font-bold tracking-[0.2em] text-oryn-orange">{title}</h4>
         <svg

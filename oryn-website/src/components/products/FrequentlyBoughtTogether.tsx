@@ -73,6 +73,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
                 width={36}
                 height={36}
                 className="object-contain"
+                loading="lazy"
               />
             </div>
             <div className="min-w-0">
@@ -92,6 +93,7 @@ export function FrequentlyBoughtTogether({ currentProduct }: Props) {
                     width={36}
                     height={36}
                     className="object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <div className="min-w-0">

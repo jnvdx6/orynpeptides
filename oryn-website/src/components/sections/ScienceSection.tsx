@@ -78,7 +78,7 @@ export function ScienceSection() {
  <div className="bg-oryn-gradient py-28 px-6 lg:px-16 relative">
  <div className="absolute inset-0 bg-molecular-grid-orange opacity-30" />
  <div className="absolute inset-0 opacity-10">
- <Image src="/images/molecular-bg.png" alt="" fill className="object-cover" />
+ <Image src="/images/molecular-bg.png" alt="" fill className="object-cover" loading="lazy" />
  </div>
 
  <div className="relative z-10 max-w-lg">
